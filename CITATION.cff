@@ -1,0 +1,47 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it and the accompanying paper."
+title: "Chunk Twice, Embed Once: A Systematic Study of Segmentation and Representation Trade-offs in Chemistry-Aware Retrieval-Augmented Generation"
+type: software
+version: "0.1.0"
+date-released: "2025-09-15"
+abstract: >
+  Code and configuration to reproduce a two-stage evaluation of chunking and
+  embedding strategies for retrieval-augmented generation (RAG) in chemistry,
+  including dataset preparation, evaluation metrics, and figure/table generation.
+authors:
+  - family-names: "Amiri"
+    given-names: "Mahmoud"
+    affiliation: "Leibniz Institute of Photonic Technology, Member of Research Alliance 'Leibniz Health Technologies', Jena, Germany; Institute of Physical Chemistry, Friedrich Schiller University Jena, Germany"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+  - family-names: "Bocklitz"
+    given-names: "Thomas"
+    affiliation: "Leibniz Institute of Photonic Technology, Member of Research Alliance 'Leibniz Health Technologies', Jena, Germany; Institute of Physical Chemistry, Friedrich Schiller University Jena, Germany"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+repository-code: "https://github.com/<your-org-or-username>/chunk-twice-embed-once"
+license: "MIT"
+keywords:
+  - retrieval-augmented generation
+  - chemistry
+  - chunking
+  - embeddings
+  - information retrieval
+  - NLP
+contacts:
+  - name: "Maintainers"
+    email: "maintainers@example.com"
+
+preferred-citation:
+  type: article
+  title: "Chunk Twice, Embed Once: A Systematic Study of Segmentation and Representation Trade-offs in Chemistry-Aware Retrieval-Augmented Generation"
+  authors:
+    - family-names: "Amiri"
+      given-names: "Mahmoud"
+    - family-names: "Bocklitz"
+      given-names: "Thomas"
+  year: 2025
+  month: 9
+  identifiers:
+    - type: doi
+      value: "10.48550/arXiv.2509.xxxxx"   # replace with the real arXiv DOI once available
+    - type: url
+      value: "https://arxiv.org/abs/2509.xxxxx"

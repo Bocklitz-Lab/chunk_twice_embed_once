@@ -1,0 +1,378 @@
+Rotated Fourier transform (RFT) enables the quantification of anisotropic structure in high-moisture plant-protein extrudates
+
+Martijn I. Gobes¹, Sam A. Kuijpers¹, Camilla Terenzi³, Ruud van der Sman², John P.M. van Duynhoven¹,³, Johannes Hohlbein¹,⁴
+
+¹Laboratory of Biophysics, Wageningen University & Research, Wageningen, the Netherlands
+²Laboratory of Food Process Engineering, Wageningen University & Research, Wageningen, the Netherlands
+³Unilever Global Foods Innovation Centre, Wageningen, the Netherlands
+⁴Microscopy Research Facility, Wageningen University & Research, Wageningen, the Netherlands
+
+Corresponding Author: Johannes Hohlbein, johannes.hohlbein@wur.nl
+
+Keywords: Extrusion, CLSM, MRI, Image Analysis, Anisotropy
+
+Abstract
+
+When producing plant-protein-based meat analogues via high moisture extrusion (HME), the structure of extrudates is determined by complex interactions between ingredient composition and processing conditions. To facilitate consumers in their transition towards a diet higher in plant-based proteins, the food industry aims to closely mimic the structure of meat of animal origin. Currently, insights into the structuring process are gained, for example, by imaging samples using MRI or confocal microscopy. Existing software for analysing these images, however, often lacks the ability to quantitatively analyse structure and anisotropy. Here, we present a new image processing method, named Rotated Fourier Transform (RFT), that enables the quantification of anisotropic structures of extrudates from multimodal images acquired at different length scales. RFT can provide a single measure of structural anisotropy, namely the weighted order parameter (WOP), for either the entire image or subregions thereof. RFT utilises Fourier transforms to obtain the dominant angles representing the structural orientation detected within the image. For each dominant angle, we further calculate an amplitude relative to the background within each sub-image. These amplitudes depend on the signal-to-noise levels of the corresponding angular features, which enables reducing the influence of insignificant features on the WOP. Here, we used RFT to quantify anisotropy in images of soy protein concentrate HME samples. We identified both anisotropic and isotropic regions and further showed that the relative spatial extent of the anisotropic region, perpendicular to the flow direction, increases along the cooling die. While applied in this paper to the specific case of soy HME samples, RFT is a generic method applicable to any image displaying anisotropic features. Thus, RFT is a powerful and robust tool for comprehensive quantification of food structures and beyond.
+
+ORCID(s): 0000-0003-4085-7749 (M. I. Gobes); 0009-0007-3078-3682 (S.A. Kuijpers); 0000-0003-3278-026X (C. Terenzi); 0000-0003-4964-0247 (R. v. d. Sman); 0000-0001-9769-0113 (J.P.M. v. Duynhoven); 0000-0001-7436-2221 (J. Hohlbein)
+1. Introduction
+
+In recent years there has been a drive to shift the consumption of meat products towards more sustainable foods based on plant proteins (Aiking & de Boer, 2020). This drive is induced by concerns over both climate change (Collier et al., 2021; Kemper, 2020; Tukker & Jansen, 2006) and animal welfare (Sanchez-Sabate & Sabaté, 2019). Yet, for most consumers to fully accept plant-based alternatives, these products should mimic the fibrous texture of muscle meat (Collier et al., 2021; Hoek et al., 2011, 2021). In meat, the fibrous texture derives from parallelly aligned myofibrils that allow the live muscle to extend and contract (Ertbjerg & Puolanne, 2017). The hierarchical structure of muscle meat results in a unique, perceivable, and anisotropic texture appreciated by consumers (Collier et al., 2021; Keegstra, 2010; Pette & Staron, 1990). Thus, a goal of the food industry is to replicate such texture and taste profile of muscle meat using plant-based proteins (Collier et al., 2021; Keegstra, 2010; Pette & Staron, 1990).
+
+A commonly used industrial process to manufacture plant-based meat analogues is high-moisture extrusion (HME) (Fig. SI.1). In HME, a dough made of plant-protein isolates or concentrates and of 40-60% water is subjected to high temperatures and shear forces within the extruder barrel section (Akdogan, 1999; Wittek, Ellwanger, et al., 2021; Wittek, Karbstein, et al., 2021). After leaving the screw region of the extruder, the hot protein melt is subjected to shear and temperature gradients in a cooling die, in which anisotropic structures and textures develop (Cornet et al., 2022; van der Sman & van der Goot, 2023). Protein blends, typically originating from soy or pea, contain around 70% - 90% protein with the remainder being predominantly polysaccharide fibres originating from plant cell walls (Kumar et al., 2021; Sari et al., 2015). Extrudates typically show a characteristic parabolic structure, which is caused by high temperature and shear treatments in the cooling die (Fig. 1a). As such, the parabolic flow profile correlates with higher anisotropy, whereas a plug-flow profile correlates with lower anisotropy (Zink et al., 2024). Typically, high temperatures and low shear forces are found perpendicularly to the extrusion direction, in the core region of the cooling die, while low temperatures and high shear forces are present near the cooled wall. These temperature and shear gradients cause protein fibrils to be more structured, and thus aligned, near the cooling wall (Fig. 1b), while more disordered near the core region (Fig. 1c) (Cornet et al., 2022; van der Sman & van der Goot, 2023).
+
+Currently, our knowledge of how HME processing conditions impact the final structure of the extrudate is limited. Only recently it has become apparent that HME extrudates also have a hierarchical, multiscale, anisotropic structure (van der Sman & van der Goot, 2023). Therefore, gaining a better understanding of how this intricate structure develops, both in the extruder barrel and in the cooling die, is seen as key for optimizing process-property relationships. The structure at the nano- to mesoscale is governed by an anisotropic arrangement of sub-micron protein fibrils and micron-scale polysaccharide fibres. The protein fibrils consist of stacked globular proteins that align in shear flow and have a width of 100 - 250 nm (Garina et al., 2024; Goh et al., 2005; Zink et al., 2024). Further, the protein fibrils tend to align with each other and form larger bundles with diameters around 10-500 µm (Kuijpers et al., 2024). The second biopolymeric phase, e.g., cell wall polysaccharides, is present in a crystalline form, or dispersed throughout the protein matrix (Kyriakopoulou et al., 2018; Van Der Sman & Van Der Goot, 2009; van der Sman & van der Goot, 2023). The cooling in the die induces syneresis, whereby sub-mm alternating protein-rich (PR) and water-rich (WR) lamellae are formed (Kuijpers et al., 2024; van der Sman & van der Goot, 2023; Wittek, Karbstein, et al., 2021; Wittek, Zeiler, et al., 2021). Two underlying mechanisms have been hypothesized: viscoelastic contraction of crosslinked...
+proteins (van der Sman & van der Goot, 2023) and spinodal phase separation (Kaunisto et al., 2024; Sandoval Murillo et al., 2019). Alongside the effects of heating and cooling, the structure is also influenced by the amount of moisture and pH (Ellwanger et al., 2024; Kyriakopoulou et al., 2018; Nisov et al., 2022; van der Sman & van der Goot, 2023).
+
+Only recently researchers have been able to analyse such complex food systems (Fig. 1) using advanced structural analysis techniques. The analysis is often aimed at identifying anisotropy at different length scales ranging from the nanometre scale to the millimetre scale (Garina et al., 2024; Kuijpers et al., 2024; Nieuwland et al., 2023; Osen et al., 2014; van der Sman & van der Goot, 2023; Wittek, Zeiler, et al., 2021; J. Zhang et al., 2022; X. Zhang et al., 2022). The anisotropic structural arrangement of sub-micron protein fibrils and micron-scale polysaccharide fibres was quantified with Small Angle Scattering (Garina et al., 2024; Goh et al., 2005; Tian et al., 2020). At the μm-scale, diffraction-limited confocal laser scanning microscopy (CLSM) enabled qualitative imaging (Q. Chen et al., 2023; Deng et al., 2023). Finally, at the mm-scale, nuclear resonance techniques such as Nuclear Magnetic Resonance Imaging (NMR/MRI) (F. L. Chen et al., 2010; Kuijpers et al., 2024; Sun et al., 2024) and X-ray Tomography (XRT) (Nieuwland et al., 2023) have been used to reveal structural anisotropy in plant-based protein extrudates. Yet, these μm-to-mm scale imaging methods have so far been used mostly for qualitative studies (Deng et al., 2023; Fu et al., 2023; Mao et al., 2024; van der Sman & van der Goot, 2023), with limited quantification efforts at the mm scale (Kuijpers et al., 2024). No methodological framework for the quantitative assessment of structural anisotropy of extrudates at the μm-mm scale has been introduced, which in turn hampers efforts to establish robust process-structure-texture relationships.
+
+**Figure 1.** Schematic overview of flow- and temperature-induced structural features formed in plant-based protein melts during HME inside an extruder’s cooling die. From the extrudates, magnetic resonance imaging probes structure at the millimetre scale (a), while confocal laser scanning microscopy provides hundreds of nanometer resolution at the micrometer scale (b and c). In a), the red/blue gradient indicates maxima and minima of temperatures and shear forces inside the cooling die, perpendicularly to the extrusion direction. The PR matrix (shown in yellow) and the WR matrix (shown in orange) align with the direction of extrusion. b) and c) Schematic images of structural features near the skin (b) and the core (c), both containing cellulose (cyan) in either crystalline or amorphous form. Near the skin region, bundles of protein are aligned with the direction of extrusion. Near the core region, more amorphous aggregations of proteins (red) can be seen. Black regions represent non-stained material, predominantly water.
+For generally quantifying 2D images regarding structural anisotropy, a variety of image analysis algorithms have been developed, ranging from generic image analysis workflows (Machuca et al., 1983; Shu & Jain, 1994), to more complete image analysis pipelines such as Alignment Fourier Transform (AFT) (Marcotti et al., 2021), OrientationJ (Rezakhanliha et al., 2012) and Skeletonization (Bai et al., 2007). AFT and OrientationJ allow calculating vector maps indicating dominant angles, of, e.g., microtubules or flow patterns in specific regions. Based on the vector field, AFT can also calculate an order parameter quantifying the degree of alignment of vectors within neighbouring regions. AFT and OrientationJ, however, lack the ability to identify more than a single orientation in any area, which can become an issue with very dense or overlapping structures. This kind of dense structure occurs frequently in the protein phase of plant protein extrudates. Furthermore, the statistical significance of a calculated orientation angle, present in a defined area, cannot be determined with AFT. As such, an angle obtained from an area with a low Signal-to-Noise Ratio (SNR) would be weighed identically to an angle obtained from a high-SNR area. Consequently, the vector fields and the order parameter from AFT do not distinguish between foreground and background signals. Building upon concepts like AFT and sliding window analysis, we have developed a method that can extract additional information on structural anisotropy. Our method, termed Rotated Fourier Transform (RFT), enables the extraction of comprehensive angular and anisotropic information by utilising Fourier transforms together with a rotating-window analysis. This provides information on the size of underlying features, the SNR corresponding to each feature orientation, and the spatial distribution of angles. To demonstrate RFT’s functionality, we analysed the position-dependent orientation of fibres, within extrudates, caused by the flow in the HME cooling die of an extruder, and spatially mapped the material’s structural anisotropy. The images were obtained via CSLM described in this work, or from high-field MRI measurements reported elsewhere (Kuijpers et al., 2024), in order to capture anisotropic structural features over the μm-μm scale. The RFT methodology will be demonstrated on MRI and CSLM images of extrudates that were pH-shifted during HME (Ellwanger et al., 2024; Nisov et al., 2022), in order to induce differences in multiscale anisotropic structure. Furthermore, RFT will be applied to quantify the development of anisotropic structure during the passage of the protein melt in the cooling die. For this purpose, CSLM and MRI images were acquired for samples extracted from the cooling die upon an extrudate deadstop. The obtained RFT methodology will be discussed in light of recently formulated hypotheses concerning plant protein structuring by means of HME (Garina et al., 2024; Kuijpers et al., 2024; van der Sman & van der Goot, 2023; Zink et al., 2024).
+
+2. Materials & Methods
+
+2.1 High moisture extrusion
+
+Soy Protein Concentrate (SPC) (Alpha 8® IP, 70% protein, 18% dietary fibre, 7% ash, 2% fat; 19.6% total carbohydrates) was purchased from Solae (St. Louis, Missouri, USA). SPC samples were produced using a co-rotating twin-screw extruder (XTS 19, Xtrutech, UK). The screws had a diameter of 19 mm and a Length/Diameter ratio of 25. In the transition zone, a breaker plate was mounted, and using a die adapter, a cooling die was attached. This barrel had an internal geometry of 19 x 7 x 300 mm (W x H x L). The protein powder was fed into the extruder using a volumetric feeder (Brabender Technologie, Utrecht, The Netherlands). Water was fed into the water inlet using a constant-flow pump (Master Flex Easy Load II, Gelsenkirchen, Germany). The pH of the extrudate was adjusted with citric acid (0.35 M for pH 4.2 and 0.025 M for pH 6.5) via the water feed. The final pH of the extrudates sample was measured using a solid-state pH Meter (MetRohm 949 pH Meter with Spearhead Probe inc. Pt1000
+temperature sensor, Herisau, Switzerland). The extruder was segmented into four separate temperature zones, set at 80°C, 120°C, 160°C, and 135°C respectively. The temperature of the cooling water for the cooling die was set at 65°C. The screw speed was set at 350 rpm, and the moisture content was 54% at a throughput of 5 kg/h. A schematic overview can be seen in Fig. SI.1. To perform a deadstop, first, the extruder was fed with plain tap water and made to run steady-state for at least 15 minutes after which the barrel and cooling die were rapidly cooled and the extruder was switched off. Water pressure was used to expel the ribbon from the cooling die. Extrudate and deadstop SPC ribbon samples were immediately bagged and submerged in ice water. Then samples were stored at -18°C in the freezer.
+
+2.2 Sample preparation for fluorescence microscopy
+
+The dye used consists of Rhodamine B (RhB, Exciton, Lockbourne, USA) to stain proteins, and CalciFluor white (CFW, ID: 18909, 1 g/L with 0.5 g/L Evans blue, liquid form, Merck, Rahway, USA) to stain polysaccharides. A solution of RhB in ethanol was first prepared by dissolving 50 mg of RhB in 1.5 mL of pure ethanol. The mixture was vortexed to dissolve all dye. Then, in 1.5 mL of PEG-200, 15 μL of the RhB solution and 50 μL of the liquid CFW solution were dissolved. A droplet of this dye was placed on a 125 μm thick glass slide, on which a cut frozen sample was placed. This was cut either with a razor blade, or microtome. The microtome cut samples were first attached to a metal cooling head using Tissue-Tek® O.C.T. Compound (Sakura Finetek, USA) medium. They were then cut using a cryomicrotome (Cryostar NX70, Thermo Fischer Scientific, Germany) resulting in slices of 50 ± 5 μm thickness. The head temperature was -12 °C and the blade temperature was -10 °C. The thin slices were then transferred to the glass slide.
+
+2.3 Confocal laser scanning microscopy (CLSM) measurements
+
+CLSM imaging was performed on a Zeiss confocal microscope (Zeiss LSM 880 Airyscan, Zeiss, Germany) equipped with an optional Airyscan unit, or a Nikon body equipped with a Re-Scan confocal unit (Confocal.nl, Netherlands). The Zeiss was equipped with a Plan-Apochromat 63x/1.4 NA DIC M27 Oil immersion objective (Zeiss, Germany) and the Nikon with a Plan-Apochromat 60x/1.4 NA DIC H Oil immersion objective (Nikon, Japan). The Zeiss confocal microscope used a 405 nm laser line at 4% (7 μW) laser power for confocal, and a 514 nm laser line at 5% (1.7 μW) laser power for confocal, and 1.5% (1.2 μW) for Airyscan. The detector ranges for CFW are 410-509 nm and for RhB 531-703 nm. The Nikon used 3% (25 μW) for the 561 nm laser line and 20% (3 μW) for the 405 nm laser line, and the detector ranges from 410-480nm for the 405nm line and 565-610 nm for the 561 nm line. The power values were measured in the focal plane of the objective.
+
+2.4 Magnetic resonance imaging (MRI) measurements
+
+The samples were prepared and measured as described elsewhere (Kuijpers et al., 2024). Briefly, samples were cut into lengths of 3 cm along the flow direction and soaked using demineralized water at a w/w ratio of 15:1 (water: sample). The samples were then dried and measured using the Rapid Acquisition with Relaxation Enhancement (RARE) (Hennig et al., 1986) pulse sequence using a field of view of 25 x 20 mm with 39x39x500 μm³ per voxel resolution on a 600 MHz (14 T) wide-bore spectrometer (Ascend 600WB Avance NEO, Bruker, Germany with a 1.5 T/m imaging gradient system (Micro 2.5, Bruker, Germany)). A quadrature ¹H probe (MicWB40/025 QTR, Bruker, Germany) was used.
+
+2.5 Implementation of image processing and other analysis software
+
+https://doi.org/10.26434/chemrxiv-2025-g0rcx ORCID: https://orcid.org/0000-0001-7436-2221 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+All image analysis was performed on an Xeon W-11855W processor with 32 GB of DDR4 RAM and an RTX A5000 Laptop GPU. Alignment Fourier Transform (version 0d63f0a, (Marcotti et al., 2021)), implemented in MATLAB (Mathworks, v2023b), and OrientationJ (Rezakhanlou et al., 2012) were used to analyse synthetic data. AFT used a window overlap of 75% and the indicated window size. OrientationJ used a local window (w) of 2 pixels using the Cubic Spline Gradient. The function ‘Vector Field’ was used with a grid size of 10 to sample the Tensor. The Skeletonize (Bai et al., 2007) scripts used MATLAB (Mathworks, v2023b). All source code of RFT can be found, together with instructions, at https://github.com/HohlbeinLab/AnalyseDirectionality.
+
+3. Results
+
+3.1 RFT enables mapping of structural anisotropy
+
+To explain the general workflow of RFT we start with a well-defined, fully synthetic image (Fig. 2a). We simulated the image by plotting a sinusoidal waveform with a wavelength of 50 pixels and an orientation angle of 130° over an entire frame of 512 by 512 pixels. The intensity values range from 0 and 255 counts with a bit depth of 8 bits. To enable testing for structural anisotropy, we further replaced the central part of the image with a circular section of radius 150 pixels with the same wavelength of 50 pixels, but an orientation angle of 0° (or 180°).
+
+The entire image is then computationally partitioned into a number I = 256 of squared regions, labelled as i: an illustrative example of such regions is shown in Fig. 2a (green box). For each region i, we chose a window size of 101 by 101 pixels. This value ensures that the size of the window is well above the corresponding feature size, namely the peak-to-peak distance of 50 pixels in our waveform, passing the Nyquist criterion frequency (Lévesque, 2014). The partitioning of the entire image is done using overlapping window regions, enabling us to detect angular features that would otherwise fall between neighbouring regions. The image is divided into sub-images, using the sliding windows, with 75% being the chosen overlapping fraction between adjacent windows.
+
+Within each square region i, we placed another window j(i) (blue box in Fig. 2a) with a window size of 63 pixels (= 101/sqrt(2)) to allow for complete rotation of the enclosed region j within the boundaries of region i. We rotated the blue square around its central point with an angular step size set to Δθ = 0.9°, resulting in 200 rotations. We then calculated 1D line profiles by summing over the vertical axis for each orientation j(i) (Fig. 2b). Due to planes of symmetry, it is sufficient to rotate over 180°, resulting in a total of 200 profiles per region i. As seen, the amplitudes of the line profiles, representing a 1D intensity profile, are largest when the line plot is perpendicular to the line pattern, and smallest when they are parallel (see Fig. 2b: magenta line for an orientation of 40° and orange line for 130°).
+
+We subtracted the minimum value of the array from the array of j(130°) to obtain a baseline value and to remove the background (and thus low frequencies) from further analysis. Calculating the Fourier transform of each line profile j per region i provides an amplitude spectrum (Fig. 2c). The Fourier Transform for j(130°) showed a sharp peak, characteristic of the presence of repeating features, while the corresponding spectrum for j(40°) is flat. The integration of the spectrum provided a scalar value, Vn, for each orientation j, which in turn indicates the extent of high frequencies being present. The angular plot of Vn per region is shown in Figure 2d. Upon summation of Vn over the total number I of regions, a global profile is obtained for the whole image (Fig. 2e). Here, we identified the most prominent angles using a peak-finding algorithm (Virtanen et al., 2020), indicated by red dots (Figs. 2e and 2f). We marked two dominant features with “peak 1” and “peak 2” (Fig. 2e).
+We then used the identified peaks as initial values for fitting the angular response of each region with \( n \) Gaussians, where \( n \) is the number of local peaks found (Fig. 2f). The general formula for the Gaussian fit with \( A_i \) the amplitude, \( \sigma_i \) the standard deviation, and \( \mu_i \) the mean of each Gaussian, is shown in equation 1. The angle is denoted by \( \theta \). Due to the circular domain, we duplicate the Gaussians before and after the 180° range, resulting in an input range of [-180°, 360°). This extension of the input range is required as some peaks are situated close to the edges of the domains.
+
+\[
+f(\theta) = \sum_{i=1}^{n} A_i \cdot e^{-\frac{1}{2} \left( \frac{(\theta - \mu_i)\%360}{\sigma_i} \right)^2}
+\]
+
+Using the peaks calculated over the entire image (Fig. 2e), we can cluster peaks present in sub-images together. We group peaks together based on their distance to a global peak in degrees. We choose a range of 15°, and prioritise peaks showing higher amplitudes, leading to two dominant peaks being selected in Fig. 2e. Such grouping enables (1) visualising the locations within an image where peaks indicating dominant angles are present, (2) determining what their respective amplitude is, and (3) whether there is overlap with other image features. Specifically, we mapped the dominant peak angle “peak 1” or “peak 2” back into our simulated image, thereby recovering the initially simulated orientations of 130° and 0° (Fig. 2g). We further plotted the amplitude-filtered peaks for each region confirming that the central region shows a high amplitude for the vertical lines representing the 0° orientation (Fig. 2i) and the outside high amplitudes for the tilted section representing 130° (Fig. 2j).
+
+Using RFT, we distinguished angular features that cannot be resolved with either OrientationJ, Skeletonize or AFT. Figure 3 shows a synthetic image of two overlapping sinusoidal patterns obtained by 25° and 50° rotated waveforms. With AFT, OrientationJ, and Skeletonize we calculated individual angles that depend on the chosen window size and relative overlap of sampling windows. The angles were binned to generate histograms (Fig. 3b). RFT calculates an intensity for each angle, as shown in the plotted curve (Fig. 3b). OrientationJ and AFT both find only a single angle, preferring the 50° orientation angle. Skeletonize does find some 25° angles but at a lower intensity compared to 50°. Skeletonize also shows angles that are offset by ~90°. RFT is the sole algorithm which can identify and distinguish both orientation angles, 25° and 50°, with equal intensities.
+
+### 3.2 The weighted order parameter enables quantification of anisotropy
+
+Above we described how to calculate and map angle-dependent peak amplitudes. Yet, we are missing a general parameter able to describe the order and anisotropy in specific regions of an image. To indicate the level of anisotropy in a selected region or window, we need to determine to which extent neighbouring windows share the same angles and amplitudes. Here, we built upon a concept introduced earlier where an order parameter was obtained within a collection of window regions (Marcotti et al., 2021). Specifically, the parameter was calculated using the average cosine of the squared difference between the angle representing a central area and the angles obtained from surrounding regions (Eq. 2)
+
+\[
+OP = 2 \cdot \cos^2(\theta_i - \theta_j) - 1.
+\]
+Figure 2. RFT image analysis workflow. a) Simulated image with a sinusoidal wave pattern rotated by 130° (highlighted in orange) and a superimposed circular region with vertical lines: both patterns have the same wavelength. The green box indicates a sub-region (i). An inscribed box (blue, j) is then stepwise rotated around its centre. Here, we indicated the rotation angles of 40° and 130° by a magenta and orange vector, respectively. b) Line profiles for the blue box rotated for either of the two orientations. A flat or sinusoidal profile is obtained when summing the imaging intensity along the magenta or orange arrow, respectively. c) Fourier transform of profiles in b) shows the respective spectra. Integrating the spectrum in c) yields a scalar value, $V_{\theta}$, for each angle of rotation. d) Plotting the peak amplitudes over all rotation angles within the green subregion shows the expected peak amplitude around 130°. e) Summing all angular response curves in d) provides a peak amplitude profile for the whole image. Local maxima and dominant peaks are indicated by red dots or arrows, respectively. f) The global peak positions indicated in e) of the whole image can be used to bootstrap the fitting of frequency responses in sub-images (i.e., green box) seen in d) with several Gaussians. We can thus plot the dominant angle for each region g) or calculate the relative peak amplitude, for peak 1 in i) and peak 2 in j), for chosen angles within all sub-regions, thereby effectively mapping out the whole image.
+Figure 3. **a)** Performance of image processing algorithms for feature orientation assessment on a composite synthetic image (512 x 512 pixels) (left), consisting of oriented intensity patterns, with equal intensity, obtained by combining 25° (right) and 50° (middle) rotated waveforms with a wavelength of 30 pixels. **b)** Comparison among the performances of OrientationJ, Skeletonize, AFT and RFT algorithms for processing data in a) (left). The simulated angles are indicated using the magenta lines. AFT and RFT used a window size of 250 pixels and 50% overlap. OrientationJ and AFT only reproduce one of the two angles (50°). Skeletonize can reproduce the two angles, but in unequal ratios, and produces additional angles offset by 90°. Only RFT produces two peaks of equal amplitude.
+
+If the central angle is orthogonal or parallel to all other angles, an order parameter value of -1 or +1 is obtained. If the distribution of angles is completely random, such a parameter becomes 0. We adapted the algorithm by weighing the average by the amplitude of the angles, calculated as the amplitude of peaks in Fig. 2f over baseline. We weigh first by the amplitude of all surrounding angles ($\theta_j$) and then by the amplitude of the selected central angle(s) ($\theta_i$) (Eq. 3)
+
+$$WOP = 2 \times \cos^2(\theta_i - \theta_j) - 1.$$ (3)
+
+By weighing for the amplitude, we consider the SNR of the underlying data, allowing us to differentiate between scenarios with similar angular distributions, but different intensities, for example, a random (WOP = 0) area that is caused by a noisy background, or one that is caused by an isotropic region of high intensity. The former will have little impact on an anisotropic region, whereas the latter will have a larger impact. The size of the area used is denoted by a neighbourhood size, which is an odd number representing the size of the square used, i.e. a neighbourhood size of 3 leads to a 3x3 square of sub-regions.
+
+To visualise the concept of the WOP, we created a synthetic image consisting of a single feature at an angle of 130° and a wavelength of 260 px (Fig. 4a). The image was then divided into 3x3 sub-regions of equal size, and we calculated the amplitudes and angles present in each sub-region. We obtained $WOP = 1$ for the central region due to the entire image being perfectly homogenous, and thus the angles being well aligned in neighbouring regions. We then rotated all nine sections randomly, leading to $WOP = 0$ when averaging over 100 random distributions (Fig. 4b). With an orthogonal orientation, we...
+obtained WOP = -1. Since we only have a single angle, and no intensity modulation, these values are identical to the ones obtained using AFT. However, we can vary the intensity of certain squares to see the impact on the WOP value. We took Fig. 4a and lowered the top row’s intensity by 75%. Since the angles are identical, this does not affect the WOP. For the random (Fig. 4e) example, the mean WOP stays the same, but due to variance in intensity, the standard deviation changes slightly. For the orthogonal (Fig. 4f) example, the WOP stayed identical, just like in the parallel example. We took the reduced intensity version (Fig. 4d), and rotated the top row by 90°, making it orthogonal to the central angle (Fig. 4g). Having a section being orthogonal, but low intensity, still results in a high WOP: 0.75. If we then increase the intensity of the orthogonal section (Fig. 4h and 4i) we obtain a lower WOP, since the contribution of the orthogonal section increases, leading to a WOP of 0.74 and 0.25, respectively.
+
+The examples all contained a single angle per sub-window, but overlapping angles can be seen as additional sub-areas. The method can take any number of angles and their specific amplitudes into account to calculate a mean WOP.
+
+3.3 Quantifying anisotropies in MRI data of SPC extrudates using RFT
+
+Next, we applied RFT to analyse experimental data obtained from imaging pH-shifted soy protein extrudates using MRI (Kuijpers et al., 2024). First, we imaged the coronal slice of two different samples shifted to either pH 4.2 or pH 6.5. The pH 6.5 sample shows a parabolic, phase-separated structure, with micron-mm anisotropic structuring specifically visible near the edges (Fig. 4a). Calculating the WOP confirms the visual assessment indicating high structuring near the edges and low structuring in the centre region with a mean WOP of 0.46 ± 0.31 (Fig. 4b). In comparison, the pH 4.2 sample did not show dominant structural features (Fig. 4c) confirmed by the WOP analysis showing low values of anisotropy (0.02 ± 0.12). The vector maps for the high pH sample (Fig. 4a) show a regular pattern, following the underlying parabolic pattern, while the low pH sample (Fig. 4b) shows the vectors oriented in random orientations.
+
+Figure 4. Analysing the structure of pH-shifted SPC extrudates with MRI and RFT. The WOP images were calculated on a crop of the MRI images after and using a neighbourhood size of 3. The cropped area is indicated (magenta dashed lines). The vector map (yellow lines) calculated using RFT is overlaid on the right side. a) SPC extrudate shifted to pH 6.5 and imaged at a sagittal orientation. b) WOP analysis of (a) showing spatially resolved WOP values with higher-order at the edges of the cooling die and an overall mean value of 0.46 ± 0.31. c) The SPC extrudate shifted to pH 4.2 at the sagittal orientation. d) WOP mapping of (c) indicates a low level of anisotropy all over the sample, with a mean of 0.02 ± 0.12. All errors represent the standard deviation.
+We calculated the mean angle for the top and bottom third of the vector fields shown in Fig. 4a and c. For the pH 6.5 sample, the angles of the top and bottom were 85° ± 17° and 96° ± 23°, respectively. A related t-test gave a p-value of 3E-10 suggesting that both mean angles are different. For the pH 4.2 sample, the angles of the top and bottom are 95° ± 45° and 88° ± 23°, respectively, with a p-value of 0.07 suggesting that both angles are not statistically different. Taken together, the pH 6.5 sample represents a parabolic flow profile, resulting from the sharp angle responses mirrored around 90°, whereas the pH 4.2 sample showed a more homogenous distribution of angles centred around 90° thereby resembling a plug-flow profile.
+
+3.4 Applying RFT to optical microscopy data on SPC HME deadstop samples
+
+An HME deadstop experiment was performed and samples were collected at different positions inside the cooling die, to capture anisotropic structure development. Using high-resolution confocal microscopy (Airyscan & RCM) we took various images of the deadstop sample taken at 21cm into the cooling die. The sample was imaged in an area of 0.6 mm by 6 mm (sagittal orientation) ranging from close to the edge of the cooling die to the centre. Regions with sub-micron protein fibrils (white, high signal intensity) are interleaved with water and cellulose domains (black, low signal intensity). The skin region (Fig. 1) contains protein fibrils aligned with the flow direction (Fig. 5a). The core region does not show any apparent alignment (Fig. 5b). The mean WOP of the skin and core is 0.26 ± 0.33 and 0.08 ± 0.24 respectively, confirming an overall higher ordering in the skin region similar to what we showed in Figure 4. The protein fibrils can be seen in more detail in Airyscan images, showing a width of around 0.21 μm (Fig. SI.2).
+
+![Figure 5](https://example.com/figure5.png)
+
+**Figure 5.** CLSM images of a SPC deadstop sample from 21cm into the cooling die were made near the skin a), or within the core b). A partial overlay shows the respective calculated vector maps (yellow lines). The extrusion direction is from left to right. The corresponding WOP maps obtained by RFT, using a neighbourhood size set to 3, are shown in c) and d). The respective mean WOP values, calculated over the whole image, are 0.26 and 0.08 for c) and d) respectively. The distributions of the WOP can be seen in Fig. 6c. In c), high-intensity PR regions can be seen (see Fig. 5a).
+3.5 Comparing the WOP from the skin or core regions of HME deadstop samples
+
+To quantify development of sub-micron structural anisotropy in the cooling die, we analysed a series of images taken with optical microscopy at multiple positions in the cooling die, namely 3 cm and 21 cm (Fig. 6a). Each image series consists of six images taken at equally spaced positions along the path from the skin to the core of the sample (Fig. 6b). Positions near the skin show a bimodal distribution, with one distribution of a higher mean WOP around 0.4 and one of WOP around 0 (Fig. 6c). The positions near the core show only mean WOP values around 0. Whereas the sample measured with a distance of 21 cm stays bimodal at relative positions of 3 and above, the samples measured at a 3 cm distance show a largely monomodal distribution for position 4 and below with WOP values around 0. Thus, the sample at 3 cm is anisotropic only near the skin whereas the sample at 21 cm shows a wider anisotropic region. Additional data for measurement distances of 9 cm and 15 cm along the cooling die can be found in Fig. S1.4. Generally, the images taken closer to the skin show higher average sub-micron anisotropy and the size of the anisotropic region increases with increasing distances within the cooling die.
+
+Figure 6. RFT analysis of HME SPC deadstop samples (160°C, pH 7.2, and moisture content of 60%) imaged with confocal microscopy (RCM and Airyscan). The WOP was calculated using a neighbourhood size of 9. a) The positions and WOP values of images taken at 3 cm and 21 cm depth into the cooling die. b) A schematic overview of a sample (from Fig. 1) and distance of each image to the core. Approximate distances to the core are ±0.2 mm to account for sample-to-sample variance. c) Kernel Density Estimate (KDE) Plots for each distance from the core for 3 cm and 21 cm. Each individual KDE plot is scaled between 0 and 1.
+4. Discussion
+
+4.1 Advantages of RFT over other methodologies for analysing structural anisotropy
+
+RFT enables the quantitative analysis of structural anisotropy in images. Calculating the WOP allows mutually comparing sub-regions within an image, or whole images from different samples. By obtaining an amplitude measure for each determined orientation angle in each region, RFT provides additional options to filter experimental data and it avoids erroneously assigning angles to regions with low SNR. In contrast, AFT weighs any obtained angle identically and uses only simple masking to determine which regions to include in the analysis (Marcotti et al., 2021). Once the angular features have been extracted using RFT, similar orientation angles can be grouped enabling RFT to discard angles that have low amplitudes. The filtering threshold can be adjusted by removing all angles, except the ones with the highest amplitudes, by default. Grouping then allows the identification of areas with similar angles, as seen in the MRI image (Fig. 4a) at the bottom half and top half.
+
+From the comparison in Fig. 3 we see that AFT, OrientationJ, and Skeletonize have different performances. For the experiments analysed here, the existing software is either not suitable at all (Skeletonize), does not provide a metric of anisotropy (OrientationJ/Skeletonize) or can only recover a single orientation angle for a given area (all). RFT, however, addresses all mentioned shortcomings and can combine the resulting data into WOP values for any given area within an image. The WOP value(s) can be calculated for images containing both low contrast (Fig. 4, cropped areas) and high contrast (Fig. 5). Further, we can calculate anisotropy maps that indicate structure that can be visually confirmed as indicated with the MRI images (Fig. 4) showing high WOP values around the edges of the parabola and low WOP values in the unstructured centre.
+
+4.2 Structural features of high-moisture deadstop and extrudate samples
+
+When performing a deadstop experiment, we rapidly cooled the sample after extracting the sample from the cooling die. As such the sample is thermally shocked by going from temperatures above 65°C in the cooling die to 0°C in the ice bath. Here, we assume that the rapid cooling does not lead to additional structural changes, as all applied shear forces are removed when stopping the extrusion, and the sample is rapidly cooled causing the present structure to be held (Cornet et al., 2022). Although the cooling will cause internal stresses, we do not expect these to drive structural changes larger than those induced by the previous shear forces and higher temperatures experienced in the cooling die during extrusion. The MRI and CSLM images revealed structural anisotropy at respectively the sub-micron and micron-mm length scales. In both cases, images were obtained upon swelling of the samples, which has an enhancing effect on contrast (Kuijpers, 2024). At the sub-micron and micron-mm scales, the WOP values respectively quantify the alignment of protein fibrils or protein vs water-rich lamellae.
+
+In the deadstop samples, we observed a bimodal distribution of WOP values near the skin, one representing sub-micron anisotropic structures (WOP ~0.5) and one representing isotropic ones (WOP ~0.0). Near the core, we observed a monomodal distribution indicating an isotropic structure with a WOP near 0.0 (Fig. 6c and SI Fig. 4). Between the core and skin, a transition from sub-micron anisotropic (bimodal) to isotropic (monomodal) takes place, with the position of the transition depending on the axial position along the cooling die. The further along the cooling die, the thinner the isotropic region, and the wider the region with sub-micron anisotropic structure.
+These results are in line with a recent study using Small Angle X-ray scattering in which the authors measured extrudate samples and observed isotropic and sub-micron anisotropic structure near core and skin, respectively (Zink et al., 2024). In another study using Small Angle Neutron Scattering (SANS), the authors observed that the nematic order parameter, which describes the sub-micron structural alignment, has a high value (anisotropic) near the skin, and a lower value near the core (isotropic), in both extrudates and deadstop samples. The higher the nematic order parameter, the more anisotropic the sample is at the length scale covered by SANS ranging from around 12-125 nm (Garina et al., 2024).
+
+Along the flow direction, the nematic order parameter near the skin remains uniform, while the nematic order parameter near the core first decreases and then remains low (Garina et al., 2024). Here, we observed similar patterns in our extrudate and deadstop samples, with a low sub-micron WOP near the core, and a higher WOP near the skin. We did not observe the lowering of WOP near the core in deadstop samples along the flow direction, since we are already near the lowest value, but this behaviour in SANS can be explained by the difference in the targeted length scale. Another recent study used MRI to identify an anisotropic micron-mm scale lamellar exterior region, the size of which increases further along the cooling die (Kuijpers et al., 2024). We observe a similar increase in the size of sub-micron anisotropic regions along the cooling die with RFT (Fig. 6).
+
+We foresee that the capability of RFT to quantify features in CLSM and MRI can be exploited to verify spatio-temporal models for the development of anisotropic structure during passage of the cooling die. This will enable verification of the two aforementioned conflicting hypotheses (Kaunisto et al., 2024; van der Sman & van der Goot, 2023) on the underlying mechanisms of anisotropic structure formation.
+
+4.3 Recommendations for using RFT
+
+Parameters such as the ‘sub-window size’ and ‘overlap’ can have an influence on which feature sizes are emphasised, thereby potentially affecting the distribution of WOP values leading to distributions between monomodal and bimodal shapes. Specifically, the choice of the ‘sub-window size’ determines what features are most influential in calculating angles and their respective intensity. If the window size is too large, smaller features might have an SNR too low compared to larger-scale features to be picked up by the algorithm. Although the threshold for peak amplitudes could be tweaked accordingly, it is more effective to lower the sub-window size. In general, we suggest choosing a sub-window size between 2x and 5x of the expected size of the smallest feature. This window size then ensures that the Nyquist criterium is met so that present features can adequately be described by fitting the angular response functions. The software further includes an option to automatically analyse and screen various sub-window sizes.
+
+Although an angular peak (see Fig. 2f) does not need to lie in the centre of a (sub-)window to be analysed, it does improve detection. Thus, having a sub-region centred on each feature is ideal. To achieve this, a high overlap can ensure that sub-regions adequately cover the image. An overlap of 50% can describe more sparse samples, while for denser samples 75% is recommended.
+
+The WOP is mainly used to investigate trends in structural anisotropy yet interpreting the data must be done carefully. As seen in Fig. 6c, the WOP values within a single image can cover a wide range, representing either monomodal or multimodal distributions. As such a simple mean ± error WOP value is often not adequate to describe the system. In multimodal systems, a density plot (Fig. 6c) can be used to visualise the distribution of WOP values. The wide range of WOP values seen in Fig. 6, down to -0.8, is caused by transition regions, which arise either via low signal-to-noise ratios or the presence of high contrast, caused, e.g., by abrupt transitions from protein to water or crystalline cellulose (Fig. SI.5...
+or Fig. 4c) or air bubbles present in MRI images (Fig. 4a). Absolute differences in WOP values can be explained by presence of these transition regions at the different length scales. CLSM images contain these high-contrast transition regions to a greater degree due to their presence at the μm length-scale and thus have a lower average WOP compared to MRI images.
+
+Comparing the WOP between different optical microscopes, but using similar dyes, samples and field of view, can be done since the WOP is agnostic to differences in absolute signal intensities. WOP values obtained with optical microscopy, however, should not be directly compared with values obtained from analysing MRI data due to the significant differences in spatial resolution (here ~90 μm pixel size in MRI vs ~200 nm resolution in microscopy) and contrast-inducing features.
+
+5. Conclusions
+
+We developed RFT to quantify anisotropy as seen from image-based data. RFT enables detailed analysis of large datasets and was implemented in Python and Java (as an ImageJ/Fiji plugin) to provide visualisations of the present structures and angles. We specifically note the ability of RFT to accurately detect multiple overlapping angular features. Thus, RFT is ideal for analysing highly structured samples. RFT allows for accurately extracting angular maps, calculating WOP distributions, and quantifying anisotropic image features. Notably, RFT is also able to dampen the impact of signals with low SNR, thereby allowing to filter data for specific structural features such as masking, angle-amplitude, distance between angles and others making the method highly adaptable to adverse imaging conditions.
+
+Here, we mapped the structural anisotropy within plant-protein-based extrudates. RFT analysis of MRI data for pH-shifted SPC extrudates showed that the low-pH sample lacks anisotropy at the resolved length scales, whereas at neutral pH a parabolic flow profile becomes visible, along the extrusion direction, featuring higher anisotropy. We further quantified the anisotropy found in SPC deadstop samples with CLSM and showed that the outer, or skin, region of the samples is anisotropic, and this anisotropic region grows closer to the core as the material is cooled. The core of the SPC deadstop sample remains isotropic throughout extrusion.
+
+We expect RFT to be widely applicable in the food sciences and beyond.
+
+6. Data Availability
+
+The data used in this paper can be found in the Zenodo repository under 10.5281/zenodo.14639066. The software for this project is available at https://github.com/HohlbeinLab/AnalyseDirectionality.
+
+7. Funding Source
+
+This research is funded by the NWO OTP-TTW program and is part of the ‘Measurement and Modelling of Multiscale Processed Protein Products’ (MP3) project under project number 18744. This project was also supported by the uNMR-NL Grid: A distributed, state-of-the-art Magnetic Resonance facility for the Netherlands (NWO grant 184.035.002).
+
+8. Acknowledgements
+
+We would like to thank the members of the consortium for their input and fruitful discussions.
+
+9. CRediT authorship contribution statement
+
+Martijn Gobes: Writing – original draft, Visualization, Software, Methodology, Investigation, Validation, Formal analysis, Data curation, Conceptualization. Sam Kuijpers: Investigation, Validation. Camilla
+
+https://doi.org/10.26434/chemrxiv-2025-g0rcx ORCID: https://orcid.org/0000-0001-7436-2221 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+Terenzi: Writing – review & editing, Project Administration, Funding acquisition, Conceptualization.
+
+Ruud van der Sman: Writing – review & editing, Validation, Supervision, Conceptualization.
+
+John van Duynhoven: Writing – review & editing, Validation, Supervision, Conceptualization.
+
+Johannes Hohlbein: Writing – review & editing, Validation, Supervision, Conceptualization.
+
+10. Conflict of Interest
+
+John van Duynhoven is employed by a company that manufactures and markets plant-based meat alternatives.
+
+Bibliography
+
+Aiking, H., & de Boer, J. (2020). The next protein transition. *Trends in Food Science & Technology, 105*, 515–522. https://doi.org/10.1016/J.TIFS.2018.07.008
+
+Akdogan, H. (1999). High moisture food extrusion. *International Journal of Food Science & Technology, 34*(3), 195–207. https://doi.org/10.1046/J.1365-2621.1999.00256.X
+
+Bai, X., Jan Latecki, L., Computer Society, I., & Liu, W-Y. (2007). Skeleton Pruning by Contour Partitioning with Discrete Curve Evolution. *IEEE Transactions on Pattern Analysis and Machine Intelligence, 29*(3), 1–14. http://computer.org/
+
+Chen, F. L., Wei, Y. M., & Zhang, B. (2010). Characterization of water state and distribution in textured soybean protein using DSC and NMR. *Journal of Food Engineering, 100*(3), 522–526. https://doi.org/10.1016/J.JFOODENG.2010.04.040
+
+Chen, Q., Zhang, J., Zhang, Y., Liu, H., Li, T., Wang, Q., & Kaplan, D. L. (2023). Microscopic insight into the interactions between pea protein and fatty acids during high-moisture extrusion processing. *Food Chemistry, 404*, 134176. https://doi.org/10.1016/J.FOODCHEM.2022.134176
+
+Collier, E. S., Oberrauter, L. M., Normann, A., Norman, C., Svensson, M., Niimi, J., & Bergman, P. (2021). Identifying barriers to decreasing meat consumption and increasing acceptance of meat substitutes among Swedish consumers. *Appetite, 167*, 105643. https://doi.org/10.1016/J.APPET.2021.105643
+
+Cornet, S. H. V., Snel, S. J. E., Schreuders, F. K. G., van der Sman, R. G. M., Beyrer, M., & van der Goot, A. J. (2022). Thermo-mechanical processing of plant proteins using shear cell and high-moisture extrusion cooking. In *Critical Reviews in Food Science and Nutrition (Vol. 62, Issue 12, pp. 3264–3280)*. Taylor and Francis Ltd. https://doi.org/10.1080/10408398.2020.1864618
+
+Deng, Q., Wang, Z., Fu, L., He, Z., Zeng, M., Qin, F., & Chen, J. (2023). High-moisture extrusion of soy protein: Effects of insoluble dietary fiber on anisotropic extrudates. *Food Hydrocolloids, 141*, 108688. https://doi.org/10.1016/J.FOODHYD.2023.108688
+
+Ellwanger, F., Fuhrmann, M., Karbstein, H. P., & Saavedra Isusi, G. I. (2024). Influence of Lowering the pH Value on the Generation of Fibrous Structures of Protein Gels with Different Network Types. *Gels 2024, Vol. 10, Page 173, 10*(3), 173. https://doi.org/10.3390/GELS10030173
+Ertbjerg, P., & Puolanne, E. (2017). Muscle structure, sarcomere length and influences on meat quality: A review. *Meat Science, 132*, 139–152. https://doi.org/10.1016/J.MEATSCI.2017.04.261
+
+Fu, J., Sun, C., Chang, Y., Li, S., Zhang, Y., & Fang, Y. (2023). Structure analysis and quality evaluation of plant-based meat analogs. *Journal of Texture Studies, 54*(3), 383–393. https://doi.org/10.1111/JTXS.12705
+
+Garina, E. D., den Adel, R., van Duynhoven, J. P. M., Smith, G. N., Dalgliesh, R. M., Sztucki, M., & Bouwman, W. G. (2024). SANS and SAXS: A Love Story to unravel structural evolution of soy proteins and polysaccharide fibres during high moisture extrusion for meat alternatives. *Food Hydrocolloids, 155*, 110121. https://doi.org/10.1016/J.FOODHYD.2024.110121
+
+Goh, K. L., Hiller, J., Haston, J. L., Holmes, D. F., Kadler, K. E., Murdoch, A., Meakin, J. R., & Wess, T. J. (2005). Analysis of collagen fibril diameter distribution in connective tissues using small-angle X-ray scattering. *Biochimica et Biophysica Acta (BBA) - General Subjects, 1722*(2), 183–188. https://doi.org/10.1016/J.BBAGEN.2004.12.004
+
+Hennig, J., Nauerth, A., & Friedburg, H. (1986). RARE Imaging: A Fast Imaging Method for Clinical MR. In *MAGNETIC RESONANCE IN MEDICINE* (Vol. 3).
+
+Hoek, A. C., Luning, P. A., Weijzen, P., Engels, W., Kok, F. J., & de Graaf, C. (2011). Replacement of meat by meat substitutes. A survey on person- and product-related factors in consumer acceptance. *Appetite, 56*(3), 662–673. https://doi.org/10.1016/J.APPET.2011.02.001
+
+Hoek, A. C., Malekpour, S., Raven, R., Court, E., & Byrne, E. (2021). Towards environmentally sustainable food systems: decision-making factors in sustainable food production and consumption. *Sustainable Production and Consumption, 26*, 610–626. https://doi.org/10.1016/J.SPC.2020.12.009
+
+Kaunisto, E., Wassén, S., & Stading, M. (2024). A thermodynamical finite element model of the fibre formation process during extrusion of high-moisture meat analogues. *Journal of Food Engineering, 362*, 111760. https://doi.org/10.1016/J.JFOODENG.2023.111760
+
+Keegstra, K. (2010). Plant Cell Walls. *Plant Physiology, 154*(2), 483–486. https://doi.org/10.1104/PP.110.1611240
+
+Kemper, J. A. (2020). Motivations, barriers, and strategies for meat reduction at different family lifecycle stages. *Appetite, 150*, 104644. https://doi.org/10.1016/J.APPET.2020.104644
+
+Kuijpers, S., Goudappel, G.-J., Huppertz, T., Van Duynhoven, J., & Terenzi, C. (2024). Quantification of phase separation in high moisture soy protein extrudates by NMR and MRI. *Food Research International, 197*. https://doi.org/10.1016/j.foodres.2024.115225
+
+Kumar, M., Tomar, M., Potkule, J., Verma, R., Punia, S., Mahapatra, A., Belwal, T., Dahuja, A., Joshi, S., Berwal, M. K., Satankar, V., Bhoite, A. G., Amarowicz, R., Kaur, C., & Kennedy, J. F. (2021). Advances in the plant protein extraction: Mechanism and recommendations. *Food Hydrocolloids, 115*, 106595. https://doi.org/10.1016/J.FOODHYD.2021.106595
+Kyriakopoulou, K., Dekkers, B., & van der Goot, A. J. (2018). Plant-Based Meat Analogues. In Sustainable Meat Production and Processing (pp. 103–126). Academic Press. https://doi.org/10.1016/B978-0-12-814874-7.00006-7
+
+Lévesque, L. (2014). Nyquist sampling theorem: understanding the illusion of a spinning wheel captured with a video camera. Physics Education, 49(6), 697. https://doi.org/10.1088/0031-9120/49/6/697
+
+Machuca, R., Phillips, K., & Phillips, K. (1983). Applications of Vector Fields to Image Processing. IEEE Transactions on Pattern Analysis and Machine Intelligence, PAMI-5(3), 316–329. https://doi.org/10.1109/TPAMI.1983.4767393
+
+Mao, B., Singh, J., Hodgkinson, S., Farouk, M., & Kaur, L. (2024). Conformational changes and product quality of high-moisture extrudates produced from soy, rice, and pea proteins. Food Hydrocolloids, 147, 109341. https://doi.org/10.1016/J.FOODHYD.2023.109341
+
+Marcotti, S., Freitas, D. B. de, Troughton, L. D., Kenny, F. N., Shaw, T., Stramer, B. M., & Oakes, P. W. (2021). A workflow for rapid unbiased quantification of fibrillar feature alignment in biological images. BioRxiv, 2021.07.22.453401. https://doi.org/10.1101/2021.07.22.453401
+
+Nieuwland, M., Heijnis, W., van der Goot, A. J., & Hamoen, R. (2023). XRT for visualizing microstructure of extruded meat replacers. Current Research in Food Science, 6, 100457. https://doi.org/10.1016/J.CRFS.2023.100457
+
+Nisov, A., Nikinmaa, M., Nordlund, E., & Sozer, N. (2022). Effect of pH and temperature on fibrous structure formation of plant proteins during high-moisture extrusion processing. Food Research International, 156, 111089. https://doi.org/10.1016/J.FOODRES.2022.111089
+
+Osen, R., Toelstede, S., Wild, F., Eisner, P., & Schweiggert-Weisz, U. (2014). High moisture extrusion cooking of pea protein isolates: Raw material characteristics, extruder responses, and texture properties. Journal of Food Engineering, 127, 67–74. https://doi.org/10.1016/J.JFOODENG.2013.11.023
+
+Pette, D., & Staron, R. S. (1990). Cellular and molecular diversities of mammalian skeletal muscle fibers. Reviews of Physiology, Biochemistry and Pharmacology, 116, 1–76. https://doi.org/10.1007/3540528806_3/Cover
+
+Rezakhania, R., Agianniotis, A., Schrauwen, J. T. C., Griffa, A., Sage, D., Bouten, C. V. C., Van De Vosse, F. N., Unser, M., & Stergiopulos, N. (2012). Experimental investigation of collagen waviness and orientation in the arterial adventitia using confocal laser scanning microscopy. Biomechanics and Modeling in Mechanobiology, 11(3–4), 461–473. https://doi.org/10.1007/S10237-011-0325-Z
+
+Sanchez-Sabate, R., & Sabaté, J. (2019). Consumer Attitudes Towards Environmental Concerns of Meat Consumption: A Systematic Review. International Journal of Environmental Research and Public Health 2019, Vol. 16, Page 1220, 16(7), 1220. https://doi.org/10.3390/IJERPH16071220
+
+Sandoval Murillo, J. L., Osen, R., Hiermaier, S., & Ganzenmüller, G. (2019). Towards understanding the mechanism of fibrous texture formation during high-moisture extrusion of meat substitutes. Journal of Food Engineering, 242, 8–20. https://doi.org/10.1016/J.JFOODENG.2018.08.009
+Sari, Y. W., Mulder, W. J., Sanders, J. P. M., & Bruins, M. E. (2015). Towards plant protein refinery: Review on protein extraction using alkali and potential enzymatic assistance. *Biotechnology Journal, 10*(8), 1138–1157. https://doi.org/10.1002/BIOT.201400569
+
+Shu, C. F., & Jain, R. C. (1994). Vector Field Analysis for Oriented Patterns. *IEEE Transactions on Pattern Analysis and Machine Intelligence, 16*(9), 946–950. https://doi.org/10.1109/34.310692
+
+Sun, Y., Dong, M., Bai, J., Liu, X., Yang, X., & Duan, X. (2024). Preparation and properties of high-soluble wheat gluten protein-based meat analogues. *Journal of the Science of Food and Agriculture, 104*(1), 42–50. https://doi.org/10.1002/JSFA.12922
+
+Tian, B., Wang, Z., de Campo, L., Gilbert, E. P., Dalgliesh, R. M., Velichko, E., van der Goot, A. J., & Bouwman, W. G. (2020). Small angle neutron scattering quantifies the hierarchical structure in fibrous calcium caseinate. *Food Hydrocolloids, 106*, 105912. https://doi.org/10.1016/J.FOODHYD.2020.105912
+
+Tukker, A., & Jansen, B. (2006). Environmental impacts of products: A detailed review of studies. In *Journal of Industrial Ecology* (Vol. 10, Issue 3, pp. 159–182). https://doi.org/10.1162/jiec.2006.10.3.159
+
+Van Der Sman, R. G. M., & Van Der Goot, A. J. (2009). The science of food structuring. *Soft Matter, 5*(3), 501–510. https://doi.org/10.1039/B718952B
+
+van der Sman, R. G. M., & van der Goot, A. J. (2023). Hypotheses concerning structuring of extruded meat analogs. *Current Research in Food Science, 6*, 100510. https://doi.org/10.1016/J.CRFS.2023.100510
+
+Virtanen, P., Gommers, R., Oliphant, T. E., Haberland, M., Reddy, T., Cournapeau, D., Burovski, E., Peterson, P., Weckesser, W., Bright, J., van der Walt, S. J., Brett, M., Wilson, J., Millman, K. J., Mayorov, N., Nelson, A. R. J., Jones, E., Kern, R., Larson, E., ... SciPy 1.0 Contributors. (2020). SciPy 1.0: Fundamental Algorithms for Scientific Computing in Python. *Nature Methods, 17*, 261–272. https://doi.org/10.1038/s41592-019-0686-2
+
+Wittek, P., Ellwanger, F., Karbstein, H. P., & Emin, M. A. (2021). Morphology development and flow characteristics during high moisture extrusion of a plant-based meat analogue. *Foods, 10*(8). https://doi.org/10.3390/foods10081753
+
+Wittek, P., Karbstein, H. P., & Emin, M. A. (2021). Blending Proteins in High Moisture Extrusion to Design Meat Analogues: Rheological Properties, Morphology Development and Product Properties. *Foods, 10*(7). https://doi.org/10.3390/FOODS10071509
+
+Wittek, P., Zeiler, N., Karbstein, H. P., & Emin, M. A. (2021). High moisture extrusion of soy protein: Investigations on the formation of anisotropic product structure. *Foods, 10*(1). https://doi.org/10.3390/foods10010102
+
+Zhang, J., Chen, Q., Kaplan, D. L., & Wang, Q. (2022). High-moisture extruded protein fiber formation toward plant-based meat substitutes applications: Science, technology, and prospect. *Trends in Food Science & Technology, 128*, 202–216. https://doi.org/10.1016/J.TIFS.2022.08.008
+Zhang, X., Zhao, Y., Zhao, X., Sun, P., Zhao, D., Jiang, L., & Sui, X. (2022). The texture of plant protein-based meat analogs by high moisture extrusion: A review. Journal of Texture Studies. https://doi.org/10.1111/jtxs.12697
+
+Zink, J. I., Lutz-Bueno, V., Handschin, S., Dütsch, C., Diaz, A., Fischer, P., & Windhab, E. J. (2024). Structural and mechanical anisotropy in plant-based meat analogues. Food Research International, 179, 113968. https://doi.org/10.1016/J.FOODRES.2024.113968
+
+Supplementary Information
+
+Table of contents
+
+1. Figure SI.1: Schematic of High Moisture Extruder
+2. Pseudo-code of RFT Algorithm
+3. Figure SI.2: Airyscan imaging of fibrils
+4. MATLAB implementation of Skeletonize.
+5. Figure SI.3: Assessing the robustness of determined dominant angles of anisotropy.
+6. Figure SI.4: Additional Positions in the cooling die
+7. Table SI.1: Exact location of additional Positions
+8. Figure SI.5: Confocal multi-colour imaging of SPC
+
+1. Schematic of High Moisture Extruder
+
+Figure SI.1: Schematic of a High Moisture Extruder (HME) to produce plant-based meat analogues. Protein powder and water is mixed via two screws, compressed in a transition zone, and pushed through a die before being extrudates. Each section can be individually temperature controlled. The screw section can have various geometries, tailored to the target product and protein used.
+
+2. Pseudo-code of RFT Algorithm
+
+```python
+sub_region_size = 50 # pixels
+
+for sub_region in divide(image, sub_region_size):
+    for angle in range(0, 180, angle_delta):
+        sub_region = rotate(sub_region, angle) # Fig. 2a
+        line_profile = sum_over_axis(sub_region) # Fig. 2b
+        fft_line_profile = fft(line_profile) # Fig. 2c
+        angular_intensity[angle] = sum(fft_line_profile) # Fig. 2d
+```
+
+https://doi.org/10.26434/chemrxiv-2025-g0rcx ORCID: https://orcid.org/0000-0001-7436-2221 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+angular_intensity = angular_intensity – min(angular_intensity) # remove background signal
+
+gaussians = fit(gaussian_function, angular_intensity) # results in n pairs of θ, σ, A. Fig. 2f
+
+angle_map[sub_region] = filter(gaussians) # filter insignificant or overlapping angles.
+
+for angle in angle_map: # iterate over all angles detected globally
+    single_angle_map = merge(angle_map, angle) # Fig. 2i/j
+
+    weighted_order_parameter = calculate_WOP(angle_map)
+
+3. Airyscan Imaging of Fibrils
+
+Using Airyscan we can obtain high resolution images. This allows us to image individual fibrils, the smallest element we can visualise using this method (Fig. SI.2). We observe large bundles of protein, surrounded by water and polysaccharides in small quantities. The larger masses are all aligned with the flow direction. In the insert we can see small individual features, as marked with magenta lines, aligned with the flow direction rightward. From the insert we can observe a fibrillar size of 0.21 μm. The mean WOP of this image is 0.48 ± 0.39 and the characteristic size is 1.68 μm when using a window size of 300 pixels and a neighbourhood size of 3.
+
+Figure SI.2: An Airyscan image, taken at the edge of a sagittal slice, from an extrudate SPC sample at 15 cm into the cooling die. The material shown is protein, as stained by RhB, with the black background containing predominantly water. In the insert, using magenta arrows, are indicated what we identify as fibrils with a cross-section of 0.21 μm.
+
+4. MATLAB Implementation of Skeletonize
+
+The script below takes in an image (mosaic.tif) and produces a histogram and csv containing all the angles. The angles are corrected to correspond to those by RFT.
+clear;  
+I = imread('mosaic.tif');  
+complement = imcomplement(I);  
+BW = imbinarize(complement);  
+out = bwskel(BW);  
+mn=bwmorph(out,'branchpoints');  
+branches = out & ~mn;  
+imshow(branches);  
+sts = regionprops( branches, "Orientation", "Area");  
+figure;  
+angles = [];  
+for i = 1:length(sts)  
+    if sts(i).Orientation < 0  
+        angles = [angles repmat(sts(i).Orientation+180, 1, sts(i).Area)];  
+    else  
+        angles = [angles repmat(sts(i).Orientation, 1, sts(i).Area)];  
+    end  
+end  
+histogram(angles)  
+writematrix(angles, "Skeletonize.csv")  
+
+5. Assessing the robustness of determined dominant angles of anisotropy
+
+To show the accuracy and precision of calculating the dominant angles using RFT, we generated a set of images with 20 different wavelengths at 36 different angles, rotating from 0° to 175° and with wavelengths of 5 to 500 pixels (similar to Fig. 4a). We then analysed these images using a window size of 200 px and plot the most dominant angle calculated per image in Fig. SI.3. Here we observe that for each angle, regardless of the wavelength, we can recover the original angle with very high accuracy and precision (error < 1°).
+
+Figure SI.3: This figure shows that the most dominant angle we obtain is equal to the angle that is put in. Error bars are not shown due to the negligible variance in the data. The unity line is also shown, and all points lie on this line. Error bars are not shown, as they are below 1°.
+
+6. Additional Positions in the cooling die
+
+In figure 6, two positions are shown. We add data for positions at 9 and 15 cm in the cooling die (Fig. SI.4). The trends described above do not change, but we can observe a stark difference around position
+4, where the 15 and 21 cm images are higher structured compared to 3 and 9 cm. We can see that the structure ‘grows’ inward the further along the cooling die we proceed. The positions along the x-axis in micrometres are found in Table SI.1.
+
+![Diagram showing deadstop measurements](https://doi.org/10.26434/chemrxiv-2025-g0rcx)
+
+**Figure SI.4:** Additional locations in the cooling barrel, namely 9 cm and 15 cm, alongside the 3 cm and 21 cm shown in Figure 6. Exact positions for each sample are shown in Table SI.1.
+
+### 7. Positions of deadstop measurements
+
+Table SI.1: Distances from the centres of the images to the centre of the sample, as determined by zeroing on the middle of the sample. This zero is ±200 microns from the exact centre of the sample.
+
+| Position in Graph | 3 cm (μm) | 9 cm (μm) | 15 cm (μm) | 21 cm (μm) |
+|-------------------|-----------|-----------|------------|------------|
+| 1                 | 397       | 412       | 316        | 607        |
+| 2                 | 853       | 1209      | 1170       | 1073       |
+| 3                 | 2332      | 2895      | 1739       | 1923       |
+| 4                 | 3495      |           | 2546       | 3125       |
+| 5                 | 5017      | 4212      | 3679       | 4350       |
+| 6                 | 5815      | 5643      | 5146       | 5642       |
+8. Confocal multi-colour imaging of SPC
+
+Figure SI.5: Composite CLSM images showing protein in red (RhB) and cellulose in cyan (CFW) for a deadstop sample taken at 21cm into the cooling die. a) Image taken near the core (Fig. 1c) of the sample. b) Image taken near the skin (Fig. 1b) of the sample.

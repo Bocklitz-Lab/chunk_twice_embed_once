@@ -1,0 +1,23 @@
+{
+  "dataset_revision": "4e7fd0815c39f407e6fd08c9b1d5bf481022ef4f",
+  "evaluation_time": 1865.7601754665375,
+  "kg_co2_emissions": null,
+  "mteb_version": "1.14.2",
+  "scores": {
+    "test": [
+      {
+        "accuracy": 0.012550947790645015,
+        "f1": 0.002876140534465009,
+        "hf_subset": "en-en",
+        "languages": [
+          "en-Latn",
+          "eng-Latn"
+        ],
+        "main_score": 0.002876140534465009,
+        "precision": 0.0019650469929141925,
+        "recall": 0.012550947790645015
+      }
+    ]
+  },
+  "task_name": "PubChemSMILESCanonTitleBM"
+}

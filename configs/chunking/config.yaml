@@ -1,0 +1,63 @@
+# Save as: config.yaml
+input_path: data/papers.jsonl
+output_path: out/chunks.jsonl
+
+# Each line in input should have this key containing the full text
+text_field: full_text
+# (Optional) a doc id field in your input; if absent, we use line number
+id_field: paper_id
+
+# Optional: token counting for stats only
+token_count_encoding: cl100k_base   # or leave null to skip
+token_count_model: null             # e.g., gpt-4o-mini (tiktoken will map)
+
+# Limit processing during tests
+max_docs: null
+
+# Choose one strategy and set its params
+strategy:
+  name: fixed_token        # one of: fixed_token | recursive_token | kamradt | cluster_semantic | llm
+  params:
+    # ---- fixed_token (FixedTokenChunker) params ----
+    encoding_name: cl100k_base
+    model_name: null          # optional, overrides encoding_name
+    chunk_size: 800
+    chunk_overlap: 100
+    keep_separator: false     # passed to base splitter if supported
+    add_start_index: false
+    strip_whitespace: true
+
+# strategy:
+#   name: recursive_token
+#   params:
+#     chunk_size: 800
+#     chunk_overlap: 100
+#     separators: ["\n\n", "\n", ".", "?", "!", " ", ""]
+#     keep_separator: true
+#     is_separator_regex: false
+
+
+# strategy:
+#   name: kamradt
+#   params:
+#     avg_chunk_size: 400
+#     min_chunk_size: 50
+#     # embedding_function uses your repo's default (OpenAI). Configure env var:
+#     # OPENAI_API_KEY: "sk-..."
+
+
+# strategy:
+#   name: cluster_semantic
+#   params:
+#     max_chunk_size: 400
+#     min_chunk_size: 50
+#     # embedding_function default + OPENAI_API_KEY env
+
+
+# strategy:
+#   name: llm
+#   params:
+#     organisation: openai          # or "anthropic"
+#     model_name: gpt-4o            # or "claude-3-5-sonnet-20240620"
+#     api_key: null                 # optional; if null uses env var below
+#     api_key_env: OPENAI_API_KEY   # or ANTHROPIC_API_KEY

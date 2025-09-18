@@ -1,0 +1,154 @@
+Tailoring Phosphorene Quantum Dot via Electrochemical Methods for Enhanced Capacity Na-ion Batteries
+
+Bikash Ranjan Isaac, Sankeerth Satish, S. Sreedeep, Sangram Mohapatra, Subbiah Alwarappan, and Vijayamohan K. Pillai
+
+[a] Bikash Ranjan Isaac, Sankeerth Satish, S. Sreedeep, Sangram Mohapatra and Vijayamohan K. Pillai
+
+Department of Chemistry, Indian Institute of Science Education and Research Tirupati, Srinivasapuram, Yerpedu Mandal Tirupati Dist, Andhra Pradesh, India – 517619.
+
+Email: vijay@iisertirupati.ac.in
+
+[b] Subbiah Alwarappan
+
+Electrodics and Electrocatalysis Division, CSIR-Central Electrochemical Research Institute, Karaikudi, Tamilnadu – 630003, India
+
+Email: alwarappan@cecri.res.in
+
+AUTHOR INFORMATION
+
+Corresponding Author
+
+Vijayamohan K. Pillai
+Department of Chemistry, Indian Institute of Science Education and Research, Tirupati
+Srinivasapuram, Yerpedu Mandal Tirupati Dist, Andhra Pradesh, India – 517619.
+
+Email: vijay@iisertirupati.ac.in
+
+ABSTRACT
+
+The development of advanced energy storage technologies has driven significant interest in two-dimensional (2D) materials, particularly graphene, stanene, phosphorene and their analogues, due to their unique structural and electronic properties, as well as their propensity for doping. In this work, we demonstrate an electrochemical approach for tailoring phosphorene quantum dots (PQDs) specifically optimized for sodium-ion battery (SIB) applications using benchmark cathodes and electrolytes. Sodium-ion batteries, as a promising alternative to lithium-ion systems, benefit from the tunable surface area and conductivity provided by size-optimized PQDs, which enhance ion diffusion kinetics and charge storage capabilities. The size-tuning of PQDs is achieved through a controlled electrochemical exfoliation and passivation process, resulting in quantum dots with improved stability and a higher specific capacity. For example, the PQDs coupled with Prussian white analogue (PW) exhibit superior key performance metrics, showing a high discharge capacity of 250 mAg\(^{-1}\) and capacity retention of 77% after 250 cycles, positioning them as a viable candidate for next-generation SIBs. This study presents a pathway for scalable production in SIBs using phosphorene-based materials, laying the groundwork for high-efficiency, sustainable energy storage solutions.
+
+Keywords: Electrochemical Synthesis, Size-Dependent, Phosphorene Quantum Dots, Black Phosphorous, Energy Storage, Band-Gap Engineering
+INTRODUCTION
+
+The global demand for efficient, sustainable, and affordable energy storage systems has intensified the search for alternatives to traditional lithium-ion batteries. Consequently, sodium-ion batteries (SIB) have garnered considerable attention as a viable solution due to the abundance and low cost of sodium resources, along with the potential for safe, large-scale deployment. Another advantage of the Na-ion battery is that aluminium (lighter and cheaper) can be used as a current collector. More importantly, they can be stored at low state of charge, which is unlike detrimental to the life of Li-ion batteries. However, Na-ion battery performance is often limited by challenges associated with sluggish ion diffusion and lower energy density compared to lithium-based systems. To overcome these limitations, many approaches are being adapted. Among these, one approach involves the use of two-dimensional (2D) materials and their innovative components particularly phosphorene, due to its high surface area, excellent electronic conductivity, tunable Van der Waals gap and unique layer-dependent properties.
+Phosphorene is a highly promising anode material for SIBs due to its ability to accommodate larger Na ions, unlike traditional carbon-based anodes, resulting in a high theoretical specific capacity of ~2600 mAh g⁻¹. DFT studies indicate that Na intercalation in phosphorene enables fast (0.04 eV energy barrier) and anisotropic diffusion while also triggering a semiconductor-to-metal transition at high Na concentrations, benefiting from its larger interlayer channel size (3.08 Å vs. 1.86 Å for graphite).⁵,⁶ However, the utilization of phosphorene to PQDs for Na-ion batteries requires a careful control over its physical dimensions to enhance its electrochemical performance for lithium-ion and SIBs.⁷,⁸
+
+SIB cathodes mainly consist of layered transition metal oxides (e.g., Na₉CoO₂), polyanionic compounds (e.g., Na₃V₂(PO₄)₃), and Prussian blue analogs, each exhibiting unique benefits in terms of capacity, structural stability, and electrochemical performance.⁹,¹⁰ While layered oxides offer high capacity, polyanionic materials demonstrate enhanced stability due to strong covalent bonding within their framework.¹¹ Among them Prussian white (PW) (NaₓMₐ[M₆(CN)₆]) stands out for its affordability, non-toxicity, and high energy density, making it a strong candidate for cathodes.¹² Additionally, it features extensive three-dimensional ion diffusion channels, large sodium storage sites, and minimal lattice strain, allowing for quick Na⁺ (de)intercalation while preserving structural integrity.¹³ Furthermore, PW can be synthesized through a simple coprecipitation method, bypassing the need for high-temperature sintering and significantly lowering production costs.¹⁴ Consequently, PW material shows great potential for development and practical application in cost-effective sodium-ion batteries (SIBs). However, exposure of PW to moisture leads to surface contamination and structural transformation from a rhombohedral to a monoclinic phase due to water absorption, while vacuum drying at 150 °C restores the rhombohedral structure by removing interstitial water but not surface impurities.¹⁵ Hence,
+combining PW with the size tailored PQDs, not only improves the specific capacity and rate capability of Na-ion batteries but also ensures the structural stability of the PQDs@PW over extended cycles.
+
+In this study, we explore the electrochemical synthesis of size-tuned PQDs coupled with PW (PQDs@PW) to address the specific requirements of Na-ion batteries as an anode material. By employing an electrochemical exfoliation process, we are able to achieve PQDs with controlled dimensions from black phosphorous at room temperature using 0.1 M LiClO$_4$ in N-Methyl-2-Pyrrolidone (NMP) by varying the concentrations, optimizing them for enhanced Na-ion diffusion and charge storage. Our results demonstrate that PQDs@PW can offer significant advantages in terms of both energy and power densities, providing insights into their potential for next-generation energy storage technologies.$^{16,17}$ This study thus establishes a scalable and efficient route for producing phosphorene-based materials, laying the foundation for further advancements in SIB technology.$^5$ The UV and PL results demonstrate the size-dependent optical properties of these quantum dots (QDs). Additionally, transmission electron microscopy (TEM) reveals the size distribution and morphological structure of phosphorene quantum dots (PQDs), supporting their potential for band-gap engineering. This study is the first to report on the application of size-dependent PQDs@PW in energy storage.
+
+**RESULTS AND DISCUSSION**
+Scheme 1. A Pictorial Representation of various sizes of PQDs using 0.1 M LiClO₄ in NMP.
+
+Scheme 1 illustrates the electrochemical conversion of bulk black phosphorus (BP) into phosphorus quantum dots (PQDs). To optimize the process, experiments were conducted under various applied potentials and different electrolyte-supporting electrolyte combinations. Based on a yield of approximately 30%, an optimal applied potential of −2.0 V was identified. The BP-coated working electrode was subjected to a cathodic potential of −2.0 V (versus a Ag wire quasi-reference electrode) in NMP containing 0.1 M LiClO₄ for 12 hours. NMP, an organic carbonate electrolyte, is well-suited for lithium-based salts and is commonly used in battery applications. To prevent oxygen dissolution despite using a non-aqueous electrolyte, argon purging was maintained throughout the experiment. For battery applications, the synthesized material is separated from the electrolyte and further used in a coin cell configuration.
+
+The reactions in the cell can be represented as follows:
+At Anode: \[ n\text{Na} \rightleftharpoons n\text{Na}^+ + ne^- ; E^\circ = 2.71 \text{ V} \]
+
+At Cathode: \[ \text{PQD@Na}_x\text{Fe[Fe(CN)}_6\text{]}_{y/2} + n\text{Na}^+ + e^- \rightleftharpoons \text{PQD@Na}_{x+n}\text{Fe[Fe(CN)}_6\text{]}_{y/2} ; E^\circ = -0.31 \text{ V} \]
+
+Cell Reaction: \[ \text{PQD@Na}_x\text{Fe[Fe(CN)}_6\text{]}_{y/2} + n\text{Na} \rightleftharpoons \text{PQD@Na}_{x+n}\text{Fe[Fe(CN)}_6\text{]}_{y/2} ; E^\circ = 2.4 \text{ V} \]
+
+The open circuit potential of the material with respect to Na/Na$^+$ is around 2.4 V. However the redox potential of sodium (Na$^+/\text{Na}$) is $-2.71$ V, which is just 0.3 V higher than that of lithium (Li$^+/\text{Li}$) at $-3.04$ V theoretically. Based on the above reactions, the energy storage properties of the PQD have been explored by utilizing it as a potential anode for the sodium-ion battery.$^{19}$
+
+**Figure 1.** Transmission Electron Micrographs of a) PQD-A of average size 5.3 nm, b) PQD-B of average size 2.3 nm
+
+Figure 1 represents the Transmission Electron Micrographs (TEM) illustrating the size evolution and structure of PQDs synthesized via an electrochemical process at a constant potential varying...
+the volume of the electrolyte. The micrographs of a), b), and c) depict the size progression of PQDs at different synthesis concentrations, with the indigo PQDs (PQD-A) averaging 5.3 nm, blue PQDs (PQD-B) reaching an average size of 2.3 nm, and cyan PQDs (PQD-C). These micrographs emphasize the tunable nature of PQD sizes through controlled synthesis, which is crucial for tailoring their optical and electronic properties for various applications.
+**Figure 2.** a) PQDs under the presence of U.V. radiation, b) UV-vis absorption spectra obtained for violet, blue and cyan PQDs, c) Photoluminescence spectra for violet PQD-A, d) Photoluminescence spectra for blue PQD-B, e) Photoluminescence spectra for cyan PQD-C.
+
+Figure 2 a) displays PQDs of varying sizes under UV irradiation. From left to right, the image represents indigo, blue and cyan-emitting 0-D materials. In Figure 2 b), the three sizes of PQDs show the same excitation wavelength of 340 nm as shown. This strong UV absorption is further evident from PL spectroscopy. Photoluminescence (P.L.) serves as an effective method for optical characterization. Figures 2 c), 2 d), and 2 e) illustrate emission wavelengths at 437, 451, and 476 nm, corresponding to excitation wavelength of 360 nm all three PQDs. The different size distributions of the three types of PQDs result in distinct PL spectra, highlighting the size-dependent optical properties of the QDs. Phosphorene shows three σ bonds of each P atom consist of two inner σ bonds (σ$_{\text{inner}}$) and one outer σ bond (σ$_{\text{outer}}$) bond with bond lengths of 2.164 Å and 2.207 Å. These two kinds of σ bonds (with varying bond lengths) have differing electron energy levels due to unequal and asymmetrical sp$^3$ hybridization. A longer bond length results in a higher energy level since it has less bond energy. Transitions from the lowest unoccupied molecular orbital (LUMO) to the σ$_{\text{inner}}$ and σ$_{\text{outer}}$ are explained by the PL emission spectra obtained.\(^8\)
+Figure 3. FT-IR Spectra of the three sizes of PQDs along with Black Phosphorus
+
+Figure 3. shows the FT-IR Spectra for three different sizes of PQDs with standard material of Black Phosphorous. A broad adsorption band is observed in the region of 3449 cm\(^{-1}\), which indicates the O–H stretching frequency due to the adsorbed water present on the surface of Black Phosphorus.\(^{20}\) The P–NH stretching vibration typically appears in the IR spectrum in the range of 2855 cm\(^{-1}\) - 2931 cm\(^{-1}\).\(^{21}\) A stronger P–N bond will result in a higher stretching frequency. The broad band seen in the range of 1600 cm\(^{-1}\) - 1700 cm\(^{-1}\) can be attributed to P–OH, while P = O stretching frequency bands appear in the range of 1000 cm\(^{-1}\) to 1150 cm\(^{-1}\).\(^{22}\)
+
+The electrochemical studies of the PQD and PQD_PW_A – C have been carried out within a potential window of 0.005 – 1 V at a current density of 100 mA g\(^{-1}\) as seen in Figure 4 a). The galvanostatic charge-discharge (GCD) plot of PQD_PW_A – C shows discharge capacities of 200, 180, and 250 mAh g\(^{-1}\) with capacity retention of 68, 80, and 77% after 250 cycles for PQD_PW_A,
+PQD_PW_B, and PQD_PW_C, respectively, while pristine PQD shows poor discharge capacity of 159 mAh g\(^{-1}\) with capacity retention of 52% after 100 cycles. This enhancement in the electrochemical properties of PQD_PW compared to pristine PQD can be attributed to the PW coating on the surface of PQD which act as a protective coat that alleviates the volume expansion of PQD during charge-discharge and also prevents the unsatisfactory side reaction between the electrode and electrolyte. Hence from the preliminary GCD studies the PQD_PW_C has been optimized to exhibit excellent electrochemical performance.
+
+**Figure 4.** (a) Potential vs. time graph for PQD_PW (A, B, and C); (b) Charge-discharge profile for PQD and PQD_PW (A, B, and C); charge-discharge profiles at different cycle numbers for (b) PQD, and (c) PQD_PW_C; (d) cycle number vs. capacity plot for PQD and PQD_PW (A, B, and C).
+
+The electrochemical impedance spectra (EIS) analysis of the PQD_PW_A – C has been carried out to understand the kinetics of the electrochemical reaction. The Nyquist plot exhibits a solution
+resistance \((R_s)\) and a charge-transfer resistance at the high frequency region, while a rising Warburg \((Z_w)\) can be observed at the low frequency region. The Nyquist plot depicts a decrement in the magnitude of \(R_{CT}\) as the size of the PQD_PW is decreased from A to C owing to the increased surface area which provides additional channels for the Na-ion diffusion, thereby enhancing the Na-ion transfer kinetics. Also, the equivalent circuit for the as-determined Nyquist plot is- \(R_s + R_1 / C_1 + R_2 / C_2 + R_3 / C_3 + Z_w\), where \(C_1\), \(C_2\), and \(C_3\) are the capacitive elements.
+
+**Figure 5.** Nyquist plot for PQD_PW_(A, B, and C). The inset shows a magnified area of the high frequency region for PQD_PW_(A, B, and C) combined and the low frequency region for PQD_PW_(A,B, and C) separately.
+
+The determination of apparent diffusion coefficient \((D_{Na^+})\) has been carried out from the Nyquist plot. The slope of the \(Z\) vs. \(\omega^{-1/2}\) plot has been determined, and the magnitude of the same has been used in the equation, given as-
+
+\[
+D_{Na^+} = \frac{R^2 T^2}{2 A^2 n^4 F^4 \sigma^2 C^2}
+\]
+where, $D_{Na^+}$ is the diffusion coefficient $R$ refers to the universal gas constant (8.314 J K$^{-1}$ mol$^{-1}$), $T$ is the temperature, $A$ is the cross-sectional area of the electrode, $n$ is the number of moles of Na-ion involved in the reaction, $F$ is the faraday constant (96,500 C mol$^{-1}$), $\sigma$ is the slope of the curve, and $C$ is the concentration of the electrolyte. The as-determined $D_{Na^+}$ are in the order of magnitudes of $10^{-13}$ and $10^{-15}$ cm$^2$ s$^{-1}$ as seen in S2 and S3. In addition, the $D_{Na^+}$ exhibits a trend in which the PQD_PW_C shows higher magnitude followed by a decrement in its magnitude in the case of PQD_PW_B, while the PQD_PW_A exhibits an enhancement in its magnitude.
+
+**CONCLUSIONS**
+
+This study successfully demonstrates the remarkable performance of size-tuned phosphorene quantum dots (PQDs) for Na-ion batteries. Through a controlled electrochemical exfoliation approach, PQDs of varying sizes are produced, enabling the investigation of size-dependent properties critical to energy storage. The incorporation of Prussian white (PW) as a composite with PQDs (PQD_PW) further enhances their electrochemical performance, providing a synergistic effect that improved charge transfer kinetics, structural stability, and overall cycling performance. Smaller PQDs demonstrated enhanced Na-ion diffusion and higher surface area, contributing to superior charge-storage capacity and rate capability. Among the composites studied, PQD_PW_C exhibits the highest discharge capacity (250 mAh g$^{-1}$) and capacity retention (77%) after 250 cycles. The PW coating mitigates volume expansion and prevents adverse side reactions, thereby significantly enhancing the cycling stability compared to pristine PQDs, which shows poor capacity retention (52% after 100 cycles). Electrochemical impedance spectroscopy (EIS) revealed that the smallest PQD_PW composite (PQD_PW_C) exhibits the lowest charge transfer resistance.
+(Rct) and the highest apparent sodium-ion diffusion coefficient (DNa⁺) in the range of 10⁻¹⁰ to 10⁻¹¹ cm² s⁻¹, showcasing improved Na-ion transfer kinetics with decreasing PQD size. The scalable synthesis of PQDs and their integration into Na-ion battery electrodes provides a promising pathway for next-generation, cost-effective, and sustainable energy storage technologies. This work highlights the potential of phosphorene-based quantum dots in addressing the challenges associated with Na-ion batteries, offering insights into band-gap engineering and electrode design for high-performance energy storage devices. The results pave the way for future exploration of PQD composites in other electrochemical systems, solidifying their role in advancing energy technologies.
+
+**EXPERIMENTAL SECTION**
+
+**Electrochemical Synthesis**
+
+To begin the electrosynthesis process, 2 mg/mL dispersion of black phosphorus and 20 µL/mL of Nafion™ is prepared in de-aerated ethanol. 80 µL of this solution is drop-coat on the surface of a 10×10×1 mm glassy carbon plate working electrode. This is repeated 3 times on each side of the electrode. Electrosynthesis is performed by applying constant potential of -2 V for 12 h, using an inert platinum mesh as the counter electrode and a silver wire as the quasi-reference electrode. The electrolyte used is 0.1 M LiClO₄ in N-methyl-2-pyrrolidone (NMP). The sizes of the PQDs are controlled by varying the amount of the supporting electrolyte taking part in the reaction by changing the volume of the electrochemical cell. The 10 ml, 20 ml and 40 ml cells are used for PQD-A, PQD-B and PQD-C respectively. Optical properties corresponding to the size variations were analyzed using UV-Vis and photoluminescence (PL) spectroscopy at room temperature in ethanol. Structural characteristics were investigated with Fourier transform infrared (FT-IR)
+spectroscopy, powder X-ray diffraction (PXRD), and X-ray photoelectron spectroscopy (XPS), while the sizes were confirmed through transmission electron microscopy (TEM). Coprecipitation is used to create the sodium prussian white analogue (Na$_2$Fe[Fe(CN)$_6$]). Solution A is first made by dissolving 15 g of sodium citrate and 4 mM of sodium ferrocyanide decahydrate (Na$_4$Fe(CN)$_6$·10H$_2$O) in 200 mL of deionized water. Likewise, solution B is made by dissolving 15 g of sodium citrate and 6 mM of ferrous sulfate heptahydrate (FeSO$_4$·7H$_2$O) in 200 mL of deionized water. A third solution (100 mL of deionized water, known as solution C) is then mixed with these two solutions (A and B) dropwise. The reaction is conducted at 30 °C while being continuously stirred at 750 rpm. The combination is aged for 24 hours, and the final product is collected by centrifugation and dried at 120 °C in a vacuum oven. The final product is stored under an inert environment to prevent the decomposition of PW to Prussian Blue.
+
+**Cell fabrication and electrochemical testing**
+
+The active material, PQD_PW, was initially synthesized by blending PQD and PW in a 60:40 weight ratio using a mortar and pestle. For electrode fabrication, the active material was combined with conductive carbon (acetylene black, Alfa Aesar) and a binder (Teflonized acetylene black, TAB-2) in a weight ratio of 5:1:1 (in mg). The mixture was ground with ethanol as a medium until a self-supporting film was formed. This film was then pressed onto a stainless steel mesh (Goodfellow), serving as the current collector. To eliminate moisture, the electrode was dried overnight in a vacuum oven at 75 °C. Subsequently, the electrode was transferred into an argon-filled glove box with O$_2$ and H$_2$O levels maintained below 0.1 ppm. For half-cell assembly, the electrode was placed in a CR2016 coin-cell configuration with sodium as the counter electrode. A glass microfiber separator (Whatman, 1825-047, GF/F) was used to prevent direct contact between the electrodes, and the electrolyte comprising 1M NaPF$_6$ in ethylene
+carbonate (EC) and dimethyl carbonate (DMC) (1:1 weight ratio) with 10% (by volume) fluoroethylene carbonate (FEC) as an additive was added to the separator before sealing the cell. The assembled cell was then subjected to galvanostatic charge-discharge measurements using a Biologic battery tester at a current density of 100 mA g⁻¹ within a potential window of 0.005–2 V.
+
+Conflicts of interest
+
+There is no conflict to declare.
+
+Supporting Information
+
+Table: Various reported synthetic methods for similar materials, Table for Diffusion coefficient of the PQD_PW composites calculated from the EIS plot, and Diffusion coefficient of PQD and PQD_PW composites.
+
+Acknowledgements
+
+The authors gratefully acknowledge the financial assistance and infrastructure received from IISER Tirupati for carrying out this study. V.K.P. would like to thank SERB, New Delhi, for the J C Bose Fellowship (JCB/2020/000018). Authors acknowledge CIF@CSIR-CECRI for TEM analysis.
+
+Notes and References
+
+(1) Liu, Y.; Zhang, R.; Wang, J.; Wang, Y. Current and Future Lithium-Ion Battery Manufacturing. *iScience* **2021**, *24*(4), 102332. https://doi.org/10.1016/j.isci.2021.102332.
+(2) Desai, P.; Huang, J.; Foix, D.; Tarascon, J.-M.; Mariyappan, S. Zero Volt Storage of Na-Ion Batteries: Performance Dependence on Cell Chemistry! *J. Power Sources* **2022**, *551*(232177), 232177. https://doi.org/10.1016/j.jpowsour.2022.232177.
+Zhao, L.; Zhang, T.; Li, W.; Li, T.; Zhang, L.; Zhang, X.; Wang, Z. Engineering of Sodium-Ion Batteries: Opportunities and Challenges. *Engineering (Beijing)* 2023, 24, 172–183. https://doi.org/10.1016/j.eng.2021.08.032.
+
+Mishra, R. K.; Sarkar, J.; Chianella, I.; Goel, S.; Nezhad, H. Y. Black Phosphorus: The Rise of Phosphorene in 2D Materials Applications. *Next Materials* 2024, 4 (100217), 100217. https://doi.org/10.1016/j.nxmate.2024.100217.
+
+Kulish, V. V.; Malyi, O. I.; Persson, C.; Wu, P. Phosphorene as an Anode Material for Na-Ion Batteries: A First-Principles Study. *Phys. Chem. Chem. Phys.* 2015, 17 (21), 13921–13928. https://doi.org/10.1039/c5cp01502b.
+
+Akhtar, M.; Anderson, G.; Zhao, R.; Alruqi, A.; Mroczkowska, J. E.; Sumanasekera, G.; Jasinski, J. B. Recent Advances in Synthesis, Properties, and Applications of Phosphorene. *Npj 2D Mater. Appl.* 2017, 1 (1). https://doi.org/10.1038/s41699-017-0007-5.
+
+Xu, Q.; Niu, Y.; Li, J.; Yang, Z.; Gao, J.; Ding, L.; Ni, H.; Zhu, P.; Liu, Y.; Tang, Y.; Lv, Z.-P.; Peng, B.; Hu, T. S.; Zhou, H.; Xu, C. Recent Progress of Quantum Dots for Energy Storage Applications. *Carb Neutrality* 2022, 1 (1). https://doi.org/10.1007/s43979-022-00002-y.
+
+Ozhukil Valappil, M.; Alwarappan, S.; Pillai, V. K. Phosphorene Quantum Dots: Synthesis, Properties and Catalytic Applications. *Nanoscale* 2022, 14 (4), 1037–1053. https://doi.org/10.1039/d1nr07340k.
+
+Ni, Q.; Bai, Y.; Wu, F.; Wu, C. Polyanion-Type Electrode Materials for Sodium-Ion Batteries. *Adv. Sci. (Weinh.)* 2017, 4 (3), 1600275. https://doi.org/10.1002/advs.201600275.
+
+Xiao, Y.; Xiao, J.; Zhao, H.; Li, J.; Zhang, G.; Zhang, D.; Guo, X.; Gao, H.; Wang, Y.; Chen, J.; Wang, G.; Liu, H. Prussian Blue Analogues for Sodium-Ion Battery Cathodes: A Review of Mechanistic Insights, Current Challenges, and Future Pathways. *Small* 2024, 20 (35), e2401957. https://doi.org/10.1002/smll.202401957.
+
+Chen, X.; Wang, C.; Wang, Y.; Zhao, Y.; Yin, X.; Zhang, N. Recent Progress in Layered Oxide Cathodes for Sodium-Ion Batteries: Stability, Phase Transition and Solutions. *J. Mater. Chem. A Mater. Energy Sustain.* 2024. https://doi.org/10.1039/d4ta03372h.
+
+Sun, R.; You, Y. Prussian White Cathode Materials for All-Climate Sodium-Ion Batteries. *ACS Appl. Mater. Interfaces* 2023, 15 (38), 44599–44606. https://doi.org/10.1021/acsami.4c00831.
+
+Wang, Q.; Li, J.; Jin, H.; Xin, S.; Gao, H. Prussian-blue Materials: Revealing New Opportunities for Rechargeable Batteries. *InfoMat* 2022, 4 (6). https://doi.org/10.1002/inf2.12311.
+
+Wu, J.; Song, J.; Dai, K.; Zhuo, Z.; Wray, L. A.; Liu, G.; Shen, Z.-X.; Zeng, R.; Lu, Y.; Yang, W. Modification of Transition-Metal Redox by Interstitial Water in Hexacyanometalate Electrodes for Sodium-Ion Batteries. *J. Am. Chem. Soc.* 2017, 139 (50), 18358–18364. https://doi.org/10.1021/jacs.7b10460.
+
+Hartmann, L.; Deshmukh, J.; Zhang, L.; Büchele, S.; Metzger, M. Reversing the Chemical and Structural Changes of Prussian White after Exposure to Humidity to Enable Aqueous Electrode Processing for Sodium-Ion Batteries. *J. Electrochem. Soc.* 2023. https://doi.org/10.1149/1945-7111/ace6f5.
+
+Zhang, Y.; Zhou, X.; Yang, C.; Liu, X.; Wang, M.; Han, J.; Yan, H.; You, Y. Air-Stable Prussian White Cathode Materials for Sodium-Ion Batteries Enabled by ZnO Surface Modification. *ACS Appl. Mater. Interfaces* 2024, 16 (13), 15649–15656. https://doi.org/10.1021/acsami.4c00738.
+(17) Lim, C. Q. X.; Tan, Z.-K. Prussian White with Near-Maximum Specific Capacity in Sodium-Ion Batteries. *ACS Appl. Energy Mater.* **2021**, *4* (6), 6214–6220. https://doi.org/10.1021/acsaem.1c00987.
+
+(18) Mun, S. C.; Jeon, Y. H.; Won, J. H. Progress and Challenges for Replacing N-Methyl-2-Pyrrolidone / Polyvinylidene Fluoride Slurry Formulations in Lithium-Ion Battery Cathodes. *Prog. Nat. Sci.* **2024**, https://doi.org/10.1016/j.pnsc.2024.02.013.
+
+(19) Gourang Patnaik, S.; Escher, I.; Ferrero, G. A.; Adelhelm, P. Electrochemical Study of Prussian White Cathodes with Glymes – Pathway to Graphite-based Sodium-ion Battery Full Cells. *Batter. Supercaps* **2022**, *5* (7). https://doi.org/10.1002/batt.202200043.
+
+(20) Viswanathan, B.; Murugesan, S.; Ariharan, A.; Lakhi, K. S. Hetero Atom Substituted Carbon—Potential Hydrogen Storage Materials. *Adv. Porous Mater.* **2013**, *1* (1), 122–128. https://doi.org/10.1166/apm.2013.1008.
+
+(21) Ozhukil Valappil, M.; Ahlawat, M.; Pillai, V. K.; Alwarappan, S. A Single-Step, Electrochemical Synthesis of Nitrogen Doped Blue Luminescent Phosphorene Quantum Dots. *Chem. Commun. (Camb.)* **2018**, *54* (83), 11733–11736. https://doi.org/10.1039/c8cc07266c.
+
+(22) Luna-Zaragoza, D.; Romero-Guzmán, E. T.; Reyes-Gutiérrez, L. R. Surface and Physicochemical Characterization of Phosphates Vivianite, Fe₂(PO₄)₃ and Hydroxyapatite, ca₅(PO₄)₃OH. *J. Miner. Mater. Charact. Eng.* **2009**, *08* (08), 591–609. https://doi.org/10.4236/jmmce.2009.88052.

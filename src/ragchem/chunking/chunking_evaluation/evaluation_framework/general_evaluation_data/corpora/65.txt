@@ -1,0 +1,276 @@
+Computational design of B,N-substituted graphene ribbons exhibiting quasi-degenerate S₁ and T₁ states and high fluorescence rates
+
+Magdalena W. Duszka¹, Wolfgang Domcke² and Andrzej L. Sobolewski¹*
+
+¹Institute of Physics, Polish Academy of Sciences, PL-02-668 Warsaw, Poland
+²Department of Chemistry, Technical University of Munich, D-85747 Garching, Germany
+
+*sobola@ifpan.edu.pl
+
+Abstract
+
+B,N-substituted graphene ribbons are computationally designed and their spectroscopic properties are systematically explored with wave-function based electronic-structure methods. All B,N-graphene ribbons exhibit exceptionally small S₁-T₁ energy gaps. The oscillator strength of the S₁-S₀ transition increases monotonically with the length of the ribbons. Some B,N-graphene ribbons of intermediate length (5 – 10 rings along the main axis) exhibit a negative singlet-triplet energy gap concurrently with a substantial oscillator strength. The calculated emission energies provide evidence of high rigidity of the ribbons and therefore narrow absorption/emission profiles and low radiationless quenching rates of the emissive S₁ state.
+1. Introduction
+
+The discovery of metal-free organic chromophores which can serve as efficient emitters in organic light emitting diodes (OLEDs) has transformed the materials science of optoelectronic devices in recent years. In OLED emitters, the lowest singlet ($S_1$) and triplet ($T_1$) excited electronic states are populated by the recombination of injected electrons and holes in the ratio 3:1 according to spin statistics. The high population of the $T_1$ state is unfavorable for achieving high fluorescence quantum yields. However, if the $S_1$-$T_1$ energy gap, $\Delta_{ST} = E_{S1} - E_{T1}$, is sufficiently small (that is, in the range of thermal energies), the $S_1$ state can be populated from the lower-lying $T_1$ state by the process of reverse intersystem crossing (RISC) at room temperature. The thermal conversion of the triplet population to the singlet population enhances the fluorescence yield. Emitters relying on the RISC process were pioneered by Adachi and coworkers and are known as thermally activated delayed fluorescence (TADF) emitters.\(^1\)\(^-\)\(^4\) A particularly versatile class of TADF emitters was synthesized and spectroscopically characterized by Hatakeyama and coworkers.\(^5\)\(^-\)\(^9\) In these planar heteroaromatic compounds, B and N heteroatoms are arranged in a manner such that the highest occupied molecular orbital (HOMO) and the lowest unoccupied molecular orbital (LUMO) are localized on alternate atoms, which was termed the “multiple resonance effect”.\(^5\)\(^,\)\(^9\) The exceptionally small spatial overlap of HOMO and LUMO in these compounds results in a small exchange matrix element and therefore in a small $S_1$-$T_1$ gap. The prototypical Hatakeyama compound (DABNA-1) is a diazaboranaphthoanthracene and exhibits a $\Delta_{ST}$ of the order of 0.15 eV.\(^5\)
+
+The suppression of the HOMO-LUMO spatial overlap by the multiple resonance effect necessarily also suppresses the oscillator strength of the $S_1$-$S_0$ radiative transition, which is unfavorable for efficient fluorescence from the $S_1$ state. Numerous modifications and extensions of DABNA-1 were synthesized, spectroscopically characterized and tested in OLED devices.\(^10\)\(^,\)\(^11\) In computational studies, several multiple-resonance compounds were found which exhibit a good compromise between a low $\Delta_{ST}$ and a reasonably large $S_1$-$S_0$ oscillator strength.\(^12\)\(^,\)\(^13\)\(^,\)\(^11\) In recent extensive computational studies, the vertical electronic excitation energies, singlet-triplet gaps and $S_1$-$S_0$ transition moments of a large variety of multiple-resonance-type chromophores were explored by varying the size of the compounds or the distribution of B,N heteroatoms.\(^14\)\(^-\)\(^16\) Graphene nanoribbons are narrow sheets of graphene with nanoscale widths. They have attracted considerable attention in the fields of nanoelectronics and optoelectronics.\(^17\) It has been shown that graphene ribbons (GRs) can be synthesized in a bottom-up manner from organic precursors.\(^18\)\(^-\)\(^20\) Atomically precise B-substitution of GRs also has been demonstrated.\(^21\) The electronic properties and optical spectra of GRs were investigated with computational methods and were shown to be sensitive to the width and edge structure of the GRs.\(^22\)\(^-\)\(^25\)
+
+In the present work, the effects of B,N substitutions on the spectroscopic properties of GRs are explored with electronic-structure calculations. The distribution of the B and N heteroatoms and the size (length) of the sheets are systematically varied. The excitation energies, singlet-triplet gaps and $S_1$-$S_0$ oscillator strengths are computed in order to provide insight into the suitability of these so far unexplored class of compounds as TADF emitters. Four types of carbon-boron-nitride (CBN) ribbons are considered in the present work. The structures are denoted as CBN$_n$-m, where $n = 1 \ldots 4$ denotes the type of the GR and $m = 1, 2, 3 \ldots$ denotes the length of the GR (the number of unit cells). The GRs are terminated at both ends to generate closed-shell systems. For the CBN-1 and CBN-3 ribbons, the left and right termini are different, while they are the same for the CBN-2 and CBN-4 ribbons. The CBN-3 and CBN-4 ribbons differ from the CBN-1 and CBN-2 ribbons by the replacement of the N-atoms in the upper rim by CH groups. The structures of the first two members of the four types of ribbons are shown in Scheme 1. The complete list of structures considered in the present work is displayed in Schemes S1 and S2 in the supporting information (SI).
+It has been recognized around 2019 that the very popular time-dependent density functional theory (TDDFT) is not suitable for the calculation of singlet-triplet gaps of organic chromophores due to the lack of double excitations. The latter systematically stabilize the singlet state relative to the triplet state of HOMO-LUMO excitation character.\textsuperscript{12,26–30,14,31} Computationally efficient single-reference wavefunction methods, such as CC2 (second-order simplified coupled-cluster method)\textsuperscript{32} or ADC(2) (algebraic-diagrammatic construction of second order)\textsuperscript{33} were established as reliable methods for the calculation of $S_1$ and $T_1$ excitation energies by benchmarking these methods with CC3 (third-order simplified coupled-cluster method) or other accurate electronic-structure methods.\textsuperscript{34,35} Meanwhile, it has been shown that the TD-DFT method with suitable double-hybrid functionals\textsuperscript{36,37} also can provide reliable singlet-triplet gaps.\textsuperscript{38} In the present work, the ADC(2) and CC2 methods were employed.
+
+2. Computational methods
+
+The ground-state equilibrium geometries of all compounds were pre-optimized with density functional theory (DFT) employing the B3LYP functional\textsuperscript{39} and using Grimme’s D3 dispersion correction.\textsuperscript{40} The geometry optimizations were performed with $C_{2v}$ symmetry constraint. It was verified by the computation of the Hessian that the stationary points represent energy minima. The ground-state equilibrium geometries were re-optimized with the second-order Møller-Plesset (MP2) method,\textsuperscript{41} using the DFT equilibrium geometries as initial guesses. The vertical excitation energies of the $S_1$ and $T_1$ excited states were calculated with the ADC(2) method\textsuperscript{33,42} as well as with the CC2 method.\textsuperscript{32} The correlation-consistent polarized valence double-zeta (cc-pVDZ) basis set\textsuperscript{43} and the resolution-of-the-identity (RI) approximation were employed. All calculations were performed with version 7.3 of the TURBOMOLE program package.\textsuperscript{44}
+
+Recent extensive benchmark studies of vertical excitation energies confirmed the remarkable accuracy of the computationally efficient ADC(2) and CC2 methods for the lowest singlet and triplet states of organic molecules.\textsuperscript{34,35,45–48} Root mean square (rms) errors of the order of 0.2 eV for the $S_1$ and $T_1$ energies and of the order of 0.1 eV for the $S_1$-$T_1$ energy gap were reported. For the present investigation of relatively large CBN ribbons, the use of the ADC(2) and CC2 methods represents a pragmatic compromise between accuracy and computational cost.
+
+The ratio of the weights of the double-excitation amplitudes ($t_2$) and the single-excitation amplitudes ($t_1$) in the first-order wave function provides an internal criterion informing on the reliability of the ADC(2) and CC2 methods. This ratio is shown in Fig. S2 for the $S_1$ state (full symbols) and $T_1$ state (open symbols) for the CBN_1 and CBN_2 ribbons (see Section 3) as function of the number of units. For all
+systems investigated in the present work, this ratio is in the range of 0.12 – 0.14 for the singlet excited states and 0.10 – 0.12 for the triplet excited states. It increases only moderately with the number of units, see Fig. S2.
+
+3. Results
+
+3.1. Overview of the spectroscopic properties of CBN ribbons
+
+The vertical excitation energies and oscillator strengths of the $S_1$ and $T_1$ excited states of the ribbons CBN_1-m and CBN_2-m calculated with the ADC(2) method are listed in Table 1 for $m = 1 - 9$. These results are also presented graphically in Fig. 1. The corresponding results obtained with the CC2 method are given in Table S1 and Fig. S1 in the SI.
+
+Table 1. Vertical excitation energies of the $S_1$ and $T_1$ electronic states (in eV), $S_1$-$T_1$ energy gap $\Delta_{ST}$, and oscillator strengths $f$ of the $S_0$-$S_1$ transition of the CBN_1-m and CBN_2-m ribbons, computed at the ADC(2)/cc-pVDZ level
+
+| m   | CBN_1-m | CBN_2-m |
+|-----|---------|---------|
+|     | $S_1$  | $T_1$  | $\Delta_{ST}$ | $f$ | $S_1$  | $T_1$  | $\Delta_{ST}$ | $f$ |
+| 1   | 0.916  | 1.114  | -0.199        | 0.007 | 1.669  | 1.711  | -0.042        | 0.095 |
+| 2   | 1.029  | 1.190  | -0.161        | 0.028 | 1.580  | 1.595  | -0.016        | 0.210 |
+| 3   | 1.124  | 1.245  | -0.121        | 0.080 | 1.506  | 1.506  | -0.0001       | 0.379 |
+| 4   | 1.189  | 1.273  | -0.085        | 0.177 | 1.436  | 1.434  | 0.002         | 0.594 |
+| 5   | 1.214  | 1.273  | -0.059        | 0.330 | 1.367  | 1.373  | -0.006        | 0.827 |
+| 6   | 1.224  | 1.267  | -0.043        | 0.523 | 1.305  | 1.324  | -0.019        | 1.069 |
+| 7   | 1.213  | 1.252  | -0.038        | 0.754 | 1.248  | 1.285  | -0.036        | 1.304 |
+| 8   | 1.199  | 1.238  | -0.039        | 0.995 | 1.198  | 1.252  | -0.054        | 1.528 |
+| 9   | 1.181  | 1.226  | -0.045        | 1.254 | 1.155  | 1.226  | -0.071        | 1.740 |
+
+Notably, the dependence of the $S_1$ and $T_1$ vertical excitation energies on the number of units is qualitatively different for the CBN_1-m and CBN_2-m ribbons, see Fig. 1(a). While the vertical excitation energies of the CBN_2-m ribbons decrease monotonically with increasing $m$, the dependence of the vertical excitation energies of the CBN_1-m ribbons on $m$ is non-monotonic. CBN_1-1 exhibits an unusually low excitation energy of about 0.9 eV and the excitation energy increases up to $m = 6$, followed by a slow decrease for $m > 6$. Despite the different unit cells, the $S_1$ and $T_1$ energies of the CBN_1-m and CBN_2-m ribbons converge towards a common limit of about 1.2 eV for large $m$. 
+
+https://doi.org/10.26434/chemrxiv-2025-r9g1p ORCID: https://orcid.org/0000-0001-5718-489X Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+It is also notable that the $S_T - T_1$ energy gap $\Delta_{ST}$ is clearly negative for low-$m$ members of CBN_1-m ribbons, while $\Delta_{ST}$ is close to zero for the CBN_2–m ribbons, see Fig. 1(a). The CC2 method yields qualitatively similar results, see Table S1 and Fig. S1 in the SI. Considering the fact that ADC(2) tends to slightly overestimate the magnitude of negative singlet-triplet gaps, it may be concluded that the ribbons CBN_1-1, CBN_1-2 and CBN_1-3 are inverted singlet-triplet (IST) systems, while the remaining ribbons exhibit singlet-triplet degeneracy or very small positive singlet-triplet gaps. They are thus predicted to be typical TADF systems.
+
+The $S_1 - S_0$ oscillator strengths of the CBN_1-m and CBN_2-m series obtained with the ADC(2) method are listed in Table 1 and are displayed in Fig. 1(b). While the $S_1 - S_0$ oscillator strength is very low for small $m$, it increases approximately linearly with the number of units, as expected from the Thomas-Reiche-Kuhn sum rule. The CBN_2-m oscillator strengths are systematically larger than those of the CBN_1 series.
+
+To provide additional insights on the role of N-heteroatoms in CBN ribbons, calculations of vertical excitation energies and oscillator strengths were performed for the ribbons CBN_3-m and CBN_4-m (see Scheme 1 and Scheme S2). The ADC(2) results are shown in Fig. 2. The spectroscopic properties of the CBN_3-m and CBN_4-m ribbons are qualitatively similar to those of the CBN_1-m and CBN_2-m series. The $S_1$, $T_1$ energies are inverted for the CBN_3-m ribbons, but not for the CBN_4-m ribbons (with the exception of $m = 1$). The energy-level structure of the CBN ribbons is thus rather robust. However, the oscillator strengths of the less nitrogen-rich CBN_3-m and CBN_4-m series are significantly lower than those of the CBN_1-m and CBN_2-m series. The asymmetric distribution of the B,N heteroatoms perpendicular to the main axis apparently is crucial for the enhancement of the oscillator strength.
+Table 2. Vertical excitation energies of the S₁ and T₁ electronic states (in eV), S₁-T₁ energy gap $\Delta_{ST}$, and oscillator strengths $f$ of the S₀-S₁ transition of the CBN_3-m and CBN_4-m ribbons, computed at the ADC(2)/cc-pVDZ level.
+
+| m | CBN_3 | | CBN_4 | |
+|---|---|---|---|---|
+|   | S₁  | T₁  | $\Delta_{ST}$ | f   | S₁  | T₁  | $\Delta_{ST}$ | f   |
+| 1 | 0.696 | 0.891 | -0.195 | 0.0001 | 1.652 | 1.491 | 0.161 | 0.021 |
+| 2 | 0.781 | 0.945 | -0.164 | 0.001 | 1.517 | 1.613 | -0.096 | 0.045 |
+| 3 | 0.887 | 1.019 | -0.132 | 0.005 | 1.438 | 1.519 | -0.081 | 0.085 |
+| 4 | 0.955 | 1.051 | -0.095 | 0.012 | 1.372 | 1.446 | -0.073 | 0.144 |
+| 5 | 1.000 | 1.059 | -0.060 | 0.021 | 1.319 | 1.390 | -0.071 | 0.226 |
+| 6 | 1.020 | 1.049 | -0.028 | 0.031 | 1.271 | 1.345 | -0.073 | 0.331 |
+| 7 | 1.026 | 1.030 | -0.004 | 0.039 | 1.232 | 1.310 | -0.078 | 0.460 |
+| 8 | 1.010 | 1.010 | 0.000 | 0.040 | 1.193 | 1.279 | -0.086 | 0.603 |
+| 9 | 0.984 | 0.963 | 0.021 | 0.037 | 1.165 | 1.257 | -0.092 | 0.771 |
+
+Fig. 2. (a) Vertical excitation energies of the S₁ (solid symbols) and T₁ (open symbols) states. (b) Oscillator strengths of the S₀-S₁ transition vs. the number of units, computed for the CBN_3 (red circles), and CBN_4 (blue triangles) ribbons at the ADC(2)/cc-pVDZ level.
+
+3.2. Analysis of the electronic structure for selected ribbons
+
+For a more detailed investigation of the electronic structure, we selected the ribbons CBN_1-2 and CBN_2-2. For both systems, the S₁ and T₁ states are nearly pure HOMO-LUMO (H-L) excitations. In CBN_1-2, the weight of the H-L configuration is 96 % in the S₁ state and 98 % in the T₁ state. In CBN_2-2, the corresponding weights are 93 % and 98 %. The lower weight of the H-L configuration in the S₁ states reflects the higher contribution of doubly excited configurations in the S₁ states, which stabilizes the energies of the singlet states relative to the triplet states, leading to singlet-triplet inversion. 26–29
+The HOMO and LUMO of CBN_1-2 and CBN_2-2 are displayed in Fig. 3. The orbitals of the ribbons with five units (CBN_1-5 and CBN_2-5) are shown in Fig. S3. It can be seen that the HOMO and the LUMO are preferentially localized on alternate atoms, as is typical for CBN compounds (so-called multi-resonance effect). This property of HOMO and LUMO is responsible for an exceptionally small exchange integral which is a necessary requirement for $S_1$-$T_1$ degeneracy. Upon closer inspection, it can be seen, however, that the spatial overlap of HOMO and LUMO is not exactly zero. There exist small overlaps especially on the left and right termini. This feature is more pronounced for CBN_2-2 than for CBN_1-2, which explains why the singlet-triplet inversion is more pronounced in the CBN_1-m series than in CBN_2-m series (Fig. 1(a)). On the other hand, a nonzero spatial overlap of HOMO and LUMO is favourable for the transition dipole moment and therefore enhances the oscillator strength of the $S_1$-$S_0$ transition. This explains the larger oscillator strengths of the CBN_2-m series compared to the CBN_1-m series (Fig. 1(b)).
+
+To characterize the luminescence properties of the CBN ribbons, the equilibrium geometry of the $S_1$ state was determined with the ADC(2) method. The relaxed energy of the $S_1$ state relative to the energy of the electronic ground state provides the spectroscopic 0-0 transition energy $E_{00}$ (neglecting differences of zero-point vibrational energies of the $S_0$ and $S_1$ states). In the Condon approximation, the maximum of the emission spectrum is given by the vertical emission energy $E_{em}$, that is, the difference of the energies of the $S_1$ and $S_0$ states at the $S_1$ equilibrium geometry. The oscillator strength for fluorescence likewise is computed at the equilibrium geometry of the $S_1$ state.
+Table 3. Vertical excitation energies ($E_v$), 0-0 excitation energies ($E_{0,0}$), vertical emission energies ($E_{em}$) (in eV) and oscillator strengths of absorption ($f_{abs}$) and emission ($f_{em}$) of the $S_1$ and $T_1$ states of the CBN_1-2 and CBN_2-2 ribbons, computed with the ADC(2)/cc-pVDZ method.
+
+|          | CBN_1-2          | CBN_2-2          |
+|----------|------------------|------------------|
+|          | $E_v$  | $f_{abs}$ | $E_{0,0}$ | $E_{em}$ | $f_{em}$ | $E_v$  | $f_{abs}$ | $E_{0,0}$ | $E_{em}$ | $f_{em}$ |
+| $S_1$    | 1.029  | 0.028    | 0.928    | 0.808    | 0.014    | 1.580  | 0.210    | 1.494    | 1.448    | 0.190    |
+| $T_1$    | 1.190  | -        | 1.103    | 0.969    | -        | 1.595  | -        | 1.529    | 1.500    | -        |
+| $\Delta_{ST}$ | -0.161 | -0.175   | -0.161   |          |          | -0.016 | -0.035   | -0.052   |          |          |
+
+In Table 3, the spectroscopic data for luminescence are compared with the data for absorption for the examples of CBN_1-2 and CBN_2-2. The corresponding CC2 results can be found in Table S2. It is remarkable that the $E_{0,0}$ energies are only slightly lower than the vertical excitation energies for both ribbons. The vibrational stabilization energy of the $S_1$ state is of the order of merely 0.1 eV. Likewise, the vertical emission energies $E_{em}$ are only marginally lower than the $E_{0,0}$ energies. The oscillator strengths for absorption and emission are nearly identical. All these features are signatures of the remarkable rigidity of the CBN ribbons upon excitation to the $S_1$ state. The results shown in Table 3 are representative for all CBN_1-m and CBN_2-m ribbons.
+
+4. Discussion
+
+The B,N-substituted GRs investigated in the present work represent a novel class of materials with spectroscopic properties which appear promising for optoelectronic applications. The characteristic spectroscopic features are low-lying electronic excitation energies, exceptionally small (or negative) singlet-triplet energy gaps and appreciable oscillator strengths of the $S_1$-$S_0$ transition. These properties can be systematically tuned in a two-dimensional parameter space: (i) the distribution of the B and N heteroatoms in the GRs and (ii) the length of the GRs.
+
+Several recent large-scale computational screening studies revealed that it is challenging to reconcile robustly negative or small positive singlet-triplet gaps $\Delta_{ST}$ with significant oscillator strengths of the $S_1$-$S_0$ transition. The reason for the tight correlation of singlet-triplet gaps and oscillator strengths is well understood. Singlet-triplet near-degeneracy requires an exceptionally small exchange integral which can be achieved with spatially non-overlapping HOMO and LUMO. The lack of orbital overlap necessarily also results in a small $S_1$-$S_0$ transition dipole moment and oscillator strength. Unsurprisingly, this general trend also is encountered in the CBN ribbons. Nevertheless, it has been found in the present study that the CBN_1-4 ribbon, for example, combines a negative $\Delta_{ST}$ with an oscillator strength of 0.3. In the CBN_2-m ribbons, very small positive singlet-triplet gaps of $\approx 0.05$ eV can be realized together with oscillator strengths larger than 1.0. Another notable property of the CBN ribbons is their rigidity, which results in narrow absorption and emission bands and thus high color purity. Moreover, the rigidity is expected to result in a low radiationless relaxation rate of the $S_1$ state and therefore a favourable fluorescence quantum yield.
+
+The molecular orbitals of the CBN ribbons exhibit similarities with the orbitals of a variety of BN-substituted aromatic compounds which were synthesized and spectroscopically explored by Hatakeyama and coworkers. The spectroscopic properties of linearly extended Hatakeyama-type BN-doped compounds, denoted B,N$_y$, were recently studied with TDDFT and with wave-function based
+We selected the compound B$_2$N$_1$ of Pu et al. (218 electrons) for comparison with the CBN$_2$-2 ribbon (232 electrons).
+
+![Scheme 3. Structure of B$_2$N$_1$](image)
+
+Table 4. Vertical excitation energies ($E_v$), 0-0 excitation energies ($E_{0,0}$), vertical emission energies ($E_{em}$) (in eV), oscillator strengths of absorption ($f_{abs}$) and emission ($f_{em}$), and leading electronic configurations of the S$_1$ and T$_1$ states of B$_2$N$_1$, computed with the ADC(2)/cc-pVDZ method
+
+| State | $E_v$ (eV) | $f_{abs}$ | $E_{0,0}$ (eV) | $E_{em}$ (eV) | $f_{em}$ |
+|-------|-----------|----------|---------------|--------------|---------|
+| S$_1$  | 2.861     | 0.269    | 2.713         | 2.586        | 0.190   |
+| T$_1$  | 2.714     | -        | 2.588         | 2.493        | -       |
+| $\Delta_{ST}$ | 0.147     | 0.125    | 0.093         | -            |         |
+
+The structure of B$_2$N$_1$ is shown in Scheme 3. As for the CBN ribbons, the S$_1$ and T$_1$ excited states of the B$_x$N$_y$ compounds are of HOMO-LUMO character. The HOMO and LUMO of B$_2$N$_1$ are displayed in Fig. S5. The spectroscopic data for B$_2$N$_1$ obtained with the ADC(2) method are listed in Table 4. The corresponding CC2 results can be found in Table S3. The comparison of Table 3 (CBN$_2$-2) and Table 4 (B$_2$N$_1$) reveals that B$_2$N$_1$ exhibits higher vertical S$_1$ and T$_1$ excitation energies and a larger $\Delta_{ST}$, while the oscillator strengths are comparable. Due to the significantly smaller $\Delta_{ST}$, CBN$_2$-2 can be expected to be a better TADF emitter than B$_2$N$_1$.
+
+Another potentially relevant advantage of the CBN$_n$-m ribbons compared with the B$_x$N$_y$ compounds of Pu et al. is the higher rigidity of the former. It can be seen by a comparison of Tables 3 and 4 that the vibrational stabilization energy of B$_2$N$_1$ is larger by a factor of 1.7 and the difference of absorption and emission energies (the Stokes shift) is larger by a factor of 2.1. The emission band of B$_2$N$_1$ therefore is broader (lower color purity). Due to the torsional flexibility of the two phenyl groups, the S$_1$ state of B$_2$N$_1$ is expected to exhibit a higher radiationless decay rate and thus lower fluorescence quantum yield than the S$_1$ state of CBN$_2$-2.
+
+5. Conclusions
+
+B,N-GRs are a broad class of chromophores with spectroscopic and photophysical properties which can be systematically optimized for optoelectronic applications. The S$_1$ excitation energies of short ribbons considered herein cover a range from about 0.8 eV to about 1.8 eV. The higher density of heteroatoms in the CBN$_2$ and CBN$_4$ ribbons results in S$_1$ excitation energies which are higher than those of the CBN$_1$ and CBN$_3$ ribbons with lower density of heteroatoms, albeit the excitation energies of all ribbons converge to about 1.2 eV for large ribbons. The CBN$_1$-m and CBN$_3$-m ribbons exhibit robust inversion of the S$_1$ and T$_1$ excitation energies for small m. The S$_1$ and T$_1$ excitation energies of the CBN$_2$-m and CBN$_4$-m ribbons, on the contrary, are nearly degenerate for all m. For all four types of ribbons, the singlet-triplet gap tends towards zero for large m.
+
+While the S$_1$-S$_0$ oscillator strength is very low for m = 1 and m = 2, it increases monotonously with m and becomes substantial for m > 3. Asymmetric distribution of the heteroatoms perpendicular to the
+main axis significantly enhances the $S_1$-$S_0$ oscillator strength. Interestingly, Pu et al. found the opposite trend in their study B,N$_2$ ribbons which exhibit a lower density of B,N heteroatoms. Overall, the B,N-GRs scrutinized herein combine very small (positive or negative) $S_1$-$T_1$ energy gaps with appreciable $S_1$-$S_0$ oscillator strengths and with high rigidity. Due to the tunability of their photophysical properties over a wide range, B,N-GRs appear as promising candidates for the further optimization of the performance of OLEDs.
+
+Acknowledgments
+
+This research was funded by National Science Centre of Poland, grant number: 2020/39/B/ST4/01723. We gratefully acknowledge Polish high-performance computing infrastructure PLGrid (HPC Center: ACK Cyfronet AGH) for providing computer facilities and support within computational grant no. PLG/2024/017058.
+
+Conflicts of Interest
+
+The authors declare that there are no conflicts of interest.
+
+Keywords
+
+Organic light-emitting diodes, thermally activated delayed fluorescence, B,N-graphene ribbons, singlet-triplet inversion, oscillator strength
+
+6. References
+
+1. A. Endo, K. Sato, K. Yoshimura, T. Kai, A. Kawada, H. Miyazaki and C. Adachi, Appl. Phys. Lett., 2011, 98, 083302.
+2. H. Uoyama, K. Goushi, K. Shizu, H. Nomura and C. Adachi, Nature, 2012, 492, 234.
+3. K. Goushi, K. Yoshida, K. Sato and C. Adachi, Nat. Photonics, 2012, 6, 253.
+4. H. Nakanotani, T. Higuchi, T. Furukawa, K. Masui, K. Morimoto, M. Numata, H. Tanaka, Y. Sagara, T. Yasuda and C. Adachi, Nat. Commun., 2014, 5, 4016.
+5. T. Hatakeyama, K. Shiren, K. Nakajima, S. Nomura, S. Nakatsuka, K. Kinoshita, J. Ni, Y. Ono and T. Ikuta, Adv. Mater., 2016, 28, 2777.
+6. S. Nakatsuka, H. Gotoh, K. Kinoshita, N. Yasuda and T. Hatakeyama, Angew. Chem., 2017, 56, 5087.
+7. Y. Kondo, K. Yoshiura, S. Kitera, H. Nishi, S. Oda, H. Gotoh, Y. Sasada, M. Yanai and T. Hatakeyama, Nat. Photonics, 2019, 13, 678.
+8. S. Oda, B. Kawakami, R. Kawasumi, R. Okita and T. Hatakeyama, Org. Lett., 2019, 21, 9311.
+9. M. Mamada, M. Hayakawa, J. Ochi and T. Hatakeyama, Chem. Soc. Rev., 2024, 53, 1624.
+10. S. M. Suresh, E. Duda, D. Hall, Z. Yao, S. Bagnich, A. M. Z. Slawin, H. Bässler, D. Beljonne, M. Buck, Y. Olivier, A. Köhler and E. Zysman-Colman, J. Am. Chem. Soc., 2020, 142, 6588.
+11. K. Shizu and H. Kaji, Commun. Chem., 2022, 5, 597.
+12. A. Pershin, D. Hall, V. Lemaur, J.-C. Sancho-García, L. Muccioni, E. Zysman-Colman, D. Beljonne and Y. Olivier, Nat. Commun., 2019, 10, 597.
+13. J. Sanz-Rodrigo, Y. Olivier and J.-C. Sancho-García, Molecules, 2020, 25, 1006.
+14. D. Hall, J. C. Sancho-García, A. Pershin, G. Ricci, D. Beljonne, E. Zysman-Colman and Y. Olivier, J. Chem. Theory Comput., 2022, 18, 4903.
+15. Y.-J. Pu, D. Valverde, J. C. Sancho-García and Y. Olivier, J. Phys. Chem. A, 2023, 127, 10189.
+16. Sanyam, R. Khatua and A. Mondal, J. Phys. Chem. A, 2023, 127, 10393.
+17. S. Lou, B. Lyu, X. Zhou, P. Shen, J. Chen and Z. Shi, Quantum Front., 2024, 3, 3.
+18. X. Yang, X. Dou, A. Rouhanipour, L. Zhi, H. J. Räder and K. Müllen, J. Am. Chem. Soc., 2008, 130, 4216.
+19. J. Cai, P. Ruffieux, R. Jaafar, M. Bieri, T. Braun, S. Blankenberg, M. Muoth, A. P. Seitsonen, M. Saleh, X. Feng, K. Müllen and R. Fasel, Nature, 2010, 466, 470.
+20. L. Dössel, L. Gherghel, X. Feng and K. Müllen, Angew. Chem., 2011, 50, 2540.
+21 S. Kawai, S. Saito, S. Osumi, S. Yamaguchi, A. S. Foster, P. Spijker and E. Meyer, Nat. Commun., 2015, 6, 8099.
+22 V. Barone, O. Hod and G. E. Scuseria, Nano Lett., 2006, 6, 2748.
+23 L. Yang, C.-H. Park, Y.-W. Son, M. L. Cohen and S. G. Louie, Phys. Rev. Lett., 2007, 99, 186801.
+24 H. Hsu and L. E. Reichl, Phys. Rev. B, 2007, 76, 045418.
+25 K. Sasaki, K. Kato, Y. Tokura, K. Oguri and T. Sogawa, Phys. Rev. B, 2011, 84, 085458.
+26 P. De Silva, J. Phys. Chem. Lett., 2019, 10, 5674.
+27 J. Ehrmaier, E. J. Rabe, S. R. Pristash, K. L. Corp, C. W. Schlenker, A. L. Sobolewski and W. Domcke, J. Phys. Chem. A, 2019, 123, 8099.
+28 G. Ricci, E. San-Fabián, Y. Olivier and J. C. Sancho-García, ChemPhysChem, 2021, 22, 553.
+29 J. Sanz-Rodrigo, G. Ricci, Y. Olivier and J. C. Sancho-García, J. Phys. Chem. A, 2021, 125, 513.
+30 K. Bhattacharyya, Chem. Phys. Lett., 2021, 779, 138827.
+31 L. Tuckova, M. Straka, R. R. Valiev and D. Sundholm, Phys. Chem. Chem. Phys., 2022, 24, 18713.
+32 O. Christiansen, H. Koch and P. Jørgensen, Chem. Phys. Lett., 2019, 779, 138827.
+33 J. Schirmer, Phys. Rev. A, 1982, 26, 2395.
+34 P.-F. Loos, F. Lipparini, M. Boggio-Pasqua, A. Scemama and D. Jacquemin, J. Chem. Theory Comput., 2020, 16, 1711.
+35 P.-F. Loos, F. Lipparini and D. Jacquemin, J. Phys. Chem. Lett., 2023, 14, 11069.
+36 S. Grimme and F. Neese, J. Chem. Phys., 2007, 127, 154116.
+37 E. Brémond, I. Ciofini, J. C. Sancho-Garcia and C. Adamo, Acc. Chem. Res., 2016, 49, 1503.
+38 A. Derradji, D. Valverde, É. Brémond, Á. J. Pérez-Jiménez, Y. Olivier and J. C. Sancho-García, J. Phys. Chem. C, 2024, 128, 18313.
+39 A. D. Becke, J. Chem. Phys., 1993, 98, 5648.
+40 S. Grimme, J. Antony, S. Ehrlich and H. Krieg, J. Chem. Phys., 2010, 132, 154104.
+41 C. Møller and M. S. Plesset, Phys. Rev., 1934, 46, 618.
+42 A. B. Trofimov and J. Schirmer, J. Phys. B: At. Mol. Opt. Phys., 1995, 28, 2299.
+43 T. H. Dunning Jr., J. Chem. Phys., 1989, 90, 1007.
+44 TURBOMOLE V7.3 2018, a Development of University of Karlsruhe and Forschungszentrum Karlsruhe GmbH, 1989-2007, TURBOMOLE GmbH, since 2007; Available from http://www.turbomole.com
+45 M. Schreiber, M. R. Silva-Junior, S. P. A. Sauer and W. Thiel, J. Chem. Phys., 2008, 128, 134110.
+46 S. P. A. Sauer, M. Schreiber, M. R. Silva-Junior and W. Thiel, J. Chem. Theory Comput., 2009, 5, 555.
+47 H. H. Falden, K. R. Falster-Hansen, K. L. Bak, S. Rettrup and S. P. A. Sauer, J. Phys. Chem. A, 2009, 113, 11995.
+48 D. Jacquemin, I. Duchemin and X. Blase, J. Chem. Theory Comput., 2015, 11, 3290.
+49 F. Dinkelbach, M. Bracker, M. Kleinschmidt and C. M. Marian, Journal of Physical Chemistry A, 2021, 125, 10044.
+50 A. L. Sobolewski and W. Domcke, Phys. Chem. Chem. Phys., 2023, 25, 21875.
+51 R. Pollice, P. Friederer, C. Lavigne, G. dos P. Gomes and A. Aspuru-Guzik, Matter, 2021, 4, 1654.
+52 N. Aizawa, Y. J. Pu, Y. Harabuchi, A. Nihonyanagi, R. Ibuka, H. Inuzuka, B. Dhara, Y. Koyama, K. ichi Nakayama, S. Maeda, F. Araoka and D. Miyajima, Nature, 2022, 609, 502.
+53 O. H. Omar, X. Xie, A. Troisi and D. Padula, Cite This: J. Am. Chem. Soc, 2023, 145, 19790.
+54 J. T. Blaskovits, C. Corminboeuf and M. H. Garner, J. Phys. Chem. A, 2024, 128, 10404.
+## Supporting Information
+
+| CBN_1-m          | CBN_2-m          |
+|------------------|------------------|
+| ![CBN_1-m](image1) | ![CBN_2-m](image2) |
+| m=0              | m=0              |
+| ![CBN_1-m](image3) | ![CBN_2-m](image4) |
+| m=1              | m=1              |
+| ![CBN_1-m](image5) | ![CBN_2-m](image6) |
+| m=2              | m=2              |
+| ![CBN_1-m](image7) | ![CBN_2-m](image8) |
+| m=3              | m=3              |
+| ![CBN_1-m](image9) | ![CBN_2-m](image10) |
+| m=4              | m=4              |
+| ![CBN_1-m](image11) | ![CBN_2-m](image12) |
+| m=5              | m=5              |
+| ![CBN_1-m](image13) | ![CBN_2-m](image14) |
+| m=6              | m=6              |
+| ![CBN_1-m](image15) | ![CBN_2-m](image16) |
+| m=7              | m=7              |
+Scheme S1. Structures of the CBN_1-m and CBN_2-m ribbons for m = 1…9
+
+| CBN_3-m | CBN_4-m |
+|---------|---------|
+| ![Structure](image1) | ![Structure](image2) |
+| m=0 | m=0 |
+| ![Structure](image3) | ![Structure](image4) |
+| m=1 | m=1 |
+| ![Structure](image5) | ![Structure](image6) |
+| m=2 | m=2 |
+| ![Structure](image7) | ![Structure](image8) |
+| m=3 | m=3 |
+| ![Structure](image9) | ![Structure](image10) |
+| m=4 | m=4 |
+| ![Structure](image11) | ![Structure](image12) |
+| m=5 | m=5 |
+Scheme S2. Structures of the CBN\_3\_m and CBN\_4\_m ribbons for m = 1...9
+
+Table S1. Vertical excitation energies of the S\(_1\) and T\(_1\) electronic states (in eV), S\(_1\)-T\(_1\) energy gap \(\Delta_{ST}\), and oscillator strengths \(f\) of the S\(_0\)-S\(_1\) transition of the CBN\_1\_m and CBN\_2\_m ribbons, computed at the CC2/cc-pVDZ level
+
+| m  | CBN\_1-m | CBN\_2-m |
+|----|----------|----------|
+|    | \(S_1\)  | \(T_1\)  | \(\Delta_{ST}\) | \(f\) | \(S_1\)  | \(T_1\)  | \(\Delta_{ST}\) | \(f\) |
+| 1  | 0.961    | 1.159    | -0.198       | 0.005 | 1.781    | 1.789    | -0.008       | 0.097 |
+| 2  | 1.066    | 1.225    | -0.160       | 0.021 | 1.692    | 1.671    | 0.021        | 0.218 |
+| 3  | 1.166    | 1.282    | -0.116       | 0.067 | 1.631    | 1.586    | 0.045        | 0.418 |
+| 4  | 1.245    | 1.317    | -0.073       | 0.159 | 1.572    | 1.516    | 0.056        | 0.699 |
+| 5  | 1.287    | 1.325    | -0.038       | 0.332 | 1.513    | 1.458    | 0.055        | 1.048 |
+| 6  | 1.314    | 1.326    | -0.012       | 0.576 | 1.456    | 1.409    | 0.046        | 1.444 |
+| 7  | 1.316    | 1.314    | 0.003        | 0.897 | 1.402    | 1.369    | 0.033        | 1.881 |
+| 8  | 1.312    | 1.302    | 0.009        | 1.281 | 1.352    | 1.336    | 0.016        | 2.329 |
+| 9  | 1.299    | 1.290    | 0.009        | 1.702 | 1.306    | 1.308    | -0.002       | 2.781 |
+Fig. S1. (a) Vertical excitation energies of the $S_1$ (solid symbols) and $T_1$ (open symbols) states. (b) oscillator strengths $f$ of the $S_0$-$S_1$ transition vs. the number of units, computed for the CBN_1-m (red circles), and CBN_2-m (blue triangles) ribbons at the CC2/cc-pVDZ level.
+
+Fig. S2. Double excitation contribution to the energies of the $S_1$ (filled symbols) and $T_1$ (open symbols) excited states vs. the number of units for CBN_1-m (red circles), and CBN_2-m (blue triangles), obtained at ADC(2)/cc-pVDZ level.
+Fig. S3. HOMO and LUMO orbitals of the (a) CBN_1-5 and (b) CBN_2-5 ribbons.
+
+Fig. S4. HOMO and LUMO orbitals of the (a) CBN_3-5 and (b) CBN_4-5 ribbons.
+Table S2. Vertical excitation energies ($E_v$), vertical emission energies ($E_{em}$) (in eV) and oscillator strengths of absorption ($f_{abs}$) and emission ($f_{em}$) of the S$_1$ and T$_1$ states of the CBN_1-2 and CBN_2-2 ribbons, computed with the CC2 method at the ADC(2)-optimized equilibrium geometries
+
+| State  | $E_v$ (eV) | $f_{abs}$ | $E_{em}$ (eV) | $f_{em}$ |
+|--------|------------|-----------|---------------|----------|
+| S$_1$  | 1.066      | 0.021     | 0.867         | 0.012    |
+| T$_1$  | 1.225      | -         | 1.035         | -        |
+| $\Delta_{ST}$ | -0.160   | -         | -0.168        |          |
+
+| State  | $E_v$ (eV) | $f_{abs}$ | $E_{em}$ (eV) | $f_{em}$ |
+|--------|------------|-----------|---------------|----------|
+| S$_1$  | 1.692      | 0.219     | 1.576         | 0.206    |
+| T$_1$  | 1.671      | -         | 1.581         | -        |
+| $\Delta_{ST}$ | 0.021   | -         | -0.005        |          |
+
+LUMO
+
+HOMO
+
+Fig. S5. HOMO and LUMO orbitals of B$_2$N$_1$
+
+Table S3. Vertical excitation energies ($E_v$), vertical emission energies ($E_{em}$) (in eV), oscillator strengths of absorption ($f_{abs}$) and emission ($f_{em}$) of the S$_1$ and T$_1$ states of B$_2$N$_1$, computed with the CC2 method at the ADC(2)-optimized equilibrium geometries
+
+| State  | $E_v$ (eV) | $f_{abs}$ | $E_{em}$ (eV) | $f_{em}$ |
+|--------|------------|-----------|---------------|----------|
+| S$_1$  | 2.926      | 0.335     | 2.666         | 0.284    |
+| T$_1$  | 2.760      | -         | 2.551         | -        |
+| $\Delta_{ST}$ | 0.166   | -         | 0.115         |          |

@@ -1,0 +1,257 @@
+Reaction Network of CO₂ Hydrogenation
+
+into C₁-₂ Oxygenates and Its BEP Relationships
+
+Mikhail V. Polynski,¹ Sergey M. Kozlov*¹
+
+¹ Department of Chemical and Biomolecular Engineering, National University of Singapore, 4 Engineering Drive 4, Singapore 117585, Singapore.
+
+Corresponding Authors
+
+*sergey.kozlov@nus.edu.sg
+
+ABSTRACT
+
+Despite many efforts to steer CO₂ hydrogenation for the synthesis of valuable chemicals, its mechanistic intricacies remain poorly understood, complicating industrial applications. In this work, we apply a novel ansatz, allowing us to construct simplified catalytic reaction networks and account for the realistic active sites on transition metal nanoparticles to analyze CO₂ hydrogenation on Cu and Pd. Moreover, we present Brønsted-Evans-Polanyi relationships tailored to transition state characteristics, enabling further machine learning-driven exploration of CO₂ hydrogenation on transition metal-based catalysts and deepening our understanding of the underlying mechanism. By assessing the kinetic viability of various reaction pathways, we highlight the outstanding properties of Cu in the catalysis of various hydrogenation and C–C coupling steps in the CO₂ hydrogenation network. Our theoretical framework addresses the intrinsic complexities of CO₂
+hydrogenation, advancing our understanding of its mechanism and guiding rational catalyst design studies.
+
+1. Introduction
+
+Climate change is an escalating global issue, visibly affecting ecosystems and human societies.\(^1\) Balancing environmental protection with industrial and technological growth now becomes the key challenge.\(^2,3\) Among mitigation strategies, the capture and utilization of greenhouse gases,\(^4,5\) particularly the conversion of CO\(_2\) to valuable chemicals via hydrogenation, has attracted substantial attention.\(^6\) Yet, the practical application of CO\(_2\) as chemical feedstock is complicated by its inherent chemical stability and the lack of effective catalysts optimized at atomic and nanoscale levels.\(^7,8\) Indeed, the complexity of the catalytic reaction network for CO\(_2\) hydrogenation\(^8\) into C\(_2\)+ oxygenates and hydrocarbons significantly exceeds the notorious complexity of the CO hydrogenation reaction.\(^9–11\) Experimental observations suggest the existence of numerous intermediates on the surface of transition metal catalysts in this process, including CO*, CHO*, HCOO*, COOH*, and CH\(_x\)*.\(^12–16\)
+
+Although the modeling of catalytic reaction networks is incredibly helpful for understanding key factors driving various chemical reactions, the construction and analysis of microkinetic models covering reaction networks for CO\(_2\) and CO hydrogenation is greatly complicated by hundreds of the involved intermediates.\(^9,11,17–21\) In particular, the complexity of these models serves as the bottleneck for the rational design of new catalysts\(^22–25\) through identifying key intermediates and constructing Sabatier volcano plots.\(^26–29\) Moreover, realistic modeling of chemical processes needs to account for the nanostructure of the applied catalysts \(^30,31\) to minimize the gap between the computational predictions and the experimental observations. Indeed, nanostructuring is well-
+known for generating uniquely active sites on the catalyst surface.\textsuperscript{32–34} Moreover, surface intermediates may diffuse across surfaces and active sites in catalysts under the high temperatures typical of heterogeneous catalytic hydrogenation.\textsuperscript{35–37} Thus, advancing beyond simplistic models of ideal surfaces to more nuanced representations is essential for accurate microkinetic simulations of complex, multistep catalytic processes.
+
+Here, we introduce an innovative approach that abstracts from the concept of a well-defined active site and accounts for the diffusion of reaction intermediates among diverse active sites exposed on nanoparticle (NP) catalyst surface. Moreover, we propose a novel ansatz to rationally simplify the catalytic network in the microkinetic model by selecting the relevant catalytic intermediates involved in the reaction mechanism. As a result, the developed approaches allow us to obtain profound insight into the CO\textsubscript{2} hydrogenation mechanism into C\textsubscript{2} compounds and extrapolate our results to the formation of C\textsubscript{3+} products. In this study, we focus on Cu-based nanocatalysts due to their widespread use in both electro- and thermocatalytic CO\textsubscript{2} hydrogenation,\textsuperscript{38–40} as well as a major component in multimetallic catalysts alongside metals like Co and Fe.\textsuperscript{41–45} Moreover, we extend our analysis to CO\textsubscript{2} hydrogenation on Pd catalysts, which are commonly used for the hydrogenation of other compounds despite a very distinct electronic structure from Cu.\textsuperscript{46}
+
+2. Results
+
+2.1. Structure of the Active Site
+
+We go beyond the concept of discreet reactive sites on metal surfaces (top, bridge, or hollow) by accounting for the possibility of diffusion of surface intermediates within the (111) facet and its edges on nanoparticles, both of which are crucial for specific steps within the reaction network.
+Moreover, discreet sites such as hollow, bridge, or atop cannot support the growth of expanding C\textsubscript{n} oxygenates/hydrocarbons increasing size. Therefore, the reacting area in the model nanoparticle is expanded to the *integrated active site* shown in Figure 1a. Below, we show that rapid surface diffusion of reaction intermediates can be assumed for Cu and, to a lesser extent, Pd. Hence, reactive species are considered to move freely across facets, potentially attaching to edge atoms as needed.
+
+![Common active site models](image)
+
+(a) Common active site models
+
+- Top
+- Bridge
+- Hollow
+
+(b) Reactions included / not included in the network
+
+- Included
+- Not included
+
+Nanoparticle surface
+
+Stable/abundant species
+S = H, CO, CO\textsubscript{2}, CH\textsubscript{2}O
+
+Reactive/unstable species
+R = CHO, CH\textsubscript{3}, CH\textsubscript{2}OH, etc.
+
+Figure 1. (a) Commonly employed discreet active site models vs. the adopted integrated active site model encompassing a (111) facet, including its edge atoms (dashed hexagon); (b) Criterion for preselection of elementary steps in the reaction network based on occurrence and stability of intermediates.
+
+To build a tractable catalytic reaction network, we introduce an ansatz where highly reactive surface adsorbates preferentially interact with either low-reactivity species (CO, CO\textsubscript{2}, CH\textsubscript{2}O) or species at high surface concentrations, like H\textsuperscript{*} under high H\textsubscript{2} pressure\textsuperscript{47} as illustrated in Figure 1b. That is, we assume that low concentrations of highly reactive or unstable species make
+reactions between them improbable. The outcome of this preselection process for reaction steps is shown in Section S1 of the SI, while the full reaction graph detailing activation barriers and free energies is covered in the following subsection. The original multistep methodology to explore extensive catalytic reaction networks is described in Section S2.
+
+2.2. Catalytic Reaction Network
+
+The catalytic reaction network for the Cu catalyst is depicted as a directed graph in Figure 2 (see the graph for the Pd catalyst in Section S3). Notably, the CO$_2$ hydrogenation network encompasses the CO hydrogenation network. The size of node marks indicates free energies at standard conditions relative to isolated CO$_2^{\text{gas}}$ and H$_2^{\text{gas}}$ ($\Delta G_n$) and considering that each C–O cleavage leading to the formation of OH* is then followed by the removal of H$_2$O from the surface. Edge colors represent either transition state energies relative to isolated CO$_2^{\text{gas}}$ and H$_2^{\text{gas}}$ ($\Delta G^\ddagger_{\text{rel}}$, Figure 2a) or absolute barriers ($\Delta G^\ddagger$, Figure 2b) calculated relative to their reference initial states. $\Delta G^\ddagger_{\text{rel}}$ and $\Delta G^\ddagger$ include the energy of co-adsorption of the reacting species, as detailed in Section S4.
+
+While Section S5 presents a comprehensive tabulation of activation barriers, we outline general reactivity trends below.
+
+The graphs begin with CO$_2$ activation through formate and reverse water-gas shift pathways, charting C$_1$ and C$_2$ product formation via intermediates grouped into clusters encompassing methanediol, methanal, methanol, acetic acid, and others. CO$_2$ activation preferentially occurs via the formate pathway ($\Delta G^\ddagger = 0.71$ eV), followed by less kinetically favorable protonation of carboxylic oxygen to form HCOOH* ($\Delta G^\ddagger = 1.07$ eV; see Section 2.4 for reaction nomenclature) and hydrogenation of the carboxylic carbon in HCOOH* ($\Delta G^\ddagger[\text{HCOOH}^* \rightarrow \text{OCH}_2\text{OH}^*] = 0.71$ eV).
+Figure 2. Catalytic reaction network on Cu as a directed graph with: (a) activation energies relative to isolated $CO_2^{gas}$ and $H_2^{gas}$, $\Delta r^\dagger_{rel}$, encoded in edges, (b) or absolute barriers calculated relative to the respective initial states, $\Delta G^\ddagger$, encoded in edges. The size of the node circles reflects relative stability, measured by $\Delta G_n$, where the largest nodes indicate the highest stability and *vice versa*.
+The resultant OCH$_2$OH* readily releases OH* ($\Delta G^\ddagger = 0.24$ eV) with the formation of formaldehyde, which easily desorbs ($\Delta G = -0.01$ eV at 1 bar and 273.15 K). However, further hydrogenation of CH$_2$O* into CH$_3$O* upon readsorption is also feasible ($\Delta G^\ddagger = 0.39$ eV). The protonation barrier for CH$_3$O* is 1.18 eV, after which CH$_3$OH easily desorbs, serving as the endpoint for CO$_2$ hydrogenation on pristine Cu.
+
+The transition from CH$_3$OH* to CH$_x$* (x = 1-3) intermediates poses a significant energy barrier, which hinders the transition between C$_1$ and C$_2$ species in the reaction network (orange/yellow edges in Figure 2a for C–O cleavage). Due to high barriers for CH$_x$ formation through C–O cleavage, methanol remains the predominant product in CO$_2$ hydrogenation on pristine Cu nanoparticles.
+
+At the same time, Cu(111) facets show advantageous catalytic activity in transformations of the CH$_x$ species. Within the CH$_x$ cluster, hydrogenation barriers increase progressively from CH* to CH$_3$* ($\Delta G^\ddagger = 0.29, 0.63$, and 1.15 eV for CH*→CH$_2$*, CH$_2$*→CH$_3$*, and CH$_3$*→CH$_4$*), which indicates poor catalytic activity of Cu in the synthesis of low-value methane as a product. More importantly, CH$_2$* hydrogenation is less favorable than two out of three concurrent C–C coupling reactions between CH$_2$* and various species in the reaction environment:
+
+\[
+\begin{align*}
+\text{CH}_2^* + \text{CH}_2\text{O}^* & \rightarrow \text{-CH}_2\text{CH}_2\text{O}^- * & (\Delta G^\ddagger = 0.18 \text{ eV}), \\
+\text{CH}_2^* + \text{CO}^* & \rightarrow \text{CH}_2\text{CO}^* & (\Delta G^\ddagger = 0.77 \text{ eV}), \\
+\text{CH}_2^* + \text{CO}_2 & \rightarrow \text{CH}_2\text{COO}^* & (\Delta G^\ddagger = 0.41 \text{ eV}).
+\end{align*}
+\]
+
+Thus, the final C$_2$ oxygenate clusters can be reached via two kinetically feasible pathways. First, CH$_2$* can couple with CH$_2$O to form -CH$_2$CH$_2$O-*, a precursor in ethanol synthesis. This pathway is notable because CH$_2$O* desorption is kinetically preferred to hydrogenation to CH$_3$OH, promoting the presence of methanal in the gas phase for subsequent coupling. Second, the facile
+coupling between CH$_2^*$ and CO$_2$ leading to CH$_2$COO$^*$ aligns with recent observations of carboxylic acid formation in CO$_2$ hydrogenation. To the best of our knowledge, this facile direct coupling of CO$_2$ with CH$_2^*$ on metallic Cu is reported for the first time, whereas CO$_2$-CH$_x$ couplings on Fe-Zn, Ni-Zn, and Co-Mn catalysts,$^{48-50}$ as well as on non-metallic Cu-zeolite centers,$^{51}$ are well-known.
+
+Thus, despite the high kinetic barrier for the formation of CH$_x$ species on Cu, they are calculated to readily react with either CO$_2$, CO, or H$_2$CO species in the reaction environment to form the desirable C$_2$ products. As a result, Cu is frequently used as one of the components in multimetallic catalysts together with metals like Co, which can easily form CH$_x$ species on the pathway of complete CO$_2$ hydrogenation into methane.$^{52,53}$ The combination of Cu with other metals could allow the catalyst to bypass the high-energy barriers between methanol and CH$_x$ intermediate clusters with the help of the co-catalyst and enable the subsequent C-C steps involving CH$_x$ intermediates on Cu sites.
+
+2.3. Surface Diffusion of Intermediates and Edge Catalytic Activity
+
+In this section, we discuss the surface diffusion of chemisorbed intermediates, assuming that valence-saturated parts of alkyl chains can only physisorb on the surface due to dispersion attraction. Since dispersion interactions are quite weak for rather small C$_1$ and C$_2$ species and vary very smoothly with the atomic positions, they are known to have a minor effect on diffusion barriers.$^{54}$ For example, the adsorption free energy of CH$_4$ on Cu(111) and Pd(111) is 0.03 and 0.00 eV, respectively, indicating that the enthalpy of physisorption has roughly the same magnitude as the free energy contribution of the entropic stabilization of the gas phase molecules.
+For this analysis, we chose CH*, CH₂*, and CH₃* as model intermediates to investigate the diffusion of adsorbed RC* (sp carbon), RHC* (sp² carbon), and RH₂C* (sp³ carbon) groups (R = alkyl), capturing the primary carbon binding modes to the metal surface. In turn, OH* was selected to model RO* surface species.
+
+The weakly binding Cu(111) surface facilitates easy migration of adsorbates chemisorbed through sp, sp², and sp³ carbon centers or O atoms, as shown in Figure 3a-c. Notably, all diffusion barriers (red in Figure 3a-c,g) are significantly lower than those of the reaction steps involving these species of the catalytic network. This includes OH* and CO* migration involved in the forward and reverse C–O cleavage and the coupling of CO*. This indicates that surface diffusion within the facets and edges of Cu NPs is much faster than most of the elementary steps of the considered catalytic process.
+
+Although Pd is a more strongly binding metal than Cu, it still exhibits facile diffusion of most adsorbates. Figure 3 indicates that CH*, CH₂*, CO*, and HO* can migrate with barriers well below those for hydrogenation, C–C coupling, and C–O coupling (and cleavage; see the corresponding barriers in Section S5) steps of these species. However, CH₂* diffusion shows a high barrier of 1.01 eV, matching or surpassing some of the reaction barriers in the reaction steps involving CH₂. At the same time, the diffusion of sp²-hybridized species between different active sites may not be essential for their chemical transformations because they react exclusively on the facet without diffusing to the edges. Thus, detailed consideration of diffusion kinetics for these intermediates would not significantly affect the kinetics of the CO₂ hydrogenation reaction.
+Figure 3. Diffusion transition states (opaque) and minima on the PES (translucent) for CH* (a, d), CH2* (b, e), CH3* (c, f), CO*, and OH* (g, h). Only the relevant areas on the NPs are shown. Diffusion barriers $\Delta G^\ddagger$ are shown in red, alongside the barriers for elementary steps involving the respective species in the reaction network; Cu is represented in dark orange, Pd in dark blue, O in red, C in dark grey, and H in light grey. All values are in eV.
+Two critical steps in the reaction network occur exclusively or preferentially on edges between (111) facets. The first is CO$_2$ activation, forming HCOO* or HOCO* via formate or RWGS pathways (Figure 2). Whereas for HCOO* formation on Cu, we were able to locate TS both on the facets ($\Delta G^\dagger = 0.82$ eV) and the edges ($\Delta G^\dagger = 0.71$ eV), the obtained transition states for all other CO$_2$ activation steps necessarily involved NP edge atoms. The second step involving edge atoms in TS is C–O cleavage in methanediolate OCH$_2$OH* intermediate to produce CH$_2$O, which is a crucial step for the subsequent hydrogenation reactions on Cu due to its low barrier ($\Delta G^\dagger = 0.24$ eV).
+
+Note that the facile surface diffusion of most intermediate species does not imply the negligible effect of the distinction between catalytic activities of edge and terrace sites on the reaction kinetics. Indeed, edges and other low-coordination sites are far less common than (111) facets on the catalyst surface, and their surface concentration diminishes as the catalyst nanoparticle size grows. Consequently, key reaction steps at these sparse sites could bottleneck catalytic activity unless addressed in catalyst design.
+
+2.4. BEP Relationships and Reactivity Trends
+
+We analyzed the trends in the considered elementary steps using the Brønsted–Evans–Polanyi (BEP) principle, which states that, for a given elementary step within a family of similar reactions, the activation energy linearly correlates with the reaction energy.$^{55}$ Strictly speaking, the BEP principle implies that transition states for the examined elementary step should be structurally similar on the considered catalysts. However, this condition is rarely examined during the construction and application of BEP relations (see a rare example in Ref. $^{56}$). In this study, we applied the concept of TS structural similarity to clustering reaction steps on either Cu or Pd,
+revealing more accurate correlations between activation and reaction energies (Figure 4; see Section S2 for details of the linear fitting procedure).
+
+For hydrogenation (Figure 4a), we identify two TS types where, formally, H⁺ or H⁻ bind to surface intermediates (see charge analysis in Section S6). The pink data points in Figure 4 correspond to hydrogen associating with carbon in a tetrahedral $sp^3$-like TS, leading to $sp^3$ products in hydrogenations of CH$_3$*, CH$_2$COOH*, CH$_3$CHOH*, etc. (here and below, the reacting atom is given in bold). Some seemingly $sp^2$ centers like CH$_2$* lay within this BEP due to the tetrahedral TS in which the intermediate binds to two metal atoms in $sp^3$-like geometry. The linear regression of these values yields low RMSD values of 0.12 eV for Cu and 0.06 eV for Pd, well below DFT accuracy benchmarks.$^{57}$ Notably, CH$_3$* hydrogenation on Cu is an outlier ($\Delta G^\mp = 1.15$ eV, Figure 4a, left), possibly because CH$_3$* partially detaches from the nanoparticle in TS leading to physisorbed CH$_4$, unlike in other steps where the products remain surface-bound.
+
+Another hydrogenation type involves, formally, H⁺ or H⁻ reacting with $sp^2$ centers (violet data in Figure 4a). The TS structures in these elementary steps resemble those in the Felkin-Anh model for nucleophilic addition to carbonyls,$^{58}$ here seen in the hydrogenation of carbonyl-bearing species like CH$_2$O*, CHO*, and CH$_3$CHO*. Some non-carbonyl CH$_2$ centers in CH$_2$CO* and CH$_2$CHO*, as well as $sp^2$ geometries in bridge CO*, C(H)OH*, and bridge CH*, also fit this BEP due to similar geometries. Linear fits show remarkably low RMSD values of 0.10 eV for Cu and 0.09 eV for Pd.
+Figure 4. BEP relationships (in eV) for (a) hydrogenation, (b) protonation, (c) C-C coupling, and (d) C-O cleavage steps on Cu (left) and Pd (right) catalysts. Typical transition state structures are illustrated on the right side of the figure, with forming and breaking bonds indicated by dashed lines. The yellow dashed line in Figure 4c (right) was extrapolated for clarity. All values are in eV.
+
+This approach to analyzing BEP relationships diverges from previous studies\textsuperscript{28,59,60} that assigned a single BEP to reaction types like hydrogenation, C–O cleavage, or C–C coupling, ignoring variations in the TS geometry. However, tailoring BEP relations to transition state structures has
+notably increased the correlation quality. For example, the BEP relationship for all hydrogenation steps on Cu, including those with sp² and sp³-like transition states, has RMSD of 0.22 eV, whereas RMSD decreases to 0.10 and 0.12 eV, respectively, when TS structure is taken into account (Figure 4a). Similarly, clustering of calculated data points according to the TS geometry consistently improves the quality of BEP relations for all types of elementary steps.
+
+Note that the hydrogenation steps considered above did not include protonation steps, where surface H species attach O atoms in the CO₂ hydrogenation intermediates (Figure 4b). One can notice the abnormally negative slope in BEP relations for protonation on Cu catalysts, which is the effect of the BEP descriptor definition rationalized in Section S4. The considered protonation elementary steps can also be classified into two groups.
+
+In the first group, the protonation elementary steps involve the hydroxyl group's acid-base chemistry (blue in Figure 4b), encompassing alcoholate species like OH*, CH₃O*, OCH₂OH*, and carbonyl oxygen protonation in, e.g., CHO*, CH₂O*, CH₃CHO*. The structure of TS for these elementary steps resembles the product bearing an OH group, akin to the late transition state within the framework of Hammond’s postulate. Figure S8 in Section S7 illustrates these late TS where the alpha-carbon binds to the metal, forming an alcoholate that abstracts H from the catalyst surface. Linear BEP relations for Cu and Pd yield an RMSD of 0.08 eV for these reaction steps. Notable outliers include the facile protonation of CH₂O* on Cu with ΔGₛ = 0.93 eV and ΔG = −0.25 eV and the kinetically hampered protonation of CH₃CH₂O* on Pd ΔGₛ = 0.84 eV (likely due to the unusual coordination of two Pd atoms by O, see Figure S8). The high barrier for OH* protonation on Cu (ΔGₛ = 1.35 eV, Figure 4b, left) highlights the need for promoters or co-catalysts to avoid OH poisoning, facilitating the regeneration of the active sites on the catalyst surface via water formation and desorption.
+Another BEP relationship is followed by the protonation steps involving the carboxyl group (green data in Figure 4b). On Cu, the carboxyl group of HCOOH* keeps its characteristic planar geometry in the TS during the transformation:
+
+\[ \text{HCOOH}^* + \text{H}^* \rightarrow \text{HOCHOH}^*, \]
+
+Whereas on Pd, HCOOH* adopts a non-planar configuration (Figure S9). Hence, HCOOH* protonation on Pd is categorized under the RO\(^-\) family of elementary steps for alcoholates, whereas on Cu, it is attributed to RCOO\(^-\) protonation family. Linear fits reveal significant intercept differences, showing easier RO\(^-\) protonations on Cu and easier RCOO\(^-\) protonation on Pd. Note that due to limited data points, BEP correlations, in this case, are more suitable for classifying reaction steps rather than numerical estimates, although they still yield low RMSD values of 0.10 for Cu and 0.05 for Pd.
+
+The next reaction class, C–C coupling, also shows two TS types differentiated by reactant structure. Couplings of formally nucleophilic CH\(_3^\cdot\):
+
+\[ \text{CH}_3^\cdot + \text{CH}_2\text{O}^* \rightarrow \text{CH}_3\text{CH}_2\text{O}^*, \]
+\[ \text{CH}_3^\cdot + \text{CO}_2^* \rightarrow \text{CH}_3\text{COO}^*, \]
+\[ \text{CH}_3^\cdot + \text{CO}^* \rightarrow \text{CH}_3\text{CO}^* \]
+
+Occur via a TS akin to nucleophilic addition to carbonyls, where CH\(_3\) migrates from the metal to the carbon (yellow data in Figure 4c). Fewer data points were calculated for this family of elementary steps than for more abundant hydrogenation or protonation steps in the reaction network. The three data points calculated for Cu follow the same BEP relationship with an RMSD of 0.10 eV. At the same time, the correlation between the reaction and activation energies of these steps is less clear on Pd catalysts. In this case, the CH\(_3^\cdot\) and CO\(^*\) association is an outlier, raising
+RMSD to 0.36 eV (solid line in Figure 4c; see the structure in Figure S10) from 0.13 without it (dotted line).
+
+Another type of C–C coupling involves intermediates with double or triple bonds, such as CO$_2^*$ and CO*, as well as bridge-bonded CH$_x^*$ (x = 1-2). In these cases, the bond multiplicity in the CO- or CO$_2$-containing moiety decreases, while the CH$_x$ moiety becomes singly bonded to the surface, leading to the formation of a new C–C bond. Due to this bond redistribution, this class is designated as metathesis (dark orange data in Figure 4c). Linear regression of all data points calculated on Pd catalysts yields an RMSD of 0.14 eV. On Cu, the BEP relationship for all such steps has an RMSD of 0.44 eV (solid orange line in Figure 4c), which decreases to 0.20 eV if one outlier, CH* coupling with CO*, is removed from the analysis (dotted orange line in Figure 4c; see the structure in Figure S10). Such deviation of CH*-CO* coupling from the common trend indicates that the transition state for this reaction on Cu may need to be attributed to another TS class, which has not been comprehensively represented in the considered reaction network.
+
+The final reaction class involves C–O cleavage, featuring a predominant TS type akin to the reverse of OH$^-$ nucleophilic addition to carbonyls (red data in Figure 4d). Both cleavage products, OH* and the organic moiety, remain bound to the metal surface in the transition and final states. Significant outliers from BEP relations on both Cu and Pd catalysts (structures in Figure S11) include:
+
+\[
+\text{OCH}_2\text{OH}^* \rightarrow \text{CH}_2\text{O}^* + \text{OH}^* \ (\Delta G^+ = 0.24 \text{ eV for Cu, 0.34 eV for Pd}), \\
+\text{CH}_3\text{CH(O)OH}^* \rightarrow \text{CH}_3\text{CHO}^* + \text{OH}^* \ (\Delta G^+ = 0.13 \text{ eV for Cu, 0.18 eV for Pd}).
+\]
+
+Excluding these outliers from BEP correlation on Cu catalysts lowers its RMSD from 0.34 to 0.16 eV. The divergence of these elementary steps from BEP relations likely results from the involvement of low-coordination edge sites in the TS and the aldehyde moiety bonding via O to
+the surface, unlike other C–O cleavages where bonding occurs via C. We did not isolate these two elementary steps into a separate BEP due to their low number, although site-specific BEPs are generally recommended.61
+
+Finally, CH₃OH features a unique C–O cleavage mechanism where the CH₃ group becomes unattached to the metal surface in the TS on both Cu and Pd catalysts (black data point in Figure 4d; structure in Figure S12). Here, CH₃ adopts a planar configuration indicative of CH₃⁺ state (unlike strictly non-planar CH₃• or CH₃⁻).62 The imaginary vibrational mode in these TS shows CH₃⁺ moving into the gas phase, indicating that this cleavage in CH₃OH on both metals is heterolytic, yielding CH₃⁺ and OH⁻.
+
+In general, our analysis reveals significant differences between BEP relations calculated on Cu and Pd for various elementary steps. This finding strongly deviates from the widespread understanding of BEP relations and the common application of the same BEP relations across various metals in computational catalyst design studies.63,64 In particular, the derived BEP relationships highlight the exceptional catalytic properties of Cu discussed earlier. Cu is calculated to be generally more active than Pd in hydrogenation steps despite the well-recognized activity of the latter in hydrogenation catalysis. Moreover, the only step with an unusually high hydrogenation barrier on Cu catalysts is the hydrogenation of CH₃* to methane, which is considered an undesired product in most industrial processes. In turn, protonation barriers on Cu generally exceed 1 eV, contrasting with notably lower protonation barriers of Pd, which is in line with much more negative charge on H* atoms adsorbed on the former (Section S6). This finding highlights the need for promoters or co-catalysts to enhance the protonation steps on Cu-containing catalysts, in particular, OH* protonation, which is necessary for the production of water byproduct and regeneration of active sites on the catalyst. Moreover, copper’s notable activity in metathesis C–C
+coupling (Figure 4c) distinguishes it from Pd (Section S3). Both metals show a broad range of C–O cleavage barriers (0.2 to 1.5 eV) with low barriers only for OH elimination, leading to aldehyde species formation catalyzed by NP edges. This highlights the need for promoters or co-catalysts (e.g., Co) to facilitate the other higher-barrier C-O cleavage steps.
+
+3. Discussion
+
+We introduced a novel methodology for constructing and disentangling catalytic reaction networks and applied it to the analysis of CO₂ conversion into value-added chemicals. Our methodology merges rapid semi-empirical explorations with accurate DFT modeling to understand diverse reaction pathways. It speeds up the identification of key intermediates and clarifies catalytic mechanisms, providing deep insights into catalytic behavior. Moreover, our study provides a more realistic representation of nanostructured catalysts, including facet and edge sites as well as facile diffusion of adsorbates between them, which is shown to be crucial for the understanding of CO₂ hydrogenation kinetics and rational design of catalysts for this reaction. The importance of considering both facets and edges in nanoparticle models cannot be overstated, as they account for the diversity of active sites in real-world catalysts, thereby enhancing our understanding of catalytic behavior and aiding in the rational design of materials with optimized surface features.
+
+Our catalytic network analysis reveals the ability of Cu to selectively produce methanol in CO₂ hydrogenation and suggests the promising potential of Cu-based catalysts for the synthesis of C₂ oxygenates with the help of co-catalysts in multicomponent systems. Notably, we highlight the role of formaldehyde as a key intermediate in CO₂ hydrogenation, which not only leads to methanol production but also can participate in further reactions towards ethanol. The distinctive
+activity of Cu in C–C coupling, alongside its relative inactivity in methane formation, highlights its potential in selective CO$_2$ conversion, suggesting it is an exemplary co-catalyst for industrial applications.
+
+For the constructed reaction network, we formulated refined BEP relationships tailored for elementary steps with similar transition state structures, thus achieving low RMSD values of the linear fits. The obtained BEP relationships were found to be significantly different on Cu and Pd catalysts, suggesting the need to reevaluate the transferability of BEP relations between various materials. The proposed refinement of BEP relations challenges a common approach to understanding and rational design of heterogeneous catalysts. Since the structure of the pre-reaction intermediate is sufficient to determine the transition state class (as the reacting functional group dictates the TS structure), it opens the way for machine learning applications in rational catalyst design via the screening of activation energies in elementary steps.
+
+This work is meant as a blueprint for future research in CO$_2$ hydrogenation, introducing methods for the rapid and precise exploration of reaction networks through advanced quantum chemical techniques. Although selective CO$_2$ hydrogenation to valuable chemicals is technically complex and challenging, this reaction offers an opportunity for sustainable and CO$_2$-negative chemical synthesis; our methodologies and insights are instrumental in addressing this complexity in the goal of the design of catalysts for the carbon-neutral economy.
+
+4. Methods
+
+Spin-polarized DFT calculations were performed using the revPBE$^{65}$ functional in VASP 6.3.2. We set a plane-wave energy cutoff at 415 eV and employed the PAW method.$^{66}$ Dispersion was accounted for via the DFT-D3 scheme with Becke-Johnson damping.$^{67,68}$ System geometries were
+pre-optimized using the GFN1-xTB method\textsuperscript{69} in ASE\textsuperscript{70} (see SI for details on the multistep procedure for high-throughput semi-empirical reaction network exploration). Grok2 was utilized for initial text proofreading.
+
+**ASSOCIATED CONTENT**
+
+**Supporting Information Statement**
+
+A complete listing of computational details is available in the SI.
+
+**AUTHOR CONTRIBUTIONS**
+
+Mikhail V. Polynski: conceptualization; formal analysis; investigation; methodology; writing − original draft; writing − review & editing. Sergey M. Kozlov: conceptualization; resources; writing − review & editing.
+
+**CONFLICTS OF INTEREST**
+
+There are no conflicts of interest to declare.
+
+**KEYWORDS**
+
+CO2 hydrogenation, heterogeneous catalysis, BEP relationships, reaction network, high-throughput calculations
+
+**REFERENCES**
+
+1. Malhi, Y. *et al.* Climate change and ecosystems: threats, opportunities and solutions. *Philosophical Transactions of the Royal Society B* 375, (2020).
+2. Zeng, E. Y., You, J. & Cheng, H. Balance between economic growth and environmental protection: sustainability through better science. *Journal of Environmental Monitoring* **13**, 787–788 (2011).
+
+3. Shakoor, A. & Ahmed, R. The environmental sustainable development goals and economic growth: an empirical investigation of selected SAARC countries. *Environ Sci Pollut Res Int* **30**, 116018–116038 (2023).
+
+4. Gao, W. *et al.* Industrial carbon dioxide capture and utilization: state of the art and future challenges. *Chem Soc Rev* **49**, 8584–8686 (2020).
+
+5. Sun, S., Sun, H., Williams, P. T. & Wu, C. Recent advances in integrated CO2 capture and utilization: a review. *Sustain Energy Fuels* **5**, 4546–4559 (2021).
+
+6. Prieto, G. Carbon Dioxide Hydrogenation into Higher Hydrocarbons and Oxygenates: Thermodynamic and Kinetic Bounds and Progress with Heterogeneous and Homogeneous Catalysis. *ChemSusChem* **10**, 1056–1070 (2017).
+
+7. Zhu, J., Shaikhutdinov, S. & Cuenya, B. R. Structure-reactivity relationships in CO2 hydrogenation to C2+ chemicals on Fe-based catalysts. *Chem Sci* **16**, 1071–1092 (2025).
+
+8. Sheng, Y. *et al.* A review of mechanistic insights into CO2 reduction to higher alcohols for rational catalyst design. *Appl Catal B* **343**, 123550 (2024).
+
+9. Ulissi, Z. W., Medford, A. J., Bligaard, T. & Nørskov, J. K. To address surface reaction network complexity using scaling relations machine learning and DFT calculations. *Nat Commun* **8**, 14621 (2017).
+
+10. Cao, A. *et al.* Mechanistic Insights into the Synthesis of Higher Alcohols from Syngas on CuCo Alloys. *ACS Catal* **8**, 10148–10155 (2018).
+
+11. Schumann, J. *et al.* Selectivity of Synthesis Gas Conversion to C2+ Oxygenates on fcc(111) Transition-Metal Surfaces. *ACS Catal* **8**, 3447–3453 (2018).
+
+12. Sun, Q., Liu, C. W., Pan, W., Zhu, Q. M. & Deng, J. F. In situ IR studies on the mechanism of methanol synthesis over an ultrafine Cu/ZnO/Al2O3 catalyst. *Appl Catal A Gen* **171**, 301–308 (1998).
+
+13. Mamo, T. T.* et al.* Enhanced CO2 photoreduction to CH4 via *COOH and *CHO intermediates stabilization by synergistic effect of implanted P and S vacancy in thin-film SnS2. *Nano Energy* **128**, 109863 (2024).
+
+14. Gao, Z. *et al.* Interaction of the reaction intermediates in co-reforming of acetic acid and ethanol impacts coke properties. *Molecular Catalysis* **504**, 111461 (2021).
+
+15. Herzog, A. *et al.* Operando Investigation of Ag-Decorated Cu2O Nanocube Catalysts with Enhanced CO2 Electrocatalysis toward Liquid Products. *Angewandte Chemie International Edition* **60**, 7426–7435 (2021).
+
+16. De Ruiter, J. *et al.* Probing the Dynamics of Low-Overpotential CO2-to-CO Activation on Copper Electrodes with Time-Resolved Raman Spectroscopy. *J Am Chem Soc* **144**, 15047–15058 (2022).
+
+17. Posada-Borbón, A. & Grönbeck, H. A First-Principles-Based Microkinetic Study of CO2Reduction to CH3OH over In2O3(110). *ACS Catal* **11**, 9996–10006 (2021).
+
+18. Sun, S., Higham, M. D., Zhang, X. & Catlow, C. R. A. Multiscale Investigation of the Mechanism and Selectivity of CO2 Hydrogenation over Rh(111). *ACS Catalysis* **14**, 5503–5519 (2024).
+
+19. Kowalec, I., Kabalan, L., Catlow, C. R. A. & Logsdail, A. J. A computational study of direct CO2 hydrogenation to methanol on Pd surfaces. *Physical Chemistry Chemical Physics* **24**, 9360–9373 (2022).
+20. Yang, Y., White, M. G. & Liu, P. Theoretical study of methanol synthesis from CO2 hydrogenation on metal-doped Cu(111) surfaces. *Journal of Physical Chemistry C* **116**, 248–256 (2012).
+21. Cannizzaro, F., Kurstjens, S., van den Berg, T., Hensen, E. J. M. & Filot, I. A. W. A computational study of CO2 hydrogenation on single atoms of Pt, Pd, Ni and Rh on In2O3(111). *Catal Sci Technol* **13**, 4701–4715 (2023).
+22. Motagamwala, A. H. & Dumesic, J. A. Microkinetic Modeling: A Tool for Rational Catalyst Design. *Chem Rev* **121**, 1049–1076 (2021).
+23. Kulkarni, S. R., Lezcano, G., Velissoju, V. K., Realpe, N. & Castaño, P. Microkinetic Modeling to Decode Catalytic Reactions and Empower Catalytic Design. *ChemCatChem* **16**, e202301720 (2024).
+24. Morandi, S. *et al.* A Foundational Model for Reaction Networks on Metal Surfaces. (2024) doi:10.26434/CHEMRXIV-2024-BFV3D.
+25. Yannick Ureel, Lowie Tomme, K. Sabbe, M. & Geem, K. M. V. Genesys-Cat: automatic microkinetic model generation for heterogeneous catalysis with improved Bayesian optimization. *Catal Sci Technol* (2025) doi:10.1039/D4CY01344A.
+26. Meyer, B., Sawatlon, B., Heinen, S., von Lilienfeld, O. A. & Corminboeuf, C. Machine learning meets volcano plots: computational discovery of cross-coupling catalysts. *Chem Sci* **9**, 7069–7077 (2018).
+27. Schilter, O., Vaucher, A., Schwaller, P. & Laino, T. Designing catalysts with deep generative models and computational data. A case study for Suzuki cross coupling reactions. *Digital Discovery* **2**, 728–735 (2023).
+28. Göttl, F., Mavrikakis, M., Göttl, F. & Mavrikakis, M. Generalized Brønsted-Evans-Polanyi Relationships for Reactions on Metal Surfaces from Machine Learning. *ChemCatChem* **14**, e202201108 (2022).
+29. Hutton, D. J., Cordes, K. E., Michel, C. & Göttl, F. Machine Learning-Based Prediction of Activation Energies for Chemical Reactions on Metal Surfaces. *J Chem Inf Model* **63**, 6006–6013 (2023).
+30. Lee, K., Kim, M. & Kim, H. Catalytic nanoparticles being facet-controlled. *J Mater Chem* **20**, 3791–3798 (2010).
+31. Gawande, M. B. *et al.* Cu and Cu-Based Nanoparticles: Synthesis and Applications in Catalysis. *Chem Rev* **116**, 3722–3811 (2016).
+32. Cai, S., Wang, D., Niu, Z. & Li, Y. Progress in organic reactions catalyzed by bimetallic nanomaterials. *Chinese Journal of Catalysis* **34**, 1964–1974 (2013).
+33. Mitchell, S., Qin, R., Zheng, N. & Pérez-Ramírez, J. Nanoscale engineering of catalytic materials for sustainable technologies. *Nature Nanotechnology* 2020 16:2 16, 129–139 (2020).
+34. Fung, V., Hu, G., Wu, Z. & Jiang, D. E. Hydrogen in Nanocatalysis. *Journal of Physical Chemistry Letters* **11**, 7049–7057 (2020).
+35. Peng, G. & Mavrikakis, M. Adsorbate diffusion on transition metal nanoparticles. *Nano Lett* **15**, 629–634 (2015).
+36. Saini, S., Hallidin Stenlid, J. & Abild-Pedersen, F. Electronic structure factors and the importance of adsorbate effects in chemisorption on surface alloys. *npj Computational Materials* 2022 8:1 8, 1–12 (2022).
+37. Gu, K. & Lin, S. Advances in the Dynamics of Adsorbate Diffusion on Metal Surfaces: Focus on Hydrogen and Oxygen. *ChemPhysChem* **25**, e202400083 (2024).
+38. Ye, R. P. et al. CO2 hydrogenation to high-value products via heterogeneous catalysis. *Nature Communications* 2019 10:1 10, 1–15 (2019).
+39. Kas, R. et al. Electrochemical CO2 reduction on Cu2O-derived copper nanoparticles: controlling the catalytic selectivity of hydrocarbons. *Physical Chemistry Chemical Physics* 16, 12194–12201 (2014).
+40. Li, Q. et al. Cu-based nanocatalysts for electrochemical reduction of CO2. *Nano Today* 21, 1–5 (2018).
+41. Kozlov, S. M., Viñes, F. & Görling, A. Bonding mechanisms of graphene on metal surfaces. *Journal of Physical Chemistry C* 116, 7360–7366 (2012).
+42. Evans, M. G. & Polanyi, M. Some applications of the transition state method to the calculation of reaction velocities, especially in solution. *Transactions of the Faraday Society* 31, 875–894 (1935).
+43. Vojvodic, A. et al. On the behavior of Brønsted-Evans-Polanyi relations for transition metal oxides. *Journal of Chemical Physics* 134, (2011).
+57. Goerigk, L. et al. A look at the density functional theory zoo with the advanced GMTKN55 database for general main group thermochemistry, kinetics and noncovalent interactions. *Physical Chemistry Chemical Physics* **19**, 32184–32215 (2017).
+58. Anh, N. T., Eisenstein, O., Lefour, J. M. & Đau, M. E. T. H. Orbital Factors and Asymmetric Induction. *J Am Chem Soc* **95**, 6146–6147 (1973).
+59. Wang, S. et al. Universal Brønsted-Evans-Polanyi relations for C-C, C-O, C-N, N-O, N-N, and O-O dissociation reactions. *Catal Letters* **141**, 370–373 (2011).
+60. Wang, S. et al. Universal transition state scaling relations for (de)hydrogenation over transition metals. *Physical Chemistry Chemical Physics* **13**, 20760–20765 (2011).
+61. Nørskov, J. K. et al. The nature of the active site in heterogeneous metal catalysis. *Chem Soc Rev* **37**, 2163–2171 (2008).
+62. Smith, M. B. & March, J. *March’s Advanced Organic Chemistry*. (John Wiley & Sons, Inc., Hoboken, NJ, USA, 2006). doi:10.1002/0470084960.
+63. Falivene, L., Kozlov, S. M. & Cavallo, L. Constructing Bridges between Computational Tools in Heterogeneous and Homogeneous Catalysis. *ACS Catal* **8**, 5637–5656 (2018).
+64. She, Z. W. et al. Combining theory and experiment in electrocatalysis: Insights into materials design. *Science (1979)* **355**, (2017).
+65. Zhang, Y. & Yang, W. Comment on “Generalized Gradient Approximation Made Simple”. *Phys Rev Lett* **80**, 890 (1998).
+66. Kresse, G. & Joubert, D. From ultrasoft pseudopotentials to the projector augmented-wave method. *Phys Rev B* **59**, 1758–1775 (1999).
+67. Grimme, S., Antony, J., Ehrlich, S. & Krieg, H. A consistent and accurate *ab initio* parametrization of density functional dispersion correction (DFT-D) for the 94 elements H-Pu. *J Chem Phys* **132**, 154104 (2010).
+68. Grimme, S., Ehrlich, S. & Goerigk, L. Effect of the damping function in dispersion corrected density functional theory. *J Comput Chem* **32**, 1456–1465 (2011).
+69. Grimme, S., Bannwarth, C. & Shushkov, P. A Robust and Accurate Tight-Binding Quantum Chemical Method for Structures, Vibrational Frequencies, and Noncovalent Interactions of Large Molecular Systems Parametrized for All spd-Block Elements (Z = 1–86). *J Chem Theory Comput* **13**, 1989–2009 (2017).
+70. Hjorth Larsen, A. et al. The atomic simulation environment—a Python library for working with atoms. *Journal of Physics: Condensed Matter* **29**, 273002 (2017).

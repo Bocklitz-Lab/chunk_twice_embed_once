@@ -1,0 +1,58 @@
+{
+  "dataset_revision": "e0df8b7d5a9184cd8fc981959e6a81228f28c3a1",
+  "evaluation_time": 2.2521779537200928,
+  "kg_co2_emissions": null,
+  "mteb_version": "1.14.15",
+  "scores": {
+    "test": [
+      {
+        "cosine_accuracy": 0.89990234375,
+        "cosine_accuracy_threshold": 0.8426688313484192,
+        "cosine_ap": 0.11194052752478864,
+        "cosine_f1": 0.1932059447983015,
+        "cosine_f1_threshold": 0.7702711820602417,
+        "cosine_precision": 0.12330623306233063,
+        "cosine_recall": 0.44607843137254904,
+        "dot_accuracy": 0.89990234375,
+        "dot_accuracy_threshold": 0.8426687717437744,
+        "dot_ap": 0.11194052752478864,
+        "dot_f1": 0.1932059447983015,
+        "dot_f1_threshold": 0.7702711820602417,
+        "dot_precision": 0.12330623306233063,
+        "dot_recall": 0.44607843137254904,
+        "euclidean_accuracy": 0.89990234375,
+        "euclidean_accuracy_threshold": 0.5606370568275452,
+        "euclidean_ap": 0.11194052752478864,
+        "euclidean_f1": 0.1932059447983015,
+        "euclidean_f1_threshold": 0.6778329610824585,
+        "euclidean_precision": 0.12330623306233063,
+        "euclidean_recall": 0.44607843137254904,
+        "hf_subset": "default",
+        "languages": [
+          "eng-Latn"
+        ],
+        "main_score": 0.1932059447983015,
+        "manhattan_accuracy": 0.900390625,
+        "manhattan_accuracy_threshold": 12.80286979675293,
+        "manhattan_ap": 0.11234124014557947,
+        "manhattan_f1": 0.19047619047619047,
+        "manhattan_f1_threshold": 15.011138916015625,
+        "manhattan_precision": 0.12222222222222222,
+        "manhattan_recall": 0.43137254901960786,
+        "max_accuracy": 0.900390625,
+        "max_ap": 0.11234124014557947,
+        "max_f1": 0.1932059447983015,
+        "max_precision": 0.12330623306233063,
+        "max_recall": 0.44607843137254904,
+        "similarity_accuracy": 0.89990234375,
+        "similarity_accuracy_threshold": 0.8426688313484192,
+        "similarity_ap": 0.11194052752478864,
+        "similarity_f1": 0.1932059447983015,
+        "similarity_f1_threshold": 0.7702711820602417,
+        "similarity_precision": 0.12330623306233063,
+        "similarity_recall": 0.44607843137254904
+      }
+    ]
+  },
+  "task_name": "PubChemSMILESCanonTitlePC"
+}

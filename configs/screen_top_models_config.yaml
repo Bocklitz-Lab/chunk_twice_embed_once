@@ -1,0 +1,27 @@
+# Root where your per-model folders live (the directory that contains 'validation')
+root_dir: "artifacts/embedding_models_screening"
+
+# Subdir to scan inside root (exactly matches your structure)
+results_subdir: "validation"
+
+# Which split(s) to prefer when extracting nDCG@10 (first match wins)
+split_preference: ["test", "validation", "train"]
+
+# Metric key to use (MTEB uses ndcg_at_10; falls back to main_score if missing)
+metric_key: "ndcg_at_10"
+
+# Keep top X% within each dataset (0–1)
+top_percent: 0.10
+
+# Optional: limit to specific datasets by task_name (leave empty to take all found)
+datasets_include: []   # e.g., ["ChemHotpotQARetrieval", "ChemNQRetrieval"]
+
+# Output files (set to "" to skip writing)
+output_union_csv: "artifacts/embedding_models_screening/passed_models_union.csv"
+output_per_dataset_csv: "artifacts/embedding_models_screening/passed_per_dataset.csv"
+
+# How to name models in outputs:
+# "name" -> from model_meta.json "name" (e.g., BAAI/bge-base-en-v1.5)
+# "name@rev" -> name + '@' + revision if present
+# "folder" -> use the outer folder name (e.g., BAAI__bge-base-en-v1.5_a5be...)
+model_id_format: "name@rev"

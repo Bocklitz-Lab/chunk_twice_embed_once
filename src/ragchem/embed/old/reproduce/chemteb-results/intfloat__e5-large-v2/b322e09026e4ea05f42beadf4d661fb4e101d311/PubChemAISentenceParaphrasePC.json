@@ -1,0 +1,58 @@
+{
+  "dataset_revision": "eeaad4bb9ec83058589faec127cdcb38fc7bfb2e",
+  "evaluation_time": 10.107978105545044,
+  "kg_co2_emissions": null,
+  "mteb_version": "1.14.15",
+  "scores": {
+    "test": [
+      {
+        "cosine_accuracy": 0.98046875,
+        "cosine_accuracy_threshold": 0.9528764486312866,
+        "cosine_ap": 0.9400262010494133,
+        "cosine_f1": 0.9,
+        "cosine_f1_threshold": 0.9521479606628418,
+        "cosine_precision": 0.9230769230769231,
+        "cosine_recall": 0.8780487804878049,
+        "dot_accuracy": 0.98046875,
+        "dot_accuracy_threshold": 0.9528763294219971,
+        "dot_ap": 0.9400262010494133,
+        "dot_f1": 0.9,
+        "dot_f1_threshold": 0.9521479606628418,
+        "dot_precision": 0.9230769230769231,
+        "dot_recall": 0.8780487804878049,
+        "euclidean_accuracy": 0.98046875,
+        "euclidean_accuracy_threshold": 0.30699610710144043,
+        "euclidean_ap": 0.9400262010494133,
+        "euclidean_f1": 0.9,
+        "euclidean_f1_threshold": 0.309357225894928,
+        "euclidean_precision": 0.9230769230769231,
+        "euclidean_recall": 0.8780487804878049,
+        "hf_subset": "default",
+        "languages": [
+          "eng-Latn"
+        ],
+        "main_score": 0.9,
+        "manhattan_accuracy": 0.98046875,
+        "manhattan_accuracy_threshold": 7.903553485870361,
+        "manhattan_ap": 0.9403394161070382,
+        "manhattan_f1": 0.9,
+        "manhattan_f1_threshold": 7.954004287719727,
+        "manhattan_precision": 0.9230769230769231,
+        "manhattan_recall": 0.8780487804878049,
+        "max_accuracy": 0.98046875,
+        "max_ap": 0.9403394161070382,
+        "max_f1": 0.9,
+        "max_precision": 0.9230769230769231,
+        "max_recall": 0.8780487804878049,
+        "similarity_accuracy": 0.98046875,
+        "similarity_accuracy_threshold": 0.9528764486312866,
+        "similarity_ap": 0.9400262010494133,
+        "similarity_f1": 0.9,
+        "similarity_f1_threshold": 0.9521479606628418,
+        "similarity_precision": 0.9230769230769231,
+        "similarity_recall": 0.8780487804878049
+      }
+    ]
+  },
+  "task_name": "PubChemAISentenceParaphrasePC"
+}

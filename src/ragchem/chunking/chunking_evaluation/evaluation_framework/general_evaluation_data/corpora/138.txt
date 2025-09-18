@@ -1,0 +1,578 @@
+Recent advances in stimuli-responsive framework materials: understanding their response and searching for materials with targeted behavior
+
+François-Xavier Coudert
+
+Abstract
+
+Although all molecular assemblies show some degree of flexibility, the past decade has shown that there is a higher propensity among framework materials to display large-scale dynamic behavior. Beyond the seminal discoveries of the important flexibility of metal–organic frameworks (MOFs), covalent organic frameworks (COFs), hydrogen-bonded organic frameworks (HOFs) or supramolecular organic frameworks (SOFs), and many other framework materials, the field has progressed rapidly: the number of known flexible materials is ever growing, and the diversity of the types of manifestation of this flexibility appears endless. In addition, the microscopic mechanism of their behavior has been studied using a growing combination of experimental characterization techniques, in situ and in operando measurements, as well as computational simulation methods.
+
+In this Review, we present some of the significant advances in recent studies of stimuli-responsive framework materials. In particular, we highlight the novel responses that have been discovered in the past few years and the toolbox developed by researchers in the field to better understand the materials’ behavior (both experimentally and computationally). We also show some of the latest progress in the discovery of materials with targeted behavior, whether through de novo design or identification of known materials for new properties — similar to what is known in the field of drug discovery as repurposing.
+
+Keywords: metal–organic frameworks, framework materials, flexibility, adsorption, mechanical properties, framework dynamics
+
+Contents
+
+1 Introduction 1
+
+2 Adsorption-induced flexibility: understanding, control and design, applications 3
+
+2.1 Advanced computational methods ............. 3
+
+2.2 Tuning the flexibility of MOFs: impact of metal centers ......................... 5
+
+2.3 Tuning the flexibility of MOFs: the role of linkers 6
+
+2.4 Use of defects or frustrated flexibility ............. 7
+
+2.5 Influence of crystal size on flexibility ............. 9
+
+2.6 Applications of framework flexibility ............. 11
+
+3 Framework materials with “surprising”, “abnormal”, “weird”, “unusual” behavior 12
+
+3.1 Negative gas adsorption .......................... 12
+
+3.2 Framework materials as mechanical metamaterials ......................... 13
+
+3.3 Identifying framework materials with anomalous behavior and quantifying them .......... 14
+
+4 New modes of dynamics: molecular rotors 16
+
+4.1 Molecular rotors in framework materials ............. 16
+
+4.2 Molecular rotors and adsorption ............. 17
+
+4.3 Perspectives & applications .................. 18
+
+5 Finding the needle in the (many) hay stacks: discovery of materials with targeted behavior 19
+
+Acknowledgements 21
+
+References 21
+
+1. Introduction
+
+The last two decades have seen rapid growth in the number of reported nanoporous materials with novel architectures, including many compounds with physical and chemical properties that go beyond what was previously considered the boundaries for materials performance. They open up new horizons in practically all branches of engineering, physics, chemistry, biology, and medicine. Among those materials, metal–organic frameworks (MOFs) have been well publicized and the focus of a large research effort, as have other classes such as covalent organic frameworks (COFs), porous molecular organic solids, and other molecular framework materials. While their chemical nature is varied (built from a combination of organic and/or inorganic building blocks) and the nature of the interactions involved is very diverse (including coordinate covalent bonds, π–π stacking, hydrogen bonds, mechanical bonds, dispersive interactions, . . . ), they typically share one common feature: they are framework materials, based on well-defined rigid building
+blocks (also called secondary building units, or SBUs) linked together by relatively weaker interactions.
+
+Because of these weaker interactions, framework materials present large numbers of intramolecular degrees of freedom. Some of these degrees of freedom are relatively local and correspond, for example, to the large-scale motion or dynamics of a building block (in part or whole). Other degrees of freedom are cooperative and have large characteristic length scale, leading to dynamics at the scale of the entire unit cell, or larger — therefore impacting the whole crystal, or at least nano-scaled domains inside a crystal.\cite{9,10} We illustrate in Figure 1 a variety of possible manifestations of framework flexibility in the domains of adsorption, mechanical and thermal behavior of materials.
+
+Although all molecular assemblies and solids show some degree of flexibility, evidence has accumulated that there is a propensity among framework materials to display large-scale dynamic behavior. This has previously been linked to their shared tendency to exhibit disorder, as well as the presence of defects in significant amounts.\cite{11} The first example in the literature of this striking behavior was probably the existence of flexibility triggered by adsorption, where materials like MIL-53\cite{12} and MIL-88\cite{13} could see their cell volume change by up to 40% upon adsorption of gas or 95% upon solvent uptake/removal, respectively. Later, materials were found that even surpassed these numbers, e.g., the expansion of unit cell volume in DUT-8(Ni) from the closed-pore phase to the open-pore phase reaching 254%.\cite{14}
+
+Since those seminal discoveries, the field has progressed rapidly and the number of reported cases of flexible framework materials has grown — as well as the extent to which the microscopic mechanism of their behavior has been studied, by a combination of experimental characterization techniques, \textit{in situ} and \textit{in operando} measurements, and computational simulation methods. We now understand much better why (and how) framework materials are frequently found to exhibit stimuli-responsive behavior, whereby the structure of a material is significantly changed upon chemical or physical stimulation and the modified state of the material induces a change in macroscopic properties. As depicted in Figure 2 this structural modification induces a change in the function of the material, or sometimes creates a new function. Because it introduces a coupling between different physical or chemical variables, these materials have been called by various names: multfunc-
+2. Adsorption-induced flexibility: understanding, control and design, applications
+
+All microporous materials exhibit some level of flexibility, where their atomistic structure is affected by the adsorption of guest molecules, which can lead to expansion or contraction of the structure depending on the nature of the host–guest interactions and loading.[29, 30] Because of the weaker nature of the interactions in some framework materials, including MOFs, their structural response is larger in scale, whereas for inorganic nanoporous materials such as zeolites, the adsorption strain is typically in the $10^{-4}$ to $10^{-3}$ range. The number of known flexible MOFs has largely increased since the seminal discovery of these “soft porous crystals”,[17] and the tools available for the characterization of adsorption-induced deformation have grown significantly.
+
+In the following sections, we will explore some of the recent advances in understanding of the mechanisms of MOF adsorption-induced flexibility,[32] along four new directions of research: (i) advanced computational methods to understand the impact of guest adsorption on MOF flexibility, (ii) the control of flexibility and the tuning of the materials behavior, (iii) the impact of defects and crystal size on flexibility, and (iv) the use of framework flexibility to realize novel applications.
+
+2.1. Advanced computational methods
+
+The past decade has seen a large increase in the number of computational methods available to better understand the interplay between guest adsorption and host flexibility in framework materials, through molecular simulations at the atomic level. These computational approaches aim at predicting or understanding structure–property or structure–activity relationships, i.e., their goal is to link the microscopic features of the host material and the guest molecules with the predicted behavior upon adsorption. For an exhaustive and very recent review of the topic of computational modeling of reticular materials, including accounting for flexibility, we refer the interested reader to Ref. [33] which was published during the writing of this present review. We note that all these numerical methods, while they differ in their details, are based on the statistical mechanics of adsorption in flexible nanoporous materials: the natural thermodynamic ensemble to describe the system is then the osmotic ensemble,[34, 35] $(N_{\text{host}}, \mu_i, \sigma, T)$, where the state variables are the number of atoms in the host framework $N_{\text{host}}$, the chemical potential of the adsorbed guests $\mu_i$, the external pressure $\sigma$ (a tensor which can reduce to the scalar pressure $P$ in some cases), and the temperature $T$.
+
+[diagram]
+
+Figure 2: Stimuli-responsive materials exhibit a large-scale structural response to stimulations of chemical or physical nature. In this modified state, triggered by the stimulus, they possess different properties — and therefore, different functions — than in their original, relaxed state.
+
+[content]
+
+3. Repurposing physical or chemical stimulus
+
+In this Review, we present some of the significant advances in recent studies of stimuli-responsive frameworks materials. In particular, we highlight some of the novel responses that have been discovered in the past few years, the toolbox developed by researchers in the field to better understand the materials’ behavior (both experimentally and computationally), and show some of the latest progresses in the discovery of materials with targeted behavior, whether through de novo design or identification of known materials for new properties — similar to what is known in the field of drug discovery as repurposing. We do not aim to perform a systematic review of all works published on this very popular research topic — nor could we, in a reasonable number of pages — but aim to highlight some main directions of current research across a number of different families of materials. For more comprehensive reviews on stimuli-responsive materials of specific families, we refer the reader to the following published works on metal–organic frameworks,[18, 19, 20] zeolitic imidazolate frameworks,[21] covalent organic frameworks,[22, 23] hydrogen-bonded organic frameworks,[24, 25, 26] supramolecular organic frameworks,[27] and coordination polymers.[28]
+Figure 3: Molecular simulations of guest adsorption in flexible nanoporous materials are typically performed through hybrid MC/MD simulation schemes. They combine Monte Carlo (a, orange) moves for the adsorbates (insertion, deletion, translation, and rotation) and molecular dynamics (b, blue) simulation steps of the entire (host + guest) system. MD trajectories can either preserve the unit cell volume (dark blue) and allow it to vary through the use of a barostat (light blue). Reproduced with permission from Ref. 31. Copyright 2019 WILEY-VCH Verlag GmbH & Co. KGaA, Weinheim.
+
+Many attempts at understanding the adsorption-induced flexibility of MOFs initially relied on simple theoretical (or analytical) models featuring qualitative agreement with experimental behavior,[36, 37, 38, 39] in large part because sampling the full thermodynamic and phase space in the osmotic ensemble was deemed too difficult for direct molecular simulation.[40, 41]
+
+While such models continue to be refined and have value in providing fundamentally simple explanations of the driving factors for flexibility,[42, 43] they have recently been supplemented with more direct molecular simulation methods. These advanced simulations employ free energy methods (or extended free energy methods) in order to compute thermodynamic properties of interest, including the osmotic potential of the system $\Omega(N_{\text{host}}, \mu_i, \sigma, T)$, across a vast thermodynamic space.[40, 39]
+
+In doing so, they can identify the full behavior of the flexible system, including the occurrence of stable and metastable phases, and determine the structural transitions that take place (or not) upon adsorption. In order to describe both the thermodynamic equilibrium of the adsorbed phase and the internal degrees of freedom of the host framework, such simulations typically require the coupling of Monte Carlo (MC) and molecular dynamics (MD) steps in what is known as a hybrid MC/MD (depicted in Figure 3): this ensures proper sampling of the thermodynamic ensemble of choice, the osmotic ensemble.
+
+A good example of the use of free energy methods is found in the work of Goeminne et al.[44] where the authors obtained the complete thermodynamic landscape of gas adsorption for responsive MOF DUT-49 (more information about this complex and fascinating material will be detailed in subsection 3.1). They used molecular dynamics simulations and thermodynamic integration of the internal pressure in order to reconstruct the 3D profile of osmotic potential as a function of the thermodynamic variables of interest, namely the temperature, the unit cell volume (representing the flexibility of the material) and the gas chemical potential (or external pressure, which is more relevant for experimental comparisons). The different stable states of the system appear as local minima in the thermodynamic potential surface for each value of temperature (see Figure 4). In addition to reproducing the experimentally observed structural transitions, traversing the complex landscape of osmotic potential allows the authors to study their temperature dependence, as well as understand the nature of the hysteresis between adsorption and desorption paths, by exploring the metastable states as well.
+
+Beyond direct molecular dynamics and thermodynamic integration, it is possible to use more advanced techniques in order to obtain free energy profiles, such as through the use of carefully-designed collective variables[45, 46] or through umbrella sampling or metadynamics.[47, 48] However, we stress that all the simulation methods that describe the coupling of adsorption and framework deformation, regardless of their strategy for the exploration of phase space, rely on an accurate description of the intermolecular interactions in the system, i.e., the use of accurate force fields. Moreover, these force fields must suitably describe the delicate balance of very different interactions, including the intramolecular flexibility, the deformation of the metal–organic coordination environment, and the host–guest interactions. Different strategies have been used for this, including ab initio (or first-principles) MD based on DFT-level evaluation of the forces at each MD step.[49, 50]
+its very high computational cost prevents the study of large systems or long simulations. Classical “universal” force fields, on the other hand, generally lack the necessary accuracy for a realistic chemical description of the framework materials.\cite{51, 52}
+
+To address these long-standing limitations, many recent studies have focused on the systematic development of \textit{ab initio} force fields for specific \{material, adsorbate\} systems. Based on reference data obtained at the \textit{ab initio} level — typically through DFT calculations — these force fields aim to have chemical accuracy with the computational expense of a classical force field. Dürholt et al.\cite{53} proposed, for example, an approach for the systematic optimization of force field parameters for flexible ZIFs based on near-equilibrium DFT data (relaxed structure, Hessian matrix, and elastic tensor). Ghanavati et al.\cite{54} recently followed a similar approach, using LASSO regression to prioritize the important features among the many intramolecular flexibility terms of an analytical potential, and training on a dataset that included configurations farther from equilibrium — dihedral scan of rotatable bonds, short \textit{ab initio} MD trajectories, etc.
+
+Finally, the recent developments and increased availability of machine-learned interatomic potentials\cite{57, 58, 59} have been recognized in the past few years as a breakthrough, in particular for flexible framework materials. Among the successful examples of their application reported in the literature, Goeminne et al.\cite{60} trained machine learning potentials (MLPs) on DFT data for CO\textsubscript{2} adsorption in MOFs ZIF-8 and Mg-MOF-74, demonstrating the possibility to derive accurate adsorption isotherms based on these MLPs — and very recently extended this to water adsorption in flexible MOFs.\cite{61} Castel et al.\cite{62} trained a MLP on data from \textit{ab initio} trajectories of a ZIF liquid, and used it to produce high-quality atomistic models of ZIF glasses through melt–quench simulations, describing the crystal-to-liquid and liquid-to-glass transitions of the system.
+
+It should be noted that the generation of reference data at the DFT level and the training of the machine-learned potential are not necessarily done in two distinct steps, and there are advantages to more involved methodologies. Vandenhaute et al.\cite{55} demonstrated the possibility of an incremental learning scheme to construct accurate and data-efficient MLPs of MOFs by combining enhanced sampling and on-the-fly training, in a scheme illustrated on Figure 5. Wieser et al.\cite{63} highlighted the accuracy of MLPs developed by MD-based active learning for a variety of MOF properties, including elastic constants, phonon band structures, and thermal conductivity.
+
+2.2. Tuning the flexibility of MOFs: impact of metal centers
+
+Early on in the exploration of adsorption-triggered flexibility of MOFs, researchers in the field realized that small changes in their microscopic structure and intermolecular interactions could have important consequences on their flexibility. In the MIL-53 family of wine-rack type materials,\cite{64} for example, it became clear that the nature of the metal drastically influences the flexibility, with MIL-53(Fe) behaving very differently from its aluminium and chromium counterparts,\cite{64} and MIL-53(Ga) exhibiting intermediate phases not observed in MIL-53(Al),\cite{65} despite the two metals being close in nature. This observation was not limited to the metal ions, but was also true of the influence of linker nature: with NH\textsubscript{2}-substituted terephthalic acid linkers in amino-MIL-53 impacting its flexibility and favoring a narrow-pore phase,\cite{65} linker substitution was soon recognized as a valid strategy for tuning the flexibility of the material by controlling the amount of amino “tags” introduced — and therefore, the shape of adsorption isotherms.\cite{67}
+
+This line of research has borne very exciting results in the recent literature on the control and tuning of MOF flexibility, especially in order to meet specific performance targets for applications such as gas uptake, binary adsorption separation, etc. In a recent example of the control of MOF flexibility through choice of metal center, Chen et al.\cite{68} studied the structural dynamic response to different gases of a family of isonicotinate-based MOFs, M(4-PyC\textsubscript{2}O\textsubscript{4})\textsubscript{2} (M = Mg, Mn, or Cu; 4-PyC = 4-pyridine carboxylic acid); these systems are shown in Figure 6. Through a comparison of adsorption-induced transitions with various guest molecules, the authors were able to establish that the structural flexibility of the MOFs is highly sensitive to the chemical hardness of the Lewis acidic metal ions (Mg\textsuperscript{2+} > Mn\textsuperscript{2+} > Cu\textsuperscript{2+}), with gate opening behavior observed at lower pressures for MOFs containing weaker M–N bonds (due to harder metal ions). On a very different family of materials, but following a similar approach, Garai et al.\cite{69} were able to tune the flexibility of DUT-49(Cu) family through postsynthetic metal exchange of Cu\textsuperscript{2+} with a wide variety of metal cations: Mn\textsuperscript{2+}, Fe\textsuperscript{2+}, Ni\textsuperscript{2+}, Zn\textsuperscript{2+}, and Cd\textsuperscript{2+}.
+
+The control of MOF flexibility through choice of metal is particularly convenient when coupled with the possibility of continuously varying the metallic composition in a mixed-metal MOF — whether during the synthesis or through postsynthetic
+
+\[ \text{MIL-53(M) = } \text{M(OH)(benzene-1,4-dicarboxylate); MIL = Matériaux de l’Institut Lavoisier.} \]
+
+\[ ^1 \text{MIL-53(M) = } \text{M(OH)(benzene-1,4-dicarboxylate); MIL = Matériaux de l’Institut Lavoisier.} \]
+metal exchange. A clear and comprehensive example of this is the investigation, by Ehrling et al., of the family of switchable MOFs M$_2$(2,6-ndc)$_2$(dabco), also named DUT-8(M), with M = Ni or Co.[71] While the nickel-based DUT-8 is highly flexible, showing a gate-opening transition at low pressure upon nitrogen adsorption, its cobalt counterpart remains rigid in a closed pore phase.[71] Ehrling et al. then leveraged these findings to produce mixed-metal DUT-8(Co$_x$Ni$_{1-x}$), showing that the partial substitution of nickel with cobalt allows for a gradual tuning of the gate opening pressure in DUT-8(Co$_x$Ni$_{1-x}$), in the range of $p/p^0$ from 0.1 to 0.75 (as depicted in Figure 7).[70] Through the combination of several experimental techniques, including EPR spectroscopy, the authors demonstrated the coexistence of Ni/Ni, Co/Ni, and Co/Co paddle wheel SBUs in the material. Furthermore, DFT calculations were able to link the change in gate opening pressure with the activation energy of the structural transition.
+
+2.3. Tuning the flexibility of MOFs: the role of linkers
+
+The tuning of framework flexibility in MOFs is not limited to the choice of metal centers, but can also be achieved through careful choice (or design) of their organic linkers.[72] Summarizing the literature on this vast topic, we note that four main aspects need to be considered in the balance of interactions that drive (or hinder) the flexibility of a given framework material:
+
+- the topology of the framework, the nature of the inorganic and organic SBUs, and their arrangement in space;
+- the impact of linker functionalization on the host–guest interactions, i.e., how the functional groups introduced modulate the strength of that interaction (measure for example by adsorption enthalpy);
+- the influence of the linker functionalization on the pore space of the material, the maximum capacity for guest uptake and the possible packing of the guest molecules;
+- the entropic influence of the linker functional groups on the framework itself, i.e., the steric constraints they introduce, the dynamics of their motion, etc.
+
+Because of these many considerations, tuning the adsorption properties and flexibility through linker functionalization or substitution is a difficult problem, and the methods of fine tuning the materials’ responses through linker design are still highly sought after.
+Zhang et al.\[73\] provided an example of tuning the gating energy barrier of a zinc-based MOF to improve molecular sieving performance. While the gate opening in the parent $\text{Zn}_2(\text{OH})_2(\text{pzdc})(tz)$ framework ($\text{H}_3\text{pzdc} = 3,5\text{-pyrazoledicarboxylic acid, Htz = 1,2,4-trizole}$) is very easily triggered by small guest molecules, the authors demonstrated that functionalization of the Hz linker by $-\text{NH}_2$ (into 3-aminoo-1,2,4-trizole) strengthens intra-framework hydrogen bonding. This, in turn, leads to an increase in the gating energy barrier, and a shift of the pore opening pressure for $\text{C}_2$ and $\text{C}_3$ hydrocarbons, demonstrating control over flexibility and impact on molecular sieving performance.
+
+Beyond the possibility of a single substitution, some research groups have studied the effect of a series of linker substituents. Sugamata et al.\[75\] demonstrated the possibility to control the flexibility of carbazole-based MOFs through the introduction of electron-donating groups. They showed that these groups, attached onto the central benzene ring of the carbazole ligand, reduced the flexibility of the parent copper-based MOF in the order of the Hammett $\sigma$ coefficient of the substituent. In a different example of the same idea, Roztocki et al.\[74\] attained a precise control of the gate-opening flexibility of materials of the JUK-8 family (JUK = Jagiellonian University in Kraków), for the purpose of CO$_2$ adsorption, by incorporating halogen substituents of increasing size (JUK-8X, with $X = \text{H, F, Cl, Br and I}$; X-pip = 4-pyridyl-functionalized benzene-1,3-dicarbo-5-halogenohydrazide; oba$^{2-} = 4,4'$-oxydibenzoic carboxylate. Inset: view of the open structure of JUK-8, seen along the $c$ direction, showing its 1D channels. Reproduced with permission from Ref.\[74\]under CC-BY license.
+
+Let us note here that ligand-based control of flexibility can also be seen as an “on/off” state, controllable through chemical reactions inside the MOF framework itself. Jędzejowski et al.\[77\, 78\] presented an original and inspiring example of this approach in 2021, by developing a series of 3D hybrid MOF–HOF\footnote{HOF = hydrogen-bonded organic framework.}porous materials incorporating dienophiles of increasing bulkiness, based on the JUK-20 framework (JUK = Jagiellonian University in Kraków). By using the $[4 + 2]$ click reactions on JUK-20, they obtained a series of JUK-20-dieneMOFs in a single-crystal-to-single-crystal transformation. These new MOFs were then shown to display varying structural flexibility, directly linked to the bulkiness of each dienophile — due to the modulation of host entropy, i.e., the number of its possible internal motions.\[77\]
+
+Finally, ligand substitution can also control flexibility when it manifests in forms other than adsorption-induced structural transitions. Recently, Klokic et al.\[79\] reported an interesting case of tunable behavior of photo-responsive MOF films through linker functionalization. These authors showed that introducing chlorine substituents in an azobenzene-infiltrated DMOF-1 film structure\footnote{DMOF-1 is [Zn$_2$(bdc)$_2$(dabco)]$_2$, with bdc = 1,4-benzenedicarboxylate and dabco = 1,4-diazabicyclo[2.2.2]octan.} induced a significantly slow-down of the structural response upon photo-switching by UV irradiation. This orthogonal control of flexibility through both light and functionalization appears very promising for applications.
+
+2.4. Use of defects or frustrated flexibility
+
+Beyond the control of metal centers and organic linker functionalization, there are other avenues open to researchers wishing to control or design flexibility in framework materials. Several research groups have demonstrated the impact of the presence of defects,\[80\] such as missing linkers, on the flexibility of MOFs. Ohsaki et al.\[81\] showed, for example, how the introduction of defects could tune the gate opening behavior of a MOF. They introduced a controlled amount of defects in the interdigitated CID-4 framework through the use of modulators (monodentate ligands replacing bidentate organic linkers), and observed that the gate opening pressure for nitrogen sorption could be varied. Free energy analysis of the adsorption isotherms showed that the change in gating pressure was directly linked to a destabilization of the closed structure, i.e., a change in the $\Delta F_{\text{host}}$ free energy difference between the two
+
+Figure 8: Adsorption isotherms of CO$_2$ at 195 K in JUK-8 and a series of halogen-substituted frameworks of the JUK-8 family, (Zn$_2$(OH)$_2$(X-pip)$_2$), (X = H, F, Cl, Br and I; X-pip = 4-pyridyl-functionalized benzene-1,3-dicarbo-5-halogenohydrazide; oba$^{2-} = 4,4'$-oxydibenzoic carboxylate. Inset: view of the open structure of JUK-8, seen along the $c$ direction, showing its 1D channels. Reproduced with permission from Ref.\[74\]under CC-BY license.
+
+License: CC BY 4.0
+
+https://doi.org/10.26434/chemrxiv-2025-gdxv77-v2 ORCID: https://orcid.org/0000-0001-5318-3910 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+phases of the material, due to intermolecular host–host interactions.
+
+Yoskamtorn et al.\textsuperscript{[82]} offered a different view of the impact of defects on framework flexibility, looking at the responsive adsorption behavior of defect-rich Zr-based MOFs, of the UiO-67 family (UiO = Universitetet i Oslo). This study demonstrated that the introduction of missing-linker defects led to a strong impact on NH\textsubscript{3} sorption, due to local flexibility of the framework, without overall change in pore volume. Indeed, \textit{in situ} neutron diffraction and DFT calculations showed that missing linkers resulted in different pore openings and linker dynamics, which are in turn responsible for a marked change in the nature of the ammonia adsorption. We think it relevant to highlight the parallel of these findings with the results of Lee et al.\textsuperscript{[83]} who, in a somewhat opposite approach, demonstrated the impact of “redundant” linkers in multicomponent MOFs in improving the stiffness of the frameworks, allowing them to survive high levels of vacancy defects without alteration of their stability — maintaining framework structure, crystallinity, and porosity.
+
+Another approach recently introduced in the design of materials with novel responses to guest adsorption is the concept of “frustrated flexibility” proposed by Pallach et al. in 2021.\textsuperscript{[84]} These authors reported a series of functionalized MOF-5 derivatives exhibiting a new type of guest- and temperature-responsive structural flexibility: while the materials retained their framework connectivity and topology (i.e., no bonds were broken), they could undergo reversible crystal-to-amorphous structural transitions – depicted on Figure 10. Pallach and co-workers used a combination of experimental and computational methods to explain this phenomenon as follows: the structural flexibility is due to the frustration of the system. This frustration arises from the conflict of the framework lattice, which is rigid due to intrinsic geometrical constraints of the inorganic building units (as in parent compound MOF-5), with strong intraframework dispersion interactions, which are a driving force towards densification of the structure. Upon changes in temperature, this conflict leads to an entropy-driven transition between an ordered phase (crystalline) and a disordered phase (a semi-crystalline, aperiodically distorted structure).\textsuperscript{[86]}
+
+This new concept is a very promising direction of research, although it remains to be seen whether this frustrated flexibility can be generalized to other framework types, and identified (or designed) in other material families. On a closely related topic, Chen et al.\textsuperscript{[85]} have proposed a novel method to gain fine control over the flexibility and pore size of an ultramicroporous MOF through the introduction of frustration of the intramolecular interactions. This new CU-4 material (CU = Cambridge University) combines an In\textsuperscript{3+}-based inorganic node prone to flexibility (similar to that of the MIL-53(In) family\textsuperscript{[87, 88]}), with a bulky cubane-derived ligand, and due to the balance of interactions, its pore cavity is conducive to the exclusive recognition of CO\textsubscript{2}. The molecular frustration occurs upon binding of CO\textsubscript{2}, where the multiple H bonds and weak van der Waals interactions minimize framework dynamics, therefore favoring high selectivity. This new idea for MOF design, illustrated on
+Figure 10: Top panel: Schematic for the preparation of alkoxy-functionalized MOF-5-CX derivatives and their as-synthesized structure. Bottom panel: Illustration of the guest-responsive structural behavior of the MOF-5-CX series, showing the cubic as-synthesized phase, and the two dry phases obtained depending on length of the alkoxy side chains. Reproduced from Ref. [84] under CC-BY license.
+
+Figure 11: and which the authors called “flexibility-frustrated porosity”, is related to the “frustrated flexibility” of Pallach et al. [84] — but not exactly identical.
+
+2.5. Influence of crystal size on flexibility
+
+The first observations that the flexibility of framework materials could be heavily influenced by crystal size, shape, dimensionality or morphology are not recent. [89, 90] Like the introduction of defects, described in the previous section, these textual properties of the flexible framework materials are directly controlled by the conditions of the synthesis — whether on purpose or unwillingly. Therefore, the stimuli-responsiveness of materials can be influenced by the conditions of their synthesis, and of course, the activation of their microporosity. The microscopic mechanism for such dependency was originally not fully understood, and remains in many cases a subject of conjecture, because spatially-resolved characterization of these systems is difficult to achieve. Moreover, atomistic-level molecular simulation approaches of finite crystals are challenging as most computational approaches use periodic boundary conditions, which are incompatible with the study of finite-size systems.
+
+Experimental findings. Among the recent experimental findings that help us better understand the influence of crystal size on the flexibility of framework materials, [91, 92, 93] we choose to highlight here a few studies of importance. We refer the interested reader to Refs. [92] and [93] for a full review of the topic, and especially earlier works.
+
+The influence of crystal size on the flexibility of mesoporous MOF DUT-49 was originally established in 2018: Krause et al. [94] showed that the adsorption-induced structural transition was diminished for samples with small crystal sizes, with the flexibility even being completely suppressed for some guest molecules. While this effect was clearly demonstrated, it was not fully understood at the time. In a later study, the same group successfully used in situ $^{129}$Xe NMR spectroscopy in order to probe the influence of defects and crystal size on the flexibility of mesoporous MOF DUT-49. [95] Using an analysis of the chemical shift at different pressures as a proxy for measuring the solid–fluid interaction strength, they showed that in smaller crystals, the host–guest interaction in the saturated pores are strongly decreased, minimizing the driving force for structural transitions, ascribing a microscopic mechanism to this macroscopic phenomenon.
+
+The tunability or control of flexibility through crystal size engineering has now been established in many other framework materials, and affects different types of flexibility: gate opening, bistable materials, negative adsorption, etc. Bose et al. [96] demonstrated the effect of crystal size and morphology on the adsorption-induced gate-opening of ZIF-7 (ZIF = Zeolitic Imidazolate Framework). While crystals of ZIF-7 of all sizes exhibit some flexibility, the gate opening and closing pressures for CO$_2$ adsorption can be modulated, as well as the abruptness of the transition (indicated in the slope of the isotherm step).
+
+In a more complex case, Abylgazina et al. [97] showed that tuning the particle size of DUT-8(Zn) could lead to an inversion of adsorptive chemoselectivity. Indeed, activate of as-synthesized DUT-8(Zn) leads to a phase transition (gate closing) upon removal of solvent from the pores. However, while micro-sized crystals showed selective reopening in the presence of dichloromethane (DCM) over alcohols, crystal downsizing to micron level reversed that gate opening selectivity. This unexpected finding is one aspect of a more general (and more complex) picture of guest-selective shape-memory effect in DUT-8(Zn), where the flexibility is a function of both crystal size and guest nature — in ways that are not yet fully understood.
+
+It is relevant to note that, although the effect of crystal size on flexibility of framework materials has been mostly studied through the facet of adsorption-induced flexibility, it also extends to other aspects of flexibility. Tiba et al. [99] convincingly showed that crystal downsizing of a shape-memory MOF could also increase its mechanical rigidity, even in the absence of adsorption — which was visible in the increase of Young’s modulus of the crystals, as measured by atomic force microscopy nanoindentation.
+
+Modeling efforts. We stated above that molecular simulations of framework materials typically rely on periodic boundary conditions (PBC), and their computational cost typically limits simulation boxes to thousands of atoms (as an order of magnitude). However, recent years have seen the development of new molecular simulation approaches that address the questions of the influence of crystal size, morphology and surface effects on framework flexibility [100, 101] by working to scale up the simulations or bypass the use of periodic boundary conditions.
+
+---
+
+$^{5}$DUT-8(Zn) has formula $[\text{Zn}_2(2,6-\text{ndc})_2(\text{dabco})]_n$, with 2,6-ndc = 2,6-naphthalenedicarboxylate, dabco = 1,4-diazacyclic[2.2.2]octane; DUT = Dresden University of Technology.
+A first approach is the use of computational techniques to allow the use of larger simulation boxes, or longer simulation times — while retaining the use of PBC. This enables the computational determination of dynamic properties of the flexible frameworks on large length scales, directly probing the nature of the transitions at a scale of multiple unit cells. It is important, for example, to distinguish between structural transitions that occur uniformly through a cooperative motion of all cells, and those that proceed “domain by domain”, creating an interface with two phases coexisting (temporarily) inside the crystal itself. This approach had previously been applied to simplified representations of MOF models (“toy models”), providing qualitative understanding of the nature of transitions. However, its application to realistic systems with an atomic level of description is a new development in the field.
+
+This approach has been championed, in particular, by the Van Speybroeck group in Gent. In 2019, Rogge et al. performed mesoscale MD simulations of several flexible MOFs: MIL-53(Al), DMOF-1(Zn), MIL-53(Al)-F, and CoBDP. In order to achieve this scale-up in size, they needed a speed-up in the calculation of interatomic interactions, and \textit{ab initio} MD methods (relying on calculation of forces at the DFT level) were not feasible at this scale. Therefore, they parameterized classical force fields for these flexible MOFs, based on first-principles data, through the QuickFF approach. This allowed them to run MD simulations of very large systems, such as an \(8 \times 2 \times 8\) supercell of DMOF-1(Zn), to elucidate the mechanism of structural transition beyond the unit cell. In later work, this group leveraged the massive parallelism of state-of-the-art GPUs using the OpenMM software package to study the “breathing” transitions in MIL-53(Al) in a \(37 \times 10 \times 37\) supercell containing 1,040,440 atoms. Through constant-temperature constant-stress simulations, the authors could show that two different mechanisms for the transition were possible, depending on the range of external pressure applied — as depicted in Figure 12.
+
+Another avenue of research has been to try and directly understand the impact of crystal size on framework flexibility and structural transition, by performing simulations of nanocrystallites without periodic boundary conditions. This line of research has been driven, in particular, by the Schmid group in Bochum. In 2019, Keupp et al. compared the thermal- and pressure-induced transformations of DMOF-1, between periodic systems and non-periodic nanocrystals. Like the above studies, they relied on a first-principles parameterized force field in order to make calculations faster — in this case, using the MOF-FF method. Combining direct MD and free energy methods,
+2.6. Applications of framework flexibility
+
+While the above sections focused mostly on the fundamentals of framework materials flexibility, as well as the experimental characterization methods and molecular simulation approaches that are used to understand them better, it feels necessary to complement this with a short section highlighting some of the specific applications that these new discoveries and advances in the field enable.[114] This is by no means an exhaustive list, but will give some entry points into specific applications where flexibility (and its control) are deemed essential.
+
+A first direction of applied research has been the control of flexibility to optimize guest recognition and design materials with high gas separation performance. This can be achieved in various ways, in optimizing the strength of the host–guest interactions, activating shape recognition (i.e., optimizing the fit of the desired guest molecule inside the pores), or dynamic considerations. One example already detailed above is the optimization of acetylene adsorption and storage in Bonneau et al.[76] (see subsection 2.3). In Wang et al.[115], the authors used a soft porous coordination polymer with “breathing” transitions[7] to optimize the difficult separation of xylene isomers: the material can discriminate ortho-xylene from the other isomers by its specific guest-loading configuration, due to π–π stacking in the flexible framework providing shape recognition. Wu et al.[116] provided another example of the use of flexibility to enhance selectivity: they synthesized a two-fold interpenetrated porous coordination polymer[8] with a flexible propeller-like ligand, whose local flexibility specifically accommodates the CO₂ molecule — with high adsorption affinity due to strong confinement. This confers to the framework a very high selectivity for CO₂ trapping, and later promotes chemical reactions inside the pores of the material. Similarly, Chanut et al.[117] demonstrated that mechanical control of the pore size aperture (through the application of external pressure) could optimize the molecular sieving separation of CO₂/N₂ and CO₂/CH₄ in MIL-53(Al).
+
+A second direction studied by many groups is the reliance on framework flexibility to achieve molecular sieving and controlling the sieving performance of a given material through balance of host–host and host–guest interactions. For example, Qazvinii et al.[119] demonstrated this effect in dynamic cobalt-based MUF-15-OMe MOF[9] — with a flexible propeller-like ligand, whose local flexibility specifically accommodates the CO₂ molecule — with high adsorption affinity due to strong confinement. This confers to the framework a very high selectivity for CO₂ trapping, and later promotes chemical reactions inside the pores of the material. Similarly, Chanut et al.[117] demonstrated that mechanical control of the pore size aperture (through the application of external pressure) could optimize the molecular sieving separation of CO₂/N₂ and CO₂/CH₄ in MIL-53(Al).
+
+In a similar approach for a different application, Dong et al.[120] demonstrated the possibility of one-step sieving separation of a ternary gas mixture (C₂H₂/CO₂/C₂H₄) in flexible MOF NTU-65[10] through tuning of the gate-opening pressure by temperature. Likewise, in Zheng et al.[122] the authors modulated the gate-opening pressure in three isomorphous flexi-
+
+---
+
+7PCP-1 = [Zn₂(bhta)₃(bpy)]; H₂bhta = 2,5-bis((2-nitrobenzoyloxy)terephthalic acid and bpy = 4,4’-bipyridine, PCP = Porous Coordination Polymer.
+8[Zn₃(tca)(dpa)₉], with H₃tca = 4,4’,4’’-tricarboxytriphenylamine and dpa = (E)-1,2-di(pyridin-4-yl)diazenes.
+9MUF-15-OMe = [Cu₆(μ₃-OH)₃(pua-OMe)-4H₂O]; H₂pua-OMe = 5-methoxyisophthalic acid, MUF = Massey University Framework.
+10NTU-65 = [Cu₁.4₂(1,4-dithiimidazolyl)benzene]₂(SiF₆)₃; NTU = Nanjing Tech University. This material is also known as SIFSIX-23-Cu[123].
+molecular sieving separation. These are only some representative examples from the recent literature; for a fuller review of selective separation of hydrogen isotopes (in particular) with flexible MOFs, we refer the reader to Ref. 118.
+
+Figure 14: Illustration of the negative gas adsorption (NGA) phenomenon in the DUT-49 MOF. (a) Adsorption and desorption isotherms for methane at 111 K. Inset: zoom on the negative adsorption step. (b) View of the crystal structure of the DUT-49 op (open pore) and cp (closed pore) phases and the conformation of the organic linker for each structure. Adapted from Ref. 118.
+
+We also note, in closing this section, that beyond adsorption, framework flexibility interplays with other physical properties, such as spin[124, 125], photo-responsive behavior,[126] luminescence,[127, 128] etc.
+
+3. Framework materials with “surprising”, “abnormal”, “weird”, “unusual” behavior
+
+As we detailed in the Introduction, an important focus of research on stimuli-responsive framework materials has been the search for materials with properties that are not commonly expected in classical dense materials. Many metal–organic frameworks, in particular, have been widely advertised for physical or chemical behavior that is judged “unusual”,[129, 130] “surprising”,[131] “abnormal”,[132, 133, 134] or “weird” (although that one has not, to our knowledge, been used in a paper title yet). Similarly to meta-materials, which are materials engineered to feature rare properties not typically observed in naturally occurring materials, we have previously proposed the terminology of “meta-MOF”[135] — from the Greek root μετά, which means “beyond”. In this section, we highlight some of the recent advances in the area of framework materials with counter-intuitive response to stimulation.
+
+3.1. Negative gas adsorption
+
+Negative gas adsorption (or NGA) falls into the category of adsorption-induced flexibility, which we have covered above, as well as counter-intuitive behavior.[136] Reported for the first time in 2016 by the Kaskel group in Dresden,[118] NGA materials feature a decrease in their adsorbed uptake upon increase of gas pressure during an adsorption isotherm, i.e., they have \( \delta N_{\text{ads}} / \delta P \text{ at } T = 0 \) < 0. This feature, which is thermodynamically impossible in systems at equilibrium, is contrary to adsorption in “normal” microporous solids — where the guest uptake always goes up when the pressure in the surrounding reservoir is increased, displacing the equilibrium towards more molecules inside the pore space of the adsorbent. It is exemplified in the case of prototypical NGA material DUT-49 in Figure 14[118].
+
+NGA was shown to be due to the combination of two factors: (i) the existence of an adsorption-induced contraction of the material, from an open-pore phase to a narrow-pore phase; (ii) an important metastability of the open-pore structure, which means that the closing transition is delayed past the point of phase equilibrium.[137] The thermodynamic driving force behind the transition is the same as in the “breathing” phenomenon, seen for example in the MIL-53 family of wine-rack type MOFs:[12] the host-guest interactions are stronger in the phase with the narrower pores, leading to a closing upon adsorption. Furthermore, at high enough pressure, the open pore phase becomes entropically favored, because it can fit more guest molecules. Beyond this thermodynamic understanding of the nature of the NGA transition, more recent works have focused on the engineering of negative adsorption in other materials. Krause et al. in 2019[138] used an extensive combination of in situ X-ray and neutron diffraction, calorimetric and adsorption measurements, alongside molecular simulations to highlight a series of critical design criteria for NGA: limits on pore size, ligand length and mechanical stiffness, strength of guest adsorption, etc.
+
+In 2020, the same group used these criteria in a more systematic and predictive work in order to design new NGA materials.[139] Based on molecular simulations, they tuned the elastic and inelastic properties of a set of 11 building blocks (represented in Figure 15), observing some general trends in constrained density functional theory (DFT) calculations: widening of the backbone increases stiffness, and elongation of the building blocks results in a decrease of the buckling point. Furthermore, through molecular dynamics simulations, they could show that such linker modifications directly affect the activation barriers of the guest-free bistable frameworks.
+
+Figure 15: a) Schematics of negative gas adsorption (NGA) in DUT-49 (Cr, Mo, W, 4-DPDS = 4,4-dipyridyl disulfide). b) Schematics of the negative gas adsorption (NGA) in DUT-49 (Cr, Mo, W, 4-DPDS = 4,4-dipyridyl disulfide).  
+
+**References:**
+
+[1] M = Cr, Mo, W; 4-DPDS = 4,4-dipyridyl disulfide.
+Among those, we can list (far from being exhaustive): highly
+
+3.2. Framework materials as mechanical metamaterials
+
+This rational tuning of the NGA transition was then confirmed experimentally, as seen for example on sorption isotherms in Figure 15. In the course of this work, the authors created a new framework, DUT-160, with a record-setting magnitude of NGA for nitrogen adsorption at 77 K. Finally, in 2021, Krause et al. [5] looked further in detail in the influence of temperature as a controlling parameter on the occurrence of NGA transitions, and the pressure at which they are observed.
+
+The Dresden group also worked on more applied development of the NGA materials for autonomous pressure amplification in pneumatic devices. In 2020, Garai et al. [69] investigated in depth the thermal behavior of materials of the DUT-49 family, a property of interest for their potential use in applied devices and composites. They reported that while the evacuated frameworks exhibited negative thermal expansion (NTE), the inclusion of solvent could tune their thermal behavior into positive thermal expansion (PTE) — a general phenomenon, regardless of the nature of the solvent. In 2021, Bon et al. [140] demonstrated the occurrence of NGA for carbon dioxide adsorption in DUT-46, a framework previously considered non-flexible. The also showed that CO₂-induced NGA lead to large-scale pressure amplification in other materials, such as DUT-49 and DUT-50, due to the strong host–CO₂ interactions. The largest effect was demonstrated, in a custom-built pressure amplifier device, with a pressure amplification reaching up to 428 kPa (at a transition pressure of 340 kPa).
+
+3.2. Framework materials as mechanical metamaterials
+
+Among the surprising properties that framework materials appear to exhibit more frequently than dense inorganic materials, “abnormal” mechanical properties are of key interest. Among those, we can list (far from being exhaustive): highly anisotropic elastic behavior, negative linear (or area) compressibility, negative Poisson’s ratio, zero linear (or area) compressibility, pressure-induced softening, etc. [132] Such properties, while not physically or thermodynamically forbidden, are considered relatively rare in crystalline materials in general, and their occurrence in some frameworks can qualify them as mechanical metamaterials. [141] We present here some recent discoveries in this area of research, and refer readers to two book chapters for more complete reviews of earlier works, written by Arnaud Marmier [142] and Sven M. J. Rogge. [143]
+
+What is arguably the most eye-catching illustration of this direction of research is the recent report by Jin et al. [144] of an “origamic” flexible MOF with folding-type molecular motions upon changes in temperature and the application of external pressure. In 2019, a previous work of the Choe group [7] had already demonstrated the relevance at the atomistic level of the design principles of mechanical metamaterials usually applied at the macroscopic or microscale, through technologies such as 3D printing or micropatterning. [145] [146] More specifically, they showed that one could engineer a material with negative Poisson’s ratio (a property also called auxeticity) through the careful combination of (i) a Zn-based SBU serving as a hinge, (ii) a rigid porphyrin linker, whose only possible motion is a concerted rotation, and (iii) a framework topology compatible with auxeticity. [7] The unusual mechanism of flexibility of this UPF-1 material [7] is depicted in Figure 16.
+
+In 2023, Jin et al. [144] extended this concept to another material, in a 2D framework inspired by the traditional Japanese craft of paper folding, origami (折り紙). The PPF-301 framework [7], self-assembled from Zn nodes and flexible porphyrin linkers, is highly flexible and exhibits directions of exceptionally negative linear compressibility and Poisson’s ratio. This flexibility is associated with a concerted mechanism in the 2D sheets, which involves the folding of an origami-like tessella-
+
+---
+
+13 UPF = UNIST Porphyrin Framework, UNIST = Ulsan National Institute of Science and Technology.
+14 PPF = Pillared Porphyrin Framework.
+
+---
+
+Figure 15: Top panel: eleven organic linkers for potential NGA materials, studied through constrained DFT calculations. Bottom panel: N₂ sorption isotherms at 77 K for 8 potential NGA materials (from left to right and top to bottom: DUT-49, DUT-148, DUT-147, DUT-159, DUT-50, DUT-160, DUT-161, and DUT-162). Closed symbols: adsorption, open symbols: desorption, simulated isotherm for op (open pore) phase as purple line, cp (closed pore) phase as orange line. Adapted from Ref. [7] under CC-BY-NC license.
+
+Figure 16: Top panel: schematic representation of the flexibility mechanism in the UPF-1 framework based on the rotation of a square tessellation. Bottom panel: evolution of the UPF-1 structure upon application of a uniaxial strain along the x (or y) direction, demonstrating its negative Poisson’s ratio — as obtained from semiempirical calculations. Adapted from Ref. [7] under CC-BY-NC license.
+and (Ti$_2$2D MOF NiF$_2$ into the mechanism of abnormal in-plane stretchability of the NLC in two small-pore MOF structures, (ZnC$_2$aite.
+
+Stratified in purely inorganic frameworks such as tuperssuatsi-doid ($\text{T}_2$) topology of the framework.[152] Colmenero studied the NLC in two small-pore MOF structures, (ZnC$_2$O$_4$·4H$_2$O) and (Ti$_2$(C$_2$O$_4$)$_2$·2H$_2$O), and the impact of hydration on the mechanics of the framework:[153] they identified what they termed an “empty channel” mechanism, which is also demonstrated in purely inorganic frameworks such as tuperssuatsi-aite.$^{17}$ As a third example, we can cite the recent investigation into the mechanism of abnormal in-plane stretchability of 2D MOF NiF$_2$(pyrazine)$_2$. Fan et al.$^{154}$ used MD simulations based on a machine learning potential (MLP) in order to probe in silico the highly anisotropic behavior of this material, showing that uniaxial tensile strain resulted in a decrease of its in-plane area — a mechanism that could make the MOF appealing for applications in thin films. Finally, Vervoorts et al.$^{155}$ identified the important role of linker side chains in the pressure response of the Cu$_2$(DB-bdc)$_2$dabco MOF.$^{18}$ They demonstrated, through high-pressure powder X-ray diffraction and molecular dynamics simulations, that linker configurational entropy can be a determining factor in the thermodynamics of flexible MOFs, and opened the way to further tuning of MOF mechanical behavior through ligand functionalization.
+
+In a recent direction of research, the study of these mechanical metamaterials now goes even beyond the single unit cell, similarly to the work done to understand crystal size influence on adsorption-induced flexibility (as detailed in subsec-
+tion 2.5). In 2022, Xing et al.$^{156}$ demonstrated that the design of MOFs with targeted metamechanical properties — we borrow the adjective “metamechanical”[157] from Swiss sculptor Jean Tinguely (1925–1991) — could be improved by a concerted design involving both the supramolecular assembly and the mesoscopic structural design. They engineered hollow octahedron particles of the UiO-66 MOF, that demonstrated experimentally distinct mechanical properties from the UiO-66 single crystals due to this hierarchical design. On the same family of materials, Rogge et al.$^{158}$ proposed in a computational approach to develop strain engineering of the rigid UiO-66 through the introduction of missing linker defects. While the parent defect-free material becomes amorphous under external pressure, the authors showed that introducing flexibility into the material in the form of shear instabilities lead to a more robust framework. Indeed, these instabilities act as “crumple zones”, locally focussing the strain (see Figure 18), and preserving the rest of the material’s structural integrity and porosity.
+
+The identification of novel physical properties of interest is not limited to mechanical properties, but can also be extended to the thermal response of materials. To give one example of this, Liu et al.$^{159}$ studied the anomalous thermal expansion in the calcium squarate framework, showing that it combined negative thermal expansion (NTE) in volume, and uniaxial zero thermal expansion (ZTE) along a specific crystallographic axis. Both features are observed over an usually large temperature range, and find their root in the specific binding of the bridging squarate ligand and its transverse vibration modes.
+
+3.3. Identifying framework materials with anomalous behavior and quantifying them
+
+As illustrated in the sections above, the occurrence of anomalous mechanical or thermal properties in framework materials is widely considered to be higher than in “traditional” dense inorganic materials. A bibliographic search of the literature to date reveals more than one thousand papers about negative thermal expansion (NTE) on MOFs alone, while negative linear compressibility (NLC) in framework materials accounts for several hundreds of papers, and negative Poisson’s ratio appears in a few hundreds. However, despite these many reports on the properties of specific materials, one question remains mostly open:
+
+---
+
+15ZIF = Zeolitic Imidazolate Framework; gis is a topological code from the Reticular Chemistry Structure Resource (RCSR) database[150] corresponding to the gismondine zeolite.
+
+16NPN = Nitroso Polymer Network; NPN-3 was first reported in Ref. [151]
+
+17Tuperssuatsi-aite is a clay mineral named after Tuperssuatsiat Bay in Greenland, its composition is Na$_2$Fe$_2$Mn(Si$_4$O$_2$)(OH)$_2$·6H$_2$O.
+
+18DB-bdc = 2,5-dibutoxy-1,4-benzenedicarboxylate, dabco = dabco=1,4-diazabicyclo[2.2.2]octane.
+how can we identify systematically frameworks with anomalous behavior, and what is their prevalence in the chemical space of interest?
+
+**Thermal expansion.** The vast majority of dense inorganic materials feature positive thermal expansion (PTE), fundamentally due to the asymmetry of 2-body interactions around their minimum: as temperature increases, the bonds tend to elongate rather than contract. While some dense materials display negative thermal expansion (NTE), their number is limited—they are the exception, rather than the norm. The microscopic mechanisms behind their anomalous thermal behavior have been explained in various ways, but usually involve the concerted motions of the constituents of their molecular structure, or the activation of low-frequency vibration modes.
+
+Metal-organic frameworks, covalent organic frameworks and other supramolecular assemblies, on the other hand, tend to display NTE more frequently. Many supramolecular frameworks are built from M–ligand–M linear linkages, where the linker is aligned with the M···M axis. Thermal motions then enable the out-of-axis low-energy vibration modes of the linkers, which on average tends to shorten the M···M distance, and therefore increase the framework density. One can wonder whether NTE is not, indeed, the norm in the world of supramolecular frameworks—all we are not aware of any systematic study so far.
+
+One of the roadblocks on the way to a more systematic understanding is the limited availability of thermal expansion data in databases. In their recent study across all inorganic materials, Cai et al. extracted from the published literature 434 values—and not all of them measured or predicted in the same way, or at the same temperature. Systematic computational studies on the link between structure, chemical composition and thermal expansion have been published on smaller families of materials. Our group has devoted several studies to the understanding of physical properties of zeolitic frameworks, among which featured the thermal behavior. We have combined several approaches to allow for the prediction of this structure–property relationship, including both DFT calculations in the quasi-harmonic approximation (QHA) and the training of a machine learning predictor based on DFT data, and more recently the development of a neural network-based interatomic potential for the description of all-silica zeolites, with the aim of reproducing their thermal expansion and mechanical response. However, such studies remain for now limited to small subsets of the chemical space.
+
+**Elastic properties.** The tuning of mechanical properties of framework materials is an important research subject, both for their fundamental understanding but also as a crucial property in their potential applications. When it comes to the identification of anomalous elastic properties, such as negative linear compressibility (NLC) or negative Poisson’s ratio (auxeticity), the determination of the materials’ mechanical behavior is often achieved by a complement of *in situ* X-ray diffraction experiments, establishing the macroscopic behavior, and computational modeling of the structure and its evolution under stress, allowing for the determination of a microscopic mechanism.
+
+Two recent studies exemplify this search for anomalous elastic properties and their understanding. Giri et al. looked at the mechanical behavior of thermally conductive stacks of two-dimensional covalent organic frameworks. Through the use of atomistic MD simulations based on the adaptive intermolecular reactive empirical bond order (AIREBO) potential, they showed that a careful engineering of the COF microstructures could lead not only to auxeticity, but to high negative values of the Poisson’s ratio—beyond that of other auxetic materials. They could link this behavior to a swiveling motion of the organic linkers under uniaxial tensile strain. In another work, Fan et al. investigated the CALF-20 MOF framework and its mechanical and thermal properties, through a combination of static DFT calculations and constant-pressure MD simulations based on a machine-learned potential. Those revealed that CALF-20 exhibits both negative area compressibility and negative Poisson’s ratio in the linear regime, as well as a distinct two-step elastic deformation behavior. That phase transition is induced by strain-softening and is linked to a reorientation of the oxalate ligands of the framework. This study demonstrates that the elastic characterization of MOFs can be a rich tool, even beyond the routine studies of the linear regime.
+
+However, beyond such case-by-case studies, general structure–property relationships of framework materials are still pretty much an open question. Some studies in the field have started to delineate general trends and highlight the boundaries of the possible properties. For example, Karothu et al. surveyed three decades of published literature on mechanical
+
+---
+
+**Figure 18:** Overview of the strain engineering approach to improve the mechanical robustness of UiO-66. Introduction of missing-linker defects creates crumple zones that act as focal point for the strain when the framework is compressed, similarly to a car bumper, enhancing the pressure response of the overall material. Reproduced from Ref. under CC-BY-NC-ND license.
+
+---
+
+\[ \text{CALF-20} = \text{Zn}_2(1,2,4\text{-triazolate})_2(\text{oxalate}); \quad \text{CALK = Calgary Framework} \]
+properties of organic crystals in order to perform an extensive systematic analysis of their values of Young’s modulus and hardness. This allowed them to better describe the limits of their mechanical performance as a family of materials, and establish certain broad correlations with, e.g., crystal density. In a seminal work in 2015, de Jong et al. had followed a similar idea on the computational side and mapped the elastic properties of 1,181 inorganic crystalline compounds through DFT calculations. This database of elastic tensors of crystals, integrated as part of the Materials Project database, is a valuable resource for the community and has continued to grow. It accounts for 12,802 inorganic materials to date — we will provide more details on its uses for data-based approaches to materials discovery in section 5.
+
+In 2019, Chibani et al. used the Materials Project elastic data in order to perform a systematic exploration of the elastic properties (bulk modulus, shear modulus, Young’s modulus, Poisson’s ratio, and linear compressibility) of inorganic solids. Beyond being able to establish general trends relating these various elastic moduli, the authors could perform tensorial analysis to analyze statistically the importance of elastic anisotropy among more than 10,000 crystals — an order of magnitude that had not been achievable before. Through this analysis, depicted in Figure 19, they could also quantify some mechanical properties that are often considered by researchers as “rare”, but without statistical evidence. Negative linear compressibility (NLC), for example, was found to occur in 3% of the crystalline structures in the database. For negative Poisson’s ratio (auxeticity), results are a mixed bag: 30% of materials in the database exhibit a negative Poisson’s ratio in at least one direction of space, meaning that the occurrence of partial auxeticity is not a rare phenomenon. On the other hand, materials who exhibit auxeticity in all directions of space (complete auxeticity) are very rare: they account for only 0.3% of the database.
+
+We note, however, that such statistical analyses of mechanical behavior in an entire family of materials only exist for dense organic and inorganic crystals with relatively simple structures, for which DFT calculations are tractable at a large scale. As of yet, we are not aware of any such systematic characterization of supramolecular framework materials, such as metal–organic frameworks, and the statistical patterns of their elastic properties remain for now an open question.
+
+4. New modes of dynamics: molecular rotors
+
+For a long time, it was typically considered that the solid state is not well suited to sustaining fast molecular motion, including rotational motion, because dense matter does not provide sufficient space to allow movements of significantly large scale. However, in recent years a variety of molecular machines, switches and rotors have been successfully engineered within porous crystals and on surfaces. Supramolecular framework materials have seen rapid focus in the past few years as a platform for the installation of molecular rotors. These amphi-dynamic crystals, which possess crystallinity yet support dynamic behaviors, are an emerging area of research in the field of molecular machines. The organic linkers in a covalent or metal–organic framework are embedded in a crystalline assembly, yet at the same time they are not “packed” but separated from each other and kept in place by the framework. Their spacing is controlled by the length of the linkers and the coordination mode of the inorganic part. Moreover, the rotors are exposed to the porosity and can interact with guest molecules, and influence the thermodynamics and kinetics of adsorption. Here we highlight some of the recent advances in this area of research, and refer the reader to Refs. for more comprehensive reviews on the topic.
+
+4.1. Molecular rotors in framework materials
+
+One fundamental aspect of the embedding of molecular rotors into framework materials of low density is the following: the constraints induced by the crystalline framework allow for the spacing of the rotors, the reduction of their interactions (although we will see exceptions below), and the promotion of fast dynamics. The design and optimization of structure for fast rotor motion is therefore a key area of research in this field. This is well exemplified by the work of Perego et al., where the authors reported very fast rotation of bicyclopentane rotors in a highly porous zinc-based MOF. They ascribed this unusual dynamic behavior to a frustration between the three-fold bipyramidal symmetry of the rotor and the four-fold symmetry of the inorganic struts (see Figure 20), limiting the formation of conformations with preferential orientation and therefore lowering the energy barrier for rotation. In a subsequent study, Prando et al. confirmed the highly dynamical properties of that system at cryogenic temperatures, through the use of muon-spin relaxation (μSR) spectroscopy. They calculated an exceptionally low activation energy of 30 cal/mol.
+
+Beyond the design of rotor-bearing materials and the characterization of their rotation speed, one important direction of research is the study of the interactions between rotors in a framework: the coupling of their motion, the emergence of collective dynamics, as well as arising long-range order. For example, Gonzalez-Nelson et al. studied in detail the linker dynamics in functionalized variants of the MIL-53(Al) family of materials. Because these MOFs have relatively small pores, it is possible to tune their rotational mobility through subtle changes in their linker functionalization, obtaining a diversity of behavior: (i) independent rotation of the unfunctionalized ligands;
+(ii) blocked rotation of amino-functionalized ligands, due to a combination of intraframework hydrogen bonds and steric hindrance; (iii) for nitro-functionalized linkers, emergence of coupled rotational dynamics between neighboring linkers.\cite{188}
+
+Focussing on the emergence of order from the dynamics of rotors, Su et al.\cite{189} studied the behavior of a zinc-based MOF with dipolar rotors based on ditopic bicyclo[2.2.2]octane-based linkers. This material\cite{20} presents a phase transition temperature at 100 K, from a high-temperature orientationally disordered phase to a low-temperature ordered phase. In the low-\(T\) phase, the ordering of the linkers is due to correlated dipole–dipole interactions, leading to an antiferroelectric structure. At room temperature, the linkers are rapidly rotating and their dipoles are disordered, creating a paraelectric phase, as illustrated on Figure 21.\cite{20}
+
+On a related note, Schnabel et al.\cite{190} studied the rotation of dipolar linkers based on benzothiadiazole in copper-based NbO-type MOFs ZJNU-40\cite{23} and JLU-Liu30.\cite{23} These authors combined dielectric spectroscopy and computational simulations to probe the reorientational relaxation dynamics of the rotors: both frameworks exhibit cooperative reorientational motions and an orientational glass transition. Moreover, JLU-Liu30 is thought to present an antiferroelectric ordering of the dipoles at temperatures below 300 K.
+
+4.2. Molecular rotors and adsorption
+
+The exposure of molecular rotors in nanoporous framework materials to guest molecules allows them to interact with adsorbed species, and create the possibility of interplay between their degrees of freedom and those of the guest molecules. Several recent studies have highlighted the fundamental nature of this interaction, as well as its potential practical applications.
+
+Perego et al.\cite{192} designed a MOF architecture with two distinct ligands, coordinated to zinc clusters in order to form a pillar-and-layer 3D array of orthogonal rotors, with 4,4′-bipyridine (bipy) as pillars and bicyclo[1.1.1]pentanedicarboxylate (BCP) linkers arranged in a layer. With two different fast molecular rotors thus assembled in 3D, their interactions lead to a range of different regimes of ultrafast dynamics, including large amplitude jumps, coordinate oscillations, as well as multiple gearing and antigeearing rotation. In addition to this temperature control of the dynamics, adsorption of CO\(_2\) was also shown to modulate the rotor dynamics, through a reduction in the rotational frequencies of bipy rings, and the loss of the dynamic bipy–BCP coupling. A similar effect was also reported by the same group in other materials, namely two isostructural Al-based MOF with dipolar rotors: rotating linkers bearing geminal fluorine atoms.\cite{193} The authors found that the strong inter-rotor dipole–dipole interactions created a “concerted dance” of the rotors with a correlated mechanism in the empty framework. In contrast, adsorption of CO\(_2\) triggered a reorientation of the ligands, reducing their collective dynamics and stimulating a dipole configuration change in the crystal.
+
+Yang et al.\cite{194} followed a different research axis and looked into the impact of the presence of molecular rotors on the separation properties of the framework itself, i.e., focus on the influence of the rotors on the adsorbates. In the SNNU-118 MOF\cite{24} the combination of the rotational flexibility of the molecular
+
+---
+
+**Footnotes:**
+
+20\(\text{Zn}_2(\text{F}_2\text{BODCA})_2(\text{dabc})\); \(\text{F}_2\text{BODCA} = 2.2\text{-difluorobicyclo[2.2.2]octane-1,4-dicarboxylate}, \text{dabc} = 1,4\text{-diazabicyclo[2.2.2]octane.}\)
+
+21\(\text{ZJNU-40} = [\text{Cu}_2(5,5′\text{-benzo}[c]1,2,5\text{thiadiazone-4,7-diyldiophthalate})\text{(H}_2\text{O})_2]; \text{ZJNU} = \text{Zhejiang Normal University.}\)
+
+22\(\text{JLU-Liu30} = [\text{Cu}_2(\text{btadpa})(\text{H}_2\text{O})_2], \text{JLU} = \text{Jilin University and Hbtadpa} = 5,5′\text{-benzo}[c]1,2,5\text{thiadiazone-4,7-diyldi(hydrox-2,1-diyldi)diophthalic acid.}\)
+
+23\(\text{SNNU-118} \text{is a polymorph of In(OH)(1,4-naphthalenedicarboxylate); SNNU} = \text{Shaanxi Normal University.}\)
+rotor and rotor–guest interactions lead to a gate-opening effect. Moreover, the difference in the nature of the linker–CO$_2$ and linker–C$_2$H$_2$ interactions leads to a favorable separation of C$_2$H$_2$/CO$_2$ gas mixtures.
+
+In recent work, Farhadi Jahromi and Schmid[195] looked into the microscopic mechanism of the dielectric response of MOFs with rotatable polar groups, as a function of the load of the pores with guest species of different polarities. They used classical MD simulations with constant field methods based on the electric enthalpy Hamiltonian[196] and showed that the adsorption of a polar guest (methanol) leads to drastic changes in the response of the material, inducing paraelectricity in the spatial directions that showed linear dielectric behavior for the bare MOF. Furthermore, the confinement of the guest molecules induced an anisotropic response. This study suggests the potential use of MOFs with dipolar rotors as dielectric response-based molecular sensors.
+
+4.3. Perspectives & applications
+
+The studies discussed above are very fundamental, and some important basic questions about the incorporation of molecular rotors in framework materials remain open. Yet, at the same time, there is a clear potential of these systems for specific applications, in particular as sensors or actuators, and the field is in very active development.[197, 198] We highlight here some of these recent developments and perspectives.
+
+One of these fascinating avenues of research is the development of framework linkers and molecular rotors that can be driven by light as a stimulus. Danowski et al.[191] first demonstrated in 2019 the possibility of incorporating a light-driven molecular motor into a crystalline zinc pillared-paddlewheel MOF, through post-synthetic solvent-assisted linker exchange (SALE). In these materials, termed “moto-MOFs” and depicted on [Figure 22], the unhindered 360° unidirectional rotation of the motor units was retained in the framework and, importantly, the rotary speeds were similar to those observed in solution. In 2020, the Feringa group demonstrated in further work[200] the general nature of this approach, studying the photoisomerization of the molecular motor pillars in a porphyrin Zn-paddlewheel MOF. In this approach, two types of ligands where used: a palladium–porphyrin photosensitizer and a bispyridine-derived molecular motor. The authors could show that the proximity induced by the framework leads to efficient triplet-to-triplet energy transfer between the porphyrin linkers and the molecular motor, and that photochemical isomerization of the molecular motor can be achieved with green light (530 nm). These works highlight the potential for external control, through noninvasive stimuli such as visible light, of intraframework dynamics — and therefore open many perspectives for future applications. We also note that such work is not restricted to MOFs, but has also been reported in some covalent organic frameworks.[201, 202]
+
+In a related direction of research, Zhu et al.[203] reported the synthesis and characterization of a flexible silver-based MOF with methylene molecular rotor and [Ag$_2$(CN)$_3$] coordination mode of the metal ions. This MOF demonstrated controllable molecular rotation driven by water sorption, and the authors were able to create soft double-layer structures in combination with polyvinylidene fluoride. These composites could act as actuators, bending in the presence of water vapor or CH$_3$SH, and exhibiting guest-induced fluorescence quenching. This is an interesting step towards the application of MOFs with molecular rotors in sensing applications or as actuators. A few other such examples can be found in the literature, including the study by Li et al.[204] of seven dynamic MOFs based on rare-earth metals and including molecular rotor linkers, exhibiting a highly
+sensitive photoresponse to the binding of low concentrations of metal ions in aqueous solutions.
+
+Finally, a recent research effort — in part related to the development of molecular rotors — has focused on the incorporation of photoswitches into framework materials, to achieve stimuli-responsive photoswitchable materials. The interest in this direction comes from the possibility to expose photoswitches to the porosity of the materials and letting them interact with guest molecules. Sheng et al. reported in 2023 [199] the construction of a porous and flexible aromatic framework, built from assembly of a bistable overcrowded alkene-based photoswitch. While the photoswitch molecule itself is a two-state system, the 3D porous framework exhibits three possible states (see Figure 23), which can be interconverted by the application of external stimuli: presence of solvent or irradiation at different UV-visible wavelengths. The contraction of the framework’s mesopores can be triggered by optical stimulation, and recovered by solvent-induced swelling. Moreover, in the contracted phase, a fully reversible light-induced solid-state photoisomerization is possible. This paved the way to the design of a new class of light-responsive materials, and indeed in a 2024 work by some of the same authors, Sheng et al. [205] reported another example of multi-stimuli responsive porous frameworks. These spiropyran-grafted porous aromatic frameworks are dynamic materials that undergo reversible transformation of spiropyran to zwitterionic merocyanine, by either chemical and physical stimulation. Such a material could be used for a variety of application, including pH active control, photocontrolled gas uptake and release, and others.
+
+5. Finding the needle in the (many) haystacks: discovery of materials with targeted behavior
+
+In lieu of a traditional “outlook” section, we want to highlight here the recent and important impact of novel methodologies for materials discovery based on large amounts of data, relying on the development of high-throughput screening procedures and their combination with machine learning algorithms. [206, 207] Such data-based workflows represent a recent and important evolution in the field of materials discovery, as well as in other areas of chemistry and physical sciences more broadly. [208, 209] In this section, we explore some of the possibilities raised by these data-based approaches for the task of identifying (or discovering) novel framework materials with targeted stimuli-responsive behavior.
+
+We start by noting that there exist a large number of available databases of framework materials — that is, for crystalline frameworks, more precisely. Among databases of experimental crystalline structures, we can cite the open-access Crystallography Open Database, [210] or the commercial Inorganic Crystal Structure Database (ICSD) [211] and Cambridge Structural Database (CSD, for organic and metal–organic structures). [212] From these general databases with structures deposited by researchers upon characterization and publication, researchers have created and published more focused databases, limited to specific families of materials, and often curated for the purpose of high-throughput exploration. Among these, we can list the CSD MOF subset, [213] the CoRE MOF database, [214] the CURATED COF database, [215] etc.
+
+These experimental databases are complemented by databases of hypothetical materials, which have been proposed for zeolites, [216] MOFs, [217, 218] COFs, [219, 220] and others. They include materials whose structures are predicted by different computational algorithms, typically by a systematic combination of a list of topologies and building blocks, or by generative algorithms — although it is still difficult to predict to date whether a given hypothetical structure is experimentally “feasible” to synthesize. [221]
+
+In any case, it is clear that while databases of crystalline structures abound, the same is not true of experimentally-
+
+Figure 23: (A) Controlled assembly of precursors in the porous switchable framework (PSF) material, with predefined connectivity through Yamamoto coupling polymerization. (B) Depiction of the nature of the molecular switch and porogen, and the two-state nature of the switch. (C) The three possible crystalline states of the porous framework, and the transitions between them upon solvation or irradiation by visible or UV light. Adapted with permission from Ref. [199] Copyright 2023 Elsevier Inc.
+measured physical or chemical properties. Those are scarce, often unstructured and in highly heterogeneous formats, and locked in the existing publications — requiring the use of text- and data-mining approaches to be recovered.\cite{222,223} It is therefore natural to complement the purely structural databases with computational data, generated by quantum chemistry calculations or molecular simulations, in studies that are generally referred to as high-throughput computational screening.
+
+In the field of nanoporous framework materials, many computational screening studies have focused on adsorption properties, and the literature on the topic from the past 15 years is extensive: we refer the reader to Ref.\cite{224} for a recent review. In addition to its relevance for applications, this focus on screening of thermodynamic adsorption properties (for pure components or fluid mixtures) is explained by the fact that these quantities can be obtained with reasonable accuracy using classical Monte Carlo simulations based on the frameworks’ structures. The low computational cost of these calculations made them ideal for application at the scale of thousands to hundreds of thousands of materials.
+
+More recent work has extended this approach to a large number of physical and chemical properties of interest,\cite{226} among which we can list electronic properties,\cite{227} catalytic activity,\cite{228} mechanical behavior,\cite{229} thermal properties,\cite{230} etc. In many of these cases, the “direct” screening approach is complemented by the use of data-based prediction methods, such as machine learning, in order to lower the computational cost and limit the number of physics-based calculations (often relying on DFT) that need to be performed.\cite{231,232} In such methodology, three stages are present:
+
+1. a computational chemistry method (DFT or molecular simulation) is performed on a random subset of the database, producing a labeled data set of structures and associated properties;
+2. using a supervised machine learning algorithm, a predictor is trained on this data set (see Figure 24);
+3. the ML predictor is applied to the entire database, to identify top-performing materials.
+
+These candidate materials can then be tested, either computationally or experimentally, to measure their actual performance. Moreover, statistical relationships can be established and investigated, gaining insight into the link between microscopic structure and macroscopic properties — provided that the ML algorithm chosen has a good degree of interpretability.
+
+However, it is important to note that the flexibility of frameworks, and its impact on their responses, are very difficult to consider in high-throughput screening procedures. Taking into account the flexibility of materials typically induces a higher computational cost, either by increasing the number of degrees of freedom, or by requiring more accurate force fields — “generic” or “universal” force fields are not suitable for that task. Therefore, there are relatively few systematic studies of the impact of flexibility on the properties of materials, and it is still a wide open question.
+
+Some works have tried to address the question of the impact of framework flexibility on adsorption, and to evaluate it systematically. Restricting the chemical space to zeolitic imidazolate frameworks (and more precisely, ZIF-8 polymorphs), Han et al.\cite{233} used MD simulations with an adapted flexible force field to derive statistical insight and obtain relationships between molecular size, adsorbate-loaded window size, and guest hopping rate. They demonstrated the importance of taking flexibility into account to perform large-scale screening of small pore MOFs, when molecular diffusion is important. Yu et al.\cite{234} compared different MD methodologies for taking into account framework flexibility, also highlighting the importance of adsorption–relaxation simulations to make quantitative predictions of adsorption, particularly at dilute concentrations. In a third work from the Sholl group, Yang et al.\cite{235} compared the diffusion coefficients of 12 adsorbates in a diverse set of 17 MOFs, with flexible and rigid frameworks. Beyond stressing (again) the importance of flexibility of transport properties, the authors introduced several simple metrics that can estimate the importance of framework flexibility on molecular diffusion.
+
+When it comes to systematic prediction of thermal properties, the body of work published is more limited. High-throughput screenings using MD with “universal” force fields have been proposed: Islamov et al.\cite{236} screened thermal conductivity in 10,194 hypothetical MOFs using the UFF4MOF force field.\cite{237} Thakur et al.\cite{237} relied on the same methodology to screen the thermal conductivity of 10,750 COFs with 651 distinct organic linkers. Yue et al.\cite{238} combined this MD-based approach with the training of a machine learning predictor, in a large-scale screening of thermal expansion of MOFs to identify materials displaying NTE. Very recently, Ghavanati et al.\cite{239} tried to go beyond the use of these generic force fields: they proposed and applied an automated protocol to construct flexibility parameters, based on DFT data, in order to construct ad hoc classical force fields for flexible MOFs. While not generalized at the scale of screening yet, this approach is promising, and the authors used it to compute heat capacities and thermal expansion coefficients of MOFs.
+The screening of mechanical properties in the elastic regime, whose softness and anisotropy are known to be characteristic signatures of flexible frameworks, is also a promising avenue of research but is still in its infancy. While it has not yet been applied to MOFs or supramolecular framework materials, some seminal works have been published on zeolites and other inorganic crystals. For example, Gaillac et al.[239] screened hypothetical zeolites for auxeticity (see subsection 3.2) using a multi-scale modeling strategy combining a force field, DFT calculations, and a machine-learning predictor trained on the DFT results. This scheme is summarized in Figure 25 and allowed the authors to screen a database containing 600,000 materials by performing DFT calculations on 991 structures only. Similar studies, performing DFT calculations on restricted subsets of materials to identify mechanical metamaterials, have been also performed on dense inorganic crystals,[240] as well as more specific families such as two-dimensional metal dichalcogenides and dihalides.[241]
+
+The main limitation of this approach is the computational cost of calculation of the elastic tensor through DFT calculations of strained unit cells, limiting the calculations to a small number of materials, or structures with limited unit cell size. However, Wen et al.[242] recently proposed a new ML model that should alleviate some of this cost in the future. These authors published a materials tensor (MatTen) model, based on equivariant graph neural networks, that are suitable for the prediction of crystal tensors — ensuring independence of the frame of reference and preservation of material symmetry. Wen et al. trained this model to reproduce fourth-rank elasticity tensors of inorganic materials, and showed that it has good accuracy in the prediction of specific elastic moduli, such as bulk modulus, average shear modulus and Young’s modulus (see Figure 26).
+
+All these examples demonstrate the power of data-based approaches for the discovery of flexible materials with targeted physical or chemical properties. They also highlight the limitations of the current computational approaches, and show that the question of high-throughput computational screening of flexibility in framework materials is fascinating but remains very open.
+
+Acknowledgements
+
+I thank Anne Boutin, Alex Neimark, Jack Evans, Tom Bennett, Stefan Kaskel and Simon Krause, among many other passionate colleagues in the field, for our numerous discussions on the topic of flexibility of nanoporous frameworks. This work was funded under the France 2030 framework by Agence Nationale de la Recherche (project ANR-22-PEXD-0009 DIADEM).
+
+References
+
+[1] P. Horcajada, F. Salles, S. Wutke, T. Devie, D. Heurtaux, G. Maurin, A. Vimont, M. Duturi, O. David, E. Magnier, N. Stock, Y. Filinchuk, D. Popov, C. Riekel, G. Férey, C. Serre, How linker’s modification controls swelling properties of highly flexible iron(iii) dicarboxylates MIL-88, J. Am. Chem. Soc. 133 (2011) 17839–17847.
+[2] M. Baise, P. Maffettone, F. Trousselet, N. P. Funnell, F.-X. Coudert, A. L. Goodwin, Negative hydration expansion in ZrW$_2$O$_8$: Microscopic mechanism, spaghetti dynamics, and negative thermal expansion, Phys. Rev. Lett. 120 (2018).
+Machine learned force-fields for an ab-initio quality adsorption simulations in metal–organic frameworks enabled by DFT metadynamics, J. Phys. Chem. B 110 (2005) 3533–3539.
+
+Machine learning interatomic potentials as emerging tools for materials science, Adv. Mater. 31 (2019).
+
+Overview of methods, Ann. Rev. Phys. Chem. 73 (2022) 163–186.
+
+Neural network potentials: A concise overview of methods, Am. Chem. Soc. (2025).
+
+Construct flexibility parameters for classical forcefields: applications to metal–organic frameworks JUK-8 by linker halo replacement, Chem. Commun. (2021) 1006–1019.
+
+Multicomponent adsorption, J. Am. Chem. Soc. 143 (2021) 3205–3218.
+
+Multiresponse gas sorption in isonicotinate-based metal–organic frameworks, ACS Appl. Mater. Interfaces 13 (2021) 16820–16827.
+
+Tuning the gating energy barrier of metal-organic framework for molecular sieving, Chem 7 (2021) 1006–1019.
+
+Controlling the flexibility of a flexible metal–organic framework JUK-8 by linker halo replacement, Chem 7 (2021) 5397–5405.
+
+Effect of the nature of the metal on the breathing steps in MOFs with dynamic frameworks, Chem. Commun. (2008) 4732.
+
+Towards model-free flexibility control and luminescence-based water detection, ACS Appl. Mater. Interfaces 15 (2023) 25661–25670.
+
+Systematic installation of pendant OH groups in a MOF for rigidity control and luminescence-based water detection, ACS Appl. Mater. Interfaces 15 (2023) 25661–25670.
+
+Effect of the nature of the metal on the breathing steps in MOFs with dynamic frameworks, Chem. Commun. (2008) 4732.
+
+Towards model-free flexibility control and luminescence-based water detection, ACS Appl. Mater. Interfaces 15 (2023) 25661–25670.
+
+Towards model-free flexibility control and luminescence-based water detection, ACS Appl. Mater. Interfaces 15 (2023) 25661–25670.
+
+Towards model-free flexibility control and luminescence-based water detection, ACS Appl. Mater. Interfaces 15 (2023) 25661–25670.
+
+Towards model-free flexibility control and luminescence-based water detection, ACS Appl. Mater. Interfaces 15 (2023) 25661–25670.
+
+Towards model-free flexibility control and luminescence-based water detection, ACS Appl. Mater. Interfaces 15 (2023) 25661–25670.
+
+Towards model-free flexibility control and luminescence-based water detection, ACS Appl. Mater. Interfaces 15 (2023) 25661–25670.
+
+Towards model-free flexibility control and luminescence-based water detection, ACS Appl. Mater. Interfaces 15 (2023) 25661–25670.
+
+Towards model-free flexibility control and luminescence-based water detection, ACS Appl. Mater. Interfaces 15 (2023) 25661–25670.
+
+Towards model-free flexibility control and luminescence-based water detection, ACS Appl. Mater. Interfaces 15 (2023) 25661–25670.
+
+Towards model-free flexibility control and luminescence-based water detection, ACS Appl. Mater. Interfaces 15 (2023) 25661–25670.
+In(OH)BDC·0.75BDCH (BDC = benzenedicarboxylate), a hybrid inorganic–organic vernier structure, J. Am. Chem. Soc. 127 (2005) 15000–15001.
+
+[88] P. Serra-Crespo, E. Gobechiya, E. V. Ramos-Fernandez, J. Juan-Alcañiz, A. Martinez-Joaristi, E. Stavitski, C. E. A. Kirschhock, J. A. Martiens, F. Kaptijn, J. Gascon, Interplay of metal node and amine functionality in NH2-MIL-53: Modulating breathing behavior through intraframework interactions, Langmuir 28 (2012) 12916–12922.
+
+[89] Y. Sakata, S. Furukawa, M. Kondo, K. Hirai, N. Horike, Y. Takashima, H. Uehara, N. Louvain, M. Meilikhov, T. Tsuuruoka, S. Isoda, W. Kosaka, O. Sakata, S. Kitagawa, Shape-memory nanopores induced in coordination frameworks by crystal downsizing, Science 339 (2013) 193–196.
+
+[90] S. Sakaida, K. Otsubo, S. Sakata, C. Song, A. Fujiwara, M. Takata, H. Kitagawa, Crystalline coordination framework endowed with dynamic gate-opening behaviour by being downsized to a thin film, Nature Chem. 8 (2016) 377–383.
+
+[91] J. Wang, I. Imaz, D. Maspooh, Metal–organic frameworks: Why make them small?, Small Struct. 3 (2021).
+
+[92] J. Troyano, A. Legrand, S. Furukawa, Mechanoresponsive porosity in metal–organic frameworks, Trends Chem. 3 (2021) 254–266.
+
+[93] S. Ehrling, H. Miura, I. Senkovska, S. Kaskel, From macro- to nanoscale: Finite size effects on metal–organic framework switchability, Trends Chem. 3 (2021) 291–304.
+
+[94] S. Krause, V. Bon, J. Senkovska, D. M. Többens, D. Wallacher, R. S. Pillai, G. Maurin, S. Kaskel, The effect of crystallite size on pressure amplification in switchable porous solids, Nature Commun. 9 (2018).
+
+[95] S. Krause, F. S. Reuter, S. Ehrling, V. Bon, I. Senkovska, S. Kaskel, E. Brunner, Impact of defects and crystal size on negative gas adsorption in DUT-9 analyzed by in situ 19F NMR spectroscopy, Chem. Mater. 32 (2020) 4641–4650.
+
+[96] R. Bose, V. Bon, N. Bönisch, P. Selvam, N. S. Kaise, S. Kaskel, Crystal size dependent flexibility in ZIF-7: From macro- to nanoscale, Chem. Mater. 35 (2023) 7825–7838.
+
+[97] L. Ablitzgina, I. Senkovska, R. Engemann, N. Bönisch, T. E. Gorelik, O. T. Qazvini, V.-J. Scott, L. Bondorf, M. Ducamp, M. Hirscher, F.-X. Coudert, S. Kaskel, Xylene recognition in flexible porous coordination polymer by guest-dependent structural transition, ACS Appl. Mater. Interfaces 13 (2021) 52144–52151.
+
+[98] P. Wu, Y. Li, J.-J. Zheng, N. Hosono, K.-i. Otake, J. Wang, Y. Liu, L. Xia, M. Jiang, S. Sakaki, S. Kitagawa, Carbon dioxide capture and efficient fixation in a dynamic porous coordination polymer. Nature Commun. 10 (2019).
+
+[99] N. Chanut, A. Ghoufi, M.-V. Coulet, S. Bourrellly, B. Kuchta, G. Maurin, P. L. Llewellyn, Tailoring the separation properties of flexible metal–organic frameworks using mechanical pressure. Nature Commun. 11 (2020).
+
+[100] S. Krause, V. Bon, I. Senkovska, U. Steock, D. Wallacher, D. M. Többens, S. Zander, R. S. Pillai, G. Maurin, F.-X. Coudert, S. Kaskel, A pressure-amplifying framework material with negative gas adsorption transitions, Nature 532 (2016) 348–352.
+
+[101] O. T. Qazvini, V.-J. Scott, L. Bondorf, M. Ducamp, M. Hirscher, F.-X. Coudert, S. G. Telfer, Flexibility of a metal–organic framework enhances gas separation and enables quantum sieving, Chem. Mater. 33 (2021) 8886–8894.
+
+[102] Q. Dong, X. Zhang, S. Liu, R.-B. Lin, Y. Guo, M. A. Yonezu, R. Krishna, G. Liu, J. Duan, R. Matsuda, W. Jin, B. Chen, Tuning gate-opening of a flexible metal–organic framework for ternary gas separation, Angew. Chem. Int. Ed. 59 (2020) 22756–22762.
+
+[103] B.-Q. Song, Q.-Y. Yang, S.-Q. Wang, M. Vandichel, A. Kumar, C. Crowley, N. Kumar, C.-H. Deng, V. GasconPerez, M. Lusi, H. Wu, W. Zhou, M. J. Zaworotko, Reversible switching between nonporous and porous phases of a new SIFSIX coordination network induced by a flexible linker ligand, J. Am. Chem. Soc. 142 (2020) 6896–6901.
+
+[104] F. Zheng, R. Chen, Y. Liu, Q. Yang, Z. Zhang, Y. Yang, Q. Ren, Z. Bao, Strengthening intraframework interaction within flexible MOFs demonstrates simultaneous sieving acetylene from ethylene and carbon dioxide, Adv. Sci. 10 (2023).
+
+[105] J. Park, A. Adhikary, H. R. Moon, Progress in the development of flexible metal–organic frameworks for hydrogen storage and selective separation of its isotopeS, Coord. Chem. Rev. 497 (2023) 215402.
+
+[106] T. Haraguchi, K. Otsubo, S. Sakata, A. Fujiwara, H. Kitagawa, Strain-controlled spin transition in heterostructured metal–organic framework thin film, J. Am. Chem. Soc. 143 (2021) 16128–16135.
+
+[107] X. Chen, H. Xie, E. R. Lorenzo, C. J. Zeman, Y. Qi, Z. H. Syed, A. E. B. Stone, Y. Wang, S. Goswami, P. Li, T. Islamolgu, E. A. Weiss, J. T. Hupp, G. C. Schatz, M. R. Wasielewski, O. K. Farha, Direct observation of modulated radical spin states in metal–organic frameworks by controlled flexibility, J. Am. Chem. Soc. 144 (2022) 2685–2693.
+
+[108] Z.-Q. Yao, K. Wang, R. Li, T.-J. Yuan, J.-J. Pang, Q. W. Li, T. Y. Zhao, Z. G. Li, R. Feng, B. Zou, W. Li, J. Xu, X.-H. Bu, Dynamic full-color tuning of organic chromophore in a multi-stimuli-responsive 2D flexible MOF. Angew. Chem. Int. Ed. 61 (2022).
+
+[109] M. Nanni, J. J. Baldovi, V. García-López, M. Oggiiana, E. Cadoni, F. Quochi, M. Clemente-León, M. L. Mercuri, E. Coronado, Reversible
+Designing of self-deploying origami structures using geometrically misaligned crease patterns, Proc. R. Soc. A: Math. Phys. Eng. Sci. 472 (2016) 20150235.
+
+S. Krause, J. D. Evans, V. Bon, I. Senkova, F.-X. Coudert, G. Maurin, E. Brunner, P. L. Llewellyn, S. Kaskell, Negative gas adsorption transitions and pressure amplification phenomena in porous frameworks, Chem. Soc. Rev. 54 (2022) 1251–1267.
+
+J. D. Evans, L. Bocquet, F.-X. Coudert, Origins of negative gas adsorption, Chem. Rev. 116 (2016) 873–886.
+
+S. Krause, J. D. Evans, V. Bon, I. Senkova, P. Iacomini, F. Kolbe, S. Ehring, E. Troschke, J. Getzschmann, D. M. Tobbens, A. Franz, D. Wallacher, P. G. Got, G. Maurin, E. Brunner, P. L. Llewellyn, F.-X. Coudert, S. Kaskell, Towards general network architecture design criteria for negative gas adsorption transitions in ultraporous frameworks, Nature Commun. 10 (2019).
+
+S. Krause, J. D. Evans, V. Bon, I. Senkova, S. Ehring, P. Iacomini, D. M. Tobbens, D. Wallacher, M. S. Weiss, B. Zhong, P. G. Got, G. Maurin, P. L. Llewellyn, F.-X. Coudert, S. Kaskell, Engineering micromechanics of soft porous crystals for negative gas adsorption, Chem. Sci. 11 (2020) 9468–9479.
+
+V. Bon, S. Krause, I. Senkova, N. Grimm, D. Wallacher, D. M. Tobbens, S. Kaskell, Massive pressure amplification by stimulated contraction of microporous frameworks, Angew. Chem. Int. Ed. 60 (2021) 11735–11739.
+
+P. Jiao, J. Mueller, J. R. Raney, X. Zheng, A. H. Alavi, Mechanical metamaterials and beyond, Nature Commun. 14 (2023).
+
+A. Marmier, Anomalous Mechanical Behaviour Arising From Framework Flexibility, The Royal Society of Chemistry, pp. 65–112.
+
+S. M. Rogge, S. Borgmans, V. Van Speybroeck, Absorbing stress via molecular crumple zones: Strain engineering flexibility into the rigid UiO-66 material, Mater. Sci. 6 (2023) 1435–1462.
+
+J. E. Song, X. Xing, J. Chen, Negative thermal expansion materials with bulk framework structures and their relevant scaling relationships through multi-step machine learning, Mater. Horiz. 11 (2024) 2914–2925.
+
+N. Shi, Y. Song, X. Xing, J. Chen, Negative thermal expansion in framework structure materials, Coord. Chem. Rev. 449 (2021) 214204.
+
+A. Hardighon, F.-X. Coudert, Multiscale modeling of physical properties of nanoporous frameworks: Predicting mechanical, thermal, and adsorption behavior, Acc. Chem. Res. 57 (2024) 1620–1632.
+
+M. Ducamp, F.-X. Coudert, Systematic study of the thermal properties of zeolitic frameworks, J. Phys. Chem. C 125 (2021) 15647–15658.
+
+M. Ducamp, F.-X. Coudert, Prediction of thermal properties of zeolites through machine learning, J. Phys. Chem. C 126 (2022) 1651–1660.
+
+L. Brugnoli, M. Ducamp, F.-X. Coudert, Neural network-based, interatomic potential for the study of thermal and mechanical properties of siliceous zeolites, J. Phys. Chem. C 128 (2024) 20512–20522.
+
+L. R. Redfern, O. K. Farha, Mechanical properties of metal–organic frameworks, Chem. Soc. Rev. 10 (2019) 10666–10679.
+
+X. Zhou, Y. Miao, K. S. Sudick, D. D. Drori, Mechanochemistry of metal–organic frameworks under pressure and shock, Acc. Chem. Res. 53 (2020) 2806–2815.
+
+A. B. Cairns, A. L. Goodwin, Negative linear compressibility, Phys. Chem. Chem. Phys. 8 (2006) 1031–1040.
+
+A. Girì, A. M. Evans, M. A. Rahman, A. J. H. McGaughey, P. E. Hopkins, Highly negative Poisson’s ratio in thermally conductive covalent organic frameworks, ACS Nano 16 (2022) 2843–2851.
+
+S. J. Stuart, A. B. Tutein, A. R. Pausch, Hydrocarbons with intermolecular interactions, J. Phys. Chem. 112 (2008) 6472–6486.
+
+D. Fan, S. Naskar, G. Maurin, Unconventional mechanical and thermal behaviours of MOF CALF-20, Nature Commun. 15 (2024).
+A. Gonzalez-Nelson, S. Mula, M. Šimán, S. Balčiunas, A. R. Altenhof, G. Prando, J. Perego, M. Negroni, M. Riccò, S. Bracco, A. Comotti, J. Perego, C. X. Bezuidenhout, G. Prando, P. Carretta, J. Dong, V. Wee, S. B. Peh, D. Zhao, Molecular-rotor-driven advanced materials: A “rotor-stator” strategy, J. Am. Chem. Soc. 146 (2024) 8253–8264.
+
+B. Farhadi Jahromi, R. Schmid, Dielectric response of metal–organic frameworks: A “rotor-stator” strategy, J. Am. Chem. Soc. 146 (2024) 9036–9044.
+
+J. Dong, V. Wee, S. B. Peh, D. Zhao, Molecular-rotor-driven advanced porous materials, Angew. Chem. Int. Ed. 60 (2021) 16279–16292.
+
+L. Feng, R. D. Astumian, J. F. Stoddart, Controlling dynamics in extended molecular frameworks, Nature Rev. Chem. 6 (2022) 705–725.
+
+J. Perego, S. Bracco, M. Negroni, C. X. Bezuinedhout, G. Prando, P. Carretta, A. Comotti, P. Sozzani, Fast motion of molecular rotors in metal–organic frameworks: Motion at the macroscopic and microscopic scales, Matter 1 (2019) 588–600.
+
+A. Gonzalez-Nelson, F.-X. Coudert, Systematic exploration of the mechanical properties of 13 621 inorganic compounds, Chem. Sci. 10 (2019) 8589–8599.
+
+J. Dong, V. Wee, S. B. Peh, D. Zhao, Molecular-rotor-driven advanced porous materials, Angew. Chem. Int. Ed. 60 (2021) 16279–16292.
+
+L. Feng, R. D. Astumian, J. F. Stoddart, Controlling dynamics in extended molecular frameworks, Nature Rev. Chem. 6 (2022) 705–725.
+
+J. Perego, S. Bracco, M. Negroni, C. X. Bezuinedhout, G. Prando, P. Carretta, A. Comotti, P. Sozzani, Fast motion of molecular rotors in metal–organic frameworks: Motion at the macroscopic and microscopic scales, Matter 1 (2019) 588–600.
+
+A. Gonzalez-Nelson, F.-X. Coudert, M. a van der Veen, Rotational dynamics of linkers in metal–organic frameworks, Nanomaterials 9 (2019) 330.
+
+J. Dong, V. Wee, S. B. Peh, D. Zhao, Molecular-rotor-driven advanced porous materials, Angew. Chem. Int. Ed. 60 (2021) 16279–16292.
+
+L. Feng, R. D. Astumian, J. F. Stoddart, Controlling dynamics in extended molecular frameworks, Nature Rev. Chem. 6 (2022) 705–725.
+
+J. Perego, S. Bracco, M. Negroni, C. X. Bezuinedhout, G. Prando, P. Carretta, A. Comotti, P. Sozzani, Fast motion of molecular rotors in metal–organic frameworks: Motion at the macroscopic and microscopic scales, Matter 1 (2019) 588–600.
+
+A. Gonzalez-Nelson, F.-X. Coudert, M. a van der Veen, Rotational dynamics of linkers in metal–organic frameworks, Nanomaterials 9 (2019) 330.
+
+J. Dong, V. Wee, S. B. Peh, D. Zhao, Molecular-rotor-driven advanced porous materials, Angew. Chem. Int. Ed. 60 (2021) 16279–16292.
+
+L. Feng, R. D. Astumian, J. F. Stoddart, Controlling dynamics in extended molecular frameworks, Nature Rev. Chem. 6 (2022) 705–725.
+
+J. Perego, S. Bracco, M. Negroni, C. X. Bezuinedhout, G. Prando, P. Carretta, A. Comotti, P. Sozzani, Fast motion of molecular rotors in metal–organic frameworks: Motion at the macroscopic and microscopic scales, Matter 1 (2019) 588–600.
+
+A. Gonzalez-Nelson, F.-X. Coudert, M. a van der Veen, Rotational dynamics of linkers in metal–organic frameworks, Nanomaterials 9 (2019) 330.
+
+J. Dong, V. Wee, S. B. Peh, D. Zhao, Molecular-rotor-driven advanced porous materials, Angew. Chem. Int. Ed. 60 (2021) 16279–16292.
+for past, present, and future, Chem. Mater. 29 (2017) 2618–2625.
+[214] Y. G. Chung, E. Haldoupis, B. J. Bucior, M. Haranczyk, S. Lee, H. Zhang, K. D. Vogiatzis, B. Milusavijevic, S. Ling, J. S. Camp, B. Slater, J. L. Siepmann, D. S. Sholl, R. Q. Snurr, Advances, updates, and analytics for the computation-ready, experimental metal–organic framework database: CoRE MOF 2019, J. Chem. Eng. Data 64 (2019) 5985–5998.
+[215] D. Ongari, A. V. Yakutovich, L. Talirz, B. Smit, Building a consistent and reproducible database for adsorption evaluation in covalent–organic frameworks, ACS Cent. Sci. 5 (2019) 1663–1675.
+[216] R. Pophale, P. A. Cheeseman, M. W. Deen, A database of new zeolite-like materials, Phys. Chem. Chem. Phys. 13 (2011) 12407.
+[217] Y. G. Chung, D. A. Gómez-Gualdrón, P. Li, K. T. Leperi, P. Deria, H. Zhang, N. A. Vermeulen, J. F. Stoddart, F. You, J. T. Hupp, O. K. Farha, R. Q. Snurr, In silico discovery of metal-organic frameworks for precombustion CO₂ capture using a genetic algorithm, Sci. Adv. 2 (2016).
+[218] S. Majumdar, S. M. Moosavi, K. M. Jablonka, D. Ongari, B. Smit, Diversifying databases of metal organic frameworks for high-throughput computational screening, ACS Appl. Mater. Interfaces 13 (2021) 61004–61014.
+[219] J. S. De Vos, S. Borgmans, P. Van Der Voort, S. M. J. Rogge, V. Van Speybroeck, ReDi-COFFEE: a ready-to-use database of covalent organic framework structures and accurate force fields to enable high-throughput screenings, J. Mater. Chem. A 11 (2023) 7468–7478.
+[220] H. Park, Y. Kang, J. Kim, Enhancing structure–property relationships in porous materials through transfer learning and cross-material few-shot learning, ACS Appl. Mater. Interfaces 15 (2023) 56375–56385.
+[221] C. G. Livas, P. N. Trikalitis, G. E. Froudakis, MOFSynth: A computational tool toward synthetic likelihood predictions of MOFs, J. Chem. Inf Model. 64 (2024) 8193–8200.
+[222] O. Kononova, T. He, H. Huo, A. Trewartha, E. A. Olivetti, G. Ceder, Opportunities and challenges of text mining in materials research, iScience 24 (2021) 102155.
+[223] L. Foppiano, G. Lombard, T. Amagasa, M. Ishii, Mining experimental data from materials science literature with large language models: an evaluation study, Sci. Technol. Adv. Mater. Meth. 4 (2024).
+[224] H. Daglar, S. Keskin, Recent advances, opportunities, and challenges in high-throughput computational screening of MOFs for gas separations, Coord. Chem. Rev. 422 (2020) 213470.
+[225] S. Chibani, F.-X. Coudert, Machine learning approaches for the prediction of new auxetic materials, npj Comput. Mater. 8 (2022).
+[226] E. Ren, P. Guibaud, F.-X. Coudert, High-throughput computational screening of nanoporous materials in targeted applications, Digit. Discov. 1 (2022) 355–374.
+[227] A. S. Rosen, V. Fung, P. Huck, C. T. O’Donnell, M. K. Horton, D. G. Truhlar, K. A. Persson, J. M. Notestein, R. Q. Snurr, High-throughput predictions of metal–organic framework electronic properties: theoretical challenges, graph neural networks, and data exploration, npj Comput. Mater. 8 (2022).
+[228] A. S. Rosen, J. M. Notestein, R. Q. Snurr, Realizing the data-driven, computational discovery of metal-organic framework catalysts, Curr. Op. Chem. Eng. 35 (2022) 100760.
+[229] P. Z. Moghadam, S. M. Rogge, A. Li, C.-M. Chow, J. Wieme, N. Moharrami, M. Aragones-Anglada, G. Conduit, D. A. Gomez-Gualdrón, V. Van Speybroeck, D. Fairen-Jimenez, Structure-mechanical stability relations of metal-organic frameworks via machine learning, Mater. 1 (2019) 219–234.
+[230] M. Islamov, H. Babaee, R. Anderson, K. B. Sczsginel, J. R. Long, A. J. H. McGaughey, D. A. Gomez-Gualdrón, C. E. Wilmer, High-throughput screening of hypothetical metal-organic frameworks for thermal conductivity, npj Comput. Mater. 9 (2023).
+[231] K. Mukherjee, Y. J. Colón, Machine learning and descriptor selection for the computational discovery of metal-organic frameworks, Mol. Simul. (2021) 1–21.
+[232] H. Demir, H. Daglar, H. C. Gulbalkan, G. O. Aksu, S. Keskin, Recent advances in computational modeling of MOFs: From molecular simulations to machine learning, Coord. Chem. Rev. 484 (2023) 215112.
+[233] C. Han, Y. Yang, D. S. Sholl, Quantitatively predicting impact of structural flexibility on molecular diffusion in small pore metal–organic frameworks — a molecular dynamics study of hypothetical ZIF-8 polymorphs, J. Phys. Chem. C 124 (2020) 20203–20212.
+[234] Z. Yu, D. M. Anstine, S. E. Boullelfel, C. Gu, C. M. Colina, D. S. Sholl, Incorporating flexibility effects into metal–organic framework adsorption simulations using different models, ACS Appl. Mater. Interfaces 13 (2021) 61305–61315.
+[235] Y. Yang, D. S. Sholl, A systematic evaluation of the impacts of MOF flexibility on intracrystalline molecular diffusivities, J. Mater. Chem. A 10 (2022) 4242–4253.
+[236] D. E. Coupy, M. A. Addicott, T. Heine, Extension of the Universal Force Field for metal–organic frameworks, J. Chem. Theory Comput. 12 (2016) 5215–5225.
+[237] S. Thakur, A. Giri, Pushing the limits of heat conduction in covalent organic frameworks through high-throughput screening of their thermal conductivity, Small 20 (2024).
+[238] Y. Yue, S. A. Mohamed, J. Jiang, Classifying and predicting the thermal expansion properties of metal–organic frameworks: A data-driven approach, J. Chem. Inf Model. 64 (2024) 4966–4979.
+[239] R. Guillem, S. Chibani, F.-X. Coudert, Speeding up discovery of auxetic zeolite frameworks by machine learning, Chem. Mater. 32 (2020) 2653–2663.
+[240] J. Dagdelen, J. Montoya, M. de Jong, K. Persson, Computational prediction of new auxetic materials, Nature Commun. 8 (2017).
+[241] X. Du, J. Zhao, J. Wang, X. Liu, Z. Ye, L. Fang, M. Zhou, High-throughput computational screening of auxetic two-dimensional metal dichalcogenides and dihalides, J. Chem. Phys. 162 (2025).
+[242] M. Wen, M. K. Horton, J. M. Munro, P. Huck, K. A. Persson, An equivalent graph neural network for the elasticity tensors of all seven crystal systems, Digit. Discov. 3 (2024) 869–882.

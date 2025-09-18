@@ -1,0 +1,145 @@
+5-Nitrofuranyl Derivatives are Reactive Towards Methanolic Media as Exemplified by \(^1\)H, \(^{13}\)C NMR Spectroscopy & Their Colours
+
+Ashley L. Dey,*†‡
+
+Chemistry Research Laboratory, Department of Chemistry, University of Oxford, 12 Mansfield Road, Oxford, OX1 3TA, United Kingdom
+† Electronic supplementary information (ESI) available online
+‡ uccaald@ucl.ac.uk
+
+Abstract
+
+Most 5-nitrofuranyl derivatives, in particular, the frequently used 5-nitrofurfural building block in synthesis, are coloured compounds and their intrinsic colours can be a good indication of their purity by virtue of their specific extended \(\pi\)-delocalisation. To this end, the work herein reports a first-of-its-kind anhydrous synthesis of (\(E\))-5-nitrofuran-2-yl methylene hydrazine, 5-nitrofuran-2-carbohydrazide, and its dimeric 5-nitro-\(N'\)-5-nitrofuran-2-carbonyl furan-2-carbohydrazide, alongside their intrinsic colours, and most importantly their reactivity towards several deuterated solvents together with their \(^1\)H and \(^{13}\)C NMR features in an attempt to unravel the basis of discrepancies in the appearance of purported (\(E\))-5-nitrofuran-2-yl methylene hydrazine of high purity in the literature and that obtained herein.
+
+Keywords
+
+(\(E\))-5-nitrofuran-2-yl methylene hydrazine, 5-nitrofuran-2-carbohydrazide, 5-nitro-\(N'\)-5-nitrofuran-2-carbonyl furan-2-carbohydrazide, extended \(\pi\)-delocalisation, 5-nitrofurural reactivity, \(^1\)H and \(^{13}\)C NMR of nitrofuranyl derivatives, heterocycles, synthetic and medicinal chemistry.
+
+Introduction
+
+Austin\(^1\) reported that nitrofurazone can be reduced to a glyoxylopropionitrile by means of a reductive fission: a similar but different reductive fission of nitrofurans has also been reported elsewhere.\(^2\) This led Cisak et al.,\(^3\) to study the reactivity of 5-nitrofurural in alkaline and acidic solutions. In stark contrast to the aforementioned reported reactivity of 5-nitrofurfural in alkaline solutions, almost invariably all the previously reported procedures for synthesis of hydrazone I have been conducted in highly alkaline hydrazine hydrate in methanolic solutions\(^4,5\) (Scheme 1). For though Li et al.\(^6\) reported that a purum sample of I was obtained via a modified literature procedure (\textit{loc. cit.}) the particulars of which was never disclosed, it was not feasible to reproduce such findings in this work. To this end, and in accordance with the aforementioned inferential rationale\(^1\) for highly impure and somewhat yellow in colour (\textit{vide infra}) polymeric samples of I which were phenomenologically obtained \textit{via} the previously reported procedures, a highly versatile and relatively anhydrous method for synthesis of I and its derivatives was devised.
+Scheme 1. Representative examples of the literature procedures for synthesis of 1 from 5-nitrofurfural and hydrazine hydrate in methanolic solutions.
+
+Results and Discussion
+
+Synthesis of Nitrofuranyl Hydrazones & Carbohydrazides
+
+Anhydrous hydrazine itself is toxic and a powerful reducing agent capable of bringing about colossal explosions.\(^7\) In point of fact, a mixture of methanol 57%, hydrazine 30% and water 13% w/w, which is similar to that of the literature procedures (Scheme 1) for synthesis of 1 is also referred to as ‘C-Stoff’ and was made use of by the Germans during World War II as a rocket fuel,\(^8\) and by others elsewhere.\(^9\) Guiding principles the practising synthetic chemist encouraged thereunder, preclude the use of unsafe and risky procedures, no matter how common they may be, as such there is a pressing need for reasonably safe procedures for synthesis of 1 and its derivatives.
+
+A small-scale solubility test identified THF as a versatile solvent in which 5-nitrofurfural is readily soluble. Given the aforementioned hazards associated with the use of anhydrous hydrazine, hydrazine monohydrate which is much safer to handle than anhydrous hydrazine in combination with a desiccant was deemed a suitable substitute. As such, initially anhydrous Na\(_2\)SO\(_4\) was placed in a flame-dried vessel; thereto was added 5-nitrofurfural, the vessel was sealed and degassed under a partial flow of a dry inert gas, and was subsequently cooled in an ice-bath, thereto was added anhydrous THF, followed by dropwise addition of hydrazine monohydrate (1.1 equiv).
+
+Scheme 2. The most practical and high yielding synthesis of 1 under relatively anhydrous conditions.
+
+The desiccant in the mixture was able to remove most of the water so as to provide a suitable anhydrous condition under which the reaction proceeded to completion, and the desired crude hydrazone 1 was obtained in a pleasing 90% yield (Scheme 2). The crude was then purified using flash column chromatography (80% EtOAc in cyclohexane; R\(_f\) 0.25) to obtain 1 in high purity ~ p.a. \(\geq 98\%\), as evidenced by \(^1\)H NMR (Fig. 1a), LC-MS and HRMS (ESI S2†), and intriguingly in marked contrast to that of the literature as an orange solid (Fig. 10) in 62% yield. Ultra-pure samples of 6 and 7 were also obtained using the newly devised method (ESI S5 & S6†), alongside 2 (ESI S3†) for comparison with 1.
+Reactivity of Nitrofuranyl Hydrazine 1 Towards Methanolic Media
+
+Hydrazone 1 is quite insoluble in most common organic solvents such as ether, dichloromethane, toluene, chloroform etc., but sparingly soluble in acetonitrile and fairly soluble in DMSO. To this end, a relatively clean $^1$H NMR spectrum of 1 in acetonitrile-$d_3$ was first obtained; however, the exchangeable protons, in the absence of deuterons, complicate the overall trace integration of the thus obtained spectrum: this was rectified by means of a ‘$D_2O$ shake’, nevertheless, hardly surprisingly, even traces of residual water from the added $D_2O$ reacted with 1 so as to give rise to minor inexplicable new peaks at $\delta$ 8.55, 7.53, 7.52, 7.27 and 7.26 (Fig. 1b).
+
+It cannot be too firmly emphasised that unlike clean $^1$H NMR spectra of 1 in acetonitrile-$d_3$, the $^1$H NMR spectrum of 1 in methanol-$d_4$ was a complete mess (Fig. 2b), this clearly shed light on reactivity of methanol towards 1; thus any attempt at synthesis of this compound in methanolic solutions could lead to highly impure products. Knowing that methanol reacts with 1, it was then investigated as to whether methanol in lieu of the nucleophile i.e. hydrazine would also react with the starting material, namely, 5-nitrofurfural, in such syntheses.
+Unlike 1, 5-nitrofurfural is sufficiently soluble in chloroform; to this end, its $^1$H NMR spectrum in CDCl$_3$ was obtained and compared with that in methanol-$d_4$. It did not come as a surprise to discover that similar but different to 1, 5-nitrofurfural is equally susceptible to attack by methanol as its $^1$H NMR spectrum in methanol-$d_4$ contains extra signals in the region $\delta$ 7.5 – 5.5, which were absent in its obtained spectrum in CDCl$_3$ (Fig. 3).
+
+In an attempt to gain insight into the structural detail of product(s) of the 5-nitrofurfural reaction with methanol, 5-nitrofurfural in an acidified methanolic-$d_x$ solution was subjected to further NMR analysis. Reactions of 5-nitrofurfural with methanol-$d_x$ could occur to form (Scheme 3):
+
+- –OCD$_3$ substituted furan derivatives via S$_E$Ar reaction.
+- A deuterated hemiacetal/acetal or a species thereof via attack of methanol-$d_x$ (*nota bene*: not methanolic-$d_x$ acid) to the aldehyde moiety of 5-nitrofurfural.
+
+![Scheme 3. Putative reactions of methanol with 5-nitrofurfural.](image)
+
+Analysis of the $^1$H NMR spectrum of 5-nitrofurfural in methanol-$d_x$ (Fig. 3), on looking more closely, together with electron deficiency of the furan ring in 5-nitrofurfural despises any S$_E$Ar reaction, and suggests formation of hemiacetal 3 and/or acetal 4. It is unlikely that the reaction of methanol-$d_x$ with 5-nitrofurfural resulting in acetal 4 such that even though the –OCD$_3$ moieties in 4 are chemically equivalent, they are, in point of fact, anisochronous by virtue of the furan ring current. Thus, probably, almost certainly, two signals from the –OCD$_3$ moieties in 4 should be observed in its $^{13}$C NMR spectrum which is not the case, so it is very likely that the product be hemiacetal 3 (Fig. 4).
+As depicted in Fig. 4, C-2 or C-5 gives rise to the signal at δ 153.8, C-3 and C-4 give rise to the signals at δ 111.9 and 111.7. The crucial signals are at δ 96.8 from the ipso carbon, and δ 53.1 from the –OCD₃ moiety. Should we select acetal 4, two signals at ca. δ 53.0 would be expected; in point of fact, a much closer look at the spectrum reveals a very tiny signal to the left of the signal at δ 53.1, which should be from the other chemically equivalent but anisochronous –OCD₃ of acetal 4; however, hemiacetal 3 preponderates over acetal 4. Intriguingly, ¹H NMR spectra of 5-nitrofurural in CDCl₃ and DMSO-d₆ did not differ much in terms of the overall pattern of signals (Fig. 5).
+
+Conjugative Effects on the Colour of Nitrofuranyl Derivatives
+
+Hitherto, all the literature precedents including that of Li et al.⁶ have described 1 as a yellow solid; however, this compound, in point of fact, is an orange solid (Fig. 10), and its intrinsic colour can be a good indication of its purity.
+
+As illustrated above, methanol can react with 1 to yield unwanted by-products, which perturb its colour; in effect, solutions of 1 in methanol have a yellow tinge.
+As depicted in Fig. 6, there are a total of eight delocalised π electrons in I which set up a conjugated system, leading to π bonds elongation and lower energy gaps between the pertinent ungeraden and geraden molecular orbitals to such an extent that the 18 non-bonding electrons in this molecule can also participate in the delocalisation; as a result, the fundamental electronic excitation of I absorbs greenish-blue light ($\lambda_{\text{max}} \approx 480 - 490$ nm), and hence this compound appears as an orange solid. Henceforth, whereas energy is variant in all privileged frames of reference by all observers, the change in energy is invariant in all privileged frames of reference for the same observers. By the same token, the fundamental electronic excitation between the pertinent ungeraden and geraden molecular orbitals of inherently coloured organic compounds is invariant in a given polyene system in any privileged frame of reference, irrespective of variant energies of different molecules upon which the conjugated system is conferred, in that privileged frame of reference by all observers. Taking as an example, albeit lycopene and β-carotene are energetically variant in a privileged frame of reference, both exhibit the same characteristic colour to all observers in that frame of reference, in virtue of their pretty much identical conjugated systems (Fig. 7a).
+
+It is well established that the more extended a conjugated polyene, the lower the energy gap between its HOMO$_u$ and LUMO$_g$. Thus, as a rule of thumb, the more π electrons delocalise in a conjugated polyene system, the lower the energy gaps between its ungeraden and geraden molecular orbitals, which in turn this effect stabilises the system relative to that with equal but isolated π electrons. It follows that increasing the length of conjugation leads to a bathochromic fundamental electronic excitation. For this reason, $\pi$-hepta-1,3,5-triene with a six π electron conjugated system absorbs blue light and appears as a deep-yellow solid. On the other hand, azulene with ten delocalised π electrons in its conjugated system absorbs green light, and exhibits an intrinsic purplish colour.
+
+Inasmuch as the fundamental electronic excitation is invariant in all privileged frames of reference by all observers, the number of delocalised π electrons in a conjugated system should in the absence of exceptions, e.g. tunnelling, dictate the intrinsic colour of its corresponding polyene, provided that the conjugated system is not affected by other factors such as auxochromic effects, Kuhn’s and Woodward’s rules etc. To this end, empirically six to twelve delocalised π electrons in an uncomplicated linear conjugated polyene bring about a fundamental electronic excitation with $\lambda_{\text{max}} \approx 450 - 550$ nm, giving rise to coloured compounds from yellow such as $\pi$-hepta-1,3,5-triene to purplish-pink azulene (loc. cit.).
+In view of the above, 1 with eight delocalised π electrons (Fig. 6) similar to 1-methylindenene should at a bare minimum, in theory, though not of necessity, absorb blue light (\( \lambda_{\text{max}} \sim 430 – 480 \) nm). However, as reasoned above, the implied conjugative effect lowers the energy gaps between its ungeraden and geraden molecular orbitals such that the π orbitals would be in a much closer proximity to the non-bonding orbitals that accommodate more than twice as much electrons as that in the π bonding orbitals. At this point, in practice, the fundamental electronic excitation of 1 responsible for its orangish colour (\( \lambda_{\text{max}} \sim 480 – 490 \) nm) must be probably, almost entirely due to one of the allowed \( n_\pi \rightarrow \pi_g \) excitations with the highest transition probability, which would not be the case in the absence of its extended conjugation, and as purported in the literature (loc. cit.) would have been of a yellow colour.
+
+The belief that the position of the absorption maximum is directly proportional to the length of the conjugated system implies that lycopene and β-carotene, both having 11 conjugated π bonds in which 22 π electrons shuffle (Fig. 7) ought to have a much longer \( \lambda_{\text{max}} \) than say, 1 with only four conjugated π bonds (Fig. 6). Brushing the effects of non-bonding orbitals in 1 aside, the \( \lambda_{\text{max}} \) of lycopene/β-carotene seems to be close to that of 1, as all exhibit orangish-red colour. This discrepancy stems from the fact that for a 1-dimensional observable ‘particle in a box’, its invariant symmetrical potential \( V(x) \) with respect to space inversion is as follows:
+
+\[
+\text{Eq. 1} \quad V(x) = V(-x)
+\]
+
+The parity transformation (\( \hat{P} \)) of the above eigenfunction gives the following:
+
+\[
+\text{Eq. 2} \quad \hat{P}V(x) = V(-x)
+\]
+
+Inasmuch as the potential energy (\( V \)) in Eq. 1 is centrosymmetric, then its Hamiltonian operator (\( \hat{H} \)) commutes with \( \hat{P} \) to give the following relation:
+
+\[
+\text{Eq. 3} \quad [\hat{H}, \hat{P}] = 0
+\]
+
+Thus, the following argument should be true for any eigenfunction of \( \hat{H} \):
+
+\[
+\text{Eq. 4} \quad \hat{H}|\psi_E(x)\rangle = E|\psi_E(x)\rangle = \hat{P}\hat{P}|\psi_E(x)\rangle
+\]
+
+Eq. 4 states that \( \hat{P}|\psi_E(x)\rangle \) is an eigenfunction with the same eigenvalue (\( E \)), which implies that \( E \) would be a ‘degenerate’ eigenvalue; however, that is not true in virtue of linear dependency of the eigenvectors |\( \psi \rangle \) and \( \hat{P}|\psi\rangle \).
+
+On the other hand, for the ‘particle in an n-dimensional box’ i.e. ‘Hilbert space’ its centrosymmetric potential \( V(r) \) is only dependent on the distance from the centre, and its eigenvector angular momentum \( \hat{L}^2 \) is as follows:
+
+\[
+|l, m\rangle
+\]
+
+Where \( l \) is the total angular momentum, and \( m \) is its projection along a given axis. Since \( \hat{L}^2 \) is a unitary operator i.e. for different observables \( m \) can have the same \( l \), and hence linearly independent, as such \( E_l \) is a ‘degenerate eigenvalue’.
+
+In recognition of the above, even though both lycopene and β-carotene possess an 11 linear conjugated π bond system, but because they are centrosymmetric, half of their molecular orbitals ‘degenerate’. To this end, lycopene and β-carotene behave as if they only have a five or six conjugated π bonds which is well in agreement with the empirical observations i.e. they appear as an orangish-red pigments. In contrast, a non-centrosymmetric polyene such as flavoxanthin with an eight linear conjugated π bond system (Fig. 7b), appears exclusively as a bright yellow solid.
+This might seem a bit puzzling as the longer a conjugated system, the longer its $\lambda_{\text{max}}$. However, even though the gaps between the ungeraden and geraden molecular orbitals of flavoxanthin should be smaller than say, that of lycopene, but because the energy levels are getting much closer, then the fundamental electronic excitation is no longer $S_0 \rightarrow S_1$ and higher energy excitations will have a much higher transition probability to an extent that they preponderate over the lowest energy excitation, and hence flavoxanthin absorbs blue light, but lycopene absorbs the lower energy blue-green light. Equally, whatever concoction in the literature has been ascribed to 1 must have absorbed the higher energy blue light, hence the resulting yellow compounds; nevertheless, in marked contrast to the literature precedents, as delineated above, the true puriss. or even purum samples of 1 are intrinsically orangish in colour (Fig. 10).
+
+Intriguingly, similar but different to accounts of the literature for the appearance of 1, in particular, its colour, 6 also exhibits a yellow colour (Fig. 10), and inasmuch as this furan technically has only one extra auxochromic oxygen than say, 1; this auxochromic impact on the conjugated system of 6, renders this molecule to fit into the literature descriptions of 1 (loc. cit.), which all seem to sit right with 6 both in ‘structure & colour’ (Fig. 9).
+
+Figure 9. Carbohydrazide 6 is very likely to exhibit the same colour as the compound obtained by Li et al.⁶
+
+On another development, carbohydrazide 7 was serendipitously obtained in lieu of 6 via the action of hydrazine monohydrate on 5-nitro-2-furonyl chloride (ESI S6†): the colour of 7 is again of particular importance, and reference has already been made to the correlation between purity of conjugated nitrofuranyl derivatives and their intrinsic colours (vide supra). With that borne in mind, we saw that the delocalisation of eight $\pi$ electrons in 1 was responsible for its orangish colour; it also brought home to us that symmetry would influence the colour of conjugated molecules cf. lycopene and $\beta$-carotene: here again, 7 is not fully conjugated, but indeed symmetric. On the other hand, 7 possesses several nitrogen and oxygen auxochromes, which can donate their accessible lone pairs to the conjugated system so as to extend the electron delocalisation in the already established conjugated system. This effect together with the partial double bond character of semi-carbohydrazide in the dimer facilitates its tautomerisation to give a more stable fully conjugated dimer 8 with 16 delocalised $\pi$ electrons in its conjugated system (Scheme 4).
+
+Scheme 4. Tautomerisation of dimer 7 to 8 resulting in a fully conjugated system with 16 delocalised $\pi$ electrons in the thus obtained more stable centrosymmetric molecule.
+Although the thus obtained tautomer 8 is centrosymmetric, and in theory, its fundamental electronic excitation would be no different from that in 1 with only eight π electrons in its conjugated system; however, in practice, it is unclear as to what extent this tautomerisation does take place in solid phase for dimer 7; moreover, both 7 and its tautomer 8 possess more auxochromic oxygens in their conjugated systems than that of 1, which should not be overlooked. Thus, even though the above complications do add a certain element of confusion when we come to consider the fundamental electronic excitation for this type of conjugated nitrofuranyl species, but what matters is that the combined conjugative effect of 7 together with its more stable tautomer 8 in solid phase gives its crystal lattice an intrinsic coral pink colour (Fig. 10); otherwise, the pertinent dimer itself similar but different to 1 would only exhibit a dark orangish colour, and that this should be so is a corollary of its centrosymmetric nature.
+
+Figure 10. Images of nitrofuranyl derivatives 1, 6 & 7: by all means, 1 is not yellow, but 6 is.
+
+Conclusion
+
+During the course of synthesis of nitrofuranyl derivatives described herein using the already established procedures, highly impure and polymeric samples were obtained. To this end, and in line with the previously reported reactivity of nitrofuranyl derivatives, in particular, 5-nitrofurfural in alkaline media, herein this work offers a versatile and high yielding new synthetic procedure for synthesis of nitrofuranyl derivatives which has potential to be extended to a large array of similar unstable heterocycles in protic solvents. Furthermore, 1H together with 13C NMR analysis shed light on the nature of some of the resulting products of the aforementioned side reactions, all of which differ in appearance, in particular, their intrinsic colours to that of the desired products. Inasmuch as the much remarked erroneous physical properties of 1 in the literature, in particular, its intrinsic colour had been overlooked for more than half a century, due, in part, to the highly impure samples of 1 elsewhere, it compelled the author to lay a secure foundation of sound theory of observable phenomena in question for the outsider such that considerable detail had to be given in parts of this manuscript which are concerned with the intrinsic colour of nitrofuranyl derivatives, and may, though it need not of necessity, be of interests to the synthetic and medicinal chemist when occasion demands.
+
+Conflicts of Interest
+
+The author declares no conflicts of any kind.
+
+Acknowledgements
+
+This work was supported by the Biotechnology and Biological Sciences Research Council (Grant No. BB/P504373/1) and GlaxoSmithKline. The author would like to extend sincere gratitude to the Royal Society of Chemistry for their generous donations facilitated by Kim Sutton.
+References
+
+1 F. L. Austin, Chem. Ind., 1957, 523.
+2 M. Largeron and M. – B. Fleury, Tetraherdon Lett., 1991, 32, 631.
+3 A. Cisak, K. Rzeszowska-Modzelewski and E. Brezezinska, Acta Pol. Pharm. – Drug Res., 2001, 58, 427.
+4 W Guerra, A. P. S. Fontes, M. V. D. Almeida and H. Silva, Quim. Nova, 2005, 28, 809.
+5 V. G. Dudarev, O. M. Tikhomirova and A. A. Iozep, Pharm. Chem. J., 2013, 47, 31.
+6 H. Li, Z. Zhang, X. Yang, X. Mao, Y. Wang, J. Wang et al., Chem. Res. Toxicol., 2019, 32, 681.
+7 H. N. Nguyen, J. A. Chenoweth, V. S. Bebarta, T. E. Albertson and C. D. Nowadly, Mil. Med., 2021, 186, e319.
+8 J. D. Clark, Ignition! An Informal History of Liquid Rocket Propellants, Rutgers University Press, New Brunswick, New Jersey, 1972.
+9 https://www.heart.co.uk/london/news/local/chemical-spill-ucl/ (accessed 31/08/21).
+10 R. W. Pridmore, Col. Res. Appl., 2009, 34, 233.
+11 P. Nayler and M. C. Whiting, J. Chem. Soc., 1955, 3037.
+12 A. Capperucci, A. Degl'Innocenti, P. Dondoli, T. Nocentini, G. Reginato and A. Ricci, Tetrahedron, 2001, 57, 6267.
+13 Bicyclo[5.3.0]decapentaene, Merck Specification Sheet https://www.sigmaaldrich.com/GB/en/specification-sheet/ALDRICH/A97203 (accessed 20/09/21).
+14 J. F. Pfanstiel and D. W. Pratt, J. Phys. Chem. A, 1999, 103, 2337.
+15 R. Kuhn and C. Grundmann., Ber. Dtsch. Chem. Ges., 1938, 71, 442.
+16 R. B. Woodward, J. Am. Chem. Soc., 1942, 64, 72.
+17 D. J. Griffiths and D. F. Schroeter, Introduction to Quantum Mechanics, Cambridge University Press, Cambridge, 2018.
+18 M. Sozzi, Discrete Symmetries and CP Violation – From Experiment to Theory, Oxford University Press, Oxford, 2012.
+19 R. M. Wilcox, J. Math. Phys., 1967, 8, 962.
+20 P. W. Atkins and R. Friedman, Molecular Quantum Mechanics, Oxford University Press, Oxford, 2011.
+21 G. Cassinelli and P. Lahti, Phil. Trans. R. Soc. A, 2017, 375: 20160393.
+22 H. A. Buchdahl, Am. J. Phys., 1962, 30, 829.
+23 Flavoxanthin, Merck Index Online, 11th Edition, 4032.

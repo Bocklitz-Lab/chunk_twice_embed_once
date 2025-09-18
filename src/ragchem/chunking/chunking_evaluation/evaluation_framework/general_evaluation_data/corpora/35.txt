@@ -1,0 +1,294 @@
+Material Characterization of NMC Black Mass from End-of-Life Lithium-Ion Batteries for Enhanced Recycling Strategies
+
+Hammad Farooq and Sulalit Bandyopadhyay
+
+Recycling black mass (BM) obtained from NMC-based end-of-life lithium-ion batteries (LIBs) is hindered by metallic impurities (Al and Cu), residual electrolytes, and PVDF (polyvinylidene fluoride) binder. Pre-treatment of BM, such as milling and pyrolysis, to remove these impurities necessitates characterizing its physicochemical properties that affect such pre-treatment methods. More importantly, a judicious combination of characterization techniques can provide an integrated framework for efficiently planning pre-treatment and recycling processes. In this study, industrial BM samples from end-of-life NMC622, NMC111, and NMC901 LIBs are characterized. The comparative characterization of BM using FBRM (focused beam reflectance measurement) and laser diffraction techniques showed that applying square weighting to the chord length distribution measured by FBRM yields values close to the actual particle size, while also providing a method that can be used for real-time analysis of recycling processes. XRD (x-ray diffraction), complemented by SEM (scanning electron microscopy) and metal composition data confirmed that crystalline NMC phases remain intact in untreated BM and graphite exists as a mixture of 2H and 3R phases. Additionally, Raman spectroscopy with SEM elemental analysis provided insights into the carbonaceous deposits and metal particles on graphite surfaces. Qualitative TGA/MS (thermogravimetry with mass spectrometry) of BM under pyrolytic conditions allowed the identification of residual electrolytes and PVDF through the evolution of carbonaceous and fluorinated gases. Quantitative TGA/MS under oxidative conditions allowed quantification of total carbon in BM and estimation of PVDF. Explored characterization techniques highlight the impact of pre-treatment processes and provide a decision framework for selecting and optimizing recycling strategies.
+
+Introduction
+
+The demand for lithium-ion batteries (LIBs) is projected to increase significantly in the coming years, driven primarily by the increased use of electric vehicles (EV) and renewable energy storage systems. According to a recent study, the demand for LIBs could reach 10,000 GWh by 2040, and meeting this demand just through mining has significant challenges due to limited primary resources. Thus, achieving a sustainable Li supply depends on the presence of well-established recycling procedures for end-of-life LIBs. Among various chemistries of LIBs, NMC chemistry (Li[NiₓMnᵧCoₜ]O₂) is the most popular choice when it comes to EV and energy storage systems. NMC-based LIBs come in several variants defined by their Ni:Mn:Co ratios e.g., NMC111 (Li[Ni₀.33Mn₀.33Co₀.33]O₂). Recent efforts to reduce Co content in NMC batteries, due to its high cost and ethical concerns, have led to the development of high Ni variants such as NMC622 (Li[Ni₀.6Mn₀.2Co₀.2]O₂). It is estimated that, by 2050, the production of NMC-based LIBs from primary resources to fulfill the future demand will lead to the emission of greenhouse gases totaling 8.2 GtCO₂eq. Thus, sustainable recycling of NMC-based end-of-life LIBs by recovering valuable metals such as Li, Ni, Mn, and Co will not only reduce the burden on primary resources but also minimize the environmental impacts. Another valuable component of end-of-life LIBs is graphite (anode) which has been classified as a critical raw material. It accounts for ~40 % of LIBs by weight and recycling graphite has also gained traction recently. Recycling end-of-life LIBs usually begins with the preparation of black mass, which is produced by safely discharging, shredding, grinding, and then milling the end-of-life LIBs. Black mass (BM), a fine powder, contains valuables such as Li, Ni, Mn, Co, graphite, and small amounts of Al and Cu current collectors. Material characterization techniques are significant in developing sustainable and efficient pre-treatment and recycling processes for end-of-life LIBs. These techniques offer critical insights into the physicochemical properties of valuables in BM and allow for investigating the effects of pre-treatment and recycling processes, thereby providing a data-driven framework to design and optimize efficient recycling strategies. Pre-treatment of BM is crucial due to the presence of impurities such as residual electrolytes, polyvinylidene fluoride (PVDF) binder, carbon black, and other organic species deposited on the surface of cathode active material (CAM) and graphite. Removal of PVDF binder is highly desirable as it can adversely affect recycling efficiency by depositing on the surface of CAM particles. Mechanical pre-treatment methods such as ball milling are used to liberate the CAM and graphite particles.
+while also reducing the particle size to the desired value.8
+Attrition milling is another example where the surface
+impurities are removed without affecting the particle size.9
+Pyrolysis of BM has also been used extensively as a pre-
+treatment process as it can decompose PVDF binder,
+electrolytes, and other organic impurities. Pre-treated BM is
+then subjected to hydrometallurgical recycling processes e.g.,
+leaching and froth flotation. Since Li in pyrolyzed BM is highly
+water-soluble, water leaching is used to leach out Li.10 Froth
+flotation is used to recover graphite from pyrolyzed BM with
+appreciable efficiency since the hydrophobic surface of graphite
+particles and the hydrophilic surface of CAM are now exposed
+after pyrolysis.11 Pyrolysis pre-treatment also causes phase
+change of NMC (Li[NiMnCo]O2) particles by reducing them
+into individual metal (Ni, Mn, Co) oxides.12
+Characterization techniques are essential in assessing the
+effects of these pre-treatment methods and allow for further
+optimization of the recycling processes. Particle size distribution
+(PSD) is one of the key parameters in the recycling of BM, as it
+is influenced by pre-treatment methods (e.g., milling) and
+affects further recycling processes (e.g., leaching and
+flotation).13 Laser diffraction technique is widely used for PSD
+measurements of BM due to its well-established methodology,
+ability to handle wide size ranges, and rapid acquisition.14–16
+However, it does not readily enable real-time measurements,
+in-situ measurements, or handle highly concentrated samples.
+Real-time monitoring of particle size is vital for studying the
+underlying mechanisms of recycling processes (e.g., leaching
+and flotation). Focused Beam Reflectance Measurement
+(FBRM) technology offers a solution by measurements of chord
+length distribution (CLD).17 Another critical factor influencing
+recycling processes is the phase chemistry of both NMC cathode
+and graphite anode in BM, investigated using X-ray diffraction
+(XRD). XRD can be used to study crystalline phases of Li,
+graphite, and NMC. However, precise identification of exact
+NMC phases as well as differentiation between different phases
+of graphite using qualitative XRD analysis is challenging due to
+overlapping peaks. Scanning electron microscopy coupled with
+energy-dispersive spectroscopy (SEM/EDS) can be employed to
+complement XRD by visualizing local morphology and
+identifying NMC phase composition.18 Meanwhile, Raman
+spectroscopy offers crucial insights into disordered or
+amorphous carbon species deposited on the surface of graphite
+particles, however, it requires careful profile fitting and data
+analysis. To overcome these combined limitations, correlating
+data from all techniques is essential. Thermogravimetric
+analysis (TGA) coupled with mass spectrometry (MS) is another
+effective technique for characterizing carbonaceous materials
+such as BM. A qualitative analysis of the pyrolysis mechanism of
+BM under inert TGA/MS conditions has been explored in prior
+studies.12,19–21 However, a quantitative analysis of the TGA/MS
+results to obtain useful information and quantify carbonaceous
+species remains challenging for BM samples.
+In this study, these characterization techniques have been used
+collectively to assess the physiochemical properties of three
+different BM samples, examine the effect of pre-treatment
+methods (e.g., pyrolysis), and provide a clear basis for planning
+recycling strategies. The FBRM technique is used to develop a
+method for the measurement of chord length for BM samples
+by comparing the effects of different weighting methods with
+PSD measurements. FBRM technique can overcome
+shortcomings of PSD measurements from laser diffraction
+and allow for real-time analysis of pre-treatment and
+recycling processes.22 A quantitative analysis of TGA/MS under
+an oxidative atmosphere has been carried out to determine the
+amount (wt. %) of graphite in BM samples. This method is
+developed using pure graphite as a reference to prepare a
+calibration curve. Furthermore, the estimation of PVDF binder
+(wt. %) using TGA/MS under an oxidative atmosphere is also
+discussed while SEM/EDS is used to visualize the distribution of
+PVDF binder on the surface of active particles. A procedure to
+analyze the residual electrolytes and other organic species in
+BM using TGA/MS (under an inert atmosphere) is also defined.
+An overview of XRD patterns of three different BM samples is
+provided in this study and necessary structural parameters (e.g.,
+peak position, crystalline phase, hkl index, and reference) are
+summarized for reference. The main findings from XRD analysis
+are correlated with the metal composition (wt. %) and SEM/EDS
+data to study the phase chemistry and composition of the NMC
+cathode. Furthermore, graphite particles are examined using
+Raman spectroscopy to provide a clear distinction between
+different types of graphite surfaces based on a spectral feature
+called ID/IG ratio (i.e., a ratio of the D band to the G band).
+These characterization techniques, when used together, offer a
+thorough understanding of BM samples, enabling the
+development of efficient pre-treatment and recycling
+processes.
+
+Experimental
+Black Mass (BM) samples and chemicals
+Three BM samples were provided by an industrial partner,
+Hydrovolt, and labeled as BM1, BM2, and BM3. These BM
+samples were produced from NMC-based end-of-life LIBs using
+an industrial process that also employed a low-temperature
+heat pre-treatment step (<200 °C) to mainly get rid of moisture
+and most of the electrolyte solvents. It is important to note that
+the PVDF binder and other organic species have not been
+separated or decomposed from the provided BM samples. PVDF
+binder and pristine graphite were commercially purchased from
+Sigma Aldrich (product no. 182702 and 282863, respectively) to
+be used as a reference. LiPF6 solution (1 M) in ethylene
+carbonate and ethyl methyl carbonate (1.0 M LiPF6 EC/EMC
+50/50 v/v), a commonly used electrolyte solvent in LIBs, was
+also commercially purchased from Sigma-Aldrich (product no.
+746738).
+
+Pyrolysis of black mass
+A vertical-style quartz tube furnace was employed for the
+pyrolysis of BM samples (BM1, BM2, and BM3), where an inert
+gas (N2) was pumped into the quartz tube from top to bottom.
+The temperature was first increased to 110 °C and then held
+there for 3 hours to remove all the air and moisture from the
+furnace. Then the temperature was increased to 600 °C at a heating rate of 10 °C/min. Once the temperature had reached 600 °C, it was held there for 1 hour and then gradually cooled down to room temperature.
+
+Characterization techniques
+
+PSD and CLD. Particle size Distribution (PSD) was measured using Horiba Laser Scattering Particle Size Distribution Analyzer LA-960 equipped with a wet flow cell where 96% ethanol (refractive index of 1.3600) was used as the dispersion media. BM was carefully added to the cell until a transmittance of ~80 % was achieved for each measurement. The Refractive (R) index of pure graphite (2.000 R index and 0.5220 I index) was used as the representative R index for the whole BM sample. Chord length distribution (CLD) measurements were carried out using the Mettler Toledo ParticleTrack G400 FBRM instrument. For each measurement, the BM sample was dispersed in 96 % ethanol at a solid/liquid ratio of 2 g/L (particle counts ranging from 15000 – 20000). FBRM probe was dipped in the prepared dispersion and the dispersion was stirred at 700 rpm to make sure all particles were completely wetted. For each measurement, sampling was done at a 30 sec interval for 15 minutes, and an average of all samplings was determined to represent the measurement.
+
+Digestion and metal composition analysis. Digestion of metals in BM samples was carried out using a microwave-assisted digestion instrument called Berghof Speedwave XPERT equipped with DAP-60 digestion vessels. Measurement of the metal contents (wt. %) after microwave digestion was done using a microwave plasma atomic emission spectrometry (MP-AES) instrument called Agilent MP-AES 4210. For digestion, ~100 mg of BM sample was weighed and added in the digestion vessel (without using a sample cup), followed by the addition of 1 mL of ultrapure water, 7 mL of 37 % HCl, and 3 mL of 65 % HNO3 in the same order as mentioned. The vessel was properly sealed and placed in the instrument. The temperature profile in the digestion instrument was configured so that the temperature was first increased to 180 °C and held there for 15 minutes. Further, the temperature was increased to 220 °C and held there for 30 minutes. After the digestion was done, the contents of the vessel were poured into a 50 mL volumetric flask. The digestion solution containing metallic ions was filtered using a 25 µm syringe filter and further diluted by a dilution factor of 100 using ultrapure water. The metal composition (wt. %) of the diluted solutions was determined using the MP-AES instrument.
+
+XRD. X-ray diffraction (XRD) analysis was performed on a Bruker DaVinci 1 diffractometer using Cu-Kα radiation (λ=1.54060 Å) equipped with a Ni filter to reduce the intensity of the contamination wavelengths (i.e., Cu-Kβ and W-Lα). XRD experiments were carried out at a step size of 0.01°, time/step of ~1 sec, fixed divergence slit (FDS) of 0.2° and a 20 range of 15° – 60°. Zero diffraction cavity type (15 mm diameter) sample holder was used for sample preparation. BM powder was manually ground in a mortar and a certain amount was distributed over the sample holder using a glass slide. The sample was tightly packed by manually pressing from the top. The diffraction patterns were matched to the ICDD (International Centre for Diffraction Data) PDF (Powder Diffraction File) -4+ database to identify the crystalline compounds and phases.
+
+TGA/MS. TGA/MS analyses were obtained using a Netzsch STA 449C Jupiter TGA/DSC coupled with a Netzsch Aëolos QMS 403C. For TGA/MS under inert conditions, approximately 50 mg of BM sample was analyzed in an alumina crucible. The sample was first heated to 50 °C from room temperature and then held there for 3 hours. This step was done to make sure that all oxygen was completely purged from the instrument’s chamber and the further heating process would essentially take place in an inert atmosphere. Argon (Ar) was used as the protective gas at a flow rate of 20 ml/min as well as the purge gas at a flow rate of 80 ml/min. In the next step, the temperature was gradually increased from 50 °C to 1000 °C at a heating rate of 5 °C/min and then kept there for 1 hour. For TGA/MS under oxidative conditions, 20 - 30 mg of BM sample in an alumina crucible was first heated to 110 °C, and the temperature was held at 110 °C for 1 hour to make sure that adsorbed moisture was completely evaporated. The temperature was then increased to 1000 °C at a heating rate of 5 °C/min under 20 ml/min Ar (used as protective gas) and 100 ml/min purified air (used as the purge gas). The flow rate of the purified air (purge gas) is kept high to make sure that oxygen would not be a limiting reactant. During both conditions, the evolved gases from the TGA instruments were directed to the MS using a transfer line heated at 300 °C. The MS instrument was configured to detect the species based on their m/z (mass-to-charge) ratios (listed in Table S1). The use of Ar as a protective and purge gas during inert TGA/MS analyses is essential here since the m/z value of other commonly available inert gases (e.g., N2) overlaps with the m/z values of species in the evolved gas (e.g., CO).
+
+SEM/EDS. Morphological and elemental analyses of the BM samples were obtained using an SEM Apreo instrument coupled with the EDX Oxford Xmax 80 detector. For preparation of the samples for SEM/EDS imaging, a polyester swab was dipped in the BM sample and rolled over a conductive tape. Pressurized N2 gas was used to remove any loosely bound particles, and the sample-covered conductive tape was pasted on an aluminum stub. For imaging these samples, an ETD detector was employed at a working distance of ~4 mm to obtain high-res images. A voltage of 5 – 7 kV and a current of ~1.6 nA was applied. During elemental analysis using the EDX detector, the working distance was changed to 10 mm and the current was adjusted to obtain a dead time value of 40 – 60 %.
+
+Raman. Raman spectroscopy of BM samples was performed using a WITec Alpha 300R instrument equipped with a 532 nm wavelength. To avoid oxidation and decomposition of carbonaceous species deposited on the surface of graphite particles in BM, a very lower laser power of 0.2 – 0.5 mW was utilized. Due to the uneven sample surface (caused by the heterogeneous particle size of BM), a 50x objective with a relatively long working distance of ~9 mm was used. An optimal acquisition time and accumulations were first determined, and
+it was found that an acquisition time of 20 sec while keeping the number of accumulations to 10 provided consistent and repeatable measurements without damaging the surface. All measurements were taken by setting the grating at 600 g/mm and keeping the spectral center at ~2199.999 cm\(^{-1}\). For deconvolution and fitting the raw Raman spectra, the Fityk peak fitting program was used.\(^{23}\) A linear function was applied to subtract the background, and the 1\(^{st}\)-order carbon peaks were fitted using the Lorentzian function.\(^{24}\) An R-squared value of >99 % was achieved for spectrum fitting using the Lorentzian function. The results obtained from the fitting were used to analyze spectral features (e.g., intensities of various peaks).
+
+**ATR-FTIR.** ATR-FTIR (Attenuated Total Reflectance-Fourier Transform Infrared) spectroscopy measurements of evaporated species from BM3 were performed using the Bruker Vertex 80v instrument. ATR-FTIR scans were run from 500 ~ 4000 cm\(^{-1}\) wavenumber range at a scan speed of 4 cm\(^{-1}\).
+
+**Results and discussion**
+
+**Particle size, chord length, and metal distribution**
+
+Fig. 1a shows the volume-weighted particle size distributions (PSD) of BM1, BM2, and BM3, measured by laser diffraction and plotted against a logarithmic x-axis. Each BM sample exhibits a narrow and intense peak centered at ~15 μm. BM1 and BM2 have mean particle sizes of ~90 μm and ~65 μm, respectively, while BM3 shows a lower mean particle size of ~30 μm. This major difference arises due to the presence of two small peaks present in BM1 and BM2 at ~200 µm and ~600 µm respectively, suggesting that BM1 and BM2 have a small proportion of large particles. However, pyrolysis results in the reduction of PSD for the three BM samples (Fig. S1), where pyrolyzed BM1, BM2, and BM3 have mean particle sizes of ~35 μm, ~30 μm, and ~20 μm respectively. The FBRM technique to measure chord length distributions (CLD) of BM samples has not been widely adopted. Thus, PSD results for BM1, BM2, and BM3 (Fig. 1a) are employed as a reference to establish a method for CLD measurement (as shown in Fig. 1b-c). The main difference between laser diffraction and FBRM techniques arises from their working principles; laser diffraction works by passing a laser through a dispersed sample, and measuring the angular distribution of scattered light to calculate particle sizes over the entire sample.\(^{25}\) While the FBRM technique works by rotating a focused beam in a circular path at a fixed speed that only analyzes particles encountered by the beam, and measures the backward scattered light.\(^{26}\) The generated CLD, thus, only represents the segments of particles encountered by the beam. It is important to note that CLD measurements are significantly affected by the weighting method applied to the CLD curves, particularly in polydisperse samples such as BM. No weighting provides an unbiased mean size but does not differentiate between small and large particles. Length weighting increases sensitivity to larger particles, which is useful when characterizing elongated particles.\(^{22}\) Square weighting shifts the mean towards the coarser size ranges, making them valuable for detecting changes in larger particle populations.\(^{22}\) In this study, the effect of no weighting and square weighting on FBRM results have been analyzed as shown in Fig. 1b and Fig. 1c, respectively, and the results are correlated to the PSD measurements in Fig. 1a. Fig. 1b shows that CLD with no weighting (plotted on a logarithmic x-axis) has a distinct bi-modal distribution for the three BM samples where the first peak occurs at ~5 μm and the second peak at ~35 μm. According to CLD curves with no weight (Fig. 1b), BM1 and BM2 have a mean size of ~23 μm and ~20 μm, and BM3 shows a mean size of ~15 μm. These findings are noticeably different than those from the PSD measurement in Fig. 1a. None of the BM samples show a peak at a higher size range like the ones detected in PSD of BM1 and BM2 (Fig. 1a). This can be attributed to the fact that no weighting is applied and thus any contributions from a small proportion of larger particles are minimized. Fig. 1c shows that applying a square weighting to the CLD curves lessens the contributions from a smaller size range and enhances the presence of larger particles. The square-weighted CLD measurements plotted against the logarithmic x-axis (Fig. 1c) show a pronounced peak centered at ~50 μm, with BM1, BM2, and BM3 exhibiting nearly similar distributions with some variations at higher size ranges. The results show that BM1 has a mean size of ~90 μm, BM2 has a mean size of 66 μm and BM3 shows a comparatively lower mean size of ~50 μm (Fig. 1c). The square-weighted CLD results are more in line with the vol. weighted PSD results (Fig. 1a) and exhibit the same trend i.e., BM3 has a noticeably lower mean size. The square-weighted CLD measurements of pyrolyzed BM1, pyrolyzed BM2, and pyrolyzed BM3 (Fig. S1c) also show the same trend as seen in PSD analysis of pyrolyzed BM (Fig. S1a). Square-weighted CLD measurements using FBRM can be used to optimize pre-treatment processes (such as milling and sieving) and recycling processes such as flotation of graphite. Xuexia Wang et. al. used the FBRM technique to study and improve the flotation of fine coal particles.\(^{27}\) Haung et. al. has also reported that the FBRM technique can be used to find the optimized collector dosage for the flotation of coal.\(^{28}\) Similar methodologies can be employed in the flotation of graphite from BM feed which also uses the same collector as coal (i.e., kerosene).\(^{29}\) Fig. 1e shows that the three BM samples were sieved into four different size fractions of +150 μm, -150+90 μm, -90+63 μm, and -63 μm. The mass distribution of BM3 (Fig. 1e) shows that ~80 wt. % of the total mass is present in -63 μm fraction, while BM1 and BM2 have only ~55 wt. % and ~25 wt. % of the total sieved mass in -63 μm fraction. PSD (Fig. 1a) and square-weighted CLD (Fig. 1c) showed that BM3 has a significantly lower mean size than BM1 and BM2, and this is also evident by the sieving pre-treatment (Fig. 1e). Additionally, BM1 shows comparatively higher mass (wt. %) in the +150 μm (10 wt. %), -150+90 μm (15 wt. %) and -90+63 μm (50 wt. %) fractions compared to BM2 and BM3 due to its coarser size distribution as shown by its PSD results (Fig. 1a) and square weighted CLD (Fig. 1c) results. This varying mass distribution into different size ranges for BM1, BM2, and BM3 can be exploited to optimize
+pre-treatment and recycling processes. Fig. 1d shows the metal composition (wt. %) for the three BM samples where the wt. % of Li, transition metals (Ni, Mn, Co) and metallic current collectors (Al and Cu) have been measured. BM1 contains slightly higher Li (3.25±0.02 wt. %) compared to BM2 (2.15±0.01 wt. %) and BM3 (2.04±0.02 wt. %). The total mass (sum of wt. % of all metals) from metal composition results (Fig. 1d) only accounts for ~35 wt. % for BM1, ~27 wt. % for BM2 and ~30 wt. % for BM3. The remainder in each BM is mainly graphite and oxides as well as relatively small amounts of PVDF binder, electrolytes, and other organic species. Table 1 shows the molar ratio of Ni:Mn:Co for the three BM samples and reveals that BM1, BM2, and BM3 could have been produced from NMC622 (Li[Ni0.6Mn0.2Co0.2]O₂), NMC111 (Li[Ni0.33Mn0.33Co0.33]O2), and NMC901 (Li[Ni0.9Mn0Co0.1]O₂) type end-of-life LIBs, respectively. However, further investigation of NMC phases in BM1, BM2, and BM3 using XRD is needed to confirm this. Fig. 1f shows the normalized metal composition (wt. %) for BM1, BM2, and BM3 including the sieved fractions of each BM. Normalization of metal composition in Fig. 1f enables a direct comparison of metal distribution among the fractions. The results show that metallic current collectors (Al and Cu) are primarily concentrated in the larger size fractions (+150 µm and -150+90 µm) across all three samples. The distribution of Ni, Mn, and Co remains relatively uniform across all size fractions while maintaining the molar ratio characteristic for each BM (Table 1). During recycling of valuables, Al and Cu are usually considered metallic impurities, and the results from Fig. 1f show that these impurities can be removed from smaller size fractions and concentrated in the coarser size fractions using sieving pretreatment. Yang et. al. have reported that Al and Cu impurities can be removed from larger-size fractions using froth flotation.30
+Table 1: Amount (wt. %) Ni, Mn, and Co in the three BM samples along with the molar ratio between Ni:Mn:Co.
+
+| BM Sample | Ni (wt. %) | Mn (wt. %) | Co (wt. %) | Ni:Mn:Co Molar ratio |
+|-----------|------------|------------|------------|----------------------|
+| BM1       | 16.29      | 4.78       | 5.19       | 6:2:2                |
+| BM2       | 9.43       | 5.16       | 8.64       | 1:1:1                |
+| BM3       | 22.90      | 0.13       | 2.98       | 9:0:1                |
+
+Phase identification and structural parameters of crystalline phases
+
+Fig. 2a shows the XRD spectra of the three BM samples (BM1, BM2, and BM3) from 2θ of 15° to 60°, whereas Fig. 2b shows an enhanced plot from 2θ of 40° to 43.8°. The diffraction peaks for BM1, BM2, and BM3 in Fig. 2a are matched with the ICDD PDF-4+ database (summarized in Table 2), and it is determined that Li[NiₓMnᵧCo₂]O₂ (shown as ◆) and graphite (shown as ★) are the two main crystalline species along with the insignificant presence of Al₂O₃ (from current collector and shown as ■).²⁰
+
+Fig. 2a shows that graphite in all three BM samples appears with an intense characteristic peak at ~26.5°. This characteristic peak may belong to either 2H (hexagonal phase) with an \( \text{hkl} \) of (002), 3R (rhombohedral phase) with an \( \text{hkl} \) of (003) or a convolution of both depending upon the crystal structure of graphite. Thirty-One Graphite consists of a layered crystal structure with two major types of stacking sequences: ABAB stacking (2H phase) and ABCABC stacking (3R phase). The characteristic peaks of the 2H and 3R phases (26.5°) completely overlap; however, previous work has shown that the 2θ range between 40° and 48° can be used to differentiate and quantify the 2H and 3R phases. Thirty-One A qualitative analysis of Fig. 2b shows that BM1 may contain a relatively larger proportion of the 3R phase due to the higher (101)₃R peak intensity compared to the other two BM samples. It is reported that the electrochemical properties of graphite are affected by the weight ratio of 2H and 3R phases, making it valuable to quantify this ratio.³² ³³ Furthermore, mechanical pre-treatment of BM (such as ball milling and attrition milling) and high-temperature heat treatment of graphite recycled from BM can change the ratio of 2H and 3R under certain conditions by converting one phase to the other. Thirty-One Fig. 2a shows that the peaks at 2θ of 18.6°, 36.7°, 37.8°, 38.4°, 44.4°, 48.6°, and 58.6° belong to (003), (101), (006), (012), (104), (015) and (107) \( \text{hkl} \) of Li[NiₓMnᵧCo₂]O₂. Table 2 shows that ICDD entries belonging to different NMC chemistries have equivalent structural parameters, thus identification of the exact NMC chemistry using qualitative analysis of XRD spectra is not readily achievable due to the overlapping of the peaks concerned. However, these findings when combined with the results from the metal composition data of each BM sample (Table 1) point to the fact that BM1, BM2, and BM3 samples have NMC622, NMC111, and NMC901 chemistries, respectively. Thus, XRD analysis (Fig. 2) coupled with metal composition data can be used to examine the properties of the bulk materials i.e., metallic impurities, crystalline phases, (NMC and graphite), and phase composition.
+
+Fig. S3 presents the XRD patterns of pyrolyzed BM1, pyrolyzed BM2, and pyrolyzed BM3. It has been reported that during pyrolysis, graphite acts as a reducing agent, converting the transition metals in Li[NiₓMnᵧCo₂]O₂ partially or fully to their respective oxides (e.g., NiO, MnO) and metallic phases (e.g., Ni, Mn, Co).¹⁹ Simultaneously, Li in Li[NiₓMnᵧCo₂]O₂ is transformed...
+into highly water-soluble compounds (Li₂CO₃ and Li₂O).¹⁹ XRD spectra of pyrolyzed BM (Fig. S3) were also matched with the ICDD PDF-4+ database, and the identified crystalline phases include graphite, Li[(Ni,Mn,Co)O₂, metal oxides (NiO, MnO), metallic phases (Ni, Mn, Co), Li₂CO₃, Li₂O, LiF, and Al₂O₃ (corresponding PDF entries are summarized in Table S2). The intense graphite peak at ~26.5° in XRD spectra of pyrolyzed BM indicates that the majority of graphite remains intact after pyrolysis (Fig. S3), however, pyrolyzed BM3 exhibits a relatively higher fraction of the 3R graphite phase compared, as evidenced by the prominent (101)₃R peak at ~43.5 (Fig. S3), compared to that of untreated BM (Fig. 2). The majority of Li[Ni₅,Mn₆,Co₇]O₂ phase has been reduced indicated by relatively small peaks at ~18.6° and 36.7°. It is important to note that overlapping diffraction peaks of different metal oxides (e.g., MnO, NiO) can hinder their clear distinction through just qualitative analysis.²⁰ For pyrolyzed BM1 and BM2, the peak at ~59.3° suggests the presence of NiO or MnO. Whereas, for pyrolyzed BM3, the intense peaks at ~44.5° and ~51.9°, attributable to metallic Ni, suggest that NiO was completely reduced to Ni in this sample. Further insights into the pyrolysis pre-treatment of NMC BM can be acquired by analyzing the gases evolved from the reduction reactions as well as from the decomposition of organic species (electrolytes, PVDF, surface coatings).
+
+Table 2: Structural parameters for graphite and NMC phases in XRD spectra of BM samples (Fig. 2) assembled from ICDD PDF-4+ database.
+
+| Identified Phase | ICDD Ref. | ~2θ (°) | hkl (phase) |
+|------------------|-----------|--------|-------------|
+| Graphite         | 00-056-0159 (2H) 01-075-2078 (3R) | 26.5° | 002 (2H) |
+|                  |           | 26.6° | 003 (3R) |
+|                  |           | 42.3° | 100 (2H) |
+|                  |           | 43.5° | 101 (3R) |
+|                  |           | 44.5° | 101 (2H) |
+|                  |           | 46.3° | 012 (3R) |
+|                  |           | 50.7° | 102 (2H) |
+|                  |           | 54.6° | 004 (2H) |
+|                  |           | 54.8° | 006 (3R) |
+|                  |           | 59.9° | 103 (2H) |
+| Li[Ni₅,Mn₆,Co₇]O₂ | 00-066-0854 (NMC622) 00-062-0431 (NMC111) 00-062-0470 (NMC901) | 18.6° | 003 (All) |
+|                  |           | 36.7° | 101 (All) |
+|                  |           | 37.8° | 006 (All) |
+|                  |           | 38.4° | 012 (All) |
+|                  |           | 44.4° | 104 (All) |
+|                  |           | 48.6° | 015 (All) |
+|                  |           | 58.6° | 107 (All) |
+
+Identification of gases evolved under pyrolytic conditions
+
+Fig. 3 shows the TGA/MS analysis of BM1, BM2, and BM3 samples carried out under pyrolytic conditions (i.e., Argon gas) to study the mass change happening due to different reactions and analyze the gases evolved during the process. Pyrolysis pre-treatment not only results in phase transformations of Li[Ni₅,Mn₆,Co₇]O₂ and graphite (as discussed in Fig. 2) but also removes organic impurities from particle surfaces (such as electrolytes, PVDF, and other organic species).¹²,¹⁹ TGA/MS under pyrolytic conditions can be used to efficiently plan pre-treatment and recycling strategies by analyzing gases evolved from the decomposition of residual electrolytes, PVDF, and other organic species. Fig. 3a, Fig. 3b, and Fig. 3c show that the mass loss occurred in samples BM1, BM2, and BM3, respectively, within the temperature range of 50 °C – 200 °C is ~4 – 5 wt. %. MS spectra for BM1, BM2, and BM3 in Fig. 3d, Fig. 3e, and Fig. 3f, respectively, show that this mass loss is attributable to evaporation of EMC (ethyl methyl carbonate) and decomposition of other electrolyte solvents such as EC (ethylene carbonate). Fig. 3e shows that the BM2 sample also gives rise to various MS signals other than just the EMC MS signal within the 50 °C – 200 °C temperature range, such as PO (propylene carbonate), HF, CH₄, and CO. These species likely originate from the decomposition of carbonate-based
+electrolyte solvents, while the detection of HF suggests the decomposition of the LiPF$_6$ in BM2. The results indicate that despite undergoing low-temperature treatment (<200 °C), these BM samples retain residual electrolytes. TGA/MS analysis of pure 1.0 M LiPF$_6$ in EC/EMC under inert conditions (Fig. S4a-b) further supports these findings. Moreover, the ATR-FTIR spectrum of evaporated species captured from BM3 at 200 °C (Fig. S4c) matches that of the same 1.0 M LiPF$_6$ in EC/EMC, confirming that the evaporated species within 50 °C – 200 °C range are residual electrolytes.
+
+Fig. 3a-c shows a mass loss of ~4 wt. % within the 200 °C – 500 °C temperature range for the three BM samples and can be attributed to mainly the decomposition of the PVDF binder. The decomposition temperature of PVDF binder is reported to be ~475 °C, however, it can start to decompose at ~380 °C and the majority of PVDF decomposes by ~500 °C, as shown by TGA/MS analysis of pure PVDF in Fig. S5a-b. However, the complete decomposition of PVDF can require heating the BM at significantly higher temperatures, as it is reported that PVDF can form a liquid film on the surface of CAM at ~500 °C. TGA/MS analysis of pure PVDF under inert conditions (Fig. S5a-b) shows that the total mass loss till 1000 °C is ~75 %, leaving behind ~25 % carbonaceous char. As the temperature reaches 500 °C, Li[Ni$_x$Mn$_{1-x}$O$_2$] CAM particles react with graphite under an inert atmosphere and reduce into separate metal oxides, as shown in equations (S1) and (S2). Further increase in temperature (Fig. 3) results in a significant mass loss of ~20 wt. % within the 500 °C – 800 °C region for BM1, BM2, and BM3. This is caused by the further reduction of metal oxides (such as NiO, CoO) into metallic phases (such as Ni, Co). These findings are in agreement with the XRD analysis of pyrolyzed BM (Fig. S3). MS spectra for each BM1, BM2, and BM3 in Fig. 3d, Fig. 3e, and Fig. 3f, respectively, show that mass loss within this region produces a large amount of CO$_2$ gas, whereas BM2 also produces MS spectra for CO as well as CH$_4$ gases within this region.
+
+Quantification of graphite using TGA/MS
+
+Quantification of graphite in BM is necessary for designing recycling strategies for graphite using processes such as froth flotation. Commonly available techniques such as ICP techniques (Inductively Coupled Plasma), MP-AES, and XRF (X-ray Fluorescence) are not able to determine the amount of carbon due to its low atomic number and inefficient ionization in plasma. TGA/MS running in an oxidative atmosphere is used in this study to develop a reliable method for approximate
+quantification of total carbon in BM samples. When NMC BM is heated under excess O\textsubscript{2}, the thermodynamics of the process change compared to heating under an inert atmosphere, and graphite does not take part in the reduction reaction.\textsuperscript{12,20,21,35} The presence of excess O\textsubscript{2} during TGA/MS instead promotes the combustion of the organic material and graphite resulting in the formation of CO\textsubscript{2} and CO, as shown by equations (1) – (3).\textsuperscript{21}
+
+\[
+\text{C(s)} + \text{O}_2(g) \rightarrow \text{CO}_2(g) \tag{1}
+\]
+
+\[
+2\text{C(s)} + \text{O}_2(g) \rightarrow 2\text{CO}(g) \tag{2}
+\]
+
+\[
+2\text{CO}(g) + \text{O}_2(g) \rightarrow 2\text{CO}_2(g) \tag{3}
+\]
+
+Pristine commercial graphite reference is used to prepare a calibration curve by establishing a relation between the amount (mg) of graphite used in TGA and CO\textsubscript{2} gas detected by MS (integral of CO\textsubscript{2} MS spectrum), as shown in Fig. 4a and Fig. 4b. Fig. 4a shows the TG mass loss curves (left y-axis) and corresponding CO\textsubscript{2} MS spectra (right y-axis) for graphite reference at three different initial masses (4 mg, 8 mg, and 20 mg), where 100 \% mass loss is reached by ~850 °C and the only MS signal detected is for CO\textsubscript{2} gas. Fig. 4b shows that the initial mass of graphite reference is directly proportional to the integral of the CO\textsubscript{2} MS curve, whereby performing a linear fitting yields a correlation coefficient (R\textsuperscript{2}) of 99.8 \%. To quantify the carbon content (which is mainly graphite) in the BM samples using results obtained from Fig. 4a -b, equations (4) – (7) have been established.
+
+Fig. 4c shows the TGA mass loss curves for the three BM samples, while Fig. 4d, Fig. 4e, and Fig. 4f show the MS spectra for species (H\textsubscript{2}O, CO\textsubscript{2}, and CO) evolved from BM1, BM2, and BM3, respectively. The mass change in BM1, BM2, and BM3 within a temperature range of 50 °C – 300 °C under an inert atmosphere has already been discussed in the previous section, and the oxidative atmosphere in this case does not result in significant changes <300 °C. As the temperature reaches ~380 °C, PVDF binder starts to decompose in all three BM samples and complete removal of PVDF occurs at ~550 °C, as confirmed by TGA/MS analysis of pure PVDF in Fig. S5c-d. A significant
+
+![Figure 4](https://doi.org/10.26434/chemrxiv-2025-bqzl2)
+
+**Fig. 4:** Use of TGA+MS for quantification of total carbon content in the three BM samples (BM1, BM2, BM3) by developing a calibration curve using pure graphite as a reference, (a) shows TG curves on the left y-axis and CO\textsubscript{2} MS curves on the right y-axis for pure graphite reference at three different initial masses (4 mg, 8 mg, and 20 mg), (b) linear fit to develop calibration curve using the integral of CO\textsubscript{2} MS curves as a function of initial graphite mass, (c) TG mass change curves for the three BM samples (BM1, BM2, BM3), (d) H\textsubscript{2}O, CO\textsubscript{2}, and CO MS curves for BM1, (e) H\textsubscript{2}O, CO\textsubscript{2}, and CO MS curves for BM2, (f) H\textsubscript{2}O, CO\textsubscript{2}, and CO MS curves for BM3, (g) measured carbon (wt. \%) for untreated BM samples as well as pyrolyzed BM samples based on the prepared calibration curve and (h) shows the distribution of total carbon (wt. \%) within sieved fractions of BM1.
+change is that in the presence of excess O₂, PVDF binder in BM samples is completely burned without leaving behind any carbonaceous char, as also shown by 100 % mass loss in Fig. S5c-d. TGA/MS Mass loss within 380 °C – 550 °C can be used to estimate the amount of PVDF (wt. %) in BM.36–38 The mass loss between the temperature range of 380 °C – 550 °C in Fig. 4c shows that BM1, BM2 and BM3 contain ~4.3 wt. % PVDF binder. As the temperature increases above 550 °C, graphite, and carbonaceous species start to combust instead of acting as a reducing agent due to the presence of excess O₂. The main product of the combustion process is CO₂ gas with relatively less formation of CO.
+
+\[
+\text{CO}_2 \text{ MS integral} = m \times (\text{graphite ref. mass}) + c \tag{4}
+\]
+
+\[
+m = 4.47858 \times 10^{-8} \text{ A.sec/mg} \tag{5}
+\]
+
+\[
+c = 1.47627 \times 10^{-9} \text{ A.sec} \tag{6}
+\]
+
+\[
+\text{Carbon (wt. %)} = \frac{(\text{CO}_2 \text{ MS integ.} - c) \times m}{\text{initial mass of BM in TG (mg)}} \times 100 \tag{7}
+\]
+
+The integral of the CO₂ MS spectrum in Fig. 4d, Fig. 4e, and Fig. 4f is calculated for BM1, BM2, and BM3, respectively, and equation (7) is employed to calculate the carbon amount (wt. %). Since this method does not account for the CO gas produced from the combustion process, it provides an approximate quantification of carbon content. Fig. 4g shows the calculated carbon amount (wt. %) for BM samples as well as for pyrolyzed BM samples (TGA/MS analyses of pyrolyzed BM is shown in Fig. S7). Carbon content in BM1, BM2, and BM3 is determined to be 40.5 wt. %, 40.6 wt. % and 50.2 wt. %, respectively, while in pyrolyzed BM1, BM2 and BM3, it is 36.4 wt. %, 36.9 wt. % and 47.8 wt. %, respectively. In both instances, the BM3 sample shows ~10 wt. % higher carbon content compared to BM1 and BM2. The results in Fig. 4g also reveal that carbon content in pyrolyzed BM is ~4 wt. % less compared to BM samples without pyrolysis. This can be attributed to the removal of most of the PVDF and other organics due to pyrolysis. Fig. S6 shows the XRD spectra of BM1 and residues left from TGA/MS analysis of BM1, where the crystal structure of NMC in residue from oxidative TGA/MS is relatively intact and graphite is completely combusted. While XRD of residue from inert TGA/MS shows a complete reduction of NMC. These findings further confirm the reports that in the presence of oxygen, graphite takes part in complete reduction of NMC. The small amount of fluorine on the surface of the BM2 graphite particle (Fig. S9b) as well as on the surface of the BM3 graphite particle (Fig. S9c) can be attributed to the PVDF binder.7 Fig. 5b, Fig. 5d, and Fig. 5f show the SEM images of BM samples after pyrolysis. This can be further confirmed by the EDX analysis shown in Fig. S5i. Fig. 5g shows the EDX analysis of an NMC particle for BM1, where the surface primarily consists of Ni (38.7 wt. %), Mn (10.1 wt. %), and Co (12.4 wt. %). A molar ratio between Ni, Mn, and Co amount for BM1 (Fig. 5g) demonstrates that this is NMC622 which is in line with the metal composition data (Table 1). Similarly, Fig. 5h and Fig. 5i also show the EDX analysis of BM2 and BM3, respectively. Here, a molar ratio between Ni:Mn:Co shows NMC111 for BM2 and NMC901 for BM3, which is again in agreement with Table 1. Fig. 5g, Fig. 5h, and Fig. 5i also show a relatively higher amount of fluorine for BM1 (11.9 wt. %), BM2 (15.6 wt. %) and BM3 (6.8 wt. %). This can be attributed to the presence of PVDF binder,7 as also estimated by TGA/MS analyses (Fig. 3 and Fig. 4). SEM images and EDX analysis of BM samples after pyrolysis show a significant morphological change for NMC particles due to being reduced to metal oxides and metallic phases, as shown by the XRD spectra of pyrolyzed samples in Fig. S3. This morphological change can be characterized by the destruction of needle-like NMC particles (shown in Fig. S10). EDX analyses of pyrolyzed BM1 (Fig. S10g), BM2 (Fig. S10h), and BM3 (Fig. S10i) show that fluorine content (wt. %) on the surface of NMC particles has significantly decreased but small amounts (ranging 1.7 – 2.4 wt. %) are still present. It has been discussed in the previous sections that the complete decomposition of PVDF requires a much higher temperature than 600 °C, the pyrolysis temperature used in this study. SEM/EDS in combination with XRD and metal composition data can be employed for determining the amount, distribution, and phase chemistry of NMC and impurities. SEM/EDS can also help in the local investigation of surface properties of NMC particles and coupled with the TGA/MS method it can also give insights into the amount and distribution of PVDF binder. Surface properties
+of graphite particles (e.g., deposition of carbonaceous material) can be examined more comprehensively using Raman spectroscopy. It can also reveal valuable information related to structural defects in graphite particles in BM.\textsuperscript{40}
+
+Fig. 6 shows the Raman spectra of various surface spots for BM2, where the spectra are classified into two types: spectra from high-reflectance spots under the microscope shown in Fig. 6a and spectra from low-reflectance spots shown in Fig. 6b. Fig. 6a shows three Raman spectra on three different surface spots.
+for BM2 sample surface where three main carbon peaks are identified. In Fig. 6a, the first peak appearing at ~1350 - 1351 cm\(^{-1}\) is referred to as the D-band (disordered band) and is attributed to in-plane defects in the polyaromatic layers or edge of the sp2 graphene plane.\(^{41}\) The next peak, which is relatively intense in all three spectra of Fig. 6a, called the G-band (graphitic band) appears at 1580 - 1600 cm\(^{-1}\). G-band is reported to be associated with the stretching vibration of aromatic rings and the crystal structure of sp2 carbon atoms.\(^{42}\) A very minor peak, that appears as a shoulder of the G-band at ~1620 cm\(^{-1}\), is labeled as D\('\) band. This D\('\) band occurs from a similar mechanism as the D-band.\(^{42}\) Fig. 6b shows that Raman spectra for the low-reflectance spots give rise to 5 disordered bands (D\('\), D\(''\), and D\(\prime\)) and a G-band. The D\(*)\) band appears at ~1200 cm\(^{-1}\) and is attributed to the sp3 structure and sp2-sp3 hybrid carbon near the microcrystal.\(^{42}\) The D\(*)\) and D\(''\) bands can be attributed to amorphous and impurity contributions.\(^{24}\)
+
+An important spectral feature when investigating carbonaceous samples is the ID/IG ratio i.e., the ratio of the intensity of the D-band to that of the G-band. Table 3 lists the ID/IG ratios of all spectra sorted by their number in Fig. 6. Table 3 shows that the spectra in Fig. 6a (Spectrum 1, 2, and 3) exhibit very low ID/IG ratios (<1.00) while the spectra in Fig. 6b (Spectrum 3, 4 and 5) show relatively higher ID/IG ratios (>1.00). Higher ID/IG points to the existence of more defects and higher structural disorder in the surface of the spots where Spectra 4, 5, and 6 are captured.\(^{43}\) This together with the presence of D\(*)\) and D\(''\) in these spectra suggests that the surface of scanned particles (Spectrum 4, 5, and 6 in Fig. 6b) could be covered with a layer of disordered carbon which is used as a coating for graphite anode to protect it from electrolyte attack.\(^{44}\) Furthermore, the presence of PVDF binder on graphite surfaces, as shown by EDX analysis (Fig. S9), could also contribute to the formation of additional disorder peaks (as indicated by Fig. S11).
+
+---
+
+**Table 3: ID/IG (ratio of intensity of D-band to the intensity of G-band) obtained from fitting profiles of Raman peaks in Fig. 6.**
+
+| Spectrum in Fig. 6 | ID/IG Ratio |
+|-------------------|-------------|
+| 1                 | 0.15        |
+| 2                 | 0.19        |
+| 3                 | 0.07        |
+| 4                 | 0.49        |
+| 5                 | 1.26        |
+| 6                 | 1.15        |
+
+---
+
+**Fig. 6:** Raman spectra and fitting profiles for various surface spots of BM2 sample. (a) shows the three spectra where three 1\(^{st}\)-order carbonaceous peaks are detected. (b) shows the three spectra where 5 carbonaceous peaks are detected.
+Importance of characterization in guiding recycling strategies
+
+The goal of this study is to employ relevant characterization techniques as a guide to develop efficient recycling process flows that maximize the recovery of all valuables in BM. The effects of pre-treatment methods (such as milling/sieving and pyrolysis) on the physicochemical properties of BM feed. These insights will help refine recycling strategies and enhance material recovery of valuables. It is reported that the leaching efficiency of metals (Li and NMC) is enhanced by decreasing particle sizes (enhanced specific surface area) of the BM,45 however, the drawback is that smaller particles are more susceptible to entrainment during froth flotation process resulting in movement of NMC CAM particles to froth.46 Our results show that it is possible to overcome this challenge by sieving BM into different size fractions, while at the same time taking care of the metallic impurities (Al and Cu). As can be seen from Fig. 1, by sieving BM into different size fractions, the coarsest size fraction (i.e., +150 µm) comprises only 5 – 10 wt. % by weight and can be treated separately since it contains Al and Cu impurities. The smallest size fraction can be subjected to a leaching process to recover metals and the mid-size fractions can be used in the flotation process to recover graphite. Another prominent aspect of this investigation is the development of a method (Fig. 1) that correlates the chord length of BM particles measured using the FBRM technique to the actual particle size allowing real-time measurements of downstream processing e.g., optimization of the collector dosage during flotation of graphite from BM.28
+
+Graphite recovery from BM using froth flotation before using other hydrometallurgical unit operations (such as acid leaching) can be techno-economically more efficient since the removal of other hydrometallurgical unit operations (such as acid leaching) as electrolytes). This leads to not only a reduction in graphite grade during froth flotation51 but also hinders the leaching of Li and other metals from BM feed.36 Pyrolysis of NMC BM to remove PVDF remains the most popular choice as it can evaporate electrolyte solvents and decompose the majority of the PVDF binder at temperatures 400 – 600 °C.52 In this study, TGA/MS running under pyrolytic conditions (Fig. 3) is used to analyze the gases that evolved during the pyrolysis pre-treatment process, where the results show the evolution of carbonaceous and fluorinated species. As discussed, the inert TGA/MS method in Fig. 3 can be used to detect the residual electrolytes while the oxidative TGA/MS method in Fig. 4 can be used to estimate the amount of PVDF binder in BM. Furthermore, as shown in Fig. 5, SEM/EDS can reveal more local information about the distribution of PVDF binder on particle surfaces.
+
+Conclusions
+
+The characterization of BM is critical for optimizing recycling processes that aim to recover valuable materials such as Ni, Mn, Co, Li, and graphite from NMC-based end-of-life LIBs. This study has thoroughly investigated the physicochemical properties of three BM samples obtained from NMC-based end-of-life LIBs to determine their implications for downstream pre-treatment and recycling processes. The findings demonstrate that the PSD of BM plays a crucial role, whereby sieving the BM into different size fractions helps in removing metallic impurities (Al and Cu) by concentrating them into the largest size fraction (+150 µm). Recovery of valuable metals and graphite can be enhanced by specifically subjecting the small-size fraction to the leaching process and the mid-size fraction to the flotation process, respectively. A method for measuring CLD of BM using the FBRM technique has also been developed to allow for real-time monitoring of particle size during the downstream pre-treatment and recycling processes. The results showed that the application of square-weighting in the FBRM technique resulted in reliable measurements which were found to be closest to the results obtained from the laser diffraction technique.
+The detailed phase analysis using XRD coupled with SEM/EDS and metal composition data confirmed that the crystalline phases of NMC were well-preserved in the untreated BM, where BM1, BM2, and BM3 belong to NMC622, NMC111, and NMC901 chemistries. It was also determined that graphite in BM could either be a pure 2H phase or a mixture of 2H and 3R phases. These phases can be quantified using XRD. Furthermore, SEM/EDS analysis revealed the distribution of PVDF binder on NMC particles by detecting fluorine, which could hinder metal leaching efficiency and graphite recovery by flotation. These techniques also revealed that phase transformations of NMC caused by pyrolysis pre-treatment altered the surface morphology of NMC particles from needle-like structure to rough surface. TGA/MS under pyrolytic conditions showed that the decomposition of residual electrolytes and PVDF in BM gives rise to the evolution of carbonaceous (CO₂, CO, and CH₄) and fluorinated (HF and fluorine) gases. It also provided direct evidence that complete PVDF decomposition under inert conditions can require temperatures above 600 °C while leaving behind carbonaceous char. Whereas, TGA/MS of pure PVDF under oxidative atmosphere showed 100% mass loss and this finding can be used to estimate the amount of PVDF in BM. Quantification of carbon in NMC-based BM using a calibration curve developed with TGA/MS of pure graphite under an oxidative atmosphere is a novel finding of this study. This has established a fast and robust methodology for determining the carbon content in BM and provided a basis for optimizing graphite recovery by flotation. These techniques also revealed that phase transformations, binder removal, and carbon quantification provide a foundation for optimizing recycling strategies that maximize recovery of valuables while minimizing process inefficiencies.
+
+Data availability
+The data supporting this article has been included as part of the ESI.†
+
+Conflicts of interest
+The authors declare no conflict of interest.
+
+Acknowledgements
+This work was carried out as part of the SUMBAT (Sustainable Materials for the Battery Value Chain) project, funded by the Research Council of Norway, Innovation Norway, and SIVA (Industrial Council of Norway, Innovation Norway, and SIVA (Industrial Development Corporation of Norway) under the Norwegian Green Platform Initiative. The authors also acknowledge the support of the Norwegian Micro- and Nano-Fabrication Facility (NorFab).
+
+References
+1. F. Degen, M. Winter, D. Bendig and J. Tütbke, Nat Energy, 2023, 8, 1284–1295.
+2. European Commission. Joint Research Centre., Li-ion batteries for mobility and stationary storage applications: scenarios for costs and market growth., Publications Office, LU, 2018.
+3. J. A. Llamas-Orozco, F. Meng, G. S. Walker, A. F. N. Abdul-Manan, H. L. MacLean, I. D. Posen and J. McKechnie, PNAS Nexus, 2023, 2, pgad361.
+4. Strategic & Critical, https://ecga.net/strategic-critical/, (accessed February 11, 2025).
+5. Battery Anode Market, https://www.syrahresources.com.au/about/battery-anode-market, (accessed February 11, 2025).
+6. A. Vanderbruggen, N. Hayagan, K. Bachmann, A. Ferreira, D. Werner, D. Horn, U. Peuker, R. Serna-Guerrero and M. Rudolph, ACS ES and T Engineering, 2022, 2, 2130–2141.
+7. M. Wang, K. Liu, J. Yu, Q. Zhang, Y. Zhang, M. Valix and D. C. W. Tsang, Global Challenges, 2023, 7, 2200237.
+8. S. D. Widijatmoko, F. Gu, Z. Wang and P. Hall, Sustainable Materials and Technologies, 2020, 23, e00134.
+9. A. Vanderbruggen, A. Salces, A. Ferreira, M. Rudolph and R. Serna-Guerrero, Minerals, 2022, 12, 72.
+10. U. Saleem, H. Farooq, E. Prasetyo, C. Rosenkilde and S. Bandyopadhyay, Social Science Research Network, 2023, preprint, Social Science Research Network:4490437, DOI: 10.2139/ssrn.4490437.
+11. A. Vanderbruggen, J. Sygusch, M. Rudolph and R. Serna-Guerrero, Colloids and Surfaces A: Physicochemical and Engineering Aspects, 2021, 626, 127111.
+12. R. Tao, P. Xing, H. Li, Z. Cun, C. Wang, S. Ma and Z. Sun, Waste Management, 2023, 155, 8–18.
+13. C. Wilke, D. M. Werner, A. Kaas and U. A. Peuker, Batteries, 2023, 9, 514.
+14. J. Biswas, S. Ulmala, X. Wan, J. Partinen, M. Lundström and A. Jokilaakso, Metals, 2023, 13, 358.
+15. O. Renier, A. Pellini and J. Spooren, Batteries, DOI:10.3390/batteries9120589.

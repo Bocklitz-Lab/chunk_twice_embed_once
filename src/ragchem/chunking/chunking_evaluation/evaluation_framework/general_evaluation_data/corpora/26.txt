@@ -1,0 +1,411 @@
+Elucidating Pt/C and ionomer aggregation dynamics in the manufacturing of Fuel Cell catalyst layers: a discrete element method approach
+
+Sourab Barath Vijayaraghavan\textsuperscript{1,2}, Matthias Baldofski\textsuperscript{3}, Alejandro A. Franco\textsuperscript{1,2,4,5*}
+
+\textsuperscript{1}Laboratoire de Réactivité et de Chimie des Solides, UMR CNRS 7314, Université de Picardie Jules Verne, F-80039, Amiens Cedex 1, France
+
+\textsuperscript{2}Réseau sur le Stockage Electrochimique de l’Energie (RS2E), FR CNRS 3459, Hub de l’Energie, 15 rue Baudelocque, 80039, Amiens Cedex, France
+
+\textsuperscript{3}Freudenberg Technology Innovation SE & Co. KG, Hoehnerweg 2-4, 69469 Weinheim, Germany
+
+\textsuperscript{4}ALISTORE-European Research Institute, FR CNRS 3104, Hub de l’Energie, 15 rue Baudelocque, Amiens Cedex, 80039, France
+
+\textsuperscript{5}Institut Universitaire de France, 103 Boulevard Saint Michel, Paris, 75005, France
+
+*alejandro.franco@u-picardie.fr
+Keywords
+Proton Exchange Membrane Fuel Cells, Pt/C, Ionomer, Agglomeration, Manufacturing, Microstructure, Simulation Workflow, Derjaguin–Landau–Verwey–Overbeek, Discrete element method, Coarse graining
+
+Abstract
+
+The production of fuel cells is bottle-necked by the prohibitive cost of one component – the catalyst layer. The goal of manufacturers has been to minimise Pt loading and maximise the electrochemical efficiency, at scale. A mesoscale model is sought-after, to describe the influence of common manufacturing parameters on the microstructure of fuel cell catalyst layers. In this work we propose a novel end-to-end mesoscale modeling workflow to capture the spatial aggregation of carbon support particles against an ionomer-based binder. We use the Discrete Element Method (DEM) to capture the co-aggregation of the carbon-support and binder, as a function of their inter-particle Derjaguin–Landau–Verwey–Overbeek (DLVO) interactions. This model provides insights in the variance in ionomer aggregation as a function of solvent composition. We observe a decrease in ionomer secondary aggregation with decreasing water content. This variance in the local catalyst – ionomer distribution was studied using various micro-structural descriptors.
+
+Introduction
+
+With the looming threat of climate change, we are to sustain a push towards the electrification of our energy grids. Hydrogen stands as a strong contender to mitigate the geographical imbalance and intermittency of renewable energy sources. Hydrogen produced from renewable energy
+sourced, dubbed ‘Green Hydrogen’ stands to be more affordable than Grey Hydrogen (typically produced from fossil fuels)[1]. This has led to various global policies supporting the development of a wider hydrogen economy[2], [3], [4]. The global fuel cell market is projected to grow at a Compounded Annual Growth Rate (CAGR) of 15% - from $3.74 billion (2023) to $8.64 billion (2030)[5]. Advances in membrane technology and material processing have poised low temperature Proton Exchange Membrane Fuel Cells (PEMFCs) as the technology unicorn, with a market share of 57.3%. PEMFCs are particularly attractive for use in Heavy-duty Electric Vehicles (HDEVs) due to their superior specific energy and refueling speed, over Li-ion batteries [6]. Similarly, a case study evaluating the viability of zero emission powertrains for maritime vessels determined that large and endurance vessels especially benefit from the adoption of fuel cells, even outshining existing fossil fuel propelled powertrains [7].
+
+This projected demand for PEMFCs underpins a need for the development of optimised manufacturing processes to achieve competitive unit costs. A cost analysis on PEMFC production revealed that fuel cell systems typically cost between €200-300/kW. The membrane electrode assembly (MEA) contributes to 49% of the system costs, with material procurement and processing being the largest overhead. Recent advances in material processing and economies of scale have led to a constant decrease in system prices, achieving a cost of $168/kW in 2023, with a projected cost of $80/kW in 2030. The 2023 DOE Fuel Cell cost report also highlights the significant cost of the catalyst layer (CL), accounting for close to 60% of the total stack cost[8]. While various research groups are actively involved in the exploration for alternative materials such as low platinum group metal alloyed catalysts [9], [10], [11], development of advanced carbon supports [12], [13] and Platinum Group Metal free catalysts [14], [15], these prospective materials still suffer from accelerated degradation and are yet to be produced at industrial scale [16]. Most large industrially produced CLs are composed of platinum nano-particles supported on carbon black dispersed in PFSA solutions[16]166. As a result, refining and optimising the manufacturing process flow is of vital importance to various industrial stakeholders in the PEMFC value chain.
+The role of the CL is to act as a porous medium to allow for ideal gas transport and water management. The electron and mass transport rates in the MEA are strongly influenced by the CL microstructure. The fabrication of CLs begins with the addition of carbon supported catalyst powders and an ionomer to a water-alcohol solution, to form a catalyst ink. The ink is then deposited onto an appropriate substrate and dried to obtain an electrode. The morphology of the electrode can be controlled by altering the composition of the various components of the catalyst ink. The morphology of the CL is determined by: (i) ionomer conformation, (ii) aggregate size and distribution, (iii) hydrophobicity of the electrode, (iv) presence of free ionomer and (v) pore distribution[17]. Consequently, the ionic and electronic conductivities and the efficacy of the catalyst are strongly correlated to the electrode microstructure. Consequently, it is imperative that we quantify the evolution of the CL microstructure as a function of various compositional variables.
+
+Several groups have studied and reported the effects of individual parameters on the final microstructure and electrochemical properties of PEMFC CLs. This includes but is not exclusive to, studies quantifying the effects of catalyst supports [18], [19], [20], [21], solvent composition [22], [23], [24], ionomer type[25], [26], [27], dispersion methods[28], [29], [30]. Many of these findings have also been reproduced and backed by simulations on various scales. For example, Malek et al., identified the influence of Platinum content on ionomer conformation[31]. Similarly, Liu et al. developed a model to represent Pt/C particle aggregation in the presence of various solvents [32].
+
+As stated previously, platinum supported carbon nanoparticles with diameters less than 100 nm are dispersed in solvents with an ionomer to produce catalyst ink. This dispersion is then processed into electrodes which are a few micrometers thick. Due to the mesoscale nature of the system interactions, molecular dynamics is not a computationally viable option to simulate this process. Concurrently, continuum mechanics cannot capture the complex heterogenous agglomeration behaviour observed in the system. However, catalyst particle interactions have been rationalised through the application of the Derjaguin-Landau-Verwey-Overbeek (DLVO) theory [33]. The DLVO theory characterises the stability of catalyst ink dispersions as a function of implicit surface properties of
+the Pt/C dispersion. Although, the theory underpredicts aggregation kinetics in the presence of depletants, such as ionomers [34]. These shortcomings can be overcome by the application of the ‘extended’-DLVO theory [35] to rationalise nanoparticle depletion interactions as a function of ionomer adhesion as presented by Dixit et al [36].
+
+Digital models illustrating the CL microstructure are essential to understand, via the numerical modelling, of the electrochemical performance of this layer. Stochastic generation[37] is one of the earliest methods used to generate statistically representative microstructures of the CL microstructure. Mukherjee and Wang[38] reported a stochastic pore-solid reconstruction model informed from statistical descriptors such as porosity and two-point correlation functions. This was further improved upon by Kim and Pitsch[39], who performed a three-phase reconstruction of the CL. Various improvements have been reported since, involving different ionomer contents[40], off-set distributions of the ionomer[41], and most recently, the nano-structural reconstruction with explicit representation of the Pt particles[42]. However, the stochastic nature of the process does not allow for the explicit treatment of solvent effects or for the representation of microstructural evolution as a consequence of complex ionomer – carbon interactions.
+
+In the pursuit of describing complex micro-structural interactions, the effect of fabrication parameters on the micro-structural evolution and local arrangement of ionomer around Pt/C has been studied extensively using Coarse Grained Molecular Dynamics (CGMD)[43], [44], [45]. These studies have provided crucial insights and cross validated experimental findings on the primary aggregation of ionomer and Pt/C[31], [46], [47], [48], [49]. On the other hand, various Discrete Element Method (DEM) simulations have been performed, to model solvent effects[32], [50] on the CL microstructure. These approaches have also been combined with continuum simulation methods to develop a model that represents the electrochemical behaviour of the CL as a function of fabrication parameters [51], [52], [53]. However, due to computational limitations these models have either been qualitative, or temporally agnostic in their treatment of the aggregation process. However, in a parallel domain of electrode fabrication, an end-to-end framework for the digitalisation of lithium-ion battery manufacturing was proposed under the ARTISTIC project by Franco et
+al. [54] However, the ARTISTIC model was developed and parametrised to represent high solid-
+content Lithium ion battery electrode slurries. These slurries are dense colloidal dispersions, hence
+their aggregation is dominated by granular contact mechanics [55]. However, CL slurries are dilute
+colloidal suspensions. The predominant factor influencing the stability of the dispersion and by ex-
+tension its aggregation are the electrostatic interactions between its constituent materials. Hence,
+using a granular mechanics approach proved to be insufficient to capture the aggregation dynamics
+accurately. In this work we propose a novel workflow to explicitly capture the heterogeneous ag-
+gregation of ionomer and Pt/C using particle dynamics. Our goal is to illustrate the temporal evolu-
+tion of the CL structure as a function of common fabrication parameters such as I/C ratio, solvent
+composition, and solid content. To the best of our knowledge this is the first time a comprehensive
+modeling framework has been proposed for the fabrication of fuel cell electrodes. This paper will
+present the methodology behind our modeling approach, and follow through with discussions of
+insights gained from the simulations. Following this, we will conclude with a summary of the find-
+ings and perspectives for this work and methodology.
+
+Methodology
+
+Mesoscale particle interactions
+Mesoscale phenomena are not straightforward to model since they lie on the transition from discrete to continuum mechanics. It remains essential to identify the mechanism of interest and redefine the dimensionality of the model with regards to the specified mechanism. In this work our interest lies in tracking the evolution of ionomer and Pt/C particles. In essence, the property we intend to track is the evolution of particle momenta with respect to the forces acting on the particle. The total force between the particles can be represented as a sum of conservative inter-particle interactions and non-conservative solvent interactions, as observed in Fig. 1. Mathematically, these forces can be represented by:
+
+\[ M \frac{dU}{dt} = F = F^C + F^S \]  
+
+(1)
+
+In Eq. (1) \( M \) denotes the mass of the particle, \( U \) the vector of velocities, and \( F^C \) and \( F^S \) denote the vectors of conservative and solvent forces respectively. Ideally the solvent forces can be computed explicitly as inter-particle interactions between nanoparticles immersed in a domain of explicit solvent particles. However, this approach would be accompanied by an exponential growth in computational cost with a modest system of dozens of nanoparticles. Hence, it is reasonable to represent
+
+**Figure 1:** Illustrative representation of the forces acting on solvated nanoparticles.
+solvent effects as a probabilistically averaged pair-wise interaction between the nanoparticles. Such an implicit approach would allow the simulation of large systems (in the order of hundreds of thousands of particles) while maintaining a statistically relevant approximation of solvation. The solvent forces can be computed as a sum of a pair-wise dissipative hydrodynamic interaction with a brownian force which acts to thermostat the system at a specified temperature. The resulting equation can be written as
+
+$$M \frac{dU}{dt} = F = F^C + F^H + F^B$$
+
+(2)
+
+In this paradigm, the dissipative hydrodynamics are solved as a linear function of particle velocities transformed through a resistance tensor. Consequently, solvent dynamics are implemented as a combination of hydrodynamic forces, superposed with a random force contribution derived through the application of the fluctuation dissipation theorem [56].
+
+Meanwhile, the conservative interparticle interactions can be approximated as colloidal interactions as dictated by the DLVO theory. Herein, we represent the total pair-wise conservative interactions as a combination of Van der Waals attraction and electrostatic repulsions. In the case of finite-sized spherical colloidal particles, the interparticle interaction can be calculated as an integrated Lennard-Jones interaction over multiple smaller spheres. The resulting colloid-colloid energy was derived in Everaers et al as [57]:
+
+$$U_{vdw,A} = \frac{-A_{CC}}{6} \left[ \frac{2a_1a_2}{r^2-(a_1+a_2)^2} + \frac{2a_1a_2}{r^2-(a_1-a_2)^2} + \ln \left( \frac{r^2-(a_1+a_2)^2}{r^2-(a_1-a_2)^2} \right) \right]$$
+
+$$U_{vdw,R} = \frac{A_{CC}}{37800} \sigma^6 \left[ \frac{r^2-7r(a_1+a_2)+6(a_1^2+7a_1a_2+a_2^2)}{(r-a_1-a_2)^7} + \frac{r^2+7r(a_1+a_2)+6(a_1^2+7a_1a_2+a_2^2)}{(r+a_1+a_2)^7} \right] - \frac{r^2-7r(a_1-a_2)+6(a_1^2-7a_1a_2+a_2^2)}{(r+a_1-a_2)^7}$$
+
+(3)
+
+$$U_{vdw} = U_{vdw,A} + U_{vdw,R}r < r_c$$
+
+In Eq. (3), $A_{CC}$ is the colloid-colloid Hamaker constant, $\sigma$ the repulsive scaling factor, $a_1$ and $a_2$ the respective colloidal radii, and $r$ the inter-particle distance.
+
+The attractive van der Waals interactions are counteracted by electrostatic repulsions that arise as a consequence of the accumulation of charges on colloidal particle surfaces. This repulsive contri-
+bution is a function of surface charge density and bulk ion concentration, which may be quantified through an exponentially decaying potential:
+
+\[ E = \frac{A}{\kappa} e^{-\kappa r - (r_i + r_j)} r < r_c \]
+
+(4)
+
+where \( \frac{1}{\kappa} = \sqrt{\frac{2N_Ae^2iC_{solv}}{\epsilon k_BT}} \) and \( A = 2\pi\epsilon_0\kappa\psi^2 \)
+
+In Eq. (4), \( A \) is the Yukawa pre-factor, which represents the magnitude of electrostatic repulsion as a function of \( R \) - colloid radius, \( \epsilon \) - dielectric constant of the solution, \( \psi \) - zeta potential on the surface of the colloid and \( \kappa \) - screening length. The screening length in turn is determined from \( N_A \) – Avogadro’s constant, \( e \) – Electronic charge, \( iC_{solv} \) – Ionic concentration of the solution, \( \epsilon \) – relative dielectric constant of the solution, \( \epsilon_0 \) – permittivity of free space, \( k_B \) – Boltzmann’s constant and \( T \) – Temperature of the system. [58]
+
+Discrete element method simulations are a method to simulate granular materials that interact in the mesoscale of length and time. Hence it remains imperative to redefine the problem in terms of the temporal scale of the phenomena under consideration (Brownian motion). In the case of this aggregation model, we have established Brownian dynamics as the primary driving force of the corresponding particle aggregation. In this paradigm, the evolution of the particle positions must be considered in terms of Brownian time. Brownian time is the typical time that a particle requires, to diffuse over a distance comparable to its own dimension[59]. Hence, in order to reproduce accurate aggregation dynamics, the simulation length must be at least to the order of the Brownian time of the largest particle. Concurrently, the fundamental timestep must be at least an order of magnitude smaller than the Brownian time of the smallest particle.
+
+Drying encompasses complex multi-scale phenomena and exhibits two principal stages[60]. At low volume fractions, drying occurs in the bulk of the solution. This regime is also referred to as “wet drying”. Evaporation of the solvent occurs from the solvent-air interface and is purely a function of the solvent composition. The rate of drying affects the stratification of colloidal particles (especially given the different diffusivities of Pt/C and ionomer)[61]. This is usually predicted by
+means of a dimensionless quantity, the Péclet number. The Péclet number is the ratio of the rate of a particle’s diffusion to the rate evaporation of the solvent[62]. Hence, the Péclet number is used to quantify the diffusive/advective nature of a solution. By imposing a slow drying rate, we assume a low Péclet number drying regime (diffusion dominant), which leads to the uniform aggregation of particles. Beyond a certain volume fraction, the particles reach the jamming limit. At this point, the colloidal particles are highly compact, and drying is driven by capillary evaporation[63]. This regime is referred to as “moist drying”. In this stage, we assume that the microstructure is frozen in place and diffusion of particles are severely limited, hence terminating the “drying” process.
+
+Model development
+
+In order to optimise the electrochemical behaviour of CLs, it is important to quantify the effect of fabrication parameters on the microstructure. In the process of proposing a novel DEM model to probe the co-aggregation of Pt/C and ionomer dispersed in a solvent phase, we perform two crucial approximations. We represent the Pt/C catalyst as an effective colloidal particle. Similarly the ionomer is approximated as a collection of colloidal beads. We use LAMMPS[64] as the Newtonian dynamics engine to track the evolution of particle positions with time. The DLVO theory proposes calculating interparticle conservative interactions as a combination of attractive van der Waals forces and repulsive electrostatic forces.
+
+In our simulations we represent the inter-particle DLVO interactions through a combination of an attractive potential of the Gay-Berne type for soft ellipsoidal particles and repulsive screened electrostatic potential of the Yukawa type.
+
+In ‘low solid-content’ colloidal dispersions such as that of catalyst inks, hydrodynamic interactions play a crucial role in the evolution of the microstructure. However, explicit representation of the surrounding solvent is too computationally expensive to model in the mesoscale. In order to elucidate the effect of hydrodynamics on the co-aggregation of Pt/C and ionomer, we opted for an
+implicit solvent approach that aims to capture solvent dynamics as a function of pair wise dissipative inter-particle interactions.
+
+The hydrodynamic interactions are implemented as Ball-Melrose lubrication terms, as detailed in Ball and Melrose[56]. The Ball-Melrose lubrication terms assume a linearisation of inter-particle dissipative forces, as a result of low “Reynolds - number” flow of colloidal particles in a hydrodynamic medium. This allows for the force equation to be solved using a resistance matrix to determine the most divergent terms for an N-body system such as the one under consideration.
+
+| Catalyst Ink parameters |
+|-------------------------|
+| Pt/C ratio                | 50 wt% |
+| IC ratio                 | 1.0    |
+| Ionomer wt % in electrode| 50%    |
+| Solid content            | 12.5 wt% |
+| Solvent                  | Water : Isopropanol |
+| Volume fraction          | 1 : 0  | 0.8 : 0.2 | 0.6 : 0.4 | 0.4 : 0.6 | 0.2 : 0.8 |
+| Dielectric constant      | 78.4   | 66.52     | 54.64     | 42.76     | 30.88     |
+
+**Table 1:** Manufacturing parameters - Catalyst ink.
+
+In the context of mesoscale phenomena, the Brownian diffusion length and time have been established as the fundamental scale[65]. The carbon particles are approximated as spherical particles of their representative diameter, with their diffusion properties forming the fundamental scale for the simulation. In this case, the carbon support of interest is Vulcan XC-72 Carbon Black, hence we assign its median diameter and bulk density of 35 nm and 1.8 g/cm³ respectively, as inputs to the corresponding DEM particles. However, in the case of Platinum supported on Carbon Black, the Pt nanoparticles tend to be 2-5 nm in diameter. While the presence of Pt can influence ionomer aggre-
+gation around the carbon support\cite{43}, \cite{44}, the physical location of Pt particles does not influence the aggregation dynamics. Hence, both, ‘Carbon Black’ particles and the Pt/C particles are represented as analogous DEM particles of diameter 35 nm, albeit with different densities, corresponding to their Platinum/Carbon weight percentage.
+
+Simulating the PTFE ionomers as chains of polymers is computationally infeasible and is not compatible in the DEM framework. Hence, in this work we propose a novel method of representing the PTFE based ionomer as colloidal particles. Since our goal with this work is to model the spatial distribution of the ionomer in the CL, while remaining computationally feasible, we chose a diameter of 20 nm for the ionomer DEM particle. Nafion typically forms secondary aggregates in the order of 100s of nanometers\cite{47}, while carbon black particles are typically of 30-50 nanometers in diameter. Given these limitations, a size of 20 nanometers is hypothesised to provide a good balance of resolving features of desired length scales, while being large enough to simulate within reasonable cost. We also account for the effect of side-chain – backbone interactions by approximating them using colloidal interactions. The DLVO theory is used to represent side-chain repulsions using the repulsive electrostatic term, and represent polymer attraction using the attractive van der Waals term. In doing so, these interactions may also be altered as a function of the solvation medium, to study the effect of various polar/non-polar solvent compositions.
+
+**Force field parametrisation**
+
+The force field parameters in this study, were tuned to capture the secondary pore structures present in CLs. While previous CGMD work has been able to capture the primary pore structure\cite{44}, it is well known that the secondary pores are the source of electrochemical activity in the CL\cite{66}. The novelty of this process lies in the parametrisation of ionomer-ionomer and ionomer-carbon interactions since they are typically combined into the carbon-carbon force fields as an “effective-interaction”\cite{50}. Hence, the force field parameters in this work had to be chosen in a manner
+that decouples the carbon-carbon interactions that were previously reported, into carbon-carbon, carbon-ionomer and ionomer-ionmer interactions.
+
+The parametrisation began with determining the magnitude of interparticle repulsions. Colloidal dispersions are typically stabilised by an energy barrier of ~20 k_BT[67], [68]. Hence, the zeta-potential of Hamaker constants of the ionomer-ionomer interactions were chosen to recreate an energy barrier of a similar magnitude. Taking this as a reference, the corresponding constants were determined for carbon–ionomer and carbon–carbon interactions. As an extension, the conservative force cutoffs were chosen to maximise computational efficiency while capturing a sufficient region of the interparticle electrostatic interactions. The cutoff representing 95% of the interparticle energy was chosen as 490 nm for the AM-AM interactions, correspondingly a cutoff of 360 nm was chosen for ionomer-ionomer interactions. The extent of interaction coverage was determined by measuring the area under the curve for various cutoffs against a pseudo-infinite potential.
+Figure 2: Simulation statistics (i) Potential Energy (ii) Local radial distribution function (iii) Long range radial distribution function.
+
+The representative nature of the chosen force fields were tested by initialising multiple simulations in order to ensure the statistical convergence of key simulation parameters. Our typical workflow involves a system of $\sim 8 \times 10^4$ particles, however we can consider the force-fields to be valid if upon corroboration in a smaller system, we obtain a close convergence of simulation parameters. In an effort to achieve this, we equilibrated 20 different systems - with unique initial seeds - for $1.5 \times 10^6$ time-steps and compared their thermodynamic and structural states. From Fig. 2 we can observe a tight convergence of the systems’ potential energies across all the simulations, achieving a variance of just 0.19% over $10^6$ time-steps. The local and long range radial distribution functions also attest to the statistically comparable nature of the systems across a range of initial random seeds.
+
+Simulation workflow
+
+We use LAMMPS, an open source molecular dynamics engine to perform our simulations[64]. In particular, we use the meso-scale particle integration methods implemented in LAMMPS to perform discrete element method simulations. This allows us to perform arbitrarily large simulations by utilising the efficient domain-decomposition to handle thousands of particles using many cores. We also use periodic boundary conditions in all 3 fundamental axes, to prevent the dominance of surface effects while effectively simulating bulk phenomena. The simulations were run on two nodes of the Univetsité de Picardie Jules Verne MatriCS computational platform with 500 GB of RAM and 2 AMD EPYC 7513 32-Core Processors.
+
+The CL fabrication process is modeled by starting with an initial state corresponding to a perfectly dispersed catalyst ink. This is achieved by randomly inserting DEM particles in the simulation volume. A total of 82,309 particles are inserted in an arbitrarily large simulation volume, with 73,808 of them representing the ionomer and 8,501 of them representing carbon supported catalyst particles. The upper bound for a single time-step was determined assuming the propagation of ener-
+gy through Rayleigh waves[69]. The Rayleigh time-step for this system was determined to be $3.5 \times 10^{-10}$ s. However, considering the stability of the simulations, the fundamental time-step was chosen to be $1 \times 10^{-11}$ s. Following the initialisation of the system, the combined van der Waals attraction and electrostatic repulsion between the particles were applied using the colloid and Yukawa/colloid pair styles implemented in LAMMPS. The system was then minimised using a conjugate gradient algorithm without time integration, to ensure the stability of the system. The particles were then thermalised to 300K and held thermostatted at said temperature using a Langevin thermostat[70].
+
+The Langevin thermostat was used to perform Brownian Dynamics on a group of particles suspended in an implicit solvent. The time damping parameter of the thermostat was chosen between $5 \times 10^{-10}$ s and $1 \times 10^{-9}$ s to accurately apply a viscosity correction to the particle according to the solvent in consideration. Simultaneously, the domain is rescaled to a volume representative of a solid volume fraction of 12.5%. This value was chosen as it is typical of industrial-manufacturers to fabricate catalyst inks with volume fractions in the vicinity. The box was rescaled with the Langevin thermostat holding the system at a fixed temperature. Upon the completion of rescaling, the system was decoupled from the Langevin thermostat to then apply explicit hydrodynamic and brownian interactions using the grand resistance tensor and fluctuation-dissipation theorem detailed above. This was accomplished using the pair lubricate and pair brownian styles implemented in LAMMPS.
+
+An equilibration run was then performed for a total of $10^7$ timesteps, corresponding to a real time of $10^{-4}$ s. This duration was chosen to ensure effective Brownian diffusion and aggregation of the active material particles, which exhibit self diffusion times in the range of $10^{-4}$ s. Following this, we simulate the drying of the electrode, by uniformly compressing the simulation domain at a constant rate to ensure the system is held at a low Péclet number regime. This is done to ensure the simulation represents bulk drying, while preventing the stratification of colloidal particles which is common at high drying rates[71]. Videos depicting the equilibration and drying processes can be found in the Supporting Information.
+Microstructural characterisation
+
+While pair distribution functions can provide a spatially normalised average of the relative distributions of ionomer and carbon particles, it is difficult to compare the results to information derived from tomographic characterisation. Since the aim of this work is to predict the influence of manufacturing parameters on the final microstructure of the electrode, it is prudent to quantify the simulated microstructure through image analysis functions typically used on tomographic data.
+
+In our endeavour to accomplish the characterisation of the obtained microstructures using statistical methods, we developed an end to end workflow to analyse the particle data obtained from LAMMPS. This began with an in-house code to voxelise the LAMMPS output files into a 3-dimensional stack of tiff images. We then utilised the PoreSpy[72] toolkit, which is a combination of tools wrapped around a general purpose python image analysis toolkit scikit-image[73]. We used PoreSpy to analyse the porosity, porosity profile, pore size distribution, three phase length, tortuosity factor, surface area, phase fractions, fractal dimension, chord length distribution and two-point correlations of the final structures derived from the simulations.
+
+The porosity, porosity profile, surface area, phase fraction, and three phase length functions are implemented through voxel counting followed by normalisation. The fractal dimension of the components is calculated by the execution of a box counting algorithm to determine the scaling factor. The chord length distribution is obtained by applying chords in the void space and calculating a histogram of chord lengths. The pore size distribution is computed from the results of a porosimetry simulation on the pore-phase. Porosimetry yields an image with the largest sphere that overlaps a certain voxel. This information, normalised across box dimensions, represents the pore size distribution. The tortuosity factor is calculated as a ratio of the diffusion coefficient of the pore medium to its effective diffusivity. In PoreSpy, the pore phase is converted into an OpenPNM[74] cubic network. The diffusion coefficient is then determined by performing a Fickian diffusion simulation on this orthogonal grid by setting inlet concentration and throat diffusive conductances to 1 and the
+
+https://doi.org/10.26434/chemrxiv-2025-t5rxn ORCID: https://orcid.org/0000-0001-7362-7849 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+outlet concentration to 0. The effective diffusivity is determined by solving Fick’s law with the flow rate determined from the Fickian diffusion simulation. The effective diffusion coefficient determined through the simulation is then used to calculate the tortuosity factor of the pore phase. Two-point correlations can be measured by counting pair-wise occurrences of two phases and dividing by an expected random distribution. However, iterating over the entire microstructure using this process is computationally expensive. It is known that the power spectrum of a density distribution can be derived from the Fourier transform of its two-point correlation function[75]. Hence, in this implementation the fact that the autocorrelation of a density distribution can be computed as an FFT is used to obtain an accurate estimation of the power spectrum. The power spectrum is then mathematically inverted to obtain the two point correlation function of the phases of interest[76]. This gives us an objective measure of the clustering of Pt/C against the ionomer or pore.
+
+**Results and Discussion**
+
+The carbon - carbon, carbon - ionomer and ionomer - ionomer interactions in various solvents can provide important insights into the driving factors behind their co-aggregation. The force field parametrisation approach involved trying to account for the complex aggregation phenomena observed as a consequence of solvent composition. It has been reported that the dielectric constant of the solvents used to disperse the catalyst ink can direct the aggregation of ionomers in the CL[77]. While this explanation accounts for a major influence of the solvents, it doesn’t paint a complete picture. Subsequent work, probing the effect of various solvents highlighted the crucial role of the solubility parameter in driving the ionomer aggregation. The variation in solubility parameters can significantly alter the distribution of the ionomer in the CL. Typically these specific interactions are approximated into an effective xDLVO potential. But in this work we were able to decouple these interactions into carbon – carbon, carbon – ionomer and ionomer – ionomer interactions. We calculated the inter-particle potential energy using LAMMPS for various effective solvent compositions. This allows us a deeper insight into the aggregation behaviour between various components of the CL.
+For a system of ideal spherical particles, a colloidal dispersion is typically considered stable if it exhibits an electrostatic energy barrier of at least ~20 k_BT. From Fig. S1 we can confirm that the carbon–carbon interactions exhibit an energy barrier between 15 and 25 k_BT. Similarly we also observe that the ionomer–ionomer energy barrier is significantly lower than the threshold. As a result we should observe primary aggregation of these particles. Consequently the aggregates exhibit an effective energy barrier higher than the flocculative threshold, giving rise to a stable colloidal dispersion. The parametrisation of force fields was performed to account for the variance in the ionomer’s backbone-sidechain solubility parameters as the composition of the solvent is altered[78]. The variance in the ionomer-ionomer interaction strength was introduced to account for the formation of distinct clustered ionomer domains in water-rich solvents as opposed to uniformly dispersed ionomer domains in IPA-rich solvents. This can be inferred from the relative heights of the ionomer-ionomer and ionomer-carbon peaks in Fig. S1.
+Figure 3: Visual representation of catalyst inks (left) and dried electrodes (right) of Water : IPA ratio of (i) 100% (ii) 80% (iii) 60% (iv) 40% (v) 20%.
+In Fig. 3 we observe the variation in the aggregation of ionomer and carbon upon varying the water : IPA ratio. These structural images were obtained by the visualisation of post-equilibration position data using the OVITO scripting interface[79]. Between Fig. 3 (i) and (v) we observe a distinct trend in the decreasing ionomer domain size, as the ionomer and carbon form an equally dispersed network. This qualitative observation was further substantiated and reinforced by the use of rigorous spatial descriptors after drying.
+
+**Microstructural characterisation results**
+
+![Graphs showing porosity across simulation domain](https://doi.org/10.26434/chemrxiv-2025-t5rxn)
+
+**Figure 4:** Plot of porosity across simulation domain in the (i) x - axis (ii) y - axis (iii) z – axis.
+
+In order to ensure a uniform dispersion of aggregates across the simulation domain and corroborate the validity of the results obtained from the following spatial characterisation functions, we plot the porosity profile of the systems of interest across their X, Y and Z – axes. From their respec-
+tive plots in Fig. 4 we can confirm the homogeneity of the porosity across the entire simulation domain for each solvent composition.
+
+The fractal dimension of any structure provides insight into the complexity of its surfaces and interfaces. A large fractal dimension attests to a sinuous surface structure. The fractal dimension of electrodes is experimentally determined from the correlation of fractal specific surface areas are different length scales. The specific surface areas are determined from porosimetry experiments. A study by Zhao et al. determined the fractal dimension of PEMFC electrodes to lie between 2.7 – 2.9[80].
+
+From Fig. 5 it can be observed that the fractal dimensions of the microstructures obtained from aggregation model, agree closely with experimentally determined values. The figure is plotted as a function of the box-length used in the box-counting algorithm. The box-counting approach to fractal dimension calculation, provides a qualititative insight into the local arrangement of the micro-
+
+**Figure 5:** Degree of fractalisation of the ionomer phase.
+
+https://doi.org/10.26434/chemrxiv-2025-t5rxn ORCID: https://orcid.org/0000-0001-7362-7849 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+structure. At length scales comparable to the particle dimensions (30 - 60 nm) the system exhibits aggregation variance with solvent composition. The water rich systems exhibit larger degrees of aggregation as opposed to IPA rich systems. Beyond the 60 nm mark we observe an increase in overall complexity up-to a length of ~100 nm, which then manifests into a steep drop in the fractal dimension. The high $df$ attests to primary structures of up to 100 nm, beyond which the $df$ drops and grows again to significantly large values (not shown), representing the re-emergence of complexity in terms of secondary aggregation.
+
+![Graph](https://doi.org/10.26434/chemrxiv-2025-t5rxn)
+
+**Figure 6:** Pair-wise radial distribution functions for (i) entire system (ii) scaled to emphasise secondary peaks.
+
+While the analysis of $df$ provides a qualitative description of the general heterogeneity of the electrode microstructure, a quantitative description of the local environment of each particle over the simulation domain is sought. Various pair-wise radial distribution functions were computed for the systems under inquiry. The primary peak in the pair-wise radial distribution function further reinforces our inferences from the local variance in the $df$ graph. Fig. 6 (i) illustrates a decreasing intensity in the primary peak with a decrease in water content. This reinforces the observation of a relative decrease in ionomer solvation energy with increasing IPA content. As a result, the ionomer particles are better dispersed in solution, forming smaller primary aggregates. Meanwhile, as we approach the system’s length scales, the g(r) oscillates around unity; eventually converging to it, which is typical of solvation structures observed in ideal fluids. However, an attempt to interpret the
+secondary structure of the g(r) is confounded by the superposition of carbon – carbon, carbon – ionomer and ionomer – ionomer pair-wise functions, all contributing to the set of peaks between 40 and 150 nm.
+
+The individual pair distribution functions between the component particles of the system help us deconvolute these relationships across the spread of solvent composition. From Fig. S2 and S4 the first and second peaks of Fig. 6 can be correlated to the primary aggregation of ionomer and carbon respectively. The relative intensities of the peaks seemingly attest to the ionomer particles exhibiting almost twice the aggregation probability. However, upon comparison with Fig. S3, it becomes clear that the initial peak in the system RDF arises from the contributions of ionomer – ionomer and ionomer – carbon interactions. While the water content in the ink significantly affects ionomer aggregation, and carbon aggregation, there is no observable change in the ionomer – carbon primary peak (Fig. S3). This reiterates the fact that solvent composition does not alter ionomer adsorption onto carbon supports, but rather alters relative ionomer – ionomer and carbon – carbon interactions. Fig. S2 also exhibits twin peaks at 45 and 55 nm with high water contents, which collapses into an individual peak at 50 nm in IPA rich solvents.
+
+From Fig. S4 we observe distinct features in the carbon – carbon pair distribution function as the ink composition is altered. The second neighbors exhibit a split between compact and dispersed packing structures. An increase in water content exhibits a dispersed packing, evidenced by a peak at 70 nm, as opposed to the IPA-rich ink which only exhibits a second neighbor peak at 60 nm. This behaviour is also observable in the Fig. S2 with the secondary neighbor peak of ionomer – ionomer interactions. Water-rich slurries exhibit a distinct twin peak, which converges into a diffuse peak at 50 nm for IPA-rich slurries. The difference in aggregation can be inferred from the co-ordination numbers for each pair-wise interactions. These were computed by integrating the individual pair-distribution functions over the domain length. From Table. 4 we can see a strong decrease in the primary co-ordination number for ionomer-ionomer interactions, while the secondary co-ordination number exhibits a mild decay with decreasing with water content. The change in aggregation is particularly pronounced with regards to carbon – carbon aggregation as the primary co-
+ordination number drops sharply with decreasing water content. By extension, the second neighbor peak exhibits twin-packing behaviour with distinct contributions from compact and dispersed neighbours for water-rich slurries, which changes into predominantly compact packed structures for IPA-rich slurries. Performing a fourier transform on the solvated system’s RDF gives us the structure factor of the aggregate system, shown in Fig. S6. Scattering experiments provide reliable insights into the complex microstructures of aggregated colloidal dispersions. This plot exhibits an increase in average intensity with increase IPA content. This can be ascribed to an increase in the volume fraction of small particles/aggregates. The extreme intensity of the S(0) peak can be attributed to the high degree of order exhibited by clusters, meanwhile the medium $k$ peaks arise from nearest neighbour particles, which increase in ordering with increasing alcohol content. The structure factor plots can prove valuable to validate the obtained microstructures against experimental diffraction measurements.
+
+![Short range two point correlation functions](https://doi.org/10.26434/chemrxiv-2025-t5ixm)
+
+**ORCID:** [https://orcid.org/0000-0001-7362-7849](https://orcid.org/0000-0001-7362-7849) Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+
+**Figure 7:** Short range two point correlation functions of (i) Carbon (ii) Ionomer and (iii) Pore phases.
+The two-point correlation functions, normalised to 1 at \( r = 0 \) have been plotted for the length of the entire system and presented in Fig. S5. In the context of our current analysis, since most of the structural variance lies within 100 nm, this work will discuss the short ranged plots of the two-point correlation function presented in Fig. 7. The initial rapid decay region of the function denotes the size of the fundamental structural unit, which is then distributed uniformly across the micro-structural domain. In the case of carbon particles (Fig. 7 (i)) we observe the function approach its steady state value \( \sim 80 \) nm, which is also observed for the pore phase (Fig. 7 (iii)). However, the steady state value is reached at \( \sim 50 \) nm in the case of the ionomer domain. Upon closer inspection we observe the change in aggregate size reflected in the slope of the two-point function, between 30 and 80 nm for carbon and 20 and 60 nm for the ionomer. Both phases exhibit an increasing slope, leading to steady state probabilities earlier, for IPA-rich solvent compositions. From Fig. S5 we observe distinct oscillations of the two-point function, which occur at wavelengths of \( \sim 100 \) nm, reflect the structural heterogeneity observed in the electrode microstructures, which are strong at short distances and merge towards the steady-state regime at long distances. By extension, it is also immediately apparent that the minima observed at \( \sim 60 \) nm for the ionomer two-point function in Fig. 7 is actually a pseudo-minima, with a true minima and successive oscillations begin at 100 nm, as evidenced by Fig. S5 (ii).
+
+**Figure 8:** Pore phase statistics using (i) Chord length distribution (ii) Pore size distribution.
+Following the investigation of agglomeration behaviour and descriptors of spatial distribution of the components that constitute the CL, we examine the characteristics of the pore phase. The size, distribution and tortuosity of the pores strongly influence the electrochemical performance of electrodes. From Fig. 8 we observe a majority of chords in the pore phase lying between 20 and 40 nm. We observe an increase in the average chord length, with decreasing both extremes in the ink, with intermediate water – IPA ratios exhibiting a left shifted chord length distribution. A similar trend can also be observed in the pore size distribution. While the pore sizes exhibit a normal distribution across a mean, the mean pore size tends to a higher value with decreasing water content. However, the differences between average pore sizes is not very pronounced. Despite being analysed over 10 distinct structures over the course of an equilibration run, the above plots cannot be considered to represent the objective relationships of pore sizes and chord lengths across solvent compositions due to the large variance observed in their measurements.
+
+With the extraction of microstructural features and extensive characterisation with various spatial descriptors, we shift our focus onto quantifying electrode descriptors which directly influence mass diffusion, proton and electron transport across CLs.
+
+| Solvent Composition (Water : IPA %) | Surface Area ($\times 10^{-11}$ m$^2$) | Three phase length ($\times 10^{-3}$ m) | Volume fraction (%) |
+|------------------------------------|---------------------------------------|---------------------------------------|---------------------|
+|                                    | Pore   | Ionomer | Carbon | Pore   | Ionomer | Carbon |
+| 100                                 | 9.575  | 8.7361  | 6.283  | 6.96   | 44.21   | 28.26  | 27.53  |
+| 80                                  | 9.624  | 8.881   | 6.381  | 7.21   | 44.27   | 28.13  | 27.59  |
+| 60                                  | 9.652  | 9.005   | 6.444  | 7.36   | 44.36   | 28.01  | 27.61  |
+| 40                                  | 9.672  | 9.102   | 6.505  | 7.51   | 44.42   | 27.94  | 27.63  |
+| 20                                  | 9.695  | 9.151   | 6.534  | 7.59   | 44.41   | 27.91  | 27.67  |
+
+Table 2: Influence of the solvent composition on pore-solid properties.
+Table 2. displays the surface area and three-phase lengths of the microstructures as a function of their solvent composition. A clear trend can be observed with increasing IPA content in the dispersion medium, with an overall increase in the surface area of each of the respective components (pore, ionomer and carbon). However, a simple increase in pore surface area does not attest to improved electrochemical performance of the electrodes. Herein, the latter property becomes a suitable metric. Due to the nature of electrochemical reactions that take place at the CL, electrochemically active centers must be proton and electron conductive while also being accessible to the pore in order for (reactants and water) mass transport to occur. The electrochemical centers that satisfy this criterion are assumed to be points, called the three-phase boundary. Summing over the three-phase boundaries over the entire electrode microstructure gives us the three-phase length – a metric of how probable electrochemical reactions are in a given electrode. Interestingly, we also observe an increase in the three-phase length for microstructures with increasing IPA content in the solvent. However, the discussion of three-phase boundaries, and by extension, the three-phase length cannot be complete without accounting for various factors that influence the local spatial distribution of ionomer chains around catalyst particles. It is known that the balance between the hydrophobicity of carbon particles and the hydrophilicity of Pt particles influences the local distribution of ionomer chains.[31] This is further complicated by the migration of ionomer chains due to factors like Ostwald ripening of Pt particles and carbon corrosion[43]. However, these local phenomena are beyond the resolution and scope of this work. Herein we intended to discuss and capture the meso-scale aggregation phenomena observed in the CL fabrication process.
+
+Conclusions
+
+This work set out to devise an end-to-end modeling framework to create a digital model of the PEMFC electrode fabrication process, while taking into account various common fabrication parameters. In the pursuit of resolving explicit carbon – ionomer distribution in CL microstructures,
+we propose a novel discrete element method-based aggregation model with a colloidal representation of ionomer and carbon particles. The process involves a brownian dynamics simulation of the particles, with the DLVO theory forming a basis for inter-particle conservative forces and the solvent approximated through an implicit representation using pair-wise hydrodynamic interactions. The equilibrated catalyst ink is then dried under the wet-drying regime to obtain statistically representative microstructures. We also proposed a method to voxelise the resulting microstructures into segmented images, which can then be characterised using image analysis functions typically applied on tomographic datasets. The resulting statistical descriptors were then discussed to explain the representative nature of the simulation methodology and robustness of the workflow. This work has been reported as a proof of concept to develop a model that explains the complex aggregation phenomena observed in the manufacture of CLs.
+
+Consequentially, we have also been able to observe the variance in the secondary aggregation of ionomer particles, as a function of the ink’s water content. It is known that water-rich slurries drive ionomer aggregation due to the hydrophobicity of the ionomer backbone. The above reported model was able to capture these observations qualitatively, with water-rich slurries driving ionomer aggregation and IPA-rich slurries resulting in highly dispersed structures. The variance in carbon-carbon and carbon-ionomer distributions were also quantified using descriptors such as their fractal dimensions and two-point correlation functions. It was also observed that increasing the IPA content in the dispersion solvent increases the effective surface area of the pore network and leads to an increase in the three-phase length.
+
+While this communication aims to be a proof-of-concept of this novel aggregation model, the tools developed here lend to a straightforward approach to the experimental validation of microstructural properties. Accordingly we’re working to validate this model across a common range of manufacturing parameters by correlating experimental micro-structures with the structures derived from this meso-scale approach. Furthermore, the model can also be extended to represent the spatial distribution of high-surface area carbons and compare the microstructures of electrodes derived from high and low surface area carbons. This end-to-end framework also lays the foundation for
+workflows involving optimisation of manufacturing parameters across a range of manufacturing parameters, as previously done by our group in the field of batteries[81], [82]. In such a context, the effect of specific manufacturing parameters on the electrochemical performance of the electrode can be deduced.
+
+Supporting information
+
+The following files are available free of charge.
+
+Supplementary information – Simulation parameters and validation plots (PDF)
+Supplementary video 1 – Visual simulation trajectory of the aggregation process (.avi)
+Supplementary video 2 – Visual simulation trajectory of the drying process (.avi)
+
+Funding Source
+
+This work was funded by the BLESSED project initiated by the European Union under Marie Sklodowska-Curie Actions (Grant Agreement No. 101072578).
+
+“Plateforme MatriCS” is co-financed by the European Union with the European Regional Development Fund (FEDER) and the Hauts-De-France Regional Council among others.
+
+Acknowledgements
+
+S. B. V, M.B. and A.A.F. acknowledge the support of the BLESSED project funded by the European Union under Marie Sklodowska-Curie Actions (Grant Agreement No. 101072578).
+
+This work was granted access to HPC resources of “Plateforme MatriCS” within University of Picardie Jules Verne. “Plateforme MatriCS” is co-financed by the European Union with the European Regional Development Fund (FEDER) and the Hauts-De-France Regional Council among others.
+
+S. B. V would like to thank Dr. Francisco Fernandez from Prof. Franco’s group, for his insights and assistance with data visualisation and Rashen Lou Omongos, Imelda Cardenas Sierra and Xingyu Zhang, also from Prof. Franco’s group for their unwavering support.
+A.A.F. acknowledges Institut Universitaire de France for the support.
+
+References
+
+[1] L. Al-Ghussain, A. D. Ahmad, A. M. Abubaker, and M. A. Hassan, “Exploring the feasibility of green hydrogen production using excess energy from a country-scale 100% solar-wind renewable energy system,” *International Journal of Hydrogen Energy*, vol. 47, no. 51, pp. 21613–21633, Jun. 2022, doi: 10.1016/j.ijhydene.2022.04.289.
+
+[2] “U.S. National Clean Hydrogen Strategy and Roadmap | Hydrogen Program.” Accessed: Oct. 02, 2024. [Online]. Available: https://www.hydrogen.energy.gov/library/roadmaps-vision/clean-hydrogen-strategy-roadmap
+
+[3] “Stratégie nationale pour le développement de l’hydrogène décarboné en France.” Accessed: Oct. 02, 2024. [Online]. Available: https://www.economie.gouv.fr/plan-relance/mesures/strategie-nationale-developpement-hydrogene-decarbone
+
+[4] “Cabinet approves National Green Hydrogen Mission.” Accessed: Oct. 02, 2024. [Online]. Available: https://pib.gov.in/pib.gov.in/Pressreleaseshare.aspx?PRID=1888547
+
+[5] “Proton Exchange Membrane Fuel Cell Market Report, 2030.” Accessed: Oct. 02, 2024. [Online]. Available: https://www.grandviewresearch.com/industry-analysis/proton-exchange-membrane-fuel-cell-market-report
+
+[6] C. Cunanan, M.-K. Tran, Y. Lee, S. Kwok, V. Leung, and M. Fowler, “A Review of Heavy-Duty Vehicle Powertrain Technologies: Diesel Engine Vehicles, Battery Electric Vehicles, and Hydrogen Fuel Cell Electric Vehicles,” *Clean Technologies*, vol. 3, no. 2, Art. no. 2, Jun. 2021, doi: 10.3390/cleantechnol3020028.
+
+[7] J. J. Minnehan and J. W. Pratt, “Practical Application Limits of Fuel Cells and Batteries for Zero Emission Vessels,” Sandia National Lab. (SNL-NM), Albuquerque, NM (United States), SAND-2017-12665, Nov. 2017. doi: 10.2172/1410178.
+
+[8] G. Kleen and W. Gibbons, “Heavy-Duty Fuel Cell System Cost – 2023,” Aug. 2024. Accessed: Oct. 03, 2024. [Online]. Available: https://www.hydrogen.energy.gov/docs/hydrogenprogramlibraries/pdfs/review24/24004-hd-fuel-cell-system-cost-2023.pdf?sfvrsn=70ff384f_3
+
+[9] “Computational screening of core@shell nanoparticles for the hydrogen evolution and oxygen reduction reactions | The Journal of Chemical Physics | AIP Publishing.” Accessed: Oct. 03, 2024. [Online]. Available: https://pubs.aip.org/aip/jcp/article/145/24/244708/932851
+
+[10] B. Arumugam, B. A. Kakade, T. Tamaki, M. Arao, H. Imai, and T. Yamaguchi, “Enhanced activity and durability for the electroreduction of oxygen at a chemically ordered intermetallic PtFeCo catalyst,” *RSC Adv.*, vol. 4, no. 52, pp. 27510–27517, Jun. 2014, doi: 10.1039/C4RA04744C.
+
+[11] “Scalable Preparation of the Chemically Ordered Pt–Fe–Au Nanocatalysts with High Catalytic Reactivity and Stability for Oxygen Reduction Reactions | ACS Applied Materials & Interfaces.” Accessed: Oct. 03, 2024. [Online]. Available: https://pubs.acs.org/doi/full/10.1021/acsami.8b05114
+
+[12] M. Chen et al., “Pt alloy nanoparticles decorated on large-size nitrogen-doped graphene tubes for highly stable oxygen-reduction catalysts,” *Nanoscale*, vol. 10, no. 36, pp. 17318–17326, 2018, doi: 10.1039/C8NR05888A.
+
+[13] “Ultralow-loading platinum-cobalt fuel cell catalysts derived from imidazolate frameworks | Science.” Accessed: Oct. 03, 2024. [Online]. Available: https://www.science.org/doi/full/10.1126/science.aau0630
+
+[14] J.-Y. Choi et al., “Is the rapid initial performance loss of Fe/N/C non precious metal catalysts due to micropore flooding?,” *Energy & Environmental Science*, vol. 10, no. 1, pp. 296–305, 2017, doi: 10.1039/C6EE03005J.
+[15] H. T. Chung et al., “Direct atomic-level insight into the active sites of a high-performance PGM-free ORR catalyst,” *Science*, vol. 357, no. 6350, pp. 479–484, Aug. 2017, doi: 10.1126/science.aan2255.
+
+[16] D. Banham and S. Ye, “Current Status and Future Development of Catalyst Materials and Catalyst Layers for Proton Exchange Membrane Fuel Cells: An Industrial Perspective,” *ACS Energy Lett.*, vol. 2, no. 3, pp. 629–638, Mar. 2017, doi: 10.1021/acsenergylett.6b00644.
+
+[17] N. Zamel, “The catalyst layer and its dimensionality – A look into its ingredients and how to characterize their effects,” *Journal of Power Sources*, vol. 309, pp. 141–159, Mar. 2016, doi: 10.1016/j.jpowsour.2016.01.091.
+
+[18] Y. Shao, J. Liu, Y. Wang, and Y. Lin, “Novel catalyst support materials for PEM fuel cells: current status and future prospects,” *J. Mater. Chem.*, vol. 19, no. 1, pp. 46–59, Dec. 2008, doi: 10.1039/B808370C.
+
+[19] S. Samad et al., “Carbon and non-carbon support materials for platinum-based catalysts in fuel cells,” *International Journal of Hydrogen Energy*, vol. 43, no. 16, pp. 7823–7854, Apr. 2018, doi: 10.1016/j.ijhydene.2018.02.154.
+
+[20] L. Gan, H. Du, B. Li, and F. Kang, “The effect of particle size on the interaction of Pt catalyst particles with a carbon black support,” *New Carbon Materials*, vol. 25, no. 1, pp. 53–59, Feb. 2010, doi: 10.1016/S1872-5805(09)60015-9.
+
+[21] Y. Devrim, E. D. Arıca, and A. Albostan, “Graphene based catalyst supports for high temperature PEM fuel cell application,” *International Journal of Hydrogen Energy*, vol. 43, no. 26, pp. 11820–11829, Jun. 2018, doi: 10.1016/j.ijhydene.2018.03.047.
+
+[22] F. Yang et al., “Investigation of Solvent Effects on the Dispersion of Carbon Agglomerates and Nafion Ionomer Particles in Catalyst Inks Using Ultra Small Angle X-Ray Scattering Method,” *ECS Trans.*, vol. 75, no. 14, p. 361, Aug. 2016, doi: 10.1149/07514.0361ecst.
+
+[23] M. Jorge and L. Lue, “The dielectric constant: Reconciling simulation and experiment,” *The Journal of Chemical Physics*, vol. 150, no. 8, p. 084108, Feb. 2019, doi: 10.1063/1.5080927.
+
+[24] R. Sharma, L. Grah-Madsen, and S. M. Andersen, “Influence of dispersion media on Nafion® ionomer distribution in proton exchange membrane fuel cell catalyst carbon support,” *Materi- als Chemistry and Physics*, vol. 226, pp. 66–72, Mar. 2019, doi: 10.1016/j.matchemphys.2019.01.015.
+
+[25] “Enhanced Performance of Ionomer Binder with Shorter Side-Chains, Higher Dispersibility, and Lower Equivalent Weight - Kim - 2018 - Fuel Cells - Wiley Online Library.” Accessed: Oct. 23, 2024. [Online]. Available: https://onlinelibrary.wiley.com/doi/10.1002/fuce.201800083
+
+[26] T. Omata, M. Tanaka, K. Miyatake, M. Uchida, H. Uchida, and M. Watanabe, “Preparation and Fuel Cell Performance of Catalyst Layers Using Sulfonated Polyimide Iomers,” *ACS Appl. Mater. Interfaces*, vol. 4, no. 2, pp. 730–737, Feb. 2012, doi: 10.1021/am201360j.
+
+[27] Z. Yao, Z. Zhang, M. Hu, J. Hou, L. Wu, and T. Xu, “Perylene-based sulfonated aliphatic polyimides for fuel cell applications: Performance enhancement by stacking of polymer chains,” *Journal of Membrane Science*, vol. 547, pp. 43–50, Feb. 2018, doi: 10.1016/j.memsci.2017.10.032.
+
+[28] T. Soboleva, X. Zhao, K. Malek, Z. Xie, T. Navessin, and S. Holdcroft, “On the Micro-, Me-so-, and Macroporous Structures of Polymer Electrolyte Membrane Fuel Cell Catalyst Lay- ers,” *ACS Appl. Mater. Interfaces*, vol. 2, no. 2, pp. 375–384, Feb. 2010, doi: 10.1021/am900600y.
+
+[29] B. G. Pollet and J. T. E. Goh, “The importance of ultrasonic parameters in the preparation of fuel cell catalyst inks,” *Electrochimica Acta*, vol. 128, pp. 292–303, May 2014, doi: 10.1016/j.electacta.2013.09.160.
+
+[30] M. Wang et al., “Impact of Catalyst Ink Dispersing Methodology on Fuel Cell Performance Using in-Situ X-ray Scattering,” *ACS Appl. Energy Mater.*, vol. 2, no. 9, pp. 6417–6427, Sep. 2019, doi: 10.1021/acsaem.9b01037.
+
+[31] K. Malek, M. Eikerling, Q. Wang, T. Navessin, and Z. Liu, “Self-Organization in Catalyst Layers of Polymer Electrolyte Fuel Cells,” *J. Phys. Chem. C*, vol. 111, no. 36, pp. 13627–13634, Sep. 2007, doi: 10.1021/jp072692k.
+[32] P. Liu et al., “Agglomeration behavior of carbon-supported platinum nanoparticles in catalyst ink: modeling and experimental investigation,” *Journal of Power Sources*, vol. 602, p. 234309, May 2024, doi: 10.1016/j.jpowsour.2024.234309.
+
+[33] S. Shukla, S. Bhattacharjee, and M. Secanell, “Rationalizing Catalyst Inks for PEMFC Electrodes Based on Colloidal Interactions,” *EC Trans.*, vol. 58, no. 1, pp. 1409–1428, Aug. 2013, doi: 10.1149/05801.1409ecst.
+
+[34] B. W. Ninham, “On progress in forces since the DLVO theory,” *Advances in Colloid and Interface Science*, vol. 83, no. 1, pp. 1–17, Dec. 1999, doi: 10.1016/S0001-8686(99)00008-1.
+
+[35] C. J. Van Oss, “Energetics of cell-cell and cell-biopolymer interactions,” *Cell Biophysics*, vol. 14, no. 1, pp. 1–16, Feb. 1989, doi: 10.1007/BF02797387.
+
+[36] M. B. Dixit, B. A. Harkey, F. Shen, and K. B. Hatzell, “Catalyst Layer Ink Interactions That Affect Coatability,” *J. Electrochem. Soc.*, vol. 165, no. 5, p. F264, Mar. 2018, doi: 10.1149/2.0191805jes.
+
+[37] J. A. Quiblier, “A new three-dimensional modeling technique for studying porous media,” *Journal of Colloid and Interface Science*, vol. 98, no. 1, pp. 84–102, Mar. 1984, doi: 10.1016/0021-9797(84)90481-8.
+
+[38] P. P. Mukherjee and C.-Y. Wang, “Stochastic Microstructure Reconstruction and Direct Numerical Simulation of the PEFC Catalyst Layer,” *J. Electrochem. Soc.*, vol. 153, no. 5, p. A840, Mar. 2006, doi: 10.1149/1.2179303.
+
+[39] S. H. Kim and H. Pitsch, “Reconstruction and Effective Transport Properties of the Catalyst Layer in PEM Fuel Cells,” *J. Electrochem. Soc.*, vol. 156, no. 6, p. B673, Apr. 2009, doi: 10.1149/1.3106136.
+
+[40] H. Ishikawa, Y. Sugawara, G. Inoue, and M. Kawase, “Effects of Pt and ionomer ratios on the structure of catalyst layer: A theoretical model for polymer electrolyte fuel cells,” *Journal of Power Sources*, vol. 374, pp. 196–204, Jun. 2018, doi: 10.1016/j.jpowsour.2017.11.026.
+
+[41] J. Kang, K. Moriyama, and S. H. Kim, “An extended stochastic reconstruction method for catalyst layers in proton exchange membrane fuel cells,” *Journal of Power Sources*, vol. 325, pp. 752–761, Sep. 2016, doi: 10.1016/j.jpowsour.2016.06.083.
+
+[42] C. Zhao et al., “The effect of catalyst layer design on catalyst utilization in PEMFC studied via stochastic reconstruction method,” *Energy and AI*, vol. 13, p. 100245, Jul. 2023, doi: 10.1016/j.egyai.2023.100245.
+
+[43] K. Malek and A. A. Franco, “Microstructure-Based Modeling of Aging Mechanisms in Catalyst Layers of Polymer Electrolyte Fuel Cells,” *J. Phys. Chem. B*, vol. 115, no. 25, pp. 8088–8101, Jun. 2011, doi: 10.1021/jp111400k.
+
+[44] K. Malek, T. Mashio, and M. Eikerling, “Microstructure of Catalyst Layers in PEM Fuel Cells Redefined: A Computational Approach,” *Electrocatal.*, vol. 2, no. 2, pp. 141–157, Jun. 2011, doi: 10.1007/s12678-011-0047-0.
+
+[45] Y. Xiao, M. Dou, J. Yuan, M. Hou, W. Song, and B. Sundén, “Fabrication Process Simulation of a PEM Fuel Cell Catalyst Layer and Its Microscopic Structure Characteristics,” *J. Electrochem. Soc.*, vol. 159, no. 3, p. B308, Jan. 2012, doi: 10.1149/2.064203jes.
+
+[46] L. Rubatat, A. L. Rollet, G. Gebel, and O. Diat, “Evidence of Elongated Polymeric Aggregates in Nafion,” *Macromolecules*, vol. 35, no. 10, pp. 4050–4055, May 2002, doi: 10.1021/ma011578b.
+
+[47] S.-J. Lee, T. L. Yu, H.-L. Lin, W.-H. Liu, and C.-L. Lai, “Solution properties of nafion in methanol/water mixture solvent,” *Polymer*, vol. 45, no. 8, pp. 2853–2862, Apr. 2004, doi: 10.1016/j.polymer.2004.01.076.
+
+[48] “Morphology study of Nafion membranes prepared by solutions casting - Lin - 2005 - Journal of Polymer Science Part B: Polymer Physics - Wiley Online Library.” Accessed: Oct. 24, 2024. [Online]. Available: https://onlinelibrary.wiley.com/doi/full/10.1002/polb.20599
+
+[49] A. Tarokh, K. Karan, and S. Ponnurangam, “Atomistic MD Study of Nafion Dispersions: Role of Solvent and Counterion in the Aggregate Structure, Ionic Clustering, and Acid Dissociation,” *Macromolecules*, vol. 53, no. 1, pp. 288–301, Jan. 2020, doi: 10.1021/acs.macromol.9b01663.
+[50] M. So, T. Ohnishi, K. Park, M. Ono, Y. Tsuge, and G. Inoue, “The effect of solvent and ionomer on agglomeration in fuel cell catalyst inks: Simulation by the Discrete Element Method,” International Journal of Hydrogen Energy, vol. 44, no. 54, pp. 28984–28995, Nov. 2019, doi: 10.1016/j.ijhydene.2019.09.012.
+
+[51] F. C. Cetinbas, S. G. Advani, and A. K. Prasad, “A Modified Agglomerate Model with Discrete Catalyst Particles for the PEM Fuel Cell Catalyst Layer,” J. Electrochem. Soc., vol. 160, no. 8, p. F750, Apr. 2013, doi: 10.1149/2.01730jes.
+
+[52] M. So, T. Ohnishi, M. Ono, Y. Tsuge, and G. Inoue, “A discrete particle packing model for the formation of a catalyst layer in polymer electrolyte fuel cells,” International Journal of Hydrogen Energy, vol. 44, no. 60, pp. 32170–32183, Dec. 2019, doi: 10.1016/j.ijhydene.2019.10.005.
+
+[53] M. So, K. Park, Y. Tsuge, and G. Inoue, “A Particle Based Ionomer Attachment Model for a Fuel Cell Catalyst Layer,” J. Electrochem. Soc., vol. 167, no. 1, p. 013544, Jan. 2020, doi: 10.1149/2.01711/ab68d4.
+
+[54] J. F. Troncoso, F. M. Zanotto, D. E. Galvez-Aranda, D. Zapata Dominguez, L. Denisart, and A. A. Franco, “The ARTISTIC Battery Manufacturing Digitalization Initiative: From Fundamental Research to Industrialization,” Batteries & Supercaps, vol. 8, no. 1, p. e202400385, 2025, doi: 10.1002/batt.202400385.
+
+[55] I. Srivastava, D. S. Bolintineanu, J. B. Lechman, and S. A. Roberts, “Controlling Binder Adhesion to Impact Electrode Mesostruuctures and Transport,” ACS Appl. Mater. Interfaces, vol. 12, no. 31, pp. 34919–34930, Aug. 2020, doi: 10.1021/acsami.0c08251.
+
+[56] R. C. Ball and J. R. Melrose, “A simulation technique for many spheres in quasi-static motion under frame-invariant pair drag and Brownian forces,” Physica A: Statistical Mechanics and its Applications, vol. 247, no. 1, pp. 444–472, Dec. 1997, doi: 10.1016/S0378-4371(97)00412-3.
+
+[57] R. Everaers and M. R. Ejtehadi, “Interaction potentials for soft and hard ellipsoids,” Phys. Rev. E, vol. 67, no. 4, p. 041710, Apr. 2003, doi: 10.1103/PhysRevE.67.041710.
+
+[58] J. N. Israelachvili, Intermolecular and Surface Forces. Academic Press, 2011.
+
+[59] H. H. Wensink, H. Löwen, M. Rex, C. N. Likos, and S. van Teeffelen, “Long-time self-diffusion for Brownian Gaussian-core particles,” Computer Physics Communications, vol. 179, no. 1, pp. 77–81, Jul. 2008, doi: 10.1016/j.cpc.2008.01.009.
+
+[60] M. D. Haw, M. Gillie, and W. C. K. Poon, “Effects of Phase Behavior on the Drying of Colloidal Suspensions,” Langmuir, vol. 18, no. 5, pp. 1626–1633, Mar. 2002, doi: 10.1021/la0110951.
+
+[61] A. F. Routh, “Drying of thin colloidal films,” Rep. Prog. Phys., vol. 76, no. 4, p. 046603, Mar. 2013, doi: 10.1088/0034-4885/76/4/046603.
+
+[62] M. Schulz and J. L. Keddie, “A critical and quantitative review of the stratification of particles during the drying of colloidal films,” Soft Matter, vol. 14, no. 30, pp. 6181–6197, Aug. 2018, doi: 10.1039/C8SM01025K.
+
+[63] E. W. Comings and T. K. Sherwood, “The Drying of Solids. VII Moisture Movement by Capillarity in Drying Granular Materials,” Ind. Eng. Chem., vol. 26, no. 10, pp. 1096–1098, Oct. 1934, doi: 10.1021/ic50298a017.
+
+[64] A. P. Thompson et al., “LAMMPS - a flexible simulation tool for particle-based materials modeling at the atomic, meso, and continuum scales,” Computer Physics Communications, vol. 271, p. 108171, Feb. 2022, doi: 10.1016/j.cpc.2021.108171.
+
+[65] P. R. Schunk et al., “Performance of mesoscale modeling methods for predicting rheological properties of charged polystyrene/water suspensions,” Journal of Rheology, vol. 56, no. 2, pp. 353–384, Mar. 2012, doi: 10.1122/1.3690105.
+
+[66] M. Uchida, Y. Fukuoka, Y. Sugawara, N. Eda, and A. Ohta, “Effects of Microstructure of Carbon Support in the Catalyst Layer on the Performance of Polymer-Electrolyte Fuel Cells,” J. Electrochem. Soc., vol. 143, no. 7, p. 2245, Jul. 1996, doi: 10.1149/1.1836988.
+
+[67] H. Srivastav, A. Z. Weber, and C. J. Radke, “Colloidal Stability of PFSA-Ionomer Dispersions Part II: Determination of Suspension pH Using Single-Ion Potential Energies,” Langmuir, vol. 40, no. 13, pp. 6666–6674, Apr. 2024, doi: 10.1021/acs.langmuir.3c03904.
+[68] D. J. Shaw and H. E. Avery, “Surface Chemistry and Colloids,” in Work Out Physical Chemistry, D. J. Shaw and H. E. Avery, Eds., London: Macmillan Education UK, 1989, pp. 214–233. doi: 10.1007/978-1-349-10006-4_7.
+
+[69] S. J. Burns, P. T. Piironen, and K. J. Hanley, “Critical time step for DEM simulations of dynamic systems using a Hertzian contact model,” International Journal for Numerical Methods in Engineering, vol. 119, no. 5, pp. 432–451, 2019, doi: 10.1002/nme.6056.
+
+[70] R. L. Davidchack, R. Handel, and M. V. Tretyakov, “Langevin thermostat for rigid body dynamics,” The Journal of Chemical Physics, vol. 130, no. 23, p. 234101, Jun. 2009, doi: 10.1063/1.3149788.
+
+[71] M. P. Howard, A. Nikoubashman, and A. Z. Panagiotopoulos, “Stratification Dynamics in Drying Colloidal Mixtures,” Langmuir, vol. 33, no. 15, pp. 3685–3693, Apr. 2017, doi: 10.1021/acs.langmuir.7b00543.
+
+[72] J. T. Gostick et al., “PoreSpy: A Python Toolkit for Quantitative Analysis of Porous Media Images,” Journal of Open Source Software, vol. 4, no. 37, p. 1296, May 2019, doi: 10.21105/joss.01296.
+
+[73] S. J. Burns, P. T. Piironen, and K. J. Hanley, “Critical time step for DEM simulations of dynamic systems using a Hertzian contact model,” International Journal for Numerical Methods in Engineering, vol. 119, no. 5, pp. 432–451, 2019, doi: 10.1002/nme.6056.
+
+[74] “OpenPNM: A Pore Network Modeling Package | IEEE Journals & Magazine | IEEE Xplore.” Accessed: Nov. 27, 2024. [Online]. Available: https://ieeexplore.ieee.org/abstract/document/7478437?casa_token=Fx48lGBw9j8AAAAA:seQZYloE7NbpcR7WEh-OTp3rDgrRMwOYJax6Tallnx6zfNFL2ZV-0SP0bQq84DBI4_lJ8RD364
+
+[75] M. Uchida, Y. Aoyama, N. Eda, and A. Ohta, “New Preparation Method for Polymer-Electrolyte Fuel Cells,” J. Electrochem. Soc., vol. 142, no. 2, p. 463, Feb. 1995, doi: 10.1149/1.2044068.
+
+[76] C.-H. Ma et al., “Morphology and properties of Nafion membranes prepared by solution casting,” Polymer, vol. 50, no. 7, pp. 1764–1777, Mar. 2009, doi: 10.1016/j.polymer.2009.01.060.
+
+[77] A. Stukowski, “Visualization and analysis of atomistic simulation data with OVITO—the Open Visualization Tool,” Modelling Simul. Mater. Sci. Eng., vol. 18, no. 1, p. 015012, Dec. 2009, doi: 10.1088/0965-0927/18/1/015012.
+
+[78] J. Zhao, A. Ozden, S. Shahgaldi, I. E. Alaefour, X. Li, and F. Hamdullahpur, “Effect of Pt loading and catalyst type on the pore structure of porous electrodes in polymer electrolyte membrane (PEM) fuel cells,” Energy, vol. 150, pp. 69–76, May 2018, doi: 10.1016/j.energy.2018.02.134.
+
+[79] M. Duquesnoy, C. Liu, D. Z. Dominguez, V. Kumar, E. Ayerbe, and A. A. Franco, “Machine learning-assisted multi-objective optimization of battery manufacturing from synthetic data generated by physics-based simulations,” Energy Storage Materials, vol. 56, pp. 50–61, Feb. 2023, doi: 10.1016/j.ensm.2022.12.040.
+
+[80] M. Duquesnoy, C. Liu, V. Kumar, E. Ayerbe, and A. A. Franco, “Toward high-performance energy and power battery cells with machine learning-based optimization of electrode manufacturing,” Journal of Power Sources, vol. 590, p. 233674, Jan. 2024, doi: 10.1016/j.jpowsour.2023.233674.

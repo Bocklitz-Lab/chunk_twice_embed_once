@@ -1,0 +1,268 @@
+Ion Sensing based on Frequency-Dependent Physico-Chemical Processes at Electrode/Electrolyte Interfaces
+
+Amir Mohseni Armaki¹, Yaqi Guo¹, Majid Ahmadi², Roan Streefland³, Patrick S. Bäuerlein³, Arjan Mol¹, Siddhant Kumar¹, Peyman Taheri¹*
+
+¹ Material Science and Engineering, Delft University of Technology, Delft, Netherlands.
+² Zernike Institute for Advanced Materials, University of Groningen, Nijenborgh 4, Groningen, The Netherlands.
+³ KWR Water Research Institute, Nieuwegein, Netherlands.
+
+*Corresponding author(s). E-mail(s): P.Taheri@tudelft.nl; Contributing authors: A.MohseniArmaki@tudelft.nl; Y.Guo-4@tudelft.nl; Majid.Ahmadi@rug.nl; Roan.Streefland@kwrwater.nl; Patrick.Bauerlein@kwrwater.nl; Patrick.Bauerlein@kwrwater.nl; J.M.C.Mol@tudelft.nl; Sid.Kumar@tudelft.nl;
+
+Abstract
+
+Ions are fundamental to solid-liquid-phase processes, whether as essential components or contaminants, making precise and real-time monitoring necessary. Electrochemical sensors have been identified as promising tools, particularly for field-deployable applications. However, conventional electrochemical sensing is inherently restricted to species that participate in redox reactions and are often single use, limiting its scope. In this study, electrochemical impedance spectroscopy (EIS) is presented as a promising alternative for ion detection, utilizing physico-chemical interactions at the electrode/electrolyte interface. A first-principles model was developed to describe the impedance behavior of electrochemical interfaces, demonstrating how ion-specific interfacial processes influence electrochemical response. Based on this framework, an extensive EIS dataset was compiled, and an AI-assisted model was trained to predict electrolyte composition with high accuracy, achieving detection limits in the parts-per-billion
+(ppb) range. The findings indicate that EIS has significant potential as a complementary method for ion sensing, providing a novel perspective on selectivity and sensitivity beyond traditional electrochemical approaches. It is anticipated that this work will serve as a foundation for more advanced models of impedance behavior and EIS interpretation, as well as for the development of next-generation impedance-based sensors with broader applicability in complex environments, including biological fluids and industrial liquids.
+
+**Keywords:** Electrochemical Impedance Spectroscopy (EIS), Real-Time Sensing, Ion Fingerprint, Electrode/Electrolyte Interfaces, water, water quality monitoring
+Introduction
+
+Real-time monitoring of chemical changes in solutions is a crucial aspect for addressing pressing challenges in diverse fields[1]. Applications such as detecting water contaminants, analyzing biomarkers in biological fluids, and ensuring the accuracy of processes as well as the safety of consumables require analytical techniques that are not only accurate and sensitive but rapid, cost-effective, and non-invasive[2–4]. Electrochemical sensors have emerged as promising candidates due to their affordability, simplicity, and suitability for miniaturization.[5, 6] However, conventional DC-based electrochemical sensors primarily depend on redox reactions, making them unsuitable for substances that do not undergo redox processes. Additionally, these sensors involve electron transfer mechanisms that can degrade the electrode surface over time, reducing their reusability and shortening their operational lifespan[7]. Additionally, these sensors carry the risk of altering the solution composition during measurements.[8, 9] Alternating current (AC) techniques, like electrochemical impedance spectroscopy (EIS), offer deeper insights into electrode-electrolyte interface dynamics, with the potential of enabling the characterization and quantification of electrolyte composition eliminating the limitations of DC methods.[10]
+
+When a solid electrode contacts an electrolyte, an interface known as the electric double layer (EDL), a structured arrangement of ions, counter-ions, and solvent molecules forms[11]. The structure of the EDL depends on properties of both the electrode, such as roughness and work function, and the electrolyte, including composition and concentration[12–15]. While significant progress has been made in characterizing the EDL in non-faradaic region (i.e., in the absence of any redox reaction), its microscopic structure and its correlation with electrochemical signals is not fully understood[11, 16].
+
+EIS provides rich, multidimensional insights into interfacial processes[17]. However, it is highly convoluted by the complex, coupled EDL responses of the multiple components in the electrified interface. Therefore, the accurate interpretation of EIS data hinges on a comprehensive understanding of the EDL under AC conditions. Traditional methodologies, which often rely on empirical fitting models such as equivalent electrical circuits[10, 18], fall short of capturing the intricate physical and chemical phenomena occurring at the interface[19, 20]. This lack of knowledge hampers the full exploitation of EIS as a versatile tool for electrochemical analysis and raises concerns about the reliability of its data, as observed responses often appear without a solid theoretical basis.
+
+To address this gap, a comprehensive theoretical model of EIS must account for both the static (DC) properties of the interface, such as EDL capacitance, and the dynamic (AC) behaviors, including non-ideal impedance phenomena like the constant phase element (CPE). Connecting these aspects is crucial for understanding the complex interplay between the structural properties of the interface and the observed impedance responses. Such insights would enable more effective applications of EIS in practical contexts, including the development of advanced sensors. Addressing this divide will align foundational research with applied methodologies, driving innovation in both scientific inquiry and real-world applications.
+This paper aims to address this challenge by linking the structural characteristics of the electrode/electrolyte interface to the resulting impedance responses induced by changes in electrolyte composition. Our primary focus is on developing a continuum-based model of the electrode/electrolyte interface that incorporates fundamental ion properties—such as size, mobility, and adsorption—drawing on recent advancements in the understanding of EDL structure[14, 16, 21–23] to explain these relationships. To validate this model, we conducted extensive experimental studies using over 500 aqueous solutions as a proof of concept, demonstrating its applicability for detecting and quantifying electrolyte components via EIS. Our experimental results exhibit strong alignment with model predictions, confirming the significant influence of ion-specific characteristics on impedance responses. To further address the complexity inherent in these relationships, we employed machine learning algorithms to analyze the experimental data, providing deeper insights and enabling more accurate predictions. This integrated approach demonstrates significant potential for enhancing the precision and efficiency of electrolyte component detection, representing a notable advancement in electrochemical analytical methodologies.
+
+Result and Discussion
+
+Physico-Chemical Processes at the EDL
+
+Our model is built upon the collective consideration of electrode–electrolyte interface phenomena, where a structured assembly of ions, counter-ions, and solvent molecules forms. This organization is governed by the incorporation of key physico-chemical interactions, including electrostatic forces, ion-surface interactions, solvation effects, and thermal motion. The exact configuration of the EDL remains elusive, as it is not directly observable; however, computational modeling and experimental approaches—such as "differential capacitance measurements”[14, 16, 23]—provide valuable insights into its structure. Despite the inherent complexity of EDL interactions, a well-conceived "continuum model” can offer significant understanding of its behavior[24].
+
+Before delving into the impedance characteristics of the EDL, we first analyze the fundamental physico-chemical processes at the interface that govern its impedance response. Figure 1 presents a schematic of the modified Gouy–Chapman–Stern (GCS) model, updated as the basis for this study. At the electrode surface, the electrostatic potential induces ion accumulation at the interface, forming a depleted region near the electrode known as the Helmholtz (Stern) layer. As illustrated in Figure 1a, the thickness of this layer is potential-dependent, governed by the competition between electrostatic attraction and hydration effects[16]. A higher applied potential enhances electrostatic forces, drawing ions closer to the surface while necessitating partial or complete dehydration of their hydration shells. Anions, which exhibit a greater propensity for surface adsorption, undergo significant dehydration under strong electric fields, whereas cations experience only partial suppression of their hydration shells[16]. This results in a generally thinner Helmholtz layer for anions—determined by their intrinsic ionic radii—compared to cations, whose effective size is dictated by their hydrated radii. (more information is provided in SI section 1.2)
+Fig. 1  (a) Graphical summary of the developed model illustrating the electrode/electrolyte interface under cathodic (left) and anodic (right) potentials. The blue and red curves represent cation and anion concentrations, respectively, in relation to the electrode potential (indicated by the color bar at the top). The background shading reflects the relative permittivity distribution, with corresponding values shown in the color bar. Impedance is calculated based on the permittivity and conductivity in each layer, modeled as a series of parallel RC circuits depicted at the top of the image. (b) Differential capacitance and surface charge density predicted by the developed model. (c) Profiles of permittivity and conductivity at different electrode potentials, demonstrating spatial variations at interface. Model parameter value indicated in table 2.
+
+On the solvent side, water molecules within the Helmholtz layer align under the influence of the intense local electric field (1–10 V/nm)[23], leading to permittivity saturation in this region (more information is provided in SI section 1.1). As shown in Figure 1a, the relative permittivity is in its minimum within the Stern layer. As the distance from the electrode increases, the electric field weakens, leading to a gradual rise in permittivity toward the bulk electrolyte.[23, 25].
+
+Beyond the Helmholtz layer, the interface transitions into a compact layer where ion concentration reaches a maximum, $C_{\text{max}}$, constrained by steric effects and determined by the hydration radii of the ions (more information is provided in SI section 1). The permittivity in this region follows a similar trend to that of the Helmholtz layer, increasing as the electric field weakens. Following the compact layer, a diffuse layer...
+extends into the electrolyte, where ion concentration progressively decreases toward the bulk solution. In this interfacial regions, the electric field declines sharply, and the solvent permittivity recovers to its unsaturated bulk value. Moving away from the interfacial region, the bulk electrolyte is present, where ion concentrations stabilize at their bulk equilibrium value, $C_0$.
+
+Figure 1b illustrates the differential capacitance and surface charge density as functions of electrode potential. The model successfully reproduces the characteristic camel-shaped differential capacitance curve observed in dilute electrolytes [26–28]. At low potentials, capacitance increases as the electric field enhances ion accumulation near the electrode. As the potential rises further, the capacitance reaches a peak before declining, forming the characteristic “hump” of the camel curve. This behavior arises from the saturation of ion density near the electrode and the associated reduction in the local dielectric constant. Notably, the hump at positive potentials is more pronounced than at negative potentials, as anions can approach the electrode more closely than cations due to differences in hydration properties.
+
+Encouraged by the success of the refined GCS model in comprehensively capturing the steady-state structure of the EDL, we extend our analysis to simulate its impedance response. EIS is performed by introducing a small-amplitude AC perturbation around the steady-state condition, ensuring that the system remains within the linear regime and that the perturbation does not significantly alter the interfacial structure [29]. Under these conditions, the electrochemical impedance, $Z_{EDL}$, can be formulated using a circuit-based approach, representing the interface as a series of well-defined layers. Each layer contributes to the overall impedance through passing of non-Faradaic current by ionic conduction (resistive behavior) and/or displacement conduction (capacitive behavior).
+
+The specific capacitance of each layer can be determined based on the relative permittivity of each layer, obtained from the steady-state model, while the ionic conductivity of each layer is related to both ionic concentration and the mobility of ions within that specific layer. As demonstrated in the steady-state modeling, ion concentration varies significantly across different regions of the interface. In regions of high ionic concentration, the intense local electric field and reduced intermolecular spacing lead to a decline in the number of free ions available for conduction, as short-range interactions become increasingly significant [30]. Additionally, ion mobility is further reduced due to ion–ion collisions and other short-range interactions [31]. Consequently, the resistance to ion transport rises sharply, leading to a decrease in conductivity with increasing ion concentration. (more information is provided in SI section 2.1)
+
+Figure 1c shows the profiles of ionic conductivity and relative permittivity at the interface, as simulated , under varying potentials. At higher potentials, permittivity saturation is observed due to the strong electric field. The ionic conductivity is zero in the Helmholtz and compact layers, attributed to the absence of ions and lack of mobility, respectively. At lower potentials, the ionic concentration does not reach levels that significantly impact mobility, and the permittivity does not saturate, which is consistent with the underlying physico-chemical processes at interface.
+Impedance Non-ideality at Low Frequency: A Revised Insight into the Origin of the CPE
+
+The solid/electrolyte interface often exhibits non-ideal capacitive behavior at low frequencies, commonly described by a constant phase element (CPE)[32]. Despite its ubiquitous presence in electrochemical systems, the fundamental origin of CPE behavior remains a subject of debate. Conventional explanations typically attribute capacitance dispersion to non-uniform current distribution caused by surface roughness, or to spatial variations in interfacial resistance and capacitance arising from surface heterogeneities—including differences in crystallographic orientation, defects, porosity, and even experimental cell design (e.g., Hull cell configurations)[33–35]. While these factors may contribute to time constant dispersion, their influence predominantly manifests at higher frequencies and does not fully account for the observed CPE behavior. Similarly, spatial variations in charge-transfer kinetics across the electrode surface provide only a minor contribution to impedance dispersion[32].
+
+In contrast to these surface-based interpretations, our model proposes a fundamentally different mechanism: CPE behavior originates from the non-uniform distribution of resistance and capacitance extending into the bulk electrolyte. It has been demonstrated that under certain conditions, a distribution of time constants arises as a direct consequence of coupled spatial variations in conductivity and permittivity, leading to non-ideal CPE behavior[36, 37] in certain range of frequency.
+
+It is important to note that while additional aspects of the interface, such as ion-surface interactions or ion-solvent interactions that influence the distribution of relative permittivity, could be incorporated into the model, these were not included to avoid unnecessary complexity. Although the distribution of resistance and capacitance across the interface is not the sole cause of CPE behavior, it provides a plausible explanation for the presence of CPE even in atomically flat blocking electrodes within the double-layer potential window.
+
+Figure 2a illustrates the characteristic frequency ($f_c = \frac{1}{\tau} = \frac{1}{RC}$) as a function of distance from the electrode under various applied potentials. At the electrode surface, $f_c$ is initially zero, indicating purely capacitive behavior in the absence of free ions within the Helmholtz layer. Notably, within this region, the relative permittivity is at its lowest due to the highly ordered alignment of water molecules under the intense local electric field. As the system transitions into the compact layer, $f_c$ remains near zero, as ion conduction is still negligible due to the scarcity of free ions. In this layer, the relative permittivity gradually increases as the electric field weakens across the Helmholtz and compact layers. Upon reaching the diffusion layer, $f_c$ begins to rise due to the increasing presence of mobile ions, peaking in the megahertz range where ionic conduction is most pronounced. Therefore, a CPE behavior can be expected across the frequency range from zero to megahertz due to the coupled distribution of conductivity and permittivity in the compact and diffusion layers. Beyond this peak, $f_c$ decreases as ion concentration declines, reducing the number of charge carriers available for conduction. In the bulk electrolyte, $f_c$ stabilizes at a value dictated by the ionic conductivity of the electrolyte and the bulk permittivity of the solvent. At frequencies beyond this point, EIS ceases to provide information on interfacial ion
+dynamics, as the impedance response becomes predominantly governed by the intrinsic dielectric properties of the solvent—water in this case.
+
+At low potentials relative to the point of zero charge (PZC), the characteristic distribution of time constants in low frequency is absent. Only when the applied potential surpasses a critical threshold—leading to the formation of a compact layer—does the emergence of CPE behavior become evident. Figure 2b presents the impedance response calculated using our model across different electrode potentials. Near the PZC, CPE behavior is not observed, as neither permittivity nor conductivity exhibit saturation. However, as the potential increases and ion concentration reaches levels where conductivity becomes maximized, the onset of CPE behavior occurs.
+
+Figure 2c further illustrates the effect of electrode potential on the CPE parameter. Around the PZC, the system behaves as an ideal capacitor, but as the potential increases, the deviation from ideal capacitive behavior grows, leading to a more
+pronounced CPE response. At sufficiently high potentials, the non-uniformity in conductivity extends further from the electrode due to the thickening of the compact layer, while permittivity saturation remains confined to this region (Figure 1e). As a result, the spatial separation between the regions of conductivity and permittivity non-uniformity increases, gradually restoring a more ideal capacitive behavior.
+
+The CPE value is influenced by the formation of the compact layer and the mobility saturation effect arising from the finite size of ions. Figure 2d presents the predicted CPE values as a function of the hydration shell radius of cations. The model predicts that larger hydration shell sizes lead to greater deviations from ideal capacitive behavior, as increased ion size enhances spatial heterogeneity in both conductivity and permittivity, reinforcing the CPE effect. This trend is consistent with experimental observations: as illustrated in Figure 2d, the non-ideality for lead ions is more pronounced than for cadmium, which in turn exhibits greater non-ideality than zinc.
+
+**Frequency-Dependent Behavior of the EDL: Influence of Ion-Specific Properties**
+
+As discussed earlier, the structure of the EDL is strongly influenced by the intrinsic properties of ions. While some properties primarily affect the steady-state behavior of the EDL, many others—such as ion mobility-related parameters—manifest predominantly in AC impedance characteristics.
+
+The general behavior of electrochemical impedance exhibits non-ideal capacitive characteristics at low frequencies and resistive behavior at high frequencies. At low frequencies, the capacitive response arises from the high time constants of the Helmholtz and compact layers, followed by a decreasing time constant in the diffusion layer. This results in a high CPE impedance at low frequencies. In this regime, the impedance contribution of layers with lower time constants is overshadowed by the dominant effect of the Helmholtz and compact layers, making their influence negligible in the total impedance. On the other hand, at high frequencies, the oscillation period becomes much shorter than the interfacial time constants, causing the interface to behave as a short circuit. As a result, its impedance becomes negligible compared to the bulk electrolyte resistance, which dominates the total impedance, leading to the observed resistive behavior at high frequencies.
+
+Our model predicts that in the transition region between low and high frequencies, the diffusion layer time constant falls within a range where the distribution of time constants significantly influences the impedance transition. This intermediate frequency range marks the gradual shift from capacitive to resistive behavior, governed by the interplay between interfacial ion dynamics. The nature of this transition is highly dependent on ion properties such as ionic radius, hydration shell radii, and mobility, which dictate how ions respond to the applied AC perturbation.
+
+Figure 3a&b models the impact of the mobility saturation on the impedance response for ions of the same hydration shell size. While this parameter is closely related to ion size, it is also affected by ion-solvent and ion-ion interactions. By varying this parameter, the steady-state properties remain unchanged, as the collision parameter influences only the dynamic impedance behavior. Therefore, at low frequencies, the impedance response is unaffected by, as this regime primarily reflects...
+Fig. 3 (a) Bode plot and (b) phase plot illustrating the effect of the collision factor on interface impedance. The collision factor primarily influences the transition region between the capacitive behavior of the EDL and the resistive behavior of the bulk region. (c) Bode plot and (d) phase plot of experimental impedance data for 10 mM Zinc, Cadmium, and Lead nitrate solutions, demonstrating trends consistent with model predictions.
+
+the properties of the Helmholtz and compact layers. However, the effect of it becomes evident during the transition from capacitive to resistive behavior, where it influences the time constants in the diffusion region. In the high-frequency regime, again mobility saturation has no impact on the resistive part of the impedance, as this region is dominated by bulk properties.
+
+Empirical results for Pb(NO$_3$)$_2$, Cd(NO$_3$)$_2$ and Zn(NO$_3$)$_2$, provided in figure 3c&d support these findings. Despite their close ionic radii, lead, zinc and cadmium exhibit distinct impedance behaviors. This difference cannot be attributed to mobility $\mu$ alone, as the bulk layer impedance (high-frequency regime) is identical for the ions. Additionally, it is not due to ion adsorption or ion-electrode interactions, since the low-frequency impedance (Helmholtz and compact layers) is also similar.
+The differences observed in the behavior of both modeled and measured EIS for different ions at the transition frequency (depicted in figure 3), despite the close ionic radii, suggest that factors beyond size and basic mobility are influencing the overall impedance response. Variations in ion-solvent interactions, as well as differences in how ions interact with the solvent or other ions in the solution, likely affect the effective mobility. These interactions can significantly impact the impedance behavior, dominantly in transition region.
+
+Although ion-dependent behavior is not entirely unique to each individual ion, it is clear that ion-specific properties, namely bare ion and hydration shell size, ion charge, ion pairing and solvation dynamics and ion-solvent interaction[38], significantly influence the interface's behavior in the frequency domain. This underscores the potential of leveraging impedance response as a powerful tool for identifying ion types and measuring their concentrations in a solution.
+
+**AI-Assisted Ion Detection and Quantification via EIS**
+
+To experimentally validate our model’s predictions on ion fingerprinting using EIS, we conducted over 500 EIS measurements across a diverse range of electrolyte compositions. This dataset encompasses EIS data for various ions, ion combinations, and concentrations, providing a comprehensive foundation for assessing model performance.
+
+Unlike DC methods, our AC-based sensor demonstrated strong stability over extended measurement periods, as anticipated. This stability was confirmed by consistent results across three independent measurements for each sample, highlighting the sensor’s reliability and precision. (Figures 3c and 3d showcase examples of the measured EIS spectra) Additionally, measurements of distilled water taken before and after each experiment showed minimal variation, indicating excellent baseline stability and reusability of the sensor. (figure 4a) This consistent baseline response underscores the robustness of the sensor, with any deviations in the impedance response being negligible. Over the span of 250 days, no significant sensor degradation or fouling was observed, even with minimal maintenance limited to rinsing with DI water. This long-term stability highlights the sensor’s potential for continuous monitoring applications, where durability and consistent performance are critical.
+
+While the developed model successfully identified ion-specific fingerprints at the electrode-electrolyte interface, facilitating their detection via EIS, extracting detailed information regarding electrolyte composition from the impedance response posed significant challenges. This complexity arises from the fact that the relevant compositional information is embedded within the intricate features of the impedance spectra, particularly when multiple ions are present, complicating direct interpretation.
+
+To overcome this interpretive challenge, we developed an AI-assisted data interpretation system employing a neural network-based machine learning (ML) model. This model predicts the concentrations of specific ions within the electrolyte based on EIS measurements. Figure 4b illustrates the distribution of prediction errors and the corresponding confusion matrices for various ions. As depicted, 85% of the prediction errors fall below 20%, demonstrating strong predictive performance. The confusion
+matrices reveal a maximum misclassification rate of less than 5%, indicating high model accuracy in distinguishing between different ions.
+
+The performance of the ML model across different concentration levels is presented in Figure 4c. For the 100 nM concentration range—equivalent to parts-per-billion (ppb) levels of ion concentration, typical for heavy metal ion (HMI) contamination in drinking water or body fluids—75% of the prediction errors are below 50%, with an average error of less than 10%. The higher error in this concentration range is primarily due to the contamination levels being comparable to or even lower than the intrinsic concentration of water ions (H$^+$ and OH$^-$), which dominate the interfacial structure. Additionally, measurement errors are more pronounced in this range, as the potentiostat exhibits greater inaccuracies at higher impedance levels. In the 10 µM concentration range, corresponding to parts-per-million (ppm) levels—typical for wastewater disposal or industrial processes—the model’s performance improves significantly. Here, 75% of the prediction errors are below 30%, with an average error of around 10%, reflecting better accuracy at mid-range concentrations. For the 10 mM
+concentration range, 75% of the errors remain below 50%, with the average error consistently around 10%. The relatively higher error at this concentration, compared to the mid-range, may be attributed to the reduced interface thickness at higher ion concentrations. As a result, bulk solution properties begin to dominate over interfacial effects in influencing the impedance response, leading to less precise predictions.
+
+Figure 4d illustrates the model’s performance across different ions, showing a consistent error distribution irrespective of ion type. In all cases, 75% of prediction errors fall below 30%, and the average error remains under 10%, highlighting the model’s robustness across varying ionic species.
+
+Conclusion
+
+This study presents a transformative approach to electrochemical impedance spectroscopy (EIS), advancing it from a traditionally empirical technique to a robust, predictive tool for real-time ion sensing. By developing a first-principles model that links electrode/electrolyte interfacial processes to impedance responses, we have provided a deeper understanding of the physico-chemical dynamics governing EIS behavior. Our model not only accurately predicts differential capacitance and explains non-ideal impedance behaviors such as the constant phase element (CPE) but also reveals fundamental correlations between ion properties and impedance spectra.
+
+While EIS has traditionally been considered an unreliable and insufficiently sensitive technique, this study demonstrates that its reproducibility falls within an acceptable range, challenging common misconceptions about its limitations. We show that the non-ideal behavior observed in EIS, which deviates from simple equivalent circuit models, originates from fundamental electrode/electrolyte interactions. These interactions, rather than being limitations, provide valuable insights into interfacial processes, revealing previously overlooked information that can enhance analytical performance.
+
+Experimental validation using over 500 EIS measurements across diverse ion compositions and concentrations confirmed the model’s predictive accuracy. Furthermore, the integration of machine learning algorithms enabled precise extraction of ion concentrations from impedance data, achieving high accuracy with reproducibility errors consistently below 3.5% over 250 days. This AI-assisted approach demonstrated remarkable performance in distinguishing between different ions and accurately predicting their concentrations across various ranges, from parts-per-billion to parts-per-thousand levels.
+
+The implications of this work are significant for environmental monitoring, water quality assessment, and biomedical diagnostics. By redefining EIS as a quantitative, real-time sensing tool, our approach offers a cost-effective, rapid, and non-invasive alternative to traditional analytical methods. The robustness and long-term stability of the developed sensor underscore its potential for widespread application in diverse real-world scenarios.
+
+Future research can explore enhancements in selectivity and sensitivity through modifications in electrode materials, surface functionalization, and advanced signal processing techniques. Additionally, expanding the model to incorporate more complex
+ion-solvent interactions and multi-ion systems could further broaden the applicability of this innovative EIS-based sensing methodology.
+
+Methods
+
+Model Development
+
+The EIS model was developed using a steady-state/perturbation approach. A modified GCS model was derived for electrified electrode/electrolyte interfaces using continuum models based on local free energy functionals. These models account for non-uniform dielectric constants $\epsilon_r(\phi)$, ion size effects, and variable ion-surface interactions $\psi(x)$.
+
+Our approach closely follows the methodology in Ref. [21], though it is quite generic and align with various similar approaches found in the literature.
+
+The GCS model is driven by minimizing the local free energy, expressed as:
+
+$$
+F[\rho_{\text{ions}}(x), \phi(x), \psi(x), c_i(x)] = \int \left[ -\frac{\epsilon_r}{8\pi} |\nabla \phi(x)|^2 + \rho_{\text{ions}}(x)\phi(x) + \sum_{i=1}^{p} c_i(x)\psi(x) - \sum_{i=1}^{p} \mu_i(c_i(x) - c_i^0(x)) - T(s[c_i(x)] - s[c_i^0(x)]) \right] dx \quad (1)
+$$
+
+Here, $x$ represents the distance from the electrode surface. The first two terms describe the electrostatic interactions created by the electric potential $\phi(x)$ and the ionic charge density $\rho_{\text{ions}}(x) = \sum_{i=1}^{p} c_i(x)z_i$, where $z_i$ and $c_i$ denote the ion charge and concentration, respectively. The third term captures the interaction of the external potential $\psi_i(x)$ with the ions, which can simulate repulsive forces (e.g., Helmholtz layer) or attractive forces (e.g., ion-surface interactions).
+
+The fourth term introduces a grand canonical description of the ions by incorporating their chemical potential $\mu_i$. The final term represents the entropic contribution to the free energy, where $s$ is the entropy density.
+
+By inserting the entropy density from a lattice gas model, ion size effects are introduced, with the maximum ion density defined by $c_{\text{max}}$, determined by the ion's hydration shell size.
+
+Minimizing the free energy $F$ with respect to $\phi(x)$ yields the modified Poisson-Boltzmann equation:
+
+$$
+\nabla (\epsilon_r \nabla \phi(x)) + 4\pi \sum_{i=1}^{p} z_ic_i(\phi(x)) = 0 \quad (2)
+$$
+
+This second-order differential equation is solved numerically for varying electrode potentials. Numerical solutions provide the electric potential, electric field, dielectric constant, and ion distribution as functions of the distance from the electrode. The model’s results depend on the parameters defined in the free energy expression, with detailed parameter information provided in the supplementary information.
+The differential capacitance can be calculated based on electrode potential and charge density on surface using the gauss law as follow:
+
+\[ Q_{\text{free}} = \oint_{s} \epsilon E \, dA \] (3)
+
+To simulate the EIS response of the interface, the DC permittivity profile was extracted from the mean-field model, which relates to the electric field strength and solvent molecule alignment at varying distances from the electrode. Using the relative permittivity and ion concentration from the GCS model, impedance was calculated based on displacement and ionic conductivity.
+
+In dilute solutions, the electrolyte solution conductivity is the sum of individual ion conductivities, expressed as:
+
+\[ \sigma = \mu m^n \exp(-Bm) \] (4)
+
+Here, \( \sigma \) denotes conductivity, \( m \) for ion concentration, and \( \mu \) is the ion mobility. In highly concentrated regions, high electric fields and close ion proximity reduce the number of free ions contributing to conduction. Besides, ion mobility, the average ion speed per unit electric field, results from the balance between external electric field forces and ion movement resistance, including ion-ion, ion-solvent, and solvent-solvent interactions. As electrolyte concentration increases, molecular distances shrink, intensifying short-range interactions and increasing resistance, thus reducing ion mobility. This behavior is captured by the exponential decline in conductivity.
+
+Using the permittivity profile and conductivity from Eqs. 4, an RC model was employed to extract the EIS response. The interface impedance is expressed as:
+
+\[ Z = \int_{x=0}^{x=\infty} \frac{dx}{\sigma(x) + j\epsilon(x)} \] (5)
+
+Complete details on model parameters and functional forms are provided in the supplementary information.
+
+**Electrochemical measurement**
+
+Experimental EIS data were collected using a two-electrode system. Platinum interdigital electrodes were designed and fabricated on a silicon chip with a silicon nitride isolation layer. The electrodes were deposited using a physical vapor deposition (PVD) method, achieving a flat surface with a roughness of approximately 5 nm. The interdigital configuration increased the effective surface area, and the electrode spacing was set at 10 \( \mu \)m to minimize bulk impedance effects.
+
+Electrolytes were prepared by dissolving lead, cadmium, and zinc salts (\( \text{Pb(NO}_3\text{)}_2 \), \( \text{Cd(NO}_3\text{)}_2 \), \( \text{Zn(NO}_3\text{)}_2 \), \( \text{PbCl}_2 \), \( \text{CdCl}_2 \), \( \text{ZnCl}_2 \), \( \text{CdSO}_4 \) and \( \text{ZnSO}_4 \geq 99\% \), Sigma-Aldrich) in Milli-Q (MQ) water, yielding concentrations of 100 nM, 10 \( \mu \)M, and 10 mM.
+
+EIS measurements were conducted under open-circuit potential (OCP) conditions using a VSP300 potentiostat (Bio-Logic) housed within a Faraday cage equipped with a temperature control unit to minimize environmental noise. Prior to each measurement, a 15-minute stabilization period at OCP was employed to ensure steady-state
+conditions. MQ water EIS responses were recorded before and after each measurement to verify electrode integrity and confirm the absence of contamination or surface modification. Detailed measurement procedures are provided in the Supplementary Information.
+
+Electrochemical measurements for CPE behavior as a function of electrode potential were performed using an SP-200 potentiostat (Bio-Logic). A vertical electrochemical cell with a 3.5 cm$^2$ opening area (Redox.me) was employed. The working electrode consisted of a polycrystalline gold electrode with a (111) orientation (1.1 × 1.1 cm$^2$, Arrandee). A platinum wire served as the counter electrode, and a saturated Ag/AgCl leakless electrode (ET072, Edaq) was used as the reference electrode. The working and counter/reference electrodes were housed in separate compartments of the electrochemical cell.
+
+The electrolytes for constant phase element (CPE) measurements were prepared by dissolving potassium chloride (KCl, ≥ 99%, Sigma-Aldrich) in ultrapure water (≥ 18.2 MΩ, Milli-Q). Prior to use, the electrochemical cell was cleaned by sonication in isopropanol (IPA) for 15 minutes, followed by thorough rinsing with ultrapure water.
+
+Differential capacitance measurements were conducted using single potential electrochemical impedance spectroscopy (SPEIS) within a potential range from –0.2 V to 0.8 V versus Ag/AgCl. The measurements were performed over a frequency range of 0.5 to 10 Hz with a potential amplitude of 10 mV. CPE values were extracted by fitting the impedance data to a CPE model.
+
+**AI-assisted ion detection**
+
+The dataset comprises 536 valid samples, with solute concentrations ranging from 100 nM to 10 mM. Solutions included single, binary, and ternary solute compositions to ensure diverse impedance profiles. To facilitate machine learning-based prediction, both solute types and concentrations were encoded numerically. Cations and anions were assigned indices: Zn$^{2+}$: 0, Cd$^{2+}$: 1, Pb$^{2+}$: 2, NO$_3^-$: 3, Cl$^-$: 4, SO$_4^{2-}$: 5. Concentration values were normalized using a logarithmic transformation:
+
+$$c_{nor} = \begin{cases} 
+\log(c) & \text{if } c > 0, \\
+-20 & \text{otherwise}, 
+\end{cases}$$
+
+To prepare EIS data for machine learning, we employed a multi-step preprocessing approach. Initially, the impedance values were transformed into a complex logarithmic form, $X = \log[\text{Re}(Z)] + i\log[\text{Im}(Z)]$. To make the data distribution more Gaussian-like and facilitate feature extraction, a Power Transformer function was applied, which enhanced the distinction between samples. The normalized data were then subjected to Fourier transformation to emphasize frequency-domain characteristics pertinent to solute composition differentiation. Subsequently, principal component analysis (PCA) was performed to reduce dimensionality, with the top 20 principal components—accounting for 99.99% of variance—selected as input features for the machine learning model.
+
+A multi-layer perceptron (MLP) was employed to predict ion types and concentrations from the processed EIS data. The dataset was randomly divided into training
+(90%) and testing (10%) subsets. The model was trained using the Adam optimizer with a learning rate of 0.001 over 40,000 epochs. Training was performed on a CPU, with a total runtime of approximately 5 minutes.
+
+Further methodological details are provided in the Supplementary Information.
+
+Acknowledgments. This study was partially funded by the Allowance for Top Consortia for Knowledge and Innovation (TKIs) of the Ministry of Economic Affairs. Additionally, this work was supported by Hypersoniq B.V.
+
+Contribution. P. Taheri, J.M.C. Mol, and M. Ahmadi guided the overall research project. P. Taheri, M. Ahmadi, and P.S. Bäuerlein conceived the research. M. Ahmadi designed and developed the sensor used in the study. Y. Guo designed and implemented the machine learning prediction model under the supervision of S. Kumar. R. Streefland conducted the experimental data collection. A. Mohseni designed the theoretical model, performed the theoretical analysis, designed the experiments, and wrote the manuscript with input from all authors. All authors contributed to drafting the manuscript and interpreting the data.
+
+Competing interest. P. Taheri and M. Ahmadi are inventors of a patent application (European Patent, application no. P133617EP00, EP4260053A2) related to component measurement in fluids using impedance spectroscopy. All remaining authors declare no competing interests.
+References
+
+[1] Schwarzenbach, R.P., Egli, T., Hofstetter, T., Gunten, U., Wehrli, B.: The challenge of micropollutants in aquatic systems. Science 313, 1072–1077 (2006) https://doi.org/10.1126/science.1127291
+
+[2] Bansod, B., Kumar, T., Thakur, R., Rana, S., Singh, I.: A review on various electrochemical techniques for heavy metal ions detection with different sensing platforms. Biosensors and Bioelectronics 94, 443–455 (2017) https://doi.org/10.1016/j.bios.2017.03.031
+
+[3] Atkinson, J.T., Su, L., Zhang, X., et al.: Real-time bioelectronic sensing of environmental contaminants. Nature 611, 548–553 (2022) https://doi.org/10.1038/s41586-022-05356-y
+
+[4] Kim, J., Campbell, A.S., Ávila, B.E.F., et al.: Wearable biosensors for healthcare monitoring. Nature Biotechnology 37, 389–406 (2019) https://doi.org/10.1038/s41587-019-0045-y
+
+[5] Lahari, S.A., Kumawat, N., Amreen, K., et al.: Iot integrated and deep learning assisted electrochemical sensor for multiplexed heavy metal sensing in water samples. npj Clean Water 8, 10 (2025) https://doi.org/10.1038/s41545-025-00441-x
+
+[6] Romele, P., Gkoupidenis, P., Koutsouras, D.A., et al.: Multiscale real-time and high-sensitivity ion detection with complementary organic electrochemical transistor amplifier. Nature Communications 11, 3743 (2020) https://doi.org/10.1038/s41467-020-17547-0
+
+[7] Sempionatto, J.R., Lasalde-Ramírez, J.A., Mahato, K., et al.: Wearable chemical sensors for biomarker discovery in the omics era. Nature Reviews Chemistry 6, 899–915 (2022) https://doi.org/10.1038/s41570-022-00439-w
+
+[8] Russo, M.J., Han, M., Desroches, P.E., Manasa, C.S., Dennaoui, J., Quigley, A.F., Kapsa, R.M.I., Moulton, S.E., Guijt, R.M., Greene, G.W., Silva, S.M.: Antifouling strategies for electrochemical biosensing: Mechanisms and performance toward point of care based diagnostic applications. ACS Sensors 6(4), 1482–1507 (2021) https://doi.org/10.1021/acssensors.1c00390
+
+[9] Barhoum, A., Hamimed, S., Slimi, H., Othmani, A., Abdel-Haleem, F.M., Bechelany, M.: Modern designs of electrochemical sensor platforms for environmental analyses: Principles, nanofabrication opportunities, and challenges. Trends in Environmental Analytical Chemistry 38, 00199 (2023) https://doi.org/10.1016/j.teac.2023.e00199
+
+[10] Vivier, V., Orazem, M.E.: Impedance analysis of electrochemical systems. Chemical Reviews 122(12), 11131–11168 (2022) https://doi.org/10.1021/acs.chemrev.1c00876
+[11] Wu, J.: Understanding the electric double-layer structure, capacitance, and charging dynamics. Chemical Reviews 122(12), 10821–10859 (2022) https://doi.org/10.1021/acs.chemrev.2c00097
+
+[12] Xue, S., Garlyyev, B., Auer, A., Kunze-Liebhäuser, J., Bandarenka, A.S.: How the nature of the alkali metal cations influences the double-layer capacitance of cu, au, and pt single-crystal electrodes. The Journal of Physical Chemistry C 124(23), 12442–12447 (2020) https://doi.org/10.1021/acs.jpcc.0c01715
+
+[13] Li, L., Liu, Y.-P., Le, J.-B., Cheng, J.: Unraveling molecular structures and ion effects of electric double layers at metal water interfaces. Cell Reports Physical Science 3(2), 100759 (2022) https://doi.org/10.1016/j.xcrp.2022.100759
+
+[14] Ojha, K., Doblhoff-Dier, K., Koper, M.T.M.: Double-layer structure of the pt(111)–aqueous electrolyte interface. Proceedings of the National Academy of Sciences of the United States of America 119(3), 216016119 (2022) https://doi.org/10.1073/pnas.2116016119
+
+[15] Xue, S., Chaudhary, P., Nouri, M.R., Gubanova, E., Garlyyev, B., Alexandrov, V., Bandarenka, A.S.: Impact of pt(hkl) electrode surface structure on the electrical double layer capacitance. Journal of the American Chemical Society 146(6), 3883–3889 (2024) https://doi.org/10.1021/jacs.3c11403
+
+[16] Shin, S.J., Kim, D.H., Bae, G., et al.: On the importance of the electric double layer structure in aqueous electrocatalysis. Nature Communications 13, 174 (2022) https://doi.org/10.1038/s41467-021-279
+
+[17] Gaberšček, M.: Understanding li-based battery materials via electrochemical impedance spectroscopy. Nature Communications 12, 6513 (2021) https://doi.org/10.1038/s41467-021-26894-5
+
+[18] Lukács, Z., Kristóf, T.: A generalized model of the equivalent circuits in the electrochemical impedance spectroscopy. Electrochimica Acta 363, 137199 (2020) https://doi.org/10.1016/j.electacta.2020.137199
+
+[19] Mei, B.-A., Munteshari, O., Lau, J., Dunn, B., Pilon, L.: Physical interpretations of nyquist plots for edlc electrodes and devices. The Journal of Physical Chemistry C 122(1), 194–206 (2018) https://doi.org/10.1021/acs.jpcc.7b10582
+
+[20] Maradesa, A., Py, B., Huang, J., Lu, Y., Iurilli, P., Mrozinski, A., Law, H.M., Wang, Y., Wang, Z., Li, J., Xu, S., Meyer, Q., Liu, J., Brivio, C., Gavrilyuk, A., Kobayashi, K., Bertei, A., Williams, N.J., Zhao, C., Danzer, M., Zic, M., Wu, P., Yrjänä, V., Pereverzyev, S., Chen, Y., Weber, A., Kulinin, S.V., Schmidt, J.P., Tsur, Y., Boukamp, B.A., Zhang, Q., Gaberšček, M., O’Hayre, R., Ciucci, F.: Advancing electrochemical impedance analysis through innovations in the distribution of relaxation times method. Joule 8(7), 1958–1981 (2024) https://doi.org/10.1016/j.joule.2024.05.008
+[21] Doblhoff-Dier, K., Koper, M.T.M.: Modeling the gony–chapman diffuse capacitance with attractive ion–surface interaction. The Journal of Physical Chemistry C 125(30), 16664–16673 (2021) https://doi.org/10.1021/acs.jpcc.1c02381
+
+[22] Li, C.-Y., Le, J.-B., Wang, Y.-H., et al.: In situ probing electrified interfacial water structures at atomically flat surfaces. Nature Materials 18, 697–701 (2019) https://doi.org/10.1038/s41563-019-0356-x
+
+[23] Le, J.-B., Fan, Q., Li, J., Cheng, J.-B.: Molecular origin of negative component of helmholtz capacitance at electrified pt(111)/water interface. Science Advances 6(44), 1219 (2020) https://doi.org/10.1126/sciadv.abb1219
+
+[24] Ilgen, A.G., Borguet, E., Geiger, F.M., et al.: Bridging molecular-scale interfacial science with continuum-scale models. Nature Communications 15, 5326 (2024) https://doi.org/10.1038/s41467-024-49598-y
+
+[25] Funagalli, L., Esfandiar, A., Fabregas, R., Hu, S., Ares, P., Janardanan, A., Yang, Q., Radha, B., Taniguchi, T., Watanabe, K., Gomila, G., Novoselov, K.S., Geim, A.K.: Anomalously low dielectric constant of confined water. Science 360, 1339–1342 (2018) https://doi.org/10.1126/science.aat4191
+
+[26] Gu, C., Yin, L., Li, S., Zhang, B., Liu, X., Yan, T.: Differential capacitance of ionic liquid and mixture with organic solvent. Electrochimica Acta 367, 137517 (2021) https://doi.org/10.1016/j.electacta.2020.137517
+
+[27] López-García, J.J., Horno, J., Grosse, C.: Differential capacitance of the diffuse double layer at electrode-electrolyte interfaces considering ions as dielectric spheres: Part i. binary electrolyte solutions. Journal of Colloid and Interface Science 496, 531–539 (2017) https://doi.org/10.1016/j.jcis.2017.02.043
+
+[28] Wang, X., Liu, K., Wu, J.: Demystifying the stern layer at a metal-electrolyte interface: Local dielectric constant, specific ion adsorption, and partial charge transfer. The Journal of Chemical Physics 154(12), 124701 (2021) https://doi.org/10.1063/5.0043963
+
+[29] Wang, S., Zhang, J., Gharbi, O., et al.: Electrochemical impedance spectroscopy. Nature Reviews Methods Primers 1, 41 (2021) https://doi.org/10.1038/s43586-021-00039-w
+
+[30] Yamada, Y., Wang, J., Ko, S., et al.: Advances and issues in developing salt-concentrated battery electrolytes. Nature Energy 4, 269–280 (2019) https://doi.org/10.1038/s41560-019-0336-z
+
+[31] Kalikin, N.N., Budkov, Y.A.: Modified debye–hückel–onsager theory for electrical conductivity in aqueous electrolyte solutions: Account of ionic charge nonlocality. The Journal of Chemical Physics 161(17), 174502 (2024) https://doi.org/10.1063/5.0231958
+[32] Lasia, A.: The origin of the constant phase element. The Journal of Physical Chemistry Letters 13(2), 580–589 (2022) https://doi.org/10.1021/acs.jpclett.1c03782
+
+[33] Pajkossy, T., Jurczakowski, R.: Electrochemical impedance spectroscopy in interfacial studies. Current Opinion in Electrochemistry 1(1), 53–58 (2017) https://doi.org/10.1016/j.coelec.2017.01.006
+
+[34] Jorcin, J.-B., Orazem, M.E., Pèbère, N., Tribollet, B.: Cpe analysis by local electrochemical impedance spectroscopy. Current Opinion in Electrochemistry 1(1), 56–63 (2017) https://doi.org/10.1016/j.coelec.2017.01.006
+
+[35] Córdoba-Torres, P.: Relationship between constant-phase element (cpe) parameters and physical properties of films with a distributed resistivity. Electrochimica Acta 225, 592–604 (2017) https://doi.org/10.1016/j.electacta.2016.12.087
+
+[36] Musiani, M., Orazem, M.E., Pèbère, N., Tribollet, B., Vivier, V.: Constant-phase-element behavior caused by coupled resistivity and permittivity distributions in films. Journal of The Electrochemical Society 158(12), 424 (2011) https://doi.org/10.1149/2.039112jes
+
+[37] Hirschorn, B., Orazem, M.E., Tribollet, B., Vivier, V., Frateur, I., Musiani, M.: Constant-phase-element behavior caused by resistivity distributions in films: I. theory. Journal of The Electrochemical Society 157(12), 452–457 (2010) https://doi.org/10.1149/1.3499564
+
+[38] Zhang, W., Chen, X., Wang, Y., Wu, L., Hu, Y.: Experimental and modeling of conductivity for electrolyte solution systems. ACS Omega 5(35), 22465–22474 (2020) https://doi.org/10.1021/acsomega.0c03013

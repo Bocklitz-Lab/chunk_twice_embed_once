@@ -1,0 +1,435 @@
+Dynamic Sorption and Interfacial Assembly of Polysaccharide on Hydrophobic v. Hydrophilic Surfaces
+
+Behrooz Azimzadeh, Carmen Enid Martinez*
+
+Soil and Crop Sciences, School of Integrative Plant Science, College of Agriculture and Life Sciences, Cornell University, Ithaca, New York 14853, USA
+
+*Corresponding author: Carmen Enid Martínez, Soil and Crop Sciences, School of Integrative Plant Science, College of Agriculture and Life Sciences, Cornell University, Ithaca, New York 14853, USA Tel: +1 (607) 255-0895, Email: cem20@cornell.edu
+
+Keywords: biomolecule, water/mineral interfaces, organo-mineral association, hydrophobicity, conformational change, 2D-COS, noncovalent interactions, wettability
+
+Synopsis: Findings highlight how surface chemistry drives the sequential and discrete zonal adsorption of polysaccharide chains on mineral surfaces, where the nature of the functional group dictates their adsorption behavior and spatial arrangement.
+Abstract
+
+The molecular structure and wettability of a surface plays a major role in dissolved organic matter (DOM) adsorption-desorption dynamics at water/solid interfaces. We studied the retention dynamics of a model DOM (i.e., a polysaccharide) at the water/diamond and water/goethite interface. In-situ adsorption-desorption experiments were conducted to probe the interfacial dynamicity of sorbed polysaccharide (PS) and its impact on surface wettability. Experiments revealed distinct bonding and kinetic behavior that depended on the polarity of the surface: goethite presented a higher adsorption capacity and binding strength but slower adsorption kinetics, compared to the diamond. Further, 2D correlation IR spectroscopy demonstrated surface polarity, surface loading and time alter the polysaccharide’s conformation and self-assembly during adsorption and desorption. On goethite, electrostatic interactions with the surface were followed by the formation of inter- and intra- molecular H-bonds between side groups of polysaccharide chains, while at greater PS loading hydrophobic interactions between PS groups became predominant. In contrast, the non-polar diamond surface promoted hydrophobic interactions that governed polysaccharide retention initially; subsequently, increased PS loading promoted H-bond formation between its charged hydrophilic groups. Both PS-goethite and PS-diamond organo-mineral associations developed a hydrophobic character (i.e., low wettability) upon PS adsorption. Thus, we posit the stronger retention of nonpolar organic pollutants observed in soils might be caused, at least in part, by pollutant-organic interactions within hydrophobic pockets in organo-mineral associations. This work helps us understand and predict interactions of importance to environmental and engineering systems such as the retention and transport of polar and nonpolar solutes in porous media.
+1. Introduction
+
+Terrestrial and aquatic environments contain a diversity of surfaces with varying degree of polarity (i.e., hydrophobic and hydrophilic character) that impact the adsorption, transport and transformation of dissolved organic matter (DOM). Plants and soil microorganisms serve as primary sources of DOM, which encompasses a diverse array of components, including DNA\(^1\)\(^-\)\(^3\), RNA, antibody fragments\(^1\),\(^4\)-\(^6\), proteins\(^7\)-\(^10\), peptides\(^11\),\(^12\), lipids\(^13\)-\(^16\), polysaccharides\(^17\)-\(^21\), amino acids\(^22\)-\(^25\) and xenobiotics\(^26\)-\(^30\). The most important interaction between DOM and minerals in natural systems is adsorption.\(^31\)-\(^33\) Adsorption of DOM onto mineral surfaces may be driven by several forces including hydrogen bonding, ion exchange, cation and/or water bridging, and electrostatic, van der Waals and hydrophobic interactions.\(^3\),\(^7\),\(^12\),\(^31\),\(^32\),\(^34\)-\(^39\) In addition, DOM’s molecular size, charge, hydrophilic and hydrophobic character, conformation, functionality, concentration, and solution composition (pH, ionic strength, and ionic composition) affect the adsorption of DOM onto mineral surfaces.\(^12\),\(^31\),\(^32\),\(^34\),\(^35\),\(^38\)
+
+DOM has been shown to assemble or aggregate on mineral surfaces in a sequential, layer-by-layer manner. The initial layer, formed directly adjacent to the surface, attaches primarily through hydrophilic (e.g., carboxylates) or amphiphilic (e.g., amines and amides) groups. Once this foundational layer is established, it serves as a platform for more hydrophobic, less polar organic molecules to adsorb, building up additional layers of organic matter.\(^40\),\(^41\)
+
+Additionally, DOM attachment to mineral surfaces may occur in a non-uniform manner due to changes in interfacial energies and surface topology. This process often mirrors characteristics of partial wetting phenomena.\(^31\) In both sorption scenarios, the interfacial interactions are governed by the hydrophilic, hydrophobic, and amphiphilic nature of the organic molecules, leading to complex sorption behavior and multilayer formation under varying environmental conditions.
+Therefore, the extent of hydrophobicity of a natural water/mineral interface could determine the arrangement/conformation, surface coverage and bonding of DOM.
+
+It is widely recognized that organic matter contributes to the hydrophobic characteristics of soils.\textsuperscript{42-44} The alteration of mineral surfaces by natural organic matter directly impacts water-driven geochemical processes in terrestrial environments, such as the transport and fate of contaminants.\textsuperscript{11, 26, 45-47} Badía \textit{et al.}\textsuperscript{48} observed differences in soil hydrophobicity among organic matter-rich soils under various vegetation types. Soils beneath pine showed the highest water repellency (i.e., more hydrophobic), whereas soils under meadow exhibited the lowest repellency. Franco \textit{et al.}\textsuperscript{49, 50} demonstrated that the primary contributor to hydrophobicity in South Australia’s sandy soils is a polar wax, structurally similar to those found in regional plant materials, such as eucalyptus trees. Similarly, Jiménez-Morillo \textit{et. al.}\textsuperscript{51} suggested that the intensity of soil water repellency is correlated with both the quantity and quality of soil organic matter, particularly the content of fatty acids. In contrast, non-saponifiable lipids showed no association with soil hydrophobicity.
+
+The degree of hydrophobicity or water-repellency at water/mineral interfaces can be quantified by water contact angle (WCA).\textsuperscript{52-54} Clabel \textit{et al.}\textsuperscript{52}, in their study on Amazonian Spodosols, found a positive correlation between measured soil WCA values and the ratio of C-H (aliphatic) to C=O (carbonyl) IR absorption band intensity. WCA values decreased down the soil profile where the presence of organo-mineral associations is highly reduced, further suggesting higher hydrophobicity in the presence of organic matter. Increases in hydrophobicity of organo-mineral associations have been reported to occur after increases in surface loading of hydrophilic DOM (i.e., Leonardite humic acid, LHA) sorbed on goethite (α-FeOOH), with adsorption of LHA occurring via ligand exchange and/or hydrogen bonding.\textsuperscript{33} Additionally, the authors
+observed that with higher LHA loadings the sorption isotherms transitioned from representing monolayer coverage to multilayer adsorption, suggesting organic-organic interactions and conformational changes occur in sorbed LHA. These organic-organic interactions may be driven by van der Waals and hydrophobic interactions among LHA molecules. Increases in WCA have also been observed after exchange of n-alkylammonium (6 ≤ n ≤ 15) cations on montmorillonite and laponite clays that corresponded to decreased surface tension of the formed organo-clays. Increased surface coverage and length of the organic molecule resulted in greater WCA values. Furthermore, organic coatings block the surface electrical charges and distorts the interlinked and overlapping arrangement of the clay platelets. Using molecular dynamic simulations, Underwood et al. explored the interactions between various organic molecules (nonpolar, polar, ionic) and kaolinite's hydrated siloxane and hydroxyl surfaces. Their findings predict the relative affinity of these molecules to kaolinite surfaces can shift between the hydroxylated and silicate domains depending on the pH and the functional group of the organic molecule. Decane, with minimal electrostatic charge, adsorbs primarily via van der Waals interactions on the silicate surface. In contrast, decanoate anions adhere to the hydroxyl surface through an anion exchange mechanism. Decanamine, capable of adsorbing to both the silicate and hydroxyl surfaces, forms hydrogen bonds (N-H···O) with the hydroxyl groups, facilitated by water-bridging interactions. In laboratory experiments, Yang et al. demonstrated a peptide derived from Pseudomonas aeruginosa has a higher affinity for hydrophobic than for hydrophilic surfaces, where peptide adsorption on the hydrophobic surface is enthalpically favored while entropic contributions are more significant on the hydrophilic surface. Investigations of protein (BSA) adsorption and desorption dynamics reported saturation at 50% surface coverage on a hydrophobic (polystyrene) surface, while adsorption reached 95% saturation on the hydrophilic
+(GeOH) surface. Additionally, the BSA molecules exhibited different conformations and interaction strengths, with stronger binding on the hydrophilic surface via multiple H-bonds with GeOH.\textsuperscript{57}
+
+Polysaccharides in soil and in fresh and marine waters, contribute significantly to the composition of DOM, with major inputs from plants, microbes, algae, and phytoplankton.\textsuperscript{20, 58, 59} Branching and a variety of functional groups due to anionic, cationic and non-polar substitutions on natural polysaccharide chains can result in derivatives exhibiting diverse hydrophobic, hydrophilic and amphiphilic characteristics.\textsuperscript{58, 60-64} Several studies have shown that iron oxyhydroxides, commonly found in soils and sediments (e.g., goethite, α-FeOOH), can selectively adsorb and preserve polysaccharides with binding mechanisms that include hydrogen bonding, and electrostatic and hydrophobic interactions, thereby promoting organic-organic interactions at the mineral surface.\textsuperscript{18, 19, 64-66} Only a few studies have however investigated potential conformational changes to polysaccharide molecules upon adsorption at mineral interfaces, and these have mostly used EPS (extracellular polymeric substances), which is a blend of protein, DNA/RNA, lipid and polysaccharide components.\textsuperscript{17-21} To the best of our knowledge, this is the first study that shows how polysaccharide adsorption-desorption dynamics and interfacial assembly alter the wettability of hydrophilic (i.e., goethite) and hydrophobic (i.e., diamond) surfaces. We study these phenomena over various polysaccharide surface loadings using \textit{in-situ} ATR-FTIR spectroscopy, concentration-dependent 2D-COS analyses, and water contact angle measurements. The combination of molecular- and macro-scale measurements yielded novel results, as reported herein, that reveal new insights about polysaccharide conformational changes upon adsorption and desorption, and about the contribution of the
+polysaccharide’s multifunctionality to hydrophobic and hydrophilic interactions at water/solid interfaces, and to decreased wettability.
+
+2. Materials and Methods
+
+2.1. Materials
+
+Goethite (α-FeOOH, pH_pzc = 8.4)\(^{26}\), a representative hydrophilic surface with a water contact angle (WCA) = 26.8°, was synthesized by the method of Schwertmann and Cornell\(^{67}\). The synthesized product was characterized by XRD and FTIR to verify its purity (Figure S1a, b). The goethite needles observed by transmission electron microscopy (FEI Tecnai 12 BioTwin TEM) had an average crystal length of 0.85 μm (Figure S1c) and a BET determined surface area of 59.1 m\(^2\) g\(^{-1}\). A monolithic diamond crystal (Figure S2A; GladiATR accessory, PIKE Technologies Inc., MA) was used as a representative hydrophobic surface (surface area \(\approx 7.1 \times 10^{-6}\) m\(^2\) and WCA = 105.0°). An amidated-high-methoxy pectin (Sigma-Aldrich, WI), a polysaccharide (PS), was used to represent a multifunctional model biomolecule in our study (Figure 1A). This PS has a MW of \(\approx 71100\) g mol\(^{-1}\). The galacturonic acid, methoxy and amide contents are 37.1, 58.7 and 4.2%, respectively.\(^{26}\)
+
+2.2. Methods
+
+2.2.1. In-situ Adsorption-desorption Experiments.
+
+In-situ ATR-FTIR (attenuated total reflectance-Fourier transform infrared) adsorption-desorption experiments and methodological details are reported in our previous work\(^{11, 26}\). Briefly, adsorption and formation of PS-goethite associations were initiated by introducing PS solutions
+([PS] = 3.5 – 196.9 μM; I ≈ 10 mM KCl and pH = 5.0 were used to simulate a low ionic strength environment under mildly acidic conditions) over a hydrated goethite film formed at the surface of a diamond ATR crystal (GladiATR accessory, PIKE Technologies, MA; Figure S2-A).
+
+Adsorption of PS on the diamond crystal (i.e., the hydrophobic surface) was used to form the PS-hydrophobic surface. Due to the lower surface area of the diamond crystal, a greater concentration of PS was needed to acquire high quality IR spectra ([PS] = 14.1 – 196.9 μM). PS adsorption was followed by a desorption experiment where a solution with the same background electrolyte (no PS) was introduced until equilibrium. Experiments were replicated 3-4 times on freshly prepared goethite films or clean diamond crystal surfaces under identical conditions. All in-situ experiments were conducted under ambient atmosphere and using a close flow-through system at a rate of 0.85 mL min⁻¹ (flow velocity = 4.5 × 10⁻³ m s⁻¹) using a peristaltic pump (Cole-Parmer, IL). All spectra were collected by subtracting the spectrum of the background electrolyte from the spectrum of each sample. Interfacial IR spectra were collected every 2 min (200 scan time) with a spectral resolution of 4 cm⁻¹ from 4500 to 850 cm⁻¹. After collection, spectra received an atmospheric compensation, a nine-point Savitsky-Golay smoothing and baseline correction to remove instrumental drift. All post-hoc manipulations were performed using OPUS v.7.2 software (Bruker Corp., Billerica, MA).
+
+2.2.2. Modelling of Adsorption-Desorption Kinetics and Equilibrium Isotherms.
+
+The total area under the curve of PS’ IR spectra, from 1800 to 900 cm⁻¹, were used to probe the extent of PS adsorption and desorption as a function of time. The Elovich and pseudo-first order (PFO) models were used for adsorption and desorption of PS on goethite, respectively, due to better fitting compared to other commonly used kinetic models. A simplified Elovich equation is written as⁶⁸
+where $t$ is time (min) and $A_t$ is the integral absorption intensity of the PS band (a.u.) at time $t$. $\alpha$ represents the initial adsorption rate (a.u. min$^{-1}$) and $\beta$ is an empirical constant (a.u.$^{-1}$) associated with the activation energy distribution on heterogeneous surfaces.
+
+Adsorption and desorption of PS at the diamond surface followed a PFO rate law, Eqs. (2) and (3), respectively:
+
+\[
+A(\tilde{\nu})_t = A(\tilde{\nu})_e \left(1 - e^{-k_a t}\right) \quad \text{(Eq. 2)}
+\]
+\[
+A(\tilde{\nu})_t = A(\tilde{\nu})_e e^{-k_d t} \quad \text{(Eq. 3)}
+\]
+
+where, $A(\tilde{\nu})_t$ is the integral absorption intensity of PS from 1780 – 934 cm$^{-1}$ (a.u.) at time $t$ (min), and $A(\tilde{\nu})_e$ is the predicted integral absorption intensity of PS at equilibrium (a.u.). $k_a$ and $k_d$ are adsorption and desorption rate constants (min$^{-1}$), respectively.
+
+PS adsorption and desorption isotherms at the diamond and goethite surfaces obtained over the range of experimental PS concentrations (14.1 – 196.9 μM for diamond and 3.5 – 196.9 μM for goethite) were fitted using the Langmuir model:
+
+\[
+A_e = \frac{A_{\infty} K_L c}{1 + K_L c} \quad \text{(Eq. 4)}
+\]
+
+where $A_e$ is the integral absorption intensity of PS bands (a.u.) at the end of adsorption or desorption experiments (a.u.), $c$ is the solute (PS) concentration, $A_{\infty}$ is the maximum absorbance of the saturated surface (a.u.), and $K_L$ is the equilibrium binding constant (M$^{-1}$).
+
+### 2.2.3. Two-Dimensional Correlation Spectroscopy of Adsorbed PS.
+
+Two-dimensional correlation spectroscopy (2D-COS) analyses were used to identify concentration-induced conformational changes of adsorbed PS chains at the hydrophobic and
+hydrophilic surfaces. The detailed theory and mathematical treatments for 2D-COS have been previously explained. In this study, the cross correlation analysis was performed on the concentration-dependent FTIR spectral sets (i.e., dynamic spectra; Figures S3 and S4) of retained PS at each surface at specific time points in the adsorption-desorption process. These time points are referred to as: early adsorption stage: \( t_{1,ads} = 2 \) min, equilibrium adsorption stage: \( t_{e,ads} = 56 \) and 163 min, and equilibrium desorption stage: \( t_{e,des} = 98 \) and 236 min, for diamond and goethite, respectively. To generate concentration-dependent 2D correlation spectra, the original spectra were subjected to subtraction of the spectra of background electrolyte solution and of the surface, atmospheric compensation, smoothing, baseline correction and vector-normalization over the concentration. Noda’s rules were applied to interpret and illustrate molecular interactions and self-assembly sequential changes of the PS structure at the surface of the diamond crystal and goethite mineral with increasing surface loading at the three stages of reaction outlined above.
+
+2D-COS analyses were performed with the 2D Correlation Spectroscopy Analysis package in OriginPro 2022 (OriginLab, MA).
+
+### 2.2.4. Water Contact Angle Measurements.
+
+Water contact angle (WCA) values were obtained with a Theta Lite 101 optical tensiometer (Biolin Scientific, UK) using the sessile-drop method with an 8 μL droplet of the background electrolyte solution. The immediate WCA was recorded at 10 ms from droplet contact and reported values are the average of 4 – 12 measurements for every PS loading at each surface (see details about PS-goethite and PS-diamond surface preparation below). The drop shape was analyzed using the Young-Laplace equation. The relative humidity of the laboratory air during air-drying and measurements was about 30% at room temperature.
+Goethite thin-films were prepared by drop-casting 40 μL of a goethite suspension (1.68 g L\(^{-1}\)) onto microscope glass slides, as detailed in previous work\(^{11,26}\). This drop-casting method results in thin and evenly-distributed goethite films (Figure S2 B-1). Drop-cast goethite films were conditioned by gently passing over a background electrolyte solution (i.e., 10 mM KCl at pH = 5.0). PS-goethite associations were then formed by introducing PS solutions ([PS] = 0.0 – 196.9 μM) at the surface of goethite films for 2 hrs using a microfluidic flow-through chamber (Figure S2 B-2, 3). Similarly, PS-diamond associations were prepared on a spare diamond ATR crystal using a flow-through cell used for \textit{in-situ} ATR-FTIR experiments (Figure S2 A-2). WCA measurements of the PS-goethite and PS-diamond associations were also conducted after a desorption step using the same background electrolyte solution. All PS-diamond associations were prepared individually, using the same diamond ATR crystal. For all \textit{in-situ} ATR-FTIR experiments, surface preparation and WCA measurements were conducted at room temperature (22 °C ± 1) under N\(_2\) flow.
+
+3. Results and Discussion
+
+3.1. Dynamics of Polysaccharide Adsorption-Desorption.
+
+Representative interfacial ATR-FTIR spectra of polysaccharide (PS) acquired during adsorption-desorption experiments at the goethite and diamond surfaces can be seen in Figure 1B. The carbonyl of methyl ester (\(\nu(C=O)\)\(_e\)), amide (\(\nu_s(C=O)\)\(_a\)) and carboxylate (\(\nu_{as}(C=O)\)\(_c\)) groups are present at ~1747, 1655, and 1593 cm\(^{-1}\), respectively, while the N-H in amide (\(\delta(NH)\)\(_a\)) occurs at ~1550 cm\(^{-1}\). At lower wavenumbers, PS backbone peaks corresponding to glycosidic bond (\(\nu_{as}(COC)\)\(_g\)) and pyranose ring (\(\nu(CC)(CO)\)\(_r\)) are located at 1146 and 1020 cm\(^{-1}\), respectively. Detailed peak assignments are shown in Table S1.
+Figure 1. (A) A schematic of the structure of the polysaccharide (PS) used in this study. (B) Representative *in-situ* ATR-FTIR spectra of PS adsorption (green lines) and desorption (red lines) on goethite (top) and diamond (bottom) at pH = 5.0. [PS] = 56 μM and spectra acquisition interval is 9 min.
+
+The evolution of IR bands indicates more PS was retained at the goethite than at the diamond surface upon adsorption and desorption (Figures 1B and 2). Differences in the extent of retention result from the variety of ionic, polar and non-polar groups of PS and from the chemistry of the surfaces. For instance, carboxylate groups (1593 cm\(^{-1}\)) predominate at the early stage of PS adsorption on goethite (Figure 1B, top panel) due to preferential interaction of this anionic group with the positively charged surface of goethite (pH\(_{\text{zpc}}\) = 8.2).\(^{26}\) Conversely, methyl ester (1747 cm\(^{-1}\)) and amide (1655 cm\(^{-1}\)) groups seem to initiate adsorption of PS at the diamond...
+surface (Figure 1B, bottom panel). Furthermore, in-situ ATR-FTIR spectroscopic results (Figure 1B) reveal the presence of two distinct surface complexes, namely, a solvent-separated ion pair (SIP, $≡\text{FeO(H)}^+\cdots\text{(OH}_2\cdots\text{(O=C)-PS)}$) through the carbonyl of methyl ester ($\nu(C=O)_c$ at 1749 cm$^{-1}$) and amide ($\nu_s(C=O)_a$ at 1651 cm$^{-1}$) groups, and a contact ion pair (CIP, $≡\text{FeO(H)}^+\cdots\text{O(O=C)-PS}$) through the carboxylate group ($\nu_{as}(C=O)_c$ at 1592 cm$^{-1}$). Both complexes are classified as outer-sphere complexes (SIP = water-bridge H-bonds and CIP = electrostatic interactions). In-situ time-resolved spectra also show that CIP complexes are slowly desorbed (less reversible) and become the predominant species with more surface dehydration (Figure 1B). In contrast to previous work$^{33, 40, 77}$, our data shows no evidence for direct inner-sphere coordination (i.e., ligand-exchange mechanism) between the O-containing functional groups of the PS chains and the Fe(III) atom present at the surface of goethite (i.e., no shift in IR peak positions). Our results indicate PS adsorption is more likely driven by electrostatic and hydrogen bond interactions with $≡\text{FeOH}$ and $≡\text{FeOH}_2^+$ sites at the goethite surface.
+
+PS adsorption at the goethite and diamond surfaces followed the Elovich and pseudo-first-order (PFO) kinetic models, respectively (Figure 2, Table 1). Since the steepness of the kinetic curves illustrate the initial rate of adsorption, we can qualitatively state that PS adsorbs more slowly but to a greater extent on goethite compared to diamond. This is most likely due to the greater surface area and heterogeneity of bonding energies at goethite’s surface sites.$^7, 78$ We suggest that greater surface heterogeneity (e.g., energy barriers, active sites, surface roughness, electrostatic forces) on goethite may lead to multiple surface-associated reactions that result in logarithmic adsorption kinetics throughout the adsorption process. This is in contrast to PS adsorption on diamond where PFO driven adsorption kinetics is expected due to the homogenous and monolithic diamond surface. It has also been suggested that organic-organic interactions
+between adsorbed macromolecules and their continuous conformational rearrangement at the surface contributes to surface energy heterogeneity.  
+
+**Figure 2.** Polysaccharide (PS) adsorption and desorption kinetics (a and c) and isotherms (b and d) at the diamond (top panels) and goethite (bottom panels) surfaces.
+
+The adsorption rate constant values derived from the Elovich ($\alpha$, for goethite) and PFO ($k_{1,\text{ads}}$, for diamond) models increased as the initial PS concentration and surface loading increased (Table 1). The activation energy distribution coefficient (i.e., $\beta$ in the Elovich kinetic model), however decreased with PS surface loading on goethite. As Zhang and Stanforth\textsuperscript{78} have suggested, adsorption of PS may be limited by a narrow range of energetic barriers resulting from increased PS loading, which in turn may promote faster surface reactions as indicated by increased $\alpha$ values. The desorption rate constants ($k_{1,\text{des}}$) increase linearly with rising PS surface loading at the goethite surface; however, $k_{1,\text{des}}$ values remain approximately constant at the diamond surface, except at [PS] = 14.1 μM, where a slower $k_{1,\text{des}}$ is observed. The later is likely due to a concentration independent trend of $k_{1,\text{des}}$ values when [PS] is greater than 14.1 μM. In general, PS presented faster adsorption than desorption kinetics at the diamond surface whereas
+faster desorption kinetics compared to adsorption were observed on goethite (Figure 2c). Note
+the later is a qualitative assessment only since the actual numbers presented in Table 1 cannot be
+compared directly.
+
+Table 1. Adsorption and desorption model parameters for each experimental concentration of
+polysaccharide on goethite and diamond at pH = 5.0.
+
+| [PS] (μM) | Diamond Adsorption | Diamond Desorption | Goethite Adsorption | Goethite Desorption |
+|-----------|--------------------|--------------------|---------------------|---------------------|
+|           | $k_{1,ads}$ (min$^{-1}$) | $A_{e,ads}$ (a.u.) | $k_{1,des}$ (min$^{-1}$) | $A_{e,des}$ (a.u.) |
+| 3.5       | -                  | -                  | -                   | -                   |
+| 7.0       | 0.280              | 0.125              | 0.043               | 0.103               |
+| 14.1      | 0.350              | 0.196              | 0.127               | 0.123               |
+| 28.1      | 0.479              | 0.274              | 0.126               | 0.124               |
+| 42.2      | 0.511              | 0.421              | 0.126               | 0.130               |
+| 56.3      | 0.545              | 0.509              | 0.149               | 0.146               |
+| 84.4      | 0.496              | 0.354              | 0.140               | 0.128               |
+| 112.5     | 0.511              | 0.421              | 0.126               | 0.130               |
+| 140.6     | 0.545              | 0.509              | 0.149               | 0.146               |
+| 168.8     | 0.565              | 0.625              | 0.169               | 0.152               |
+| 196.9     | 0.611              | 0.739              | 0.128               | 0.143               |
+
+The Langmuir equilibrium isotherms of retained PS at the end of adsorption and
+desorption experiments indicate that, at the highest PS loading, ~73% of adsorbed PS remained
+on the goethite surface after desorption whereas ~25% remained adsorbed on the diamond
+surface after desorption (Figure 2 b and d). Langmuir parameters also show goethite has a
+stronger affinity ($K_L$) for PS molecules and a greater adsorption capacity ($A_\infty$) after desorption
+compared to the diamond (Table 2). The greater affinity and capacity of goethite arises from its
+hydrophilic surface that is energetically favorable for adsorption of PS via its ionic and polar
+groups. PS interacts with the hydrophobic diamond surface via its nonpolar methyl groups which
+limit sorption strength and capacity. After desorption, when the loosely bonded and bulk PS are
+lost, the $K_L$ values are elevated. The PS adsorption-desorption envelopes (Figure 2), however, depend strongly on the polarity of the surface and on PS loading, with more relative desorption from the diamond surface. Similar results were observed by Jeyachandran et al.\textsuperscript{57}, where protein (BSA) molecules adsorbed on GeOH via multiple hydrogen bonding, resulted in stronger interactions than with a polyester hydrophobic surface. Consequently, very little BSA was desorbed from the hydrophilic surface, whereas significant desorption (60\%) occurred from the polyester surface.
+
+**Table 2.** Polysaccharide adsorption and desorption Langmuir isotherm parameters on diamond and goethite at pH = 5.0. The area under the curve of interfacial spectra (1780 – 905 cm\(^{-1}\)) at $t_{e,ads}$ = 163 min and $t_{e,des}$ = 236 min were used over the range of PS concentrations for goethite. For diamond, $t_{e,ads}$ = 56 min and $t_{e,des}$ = 98 min.
+
+| Parameters | Diamond \(K_L \times 10^5 \text{ M}^{-1}\) | Goethite Adsorption | Goethite Desorption |
+|------------|----------------------------------|---------------------|---------------------|
+| $K_L \times 10^5 \text{ M}^{-1}$ | 0.04                   | 0.82                | 2.39                | 3.38               |
+| $A_x$ (a.u.) | 1.54                        | 0.19                | 1.37                | 1.17               |
+| $R^2$       | 0.938                        | 0.743               | 0.975               | 0.973              |
+
+### 3.2. Concentration-Dependent Conformational Analysis of Adsorbed Polysaccharide on Hydrophobic and Hydrophilic Surfaces
+
+2D-COS analysis is a robust tool used to resolve the sequence of spectral features that occur across a perturbation gradient (e.g., concentration, time, temperature, pH) in chemical processes.\textsuperscript{7, 73, 80-83} Here, concentration-dependent 2D-COS analyses were performed at three different stages during adsorption-desorption experiments (early adsorption stage: $t_1$ = 2 min; equilibrium adsorption stage: $t_{e,ads}$; equilibrium desorption stage: $t_{e,des}$) for prominent cross-peaks, including methyl ester ($\nu(C=O)_e$), carboxylate ($\nu_{as}(C=O)_c$), and amide ($\nu_a(C=O)_a$ and $\delta(NH)_a$) of adsorbed
+PS residues. The spectra used in analyses are shown in Figure S3 (diamond) and Figure S4 (goethite), and the resultant sequences and directions at the diamond and goethite surfaces are listed in Tables S2 and S3, respectively. As such, the sequence of interfacial events reflect the relative contribution of a particular cross-peak as a function of increasing PS concentration. The resulting synchronous and asynchronous plots illustrating the sequence of interfacial events that contribute to PS self-association and conformational alteration from in-situ adsorption-desorption experiments are shown in Figure 3.
+
+**Figure 3.** Synchronous and asynchronous 2D correlation plots in the 900 – 1800 cm\(^{-1}\) range from concentration-dependent spectral changes of polysaccharide retained on diamond and goethite at different adsorption and desorption stages. Early adsorption stage: \(t_{1,\text{ads}} = 2\) min, equilibrium.
+adsorption stage: \( t_{e, ads} = 56 \) and 163 min, and equilibrium desorption stage: \( t_{e, des} = 98 \) and 236 min, for diamond and goethite, respectively. Corresponding autocorrelation spectra with labeled cross-peaks are shown over each panel. Correlation values are shown in the legend.
+
+The concentration-dependent sequence of interfacial events on the diamond surface during the early stage of adsorption, \( t_{1, ads} = 2 \) min, can be illustrated as follows:
+
+\[
+\begin{align*}
+\nu_c (C=O)_a / \delta (NH)_a & \rightarrow \nu (C=O)_e \rightarrow \nu_{as} (C=O)_e \\
+(1655 \text{ cm}^{-1}) & / (1551 \text{ cm}^{-1}) & (1749 \text{ cm}^{-1}) & (1597 \text{ cm}^{-1})
+\end{align*}
+\]
+
+(Seq. 1)
+
+These results indicate amide groups have a greater relative contribution to the spectra at low PS loading whereas carboxylate groups’ relative contribution to the spectra is highest at high PS loading. The initial appearance of the amide groups (the amphiphilic component of PS), followed by the methyl ester groups, indicates the formation of multiple intramolecular hydrogen bonds between the \( \text{NH}_2^+ \) and \( \text{C}=\text{O} \) moieties of alkylamide and methylester groups on the diamond. With increased PS loading, van der Waals and hydrophobic interactions occur between the methyl-containing (e.g., alkylamide, methylester) residues of PS and the diamond. We therefore suggest hydrophobic pockets form directly adjacent to the diamond surface as more PS is adsorbed (Figure 5). The high relative contribution of carboxylate-containing groups at the highest PS loading leads to the formation of electrostatic interactions between \( \text{NH}_2^+ \) and \( \text{COO}^- \) groups. As will be discussed in the next section, this sequence of events increases the hydrophilicity of the PS-diamond surface during the early stage of PS adsorption on the diamond surface.
+
+At the equilibrium stage of adsorption, \( t_{e, ads} = 56 \) min, the sequence of interfacial events caused by a concentration-dependent perturbation on the diamond becomes:
+Increasing PS surface coverage results in increased relative contribution from alkylamide, carboxylate and methyl ester groups. These results suggest inter- and intra- molecular electrostatic interactions (NH$_2^+$ and COO$^-$ groups) and then H-bonding (NH$_2^+$ and C=O groups) of adsorbed PS intensify as PS surface coverage increases. The formation of H-bonds between PS chains also stabilizes the charge distribution of charged groups in the hydrophilic core of the initial PS-diamond association (Figure 5). Compared to results for the early stage of adsorption, the fact that methyl ester groups appear last at the equilibrium stage of adsorption suggests a reversal in surface polarity of the PS-diamond association (i.e., becomes more hydrophobic).
+
+Desorption of PS from the diamond surface led to a new sequence of spectral events for retained IR bands at the equilibrium stage of desorption, as follows:
+
+\[
+\nu_s (\text{C=O})_a / \delta (\text{NH})_a \rightarrow \nu_{as} (\text{C=O})_c \rightarrow \nu (\text{C=O})_e
+\]
+
+(Seq. 2)
+
+\[
+(1655 \text{ cm}^{-1}) \quad (1547 \text{ cm}^{-1}) \quad (1602 \text{ cm}^{-1}) \quad (1749 \text{ cm}^{-1})
+\]
+
+As reflected by this sequence, upon rehydration, the carboxylate and amide PS residues have a greater relative contribution at low PS concentration at the diamond surface. Rehydration of an organo-mineral association enhances hydrophilic interactions by increasing water bridges within the organic layer$^{33}$, ultimately leading to the desorption of hydrophilic components. However, the relatively more hydrophobic methyl ester residues remain at the diamond surface due to stronger hydrophobic interactions through their aliphatic carbons, minimizing exposure to polar water molecules. We can infer that the hydrophilic components within the PS assembly are more prone to water retention when a thinner PS layer is adsorbed on the diamond. The thinner PS layer also has fewer hydrophobic zones to counterbalance the increased molecular disorder from
+hydration. Conversely, a thicker PS layer stabilizes the organic-organic association with a more extensive network of hydrophobic zones, thus minimizing conformational disruptions due to the variety of inter- and intramolecular van der Waals and hydrophobic interactions. In general, desorption seems to increase the fluidity of organic-organic interactions that promotes conformational changes and self-assembly of PS molecular fragments within the organic layer.
+
+The concentration-dependent sequence of spectral events at the early stage of PS adsorption, $t_{1,ads} = 2$ min, on goethite can be interpreted as follows:
+
+$$\nu_{as}(C=O)_c \rightarrow \nu_s(C=O)_a \rightarrow \delta(NH)_a \rightarrow \nu(C=O)_e$$  
+
+(Seq. 4)
+
+On the basis of this sequence and the phase transitions of observed functional groups, at low concentrations, PS chains first interact with the goethite surface mainly via electrostatic attractive forces with carboxylate groups (i.e., $\equiv$FeOH$_2$·····O(O=C)-PS and/or $\equiv$FeOH····(OH$_2$)····O(O=C)-PS). At this early stage of adsorption, the goethite surface is still partly hydrated (Figure 1) so that solvent-separated ion pairs (SIP) might be favored (i.e., $\equiv$FeOH····(OH$_2$)····O(OC=)-PS). With increased PS concentration, the amide and methylester groups’ relative contribution to interfacial interactions develops by the formation of H-bonds between these PS’ groups (PS–C=O····HN-PS); these interactions ultimately decrease surface hydrophilicity. Repulsive electrostatic forces between the N-amide of PS and the protonated surface hydroxyl groups of goethite keeps this positively charged group away from the goethite interface. However, it has been suggested that amide groups in amidated-PS strengthen the self-assembly structure by H-bond formation (i.e., organic-organic interactions) at low pH where electrostatic repulsion between the chains is minimized.$^{84}$ In our study, the negative repulsive force within PS chains,
+originating from carboxylate residues (37.1% substitution), is minimized by the interaction with goethite.
+
+At the equilibrium stage of PS adsorption on goethite ($t_{e, ads} = 163$ min), the concentration-dependent sequence of interfacial events is:
+
+\[
+\text{Carboxylate} \rightarrow \text{Methyl ester} \rightarrow \text{Amide} \\
+\nu_{as}(C=O) \rightarrow \nu(C=O) \rightarrow \nu_s(C=O) / \delta(NH) \\
+(1589 \text{ cm}^{-1}) \rightarrow (1744 \text{ cm}^{-1}) \rightarrow (1651 \text{ cm}^{-1}) \rightarrow (1545 \text{ cm}^{-1})
+\] (Seq. 5)
+
+With low PS concentrations, relatively more carboxylate residues adsorb at the goethite surface, forming contact ion pairs (CIP, $\equiv$FeO(H)$\cdots$O(O=C)-PS) coupled with surface dehydration (Figure 1). This arrangement results in increased dehydration or water exclusion, leading to the formation of a less hydrophilic surface. With increased PS surface coverage (i.e., concentration) and water exclusion, hydrophobic and inter- and intra-chain organic-organic interactions are favored through methyl ester and amide residues. Our findings align well with the observations of Petridis et al.,\textsuperscript{41} who demonstrated that organic compounds with varying hydrophobicity form discrete zonal arrangements on a sapphire crystal ($\text{Al}_2\text{O}_3$, a hydrophilic surface), with glucose at the mineral interface and stearic acid (a saturated fatty acid) bilayers staked over it. At the highest PS concentrations, amide residues, which are amphiphilic, act as intermediates, stabilizing the interactions among PS fragments via hydrogen bonding (e.g., NH--O interactions) and contributing to the overall adsorption network by forming water-bridges.
+
+At the equilibrium stage of desorption on goethite ($t_{e, des} = 236$ min), the sequence of intensity changes of the PS that remains adsorbed is as follows:
+
+\[
+\text{Carboxylate} \rightarrow \text{Methyl ester} \rightarrow \text{Amide} \\
+\nu_{as}(C=O) \rightarrow \nu(C=O) \approx \nu_s(C=O) / \delta(NH) \\
+(1589 \text{ cm}^{-1}) \rightarrow (1745 \text{ cm}^{-1}) \rightarrow (1651 \text{ cm}^{-1}) \rightarrow (1545 \text{ cm}^{-1})
+\] (Seq. 6)
+Similar to the equilibrium stage of adsorption, the relative contribution of carboxylate groups to
+the spectra is proportionally higher at low PS concentrations even after surface rehydration. This
+suggests that electrostatic interactions between carboxylate and surface hydroxyl groups remain
+intact. Some solvent-separated ion pairs (SIP complexes) may form due to partial rehydration,
+though not fully (Figure 1). As discussed previously, methyl ester and amide residues contribute
+to PS self-association via H-bonding. We suggest methyl esters on PS chains do not directly
+interact with the goethite surface since the surface would prefer to interact with polar or charged
+groups, pushing hydrophobic components away from the surface.\textsuperscript{41,85} This potentially leads to
+desorption of hydrophobic PS fragments. We posit lower relative PS desorption from the
+goethite surface (compared to the diamond surface) results from a less fluid organo-mineral
+interface inherent to the stronger (electrostatic) interaction between the carboxylate groups of PS
+and the hydroxylated surface.
+
+3.3. Polysaccharide Alters the Wettability of Goethite and Diamond.
+
+Immediate water contact angle (WCA) measurements indicate wetting transitions occur on the
+hydrophobic (i.e., diamond) and hydrophilic (i.e., goethite) surfaces as a function of PS surface
+loading (Figure 4). Goethite’s surface becomes increasingly hydrophobic with increasing PS
+loading (WCA = 27° at PS = 0 μM, 70° at PS = 40 μM, 99° at PS = 196 μM). In contrast, low
+concentrations of PS make the PS-diamond surface less hydrophobic, but higher PS loadings
+revert this trend (WCA = 105° at PS = 0 μM, 78° at PS = 3 μM, 103° at PS = 196 μM). Results
+thus indicate a polar hydrophilic surface (i.e., goethite) becomes hydrophobic upon organic
+matter adsorption whereas low levels of organic matter adsorption renders a hydrophobic surface
+(i.e., diamond) relatively more hydrophilic, although the hydrophobic surface remains
+hydrophobic at higher levels of organic matter adsorption. Regardless of the initial polarity of the
+mineral surface, relatively high concentrations of surface-associated PS results in increased surface hydrophobicity of the organo-mineral association (i.e., results in a hydrophobic particle).
+
+The observed polarity transitions that occur upon PS adsorption on both goethite and the diamond surface can be explained by the results of 2D-COS analyses. Polysaccharide adsorption at both surfaces results in increases in WCA since, as shown by concentration-dependent 2D-COS analysis, hydroneutral and hydrophobic residues interact causing the PS to self-associate at the surface. Therefore, with increasing PS surface loading, hydrophobic pockets form at the goethite and diamond surfaces that eventually lead to greater hydrophobicity (Figure 5). Hence, results from WCA measurements suggest the polysaccharide chains undergo structural rearrangement once adsorbed at the mineral surfaces, and that this structural rearrangement or self-association is dependent on the polarity of the bare surface which dictates the initial mechanism of interaction between the PS and the surface.
+
+**Figure 4.** Polysaccharide (PS)-induced wetting transitions on hydrophobic and hydrophilic surfaces. (A) Immediate water contact angle (WCA) at the surface of goethite and diamond as a function of polysaccharide concentration (i.e., surface loading) at the adsorption (Ads) and desorption (Des) equilibrium stages. (B) TEM image of goethite needles with ≈84 μM PS.
+However, throughout the entire PS loading range, desorption decreased corresponding WCA values for both surfaces. For example, at 196 μM PS the diamond’s WCA = 82.7° and goethite’s WCA = 63.4° for desorption, compared to WCA = 103° and WCA = 99°, respectively, for adsorption (Figure 4). We posit the introduction of background electrolyte to organo-mineral associations during desorption causes conformational disruptions, which increase the hydrophilic character of the surface by disturbing hydrophobic pockets and increasing water adsorption within organic associations (i.e., surface rehydration, Figure 1). Overall, desorption of PS molecular fragments from the organic coating results in decreased WCA and surface hydrophobicity of the PS-mineral surfaces regardless of the hydrophobic nature of the initial mineral surface (Figure 5). Water contact angle measurements support our 2D-COS analyses and interpretation.
+
+The sequential arrangement of PS chains on hydrophobic and hydrophilic surfaces can be described by adsorption reactions and their associated thermodynamic factors. On goethite, initial PS adsorption results from strong electrostatic interactions (CIP, contact ion pair) between the carboxylate groups of PS and goethite’s protonated (≡FeOH₂⁺) surface, with concomitant surface dehydration. This type of interactions are energetically favorable, with an increase in system entropy and decrease in enthalpy. Importantly, this initial approach of PS towards the goethite surface results in the more hydrophobic groups of the PS (e.g., methyl ester) to be exposed to the aqueous phase producing a more hydrophobic surface (Figures 4 and 5). It is not surprising then that subsequent PS molecules would approach and react with the initially adsorbed PS via their more hydrophobic groups (methylester and alkylamide). On the hydrophobic diamond surface, the adsorption behavior of the polysaccharide chains shifts. Here, initial PS adsorption results from weak van der Waals interactions between primarily methylester
+groups of the PS and the diamond’s surface; surface dehydration also occurs but to a lessen extent. A consequence of this initial PS adsorption is that carboxylate groups are exposed to the aqueous phase producing a more hydrophilic surface (Figures 4 and 5). In contrast to PS-goethite, initial PS-diamond interactions decrease the entropy of the system because of the order imposed to water molecules by the ionic carboxylate group.
+
+**Figure 5.** Conceptual model illustrating self-association of polysaccharide (PS) chains at the (A) diamond (hydrophobic) and (B) goethite (hydrophilic) surfaces as a function of PS loading. The
+interfacial adsorption sequence of PS groups was obtained from concentration-dependent 2D correlation analyses of FTIR spectra at an early stage adsorption, and at the equilibrium stage of adsorption and desorption. The blue ribbon represents the associated water contact angle (surface hydrophobicity) whereas the green ribbon represents the PS surface loading.
+
+4. Conclusions
+
+This study revealed the kinetics and mechanisms of polysaccharide adsorption-desorption and self-assembly at hydrophilic and hydrophobic surfaces; these interactions ultimately resulted in the formation of hydrophobic organo-mineral associations. Results show goethite’s adsorption capacity and binding strength are higher than for the diamond. Contact angle measurements indicate the hydrophilic surface (goethite) becomes hydrophobic upon organic polymer adsorption whereas the hydrophobic surface (diamond) remains hydrophobic at high levels of organic polymer adsorption. The structure of self-assembled polysaccharide residues vary as a function of surface loading and time due to the formation of inter- and intra- molecular H-bonds. These findings underscore the role of surface chemistry in driving the sequential and zonal adsorption of PS chains onto mineral surfaces, where the nature of the PS functional groups determines both adsorption dynamics and assembly at mineral interfaces. These results are also relevant for understanding the retention and mobility of organic pollutants, and predict more retention of non-polar organics and less retention of polar/ionic organics as hydrophobic organo-mineral particles form.
+
+Supporting Information
+Additional experimental details are provided in the supplementary information file, including the characterization of synthesized goethite, the experimental setup for preparing organo-mineral surfaces, FTIR assignments for polysaccharide adsorption on diamond and goethite, 2D-COS analysis, and concentration-dependent dynamic ATR-FTIR spectra at various adsorption and desorption stages on diamond and goethite.
+
+Author Information
+
+Corresponding Author
+
+Carmen Enid Martínez - Soil and Crop Sciences, School of Integrative Plant Science, College of Agriculture and Life Sciences, Cornell University, Ithaca, New York 14853, USA; Email: cem20@cornell.edu; https://orcid.org/0000-0001-8553-2118
+
+Author
+
+Behrooz Azimzadeh - Soil and Crop Sciences, School of Integrative Plant Science, College of Agriculture and Life Sciences, Cornell University, Ithaca, New York 14853, USA; https://orcid.org/0000-0001-9497-9843
+
+Author Contributions
+
+This study was conceptualized by C.E.M. and B.A. B.A. conducted the measurements, analysis, modeling, visualization, and drafted the first manuscript. All authors contributed to editing and reviewing the manuscript. Supervision, project administration, and funding acquisition were led by C.E.M.
+Notes
+
+The authors declare no competing financial interest.
+
+Acknowledgements
+
+Funding for this work was provided by the National Science Foundation (Award number CHE-2003505) and by the USDA National Institute of Food and Agriculture, Hatch project (accession no. 1020955). Graduate financial support for B.A. was provided by the National Science Foundation (Award number CHE-2003505), by the Agriculture and Food Research Initiative (AFRI, grant no. 2016–67019-25265/project accession no. 1009565) from the USDA National Institute of Food and Agriculture, and by the College of Agriculture and Life Sciences at Cornell University. The authors acknowledge the use of the Cornell Center for Materials Research shared instrumentation facility. This work was performed in part at the Cornell NanoScale Facility, a member of the National Nanotechnology Coordinated Infrastructure (NNCI), which is supported by the National Science Foundation (Grant NNCI-2025233). This work also made use of the Cornell Energy Systems Institute (CESI).
+
+References
+
+1. Wang, T.; Xu, Y.; Ling, W.; Mosa, A.; Liu, S.; Lin, Z.; Wang, H.; Hu, X. Dissemination of antibiotic resistance genes is regulated by iron oxides: Insight into the influence on bacterial transformation. Environment International 2024, 185, 108499.
+2. Mignon, P.; Ugliengo, P.; Sodupe, M. Theoretical Study of the Adsorption of RNA/DNA Bases on the External Surfaces of Na\textsuperscript{+}-Montmorillonite. *The Journal of Physical Chemistry C* **2009**, *113* (31), 13741-13749.
+
+3. Schmidt, M. P.; Martínez, C. E. Ironing Out Genes in the Environment: An Experimental Study of the DNA–Goethite Interface. *Langmuir* **2017**, *33* (34), 8525-8532.
+
+4. Zhu, Y.; Liu, Z.; Hu, B.; Zhu, L. Partitioning and migration of antibiotic resistance genes at soil-water-air interface mediated by plasmids. *Environmental Pollution* **2023**, *327*, 121557.
+
+5. Li, Z.; Wang, M.; Fang, H.; Yao, Z.; Liu, H.; Zhao, W.; Chen, J. Solid-liquid interface adsorption of antibiotic resistance plasmids induced by nanoplastics aggravates gene pollution in aquatic ecosystems. *Environmental Pollution* **2023**, *316*, 120456.
+
+6. Müller, N. D.; Kirtane, A.; Schefer, R. B.; Mitrano, D. M. eDNA Adsorption onto Microplastics: Impacts of Water Chemistry and Polymer Physiochemical Properties. *Environmental Science & Technology* **2024**, *58* (17), 7588-7599.
+
+7. Schmidt, M. P.; Martínez, C. E. Kinetic and Conformational Insights of Protein Adsorption onto Montmorillonite Revealed Using In Situ ATR-FTIR/2D-COS. *Langmuir* **2016**, *32* (31), 7719-7729.
+
+8. Reardon, P. N.; Chacon, S. S.; Walter, E. D.; Bowden, M. E.; Washton, N. M.; Kleber, M. Abiotic protein fragmentation by manganese oxide: implications for a mechanism to supply soil biota with oligopeptides. *Environmental science & technology* **2016**, *50* (7), 3486-3493.
+
+9. Sheng, Y.; Hu, J.; Kukkadapu, R.; Guo, D.; Zeng, Q.; Dong, H. Inhibition of Extracellular Enzyme Activity by Reactive Oxygen Species upon Oxygenation of Reduced Iron-Bearing Minerals. *Environmental Science & Technology* **2023**, *57* (8), 3425-3433.
+
+10. Zhao, W.; Poncet-Legrand, C.; Staunton, S.; Quinquampoix, H. pH-Dependent Changes in Structural Stabilities of Bt Cry1Ac Toxin and Contrasting Model Proteins following Adsorption on Montmorillonite. *Environmental Science & Technology* **2023**, *57* (14), 5693-5702.
+
+11. Azimzadeh, B.; Nicholson, L. K.; Martínez, C. E. In the presence of the other: How glyphosate and peptide molecules alter the dynamics of sorption on goethite. *Science of The Total Environment* **2024**, *912*, 169264.
+12. Touzeau, J.; Seydou, M.; Maurel, F.; Tallet, L.; Mutschler, A.; Lavalle, P.; Barbault, F. Theoretical and Experimental Elucidation of the Adsorption Process of a Bioinspired Peptide on Mineral Surfaces. *Langmuir* 2021, 37 (38), 11374-11385.
+
+13. Gao, X.; Han, Z.; Zhou, G.; Li, L.; Lyu, X.; Zhao, Y.; Chen, W.; Qi, Z.; Liu, F.; Meng, Q.; Steiner, M.; Han, C. Salinity influence on adsorption of lipid molecules in clay minerals: Results from experiments and calculations. *Journal of Environmental Chemical Engineering* 2024, 12 (3), 112878.
+
+14. Tremblay, L.; Kohl, S. D.; Rice, J. A.; Gagné, J.-P. Effects of lipids on the sorption of hydrophobic organic compounds on geosorbents: a case study using phenanthrene. *Chemosphere* 2005, 58 (11), 1609-1620.
+
+15. Cagnasso, M.; Boero, V.; Franchini, M. A.; Chorover, J. ATR-FTIR studies of phospholipid vesicle interactions with α-FeOOH and α-Fe2O3 surfaces. *Colloids and Surfaces B: Bio interfaces* 2010, 76 (2), 456-467.
+
+16. Wicklein, B.; Darder, M.; Aranda, P.; Ruiz-Hitzky, E. Bio-organoclays Based on Phospholipids as Immobilization Hosts for Biological Species. *Langmuir* 2010, 26 (7), 5217-5225.
+
+17. Kleemann, K.; Bolduan, P.; Battagliarin, G.; Christl, I.; McNeill, K.; Sander, M. Molecular Structure and Conformation of Biodegradable Water-Soluble Polymers Control Adsorption and Transport in Model Soil Mineral Systems. *Environmental Science & Technology* 2024, 58 (2), 1274-1286.
+
+18. Henao, L. J.; Mazeau, K. Molecular modelling studies of clay–exopolysaccharide complexes: Soil aggregation and water retention phenomena. *Materials Science and Engineering: C* 2009, 29 (8), 2326-2332.
+
+19. Liu, X.; Eusterhues, K.; Thieme, J.; Ciobota, V.; Höschlen, C.; Mueller, C. W.; Küsel, K.; Kögel-Knabner, I.; Rösch, P.; Popp, J.; Totsche, K. U. STXM and NanoSIMS Investigations on EPS Fractions before and after Adsorption to Goethite. *Environmental Science & Technology* 2013, 47 (7), 3158-3166.
+20. Cai, P.; Lin, D.; Peacock, C. L.; Peng, W.; Huang, Q. EPS adsorption to goethite: Molecular level adsorption mechanisms using 2D correlation spectroscopy. *Chemical Geology* **2018**, *494*, 127-135.
+
+21. Guhra, T.; Ritschel, T.; Totsche, K. U. Formation of mineral–mineral and organo–mineral composite building units from microaggregate-forming materials including microbially produced extracellular polymeric substances. *European Journal of Soil Science* **2019**, *70* (3), 604-615.
+
+22. Yang, Y.; Wang, S.; Xu, Y.; Zheng, B.; Liu, J. Molecular-Scale Study of Aspartate Adsorption on Goethite and Competition with Phosphate. *Environmental Science & Technology* **2016**, *50* (6), 2938-2945.
+
+23. Liu, Y.; Zheng, T.; Guo, B.; Jiang, S.; Cao, M.; Zheng, X. Adsorption Characteristics of Dissolved Organic Nitrogen on Aquifer Porous Media: The Role of Media Particle Size. *ACS ES&T Water* **2024**, *4* (5), 2170-2180.
+
+24. Bhattacharyya, A.; Schmidt, M. P.; Stavitski, E.; Azimzadeh, B.; Martínez, C. E. Ligands representing important functional groups of natural organic matter facilitate Fe redox transformations and resulting binding environments. *Geochimica et Cosmochimica Acta* **2019**, *251*, 157-175.
+
+25. Norén, K.; Loring, J. S.; Persson, P. Adsorption of alpha amino acids at the water/goethite interface. *Journal of Colloid and Interface Science* **2008**, *319* (2), 416-428.
+
+26. Azimzadeh, B.; Martínez, C. E. Unraveling the role of polysaccharide-goethite associations on glyphosate' adsorption–desorption dynamics and binding mechanisms. *Journal of Colloid and Interface Science* **2024**, *653*, 1283-1292.
+
+27. Kodešová, R.; Grabc, R.; Kočárek, M.; Klement, A.; Golovko, O.; Fér, M.; Nikodem, A.; Jakšík, O. Pharmaceuticals' sorptions relative to properties of thirteen different soils. *Science of The Total Environment* **2015**, *511*, 435-443.
+
+28. Loganathan, N.; Wilson, A. K. Adsorption, Structure, and Dynamics of Short- and Long-Chain PFAS Molecules in Kaolinite: Molecular-Level Insights. *Environmental Science & Technology* **2022**, *56* (12), 8043-8052.
+29. Sookhak Lari, K.; Davis, G. B.; Kumar, A.; Rayner, J. L.; Kong, X.-Z.; Saar, M. O. The Dynamics of Per- and Polyfluoroalkyl Substances (PFAS) at Interfaces in Porous Media: A Computational Roadmap from Nanoscale Molecular Dynamics Simulation to Macroscale Modeling. *ACS Omega* **2024**, *9* (5), 5193-5202.
+
+30. Chaaieri Oudou, H.; Bruun Hansen, H. C. Sorption of lambda-cyhalothrin, cypermethrin, deltamethrin and fenvalerate to quartz, corundum, kaolinite and montmorillonite. *Chemosphere* **2002**, *49* (10), 1285-1294.
+
+31. Kleber, M.; Bourg, I. C.; Coward, E. K.; Hansel, C. M.; Myneni, S. C. B.; Nunan, N. Dynamic interactions at the mineral–organic matter interface. *Nature Reviews Earth & Environment* **2021**, *2* (6), 402-421.
+
+32. Sposito, G., *The chemistry of soils*. Oxford university press: 2008.
+
+33. Cheng, W.; Hanna, K.; Boily, J. F. Water Vapor Binding on Organic Matter-Coated Minerals. *Environmental Science & Technology* **2019**, *53* (3), 1252-1257.
+
+34. Yang, Y.; Huang, J.; Dornbusch, D.; Grundmeier, G.; Fahmy, K.; Keller, A.; Cheung, D. L. Effect of Surface Hydrophobicity on the Adsorption of a Pilus-Derived Adhesin-like Peptide. *Langmuir* **2022**, *38* (30), 9257-9265.
+
+35. Yang, Y.; Schwiderek, S.; Grundmeier, G.; Keller, A. In *Strain-Dependent Adsorption of Pseudomonas aeruginosa-Derived Adhesin-Like Peptides at Abiotic Surfaces*, Micro, MDPI: 2021; pp 129-139.
+
+36. Yu, W. H.; Li, N.; Tong, D. S.; Zhou, C. H.; Lin, C. X. C.; Xu, C. Y. Adsorption of proteins and nucleic acids on clay minerals and their interactions: A review. *Applied Clay Science* **2013**, *80*, 443-452.
+
+37. Zhou, X.; Huang, Q.; Chen, S.; Yu, Z. Adsorption of the insecticidal protein of Bacillus thuringiensis on montmorillonite, kaolinite, silica, goethite and Red soil. *Applied Clay Science* **2005**, *30* (2), 87-93.
+
+38. Norde, W. In *Driving forces for protein adsorption at solid surfaces*, Macromolecular Symposia, Wiley Online Library: 1996; pp 5-18.
+39. Underwood, T.; Erastova, V.; Greenwell, H. C. Wetting Effects and Molecular Adsorption at Hydrated Kaolinite Clay Mineral Surfaces. *The Journal of Physical Chemistry C* **2016**, *120* (21), 11433-11449.
+
+40. Chassé, A. W.; Ohno, T.; Higgins, S. R.; Amirbahman, A.; Yildirim, N.; Parr, T. B. Chemical Force Spectroscopy Evidence Supporting the Layer-by-Layer Model of Organic Matter Binding to Iron (oxy)Hydroxide Mineral Surfaces. *Environmental Science & Technology* **2015**, *49* (16), 9733-9741.
+
+41. Petridis, L.; Ambaye, H.; Jagadamma, S.; Kilbey, S. M., II; Lokitz, B. S.; Lauter, V.; Mayes, M. A. Spatial Arrangement of Organic Compounds on a Model Mineral Surface: Implications for Soil Organic Matter Stabilization. *Environmental Science & Technology* **2014**, *48* (1), 79-84.
+
+42. Ma'Shum, M.; Tate, M.; Jones, G.; Oades, J. Extraction and characterization of water-repellent materials from Australian soils. *Journal of Soil Science* **1988**, *39* (1), 99-110.
+
+43. Chenu, C.; Le Bissonnais, Y.; Arrouays, D. Organic matter influence on clay wettability and soil aggregate stability. *Soil Science Society of America Journal* **2000**, *64* (4), 1479-1486.
+
+44. Doerr, S. H.; Shakesby, R. A.; Walsh, R. P. D. Soil water repellency: its causes, characteristics and hydro-geomorphological significance. *Earth-Science Reviews* **2000**, *51* (1), 33-65.
+
+45. Situm, A.; Rahman, M. A.; Allen, N.; Kabenga, N.; Al-Abadleh, H. A. ATR-FTIR and Flow Microcalorimetry Studies on the Initial Binding Kinetics of Arsenicals at the Organic–Hematite Interface. *The Journal of Physical Chemistry A* **2017**, *121* (30), 5569-5579.
+
+46. Iglesias, A.; López, R.; Gondar, D.; Antelo, J.; Fiol, S.; Arce, F. Adsorption of paraquat on goethite and humic acid-coated goethite. *Journal of Hazardous Materials* **2010**, *183* (1), 664-668.
+
+47. Weng, L.; Van Riemsdijk, W. H.; Hiemstra, T. Cu2+ and Ca2+ adsorption to goethite in the presence of fulvic acids. *Geochimica et Cosmochimica Acta* **2008**, *72* (24), 5857-5870.
+48. Badía, D.; Aguirre, J. A.; Martí, C.; Márquez, M. A. Sieving effect on the intensity and persistence of water repellency at different soil depths and soil types from NE-Spain. *CATENA* 2013, 108, 44-49.
+
+49. Franco, C.; Tate, M.; Oades, J. Studies on non-wetting sands. 1. The role of intrinsic particulate organic-matter in the development of water-repellency in non-wetting sands. *Soil Research* 1995, 33 (2), 253-263.
+
+50. Franco, C.; Clarke, P.; Tate, M.; Oades, J. Hydrophobic properties and chemical characterisation of natural water repellent materials in Australian sands. *Journal of hydrology* 2000, 231, 47-58.
+
+51. Jiménez-Morillo, N. T.; Spangenberg, J. E.; Miller, A. Z.; Jordán, A.; Zavala, L. M.; González-Vila, F. J.; González-Pérez, J. A. Wildfire effects on lipid composition and hydrophobicity of bulk soil and soil size fractions under Quercus suber cover (SW-Spain). *Environmental Research* 2017, 159, 394-405.
+
+52. Clabel H, J. L.; Nicolodelli, G.; Senesi, G. S.; Montes, C. R.; Perruci, N. A. F.; Bezzon, V. D. N.; Balogh, D. T.; Milori, D. M. B. P. Organo-mineral associations in a Spodosol from northern Brazil. *Geoderma Regional* 2020, 22, e00303.
+
+53. Jouany, C.; Chassin, P. Determination of the surface energy of clay—organic complexes by contact angle measurements. *Colloids and Surfaces* 1987, 27 (4), 289-303.
+
+54. Shang, J.; Flury, M.; Harsh, J. B.; Zollars, R. L. Contact angles of aluminosilicate clays as affected by relative humidity and exchangeable cations. *Colloids and Surfaces A: Physicochemical and Engineering Aspects* 2010, 353 (1), 1-9.
+
+55. Norris, J.; Giese, R.; Van Oss, C.; Costanzo, P. Hydrophobic nature of organo-clays as a Lewis acid/base phenomenon. *Clays and Clay Minerals* 1992, 40 (3), 327-334.
+
+56. Fenero, M.; Palenzuela, J.; Azpitarte, I.; Knez, M.; Rodríguez, J.; Tena-Zaera, R. Laponite-Based Surfaces with Holistic Self-Cleaning Functionality by Combining Antistatics and Omniphobicity. *ACS Applied Materials & Interfaces* 2017, 9 (44), 39078-39085.
+57. Jeyachandran, Y. L.; Mielczarski, E.; Rai, B.; Mielczarski, J. A. Quantitative and Qualitative Evaluation of Adsorption/Desorption of Bovine Serum Albumin on Hydrophilic and Hydrophobic Surfaces. *Langmuir* **2009**, *25* (19), 11614-11620.
+
+58. Kang, J.; Qu, C.; Chen, W.; Cai, P.; Chen, C.; Huang, Q. Organo–organic interactions dominantly drive soil organic carbon accrual. *Global Change Biology* **2024**, *30* (1), e17147.
+
+59. Kaiser, K.; Kalbitz, K. Cycling downwards–dissolved organic matter in soils. *Soil Biology and Biochemistry* **2012**, *52*, 29-32.
+
+60. Repeta, D. J.; Quan, T. M.; Aluwihare, L. I.; Accardi, A. Chemical characterization of high molecular weight dissolved organic matter in fresh and marine waters. *Geochimica et Cosmochimica Acta* **2002**, *66* (6), 955-962.
+
+61. Meklesh, V.; Gentile, L.; Andersson, E.; Bhattacharya, A.; de Farias, M. A.; Cardoso, M. B.; Stålbrand, H.; Loh, W.; Škerlep, M.; Kritzberg, E.; Tunlid, A.; Olsson, U.; Persson, P. Characterization of the Colloidal Properties of Dissolved Organic Matter From Forest Soils. *Frontiers in Soil Science* **2022**, *2*.
+
+62. Volk, C. J.; Volk, C. B.; Kaplan, L. A. Chemical composition of biodegradable dissolved organic matter in streamwater. *Limnology and Oceanography* **1997**, *42* (1), 39-44.
+
+63. Zhang, M.; Peacock, C. L.; Cai, P.; Xiao, K.-Q.; Qu, C.; Wu, Y.; Huang, Q. Selective retention of extracellular polymeric substances induced by adsorption to and coprecipitation with ferricydrite. *Geochimica et Cosmochimica Acta* **2021**, *299*, 15-34.
+
+64. Kiem, R.; Kögel-Knabner, I. Contribution of lignin and polysaccharides to the refractory carbon pool in C-depleted arable soils. *Soil Biology and Biochemistry* **2003**, *35* (1), 101-118.
+
+65. Lv, J.; Miao, Y.; Huang, Z.; Han, R.; Zhang, S. Facet-Mediated Adsorption and Molecular Fractionation of Humic Substances on Hematite Surfaces. *Environmental Science & Technology* **2018**, *52* (20), 11660-11669.
+
+66. Coward, E. K.; Ohno, T.; Sparks, D. L. Direct Evidence for Temporal Molecular Fractionation of Dissolved Organic Matter at the Iron Oxyhydroxide Interface. *Environmental Science & Technology* **2019**, *53* (2), 642-650.
+67. Schwertmann, U.; Cornell, R. M., *Iron oxides in the laboratory: preparation and characterization*. John Wiley & Sons: 2008.
+
+68. Chien, S.; Clayton, W. Application of Elovich equation to the kinetics of phosphate release and sorption in soils. *Soil Science Society of America Journal* **1980**, *44* (2), 265-268.
+
+69. Plazinski, W.; Rudzinski, W.; Plazinska, A. Theoretical models of sorption kinetics including a surface reaction mechanism: A review. *Advances in Colloid and Interface Science* **2009**, *152* (1), 2-13.
+
+70. Noda, I.; Ozaki, Y., *Two-dimensional correlation spectroscopy: applications in vibrational and optical spectroscopy*. John Wiley & Sons: 2005.
+
+71. Lasch, P.; Noda, I. Two-Dimensional Correlation Spectroscopy (2D-COS) for Analysis of Spatially Resolved Vibrational Spectra. *Applied Spectroscopy* **2019**, *73* (4), 359-379.
+
+72. Noda, I. Two-dimensional infrared (2D IR) spectroscopy: theory and applications. *Applied Spectroscopy* **1990**, *44* (4), 550-561.
+
+73. Noda, I. Two-dimensional infrared spectroscopy. *Journal of the American Chemical Society* **1989**, *111* (21), 8116-8118.
+
+74. Law, K.-Y. Definitions for Hydrophilicity, Hydrophobicity, and Superhydrophobicity: Getting the Basics Right. *The Journal of Physical Chemistry Letters* **2014**, *5* (4), 686-688.
+
+75. Farris, S.; Introzzi, L.; Biagioni, P.; Holz, T.; Schiraldi, A.; Piergiovanni, L. Wetting of Biopolymer Coatings: Contact Angle Kinetics and Image Analysis Investigation. *Langmuir* **2011**, *27* (12), 7563-7574.
+
+76. Shrimalki, K.; Jin, J.; Hassas, B. V.; Wang, X.; Miller, J. D. The surface state of hematite and its wetting characteristics. *Journal of Colloid and Interface Science* **2016**, *477*, 16-24.
+
+77. Laskowski, J. S.; Liu, Q.; O'Connor, C. T. Current understanding of the mechanism of polysaccharide adsorption at the mineral/aqueous solution interface. *International Journal of Mineral Processing* **2007**, *84* (1), 59-68.
+78. Zhang, J.; Stanforth, R. Slow Adsorption Reaction between Arsenic Species and Goethite $(\alpha$-FeOOH): Diffusion or Heterogeneous Surface Reaction Control. *Langmuir* **2005**, 21 (7), 2895-2901.
+
+79. Cai, Y.; Schwartz, D. K. Influence of Protein Surface Coverage on Anomalously Strong Adsorption Sites. *ACS Applied Materials & Interfaces* **2016**, 8 (1), 511-520.
+
+80. Czarnik-Matusewicz, B.; Murayama, K.; Wu, Y.; Ozaki, Y. Two-Dimensional Attenuated Total Reflection/Infrared Correlation Spectroscopy of Adsorption-Induced and Concentration-Dependent Spectral Variations of $\beta$-Lactoglobulin in Aqueous Solutions. *The Journal of Physical Chemistry B* **2000**, 104 (32), 7803-7811.
+
+81. Wang, Q.; Xu, W.; Wu, P.; Zhang, H.; Cai, C.; Zhao, B. New insights into the effects of thermal treatment on the catalytic activity and conformational structure of glucose oxidase studied by electrochemistry, IR spectroscopy, and theoretical calculation. *The Journal of Physical Chemistry B* **2010**, 114 (39), 12754-12764.
+
+82. Zhang, M.; Zhang, L.; Wu, Y. The pressure tolerance of different poly-L-lysine conformers in aqueous solution: Infrared spectroscopy and two-dimensional correlation analysis. *Vibrational Spectroscopy* **2011**, 57 (2), 319-325.
+
+83. Czarnik-Matusewicz, B.; Jung, Y. M. Two-dimensional mid-infrared correlation spectroscopy in protein research. *Optical Spectroscopy and Computational Methods in Biology and Medicine* **2014**, 213-250.
+
+84. Löfgren, C.; Guilhotin, S.; Hermansson, A.-M. Microstructure and Kinetic Rheological Behavior of Amidated and Nonamidated LM Pectin Gels. *Biomacromolecules* **2006**, 7 (1), 114-121.
+
+85. Wang, X.; Yang, X.; Chen, H.; Yang, X.; Xu, Z. Entropy–Enthalpy Compensation in Peptide Adsorption on Solid Surfaces: Dependence on Surface Hydration. *Langmuir* **2020**, 36 (36), 10822-10829.
+
+86. Shikata, T.; Okuzono, M. Are All Polar Molecules Hydrophilic? Hydration Numbers of Ketones and Esters in Aqueous Solution. *The Journal of Physical Chemistry B* **2013**, 117 (25), 7718-7723.

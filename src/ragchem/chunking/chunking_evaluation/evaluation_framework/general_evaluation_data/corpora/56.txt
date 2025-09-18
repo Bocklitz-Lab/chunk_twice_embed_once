@@ -1,0 +1,272 @@
+Application Software (Video Game) for Teaching and Studying Thermodynamics
+
+Oleksandr Savateev,* Yiu Tung Seto, Cheuk Lok Cheng, Jingru Zhuang, Chong Wang
+
+Department of Chemistry, The Chinese University of Hong Kong, Hong Kong, China
+
+Abstract
+
+Digital learning and gamification make studying chemistry more exciting and engaging. Interactive digital tools allow students to understand fundamental concepts of chemistry more easily. However, application of this knowledge is hampered by the lack of user-friendly chemistry simulators, in which students could apply their knowledge in a creative way. This paper describes the development of the application software – ChemChellenge. This software is intended for use primarily by undergraduate students studying chemistry and chemical engineering. The goal of the game is to design reaction equations that describe spontaneous chemical reactions. The application software has many features of video games, such as a developed reward system, that is based on principles of thermodynamics, customization of player’s chemistry laboratory and in-game currency. These features make gameplay less linear. As such, multiple solutions to the same task are possible. A case study of using ChemChallenge is described.
+
+Keywords: gamification of education; digital learning; physical chemistry; artificial intelligence; thermochemistry; video game
+
+Introduction
+
+Video games are a popular recreational activity among different age groups of people. Video games are so popular that gaming industry generated $231 billion of revenue in 2023,[1] which is comparable to the revenue of the movie industry for the same period, $100-130 billion.[2] Games are also used in education, in particular, in teaching natural sciences (see supporting information for examples). By adding an element of competition and rewards, games make studying more exciting. In general, compared to video games in the broadest sense of this term, educational games, which are available now do not offer customization of characters. In addition, they are linear in their nature, while the reward system assesses correctness of the solution on correct/wrong principle. As such, unlike video games, students might not be fully engaged in the educational game, and the concept of gamification of education is not employed efficiently.
+
+Chemistry deals with transformation of matter – conversion of one compound into another. There are multiple ways to synthesize a specific chemical compound. Thermodynamics and kinetics allow predicting the reaction pathway that is preferable under specific conditions. Given their tremendous significance for chemical engineering and fundamental research in chemistry, these disciplines are studied in physical chemistry courses across the globe. However, being linked to mathematics and calculus, thermodynamics and kinetics often do not resonate strongly with chemistry students.
+
+https://doi.org/10.26434/chemrxiv-2025-dtlp5 ORCID: https://orcid.org/0000-0002-5760-6033 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+To make studying thermodynamics and thermochemistry more engaging ChemChallenge was developed. This application software implements drag-and-drop and graphic user interface (GUI) to model feasibility of chemical reactions by computing their enthalpy ($\Delta H^0$), entropy ($\Delta S^0$) and Gibbs free energy change ($\Delta G$). The main objective of this application software is to provide a digital tool, which students could use to apply their theoretical knowledge to create reactions equations describing spontaneous chemical reactions.
+
+The computer program falls under the definition of application software – it is intended for the end-user use. However, it contains a few elements, which make it more like a video game. Multiple solutions of each task are permitted if they comply with the laws of thermodynamics and principles that are taught in physical chemistry courses. As such, students are encouraged to think outside the box and be more creative. This makes the game less linear. In general, in educational games, a player’s score serves as the indicator of the performance. It may be analyzed at the end of the game – higher score means higher percentage of correct answers and therefore higher rank of a student/player among the peers. As such, a player’s score does not influence directly the gameplay. The goal of playing ChemChallenge is also to gain maximum score upon completion of all levels. However, the score may be used as in-game currency. Players may exchange the gained score for certain virtual items, such as special chemical compounds and lab equipment, at any time before the game is completed. These virtual objects possess additional functionality and offer more ways to solve tasks and an opportunity to receive even greater reward, which again can be “invested” into upgrading and customization of the player’s laboratory.
+
+**Results**
+
+**Gameplay.** The game is composed of 100 levels. In each level, the player’s task is to complete a chemical reaction equation (Figure 1). To solve the task and advance to the next level, two conditions must be met simultaneously:
+
+1. A reaction equation must be balanced – the total number and type of atoms in reactants and products must match.
+2. Gibbs free energy of the reaction must be negative, which defines a reaction as a spontaneous process (Eq. 1).
+
+```
+Level 1
+Synthesize water, H_2O(l), from any reactants
+
+= 2H_2O(l)
+```
+
+https://doi.org/10.26434/chemrxiv-2025-dtlp5  
+ORCID: https://orcid.org/0000-0002-5760-6033  
+Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+Figure 1. Level 1 task.
+
+As inferred from Eq. 1, negative Gibbs free energy may be achieved when 1) $\Delta H^0 < 0$ and $-\Delta S^0 < 0$ (i.e. $\Delta S^0 > 0$) – a reaction is spontaneous at any $T$. 2) $\Delta H^0 < 0$ and $-\Delta T\Delta S^0 > 0$ (i.e. $\Delta S^0 > 0$) – a reaction is spontaneous at relatively low $T$. 3) $\Delta H^0 > 0$ and $-\Delta T\Delta S^0 < 0$ (i.e. $\Delta S^0 > 0$) – a reaction is spontaneous at high $T$.
+
+$$\Delta G = \Delta H^0 - T \times \Delta S^0$$  \hspace{1cm} (1)
+
+$$\Delta H^0 = \sum n_i (\Delta H_{f,\text{product}}^0)_i - \sum n_i (\Delta H_{f,\text{reactant}}^0)_i$$  \hspace{1cm} (2)
+
+$$\Delta S^0 = \sum n_i (S_{\text{product}}^0)_i - \sum n_i (S_{\text{reactant}}^0)_i$$  \hspace{1cm} (3)
+
+where $(\Delta H_{f,\text{product}}^0)_i$, $(\Delta H_{f,\text{reactant}}^0)_i$ – standard enthalpies of formation of a product and a reactant, respectively, kJ mol$^{-1}$. $(S_{\text{product}}^0)_i$, $(S_{\text{reactant}}^0)_i$ – absolute standard entropies of a product and a reactant, respectively, J mol$^{-1}$ K$^{-1}$. $n_i$ – number of moles of a reactant and a product in the reaction equation, mol. Equals to the coefficient in the reaction equation. $T$ – absolute temperature, K.
+
+To achieve $\Delta H^0 < 0$, players may create such a reaction equation in which the sum of enthalpies of formation of products is more negative than that of reactants, i.e., exothermic reaction. To achieve $\Delta S^0 > 0$, players may create such a reaction equation, in which the sum of absolute entropies of products is more positive than that of reactants, i.e., a chemical system becomes more random when reactants are converted into products. In some cases, it might be not immediately obvious how to create a reaction equation, in which $\Delta H^0 < 0$ and $\Delta S^0 > 0$. Adjustment of temperature might be a viable strategy. This aspect is discussed in detail in the section describing bonuses for adjustment of $\Delta G$ by heating or cooling.
+
+The game contains 39 chemicals that are composed of H, C, N, O, Na, Cl and Fe elements. This number of chemicals is sufficient to create simple reaction equations. Table 1 summarizes thermochemical data that is included in the current version of the game.
+
+Table 1. Thermochemical data of chemicals in alphabetic order that are included in the current version of the game.$[^{[3],[4]}$]
+
+| Entry | Chemical name          | State | Chemical label | $\Delta H^0$ (kJ mol$^{-1}$)$[^a]$ | $\Delta S^0$ (J mol$^{-1}$ K$^{-1}$)$[^b]$ |
+|-------|------------------------|-------|----------------|-----------------------------------|------------------------------------------|
+| 1     | Acetylene              | Gas   | C$_2$H$_2$(g)  | 227.4$[^5]$                       |  200.93$[^6]$                            |
+| 2     | Ammonia                | Gas   | NH$_3$(g)      | -45.9$[^6]$                       |  192.77$[^6]$                            |
+| 3     | Benzene                | Liquid| C$_6$H$_6$(l)  |  49.0$[^7]$                       |  173.30$[^8]$                            |
+| 4     | Carbon dioxide         | Gas   | CO$_2$(g)      | -393.5$[^9]$                      |  213.79$[^9]$                            |
+| 5     | Carbon monoxide        | Gas   | CO(g)          | -110.5$[^9]$                      |  197.66$[^9]$                            |
+| 6     | Carbon tetrachloride   | Liquid| CCl$_4$(l)     | -128.1$[^5]$                      |  214.39$[^10]$                           |
+| 7     | Chlorine               | Gas   | Cl$_2$(g)      |  0                                |  223.08$[^8]$                            |
+| 8     | Chloroform             | Liquid| CHCl$_3$(l)    | -134.1$[^5]$                      |  201.67$[^4]$                            |
+| 9     | Chloromethane          | Gas   | CH$_2$Cl$_2$(g)| -81.9$[^5]$                       |  234.36$[^4]$                            |
+| 10    | Diamond                | Solid | C$_{12}$,diamond| 1.863$[^11]$                      |  2.378$[^2]$,12$                            |
+| 11    | Dichloromethane        | Liquid| CH$_2$Cl$_2$(l)| -124.1$[^5]$                      |  174.50$[^1]$                            |
+| 12    | Ethane                 | Gas   | C$_2$H$_6$(g)  | -84.0$[^5]$                       |  179.57$[^6]$                            |
+| 13    | Ethylene               | Gas   | C$_2$H$_4$(g)  |  52.4$[^5]$                       |  219.32$[^6]$                            |
+| 14    | Formaldehyde           | Gas   | HCOH$_2$(g)    | -115.9$[^6]$                      |  218.95$[^6]$                            |
+
+[^a]: Standard enthalpy of formation; [^b]: Absolute standard entropy.
+The game implements a drag-and-drop interface. Images of chemicals represent specific compounds and elements. A player selects and drag-and-drops a selected number of chemicals into the area of the screen that represents the reactor and receiver (Figure 2).
+Drag-and-dropping an image of a chemical into the reactor or receiver results in the appearance of a symbolic label that represents this reactant or product on the left or right side of the reaction equation, respectively. A player may track the evolution of upon reaction the reaction equation by opening the lab book at any time by double-clicking its image (Figure 3). One of the educational objectives of hiding the reaction equation in the lab book, is to train players’ short-term memory – to complete levels faster players need to memorize the number and type of chemicals that are contained in the reactor and receiver.
+Drag-and-dropping one image of a chemical is equivalent to adding one mole of a chemical into the reactor or receiver. The player can adjust coefficients in front of reactants and products by drag-and-dropping chemicals images into the reactor and receiver the required number of times. All chemicals which are available for the player in the current level are shown in color, while those which are not available – in grayscale. Upon hovering over the chemical, which is available for the player, a pop-up message appears (see the message for nitrogen dioxide in Figure 2). It contains thermochemical data (Table 1) and light absorption properties (Table 2).
+
+The algorithm analyzes constantly the correctness of the reaction equation and if the solution suggested by the player satisfies conditions. The algorithm identifies the following errors:
+
+1. Reactants or products are missing. For example, at the beginning of level 1 the equation is incomplete: “= 2H₂O(l)”. 
+2. A reaction equation is not balanced, i.e., total number and type of atoms of reactants and products do not match each other. For example, “H₂(g) + O₂(g) = 2H₂O(l)”. 
+3. A reaction equation is considered incorrect if the same chemical appears on the left and right side of the reaction equation simultaneously. For example, “H₂O(l) + H₂(g) + O₂(g) = 2H₂O(l)”. 
+4. A reaction equation is considered incorrect if the right part of the reaction equation is equal to the left part. For example, “2H₂O(l) = 2H₂O(l)”. 
+5. Gibbs free energy is zero or positive.
+
+When the algorithm encounters an error, the message appears in the lab book (Figure 3). After player corrects all the errors and achieves ΔG < 0 by any permitted means, “Submit” button is activated and the answer may be submitted for analysis by the algorithm. Upon completion of defined levels, certain chemicals will be unlocked and become available for use in all the following levels. For example, upon Level 1 completion, H₂O(l) will be unlocked (Figure 4).
+
+Figure 4. Water in liquid state is unlocked upon level 1 completion.
+
+Reward system. Upon submission of the solution, the algorithm that is based on the rules of the game calculates the level score (Figure 5).
+The level score is the sum of all bonuses:
+
+1. A bonus for level completion. A player receives 1000 points for completing each level.
+
+2. A bonus for reaction discovery for the first time, which grants 1500 points. The aim of incorporating this bonus is to reward students that have stronger pre-knowledge. In game version 1.0, there are 35 reactions, among which is the Haber-Bosch process. In the case of Haber-Bosch process the algorithm checks two conditions: 1) if NH$_3(g)$ is the only product and all other chemicals are not the products, and 2) N$_2(g)$ and H$_2(g)$ are the only reactants, and all other chemicals are not the reactants. When these two conditions are true, the player receives the bonus for discovery of Haber-Bosch process. A message with the key facts of the discovered reaction or industrial process related to the topic of the game will appear (Figure 6).
+
+Note that the bonus is granted only for the reaction discovery for the first time. Also, when either N$_2(g)$ + 3H$_2(g)$ = 2NH$_3(g)$ or 2N$_2(g)$ + 6H$_2(g)$ = 4NH$_3(g)$, etc. is submitted for the first time, the
+bonus is granted, i.e., left and right parts of the reaction equation may be multiplied by any integer.
+
+3. A bonus for using \( \text{H}_2\text{O}(l) \), \( \text{CO}_2(g) \), \( \text{N}_2(g) \), \( \text{NaCl}(s) \) as reactants. These compounds are characterized by strongly negative enthalpy of formation (Table 1). As such, conversion of these molecules is thermodynamically challenging. Students are rewarded with 300 points for using each of these chemicals as reactants to complete the level task. Note that if any of these chemicals appear as reactants in the task, the bonus is not awarded.
+
+4. A bonus for synthesis of elements in their standard states, \( \text{H}_2(g) \), \( \text{Cl}_2(g) \), \( \text{Na}(s) \), \( \text{Fe}(s) \). The enthalpy of formation of an element in its standard state is 0 kJ mol\(^{-1}\) (Table 1). Therefore, according to Eq. 2, synthesis of elements in their standard states from their compounds in most cases is an endothermic process (unless the standard enthalpy of formation of such a compound is positive, see below). Consider, for example, dissociation of two moles of \( \text{H}_2\text{O}(l) \) into two moles of \( \text{H}_2(g) \) and one mole of \( \text{O}_2(g) \). \( \Delta H^0 \) of this reaction is 571.66 kJ. Overall, when elements in their standard states appear as reaction products, this increases \( \Delta G \) of the reaction (Eq. 1). To support the player’s creative thinking, which allows not only completing the task, but at the same time to produce valuable industrial commodities, 500 points are granted for synthesis of each of these chemicals. Note that if any of these elements are included in the task, the bonus is not awarded.
+
+5. A bonus for synthesis of chemicals with positive enthalpy of formation, \( \text{C}_2\text{H}_2(g) \), \( \text{C}_2\text{H}_4(g) \), \( \text{C}_6\text{H}_6(l) \), \( \text{C}_{(s,diamond)} \), \( \text{N}_2\text{H}_4(l) \), \( \text{NO}(g) \), \( \text{N}_2\text{O}(g) \), \( \text{NO}_2(g) \), \( \text{O}_3(g) \) (Table 1). Similarly, to synthesis of elements in their standard states, formation of these compounds is thermodynamically challenging. The player receives 500 points for each of these compounds that are obtained as reaction products. The bonus is not awarded if any of these compounds are included as reactants in the task.
+
+6. A bonus for adjustment of \( \Delta G \) by heating the reaction. One of the practical aspects of studying thermodynamics is understanding how to adjust conditions to make non-spontaneous reaction spontaneous. In each level, the reaction temperature is by default set to 298 K. Therefore, the player might encounter a situation that in a certain reaction \( \Delta H^0 > 0 \), \( \Delta S^0 > 0 \), and \( \Delta G > 0 \). By increasing \( T \), the player can achieve a state in which \( \Delta H^0 - T\Delta S^0 < 0 \). The ability to use this piece of knowledge to solve the task is rewarded with the bonus of 500 points. Note when \( \Delta G \) is negative at 298 K, increasing \( T \) will not grant the bonus.
+
+7. A bonus for adjustment of \( \Delta G \) by cooling the reaction. A solution of certain tasks might be a reaction equation in which \( \Delta H^0 < 0 \), \( \Delta S^0 < 0 \) at 298 K, which make \( \Delta G > 0 \). By decreasing \( T \), the player can achieve a state in which \( \Delta H^0 - T\Delta S^0 < 0 \). While this approach does not contradict the rules of the game, it is used seldom in chemistry laboratories in the real world. The reason is that, in general, the reaction rate decreases at a lower temperature. To take into account this aspect, in the game, the bonus decreases exponentially from 500 points at 298 K to 0 points at 0 K. The bonus is calculated according to the equation:
+
+\[
+\text{Bonus} = \frac{500}{(e-1)^2} \left( \frac{T}{298} - 1 \right)^2
+\]
+
+(4)
+
+https://doi.org/10.26434/chemrxiv-2025-dtlp5 ORCID: https://orcid.org/0000-0002-5760-6033 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+In-game currency. At the beginning of the game, the player starts with a reactor that allows heating the reaction up to 573 K and two chemicals \( \text{H}_2(\text{g}) \) and \( \text{O}_2(\text{g}) \). In addition to chemicals, which will be unlocked upon completion of specific levels (this is predefined in the game script), at any time, the player may exchange the gained points for chemicals with positive enthalpy of formation (Table 1). The player may also exchange the gained points for reactors that allow heating the reaction up to 1773 K and 3273 K, respectively, and light emitting diodes (LEDs). Figure 7 shows the interface of the game shop. After any of these virtual items are “purchased” they remain available for player in all the subsequent levels. Upon purchase of any item, specified in the “price tag” number of points will be subtracted from player’s total score (see Figure 2).
+
+As inferred from Eq. 1 and 2, using chemicals with positive enthalpy of formation as reactants lowers \( \Delta H^0 \) and, as a result, decreases \( \Delta G \). On the other hand, LEDs may be used to generate electronically excited state of reactants. Such species have less negative (or positive) \( \Delta H_f^0 \) compared to that of the ground state. Schematically, these differences in energies are shown in Figure 8.
+According to Eq. 2, using an electronically excited state of a compound instead of its ground state makes $\Delta H^0$ more negative. In the game, the player may access visible photons, 600 nm (199 kJ mol$^{-1}$), UVA photons, 350 nm (341 kJ mol$^{-1}$), and UVC photons, 180 nm (664 kJ mol$^{-1}$). Overall, adding photons as reactants subtracts the corresponding energy from $\Delta H^0$ and, as a result, from $\Delta G$. In order not to make a LED as a “silver bullet” – a tool that can turn any endothermic/endergonic reaction into exothermic/exergonic, several rules and restrictions related to their use are introduced:
+
+1. The Grotthus-Draper law states that radiation must be absorbed by a chemical substance for a photochemical reaction to occur. To use a specific LED in the game, a reaction mixture must contain at least one chemical compound that absorbs photons of interest. Compatibility of chemicals modelled in the game with the LEDs was assigned mainly based on the published data. Table 2 collects photochemical reactions, in which a specific chemical was studied, the wavelength used in the experiment and the corresponding photon energy (kJ mol$^{-1}$). In some cases, the assignment was made considering UV-vs absorption spectrum of a compound, its cross-section, or bond dissociation energy. In some cases, however, chemicals were arbitrary included in the list as absorbers of VIS, UVA or UVC photons to increase the scope of chemicals compatible with the specific LED.
+
+2. Only one-photon excitation is permitted, i.e., players can only add one mole of photons and as such lower $\Delta H^0$ and $\Delta G$ of a reaction by 199, 341 or 664 kJ mol$^{-1}$.
+
+Table 2. Reported photochemical reactions and compatibility of game chemicals with the game LEDs.
+
+| Entry | Chemical label | Photochemical reactions | $\lambda$, nm$^{[a]}$ | $E$ (kJ mol$^{-1}$) | Reference(s) | Vis$^{[b]}$ | UVA$^{[c]}$ | UVC$^{[d]}$ |
+|-------|----------------|------------------------|------------------------|-------------------|--------------|-----------|-----------|-----------|
+| 1     | C$_2$H$_2$(g)  | HCCH + hv = HCC$^*$ + H$^*$ | 201-216$^{[e]}$       | ~571              | [23]         | No        | No        | Yes       |
+| 2     | NH$_3$(g)      | NH$_3$ + hv = NH$_2^*$ + H$^*$ | 160-230$^{[e]}$       | ~610              | [24]         | No        | No        | Yes       |
+
+---
+
+https://doi.org/10.26434/chemrxiv-2025-dtlp5 ORCID: https://orcid.org/0000-0002-5760-6033 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+| 3  | C₄H₆(g) | ![Graphene](https://doi.org/10.26434/chemrxiv-2025-dtlp5) | 165-200[^a] | ~652 | [25] | No | No | Yes |
+| 4  | CO₂(g) | CO₂ + hv = CO⁺ + O⁺ | 120[^a] | ~992 | [26],[27] | No | No | No |
+| 5  | CO(g) | – | – | – | No | No | No |
+| 6  | CCl₄(g) | CCl₄ + hv = CCl⁺ + Cl⁻ | 250[^a] | ~476 | [28] | No | No | Yes |
+| 7  | Cl₂(g) | Cl₂ + hv = 2Cl⁺ | ≤500[^f] | ~238 | [29] | No | Yes | Yes |
+| 8  | CHCl₃(g) | CHCl₃ + hv = CHCl⁺ + Cl⁻ | 193[^e] | ~617 | [30] | No | No | Yes |
+| 9  | CH₂Cl₂(g) | CH₂Cl + hv = :CH₂ + HCl | 158[^a] | ~755 | [31] | No | No | No |
+| 10 | C₆(graphene) | – | – | – | Yes | Yes | Yes |
+| 11 | CH₃Cl(g) | CH₃Cl + hv = CH₃⁺ + Cl⁻ | 124[^a] | ~960 | [32] | No | No | No |
+| 12 | C₂H₆(g) | C₂H₆ + hv = C₂H₅⁺ + H⁺ | 147[^a] | ~810 | [33] | No | No | No |
+| 13 | C₃H₄(g) | C₃H₄ + hv = C₃H₃⁺ + H⁺ | 193[^e] | ~617 | [34] | No | Yes | Yes |
+| 14 | HCOH(g) | HCOH + hv = HCO⁺ + H⁻ | 304-325[^a] | ~376 | [35] | Yes[^i] | Yes |
+| 15 | HCOOH(g) | HCOOH + hv = HCO⁺ + HO⁻ | ~220[^e] | ~541 | [36] | No | No | Yes |
+| 16 | C₆(graphene) | – | – | – | Yes | Yes | Yes |
+| 17 | Fe₂O₃(s) | – | ~600[^i] | ~199 | [37] | Yes[^i] | Yes[^i] | Yes[^i] |
+| 18 | N₂H₄(l) | N₂H₄ + hv = N₂H₃⁺ + H⁺ | 193[^e] | ~617 | [38] | No | No | Yes |
+| 19 | H₂(g) | H₂ + hv = H₂⁺ + e⁻ | 91[^i] | ~1306 | [39] | No | No | No |
+| 20 | HCl(g) | HCl + hv = H⁺ + Cl⁻ | 148[^e] | ~806 | [40] | No | No | No |
+| 21 | H₂O₂(l) | H₂O₂ + hv = 2HO⁺ | – | ~210[^i] | [41] | No | Yes | Yes |
+| 22 | Fe(g) | – | – | – | No | No | No |
+| 23 | FeCl₂(g) | – | ~400[^i] | ~299 | [42] | Yes[^i] | Yes |
+| 24 | FeCl₃(g) | FeCl₃ + HCl = HFeCl₄ | 405[^a] | ~294 | [43] | No | Yes | Yes |
+| 25 | CH₄(g) | CH₄ + hv = :CH₂ + H₂ | 105-124[^a] | ~1040 | [44],[45] | No | No | No |
+| 26 | CH₃OH(l) | CH₃OH + hv = CH₃O⁺ + H⁺ | 193[^e] | ~617 | [46] | No | No | Yes |
+| 27 | NO(g) | 4NO + hv = N₂ + 2NO₂ | 214[^a] | ~555 | [47] | No | No | Yes |
+| 28 | NO₂(g) | 2NO₂ + hv = 2NO + O₂ | 50-440[^e] | ~270 | [48] | No | Yes | Yes |
+| 29 | N₂(g) | 3N₂ + hv = 2N₂⁺ | 130[^g] | ~916 | [49] | No | No | No |
+| 30 | N₂O₃(g) | N₂O₃ + hv = N₂ + O² | 147, 129.5 | ~810 | [50] | No | No | No |
+| 31 | O₂(g) | O₂ + hv = 2O⁺ | 200[^g] | ~595 | [51] | No | No | Yes |
+| 32 | O₃(g) | O₃ + hv = O₂ + O⁺ | 300[^e] | ~397 | [52] | No | Yes | Yes |
+| 33 | Na₂CO₃(l) | – | – | – | No | No | No |
+| 34 | NaCl(g) | NaCl + hv = Na⁺ + Cl⁻ | 242[^m] | ~492 | [53],[54] | No | Yes | Yes |
+| 35 | NaH(g) | – | – | – | No | No | No |
+| 36 | NaOH(g) | NaOH + hv = Na⁺ + HO⁺ | 346[^f] | ~344 | [55] | No | Yes[^i] | Yes |
+| 37 | Na₂O₂(s) | – | 288[^m] | ~413 | [^56] | No | Yes[^g] | Yes[^j] |
+| 38 | Na(s) | – | – | – | – | No | No | No |
+| 39 | H₂O(l) | H₂O + hv = H⁺ + HO⁺ | 242[^f] | ~672 | [^57] | No | No | Yes[^i] |
+
+[^a] Photons of this wavelength were used in the corresponding photochemical reaction.
+
+[^b] "Visible light" denotes monochromatic radiation at 600 nm, which corresponds to photon energy 199 kJ mol⁻¹.
+
+[^c] "UVA" light denotes monochromatic radiation at 350 nm, which corresponds to photon energy 341 kJ mol⁻¹.
+
+[^d] "UVC" light denotes monochromatic radiation at 180 nm, which corresponds to photon energy 664 kJ mol⁻¹.
+
+[^e] Energy (kJ mol⁻¹) of photons in the corresponding photochemical reaction was calculated according to equation: \( E = \frac{hc \times N_A}{1000 \times \lambda} \), where \( h \) – Planck constant. \( c \) – speed of light in vacuum. \( N_A \) – Avogadro's number. \( \lambda \) – photon wavelength, m.
+
+[^f] Estimated from absorption cross section as a function of \( \lambda \).
+
+[^g] In the game, it was arbitrary accepted that the chemical absorbs UVA photons.
+
+[^h] Considering onset of absorption in UV-vis spectrum.
+
+[^i] In the game, it was arbitrary accepted that the chemical absorbs VIS photons.
+
+[^j] In the game, it was arbitrary accepted that the chemical absorbs UVC photons.
+
+[^k] Lyman limit.
+
+[^l] Bond Dissociation Energy (BDE).
+
+[^m] Considering maximum in the UV-vis absorption spectrum.
+
+For teachers. In addition to learning experience, the game provides tools for teachers to analyze students’ performance. Upon game completion a screen with game statistics appears (Figure 9).
+
+Game complete!
+Congratulations, CUHK! You completed the game.
+Game statistics:
+Total assets: 141373 points.
+Total game time: 5278 second.
+Average level time: 52 seconds.
+Shortest level time: 4 seconds. In level 2.
+Longest level time: 296 seconds. In level 29.
+Discovered reactions: 19/35.
+
+[Exit] [New Game]
+Figure 9. Game statistics.
+
+This may be used as an instant assessment of students’ performance. Upon completion of each level, the game also creates a file “gameLog.txt” with tab-separated values. In computers operated by Windows, the file is stored locally in "...\AppData\LocalLow\SavateevLab\ChemChallenge\". The game does not collect and transfer any personal data. The columns which are included in gameLog.txt and their description are given in the Supporting Information. The data may be imported into any text processor and analyzed (Figure 10).
+
+Figure 10. An example of data analysis that was extracted from the game log file. A Level time. B $\Delta H^0$, $\Delta S^0$ values of the reaction equations submitted as levels solutions. C Combinations of $\Delta H^0$, $\Delta S^0$ values of the reaction equations submitted as levels solutions. D Combinations of reactions conditions submitted as levels solutions: VisLED & T > 298K – negative $\Delta G$ value was achieved by employing VisLED and heating the reaction, VisLED & T = 298K – using VisLED at 298K, T < 298K – cooling the reaction without employing LED, T > 298K – heating the reaction without employing LED.
+
+Figure 10A shows that in a certain game, a player completed most of the levels within 2 minutes. $\Delta H^0$ of most reactions is ±1000 kJ, and $\Delta S^0$ is ±500 J K$^{-1}$ (Figure 10B). In 46.5% of cases, the player solved tasks by creating such a reaction equation, in which both $\Delta H^0$ and $\Delta S^0 < 0$ (Figure 10C). $\Delta H^0 < 0$ and $\Delta S^0 < 0$ are in 34.3% of solutions. $\Delta H^0 < 0$ and $\Delta S^0 > 0$ are in 19.2% of solutions. The player did not design such a reaction, in which $\Delta H^0 > 0$ and $\Delta S^0 < 0$. Such a
+combination of thermodynamic functions corresponds to a situation, in which reversed reaction is a spontaneous process, while the forward reaction is non-spontaneous at any T. Figure 10D shows that the player solved most tasks by designing a reaction, in which $\Delta G < 0$ at 298K, 61.6% of cases. In 23.2% of cases, the player applied only heating to complete levels. In 3.03%, the player cooled the reaction to complete levels. In this case study, the player accumulated enough points and exchanged them for VisLED. At 298K, the player used VisLED to complete 4.04% of tasks. By using VisLED and heating, the player completed 8.08% of levels.
+
+**Limitations of the current game version.** The current game version has the following limitations:
+
+1. The aggregate state of chemical compounds and elements, and the corresponding thermochemical data is not adjusted when temperature is changed. For example, thermochemical data of water, which by default is available in a liquid state at 298.15K, is not adjusted when temperature is changed. $\Delta H^0, S^0$ are assumed to be independent of temperature, which is not the case in reality.
+2. The algorithm does not analyze if a designed reaction is kinetically feasible, i.e., if in the real world, the selected reactants give the specific products, even when $\Delta G$ of such a reaction negative. Compatibility of compounds and elements with LEDs is modelled considering published data (Table 2). In most cases, absorption of a photon by a molecule triggers cleavage of a chemical bond and formation of a radical intermediate. For example, ethylene is converted into acetylene or $C_3H_5^*$. The algorithm does not model the reaction profile and cannot verify if there is a path of transforming reactants and tentative intermediates of photochemical reactions into the products.
+3. The algorithm does not model reactions in a solution. This means, for example, that $\Delta H^0, \Delta S^0$ and $\Delta G$ of a neutralization reaction depend on the structure of acid and base that are used, and it cannot be simplified to the net ionic equation $H^+ + OH^- = H_2O$ as in aqueous solution. This aspect might lead to some surprising findings.
+4. The algorithm assumes that absolute standard entropy of compounds and elements in the ground state and the electronically excited state are the same.
+
+**Technical details about game development and its use**
+
+The game is distributed under the terms of GNU General Public License version 3. The game was created in Unity 20223.34f1. The scripts were written in C# using Microsoft Visual Studio. All 3D objects were created in Blender, rendered and exported as PNG files. Some images were created in Inkscape 1.0.2-2. Game sounds and game background music are licensed from Envato. PlayHT was used to convert text to speech and create wav-files with levels description, reactions discovery messages and chemicals that are unlocked in specific levels.
+
+**Disclaimer:** The outcome of a chemical reaction in this game and in the real world might be different. In the real world, mixing of chemicals might lead to formation of extremely toxic compounds, explosion and injuries. *All experiments in the real world must be conducted by a*
+person with an education in chemistry, wearing personal protective equipment, following safety regulations and common sense.
+
+Link to download ChemChallenge (v1.0) for Windows:
+
+https://savateevgroup.com/chemchallenge/
+
+The game is provided as a portable application – it does not require installation. Extract content of .zip folder in any location on the hard drive. To remove the game from a computer, delete game files, and all game setting and log files that are stored in “...\AppData\LocalLow\SavateevLab\ChemChallenge”. Upon launch, the application will try to access the binary file “gamedata”, located at “...\AppData\LocalLow\SavateevLab\ChemChallenge”. This file stores game settings and game progress. If this file does not exist, the application will create such a file with default settings. The buttons “New Game” and “Load Game” remain inactive, until the player’s name is specified. To specify player’s name, click “Settings”, input a preferred name and click “OK”. This action will update gamedata file and activate “New Game” and “Load Game” buttons. Changing the player’s name during the game will restart the game from level 1. Game progress is saved automatically upon “Next Level” button click. All files in the folder “...\AppData\LocalLow\SavateevLab\ChemChallenge” must not be used by any other processes when ChemChallenge is launched. Otherwise, it might lead to unpredictable behavior of the application.
+
+Acknowledgements
+
+O.S. acknowledges Yasuko Nakao, Sin Man Ching, Zenda Kwok, Minxin Gou, Liudmyla Savatieieva, Prof. Chunshan Song and Prof. Alan K. L. Chan for their contribution by testing the game and/or providing valuable suggestions for the game improvement.
+
+Conclusions
+
+A video game ChemChallenge was developed, and its version 1.0 was released. The game implements a graphic user interface, drag-and-drop interface, a reward system and in-game currency. The game is intended for use by students to apply theoretical knowledge gained while studying physical chemistry. The main objective of the game is to help students to understand how thermodynamics may be used to design spontaneous chemical reactions, i.e., reactions that occur spontaneously under the given conditions. This includes adjustment of enthalpy and entropy of reactants and products by selecting specific chemicals, and adjustment of reaction temperature. Basic applied principles of photochemistry were introduced. The game may also be used by teachers to assess students’ performance in physical chemistry and general chemistry courses.
+
+References
+[39] C. M. Coppola, P. Diomede, S. Longo, M. Capitelli, *The Astrophysical Journal* 2011, 727, 37.
+[40] A. Jówko, S. U. Pavlova, H. Baj, B. G. Dzantiev, M. Forýš, *Radiation Effects* 1981, 55, 9-15.
+[41] R. D. Bach, H. B. Schlegel, *The Journal of Physical Chemistry A* 2020, 124, 4742-4751.
+[42] S. I. Wanakai, P. G. Kareru, D. S. Makhanu, E. S. Madivoli, E. G. Maina, A. O. Nyabola, *SN Applied Sciences* 2019, 1, 1148.
+[43] P. E. Hoggard, M. Gruber, A. Vogler, *Inorg. Chim. Acta* 2003, 346, 137-142.
+[44] E. M. Magee, *The Journal of Chemical Physics* 1963, 39, 855-858.
+[45] B. H. Mahan, R. Mandal, *The Journal of Chemical Physics* 1962, 37, 207-211.
+[46] Y. Wen, J. Segall, M. Dulligan, C. Wittig, *The Journal of Chemical Physics* 1994, 101, 5665-5671.
+[47] J. J. McGee, J. Heicklen, *The Journal of Chemical Physics* 1964, 41, 2974-2977.
+[48] L. Zafonte, P. L. Rieger, J. R. Holmes, *Environmental Science & Technology* 1977, 11, 483-487.
+[49] Y.-J. Wu, C. Y. R. Wu, S.-L. Chou, M.-Y. Lin, H.-C. Lu, J.-I. Lo, B.-M. Cheng, *The Astrophysical Journal* 2012, 746, 175.
+[50] W. E. Groth, H. Schierholz, *Planetary and Space Science* 1959, 1, 333-342.
+[51] J.-I. Lo, S.-L. Chou, Y.-C. Peng, H.-C. Lu, J. F. Ogilvie, B.-M. Cheng, *Physical Chemistry Chemical Physics* 2018, 20, 13113-13117.
+[52] E. Lissi, J. Heicklen, *Journal of Photochemistry* 1972, 1, 39-68.
+[53] J. Franck, H. Kuhn, G. Rollefson, *Zeitschrift für Physik* 1927, 43, 155-163.
+[54] F. S. Rowland, P. J. Rogers, *Proceedings of the National Academy of Sciences* 1982, 79, 2737-2739.
+[55] F. S. Rowland, Y. Makide, *Geophysical Research Letters* 1982, 9, 473-475.
+[56] A. V. Boyarintsev, S. I. Stepanov, A. A. Chekhlov, A. M. Chekmarev, A. Y. Tsivadze, *Doklady Chemistry* 2016, 469, 227-232.
+[57] A. N. Heays, A. D. Bosman, E. F. van Dishoeck, *Astron. Astrophys.* 2017, 602, A105.

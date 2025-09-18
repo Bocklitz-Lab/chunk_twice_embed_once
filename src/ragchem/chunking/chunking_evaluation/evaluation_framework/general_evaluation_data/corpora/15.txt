@@ -1,0 +1,371 @@
+Discrete Element Method Model of An Extrusion Process with Recirculation for Dry Manufacturing of Lithium-Ion Battery Electrodes
+
+Pei Sun a,b, Paul Vigneaux b,c*, Alejandro A. Franco a,d,e*
+
+a Laboratoire de Réactivité et de Chimie des Solides, UMR CNRS 7314, Université de Picardie Jules Verne, F-80039, Amiens Cedex 1, France
+b LAMFA, CNRS UMR 7352 Université de Picardie Jules Verne, 33 rue Saint Leu, F-80039 Amiens Cedex 1, France
+c UMPA, CNRS UMR 5669 ENS de Lyon, 46 allée d’Italie, F-69364 Lyon Cedex 07, France
+d Réseau sur le Stockage Electrochimique de l’Energie (RS2E), FR CNRS 3459, Hub de l’Energie, 15, rue Baudelocque, Amiens Cedex F-80039, France
+e Institut Universitaire de France, 103 boulevard Saint Michel, F-75005 Paris, France
+* Authors to whom any correspondence should be addressed: alejandro.franco@u-picardie.fr, paul.vigneaux@math.cnrs.fr
+
+Keywords: lithium-ion battery ; solvent-free electrode manufacturing ; extrusion ; Discrete Element Method ; 3D printing filament
+
+Abstract
+
+In this article, we report a computational modeling study to enhance the understanding of the solvent-free extrusion process employed to produce filaments for the 3D printing of lithium-ion battery electrodes. Our study is supported by a newly developed dynamic 3D-resolved numerical model capable of simulating the extrusion process, including material recirculation within the extruder. This model describes the extrusion process at the mesoscale through a granular approach based on the discrete element method. Our model accounts for the main features of the twin-screw extruder, allowing the simulation of several recirculation cycles and extrusion of active material, carbon additive, and binder mixtures. We discuss how different electrode material formulations, material injection sequences, twin-screw rotation speeds, and residence time in the extruder barrel affect the microstructure and particle distribution of the extruded filament. Finally, we calculate parameters including the porosity, tortuosity factor, effective diffusivity and electrical conductivity of the filament microstructures.
+
+1. Introduction
+
+Energy storage technologies, such as Lithium-Ion Batteries (LIBs), play a major role in the ongoing global energy transition. LIBs play a very important role in our societies, as illustrated by the wide variety of their successful applications, from portable electronics to transportation [1]. LIB cells are made of two porous electrodes supported on current collectors, and a porous separator. The electrodes are composites made of Active Material (AM) ensuring lithiation and de-lithiation electrochemical reactions, carbon additives ensuring good electrical conductivity, and polymeric binders ensuring mechanical integrity. The pores within the electrodes and the separators are filled with liquid electrolyte in order to ensure lithium-ion exchange between the electrodes upon the electrochemical cycling of the LIB cells. The microstructure of the electrodes,
+defined by the spatial organization of the AM, carbon additives, binder and pores, determine the practical properties of the LIB cells, such as their energy and power densities, lifetime and safety. The state-of-the-art approach for preparing these electrodes is based on solvent-based (or wet) processing. The latter consists of a complex sequence of steps, from a slurry preparation to its coating and drying and the calendering of the resulting electrodes [2]. Organic solvents such as N-Methyl-2-Pyrrolidone (recognized to be toxic) are used for the manufacturing of the positive electrodes while water is typically used for the manufacturing of the negative ones. While the solvent-based electrode manufacturing approach is massively used in industry, it presents some drawbacks, such as the difficulty to optimize the associated numerous manufacturing parameters (e.g. slurry viscosity, coating speed, drying rates) and the energy consumption needed for the drying step [3]. By analyzing the carbon and binder domain distribution, Liu et al. [4] discussed how slurry formulation and calendering degree affect the electrode performance. Alabdali et al. [5] calculated the microstructure’s electronic conductivity and ionic geometrical tortuosity factor to describe the dynamic relationship between pressure, microstructure, and conductivity. Understanding the relationship between manufacturing parameters and microstructure can optimize the process to produce electrodes with desired characteristics and performance specifications [6].
+
+Compared to the solvent-based manufacturing process, Solvent-Free (SF) manufacturing processes of LIB electrodes have gained increasing popularity due to its numerous advantages [7]. SF processes eliminate the use of solvents in the mixing of the materials, thereby circumventing the energy-intensive drying step in the conventional wet processing: this has the potential to reduce the energy consumption of the total LIB cell manufacturing process for around 45%-47% according to some estimations [8] [9]. Examples of SF processes include among others, dry mixing and coating (implying polymer fibrillation and direct pressing) [10], electrostatic spraying [12] and 3D printing (Direct Ink Printing or Fused Deposition Modeling) [12].
+
+The use of 3D printing technology for the LIB electrodes manufacturing has brought scientific interest based on the benefit of being a SF manufacturing process [13]. 3D printing to produce flexible wearable and made-to-order LIB cells is an exciting application, given its outstanding process versatility, precise control of geometrical aspects, and the potential to reduce costs and minimize material wastage [14], [15].
+
+One of the most promising 3D printing methods for battery fabrication is the Fused Filament Fabrication (FFF) process, also known as Fused Deposition modeling (FDM) [15]. In the FFF process, filaments are to be made from an assembly of AM, conductive additives and binders, which are blended using (i) molten thermoplastic polymers as the carrier phase and (ii) an extrusion (hot-melt) process. This produces filaments with good properties for the subsequent 3D printing process, namely the ability to be rolled and melted again in the printer nozzle. The quality of the 3D printing filaments is strongly influenced by the formulation and granulometry of the used materials (i.e., particle size and weight percentage of AM, carbon additive in the form of particles and/or nanofibers, binder and plasticizer).
+
+The microstructure of the filament, which is the output from the extruder, can be described by the arrangement and morphology of the component materials and pores. The characterization of the microstructure can be measured to determine the mixing efficiency of the extrusion process and ensure that the filament can be used to carry out 3D printing of battery electrodes afterward [16]. The microstructure features represent both the mechanical and electrochemical properties.
+Only a few researchers used the single-screw extruder for the SF electrode processing. For instance, Park et al. [17] used a single-screw extrusion to mix graphite flakes, carbon additives, and polylactic acid polymer for a 3D printed electrode. Moreover, the first team [18] who implemented extrusion in the SF process to fabricate the LIB electrodes with LTO (Li$_4$Ti$_5$O$_{12}$) and LiFePO$_4$ (LFP) used a Twin-Screw Extruder (TSE) for mixing binder and ceramic powders. After that, they used a single-screw extruder to build the specific shape of the final product. Almost all research on the SF process was carried out with the TSE, showcasing its critical role in advancing the field [19]. For the single-screw extruder, the mixing only occurs in the narrow gap formed between the screw tip and the mixing chamber wall. Whereas, for the TSE, the mixing process also happens between the two screws, with the material going from one side to another side and from one end to another end. In addition, since the TSE allows for higher shear rates, the mixing of the materials is expected to be more homogeneous than in a single-screw extruder.
+
+Other hot-melt extrusion parameters also play a significant role in the material distribution of the filament microstructure, thereby exerting a profound influence on the electrical property of electrode [20],[21]. In the SF process, precise control of extrusion parameters —such as residence time in extruder, melt temperature, and injection rate— is imperative to effectively prevent the formation of agglomerates [22].
+
+Computational modeling can help at understanding the links between extrusion parameters and filament properties. However, so far, there is a lack of computational modeling research on the influence of the rotation speed of twin-screw used in SF process. Paredes-Goyes et al. [23] used a Discrete Element Method (DEM) model to show how the extruder works at two speeds, and another similar—but experimental only—work of Yonaga et al. [24] discussed the rotation speed of the mixer used for mixing the dry powders of electrode. Both proposed that the rotation speed in dry mixing critically controls the conductive pathways in LIB electrodes. Low or high speeds disrupt conductive pathways, reducing the electrochemical performance.
+
+The objective of the present article is to go further in the simulation of the above extrusion process. Such simulations are challenging notably due to the complex 3D geometry of the TSE as well as due to the choice of a theoretical model used for the simulations. There are indeed several possible choices for the model but in any case, a compromise needs to be found between a refined description (both from the point of view of the number of involved physical actors and on the degrees of freedom of the discretization) and a doable computational cost. The above-mentioned complexity is due in particular to the inherent nature of extrusion paste components, which include constituents that vary in size by several orders of magnitude, so that implies the need for models able to include some sort of multiscale description. Building upon our previous work in [23], we adopt a DEM method thanks to this already present expertise in the team and the capability to deal with the multiscale nature of this extrusion process. The ultimate goal of this simulation study being naturally to try to optimize the lab experiments in terms of extrusion process parameters, material properties, and the microstructure of extruded filaments.
+In the present work, we report a more advanced version of our previous model, which is much closer to the original experimental design of Boudeville et al. [16]. We replaced the geometry of the extruder to fit the shape of the physical equipment, applied four material formulations for the particles, and added a recirculation circuit to follow the experimental process, which is also helpful for the DEM model's computational cost. We also explored two injection sequences and analyzed the influence of screw rotation speed on the microstructure of the filaments, which are the outlets of the extrusion process.
+
+Our article is organized as it follows. First, we present our modeling approach. Then we discuss the results obtained from the computational simulations carried out by using our model. Finally, we conclude and indicate future directions for our work.
+
+2. Modeling approach
+
+The simulation aims to develop a numerical model that replicates the experimental process within an acceptable computational time. Compared to the real experiment, the model is scaled down or up in both temporal and spatial scales, making direct quantitative comparison with the experiment infeasible. However, trend variations in the model can provide valuable insights for a deeper qualitative understanding of the experimental results. The model geometry of the extrusion process in the SF battery electrode manufacturing, used by our lab collaborators [16], is illustrated in Fig. 2.
+2.1 Geometry, particles and software
+
+The model consists of the geometry of the extruder and the material particles used to form the filaments. The extruder in this model contains a twin-screw, an extruder barrel and a recirculation circuit (made of a simple pipe). It was digitally reconstructed from the machine used in the experimental study to maintain geometric similarity and proportionally scaled down to balance computational cost. In addition, the model abstracts two types of spherical particles based on the experimental study. We set the material properties to represent the different material aggregates. The AM particles represent the aggregates of LFP, and the Binder-Carbon (BC) particles represent the mixture of polymer materials (e.g., PP, PCL, and PBE) and carbon nanofibers in the extruder under heating.
+
+In the experiment of Boudeville et al. [16], the scanning electron microscopy (SEM) images of the extruded filament sample, which are squeezed out of the extruder, indicated a complex relationship between LFP and other mixed materials. It also showed that the diameter distribution range of the LFP aggregates in the extruded filaments ranges from 0.3 µm to 20 µm. To simplify the particle size distribution in the model, we assume a diameter of 10 µm for the AM particles. The BC particles approach a liquid-like state in the extruder at 170 °C degrees. Using smaller particle size for BC particle could more accurately mimic this melt polymer flow in the extruder. However, too small particle size demands reducing the simulation timestep, and the liquid bridge (capillary) force may also need to be considered, which will significantly increase the overall computational cost of our simulations. When the sizes of the two simulated particles have a large gap, the smaller BC particles, which also have a lower density, will fly out from the inlet (yellow zone in Fig. 2) during particle interaction, causing the model to become unstable and unable to continue. Therefore, we assume a diameter of 5 µm for BC particles.
+
+Since the particles used in our DEM model are already coarse-grained granular particles, further coarsening them to fit the centimeter-scale extruder size would make the material properties of the particles more ambiguous. Therefore, we choose to linearly reduce the extruder size to a range corresponding to the particle size, in order to reduce computational cost. Meanwhile, because we are not required to consider the maximum torque limitation of the twin-screw in the simulation, we can also simplify the shape of the recirculation circuit to a constant diameter of 60 µm. In the
+model, we reduce the outlet diameter of the extruder to 60 µm, which is 3000 µm in the experimental device. We reduce the size of the other parts proportionally, thus obtaining a geometric model of the extruder with a volume of around $1.17 \times 10^{-4}$ cm$^3$.
+
+Overall, the model in this study uses the same AM and BC particle sizes and densities as well as the same force field coefficients (restitution, friction and rolling friction) as in our previous DEM model [23]. However, there are still several differences in the geometry and particles properties between these two studies. First, the model in this work uses the same shape of a twin-screw as in the experiment, which significantly improves the similarity of the shear rate distribution in the extruder between the model and the experiment. In addition, we add a material injection barrel and a recirculation circuit to ensure that the particles would not be overflowed and lost during the simulation. This recirculation circuit is something that exists in the real extruder. Second, we set the different values for the material properties of BC particle and consider the material of PCL, which is not included in our previous model [23].
+
+We use SolidWorks to design the extruder barrel and twin-screw geometry, followed by post-processing and optimization of the STL files using Blender [25] and MeshLab [26]. In this way, we obtain a Computer-Aided Design (CAD) model of the extruder with an outlet diameter 50 times smaller than that of the experimental device, but with a good approximation of the relative proportions of twin-screw and barrel to the real extruder. We then process the STL file as an import file for use in the software LIGGGHTS [27].
+
+2.2 Numerical method
+
+As mentioned above, we adopt a DEM model where the particles are simplified to a spherical shape and coarse-grained to a computable scale. In this study, the gravity (denoted as $F_{\text{Gravity}}$ in the following) of the particles, the interaction forces between particles, and the interaction forces between particles and boundaries are all considered. More specifically, we included in the DEM model all the following interaction forces: (i) the Simplified Johnson-Kendall-Roberts (SJKR) model, which includes cohesion force (denoted as $F_{\text{SJKR}}$), (ii) the Hertz contact force (denoted as $F_{\text{Hertz}}$) and (iii) the Constant Directional Torque (CDT) (denoted as $\tau_{\text{CDT}}$). The forces acting on the particles in the model can be illustrated as in Fig. 3.
+The normal force $F_n$ and the tangential force $F_t$ applied in the model can be written as follows
+
+$$F_n = (F_{SJKR} + F_{Hertz}^n + F_{Gravity})n,$$  \hspace{1cm} (2.1)
+
+$$F_t = -\min(\mu_t F_{Hertz}^n, k_t \delta_n^{1/2} - \gamma_t \delta_n^{1/4} v_r^n) t,$$  \hspace{1cm} (2.2)
+
+where $n$ is the unit normal vector, $\mu_t$ is the friction coefficient, $k_t$ is the elastic constant for tangential contact, $\delta_n$ is the overlap distance of particles $i$ and $j$, $S_t$ is the accumulated tangential displacement, $\gamma_t$ is the viscoelastic damping constant for tangential contact, $v_r^t$ is the tangential relative velocity of particles $i$ and $j$, and $t$ is the unit tangential vector.
+
+For the normal force $F_n$, each component can be written as
+
+$$F_{SJKR} = -c_{CED} A,$$  \hspace{1cm} (2.3)
+
+$$F_{Hertz}^n = k_n \delta_n^{3/2} - \gamma_n \delta_n^{1/4} v_r^n,$$  \hspace{1cm} (2.4)
+
+$$F_{Gravity} = \rho_i^{4/3} \pi R_i^3 g.$$  \hspace{1cm} (2.5)
+
+In Eq. (2.3), $c_{CED}$ is the cohesion energy density (whose values can be found in the Supplementary Information (SI), S4) and $A$ is the contact area of two particles, which is calculated through
+
+$$A = \frac{\pi}{4d^2} (d - R_i - R_j)(d + R_i - R_j)(d - R_i + R_j)(d + R_i + R_j),$$  \hspace{1cm} (2.6)
+
+where $d$ is the distance between the particle centers, $R_i$ and $R_j$ are the radius of particles $i$ and $j$. 
+
+---
+
+**Fig. 3.** Schematic representation of the forces used in our model for describing the interaction between two particles $i$ and $j$ in contact.
+In Eq. (2.4), $k_n$ is the elastic constant for normal contact, $\gamma_n$ is the viscoelastic damping constant for normal contact, $v_{ni}^n$ is the normal relative velocity of particles $i$ and $j$. In Eq. (2.5), $\rho_i$ is the density of particle $i$ and $g$ is the gravitational acceleration.
+
+The other aforementioned coefficients in the force terms can be expressed (by order of previous appearance) in terms of material properties parameters
+
+\[
+\begin{align*}
+    k_t &= 8 G_{ef} \sqrt{R_{ef}}, \\
+    \gamma_t &= \frac{2\sqrt{5} \ln e}{\sqrt{6}} \sqrt{8 G_{ef} m_{ef}^4 \sqrt{R_{ef}}}, \\
+    k_n &= \frac{4}{3} E_{ef} \sqrt{R_{ef}}, \\
+    \gamma_n &= \frac{2\sqrt{5} \ln e}{\sqrt{6}} \sqrt{2 E_{ef} m_{ef}^4 \sqrt{R_{ef}}},
+\end{align*}
+\]
+
+(2.7) \hspace{1cm} (2.8) \hspace{1cm} (2.9) \hspace{1cm} (2.10)
+
+where $G_{ef}$ is the effective shear modulus of particles $i$ and $j$ (see formula below), $R_{ef}$ is the effective radius of particles $i$ and $j$, $e$ is the coefficient of restitution of particles $i$ and $j$, $m_{ef}$ is the effective mass of particles $i$ and $j$ and $E_{ef}$ is the effective Young modulus of particles $i$ and $j$. Their respective expressions are
+
+\[
+\begin{align*}
+    \frac{1}{G_{ef}} &= \frac{2(2-v_i)(1+v_i)}{E_i} + \frac{2(2-v_j)(1+v_j)}{E_j}, \\
+    \frac{1}{R_{ef}} &= \frac{1}{R_i} + \frac{1}{R_j}, \\
+    \frac{1}{m_{ef}} &= \frac{1}{m_i} + \frac{1}{m_j}, \\
+    \frac{1}{E_{ef}} &= \left( \frac{1-v_i^2}{E_i} \right) + \left( \frac{1-v_j^2}{E_j} \right),
+\end{align*}
+\]
+
+(2.11) \hspace{1cm} (2.12) \hspace{1cm} (2.13) \hspace{1cm} (2.14)
+
+where (for $k \in \{i,j\}$) $v_k$ and $E_k$ are the Poisson ratios and Young modulus of particle $k$, respectively.
+
+The rolling friction is also considered thanks to the CDT model, which reads as
+
+\[
+\tau_{CDT} = \mu_r k_n \delta_n R_{ef} \frac{\vec{\omega}_{rs}}{\| \vec{\omega}_{rs} \|},
+\]
+
+(2.15)
+
+where $\mu_r$ is the rolling friction of particles $i$ and $j$, and $\vec{\omega}_{rs}$ is the projection of the relative torque $\omega_r$ into the shear plane. The relative torque is given by $\omega_r = \omega_i - \omega_j$.
+
+For the simulation, we need to choose a timestep. Usually, in the literature [28], a starting guess to evaluate the timestep is the so-called critical Rayleigh timestep given by
+
+\[
+\Delta t_c = \frac{\pi R_k \rho_k \frac{v_k}{\rho_k}}{0.8766 + 0.1631 v_k},
+\]
+
+(2.16)
+where $k$ usually refers to one type of particle considered in the DEM model, that leads to the smallest timestep. A common heuristic in the literature is that, to obtain a numerically stable simulation, one should then take a 10% to 20% fraction of $\Delta t_c$ [29]. In the present article, we chose a fraction of 15% and we observe that all the simulations were stable, when taking the properties of the AM particles (namely $k$ is chosen as AM. Indeed, if BC particles are chosen, this leads to a bigger timestep—which not desirable, as mentioned above). The timestep used in the simulation is thus taken as $\Delta t_{\text{sim}} = 0.15 \Delta t_c = 0.02176 \mu s$.
+
+### 2.3 Simulation design
+
+#### 2.3.1 Material injection scenarios
+
+In this study, we consider two different material injection scenarios. It is common to observe in experiments, first injecting the three polyomers into the extruder to melt them, and then add the AM and carbon nanofibers. By following what is done in experiments, we considered a first type of material injection method in our simulations called “sequential injection scenario”, which consists of first inserting BC particles into the extruder, then AM particles at the same inlet (see Fig. 4, left). We follow the experimental works carried out in our laboratory [16] in maintaining the mass ratio of BC to AM at 0.45 and 0.55, respectively. In the sequential injection scenario, we insert BC particles for 7 million timesteps (M $\Delta t$) from simulation time $t = 0$, so that the BC particles almost fill the conical extrusion part. Then, we stop adding the BC particles and start adding the AM particles at the same inlet as before, for another 7 M $\Delta t$.
+
+In industry, the usual method is to add all the materials at the same time, using separate parallel injection channels. Therefore, we also considered a second material injection method called “simultaneous injection scenario”, which consists of inserting AM and BC particles at the same time, side to side (see Fig. 4, right). We maintain the same mass ratio and number of particles as in the sequential injection scenario, inserting a number of AM and BC particles in parallel and at a constant injection rate until the total number of particles is reached. In these two material injection scenarios, the total number of AM and BC particles are the same, only the insertion timing is different.
+
+![Fig. 4. Screenshots of simulations using two different injection sequences over several specific time intervals.](https://doi.org/10.26434/chemrxiv-2025-xzw4)
+
+ORCID: https://orcid.org/0000-0001-7362-7849
+
+License: CC BY 4.0
+In order to know the number of AM and BC particles needed for the extruder model, we tested the volume capacity of the extruder by filling it with BC particles. We obtained an approximate number of BC particles that could occupy the extruder thanks to their smaller radius. We then calculated the initial volume of these BC particles, which was larger than their volume inside the extruder due to the overlap between particles in the DEM model. We used the calculated BC particle volume as the estimated total initial volume of AM and BC particles, \( 4 \times 10^{-5} \) cm\(^3\). Based on the known particle radius, density, and mass ratio (given by the lab experiments), we can obtain the total number of AM and BC particles. As a result, there are 442 thousand BC particles and 21.2 thousand AM particles inside the extruder at the end of the particle insertion process.
+
+As mentioned above, we want to study the influence of these material injection scenarios on the microstructure (internal architecture) of the extruded filament. This is very important to advance about the understanding on how formulation and extrusion speed impact the quality of these filaments.
+
+### 2.3.2 Material formulations
+
+For particle properties, since we assume that the AM particle is a pure, coarse-grained, LFP aggregate, we can retain the same values of Young modulus and Poisson ratio, as our previous model in [23]. For BC particles, we assume they are a granular mixture of three polymers with different material properties in a specific mass ratio, with the addition of carbon nanofibers. We estimate the Young modulus for BC particles \( E_{BC} \) using the Halpin-Tsai Equation [30] which reads as
+
+\[
+E_{BC} = E_m \left( \frac{\frac{E_f}{E_m} + 1}{\frac{E_f}{E_m} + \frac{\xi}{\eta}} \right)^{\frac{1}{\eta \phi_f}} \tag{2.17}
+\]
+
+In Eq. (2.17), \( E_m \) is the average Young modulus of the polymer components, \( \eta \) is the reinforcement efficiency factor given in Eq. (2.18), \( \xi \) is the longitudinal modulus of fibers, which can be written as in Eq. (2.19), and \( \phi_f \) is the volume fraction of carbon nanofibers:
+
+\[
+\eta = \frac{\frac{E_f}{E_m} - 1}{\frac{E_f}{E_m} + \frac{\xi}{\eta}} \tag{2.18}
+\]
+
+\[
+\xi = 2 \frac{l_f}{d_f} \tag{2.19}
+\]
+
+In Eq. (2.18) and (2.19), \( E_f \), \( l_f \), and \( d_f \) are the estimated Young modulus, length, and diameter of carbon nanofibers, respectively.
+
+In order to keep a reasonable computational cost of the simulations, the most straightforward approach is to use the adjusted values of the particle properties instead of the real values measured in the experiments, especially the Young modulus parameter [23] [31], [32], [23].
+
+The Poisson ratio of BC particles is calculated by using the rule of mixtures. The material properties of each kind of particles in the current model are shown in the Table 1. The details of the values and their mass ratios are included in the SI.
+In this study, we used four types of BC particles with different material properties: the composition of three polymers and carbon nanofibers in different mass ratios, as indicated in section S2 of the SI. AM particles and one type of aforementioned BC particle are included in each of our simulations, and the filaments obtained after the extrusion process for 3D printing are similarly named with serial numbers. Here, we have named them F1, F2, F3 and F4.
+
+### Table 1
+
+The material property parameters of the AM and BC particles in the DEM simulations of this study.
+
+| Particles  | Young modulus (p g \cdot \mu m^{-1} \cdot \mu s^{-2}) | Poisson ratio |
+|------------|---------------------------------|--------------|
+| AM         | 123.9 \times 10^3              | 0.280        |
+| BC – F1    | 112.14                          | 0.438        |
+| BC – F2    | 102.39                          | 0.448        |
+| BC – F3    | 92.33                           | 0.459        |
+| BC – F4    | 72.38                           | 0.481        |
+| Wall       | 200 \times 10^3                | 0.280        |
+
+### 2.3.3 Rotation speed of the twin-screw
+
+The rotation speed of the twin-screw is a difficult parameter to determine, as it has a complex influence on the dynamics of the entire system. A high rotation speed shortens the residence time inside the screws and increases the number of revolutions performed during a simulation. In the experiment of Boudeville et al. [16], they used 50 rpm to keep the efficiency of their laboratory scale extruder, and this low rotation speed can ensure the polymer chains do not break. However, the reduction of geometry in our modeling approach requires us to find a suitable rotation speed and shear modulus of particles to achieve dynamic similarity with the physical experiments. The first option is to keep the action of the forces applied to the particles as similar as in the experiment. With the 3D geometry reduced, we should increase the rotation speed, but we need to test the scale range. We tested 500 rpm, 2500 rpm, and 5000 rpm in our current study, which are 10, 50, and 100 times higher than the experiment.
+
+### 2.4 Other simulation details and summary of assumptions
+
+In order to balance the computational cost and physical relevance of the model, we have made the following assumptions:
+
+- Each particle in the model represents an aggregate of materials, where an AM particle represent a pure LFP aggregate, and the BC particle is made of a mixture of polymers and carbon nanofibers;
+• at the extrusion temperature, BC particles are in a pseudo-molten state. We use granular solid particles that allow overlap and set the cohesion force on their interaction surface to mimic highly viscous fluid;
+• the model does not include temperature parameters, so the effects of extruder temperature or filament cooling under ambient conditions on the filament are not considered. However, cohesion and resistance coefficients are set to simulate the physical state of the materials above the melting point;
+• the values used to calculate material properties such as density, Young modulus, and Poisson ratio for BC and AM particles are derived from previously reported data [16], [23] 24, rather than direct experimental measurements;
+• because of the reduced size of the geometry considered in the model, the Young modulus was decreased by an estimated factor of 1000;
+• neither the breakage of primary molecules inside the particles nor the fragmentation of the aggregates represented by the particles are considered in this model;
+• the recirculation circuit in the model is assumed to have a cylindrical shape to reduce particle clogging, whereas our laboratory experimental set-up uses a channel of variable width/depth (see Fig. 2);
+• the shape of the extruder barrel and twin-screw is almost identical to that used in the experiment, although proportionally scaled down to make the computations tractable;
+• we considered the section closest to the extruder exit as the one giving origin to the filament whose microstructure properties are analyzed in detail in the following. We do not consider the relaxation of the microstructure that might arise from its cooling in contact with ambient air.
+
+With these assumptions, we attempt to find a compromise between the physical significance of the model and the computational cost of the simulation. The simulations of the present paper run with 70 M Δt, requiring 8 to 10 weeks of computation on the MatriCS High-Performance Computing (HPC) system of Université de Picardie Jules Verne. This computational cost is therefore close to the achievable time limit for such a study. That said, we believe that the proposed modeling approach is novel and richer, compared with the current state of the art in the field, to provide constructive results towards a better understanding of the extrusion process for the studied battery electrode materials.
+
+3. Results and discussion
+
+We ran a total of 12 DEM simulations. For the microstructure analysis of the extruded filaments, we employed the software GeoDict® [33]. More specifically, unless otherwise stated, we have considered the section of the extruder outlet referred to as Sample 1 in Fig. 2 as a filament.
+
+3.1 Effect of rotation speed of the twin-screw
+
+For different rotation speeds, we used the material parameters of filament F2 (see Table 1) to do the simulations in both sequential and simultaneous materials injection scenarios. After selecting the part Sample 1 (see Fig. 2) of the outlet, we analyzed its porosity by the equation below:
+
+\[ \phi = 1 - \frac{V_{AM} + qV_{BC}}{V_{total}}, \]
+
+\[(3.1)\]
+where $V_{AM}$, $V_{BC}$, and $V_{total}$ are the volume of the AM particles, BC particles, and the total microstructure, respectively. The constant factor $q$ is an estimated value to represent the micro porosity inside the BC particle. In our microstructure analysis, we took $q = 10\%$ resulting from parameter adjustment.
+Fig. 5. Curves of porosity of Filament 2 (F2) as a function of simulation time for various rotation speeds: a) sequential injection, b) simultaneous injection, c) Coordination number (colorbar) of AM-AM particles in the sequential injection of F2 under three rotation speeds, and $t = 70\, M$. 
+Different rotation speeds significantly influence the porosity of the microstructure, as illustrated in Fig. 5.
+
+In the sequential injection scenario (see Fig. 5a), simulations with 500 rpm and 2500 rpm are close to a plateau after 30 M $\Delta t$, but it does not mean that they reached a steady state. The videos in the SI demonstrate that the extruder continuously propels particles into the recirculation circuit, where they are gradually reintroduced through the extruder's side inlet. In the 500 rpm simulation, we tagged several AM particles which are the first output from the extruder, as can be seen in SI video. We found that, until the end of the simulation, they only passed through the recirculation circuit and returned to the extruder once, without fully completing a second recirculation. Since the rotation speed is too slow, the completion of the second and subsequent recirculation requires a longer simulation time, and the computational costs are too large to be able to realize them, so we did not simulate for longer times. We performed the same operation in a 2500 rpm simulation, and the tagged AM particles passed through the recirculation circuit much faster. However, when the AM particles reach the end of the extruder barrel, where the extruder outlet narrows rapidly, the particles are stuck in the nozzle. Also, the corner not far from the nozzle makes it more difficult for the particles to pass through. This phenomenon occurs because the power generated by the rotation of the twin-screw is insufficient to keep the particles in motion. The first few particles to leave the extruder re-entered through the recirculation circuit and gradually gathered at the end of the extruder barrel, and the blockage had still not been lifted by the end of the simulation. In the 5000 rpm simulation, the tagged particles completed the mixing process several times and were eventually distributed all over the system without particle blockage.
+
+In the simultaneous injection scenario, the rotation speed of 500 rpm for F2 failed several times and did not reach the expected simulation time, so the data of this simulation is not shown here. The simulation failure was due to a segmentation fault in LIGGGHTS, which may be attributed to a specific ill-conditioned placement of some simulation particles, in this particular run. This type of problem is sometimes reported in the LIGGGHTS User Forum [34]. In the 2500 rpm simulation, we can observe a tendency for the tagged AM and BC particles to stick at the end part of the extruder after the first passage through the recirculation circuit. A blockage phenomenon can be observed at the end of the extruder barrel, but at around 50 M $\Delta t$, a bunch of the blocked particles manage to go through the narrow region. This cancels the blockage phenomenon, and we see the tagged particles smoothly go into the recirculation circuit. In Fig. 5b, the curve of 2500 rpm shows the significant change in porosity; in the particle blockage condition, the porosity is reduced to about 25%, of the same order as the simulation under the sequential injection using 2500 rpm of rotation speed. After the blockage release, the porosity is quickly almost back to the initial peak. With the mixing action of the extruder, the particles are compressed and rearranged again. At around 67 M $\Delta t$, the porosity reaches again a low point: it returns to around 29%, after which there is a slight pick-up. In the simulation at 5000 rpm, the AM and BC particles entered the extruder simultaneously and were quickly mixed. It can also be seen from Fig. 5b that the porosity of the microstructure varies with time, hovering between 30% and 36%, and finally roughly stabilizing at around 33%.
+
+Fig. 5c shows three simulations of F2 in the sequential injection. The colors of the AM particles show the distribution of AM particles in the extruder with rotation speeds of 500 rpm, 2500 rpm, and 5000 rpm. The grey zones in these figures represent BC particles. The coordination number of the AM particles was analyzed at $t = 70 M \Delta t$. Most of the AM particles in the simulation with
+a 500 rpm rotation speed still stay in the extruder barrel. After increasing the rotation speed to 2500 rpm, the AM particles were better distributed throughout the system but accumulated and clogged at the end of the extruder barrel. In the 5000 rpm simulation, the AM particles are homogeneously distributed throughout the system.
+
+On the basis of these preliminary simulations for sequential injection and simultaneous injection at three different speeds, we conclude that 5000 rpm is the best scenario for studying the influence of process parameters within a reasonable computing time.
+
+3.2 Effect of the formulation
+
+Material formulations have a clear effect on the properties of the simplified particles, which in turn have a profound effect on the quality of the extruded filaments. For example, as the mass fraction of PP decreases, the calculated Young modulus of BC particles also decreases (see Table 1).
+
+As mentioned above, we set the rotation speed at 5000 rpm and considered the two aforementioned injection scenarios. We simulated the four different formulations F1 to F4, whose DEM parameters are shown in Table 1.
+
+We characterized the microstructure of the filament, at Sample 1, every 1 M $\Delta t$ and then determined its porosity, tortuosity factor, effective diffusivity, and electrical conductivity by using the voxel-based simulation software GeoDict®. We are using these descriptors to characterize the filament microstructure, even if in a real extruder, a relaxation of the microstructure coming out from the extruder happens while it cools down in contact with the ambient air, a phenomenon that we are not taking into account in this model. These microstructure bulk properties change throughout the residence time of the particles in the system. For a simulation, we observed that the in situ properties can fluctuate significantly at the start of the simulation, but they tend to converge towards a slightly oscillating value, the average of which can be considered an approximation of the long-term, stabilized value of these properties. Thus, the different setups will be compared, by comparing these stabilized long-term average values of the post-treated properties from the various simulations.
+
+For the insertion process in all simulations the particles were injected from the top of the inlet. The insertion durations of the sequential and simultaneous injection scenarios are 14 M $\Delta t$ and 7 M $\Delta t$, respectively. When the extruder is empty in the initial phase of the simulation, the particles are pushed from one end of the extruder to the other end, through the twin-screw in about 8 M $\Delta t$. At around 10 M $\Delta t$, the foremost particles filled the extruder outlet and passed through the first bend (in the recirculation circuit) under the action of the pushing force. Therefore, we start the subsequent analysis of the microstructure of the extruded filaments at 10 M $\Delta t$ for all the simulation cases.
+In Fig. 6, we show the porosity of the microstructures at the outlet of the extruder (more precisely at location “Sample 1” shown Fig. 2) with four groups of different material properties under the two injection scenarios (sequential and simultaneous). We can see in Fig. 6a a clear periodic trend of progressive convergence, when the sequential injection is used. At around 10-14 MΔt, only BC particles are present in the microstructure. Then, the first inserted AM particles, which are for the moment not well mixed with BC, are rapidly pushed into the outlet. In addition, the packing
+
+---
+
+**Fig. 6.** The porosity of the microstructures of “Sample 1” along the simulation, by using four different material formulations in two injection sequences: a) sequential injection, b) simultaneous injection.
+density of particles is high. These two aspects may induce that the porosity of the microstructure drops to its lowest point at $t \approx 20 \, M \Delta t$. After 21-23 $M \Delta t$, AM and BC particles mix better. Simulations of the four formulations show a trend towards stabilisation after about 30 $M \Delta t$, with the peaks and troughs of their porosities gradually narrowing towards a mean value.
+
+Fig. 6b shows the simultaneous material injection scenario, where AM and BC particles are added to the extruder together. The porosity of the microstructures obtained from the four sets of simulations reached a minimum point at around 14-17 $M \Delta t$, after which it gradually exhibits a nearly periodical up and down fluctuation around a mean value. Note that the difference between the lowest point and the average long-time value is smaller in this case than in the sequential injection scenario. For a given injection scenario, from the mean values measured in the range of 30-70 $M \Delta t$, the obtained porosity of the microstructure is an increasing function of the Young modulus. Moreover, the porosity of F4 always has the highest degree of fluctuation. The data in the figure show that porosity decreases at an accelerated rate as the Young modulus of the BC particles decreases. Indeed, the Young modulus of the BC particles in F1, F2 and F3 decreases by about $10 \, pg \cdot \mu m^{-1} \cdot \mu s^{-2}$ between each filament, and the final average porosity decreases by about 0.01. Whereas when the Young modulus of the BC particles in F4 is reduced by about $20 \, pg \cdot \mu m^{-1} \cdot \mu s^{-2}$ compared to F3, the porosity of F4 is reduced by about 0.04.
+
+Table 2
+
+|                  | sequential injection | simultaneous injection |
+|------------------|---------------------|------------------------|
+|                  | Tortuosity Factor   | Effective Diffusivity  | Electrical Conductivity | Tortuosity Factor | Effective Diffusivity | Electrical Conductivity |
+| Avg (30-70 M \Delta t) | 2.949               | 0.111                  | 1.541                  | 2.907             | 0.115                  | 1.547                  |
+| F1               | 3.020               | 0.105                  | 1.615                  | 3.059             | 0.103                  | 1.728                  |
+| F2               | 3.102               | 0.100                  | 1.726                  | 3.388             | 0.083                  | 2.053                  |
+
+Table 2 summarizes the average values over the simulation times $t = 30 – 70 \, M \Delta t$ of the tortuosity factor, effective diffusivity, and electrical conductivity of these eight simulations. These parameters are used to describe the microstructural features of the filaments. It is important to notice that we do not intend here to use these properties to capture the efficiency in the transport of lithium ions and electrons in the final battery electrode. The latter originates from using the extruder-produced filament in the 3D printing process afterwards, and in order to be rigorous in concluding about the material distribution impact on electrochemical performance descriptors (e.g. charge and discharge kinetics, capacity utilization) we would need to consider also the simulation of the 3D process, something that it is out of scope of the work reported in this article. Nevertheless, our modeling tool allows determining a filament formulation F1, which offers the lowest tortuosity factor and the highest effective diffusivity, that, based on the discussion above,
+needs to be considered with caution while intending to extrapolate to its implications in terms of the final electrode electrochemical performance. In simulations with two types of particles, as here, higher porosity means more voids which will give lower tortuosity factor, but it also means fewer particle-particle connections, which will reduce electrical conductivity. This is contrary to experimental filament measurements [16], where the highest electronic conductivity was found for the filament F1. This discrepancy may be due to the fact that our model assumes that carbon nanofibers are uniformly distributed within BC particles, whereas in [16] carbon nanofibers tend to be more complexly distributed. In other words, our model lacks of spatial resolution to capture carbon nanofibers orientations that can contribute at enhancing the electronic conductivity.
+
+3.3 Effect of the injection scenarios
+
+According to our simulation results, particle mixing efficiency clearly depends on the different ways of injecting the particles into the extruder. Two different behaviors in terms of mixing efficiency can be clearly seen by comparing the overall behavior of the curves between Fig. 6a and Fig. 6b: the simulations reach the long-time state ($t \in [30 - 70 M \Delta t]$) much faster for the simultaneous injection scenario than for the sequential one.
+
+We will now focus on the study of the coordination number in the framework of the extruded microstructure. We selected a section of the microstructure (called “Sample 2” in Fig. 2) of F1 inside the recirculation circuit at 70 M $\Delta t$ under the two different injection scenarios with 5000 rpm rotation speed. We chose the location of “Sample 2” because it allows us to study a wider area than “Sample 1”, giving us a broader view of the particles’ distribution. In Fig. 7, we show the coordination number of BC-BC particles and the Radial Distribution Functions (RDF) plots for AM-AM, AM-BC, and BC-BC. In views perpendicular to the z axis, we can see that in the sequential injection scenario, BC particles have large apparent clusters (larger red areas). In contrast, in the simultaneous injection scenario, particles show a greater alternation of compacted and non-compacted zones.
+
+![Fig. 7. The coordination number of BC-BC and the Radial Distribution Functions (RDF) for F1 under the two injection scenarios (left and right, respectively) at 70 M $\Delta t$.](https://doi.org/10.26434/chemrxiv-2025-xzwv4)
+It is evident from the RDF plots that the particle distributions obtained from the two injection scenarios are essentially similar. In both approaches, the particle pairs show peaks at almost the same distance in the range of 0 to 15 µm, which are 4.85 µm for BC-BC, 7.35 µm for BC-AM, and 9.95 µm for AM-AM. In addition, the peaks of BC-AM are higher than those of the other two, which suggests that the probability of the mixed arrangement of BC and AM particles is higher than that of the two kinds of particles aggregated into clusters on their own. Notably, the peaks all appear at locations smaller than the particle radii sum, suggesting a robust interaction and overlap between the particles. This is due to the narrow geometry of the pipe which limits the trajectory of the particles, and to the pushing force of the extruder rotation.
+
+It is difficult to compare the advantages and disadvantages of the two injection scenarios from the distribution of particles at the same given time. However, by combining the data in Table 2, we can see that after a long time of simulation, the mixing efficiency of particles is higher under the simultaneous injection scenario. The tortuosity factor, effective diffusivity, and electrical conductivity of the filaments corresponding to the four materials formulations under the simultaneous injection scenario are more favorable results than those under the sequential injection scenario. A recent experimental work [35] on the SF process also discussed how the injection sequence can modify the way materials agglomerate, particularly when mixing several materials, bearing in mind that some materials are more likely to agglomerate than others. Although we only consider two types of particles in our model, our simulation results are consistent with the conclusion of this experimental work, showing that mixing all particles at the same time produces a better mixing effect.
+
+3.4 Effect of the residence time in the extruder
+
+We have chosen the simulation with the parameters of F2 under the sequential injection scenario, using the rotation speed of 5000 rpm as an example, to analyze the effect of residence time on the mixture microstructures. The selected sections for the analysis are shown in Fig. 8a. First, we chose five zones of equal volume in the recirculation circuit, distributed away from the corners. We then counted the mass of AM particles within these five zones (denoted A to E) and plotted them as time-dependent curves (Fig. 8a). In addition, we calculated the standard deviation of the mass of AM particles within these five zones at each time point and plotted it as a function of the time (Fig. 8b). The aim is to monitor the homogeneity of the entire simulated particle system over time. The lower the standard deviation of the AM particles’ mass in the five zones at a given time, the more homogeneous the AM particle distribution throughout the system. The distribution of the peaks and the regression line show that the homogeneity of the particles throughout the whole circuit increases with residence time. While this is an expected phenomenon, we want to underline that our model provides a tool to quantify it. Based on this quantification capabilities, our model has the potential to be a useful tool to optimize the extrusion conditions for preparing the filaments for 3D printing battery electrodes. This paves the way to the concept of digital twin, similarly to what it was proposed for solvent-based lithium-ion battery electrode manufacturing [36].
+Fig. 8. a) Schematic of the five zones selected and the plot of the AM particles mass within them as a function of the residence time; b) Plot of the standard deviation of the AM particles mass within the five locations as a function of the residence time.
+
+4. Conclusions
+
+In this study, we have developed and implemented a new DEM model to simulate a SF extrusion process to manufacture filaments for the 3D printing of LIB electrodes. The model describes the
+extrusion process at the mesoscale using a granular approach, considering a 3D geometric representation of a TSE with a recirculation circuit and the flow of materials inside. In addition, we explored the effects of extrusion process parameters and material formulations on the microstructural properties of the filaments.
+
+Simulation results show that twin screw rotation speed has a significant effect on mixing efficiency and particle distribution. Higher rotational speeds, such as 5000 rpm, enable efficient particle mixing in our extrusion model. We therefore chose this 5000 rpm setting to study the influence of other process parameters. It should be noted that we added a further check on mixing efficiency by monitoring AM particles in five different zones of the recirculation circuit. This showed that the distribution of AM and BC particles becomes homogeneous throughout the circuit after a few cycles in the extruder chamber and in the recirculation circuit.
+
+Simulations with four formulations show that the paste obtained in the extruder is such that its properties exhibit long-term stabilized values that oscillate periodically. It therefore seemed appropriate to define the values of these properties as an average over the final interval of the simulation time. A comparison of injection scenarios shows that filaments produced by simultaneous injection of AM and BC particles reach the asymptotic state faster and are slightly more homogeneous than the one arising from the sequential injection of AM and BC particles. Furthermore, the simultaneous injection scenario also results in a lower tortuosity factor and higher electrical conductivity of the filament microstructure than the sequential injection.
+
+Different material formulations are used to design various model particle properties, which in turn have different effects on the microstructure of the extruded filament. Particles with a lower Young modulus lead to less porous filament microstructures. It should be noted that we still need to ensure that the mechanical properties of the filaments meet the requirements of the subsequent 3D printing of the electrode. It should also be added that in this 3D printing process, the filament partially melts in the printing nozzle at a specific temperature, which could imply a further reorganization of the particles’ distribution in the printed electrode. The exploration of these aspects cannot be done by the model presented in this article, due to its specific design to simulate extrusion processes.
+
+That said, our DEM model still provides a viable methodology and a useful framework for simulating and analyzing the SF extrusion process parameters for the manufacturing of filaments for 3D printing LIB electrodes. We underline that this extrusion model can be also relevant to produce virtual filaments afterwards used in a DEM model simulating a dry coating, within a SF LIB electrode manufacturing workflow. Our model also provides valuable insights on the interaction between process parameters, material properties and microstructure properties. This modeling work has strong potential to enable process parameters optimization and filament properties to be predicted. It also paves the way towards a digital twin concept for real-time control of a physical extruder, as we are going to demonstrate further in an incoming work. Optimization of the extrusion process will provide continued impetus for the development of more efficient, environmentally sustainable, and higher performing battery cell electrodes.
+
+Acknowledgements
+
+P.S., P.V. and A.A.F. acknowledge the support of the MITI of CNRS (National Centre for Scientific Research) for funding the STRUDEL3D project, joint between LAMFA and LRCS
+(Appel à projets « 80|PRIME - 2023 »). P.S., P.V. and A.A.F. also acknowledge Jean-Paul Chehab for fruitful discussion about this work.
+
+This work was granted access to HPC resources of “Plateforme MatriCS” within University of Picardie Jules Verne. “Plateforme MatriCS” is co-financed by the European Union with the European Regional Development Fund (FEDER) and the Hauts-De-France Regional Council among others.
+
+The authors warmly thanks Dr. Brayan Paredes-Goyes, Dr. Mohammed Alabdali, and Emmanuel Yerumoh from Prof. Alejandro A. Franco’s group at LRCS, Amiens, France, respectively for his help in learning LIGGGHTS, his kind comments on writing, and his help in CAD design with SolidWorks. P.S. also sincerely thank Félix Bourseau, from Prof. Loïc Dupont’s group at LRCS, for inspiring discussions from an experimental point of view. A.A.F. acknowledges the Institut Universitaire de France for the support.
+
+References
+
+[1] G. Zubi, R. Dufo-López, M. Carvalho, G. Pasaoglu, The lithium-ion battery: State of the art and future perspectives, Renewable and Sustainable Energy Reviews 89 (2018) 292–308. https://doi.org/10.1016/j.rser.2018.03.002.
+
+[2] Y. Liu, R. Zhang, J. Wang, Y. Wang, Current and future lithium-ion battery manufacturing, iScience 24 (2021) 102332. https://doi.org/10.1016/j.isci.2021.102332.
+
+[3] J. Li, J. Fleetwood, W.B. Hawley, W. Kays, From Materials to Cell: State-of-the-Art and Prospective Technologies for Lithium-Ion Battery Electrode Processing, Chem. Rev. 122 (2022) 903–956. https://doi.org/10.1021/acs.chemrev.1c00565.
+
+[4] C. Liu, T. Lombardo, J. Xu, A.C. Ngandjong, A.A. Franco, An experimentally-validated 3D electrochemical model revealing electrode manufacturing parameters’ effects on battery performance, Energy Storage Materials 54 (2023) 156–163. https://doi.org/10.1016/j.ensm.2022.10.035.
+
+[5] M. Alabdali, F.M. Zanotto, M. Chouchane, A.C. Ngandjong, V. Viallet, V. Seznec, Y.S. Meng, A.A. Franco, Understanding mechanical stresses upon solid-state battery electrode cycling using discrete element method, Energy Storage Materials 70 (2024) 103527. https://doi.org/10.1016/j.ensm.2024.103527.
+
+[6] J. Xu, A.C. Ngandjong, C. Liu, F.M. Zanotto, O. Arcelus, A. Demortière, A.A. Franco, Lithium ion battery electrode manufacturing model accounting for 3D realistic shapes of active material particles, Journal of Power Sources 554 (2023) 232294. https://doi.org/10.1016/j.jpowsour.2022.232294.
+
+[7] Y. Lu, C.-Z. Zhao, H. Yuan, J.-K. Hu, J.-Q. Huang, Q. Zhang, Dry electrode technology, the rising star in solid-state battery industrialization, Matter 5 (2022) 876–898. https://doi.org/10.1016/j.matt.2022.01.011.
+
+[8] C. Yuan, Y. Deng, T. Li, F. Yang, Manufacturing energy analysis of lithium ion battery pack for electric vehicles, CIRP Annals 66 (2017) 53–56. https://doi.org/10.1016/j.cirp.2017.04.109.
+
+[9] F. Degen, M. Winter, D. Bendig, J. Tübbe, Energy consumption of current and future production of lithium-ion and post lithium-ion battery cells, Nat Energy 8 (2023) 1284–1295. https://doi.org/10.1038/s41560-023-01355-z.
+[10] Y. Zhang, S. Lu, Z. Wang, V. Volkov, F. Lou, Z. Yu, Recent technology development in solvent-free electrode fabrication for lithium-ion batteries, Renewable and Sustainable Energy Reviews 183 (2023) 113515. https://doi.org/10.1016/j.rser.2023.113515.
+
+[11] M. Al-Shroopy, Q. Zhang, J. Xu, T. Chen, A.P. Kaur, Y.-T. Cheng, Solvent-free dry powder coating process for low-cost manufacturing of LiNi1/3Mn1/3Co1/3O2 cathodes in lithium-ion batteries, Journal of Power Sources 352 (2017) 187–193. https://doi.org/10.1016/j.jpowsour.2017.03.131.
+
+[12] A. Maurel, S. Grugeon, M. Armand, B. Fleutot, M. Courty, K. Prashantha, C. Davoisne, H. Tortajada, S. Panier, L. Dupont, Overview on Lithium-Ion Battery 3D-Printing By Means of Material Extrusion, ECS Trans. 98 (2020) 3–21. https://doi.org/10.1149/09813.0003ecst.
+
+[13] R. Lopez-Hallman, R. Rodriguez, Y.-T. Lai, Q. Zhang, B.-H. Tsao, J. Deiner, J.P. Fellner, Y. Zhu, All-Solid-State Battery Fabricated by 3D Aerosol Jet Printing, Advanced Engineering Materials 26 (2024) 2300953. https://doi.org/10.1002/adem.202300953.
+
+[14] A. De, B. Ramasubramian, S. Ramakrishna, V. Cellappan, Advances in Additive Manufacturing Techniques for Electrochemical Energy Storage, Advanced Materials Technologies 9 (2024) 2301439. https://doi.org/10.1002/admt.202301439.
+
+[15] M. Mottaghi, J.M. Pearce, A Review of 3D Printing Batteries, Batteries 10 (2024) 110. https://doi.org/10.3390/batteries10030110.
+
+[16] V. Boudeville, S. Grugeon, A. Maurel, R. Lesieur, M. Louati, A. Cayla, S. Ursescu, C. Campagne, S. Panier, L. Dupont, Solvent-free extrusion of a LiFePO4-based monofilament for three-dimensional printing of a lithium-ion battery positive electrode, Journal of Power Sources 593 (2024) 233973. https://doi.org/10.1016/j.jpowsour.2023.233973.
+
+[17] S. Park, B. Shi, Y. Shang, K. Deng, K. Fu, Structured Electrode Additive Manufacturing for Lithium-Ion Batteries, Nano Lett. 22 (2022) 9462–9469. https://doi.org/10.1021/acs.nanolett.2c03545.
+
+[18] M.E. Sotomayor, C.D.L. Torre-Gamarra, B. Levenfeld, J.-Y. Sanchez, A. Varez, G.-T. Kim, A. Varzi, S. Passerini, Ultra-thick battery electrodes for high gravimetric and volumetric energy density Li-ion batteries, Journal of Power Sources 437 (2019) 226923. https://doi.org/10.1016/j.jpowsour.2019.226923.
+
+[19] L. Fernandez-Diaz, J. Castillo, E. Sasieta-Barrutia, M. Arnaiz, M. Cabello, X. Judez, A. Terry, L. Otaegui, M.C. Morant-Miñana, A. Villaverde, Mixing methods for solid state electrodes: Techniques, fundamentals, recent advances, and perspectives, Chemical Engineering Journal 464 (2023) 142469. https://doi.org/10.1016/j.cej.2023.142469.
+
+[20] H. Dreger, W. Haselrieder, A. Kwade, Influence of dispersing by extrusion and calendering on the performance of lithium-ion battery electrodes, Journal of Energy Storage 21 (2019) 231–240. https://doi.org/10.1016/j.est.2018.11.028.
+
+[21] J.F. Meza Gonzalez, H. Nirschl, F. Rhein, Continuous Anode Slurry Production in Twin-Screw Extruders: Effects of the Process Setup on the Dispersion, Batteries 10 (2024) 145. https://doi.org/10.3390/batteries10050145.
+
+[22] N. Verdier, G. Foran, D. Lepage, A. Prébé, D. Aymé-Perrot, M. Dollé, Challenges in Solvent-Free Methods for Manufacturing Electrodes and Electrolytes for Lithium-Based Batteries, Polymers 13 (2021) 323. https://doi.org/10.3390/polym13030323.
+
+[23] B. Paredes-Goyes, F.M. Zanotto, V. Boudeville, S. Grugeon, L. Dupont, A.A. Franco, Mesoscopic Model of Extrusion during Solvent-Free Lithium-Ion Battery Electrode
+[24] A. Yonaga, S. Kawauchi, Y. Mori, L. Xuanchen, S. Ishikawa, K. Nunoshita, G. Inoue, T. Matsunaga, Effects of dry powder mixing on electrochemical performance of lithium-ion battery electrode using solvent-free dry forming process, Journal of Power Sources 581 (2023) 233466. https://doi.org/10.1016/j.jpowsour.2023.233466.
+
+[25] Blender Development Team. (2023). Blender (Version 4.0.2). https://www.blender.org.
+
+[26] P. Cignoni, M. Callieri, M. Corsini, M. Dellepiane, F. Ganovelli, G. Ranzuglia, MeshLab: an Open-Source Mesh Processing Tool, Sixth Eurographics Italian Chapter Conference, (2008) page 129-136.
+
+[27] C. Kloss, C. Goniva, A. Hager, S. Amberger, S. Pirker, Models, algorithms and validation for opensource DEM and CFD-DEM, Progress in Computational Fluid Dynamics, An International Journal (2012) 140–152. https://doi.org/10.1504/PCFD.2012.047457.
+
+[28] Y. Li, Y. Xu, C. Thornton, A comparison of discrete element simulations and experiments for ‘sandpiles’ composed of spherical particles, Powder Technology 160 (2005) 219–228. https://doi.org/10.1016/j.powtec.2005.09.002.
+
+[29] K. Washino, E.L. Chan, K. Miyazaki, T. Tsuji, T. Tanaka, Time step criteria in DEM simulation of wet particles in viscosity dominant systems, Powder Technology 302 (2016) 100–107. https://doi.org/10.1016/j.powtec.2016.08.018.
+
+[30] J.C. Halpin, Primer on Composite Materials Analysis (revised) (2nd ed.). Routledge. (1992) https://doi.org/10.1201/9780203742235.
+
+[31] H. Chen, Y.G. Xiao, Y.L. Liu, Y.S. Shi, Effect of Young’s modulus on DEM results regarding transverse mixing of particles within a rotating drum, Powder Technology 318 (2017) 507–517. https://doi.org/10.1016/j.powtec.2017.05.047.
+
+[32] H. Nakashima, Y. Shioji, T. Kobayashi, S. Aoki, H. Shimizu, J. Miyasaka, K. Ohdoi, Determining the angle of repose of sand under low-gravity conditions using discrete element method, Journal of Terramechanics 48 (2011) 17–26. https://doi.org/10.1016/j.jterra.2010.09.002.
+
+[33] GeoDict (2024). Math2Market GmbH. https://www.math2market.com/.
+
+[34] LIGGGHTS® - User Forum | CFDEM®project. https://www.cfdem.com/forums/liggghts-user-forum (accessed February 14, 2025).
+
+[35] Z. Gao, J. Fu, C. Podder, X. Gong, Y. Wang, H. Pan, Particle interactions during dry powder mixing and their effect on solvent-free manufactured electrode properties, Journal of Energy Storage 83 (2024) 110605. https://doi.org/10.1016/j.est.2024.110605.
+
+[36] J.F. Troncoso, F.M. Zanotto, D.E. Galvez-Aranda, D. Zapata Domínguez, L. Denisart, A.A. Franco, The ARTISTIC Battery Manufacturing Digitalization Initiative: From Fundamental Research to Industrialization, Batteries & Supercaps 8 (2025) e202400385. https://doi.org/10.1002/batt.202400385.

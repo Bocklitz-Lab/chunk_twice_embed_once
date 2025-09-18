@@ -1,0 +1,195 @@
+Milling for Analytical Testing to Optimize Cannabinoid Recovery and Sample Throughput
+
+Dingding Xuan,1,2 Sajni Shah,1 Eric Janusson,1 Markus Roggen*1,3
+
+1 Delic Labs, 3800 Wesbrook Mall, Vancouver, BC V6S2L9, Canada, 2 The University of British Columbia, 2329 West Mall, Vancouver, BC V6T 1Z4, Canada, 3 Controlled Chemistry, 2036 Main Mall, Vancouver, BC V6T 1T7, Canada
+
+ORCID iD
+
+Eric Janusson: 0000-0002-3207-7067
+Markus Roggen: 0000-0003-0980-4331
+
+Corresponding author
+
+*Corresponding author’s e-mail: markus@complexbiotech.com
+
+Abstract
+
+- Background
+
+In the cannabis industry, achieving accurate analytical test results is complex, hindered by challenges such as sampling issues, sample preparation, cross-contamination, and the choice of analytical methods. The heterogeneity of cannabis complicates obtaining representative samples, crucial for precise outcomes. Sample preparation is affected by the cannabis matrix's complexity, demanding specialized techniques for consistent analyte recovery. Cross-contamination during handling and the selection of analytical techniques...
+like HPLC and GC also impact result accuracy. Furthermore, 'lab shopping' for favorable THC reports adds to the challenge, distorting product profiles and posing public health risks.
+
+- **Objective**
+
+This study investigates the impact of different milling instruments and conditions on cannabinoid recovery and sample throughput in analytical testing, and explores potential optimizations for cost, throughput, and contamination reduction, addressing gaps in current understanding.
+
+- **Methods**
+
+Samples of cannabis flower were milled according to various parameters and different mill types; an electric bladed mill and a food processor, with either reusable or single-use containers.
+
+- **Results**
+
+Investigations into milling methods for cannabis reveal that decarboxylation ratios or oxidation of THCA and CBDA flower do not significantly vary across different milling instruments or protocols. Single-use containers demonstrated improved cannabinoid recoveries, with specific conditions optimizing for THCA and THC or CBDA and CBD levels.
+
+- **Conclusion**
+
+This study delves into the impact of milling methods and operational parameters on cannabinoid analysis in cannabis, revealing that methodological choices significantly affect cannabinoid preservation. Notably, single-use containers at specific settings were optimal.
+for maximizing THCA and THC levels, highlighting the importance of mill type and speed. However, the study also considers the operational and financial challenges of milling, suggesting that single-use containers may offer a balance between efficiency, sustainability, and cost-effectiveness. Furthermore, optimizing milling for THC preservation is economically advantageous, aligning operational efficiency with market demands.
+
+- Highlights
+
+The nuanced impact of milling conditions on cannabinoid preservation and extraction is highlighted.
+
+Introduction
+
+Cannabis has a rich history of both medicinal and recreational use across various cultures globally. However, modern scientific exploration into cannabis began in the 19th century, and its potential medicinal uses have gained significant attention in recent years. Legalization of cannabis has seen a diverse approach across the globe. (1) Countries that have legalized medical use of cannabis include Australia, Czech Republic, Denmark, Germany, Israel, New Zealand, the United Kingdom, any many more. Places that have legalized cannabis for recreational use include Canada, Mexico, (2) Thailand, and Uruguay, plus 24 states, 3 territories, and the District of Columbia in the United States. Such legalisations have led to the development of a broad spectrum of cannabis products including dry flowers, edibles, and oil products. This shift in policy reflects diverse cultural, legal, and political environments, and has necessitated stringent quality control and safety measures for cannabis products. Different countries and USA states have established various guidelines and regulations for cannabis testing. (3) These guidelines
+typically require the testing for contaminants like pesticides, toxic elements, mycotoxins, and pathogens, and may also include checks for residual solvents in cannabis oil products.\(^4\)\(^,\)\(^5\) The development of appropriate analytical methods to meet these guidelines is crucial for quality control and consumer safety. In this, the cannabis industry faces significant challenges in achieving accurate analytical test results due to various factors, including sampling issues, sample preparation, cross contamination, and the analytical methods used.
+
+Sampling represents a primary challenge in cannabis analysis. Due to the heterogeneity of the cannabis plant, obtaining a representative sample is crucial for accurate results. The distribution of cannabinoids and other compounds can vary greatly within a single plant, and even more so across different plants. Consequently, without proper sampling protocols, there is a high risk of obtaining non-representative samples, leading to misleading analytical outcomes. A study by Atkins highlights the difficulty in obtaining representative samples from cannabis due to its economic value, material complexity, and plant-based nature.\(^6\) Sample preparation is another critical step, often plagued by the complexity of the cannabis matrix. Different preparation methods can significantly impact the concentration and recovery of analytes.\(^7\) Ensuring consistent and appropriate extraction and purification methods is essential for reliable analytical results, although the complexity of cannabis matrices demands specialized sample preparation techniques. For instance, Wilcox et al. discusses how traditional extraction methods may not be effective for complex food or topical matrices containing cannabis, leading to inaccurate measurements.\(^8\) Cross-contamination poses yet another significant issue. Given the sticky and resinous nature of cannabis, there is a high risk of cross-contamination during sample handling and processing.\(^3\) Contamination can lead to erroneous high or low concentration
+readings, directly impacting the accuracy of the analysis. Another example is the analysis of cannabinoids in hair. Auwärter et al. (9) and Duvivier et al. (10) both emphasize the challenges of differentiating between external contamination and drug incorporation into hair. Lastly, the choice of analytical method greatly influences the accuracy of test results. Techniques such as High-Performance Liquid Chromatography (HPLC) and Gas Chromatography (GC) are commonly employed, but each comes with its own limitations and susceptibilities to errors. (11) The lack of standardized methods across laboratories further exacerbates these issues, leading to inconsistent results. (12)
+
+Obtaining accurate analytical test results in the cannabis industry is already a complex process influenced by various scientific factors, although additional forces complicate this further. The practice of 'lab shopping' has emerged as a significant challenge, undermining the reliability of these results. This phenomenon occurs when cannabis producers, testing laboratories, and retail stores selectively report higher tetrahydrocannabinol (THC) concentrations and contaminant-free products to boost sales and marketability. Studies have indicated a strong positive correlation between the THC content in flower products and their sale price. (13) (14) (15, 16) As a result, there is a market-driven incentive to report elevated THC levels. 'Lab shopping' not only distorts the true chemical composition of cannabis products but also poses significant public health risks. Consumers relying on these skewed results are potentially exposed to higher levels of THC than reported, leading to unintended psychoactive effects and safety concerns. (17)
+
+For all those reasons, cannabis testing imposes significant economic costs on producers and laboratories. (18, 19) For producers, testing increases production costs, impacting their already...
+tight budgets. These costs, in turn, elevate the final sales price of cannabis products, though the exact percentage varies by region and testing complexity. For testing laboratories, high labor costs, particularly in sample preparation, and intense competition create financial challenges, often leading to thin profit margins.
+
+With these considerations, this paper will investigate an integral part of sample preparation, the milling of flower. The first question was if the specific method of how to mill flower has a significant effect on the measured cannabinoid concentration. And secondly, if the results from different milling methods are comparable, would certain methods offer optimization potential in other aspects, for example cost reduction, sample throughput or cross contaminations.
+
+To evaluate the effect of milling on cannabinoid measurement accuracy, we measured the cannabinoids content of extracts from cannabis milled under various conditions. Using two established milling tools, a coffee grinder and a food processor, as well as a single-use milling container, THCA and CBDA cannabis flower was milled to different protocols. This study aims to fill the gap in knowledge regarding how different milling methods affect analyte recovery in cannabis or related plant extracts.
+
+**Experimental**
+
+Two *Cannabis sativa* cultivars (THCA- and CBDA-rich) were acquired from The Valens Company (Kelowna, BC), a Canadian Licensed Producer of Cannabis, and stored in the dark under ambient laboratory conditions. An electric bladed mill (advertised as a coffee grinder) and a food processor, the Fritsch Pulverisette 11 (P11), were used to homogenize the two flower cultivars
+under varied milling conditions (milling speed and time). The resulting particles were sized and extracted using HPLC grade methanol using sonication assistance. The filtered and diluted extracts were analyzed via HPLC-VWD to quantify cannabinoids.
+
+Sample Preparation
+
+Milling
+
+The procedures below were conducted for both THC and CBD cannabis flower, respectively.
+
+Triplicate samples of approximately 3 g of cannabis flower were weighed and milled according to the parameters listed in Table 1. The electric bladed mill (coffee grinder) and the food processor (P11) grinding vessels were cleaned with ethanol and sonication between each milling time, except for the single-use containers as a different container was used for each milling parameter, to avoid cross-contamination.
+
+Three aliquots of each milled sample (250-400 mg) were measured for extractions. The exact weight of the sample was noted. 4 mL of MeOH was added to each aliquot, vortexed to mix, then sonicated for 15 minutes. The liquid was then filtered out through a 0.2 μm Nylon filter into an autosampler vial.
+
+Analysis
+
+All samples were diluted by a factor of 25 in Methanol for HPLC analysis (40 µL sample in 1.00 mL MeOH). The samples were run on an Agilent 1220 HPLC equipped with a variable wavelength detector set to monitor 230 nm. A full description of the RP-HPLC program used for
+cannabinoid quantification may be found in the supplementary information. The peak integration and analyte concentration was performed in Microsoft Excel. The original file is supplied with the supporting information.
+
+Results
+
+The first observation about different types of milling is that the ratio of decarboxylation does not differ significantly between milling instruments and milling protocols. Figure 1 shows the decarboxylation ratio of THC to THCA for high THCA flower. The decarboxylation ratio sits between 0.08 and 0.1 for all replicates of milling instruments and protocols. Although higher, the decarboxylation ratio of CBDA rich flower does show a comparable number of around 0.26 (figure 2). The measurements of THCA, THC, CBDA and CBD concentration in THCA and CBDA flower, respectively, are shown in figures 3. Table 2 shows average values for cannabinoid concentrations, arranged by mill type.
+
+The coffee grinder (CG) was evaluated under continuous and pulsed modes of operation. It was observed that pulsed operation (CG, 20s, pulses) resulted in slightly higher concentrations of THCA and THC compared to the continuous mode (CG, 20s, cont.). This suggests that the pulsing technique might offer advantages in enhancing cannabinoid extraction or preservation. However, the concentrations of CBDA and CBD showed no significant difference between the two operational modes of the CG mill.
+
+The results for P11 with single-use containers (SU) demonstrated a broader range of cannabinoid concentrations across the conditions. Notably, the SU operation for 20 seconds at
+2,000 rpm was associated with the highest percentages of THCA and THC among the SU mill conditions. In contrast, the SU mill's operation for 10 seconds at 2,000 rpm was most effective for achieving the highest percentages of CBDA and CBD.
+
+Experiments of the 1.4L mill type operated for 20 seconds at 2,000 rpm, which showed the lowest percentages of cannabinoids across all mill types and conditions tested.
+
+Additionally, CBN concentrations were measured for the THCA rich flower from each milling experimental type (figure 4). No significant formation of CBN was observed with any mill type, averaging below 0.08%
+
+**Discussion**
+
+The research into cannabis milling for analytical purposes presents detailed findings on the influence of operational parameters and mill types on the preservation and extraction of cannabinoids. The study indicates important effects of milling type, duration and speed on cannabinoid profiles.
+
+Among the mill types evaluated, SU mills, especially at lower operational speeds (2,000 rpm), were found to provide an optimal balance for extracting higher levels of cannabinoids. This suggests the importance of selecting appropriate mill types and operational settings for the extraction and analytical evaluation of cannabis. The findings regarding the 1.4L container highlight that certain mill types or operational parameters might be less effective in preserving cannabinoids than others. It is postulated that the lower cannabinoid recoveries for the 1.4L container is due to trichomes sticking to the side of the large volume container and resulting
+insufficient transfer to the sample vials. Additionally, the study reveals no significant differences in decarboxylation and oxidation across various milling instruments and protocols, indicating minimal concerns about oxidation and the formation of cannabinol (CBN) within these milling experiments.
+
+Milling should also be evaluated from more than just analyte recovery aspects. Environmental and economic considerations are part of a broader picture of the practical challenges encountered in laboratory operations. Personal conversations by the corresponding author with laboratory directors from Washington State and California revealed significant operational burdens related to milling, including the extensive staff time dedicated to milling and cleaning tasks, which can account for approximately 50% of staff efforts. This not only leads to increased salary expenses but also generates significant cleaning waste. The tendency of some laboratories to avoid milling to conserve resources further underscores the operational and financial challenges faced. The often-used cheap coffee-grinder styled mills have a short lifetime, and the replacement costs add up for the fleet of mills in operation. The potential adoption of single-use milling containers emerges as a means to mitigate cleaning requirements, thereby saving time and reducing operational costs. However, this approach may result in increased waste and environmental impacts, contingent on the materials used and disposal practices.
+
+This juxtaposition of convenience against sustainability necessitates a thorough analysis that considers environmental impacts, cost-effectiveness, and operational efficiency. Such an analysis is critical for informed decision-making regarding milling container selection, aimed at
+optimizing cannabinoid analysis outcomes, operational efficiency, and environmental sustainability. The research contributes important insights into this decision-making process, underlining that the choice of milling parameters and container types significantly impacts the analytical results, operational efficiency, and environmental footprint.
+
+Conclusions
+
+The analysis of different milling types and operational parameters in the context of cannabis analysis underscores the nuanced interplay between methodological choices and cannabinoid preservation. Notably, both the absence of significant CBN formation and the uniformity in decarboxylation ratios across milling instruments and protocols highlights the operational robustness of these methods in maintaining cannabinoid integrity.
+
+The better performance of single-use containers for milling at specific operational settings for maximizing THCA and THC concentrations emphasizes the critical role of mill type and speed in optimizing cannabinoid preservation. This finding, coupled with the observed lower efficiency of the 1.4L reusable milling containers in preserving cannabinoids, illustrates the necessity for targeted milling process optimization tailored to the specific requirements of cannabinoid analysis.
+
+However, the operational and financial burdens associated with milling underscore the need for a balance between analytical efficiency, environmental sustainability, and cost-effectiveness. The exploration of single-use milling containers as a strategy to alleviate operational burdens...
+presents a compelling case for reevaluating traditional practices in favor of approaches that potentially enhance operational efficiency and reduce environmental impact.
+
+These findings also address economic considerations within the cannabis industry. Given that THC levels are a significant profit driver for the sector, even marginal gains in the preservation of this specific cannabinoid during the milling process can translate into substantial financial benefits. Therefore, the optimization of milling parameters to maximize THC yield without compromising other cannabinoids is of paramount interest, reflecting a strategic approach that aligns operational efficiency with market-driven objectives.
+
+In conclusion, this study not only sheds light on the critical importance of mill type, operational duration, and speed in cannabis analysis but also navigates the complex landscape of operational efficiency, environmental sustainability, and economic viability. The insights garnered herein offer a valuable framework for laboratories seeking to refine their analytical methodologies in alignment with industry standards and sustainability principles, marking a significant step forward in the optimization of cannabis milling processes for enhanced profitability and reduced environmental footprint.
+
+Acknowledgments
+
+We thank Fritsch Milling & Sizing, Inc. for loaning a mill and particle sizer free of charge for these experiments.
+
+Funding
+The research was conducted without any funding sources.
+
+**Conflict of Interest**
+
+All authors declare no conflict of interest.
+
+**References**
+
+1. Wikipedia. Available at: [https://en.wikipedia.org/wiki/Legality_of_cannabis](https://en.wikipedia.org/wiki/Legality_of_cannabis). Accessed on February 4, 2024
+
+2. Agoff, C., Fondevila, G., & Sandberg, S. (2022) *Drugs: Educ., Prev. Polic.* **29**, 373–381. doi:10.1080/09687637.2021.2004089
+
+3. Goldman, S., Bramante, J., Vrdoljak, G., Guo, W., Wang, Y., Marjanovic, O., Orlowicz, S., Lorenzo, R.D., & Noestheden, M. (2021) *J. Liq. Chromatogr. Relat. Technol.* **44**, 403–420. doi:10.1080/10826076.2021.1996390
+
+4. Pruyn, S.A., Wang, Q., Wu, C.G., & Taylor, C.L. (2022) *Cannabis Cannabinoid Res.* **7**, 728–735. doi:10.1089/can.2021.0164
+
+5. Valdes-Donoso, P., Sumner, D.A., & Goldstein, R. (2020) *PLoS ONE* **15**, e0232041. doi:10.1371/journal.pone.0232041
+
+6. Atkins, P.L. (2019) *J. AOAC Int.* **102**, 427–433. doi:10.5740/jaoacint.18-0203
+
+7. Citti, C., Braghiroli, D., Vandelli, M.A., & Cannazza, G. (2018) *J. Pharm. Biomed. Anal.* **147**, 565–579. doi:10.1016/j.jpba.2017.06.003
+
+8. Wilcox, M., Jacyno, M., Marcu, J., & Neal-Kababick, J. (2016) *Planta Med.* **82**. doi:10.1055/s-0036-1578645
+
+9. Auwärter, V., Wohlfarth, A., Traber, J., Thieme, D., & Weinmann, W. (2010) *Forensic Sci. Int.* **196**, 10–13. doi:10.1016/j.forsciint.2009.12.023
+
+10. Duvivier, W.F., Peeters, R.J.P., Beek, T.A. van, & Nielen, M.W.F. (2016) *Forensic Sci. Int.* **259**, 110–118. doi:10.1016/j.forsciint.2015.12.014
+
+11. Deidda, R., Schelling, C., Roussel, J., Dispas, A., Bleye, C.D., Ziemons, É., Hubert, P., & Veuthey, J. (2021) *Anal. Sci. Adv.* **2**, 2–14. doi:10.1002/ansa.202000091
+12. McRae, G. & Melanson, J.E. (2020) *Anal Bioanal Chem* **412**, 7381–7393. doi:10.1007/s00216-020-02862-8
+
+13. Davenport, S. (2021) *Int. J. Drug Polic.* **91**, 102547. doi:10.1016/j.drugpo.2019.08.004
+
+14. Schwabe, A.L., Johnson, V., Harrelson, J., & McGlaughlin, M.E. (2023) *PLOS ONE* **18**, e0282396. doi:10.1371/journal.pone.0282396
+
+15. Smart, R., Caulkins, J.P., Kilmer, B., Davenport, S., & Midgette, G. (2017) *Addiction* **112**, 2167–2177. doi:10.1111/add.13886
+
+16. Freeman, T.P., Groshkova, T., Cunningham, A., Sedefov, R., Griffiths, P., & Lynskey, M.T. (2019) *Addiction* **114**, 1015–1023. doi:10.1111/add.14525
+
+17. Raber, J.C., Elzinga, S., & Kaplan, C. (2015) *J. Toxicol. Sci.* **40**, 797–803. doi:10.2131/jts.40.797
+
+18. Valdes-Donoso, P., Sumner, D.A., & Goldstein, R.S. (2019) *Calif. Agric.* **73**, 154–160. doi:10.3733/ca.2019a0014
+
+19. Goldstein, R.S., Sumner, D.A., & Fafard, A. (2019) *Calif. Agric.* **73**, 136–145. doi:10.3733/ca.2019a0025
+
+**Figure Captions**
+
+*Table 1. Cannabis flower milling parameters: Cannabis flower was milled using either an electric bladed mill or the P11. Sample identifications represent the batch and replicate numbers.*
+
+| Mill Type                                                                 | Parameters                  |
+|--------------------------------------------------------------------------|----------------------------|
+| coffee grinder (CG)                                                      | 20s, continuous            |
+| coffee grinder (CG)                                                      | 20s, pulses (3s on, 2s off) |
+| P11 with single-use grinding vessel (SU)                                 | 2000rpm, 20s               |
+| P11 with single-use grinding vessel (SU)                                 | 4000rpm, 10s               |
+| P11 with reusable 1.4L grinding vessel (1.4L)                            | 2000rpm, 10s               |
+Table 2. Average THCA, THC, CBDA and CBD concentration in THCA and CBDA flower, respectively, that have been milled in the electric bladed mill (CG), and the P11 mill using either the single-use containers (SU) or the 1.4L grinding vessel (1.4L) at varying milling conditions.
+
+| Mill Type          | % THCA  | % THC  | % CBDA  | % CBD  |
+|--------------------|---------|--------|---------|--------|
+| CG, 20s, cont.     | 9.1886  | 0.7614 | 9.0757  | 2.3629 |
+| CG, 20s, pulses    | 9.7718  | 0.8844 | 9.6416  | 2.3208 |
+| SU, 20s, 2krpm     | 9.9494  | 0.9691 | 11.8177 | 2.9745 |
+| SU, 10s, 4krpm     | 8.2587  | 0.8100 | 10.2827 | 2.7475 |
+| SU, 10s, 2krpm     | 9.2054  | 0.8015 | 12.4355 | 3.0885 |
+| 1.4L, 20s, 2krpm   | 6.9071  | 0.6225 | 7.6905  | 2.1311 |
+
+Figure 1: The decarboxylation ratio of THC to THCA in high THCA cannabis flower that has been milled in the electric bladed mill (CG), and the P11 mill using either the single-use containers (SU) or the 1.4L grinding vessel (1.4L) at varying milling conditions.
+Figure 2: The decarboxylation ratio of CBD to CBDA in high CBDA cannabis flower that has been milled in the electric bladed mill (CG), and the P11 mill using either the single-use containers (SU) or the 1.4L grinding vessel (1.4L) at varying milling conditions.
+
+Figure 3: The THCA, THC, CBDA, and CBD concentration in THCA and CBDA flower, respectively, that have been milled in the electric bladed mill (CG), and the P11 mill using either the single-use containers (SU) or the 1.4L grinding vessel (1.4L) at varying milling conditions.
+Figure 4: The percent CBN content in high THCA cannabis flower that has been milled in the electric bladed mill (CG), and the P11 mill using either the single-use containers (SU) or the 1.4L grinding vessel (1.4L) at varying milling conditions.

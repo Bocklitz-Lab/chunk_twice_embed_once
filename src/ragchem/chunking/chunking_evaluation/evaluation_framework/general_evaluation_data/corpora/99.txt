@@ -1,0 +1,393 @@
+2D Conjugated Polymers: Exploiting Topological Properties for the Rational Design of Metal-Free Photocatalysts
+
+Yu Jing,1,* Xinyue Zhu,1 Sabine Maier,2 Thomas Heine3,4,5*
+
+1 Jiangsu Co-Innovation Center of Efficient Processing and Utilization of Forest Resources, College of Chemical Engineering, Nanjing Forestry University, Nanjing 210037, China
+
+2 Department of Physics, Friedrich-Alexander University Erlangen-Nürnberg, Erwin-Rommel-Strasse 1, 91058 Erlangen, Germany
+
+3 TU Dresden, Fakultät für Chemie und Lebensmittelchemie, Bergstraße 66c, 01062 Dresden, Germany
+
+4 Helmholtz-Zentrum Dresden-Rossendorf, Forschungsstelle Leipzig, Permoserstraße 15, 04318 Leipzig, Germany
+
+5 Department of Chemistry and ibs cmm, Yonsei University, Seodaemun-gu, Seoul 120-749, Republic of Korea
+
+Email: yujing@njfu.edu.cn; thomas.heine@tu-dresden.de
+
+Abstract
+
+Solar-to-hydrogen conversion is one of the most promising avenues to provide emission-free fuels and long-term chemical energy storage. Wide-range application crucially requires high-performance photocatalysts that are environmentally benign and free of precious metals. With high robustness, controllable composition, tunable electronic structure and high porosity, two-dimensional conjugated polymers (2DCPs) are among the most appealing candidates. We provide rational design principles for 2DCPs which are suitable for water splitting, highlight progress and open challenges in synthesis, and review the recent theory-based investigations on 2DCPs for photocatalysis. The role of theory as indispensable tool is highlighted, as it promotes the understanding of the inner relationship between geometry, electronic structure and photocatalytic performance of 2DCPs and therefore enables rational design of new photocatalysts.
+Challenges of photocatalytic water splitting
+
+Developing clean and renewable energy sources to replace fossil fuels is essential to meet the increasing human need in a sustainable manner. Photocatalytic water splitting is a promising strategy to produce storable and clean hydrogen fuel [1,2,3], and therefore should play an important role in relieving energy and environmental issues. The past decades have witnessed the fast development of effective and robust photocatalysts for water splitting. Inorganic materials including, but not limited to, transition metal oxides [4,5], nitrides [6], and sulfides [7,8] have been widely studied as photocatalysts. However, these materials usually suffer low quantum efficiency (Q.E., see Glossary) because of the fast recombination of charge carriers [4-8]. Besides, for some of them, toxicity, degradation problems, and high cost of transition metals have limited their wide application. Therefore, it remains to be important to develop stable and highly efficient metal-free photocatalysts for water splitting for potential applications at various scales.
+
+The immense recent progress of polymerization technology facilitates the construction of porous and highly ordered frameworks with engineered band structures by using the earth-abundant light-weight elements [9-11]. The high robustness and nontoxicity of conjugated polymers have rendered them compelling photocatalysts for water splitting [12]. Some reviews have summarized the progress of developing various conjugated polymers of different dimensions for photocatalytic hydrogen evolution from aqueous solutions [13-15], falling into classes of conjugated microporous polymers [16-18] covalent triazine-based frameworks [19,20], covalent organic frameworks (COFs) [21,22], and linear conjugated polymers [23]. However, linear polymers usually suffer high binding energy of excitons because of the limited electron delocalization in the one-dimensional configuration. For three-dimensional (3D) bulk polymers, the generated hole/electron pairs need to travel a long distance in 3D space to reach the water molecules at the surface. During this process, hole/electron recombination occurs and the photocatalytic efficiency is significantly reduced.
+
+Many experimental studies have demonstrated that exfoliating layered polymers into nanosheets and introducing planar groups into the conjugated polymers were beneficial for improving the photocatalytic activity [24-27], as exfoliation reduces the
+path length to the surface and conjugation fosters higher mobilities [28]. The most widely studied 2D polymers for photocatalysis are nanosheets of graphitic carbon nitrides [29]. Various reviews have discussed the structure, synthesis and photocatalytic performance of carbon nitrides for water splitting [30-32]. However, the slow surface reaction kinetics, fast charge recombination and low carrier mobility have limited their applications as high efficient photocatalysts [33]. Co-catalysts were usually employed to improve their photocatalytic performance [34-36].
+
+In principle, a good photocatalyst should be a semiconductor that has a moderate band gap (~1.5 – 3.0 eV) to guarantee efficient light absorption in the broad spectrum of solar light while providing photo-excited electrons/holes with sufficient energy to overcome the positive Gibbs free energy change ($\Delta G \approx 237 \text{ kJ mol}^{-1}$) of water redox reaction [37]. These critical requirements have confined possible candidates of commonly known materials and suggest that effective metal-free photocatalysts should be developed on the basis of materials classes with a wide potential of design options, such as 2D conjugated polymers (2DCPs).
+
+**Current status of 2D polymers in the field of photocatalytic water splitting**
+
+*Light absorption and band edge alignment*
+
+Broad optical absorption is the first prerequisite for a photocatalyst to generate photon-induced excitons (paired electron-hole through Coulomb attraction) and thus an important factor in determining the efficiency of a photocatalyst to utilize solar energy. Generally, the band gap (equals to the optical gap reduced by the exciton binding energy (EBE)) of a semiconductor is a direct reflector of its light absorption capability, which should be smaller than 3 eV so that the visible part of the solar spectrum can be captured. As exhibited in Figure 1a, the solar energy conversion efficiency of overall water splitting increases with increasing the wavelength of irradiation at different quantum efficiencies. Meanwhile, the valence band maximum (VBM) and the conduction band minimum (CBM) should be more negative and positive than the oxygen evolution reaction (OER) potential ($E(O_2/H_2O)$, 5.67 eV vs. vacuum) and hydrogen evolution reaction (HER) potential ($E(H^+/H_2)$, 4.44 eV vs. vacuum) (Figure 1b), respectively, so that photon-induced OER and HER can occur. As a result, a
+potential 2D polymer photocatalyst should have a band gap in range of 1.5 – 3.0 eV to meet the requirements of having sufficient light absorption ability and appropriate band edge alignments. Definitely, a narrowed band gap in this range results in higher absorption (Figure 1a), as this energy range covers the most intense part of the solar spectrum (at the expense of energy dissipation of high-energy photons). Besides, the positions of CBM and VBM at the same k-point or at different k-points leading to the formation of direct or indirect band gaps, respectively, can also affect light absorption and the generated excitons of 2D polymers. Typically, for semiconductors with indirect band gaps, optical absorption relies on phonon-assisted processes. However, the photo-generated electrons and holes have different momentum and the change of electron wavevector is required for the transition from CBM to VBM, which will suppress exciton annihilation and show longer exciton lifetime than that with direct band gaps [38], thereby promoting water splitting. The electronic structures of 2D polymers can be slightly adjusted by controlling the thickness, while applying out-of-plane electric field and external strain are also possible strategies [39]. However, many 2D polymers exhibit large band gaps due to weak electronic interaction between building units, while the requirement for appropriate band edge alignments further excludes a number of 2D polymers from possible photocatalysts that can be used for overall water splitting.
+
+Figure 1. Requirement for light absorption and band edge alignment. (a) Solar energy conversion efficiency as a function of wavelength for overall water splitting using photocatalysts at Q.E. of 30%, 60% and 100%. (b) Scheme illustrating the band edge alignment of a potential photocatalyst to facilitate both HER and OER processes by matching the water redox potentials. The driving force of photo-generated electrons
+(U_e) and holes (U_h) for reduction and oxidation is determined by the potential difference between the CBM and the E(H+/H_2) and that between the VBM and the E(O_2/H_2O), expressed by 
+\[ U_e = \frac{[\text{CBM} - \text{E}(\text{H}^+/\text{H}_2)]}{e} \] and \[ U_h = \frac{[\text{E}(\text{O}_2/\text{H}_2\text{O}) - \text{VBM}]}{e} + 1.23 \text{ V}, \] respectively.
+
+Exciton dissociation and charge transfer kinetics
+
+Photo-generated excitons (electron-hole pairs) form when a semiconductor absorbs light of energy larger than its optical gap and should be dissociated so that the electrons and holes can freely and independently stimulate HER and OER, respectively. For bulk polymers, the EBE is larger than k_BT (~ 25 meV), so excitons cannot dissociate at room temperature. Therefore, the supply of an additional energy is required to overcome the EBE. Since exciton dissociation can be impelled on the polymer–solution interface or polymer–polymer interface in heterogeneous materials [40], 2D polymers that have high surface area of polymer-water interface are appealing candidates to achieve high quantum efficiencies [41]. Computational investigations indicate that the EBE of graphitic carbon nitrides can be reduced by increasing the polymerization of the structures, thereby helping to improve the exciton dissociation efficiency [42].
+
+To further accelerate exciton dissociation and restrain charge recombination, Z-scheme photocatalytic systems (Figure 2 a) have been widely developed as effective devices to separately generate H_2 and O_2 on different interfaces and show higher solar-to-hydrogen conversion efficiency than that of a single photocatalyst [43]. Ruan et al. have recently demonstrated that nanojunction of B-doped carbon nitride nanolayer and bulk carbon nitride show higher incident photon-to-current efficiency than that of carbon nitride film [44]. By employing time-dependent ab initio nonadiabatic molecular dynamics, Zhang et al. have predicted that Z-scheme heterostructure of monolayer BCN and C_2N (Figure 2 b-d) possess high interface electron-hole recombination rate and is a promising photocatalyst for overall water splitting [45].
+Figure 2. Z-scheme photocatalytic system for water splitting. (a) Schematic illustration of a two-step Z-scheme photocatalytic mechanism. Upon light irradiation, electrons will be excited from VB to CB, leaving holes in the VB of these two semiconductors. The CB-electrons in the semiconductor (left) with lower energy combine with the VB-holes in the semiconductor (right) via Ohmic contact, resulting in oxidative VB-holes and reductive CB-electrons accumulated at the left and right semiconductors to promote OER and HER, respectively. This system can not only suppress charge recombination of individual semiconductors but also preserve strong redox electron-hole to facilitate water splitting at separated sites. (b) Optimized geometric and (c) band structure of BCN/C2N heterostructure. The gray, blue, and pink balls denote C, N, and B atoms, respectively. The redox potentials of H+/H2 and H2O/O2 are indicated by red dashed lines. (d) Orbital distribution of the CBM and VBM of BCN/C2N. The isovalue is 0.002 e/bohr. Reproduced, with permission, from [45].
+
+Aside from effective exciton dissociation, fast charge migration is also essential to guarantee high Q.E. of photocatalytic water splitting, which determines the rate of electron and hole transfer to adsorbed molecules or co-catalysts. For 2D polymers, the exciton mobility is limited to in-plane transfer, where the insufficient interaction of π-electronic building units usually results in low charge carrier mobilities [46]. A high degree of π-conjugation and crystallinity of 2D polymers yields band dispersion and therefore enhances charge carrier mobilities [47,48]. Dong and co-workers have recently summarized the internal and external modification strategies to optimize the carrier mobility of 2D g-C3N4 [31]. For instance, the in-plane carrier transfer of g-C3N4
+can be effectively improved by expanding the \( \pi \)-electron delocalization via introducing aromatic groups or embedding aromatic rings [49-51], which in turn enhances photocatalytic performance for hydrogen evolution.
+
+**Thermal dynamics of overall water splitting**
+
+After the basic physical properties are satisfied, the photocatalytic performance will be finally determined by its catalytic activity to facilitate the thermodynamics of HER and OER. The overall water splitting can proceed only if the driving force provided by the photo-generated electrons and holes (\( U_e \) and \( U_h \) as illustrated in Figure 1b) are higher than the thermal dynamic overpotential (OP) of HER and OER, respectively, so that the associated \( \Delta G \) in both cases is negative. However, the sluggish 4e process of OER typically is the bottleneck of photocatalytic efficiency. Although many 2D polymers were designed and synthesized to facilitate the HER process, few of them can overcome the high OP of OER because of the unfavorable band edge alignment (contributing to insufficient value of \( U_h \)). Two well-known polymers that can photocatalyze OER are g-C\(_3\)N\(_4\) and CTF-1 [52,53], however, demanding the assistance of sacrificial electron acceptors.
+
+**Designing principles of 2D conjugated polymers for photocatalysis**
+
+Polymerization using coupling reactions yielding conjugation between the building units has been demonstrated to be an effective strategy to reduce the band gap [54-56]. Conjugated bridging enhances \( \pi \)-electron delocalization yielding to band dispersion, which results in narrowed band gaps. However, high \( \pi \)-electron conjugation of the building monomers is the most fundamental basis to ensure the high conjugation of the constructed 2D lattice. For instance, C=C-containing 2D organic frameworks have been recently synthesized, with pronounced \( \pi \)-delocalization over the entire 2D network [57-59]. In the light of these experimental advances, using organic monomers with high \( \pi \)-electron conjugation and HOMO-LUMO gaps of 3-4 eV as the building units appears to be an efficient strategy to construct highly conjugated 2D polymers for photocatalysis. Note that the HOMO-LUMO gaps must be chosen larger than the envisaged band gap, as band dispersion will yield smaller band gaps. This effect enhances with the degree of \( \pi \)-conjugation.
+Heterotriangulenes (HTs) are promising building units since they are planar molecules with three conjugated benzene rings in one molecule [60], and the HOMO-LUMO gaps are in range of 3–4 eV (Figure 3a). The threefold symmetry and high-degree of π-conjugation of HTs allow the formation of conjugated 2D honeycomb-kagome lattices (Figure 3b) via on-surface polymerization (Figure 3c-h) [61,62]. By scanning tunneling spectroscopy and DFT calculations, Steiner et al. have demonstrated that the electronic band gap of HTs decreases when going from the monomer to 1D and 2D surface-confined organic polymers comprising the same building unit [61]. Recently, Galeotti et al. have synthesized long-range ordered 2D HT-polymers and confirmed the semiconducting properties with the presence of Dirac cone structures and flat bands by using angle-resolved photo electron spectroscopy (ARPES) [62,63]. By means of first-principles calculations, we have demonstrated that 2D HT-polymers constructed from B- and N-centred HTs are semiconductors with band gaps of 1.80–2.84 eV, thus ideally suited for water-splitting applications, and show high charge carrier mobilities [64]. A further check of the electronic and optical properties indicated that altering the heteroatoms and bridge groups effectively adjusts the band edges and enhances light absorption (Box 1). As a result, the appropriate band edge alignment (Figure 3i) and good light absorption capability (Figure 3j) render 2D HT-polymers potential photocatalysts for HER or OER processes, respectively [65]. We have further demonstrated that the electronic properties of 2D polymers are determined by their lattice topology (Figure 3b) and the honeycomb-kagome lattice contributes to single-band features of 2D HT-polymers. As a result, coupling B- and N-centered HT-polymers in a Z-scheme manner (Figure 3k) with spatially separate electrodes allows effective overall water splitting with suppressed electron/hole recombination.
+Figure 3. 2D polymers made of heterogriangulenes (HTs) for water splitting. (a) Frontier orbitals and band positions of HTs, including carbonyl-bridged triphenylborane (CTPB), carbonyl-bridged triphenylamine (CTPA), methylene-bridged triphenylborane (MTPB), methylene-bridged triphenylamine (MTPA), oxygen-bridged triphenylborane (OTPB) and oxygen-bridged triphenylamine (OTPA), and corresponding 2D HT-polymers. Readapted, with permission, from 64. (b) The unit cell (indicated by the red dashed line) of 2D CTPA with the honeycomb (top-left) and kagome (top-right) sublattices, and first-principles band structure with band contributions arising from the nitrogen honeycomb sublattice (down-left) and the π-conjugated carbon atoms to the kagome and honeycomb sublattices (down-right) (c,d). Scanning tunneling microscopy (STM) images and (e-h) constant height dI/dV maps of long-range 2D CTPA polymer. Readapted, with permission, form [62] and [61]. (i) Band edge alignments of 2D HT-polymers in comparison with the redox potentials of water splitting at pH = 0. The half-reaction can proceed thermodynamic favorably if no OP is remained after light irradiation. (j) Computed absorption spectra for light incident from the parallel direction of 2D CTPB, CTPA, and OTPA at the HSE06 level of theory. (k) Proposed tandem device of 2D CTPB and dimethylmethylene-bridged triphenylamine (DTPA) for overall water splitting. Readapted, with permission, from [65].
+Box 1: Design Principles of 2D conjugated polymers (2DCP) for photocatalytic water splitting:
+
+1. Select monomers with HOMO-LUMO gaps of 3-4 eV. Conjugation will lower the HOMO-LUMO gap in the polymer, the stronger the conjugation, the stronger the reduction. In principle, molecular monomers that contain high concentrations of conjugated groups (such as phenyl, alkynyl and azaaryl) can be used as building units to construct 2D conjugated polymers. However, it is important to ensure that those conjugated groups can interact efficiently after polymerization, so that a high degree of conjugation of the constructed 2D polymers can be achieved.
+
+2. Calculate the absorbance (UV/Vis spectrum) of the 2DCPs. Use functional groups to tune/enhance absorption.
+
+3. Use heteroatoms to shift the band edges to lower or higher values in order to adjust them with respect to the electrode potentials.
+
+4. Choose a 2D network that will give strong band dispersion, such as honeycomb or kagome lattices featuring Dirac points.
+
+5. Analyze electronic structure and absorbance of the 2DCPs and adjust design if necessary by iterating back to 1.)
+
+The calculations referred to in Box 1 are straightforward at various levels of theory (such as time-dependent density-functional theory (TD-DFT) or ab initio theory) [66], both for the isolated molecules and the extended 2DCPs. The more challenging task is the prediction of the photocatalytic properties of the polymer material, as they are the necessary (but not yet sufficient) condition of the designed material to be a good photocatalyst.
+
+By topological assembling molecular segments with catalytic activities toward HER or OER (Figure 4a), respectively, Wan et al. have theoretically designed 2D nitrogen-linked COFs as potential photocatalysts [67]. The rational combination of the active molecular segments allows the construction of 2DCPs with appropriate band edge alignments (Figure 4b, c) and pronounced light absorption (Figure 4d) for overall water splitting. By constructing a Z-scheme system (Figure 4c), a high theoretical energy conversion efficiency of over 20.6 % can be realized. The high photocatalytic activity was further confirmed by experimental measurements, which demonstrated the reliability of theoretical calculations in predicting metal-free photocatalysts for overall water splitting.
+Figure 4. 2D nitrogen-linked COFs for water splitting. (a) Schematic illustration of design principles of 2D nitrogen-linked COFs. (b) Band edge alignments of designed 2D COFs in comparison with water redox potentials at pH = 0. (c) Schematic of assembling aza-CMP and Ao-TST in a Z-scheme heterostructure. (d) Estimated solar-to-energy conversion efficiency simulated with a blackbody radiation at 6000 K and a Q.E. of 100%. Readapted, with permission, from [67].
+
+Very recently, donor-acceptor based 2D conjugated polymers have been demonstrated to be efficient photocatalysts for water splitting. By coupling electron-accepting building blocks and electron-donating linkers through the Knoevenagel polymerization reaction, Xu et al. have synthesized thiophene-bridged donor-acceptor sp²-carbon-linked 2DCPs [68]. Possessing a wide light-harvesting range and facilitated charge transfer, those polymers were demonstrated to be promising photocathodes with high photocurrent density for hydrogen evolution. By employing DFT calculations, we have recently designed donor-acceptor 2D binary polymers from heterotriangulenes for photocatalytic water splitting [69]. The alternate arrangement of B- and N-centered heterotriangulenes as in hexagonal boron nitride provides another strategy for manipulating potential photocatalysts to promote overall water splitting. In view of the above experimental and theoretical progresses, screening molecular building units (following principles of Box 1) through examination of the geometric symmetry, frontier orbitals and surface activity for thermodynamics of OER and HER allows a delicate design of 2DCPs with controlled topology and chemical functionalization as promising candidates for photocatalysis.
+State-of-the-art computational approaches to reveal activities of 2DCPs
+
+Accuracy of theoretical predictions depends on the computational approaches used to describe the basic properties of 2D polymers, including but not limited to the light absorption, band structure, and carrier mobility. The absorption spectrum of 2D polymers can be predicted by computing the imaginary part of the dielectric function according to the Kramer-Kronig relationship. Methods based on the Green’s function (G) and screened Coulomb interaction (W, i.e. GW) are most suitable to depict the optical spectrum of periodic crystals of polymers. For example, the optical gap of g-C$_3$N$_4$ was calculated to be 2.6 eV by using GW-BSE method, only 0.1 – 0.2 eV smaller than the experimental value [70]. The excitonic band gap of periodic bulk systems can also be estimated by TD-DFT calculations by adapting the Casida equation approach for molecular excitations [71]. Nevertheless, these methods are very expensive and often computationally too expensive for 2D polymers which usually possess dozens of atoms in the unit cell. However, recent progress in the linear scaling of GW theory make such calculations feasible [72]. A viable compromise is offered by hybrid DFT methods (e.g. S06 and PBE0), which are widely used in estimating the electronic and optical properties of 2D polymers and give reliable predictions [73,74]. For example, Bi et al. synthesized a sp$^2$ carbon-jointed-pyridinyl framework (g-C40N3-COF) and demonstrated that the DFT-HSE06 calculated band gap (2.29 eV) was only 0.07 eV smaller than the experimental value (2.36 eV) [59].
+
+The band edge alignments based on HSE06 calculations can be rationalized by regulating the VBM and CBM by the vacuum potentials, which are taken as the potential energy at the edge of the vacuum layer. The impact of pH on the electrode potentials of HER and OER can be further digitized by $E(\text{H}^+/\text{H}_2) = -4.44 \text{ eV} + \text{pH} \times 0.059 \text{ eV}$ and $E(\text{O}_2/\text{H}_2\text{O}) = -5.67 \text{ eV} + \text{pH} \times 0.059 \text{ eV}$, respectively [75]. However, the combined impact of pH value to the performance of photocatalysts is complex, not limited to its additional effects on the thermodynamics of HER and OER [67]. Many theoretical studies only evaluated the photocatalytic activity of 2D polymers without considering the effect of different pH conditions [27,65].
+Box 2: Thermodynamic simulation of HER and OER:
+
+The 2e and 4e pathway of HER and OER in acid solvents can be described using the equations given below.
+
+**HER:**
+
+\[ \text{H}^* + \text{H}^+ + e^- \rightarrow \text{H}^* \]  \[ \text{1} \]
+
+\[ \text{H}^* + \text{H}^+ + e^- \rightarrow \text{H}_2 \]  \[ \text{2} \]
+
+**OER:**
+
+\[ \text{H}_2\text{O} + \text{O}^* \rightarrow \text{H}^+ + e^- + \text{OH}^* \]  \[ \text{3} \]
+
+\[ \text{OH}^* \rightarrow \text{H}^+ + e^- + \text{O}^* \]  \[ \text{4} \]
+
+\[ \text{OH}^* + \text{H}_2\text{O} \rightarrow \text{H}^+ + e^- + \text{OOH}^* \]  \[ \text{5} \]
+
+\[ \text{OOH}^* \rightarrow \text{H}^+ + e^- + \text{O}_2 \]  \[ \text{6} \]
+
+The active sites for HER and OER can be theoretically determined by estimating the adsorption energy of the corresponding intermediates, namely \( \text{H}^* \) and \( \text{OH}^* \) species, respectively. Generally, the electron-deficient site is more active for the adsorption of \( \text{OH}^* \), while the \( \text{H}^* \) species tends to be adsorbed at the electron-rich site (Figure I). By employing the computational hydrogen electrode model proposed by Nørskov et al., the thermodynamics of HER and OER can be evaluated by estimating the \( \Delta G \) of the two and four elementary steps of HER and OER processes, respectively. The standard hydrogen electrode (SHE) model is used as a reference and the potential for \( \text{H}^+ + e^- \rightarrow 1/2 \text{H}_2 \) is thus set to equilibrium with 0 V at pH = 0 vs. SHE.
+
+The \( \Delta G \) is usually defined by:
+
+\[ \Delta G = \Delta E + \Delta ZPE - T\Delta S \]  \[ \text{7} \]
+
+Here, \( \Delta E \) represents the total energy difference for the adsorbed HER or OER intermediates obtained from DFT calculation, \( \Delta ZPE \) is the change of zero-point energy (ZPE), and \( T\Delta S \) denotes the influence of change in entropy, typically at ambient temperature (298K). Both the ZPE and entropies of HER and OER intermediates can be calculated based on the harmonic approximation to nuclear vibrations. Since the equilibrium potential for HER and OER is 0 and 1.23 V vs. SHE, respectively, the OP can be calculated as \( \text{OP}_{\text{HER}} = \max\{\Delta G_1, \Delta G_2\}/e \), and \( \text{OP}_{\text{OER}} = \max\{\Delta G_3, \Delta G_4, \Delta G_5, \Delta G_6\}/e - 1.23 \text{ V} \). \( \Delta G_i \) (i=1,2,3...) represents the free energy change of the electron-involved elementary steps of HER and OER as shown above.
+
+Figure I. Schematics for the overall water-splitting reactions on 2D polymers of OTPB (a) and CTPA (b). The active site for OER is the B and C (electron-deficient) site of OTPB and CTPA, which further facilitates the single- and dual-site OER mechanism (red cycle diagram), respectively. The HER (blue cycle diagram) proceeds at the C site of methine of OTPB and the O site of carbonyl of CTPA, respectively.
+Computationally, the carrier mobility can be evaluated by employing the acoustic phonon-limited scattering model based on deformation potential theory [76]. The GGA-PBE functional, which in most implementations performs much faster compared to hybrid functionals, was demonstrated to be sufficient to predict very similar effective masses and carrier mobilities compared to those calculated by HSE06 [64]. This can be understood as the band shapes calculated by PBE typically are very similar to those computed at higher levels of theory, even though the conduction bands are shifted to lower values, which results the well-known band gap underestimation of PBE and other local functionals. As consequence, the costly calculation of electron and hole mobilities can be performed using local functionals such as PBE. However, due to the fact that the synthesized 2D polymers usually contain defects or impurities, the experimental carrier mobilities typically are inevitably lower than the computationally predicted values.
+
+Based on the above computational protocol, many computational investigations have been performed to unambiguously understand the capability of experimentally synthesized 2D polymers to photocatalyze HER and OER (Box 2), and to computationally predict potential 2D polymers that can well facilitate overall water splitting [65,67]. For example, 1,3-diyne-linked conjugated microporous polymer nanosheets (CMPNs) prepared by oxidative coupling of terminal alkynes were demonstrated to be efficient photocatalysts for overall pure water (pH = 7) splitting [27]. By theoretically visualizing the band structure and simulating the $\Delta G$ of the elementary steps of HER and OER, the good photocatalytic performance of these polymers under visible light irradiation were well interpreted.
+
+High throughput computation and machine learning are new technologies to further accelerate the discovery of effective metal-free photocatalysts [77]. For instance, Bai et al. developed a set of high-throughput techniques that integrate both experiment and computation, thus allowing for the investigation of a large number of potential polymer photocatalysts [78]. By establishing the structure-property relationships of conjugated polyelectrolytes and using structural features that determine properties as descriptors in machine learning [79], Wan et al. have predicted structures beyond the database as photocatalysts for water splitting. Although high throughput DFT calculations and machine learning provide a highly efficient way to assist the discovery
+of potential polymers for photocatalysis [80], challenges lie in the considering of more properties beyond optical gaps in the screening of overall composition space [81].
+
+**Photovoltaics vs. photocatalysis**
+
+2D conjugated polymers with enhanced intralayer $\pi-\pi$ interactions to facilitate exciton diffusion and charge transport are also promising candidates for photovoltaics, which can utilize solar irradiation to produce electricity directly. Usually, a p-type polymer and a n-type small molecule working as the donor and acceptor, respectively, assemble the optically active layer of organic photovoltaics (Figure 5 a) [82]. Here, a rather small band gap (an optimum region of 1.1~1.4 eV) allows for a broad absorption spectrum, and sufficient energy level offset between the LUMO of donor and acceptor guarantees effective exciton dissociation [83]. Benzodithiophene-based 2D polymers (Figure 5b) have been widely studied as donors and acceptors in photovoltaics [84,85]. Introducing substituted groups, such as alkylsilyl [86, 87], alkoxyl and phenyl/alkoxylphenyl [88], were demonstrated to be an effective strategy to further improve the photovoltaics performance of 2D conjugated polymers. Actually, these strategies are adaptable to the design of 2D polymer photocatalysts, including varying the heteroatom of the building blocks and altering the side chains with different functional groups to engineer the fundamental properties including band gap, energy levels, carrier mobilities and EBE.
+
+![Figure 5. 2D conjugated polymers for photovoltaics. (a) Schematic illustration of conventional all-polymer solar cells. Readapted, with permission, from [82]. (b) High-photovoltaic performance 2D-conjugated BDT based polymers.](image-url)
+**Stability and synthesis feasibility**
+
+Although theoretical predictions are dependable and offer a way for designing and predicting new polymers with desired basic properties for photovoltaics and photocatalysis [89,90], the experimental realization of predicted structures is always a big challenge. The building blocks and linkages are crucial when deciding for the structure features and synthetic strategies [91,92]. A rational design of 2D polymers should be based on the possible synthetic strategies by using available building units. Previous experimental reviews have comprehensively concluded the available organic linkers, possible synthetic strategies, corresponding properties and applications of different ordered organic frameworks [93-95], providing useful references to design new structures.
+
+![Diagram](image)
+
+Figure 6. (a) Schematic illustration of selected design choices for the on-surface synthesis of 2D polymers. General factors of successful solvent-free on-surface 2D polymerization and tailoring of the polymer’s functionality include a suitable monomer design, substrate effects, activation methods, and choice of the coupling reaction.
+
+The first formation of porous, crystalline, COFs by Yaghi and co-workers in 2005 [96] opened new avenues for the exploration of polymerization strategies to form crystalline 2D polymers from designed monomers at various interfaces [97]. On-surface synthesis represents an attractive strategy for the atomically precise 2D polymer
+synthesis because the surface serves as a template and catalyzes the bond formation, and offers direct imaging capabilities through scanning probe techniques, see Fig. 6 [98-100]. The reversibility in the covalent bond formation is an essential prerequisite for constructing large-scale, high-quality 2D polymers together with a well-balanced diffusion and reactivity of the adsorbed precursor. Therefore, well-ordered 2D polymers have been successfully synthesized by manipulating the chemical equilibrium at the liquid/solid and vapor/solid interface, for example, in using boronic acids Schiff-base chemistry [101,102]. Recently, in-situ STM unveiled details of the nucleation process for the first time in real-time at the liquid/solid interface, which has enabled observation of the amorphous-to-crystalline transition, the time-dependent evolution of nuclei, and, importantly, the experimental determination of essential crystallization parameters with excellent accuracy [103]. In contrast, producing structural order using solvent-free on-surface synthesis procedures in ultra-high vacuum (UHV) is challenging and only a few strategies have been identified so far to fabricate micrometer-sized domains of 2D polymers. The lack of reversibility inherently leads to high densities of topological defects, such as various polygonal cells [104,105]. In addition, often only small domain sizes (generally tens of nanometers) have been obtained due to the limited mobility of monomers on the surface and incompletely reacted monomers [106,107]. One of the few recent successful synthetic strategies for mesoscale-ordered, porous 2D polymers on surfaces in UHV uses topochemical photopolymerization [108], which has already proved successful in converting supramolecular single crystals into single crystals composed of stacked 2D polymer nanosheets [109,110]. Mesoscale ordering was also achieved via a hot deposition approach, demonstrated for 2D HT-polymers on a metal surface [62,63]. These results confirm the synthesis possibility and stability of 2D HT-polymers using surface coupling methods. In addition, the controlled synthesis of few-layer 2D polymers was also successfully achieved at the air-liquid interface, for example polyimide crystals were synthesized on the surface of water, assisted by surfactant monolayers [111]. In conclusion, the discussed examples indicate the high feasibility of constructing 2D conjugated polymers from appropriate organic monomers for photocatalysis.
+
+Concluding remarks
+With the advantages of cost-effective, lightweight, high porosity, high crystallinity and flexible manufacturability, 2D semiconducting polymers have been concerned as appealing candidates for photocatalytic and photovoltaic devices. First principles calculations are reliable in evaluating the fundamental properties of semiconductors including optical gap, band alignments, carrier effective masses and mobilities, and therefore provide insightful perspectives for the design of advanced metal-free polymers for solar energy applications. Here we have summarized the latest advances in the development of promising 2D conjugated polymers as photocatalysts from the theoretical point of view. Constructing 2D conjugated polymers by using appropriate organic monomers to meet the prerequisites of being an effective photocatalyst and conforming to the experimental synthesis possibility is essential in designing and screening potential metal-free photocatalysts for water splitting.
+
+There are also challenges facing future computational development of 2D conjugated polymers for photocatalysis. (1) Although HSE06 is currently a compromised option to reproduce the band structures of 2D polymers, a more accurate and less expensive theory need to be developed to well describe the electronic and optical properties. (2) The kinetics of solar-driven HER and OER on 2D polymers need to be studied in depth and the pH conditions should be fully considered to obtain a comprehensive understanding of the real water splitting processes. (3) An integrated and comprehensive material library of 2D polymers and their building units need to be complemented to provide a data base for the future design and screen of 2DCPs for photocatalysis and photovoltaics, which requires the combination of artificial intelligence technologies (e.g. high throughput computation and machine learning).
+
+The preparation of 2D polymers has been explored at several interfaces, as confining polymerization to 2D can template or catalyze the bond formation. Central design considerations for on-surface 2D polymerizations include a rational design of the precursor as well as a suitable choice of the substrate and the activation method for the covalent coupling. Recent progress in surface and interface polymerization confirms the high feasibility of constructing 2D conjugated polymers from appropriate organic monomers for photocatalysis. The fundamental understanding of the reaction mechanisms and crystallization processes at the (sub)molecular level is essential for a
+predictive synthesis and for tailoring material properties for applications in photocatalysis and (opto)electronics.
+Glossary
+
+**Conjugated microporous polymers**: organic porous polymers that combine π-conjugated skeletons with permanent nanopores.
+
+**Covalent triazine-based frameworks**: porous organic materials as a subclass of conjugated microporous polymers, composed of aromatic C=N linkage (triazine unit) with the absence of other covalent bonds.
+
+**Co-catalysts**: Co-loaded catalysts used to achieve high photocatalytic efficiency by providing trapping sites for the photogenerated holes or electrons to suppress charge recombination.
+
+**Exciton binding energy (EBE)**: the energy difference between a bound electron-hole pair on one molecular unit and a free electron and hole on different units.
+
+**Gibbs free energy change of water redox reaction**: The free energy change for the transformation of one molecule of H₂O into H₂ and 1/2O₂ in standard conditions is ΔG = 237 kJ/mol, which corresponds to ΔE°=1.23 V per transported electron according to the Nernst equation.
+
+**k-point**: sampling points in the first Brillouin zone of the material.
+
+**Knoevenagel polymerization reaction**: the condensation reaction between the electron-accepting building blocks (compounds containing an aldehyde or a ketone) and electron-donating linkers (active hydrogen compounds) in the presence of a basic catalyst to yield polymers linked by unsaturated bonds.
+
+**Overpotential (OP)**: the potential difference above the equilibrium potential required to overcome the activation energy of the cell reaction to produce a specified current.
+
+**Quantum efficiency (Q.E.)**: the ratio of the number of carriers collected by the solar cell to the number of photons of a given energy incident on the solar cell.
+
+**Z-scheme**: a charge transfer mechanism in a heterostructure, where a two-step photoexcitation process harvests sufficient energy to drive the photo-induced watersplitting half reactions. It involves the transfer of an electron across the heterostructure boundary (its visualization resembles the Latin letter “Z”).
+
+Acknowledgement
+The work obtained financial support in China by the National Natural Science Foundation of China (no. 21903046) and the NSF of Jiangsu Province of China (no. BK20190744). CRC 1415 is thanked for continuous support.
+
+Declaration of interests
+No interests are declared.
+
+References
+
+1 Fujishima, A. and Honda, K. (1972) Electrochemical Photolysis of Water at a Semiconductor Electrode. *Nature* 238, 37–38
+
+2 Maeda, K. and Domen, K. (2010) Photocatalytic water splitting: recent progress and future challenges. *J. Phys. Chem. Lett.* 1, 2655–2661
+
+3 Chen, X. *et al.* (2010) Semiconductor-based photocatalytic hydrogen generation. *Chem. Rev.* 110, 6503–6570
+
+4. Suntivich, J. *et al.* (2011) A perovskite oxide optimized for oxygen evolution catalysis from molecular orbital principles. *Science* 334, 1383–1385
+
+5 Asahi, R. *et al.* (2001) Visible-light photocatalysis in Nitrogen-doped titanium oxides. *Science* 293, 269–271
+
+6 Han, N. *et al.* (2018) Recent advances in nanostructured metal nitrides for water splitting. *J. Mater. Chem. A* 6, 19912–19933
+
+7 Ma, G. *et al.* (2016) Visible light-driven z-scheme water splitting using oxysulfide H2 evolution photocatalysts. *J. Phys. Chem. Lett.* 7, 3892–3896
+
+8 Tsuji, I. *et al.* (2005) Visible-light-induced H2 evolution from an aqueous solution containing sulfide and sulfate over a ZnS–CuInS2–AgInS2 solid-solution photocatalyst. *Angew. Chem. Int. Ed.* 44, 3565–3568
+
+9 Kandambeth, S. *et al.* (2019) Covalent organic frameworks: chemistry beyond the structure. *J. Am. Chem. Soc.* 141, 1807–1822
+
+10 Geng, K. *et al.* (2020) Covalent organic frameworks: design, synthesis, and functions. *Chem. Rev.* 120, 8814–8933
+
+11 Wang, M. *et al.* (2021) Two-dimensional conjugated metal–organic frameworks (2D c-MOFs): chemistry and function for MOFtronics. *Chem. Soc. Rev.* 50, 2764–2793
+
+12 Banerjee, T. *et al.* (2021) Polymer photocatalysts for solar-to-chemical energy conversion. *Nat. Rev. Mater.* 6, 168–190
+
+13 Rahman, M. Z. *et al.* (2020) Metal-free photocatalysts for hydrogen evolution. *Chem. Soc. Rev.* 49, 1887–1931
+14 Wang, Y. et al. (2019) Current understanding and challenges of solar-driven hydrogen generation using polymeric photocatalysts. *Nat. Energy* 4, 746–760
+
+15 Wang, T. et al. (2020) Emerging applications of porous organic polymers in visible-light photocatalysis. *J. Mater. Chem. A* 8, 7003–7034
+
+16 Yang, C. et al. (2016) Molecular engineering of conjugated polybenzothiadiazoles for enhanced hydrogen production by photosynthesis. *Angew. Chem. Int. Ed.* 55, 9202–9206
+
+17 Kochergin, Y. S. et al. (2018) Exploring the “Goldilocks Zone” of semiconducting polymer photocatalysts by donor–acceptor interactions. *Angew. Chem. Int. Ed.* 57, 14188–14192
+
+18 Wang, Z. et al. (2018) Dibenzothiophene dioxide based conjugated microporous polymers for visible-light-driven hydrogen production. *ACS Catal.* 8, 8590–8596
+
+19 Bi, S. et al. (2017) Substantial cyano-substituted fully sp2-carbon-linked framework: metal-free approach and visible-light-driven hydrogen evolution. *Adv. Funct. Mater.* 27, 1703146
+
+20 Kuecken, S. et al. (2017) Fast tuning of covalent triazine frameworks for photocatalytic hydrogen evolution. *Chem. Commun.* 53, 5854–5857
+
+21 Wang, X. et al. (2018) Sulfone-containing covalent organic frameworks for photocatalytic hydrogen evolution from water. *Nat. Chem.* 10, 1180–1189
+
+22 Pachfule, P. et al. (2018) Diacetylene functionalized covalent organic framework (COF) for photocatalytic hydrogen generation. *J. Am. Chem. Soc.* 140, 1423–1427
+
+23 Sprick, R. S. et al. (2018) Nitrogen containing linear poly(phenylene) derivatives for photocatalytic hydrogen evolution from water. *Chem. Mater.* 30, 5733–5742
+
+24 Sprick, R. S. et al. (2016) Visible-light-driven hydrogen evolution using planarized conjugated polymer photocatalysts. *Angew. Chem. Int. Ed.* 55, 1792–1796
+
+25 Schwinghammer, K. et al. (2014) Crystalline carbon nitride nanosheets for improved visible-light hydrogen evolution. *J. Am. Chem. Soc.* 136, 1730–1733
+
+26 Yang, S. et al. (2013) Exfoliated Graphitic Carbon Nitride Nanosheets as Efficient Catalysts for Hydrogen Evolution Under Visible Light. *Adv. Mater.* 25, 2452–2456
+
+27 Wang, L. et al. (2017) Conjugated microporous polymer nanosheets for overall water splitting using visible light. *Adv. Mater.* 29, 1702428
+
+28 Guo, J. and Jiang, D. (2020) Covalent organic frameworks for heterogeneous catalysis: principle, current status, and challenges. *ACS Cent. Sci.* 6, 869–879
+
+29 Lin, L. et al. (2016) Tri-s-triazine-based crystalline graphitic carbon nitrides for highly efficient hydrogen evolution photocatalysis. *ACS Catal.* 6, 3921–3931
+
+30 Mishra, A. et al. (2019) Graphitic carbon nitride (g–C3N4)–based metal-free photocatalysts for water splitting: a review. *Carbon* 149, 693–721
+
+31 Li, Y. et al. (2020) 2D g–C3N4 for advancement of photo-generated carrier dynamics: status and challenges. *Mater. Today* 41, 270–303
+
+32 Lin, L. et al. (2019) Crystalline carbon nitride semiconductors for photocatalytic water splitting.
+Angew. Chem. 131, 6225–6236
+
+33 Wen, J. et al. (2017) A review on g-C3N4-based photocatalysts. Appl. Surf. Sci. 391, 72–123
+
+34 Patnaik, S. et al. (2021) Recent advances in anion doped g-C3N4 photocatalysts: a review. Carbon 172, 682–711
+
+35 Chen, Y. and Bai, X. (2020) A review on quantum dots modified g-C3N4-based photocatalysts with improved photocatalytic activity. Catal. 10, 142
+
+36 Zhang, X. et al. (2020) Powerful combination of 2D g-C3N4 and 2D nanomaterials for photocatalysis: recent advances. Chem. Eng. J. 390, 124475
+
+37 Kudo, A. and Miseki, Y. (2009) Heterogeneous photocatalyst materials for water splitting. Chem. Soc. Rev. 38, 253–278
+
+38 Cox, P. A. The electronic structure and chemistry of solids. Oxford University Press: 1987.
+
+39 Qi, S. et al. (2020) Metal-free highly efficient photocatalysts for overall water splitting: C3N5 multilayers. Nanoscale, 12, 306–315
+
+40 Guiglion, P. et al. (2017) Validating a density functional theory approach for predicting the redox potentials associated with charge carriers and excitons in polymeric photocatalysts. J. Phys. Chem. C 121, 1498–1506
+
+41 Guiglion, P. et al. (2016) Polymer photocatalysts for water splitting: insights from computational modeling. Macromol. Chem. Phys. 217, 344–353
+
+42 Melissen, S. et al. (2015) Relationship between carbon nitride structure and exciton binding energies: a DFT perspective. J. Phys. Chem. C 119, 25188–25196
+
+43 Wang, Y. et al. (2018) Mimicking natural photosynthesis: solar to renewable H2 fuel synthesis by z-scheme water splitting systems. Chem. Rev. 118, 5201–5241
+
+44 Ruan, Q. et al. (2017) A nanojunction polymer photoelectrode for efficient charge transport and separation. Angew. Chem. Int. Ed. 56, 8221–8225
+
+45 Zhang, R. et al. (2018) Direct z-scheme water splitting photocatalyst based on two-dimensional van der waals heterostructures. J. Phys. Chem. Lett. 9, 5419–5424
+
+46 Ding, X. et al. (2011) Synthesis of metallophthalocyanine covalent organic frameworks that exhibit high carrier mobility and photoconductivity. Angew. Chem. Int. Ed. 50, 1289–1293
+
+47 Springer, M. A. et al. (2020) Topological two-dimensional polymers. Chem. Soc. Rev. 49, 2007–2019.
+
+48 Wan, S. et al. (2011) Covalent organic frameworks with high charge carrier mobility. Chem. Mater. 23, 4094–4097
+
+49 Zhang, J. et al. (2012) Co-monomer control of carbon nitride semiconductors to optimize hydrogen evolution with visible light. Angew. Chem. Int. Ed. 51, 3183–3187
+
+50 Che, W. et al. (2017) Fast photoelectron transfer in (Cring)–C3N4 plane heterostructural nanosheets for overall water splitting. J. Am. Chem. Soc. 139, 3021–3026
+51 Yu, Y. et al. (2018) Surface engineering for extremely enhanced charge separation and photocatalytic hydrogen evolution on g-C3N4. Adv. Mater. 30, 1705060
+
+52 Wu, C. et al. (2021) Making g-C3N4 ultra-thin nanosheets active for photocatalytic overall water splitting. Appl. Catal. B 282, 119557
+
+53 Xie, J. et al. (2018) Efficient visible light-driven water oxidation and proton reduction by an ordered covalent triazine-based framework. Energy Environ. Sci. 11, 1617–1624
+
+54 Zhang, G. et al. (2016) Conjugated Polymers: Catalysts for Photocatalytic Hydrogen Evolution. Angew. Chem. Int. Ed. 55, 15712–15727
+
+55 Zhao, C. et al. (2020) Recent advances in conjugated polymers for visible-light-driven water splitting. Adv. Mater. 32, 1907296
+
+56 Zheng, Y. et al. (2015) Graphitic carbon nitride polymers toward sustainable photoredox catalysis. Angew. Chem. Int. Ed. 54, 12868–12884
+
+57 Jin, E. et al. (2017) Two-dimensional sp2 carbon-conjugated covalent organic frameworks. Science 357, 673–676
+
+58 Zhuang, X. et al. (2018) A two-dimensional conjugated polymer framework with fully sp2-bonded carbon skeleton. Polym. Chem. 7, 4176–4181
+
+59 Bi, S. et al. (2019) Two-dimensional semiconducting covalent organic frameworks via condensation at arylmethyl carbon atoms. Nat. Commun. 10, 2467
+
+60 Nakatsuka, S. et al. (2017) Divergent Synthesis of Heteroatom-Centered 4,8,12-Triazatriangulenes. Angew. Chem. Int. Ed. 56, 1–5
+
+61 Steiner, C. et al. (2017) Hierarchical on-surface synthesis and electronic structure of carbonyl-functionalized one- and two-dimensional covalent nanoarchitectures. Nat. Commun. 8, 14765
+
+62 Galeotti, G. et al. (2020) Synthesis of mesoscale ordered two-dimensional π-conjugated polymers with semiconducting properties. Nat. Mater. 19, 874–880
+
+63 Jing, Y. and Heine, T. (2020) Making 2D topological polymers a reality. Nat. Mater. 19, 823–824
+
+64 Jing, Y. and Heine, T. (2019) Two-dimensional kagome lattices made of hetero triangulenes are dirac semimetals or single-band semiconductors. J. Am. Chem. Soc. 141, 743–747
+
+65 Jing, Y. et al. (2021) 2D honeycomb-kagome polymer tandem as effective metal-free photocatalysts for water splitting. Adv. Mater. 33, 2008645
+
+66 Batra, K. et al. (2019) Benchmark of simplified time-dependent density functional theory for UV–vis spectral properties of porphyrinoids. Adv. Theory Simul. 3, 1900192
+
+67 Wan, Y. et al. (2020) A simple molecular design strategy for two-dimensional covalent organic framework capable of visible-light-driven water splitting. J. Am. Chem. Soc. 142, 4508–4516
+
+68 Xu, S. et al. (2021) Thiophene-bridged donor-acceptor sp2-carbon-linked 2D conjugated polymers as photocathodes for water reduction. Adv. Mater. 33, 2006274
+
+69 Zhou, Z. et al. (2021) Rational design of two-dimensional binary polymers from
+heterotriangulenes for photocatalytic water splitting. *J. Phys. Chem. Lett.* 12, 8134–8140
+
+70 Dong, F. *et al.* (2013) In situ construction of g-C3N4/g-C3N4 metal-free heterojunction for enhanced visible-light photocatalysis. *ACS Appl. Mater. Interfaces* 5, 11392–11401
+
+71 Yang, Z. and Ullrich, C. A. (2013) Direct calculation of exciton binding energies with time-dependent density-functional theory. *Phys. Rev. B* 87, 195204
+
+72 Golze, D. *et al.* (2019). The GW compendium: A practical guide to theoretical photoemission spectroscopy. *Front. Chem.* 7, 377
+
+73 Gregg, B. A. (2005) The photoconversion mechanism of excitonic solar cells. *MRS Bull.* 30, 20–22
+
+74 Bahers, T. L. *et al.* (2014) Semiconductors used in photovoltaic and photocatalytic devices: assessing fundamental properties from DFT. *J. Phys. Chem. C* 118, 5997–6008
+
+75 Chakrapani, V. *et al.* (2007) Charge transfer equilibria between diamond and an aqueous oxygen electrochemical redox couple. *Science*, 318, 1424–1430.
+
+76 Bardeen, J. and Shockley, W. (1950) Deformation potentials and mobilities in non-polar crystals. *Phys. Rev.* 80, 72–80
+
+77 Wilbraham, L. *et al.* (2018) High-throughput screening approach for the optoelectronic properties of conjugated polymers. *J. Chem. Inf. Model.* 58, 2450–2459
+
+78 Bai, Y. *et al.* (2019) Accelerated discovery of organic polymer photocatalysts for hydrogen evolution from water through the integration of experiment and theory. *J. Am. Chem. Soc.* 141, 9063–9071
+
+79 Wan, Y. *et al.* (2021) Data driven discovery of conjugated polyelectrolytes for optoelectronic and photocatalytic applications. *npj Comput. Mater.* 7, 69
+
+80 Häse, F. *et al.* (2020) Designing and understanding light-harvesting devices with machine learning. *Nat. Commun.* 11, 4587
+
+81 Heath-Apostolopoulos, I. *et al.* (2019) Computational high-throughput screening of polymeric photocatalysts: exploring the effect of composition, sequence isomerism and conformational degrees of freedom. *Faraday Discuss.* 215, 98–110
+
+82 Ye, L. *et al.* (2015) 2D-conjugated benzodithiophene-based polymer acceptor: design, synthesis, nanomorphology, and photovoltaic performance. *Macromolecules* 48, 7156–7163
+
+83 Liu, C. *et al.* (2016) Low bandgap semiconducting polymers for polymeric photovoltaics. *Chem. Soc. Rev.* 45, 4825–4846
+
+84 Ye, L. *et al.* (2014) Molecular design toward highly efficient photovoltaic polymers based on two-dimensional conjugated benzodithiophene. *Acc. Chem. Res.* 47, 1595–1603
+
+85 Zheng, B. *et al.* (2020) Benzodithiophenedione-based polymers: recent advances in organic photovoltaics. *NPG Asia Mater.* 12, 3
+
+86 Bin, H. *et al.* (2016) Non-fullerene polymer solar cells based on alkylthio and fluorne substituted 2D-conjugated polymers reach 9.5% efficiency. *J. Am. Chem. Soc.* 138, 4657–4664
+87 Zhao, W. et al. (2016) Fullerene-free polymer solar cells with over 11% efficiency and excellent thermal stability. Adv. Mater. 28, 4734–4739
+
+88 Liu, D. et al. (2016) High-performance photovoltaic polymers employing symmetry-breaking building blocks. Adv. Mater. 28, 8490–8498
+
+89 Zhu, B. et al. (2019) Review on DFT calculation of s-triazine-based carbon nitride. Carbon Energy. 1, 32–56
+
+90 Ma, H. et al. (2019) Two-dimensional COF with rather low exciton binding energies comparable to 3d inorganic semiconductors in the visible range for water splitting. J. Phys. Chem. C 123, 24626–24633
+
+91 Lin, H. et al. (2020) Two-dimensional covalent-organic frameworks for photocatalysis: the critical roles of building block and linkage. Sol. RRL 5, 2000458
+
+92 Kong, D. et al. (2019) Tunable covalent triazine-based frameworks (CTF-0) for visible-light-driven hydrogen and oxygen generation from water splitting. ACS Catal. 9, 7697–7707
+
+93 Liu, R. et al. (2021) Covalent organic frameworks: an ideal platform for designing ordered materials and advanced applications. Chem. Soc. Rev. 50, 120–242
+
+94 Chen, X. et al. (2019) Covalent organic frameworks: chemical approaches to designer structures and built-in functions. Angew. Chem. Int. Ed. 59, 5050–5091
+
+95 Feng, X. and Schlüter, A. D. (2018) Towards macroscopic crystalline 2D polymers. Angew. Chem. Int. Ed. 57, 13748–13763
+
+96 Côté, A. P. et al. (2005) Porous, crystalline, covalent organic frameworks. Science 310, 1166–11270
+
+97 Evans, A. M. et al. (2022) Two-dimensional polymers and polymerizations. Chem. Rev. 122, 442–564
+
+98 Clair, S. and de Oteyza, D. (2019) Controlling a chemical coupling reaction on a surface: tools and strategies for on-surface synthesis. Chem. Rev. 119, 4717–4776
+
+99 Grill, L. and Hecht, S. (2020) Covalent on-surface polymerization. Nat. Chem. 12, 115-130
+
+100 Held, P. A. et al. (2017) Covalent-bond formation via on-surface chemistry. Chem. Eur. J. 23, 5874–5892
+
+101 Dienstmaier, J. F. et al. (2011) Synthesis of well-ordered COF monolayers: surface growth of nanocrystalline precursors versus direct on-surface polycondensation. ACS Nano 5, 9737–9745
+
+102 Cui, D. et al. (2020) Surface-confined single-layer covalent organic frameworks: design, synthesis and application. Chem. Soc. Rev. 49, 2020–2038.
+
+103 Zhan, G. et al. (2022) Observing polymerization in 2D dynamic covalent polymers. Nature 603, 835–840
+
+104 Whitelam, S. et al. (2014) Common physical framework explains phase behavior and dynamics of atomic, molecular, and polymeric network formers. Phys. Rev. X4, 011044
+
+105 Eichhorn, J. et al. (2014) On-surface Ullmann coupling: the influence of kinetic reaction
+parameters on the morphology and quality of covalent networks. *ACS Nano* 8, 7880–7889
+
+106 Lafferentz, L. *et al.* (2012) Controlling on-surface polymerization by hierarchical and substrate-directed growth. *Nat. Chem.* 4, 215–220
+
+107 Cardenas, L. *et al.* (2013) Synthesis and electronic structure of a two dimensional π-conjugated polythiophene. *Chem. Sci.* 4, 3263–3268
+
+108 Grossmann, L. *et al.* (2021) On-surface photopolymerization of two-dimensional polymers ordered on the mesoscale. *Nat. Chem.* 13, 730–736
+
+109 Kissel, P. *et al.* (2014) A nanoporous two-dimensional polymer by single-crystal-to-single-crystal photopolymerization. *Nat. Chem.* 6, 774–778
+
+110 Kory, M. J. *et al.* (2014) Gram-scale synthesis of two-dimensional polymer crystals and their structure analysis by X-ray diffraction. *Nat. Chem.* 6, 779–784
+
+111 Liu, K. *et al.* (2014) On-water surface synthesis of crystalline, few-layer two-dimensional polymers assisted by surfactant monolayers. *Nat. Chem.* 11, 994–1000

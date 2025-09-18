@@ -1,0 +1,58 @@
+{
+  "dataset_revision": "e46d4868e417703bdcf32aadbe5d0e05a1b7f085",
+  "evaluation_time": 12.557618856430054,
+  "kg_co2_emissions": null,
+  "mteb_version": "1.14.15",
+  "scores": {
+    "test": [
+      {
+        "cosine_accuracy": 0.56494140625,
+        "cosine_accuracy_threshold": 0.5929096937179565,
+        "cosine_ap": 0.5699548392841183,
+        "cosine_f1": 0.6617940199335548,
+        "cosine_f1_threshold": 0.5143002271652222,
+        "cosine_precision": 0.49824912456228115,
+        "cosine_recall": 0.9851632047477745,
+        "dot_accuracy": 0.56494140625,
+        "dot_accuracy_threshold": 0.5929096937179565,
+        "dot_ap": 0.5699540621917908,
+        "dot_f1": 0.6617940199335548,
+        "dot_f1_threshold": 0.5143002271652222,
+        "dot_precision": 0.49824912456228115,
+        "dot_recall": 0.9851632047477745,
+        "euclidean_accuracy": 0.56494140625,
+        "euclidean_accuracy_threshold": 0.902319610118866,
+        "euclidean_ap": 0.5699548392841183,
+        "euclidean_f1": 0.6617940199335548,
+        "euclidean_f1_threshold": 0.9855959415435791,
+        "euclidean_precision": 0.49824912456228115,
+        "euclidean_recall": 0.9851632047477745,
+        "hf_subset": "default",
+        "languages": [
+          "eng-Latn"
+        ],
+        "main_score": 0.6617940199335548,
+        "manhattan_accuracy": 0.56396484375,
+        "manhattan_accuracy_threshold": 23.11736488342285,
+        "manhattan_ap": 0.5664284327453235,
+        "manhattan_f1": 0.6617745163442295,
+        "manhattan_f1_threshold": 25.13160514831543,
+        "manhattan_precision": 0.49924509310518367,
+        "manhattan_recall": 0.9812067260138477,
+        "max_accuracy": 0.56494140625,
+        "max_ap": 0.5699553456948001,
+        "max_f1": 0.6617940199335548,
+        "max_precision": 0.49924509310518367,
+        "max_recall": 0.9851632047477745,
+        "similarity_accuracy": 0.56494140625,
+        "similarity_accuracy_threshold": 0.5929096937179565,
+        "similarity_ap": 0.5699553456948001,
+        "similarity_f1": 0.6617940199335548,
+        "similarity_f1_threshold": 0.5143002271652222,
+        "similarity_precision": 0.49824912456228115,
+        "similarity_recall": 0.9851632047477745
+      }
+    ]
+  },
+  "task_name": "CoconutSMILES2FormulaPC"
+}

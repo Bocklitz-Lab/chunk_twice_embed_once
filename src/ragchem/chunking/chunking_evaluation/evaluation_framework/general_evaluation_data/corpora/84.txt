@@ -1,0 +1,541 @@
+A REVIEW ON APPLICATIONS AND PREPARATION METHODS USED FOR THE DEVELOPMENT OF CURCUMIN NANOPARTICLE
+
+Varun R. Mali
+Department of Chemistry, Kishinchand Chellaram College, Churchgate, Mumbai 400020, Maharashtra, India.
+Email: varunravindramali@gmail.com
+
+ABSTRACT:
+
+The design and development of Curcumin nanoparticles has attracted and established torrential research in nano formulation matrix. By appearance Curcumin is an orange crystalline powder which is derived or obtained from the herbs Curcumin Longa Linn (Zingiberaceae). The Curcumin is natural hydrophobic polyphenol compound which has proven to be a quintessential medicine in ancient China and many parts of Southeast and central Asia. Curcumin as a substance is vitally used in medicine and some food industry as it supplies many biological and pharmacological activities such as antioxidant, anti-inflammatory, anti-microbial, anti-illness and diseases but clinical application of this compound is limited due to its bioavailability, poor water solubility, fast metabolism and susceptibility to degradation in the alkaline medium.
+
+The most important methods to enhance the poor biopharmaceutical properties of Curcumin is to enhance aqueous solubility and bioavailability by using nanotechnology and nanoparticles having a small size in nanometer range. This review provides an overview of application and preparation of Curcumin nanoparticles including the advantages and limitations.
+
+KEYWORDS: - Curcumin, Applications of Curcumin Nanoparticle, Methods of preparation of Curcumin Nanoparticles.
+
+INTRODUCTION
+
+The polyphenol compound Curcumin is extracted from Curcumin Longa Linn (Zingiberaceae) rhizome also known as turmeric or “Haldi” in Indian culinary art [12,66]. Curcumin Longa Linn also has three main curcuminoids namely Bisdemethoxycurcumin, Curcumin and Desmethoxycurcumin, the includes 3-5% of turmeric preparation. Mainly available curcumin contains 75-80% Curcumin, 15-20% Desmethoxycurcumin and 3-5% Bisdemethoxycurcumin. The structure of which are shown below:
+
+![Curcumin and Demethoxycurcumin](https://doi.org/10.26434/chemrxiv-2025-lvhh3 ORCID: https://orcid.org/0009-0008-1072-7074 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0)
+Curcumin is able to establish its permanent appearance from thousands of years in Africa, India and most part of Southwest Asia and East Asia [71]. In those days it was extensively used in Ayurveda and Chinese medicine against several disease, such as Rheumatism, skin related problems body pains, hepatic diseases inflammation and asthma [96]. In recent days it is used in the food industry as a preservative, flavoring and coloring agent [66]. Curcumin is often treated by Nanotechnology as it has poor bioavailability and solubility in water, it is also susceptible to degradation in alkaline medium which may adhere its therapeutic applications [71].
+
+Nanotechnology is used in the development of new drugs and reformation of the extent ones; it also enhances their potency, low risk of toxicity, reduces side effects, concede the use of reactive substances such as curcumin [65]. It also increases the permeability of Curcumin towards the metabolic process [85]. It also develops controlled drug release and drug targeting by producing circulation time by protecting the molecule from incomplete degradation. Curcumin is a drug which is nearly insoluble in aqueous solution and has low bioavailability; so, the nanoparticles are used in such cases as the nanoparticles increase the bioavailability and target the desired tissue or microbes [65]. According to Whitney Noyes Equation, reduction in drug particle to nanoscale results in higher dissolution rate and higher surface area which makes its efficient for drug release and drug loading. The Whitney Noyes equation is given as:
+
+\[
+\frac{dm}{dt} = A \cdot \frac{C}{Kn} \cdot (C - C)
+\]
+
+Nanoparticles range from 20-500 nm in size and are heavily implemented in medical fields and technology [8].
+
+APPLICATIONS OF CURCUMIN NANOPARTICLE
+
+Curcumin is a natural phytochemical which includes its use as antioxidants, anti-inflammatory, antimicrobial, antineoplastic and antidiabetic activity. All the mentioned applications are discussed below:
+
+1. Antioxidant Activity of Curcumin Nanoparticle.
+
+Use: Curcumin neutralizes free radicals and increases the body’s antioxidant enzyme activity [10]. Advantages and application:
+
+Applications:
+- It is used to mitigate the oxidative stress in diseases like Alzheimer’s and Parkinson’s disease [65].
+- It reduces the ROS levels in normal cells and induces oxidative stress in cancer cells [10].
+- It is also used to protect against UV-induced oxidative damage and also serves as anti-aging [13].
+
+Advantages:
+- Protects cells from oxidative stress, which contributes to aging and chronic diseases [43,41].
+- Reduces the risk of neurodegenerative diseases like Alzheimer’s and Parkinson’s disease [84,43,41].
+- Enhances cardiovascular health by preventing lipid peroxidation [10].
+- It is also used in cancer therapy as the antioxidant properties help in reducing oxidative stress-induced tumorigenesis [10].
+
+Mechanism of Antioxidant action
+
+1. Scavenging free radicals: Curcumin nanoparticles effectively neutralize Reactive Oxygen Species (ROS), such as hydroxyl radical’s superoxide anions and peroxides, preventing oxidative damage [83,5].
+2. Metal Chelation: Curcumin nanoparticles bind to metal ions like iron and copper, reducing their availability to participate in Fenton reactions that produces ROS [83].
+3. Enhancing Antioxidant Enzymes: They upregulate enzymes like Superoxide dismutase (SOD), catalyst (CAT) and glutathione peroxide (GPx), which protects against oxidative stress [83].
+
+https://doi.org/10.26434/chemrxiv-2025-1vhrh3 ORCID: https://orcid.org/0009-0008-1072-7074 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+Types of Nanoparticles used
+
+- Polymeric Nanoparticles: for example; PLGA (Poly lactic-co-glycolic acid). These nanoparticles enhance sustained release [1].
+- Lipid Nanoparticles: for example, Nanostructured Lipid Carriers (NLCs) and solid liquid nanoparticles (SLNs) which improves the stability of the Curcumin.
+- Metallic Nanoparticles: for example, gold and silver nanoparticles functionalized with Curcumin exhibits synergistic antioxidant effects [83].
+
+2. Anti-inflammatory Activity of Curcumin nanoparticle
+
+Use: Enhances bioavailability and target delivery of drug to target specific tissue or cell, thus enhancing their anti-inflammatory effects leading to higher therapeutic efficiency.
+
+Application:
+
+- Reduction of inflammation in cardiovascular diseases, neurodegenerative conditions and cancer [7].
+- Treatment of rheumatoid arthritis, inflammatory bowel disease, etc. which falls under chronic inflammatory disease [4].
+
+Advantages:
+
+- Prolonged circulation time and targets specific(inflamed) tissues, which also results in better penetration into tissues [10].
+- Reduced dose requirement due to higher efficiency as the nanoparticles improves Curcumin’s absorption [7].
+
+Mechanism of the Anti-inflammatory action
+
+1. Inhibition of NF-kB: Curcumin suppresses nuclear factor kappa-light-chain-enhances of activated B cells (NF-kB), a vital pathway involved in inflammation [30, 36].
+2. Downregulation of pro-inflammatory cytokines, as it reduces the levels of cytokines like IL-6, IL-1β and TNF-α [25,30].
+3. Suppression if COX-2 and iNOS: Curcumin nanoparticles inhibit cyclooxygenase-2 also known as COX-2 and inducible nitric oxide synthase or iNOS, these are the enzymes that mediate inflammation [30,34].
+4. Antioxidant activity: Curcumin scavenges ROS or the reactive oxygen species, which plays an important role in chronic inflammation [30,32].
+
+Types of Nanoparticles used:
+
+1. Lipid-based Nanoparticles like Liposomes and solid lipid nanoparticles.
+2. Dendrimers, which are highly branched nanoscale structures.
+3. Polymeric Nanoparticles which are made up of biocompatible polymers like PLGA [Poly (lactic-co-glycolic acid)].
+4. Nanomiscelles are Amphiphilic molecules that encapsulate Curcumin.
+5. Metallic Nanoparticles like gold or silver nanoparticles that are conjugated with Curcumin [32].
+
+3. Antimicrobial Activity of Curcumin Nanoparticle
+
+Uses: The curcumin nanoparticles have antimicrobial properties due to which it is used as antibacterial, antifungal, antiviral, food preservation and wound healing [15].
+
+Applications and advantages of Curcumin Nanoparticles:
+
+Applications
+
+- The Curcumin nanoparticles can be used as antibacterial as it is effective against Gram-positive and Gram-negative bacteria, including drug- resistant strains like Staphylococcus aureus and Escherichia coli [39].
+- As the Curcumin nanoparticles demonstrates activity against viruses like Influenza, Hepatitis and even SARS-Cov-2 it is used as an antiviral drug [1,19,86].
+- Due to its activity against Candida albicans, Aspergillus and other pathogenic fungi it is used as an antifungal drug [3,32].
+The Curcumin nanoparticles are used in packaging and preservation of food as it prevents microbial contamination and spoilage [8]. Wound healing as the Curcumin nanoparticles are incorporated in dressing to prevent infection and promote healing [15].
+
+**Advantages**
+
+- The nanoparticles reduce Cytotoxicity, which minimizes the Curcumin’s adverse effects on human cells which also retains its antimicrobial efficiency [26,49].
+- Curcumin nanoparticles provide a controlled release, thus maintaining effective antimicrobial concentration overtime [28,38].
+- Nanoparticles enhances Curcumin’s solubility in water, which improves its bioavailability [31].
+- Curcumin nanoparticles can be functionalized to target specific pathogens or infected tissues [34].
+
+**Mechanism of antimicrobial activity of curcumin nanoparticles**
+
+1. Cell membrane disruption: Curcumin nanoparticles interact with the cell membrane of bacteria or fungi, thus increasing membrane permeability which leads to cell lysis [55].
+2. Reactive Oxygen Species Generation: Curcumin nanoparticles induce oxidative stress in microbial cells damaging their lipids, protein and DNA [55].
+3. DNA damaging: Curcumin nanoparticles can damage the microbial DNA by interacting with it which leads to fragmentation or inhibition of replication [55,56].
+4. Inhibition of Biofilm Formation: Curcumin nanoparticles prevent the formation of biofilms, which are protective layers produced by microorganisms. Thus, making them more susceptible to antimicrobial agents [52,55,90].
+
+**Types of Nanoparticles used:**
+
+1. Polymeric Nanoparticles: In this the curcumin is encapsulated in a biocompatible polymer like PLGA, chitosan or PEG (Polyethylene Glycol). In this the release of Curcumin is slow and controlled which enhances the antimicrobial activity over time. Due to slow and controlled release it has increased stability and reduces cytotoxicity. Effective against drug resistant strains [16,78,87].
+2. Lipid-Based Nanoparticles: There are mainly two types of lipid-based nanoparticles:
+   a) Solid lipid Nanoparticles (SLNs): In this the Curcumin is embedded in a solid liquid matrix [78].
+   b) Nanostructured Lipid Carriers (NLCs): It is composed of a mixture of solid and liquid lipids for better drug loading [78].
+   It improves the interaction with microbial cell membranes due to lipid affinity. It is widely used in tropical formation of wound infections.
+
+3. **Metallic Nanoparticles:** These are mainly of two types:
+   a) Gold Nanoparticles: In this the Curcumin is conjugated to gold nanoparticles which exhibits high antimicrobial potency [90].
+   b) Silver Nanoparticles: In this the Curcumin is conjugated to silver nanoparticles. It is well known for its synergistic antimicrobial effects with curcumin [90].
+   In this Reactive Oxygen Species (ROS) is generated which disrupts microbial cell membrane. It is effective against Gram-positive and Gram-negative bacteria, fungi and viruses [32].
+
+4. **Nano emulsions:** The Curcumin is encapsulated by water-in-oil or oil-in water emulsions stabilized with surfactants. It enhances the solubility and bioavailability which improves antimicrobial activity. It is mainly used in food preservation, skin infection and antimicrobial therapies [79].
+
+5. **Dendrimers:** Curcumin is loaded onto dendritic macromolecules with a branched structure. Targeted and precise delivery to microbial cells is enabled by high surface area and functional group [16,79].
+
+6. **Carbon-Based Nanoparticles:** These are of two types; mainly:
+   a) Graphene Oxide: In this the Curcumin is loaded in graphene oxide sheets [14].
+   b) Carbon Nanotubes: Curcumin is functionalized with carbon nanotubes [14].
+   The Carbon-based nanoparticles damages the microbial membranes and interferes with DNA replication. Due to this, it is an emerging tool in antimicrobial and antiviral therapies [25].
+7. **Self-Assembled Nanoparticles:** By using surfactants or co-polymers, Curcumin forms nanoparticles through self-assembly. In this spontaneous nanoparticle are formed due to hydrophobic interactions. Due to its simple preparation and effective drug delivery, it is used in antimicrobial coating and drug delivery system [67].
+
+8. **Hybrid Nanoparticles:** Curcumin is combined with other nanoparticles such as metallic and polymeric groups. It works on the principle of ROS generation and membrane disruption, thus enhancing antimicrobial activity [69].
+
+   Due to its synergistic effects and versatility, it is used for multi drug resistant infection and biofilm disruption [63,18].
+
+9. **Micelles:** In this the Curcumin is encapsulated in surfactant-based micelles. It enhances the solubility and target delivery of Curcumin delivered to microbial cells [57].
+
+10. **Hydrogel-Based Nanoparticles:** In this the Curcumin is incorporated into hydrophilic polymer matrix. Due to sustained release, it enhances antimicrobial effects over the period. As it is biocompatible it is suitable for wound healing and biomedical implants [20].
+
+Table 1. Here is a table that summarizes the types of nanoparticles used in the Antimicrobial Activity of Curcumin Nanoparticles:
+
+| Types               | Key Features                          | Applications                                      |
+|---------------------|---------------------------------------|--------------------------------------------------|
+| Polymeric NPs       | Controlled release, stability [86].    | Antibacterial, antifungal, disruption of biofilms [86]. |
+| Lipid-based NPs     | Enhanced permeability [96]            | Wound healing, systematic therapy [96].           |
+| Metallic NPs        | ROS generation                        | Disrupts the bacterial, fungal and viral cell membrane [93]. |
+| Nano-emulsions      | High solubility, cost effective [68].  | Food preservation, to treat skin infection [68]. |
+| Dendrimers          | Precision delivery [40].              | Is effective against resistant infections [40].   |
+| Carbon-based NPs    | High loading capacity [14].            | Is used as antibacterial and antiviral [40].     |
+| Self-Assembled NPs  | Simple and versatile [40].             | Drug delivery and antimicrobial coating [40].    |
+| Hybrid NPs          | Synergistic effects [12].              | Biofilm disruption [95].                          |
+| Micelles            | Solubility and biocompatibility       | Topical and systemic infection [96].             |
+| Hydrogel-Based NPs  | Sustained release [40].               | Used in wound healing and implants [95,58].      |
+
+3. **Antineoplastic Activity of the Curcumin Nanoparticles.**
+
+   **Use:** The Curcumin Nanoparticles are used in cancer treatment to improve the solubility and bioavailability of curcumin, which has anti-tumor properties [10,53].
+
+Applications and Advantages of Curcumin Nanoparticles
+
+**Applications**
+
+- Curcumin Nanoparticles suppresses the growth and metastasis, thus is used in treating Colorectal cancer [63].
+- Curcumin nanoparticles are used to treat breast cancer, as the nanoparticles improves penetration into solid tumors and inhibits key oncogenic pathways [51,63].
+• Glioblastoma is treated by using the Curcumin nanoparticles as they cross the blood-brain barrier to target brain tumors [53,63].
+
+**Advantages**
+
+- Nano formations improve Curcumin’s solubility and absorption. Therefore, enabling higher concentrations in blood stream and enhance bioavailability [60].
+- Through endocytosis the Curcumin nanoparticles improve the Curcumin drug uptake by cancer cells [62].
+- Surface modifications such as ligands and antibodies allow nanoparticles to specific targeted tumor cells, which helps in minimizing damage to healthy tissues [63].
+
+**Mechanism of Antineoplastic Activity of Curcumin Nanoparticles**
+
+1. Induction of Apoptosis: By upregulating pro-apoptotic proteins (e.g. Bax, p53) and downregulating anti-apoptotic proteins (e.g. Bcl-2) Curcumin nanoparticles enhance the activity of apoptotic pathways [12,63].
+2. Inhibition of Proliferation: They suppress cell proliferation to inhibit vital signaling pathways such as PI3K / Akt MAPK and Wnt / β-catenin which are crucial for tumor growth [54,63].
+3. Anti-inflammatory effects: Curcumin nanoparticles reduce inflammation – associated tumor progression by inhibiting NF-KB signaling and down grading inflammatory cytokines like II-6, TNF-α and COX-2 [56,63].
+4. Angiogenesis Inhibition: By downregulating VEGE and others angiogenic factors they inhibit the formation of new blood vessels [21,63].
+5. Inhibition of Metastasis: By modulating matrix metalloproteinases (MMPs) and adhesion molecules the Curcumin nanoparticles are able to prevent cancer cell invasion and metastasis [53,63].
+6. Oxidative Stress Regulations: The Curcumin nanoparticle regulates reactive oxygen species (ROS) levels, which also induce oxidative stress in cancer cells while protecting normal cells [10,32,63].
+
+**Types of Nanoparticles**
+
+1. Lipid - Based nanoparticles like liposomes Nanostructured Lipid Carriers (NLCs) and Solid Lipid Nanoparticles, this enhances Curcumin stability and bioavailability [78].
+2. Dendrimers: These are Curcumin branched particles that enhance solubility and targeted delivery [51].
+3. Polymeric Nanoparticles: In this the Curcumin is encapsulated by polymers like PLGA, thus ensuring sustained release and biocompatibility [74].
+4. Micelles and Nano emulsions: These are the surfactant-based systems that improves solubility, therefore enhancing tumor penetration [50,51].
+5. Gold and Magnetic Nanoparticles: These facilitate image guided cancer therapy and enhance photothermal or photodynamic effects [80].
+
+5 Antidiabetic Activity
+
+**Uses:** It is used for the protection against diabetic complications, including Nephropathy, Neuropathy and Retinopathy [78].
+
+**Application and Advantages**
+
+**Applications**
+
+- The Curcumin Nanoparticles have been reported to improve glycemic control [78].
+- Protects against Nephropathy, Neuropathy and Retinopathy [19].
+- Curcumin Nanoparticles have been reported to reduce HbA1c levels [78].
+
+**Advantages**
+
+- It only targets the tumor cells making it highly efficient [22].
+- It has fewer side effects [19].
+
+**Mechanism of Antidiabetic Activity**
+
+https://doi.org/10.26434/chemrxiv-2025-1rrh3 ORCID: https://orcid.org/0009-0008-1072-7074 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+1. Improving Insulin Sensitivity: Curcumin nanoparticles enhance insulin receptor activity and glucose uptake by regulating insulin signaling pathways like PI3K/AK2 and AMPK [38]. They also improve GLUT4 translocation in skeletal muscles, increasing glucose utilization [6,38].
+
+2. Reducing Oxidative Stress: The Curcumin nanoparticles reduce ROS (Reactive Oxygen Species) and enhances the activity of antioxidant enzymes like Superoxide dismutase (SOD) and catalyst [38].
+
+3. Anti-Inflammatory effects: By Inhibiting the NF-κB pathway and down regulating pro-inflammatory cytokines (e.g. TNF-α, IL-1β, IL-6) the Curcumin Nanoparticles reduces inflammation that contribute to insulin resistances [38].
+
+4. Protecting β-cells: Curcumin nanoparticles preservers insulin secretion by preventing oxidative and inflammatory damages to pancreatic β-cells. They also reduce apoptosis and promotes β-cell proliferation [38].
+
+5. Regulating Lipid Metabolism: Curcumin nanoparticles improve lipid profiles associated with diabetes by reducing triglycerides, LDL cholesterol and free fatty acids while increasing HDL cholesterol [22,38].
+
+6. Inhibiting Advanced Glycation End Products (AGEs): Curcumin nanoparticles inhibit the formation of AGEs, which contributes to Neuropathy, Nephropathy and Retinopathy which are diabetic complications [38].
+
+7. Improving Gut Microbiota: Curcumin nanoparticles positively regulate the gut microbiota which promotes bacteria which is beneficial to enhance glucose metabolism and reduce inflammation [38,41,92].
+
+8. Activating AMPK Pathway: The Curcumin nanoparticle activates AMPK pathway i.e. Activated Protein Kinase pathway, which improves glucose uptake, fatty acid oxidation and overall energy metabolism [38].
+
+### Types of Nanoparticles
+
+1. Liquid-Based Nanoparticles: Nanostructured lipid carriers (NLCs) and Solid Lipid Nanoparticles are used to enhance stability and bioavailability [96].
+
+2. Micelles and Nano emulsions: These improve solubility and target tissues with precision [32].
+
+3. Inorganic Nanoparticles: Inorganic Nanoparticles like gold and silica nanoparticles facilitate image-guided therapy and improved cellular targeting [32,26].
+
+4. Dendrimers: These offer controlled release and efficient delivery [32].
+
+5. Polymeric Nanoparticles: Curcumin is encapsulated by polymers like PLGA and Chitosan thus insuring sustained release and biocompatibility [35].
+
+The other advantages of Curcumin is minimum side effects and do not causes any toxicity which makes it safe for higher doses [40,47].
+
+### Methods of Preparation of Curcumin Nanoparticles
+
+By preparing Curcumin Nanoparticles, we enhance the solubility, stability and bioavailability of the herbal drug Curcumin making it more effective for numerous biomedical and pharmaceutical applications. Several methods can be employed to synthesize Curcumin nanoparticles each with its own advantages and disadvantages. Here are some commonly used techniques or methods to prepare Curcumin nanoparticles:
+
+1. Coacervation technique.
+2. Nanoprecipitation method.
+3. Spray drying method.
+4. Thin film hydration method.
+5. Single emulsion solvent evaporation method.
+6. Microemulsion method.
+7. Wet milling method.
+8. Desolvation method.
+9. Freeze Dried Antisolvent Crystallization and High-pressure homogenizer method.
+10. Emulsion Polymerization method.
+11. Co precipitation method.
+
+### 1 Coacervation Technique
+
+In this technique of preparing Curcumin nanoparticle, a polymer is dissolved in an organic solvent like acetonitrile or ethyl acetate and the suspension of Curcumin is carried out directly in polymeric solution after which it is allowed to homogenise properly. Through centrifugation Curcumin nanoparticles are collected. This procedure can be briefly explained as firstly starting material in this case Curcuminoids are extracted from turmeric and are used as active compounds. These Curcuminoid compounds are unstable under heat, light and oxidative conditions and they have poor water solubility Chitosan which is a natural polysaccharide with good biocompatibility and film firming properties with Gelatine B which is a protein that exhibits excellent binding properties are used together to encapsulate the Curcuminoids. Coacervation process is carried out in which the Chitosan and Gelatine B interact, forming microdroplets around the Curcuminoids forming a protective matrix. Crosslinking agents such as Glutaraldehyde for Gelatine B or TPP for Chitosan are added to stabilize the nanoparticles. After which allow the reaction to proceed for a specific duration of time under continuous stirring. Separate and collect the nanoparticle by centrifugation at high speed 10600 rpm. There after give the nanoparticle washing of distilled water or ethanol so that the unreacted material is removed. Lastly the separated Curcumin nanoparticles are freeze dried to remove water by sublimation after which the Curcumin nanoparticles are obtained.
+
+https://doi.org/10.26434/chemrxiv-2025-lvhh3 ORCID: https://orcid.org/0009-0008-1072-7074 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+It is an inexpensive method and has high encapsulation efficiency. The drawback of this method is that it is sensitive to pH and ionic strength, and it requires large amount of solvent [100]. Schematic diagram for preparation of curcumin nanoparticle by Coacervation Technique is shown in figure 1.
+
+Figure 1: Coacervation Technique
+
+2. Nanoprecipitation Method
+
+The Nanoprecipitation method is also known as solvent displacement method. In this method, the suspension of desired polymer is carried out in a suitable solvent to form polymeric solution after which the hydrophobic Curcumin is added into it. This solvent is then allowed to evaporate by hot air flow. This step can be better explained, as the addition of an organic phase containing hydrophobic Curcumin compound and polymers is added to an aqueous phase under magnetic stirring, after which the solvent diffuses into the aqueous phase. This leads to the controlled polymer precipitation which results the formation of polymeric shell encapsulating an oil core. The remaining organic solvent is then removed by evaporating the organic solvent which in turn stabilizes the curcumin nanoparticles which are shown to have a defined size of 160 nm.
+
+This process uses straightforward processes, making it favourable for laboratory scale and industrial application. The technique is compatible with various polymers enhancing the bioavailability and precipitation process ensures uniform polymeric shell, thus protecting the bioactive compound from environmental degradation. However, large scale production can be challenging as complete removal of organic solvent is critical and hence it is difficult to avoid toxicity [99]. Schematic diagram for preparation of curcumin nanoparticle by Nanoprecipitation Method is shown in figure 2.
+3. Spray drying Method
+
+Curcumin nanoparticles can be formulated by spray drying method. In this method turmeric powder, which is the starting material and contains Curcumin as an active component is subjected to an extraction process to isolate curcumin. The turmeric powder is processed to extract the oily curcumin rich turmeric extract. After which, with the help of solvent extraction curcumin is dissolved in a suitable solvent. Then the turmeric extract is emulsified, with most probably water phase, using surfactants or stabilizers to form an emulsion, which ensures better dispersion of the oil in an aqueous environment. Thereafter, the emulsion is processed through spray drying, where it is atomized into fine droplets and is dried using hot air oven. With the help of this step, we are able to transfer the liquid emulsion into a powder form. The product is microencapsulated powder which enhances the solubility of curcumin in water and ensures better colorimetric stability making the product suitable for applications like food preservation or pharmaceutical formulations. Besides all these advantages the method is not cost effective [80]. Schematic diagram for preparation of curcumin nanoparticle by Spray drying Method is shown in figure 3.
+
+![Figure 3: Spray Drying Method](https://doi.org/10.26434/chemrxiv-2025-lvhh3)
+
+4. Thin Film Hydration Method
+
+Thin Film Hydration Method was used to prepare the drug loaded Curcumin nanoparticles. In this method lipids such as Lipid Phosphatidylcholine and cholesterol, Curcumin which is the active ingredient and organic solvents such as Methanol and Chloroform are used. The lipid component and Curcumin are dissolved in the mixture of Methanol and Chloroform, by this step homogeneity and even distribution of the Curcumin within the lipid matrix is ensured. The use of organic solvents ensures better solubility of lipids and Curcumin leading to better encapsulation efficiency and chloroform used is an effective solvent for thin-film formation, but it does require careful handling to avoid residual solvents to end up in the final product.
+
+Then the Rotatory evaporator apparatus is employed to carry out the evaporation of the solvent mixture under reduced pressure applied at 45°C for the duration of 15 minutes. This evaporates the organic solvent mixture which leaves behind a thin lipid film on the flask surface. Rotary evaporation is quite efficient for removing organic solvents with the help of vacuum pump forming uniform thin film. It also ensures minimal degradation of heat-sensitive Curcumin. However, it does require precise control to avoid overheating that could degrade Curcumin. Lastly the previously obtained thin film of Curcumin loaded lipid nanoparticle is hydrated for an hour using pH 7.4 Phosphate buffer solution to form the nanoparticles. The phosphate buffer provides a biocompatible medium and hydration allows the lipid layers to reorganize into nanoparticles. However, prolonged hydration may also lead to aggregation of nanoparticles. The hydrated lipid film is subjected to sonication and is filtered by 0.45μm membrane filter. Then the well appropriated drug loaded Lipid nanoparticles are formed and stored at 4°C. The sonication reduces particle size and improves uniformity, it also increases the encapsulation efficiency of Curcumin within the lipid matrix. However, prolonged sonication can cause heat generation which can potentially degrade the Curcumin. It also requires optimization to archive the desired size of nanoparticles without aggregation [77]. Schematic diagram for preparation of curcumin nanoparticle by Thin Film Hydration Method is shown in figure 4.
+
+![Figure 4: Thin Film Hydration Method](https://doi.org/10.26434/chemrxiv-2025-lvhh3)
+5. Single Emulsion Solvent evaporation Method.
+
+Curcumin loaded nanoparticles were prepared by using Single emulsion Solvent evaporation technique. In this method PLGA [Poly (lactic-co-glycolic acid)], Curcumin which is active drug, Dichloromethane (DMC) and Polyvinyl alcohol (PVA) are employed to create Curcumin nanoparticles with potential application in drug delivery systems. Initially, 100-200 mg of PLGA polymer was dissolved in 5ml of Dichloromethane (DCM). Following this 10 or 20 mg of Curcumin powder was added to the polymer solution. This combination was then subjected to intermittent vortexing for over 30 minutes that ensures thorough mixing. Vortexing ensures that the hydrophobic Curcumin is dispersed with the organic phase, this is vital for encapsulation efficiency. Viscosity and concentration of the drug component does affect the duration. The prepared mixture was subsequently added to 10ml of aqueous PVA solution in a glass tube. Further this blend was mixed vortex for 10 seconds at high speed. In order to achieve emulsification, the resulting mixture was treated with a probe sonicator at 40% amplitude for 7 minutes while being cooled in an ice bath. By sonication we are able to reduce the droplet size, that directly influences the final particle size of the nanoparticle. Ensuring the sonication parameters such as intensity and duration are as per the parameters is very important to prevent over heating which might degrade Curcumin. After emulsification the solution was transferred into 30ml of a 0.5% aqueous PVA solution which is then stirred magnetically. To remove DCM the emulsion was subjected to high-speed magnetic stirring at 800 rpm for 3 hours leaving behind nanoparticles stabilized by PVA. A closed system with controlled evaporation may improve reproducibility. Further the nanoparticles were isolated by centrifuging at 20,000 rpm for 15 minutes. High speed centrifugation effectively separates the nanoparticles from the aqueous medium. Proper care must be taken to prevent aggregation due to high centrifugal force. However, if aggregation occurs adjust the centrifugation speed or add surfactants. The nanoparticles were washed three times using distilled water to eliminate residual components which might otherwise affect the biocompatibility. Finally, the nanoparticles pellets were resuspended in 5 ml. of distilled water.
+
+The technique is straightforward and does not require any specialized equipment other than sonicators and centrifuges. Using sonication and vortexing also ensures good dispersion and encapsulation of Curcumin. However traces of DCM may remain, which could pose toxicity issue to solvents. Excess of PVA may interfere with performance of nanoparticles, hence, should be minimized [74]. Schematic diagram for preparation of curcumin nanoparticle by Single Emulsion Solvent Evaporation is shown in figure 5.
+6. Micro Emulsion Method
+
+Micro Emulsion Sonication Method is employed to synthesise Curcumin nanoparticles. Micro Emulsion Sonication Method differs from Micro Emulsion Method as ultrasonic waves are used in the Micro Emulsion Sonication method which provides mechanical energy to break up or disperse the particles which in turn improves the uniformity and reduces the particle size in a micro emulsion. In this method Stearic acid (SA) and Capric Triglycerides (CT) are used as the lipid phase. Non-ionic surfactants like Tween 80 and Pluronic F127 are used to stabilize the emulsion. The method starts by heating Stearic acid (SA) and Capric Triglycerides (CT) at 75°C to ensure that the lipid phase melts completely. This temperature makes sure that the lipid remains in a liquid state, which facilitates the subsequent emulsification process. After which distilled water and Non-ionic surfactants like Tween 80 and Pluronic F127 are added in the molten lipid mixture. These surfactants help in stabilizing the emulsion and reducing surface tension, ensuring uniform dispersion of lipids in the aqueous phase. A separate aqueous phase is prepared by heating 1 ml of distilled water and non-ionic surfactants to 75°C. Premature solidification or phase separation during mixing can be prevented by maintaining both the lipid and aqueous phase at the same temperature. Under continuous stirring the lipid phase containing Curcumin is mixed with aqueous phase. This creates a fine emulsion where the Curcumin is encapsulated within the lipid particles, after which the formed emulsion is quickly added to cold water maintained at 2-4°C. This rapid cooling induces solidification of lipid particles, which leads to the formation of nanostructured lipid carriers. Thereafter the solidified emulsion is subjected to High-speed Homogenization at 8000 rpm for 5 minutes. This ensures that the nanoparticles are uniformly sized and well distributed. The final product of this method is a well distributed suspension of Curcumin-loaded nanostructured lipid carriers. Efficient encapsulation of Curcumin with the lipid matrix is ensured by the use of surfactants and controlled emulsification. However, sonication and High-Speed Homogenization requires significant energy inputs, which does not make it suitable for industrial application and mass production, due to its increased production cost [78]. Schematic diagram for preparation of curcumin nanoparticle by Micro Emulsion Method is shown in figure 6.
+The Wet Milling Method is widely employed approach for producing Curcumin nanoparticles. This approach is designed to enhance the solubility, stability and bioavailability of Curcumin. In this technique the primary instrument used is Wet Milling equipment. In this technique the Curcumin is dispersed with two stabilizers namely Pluronic F127 and Sodium dodecyl sulfate (SDS). This suspension is subjected to ultrasonication agitation to ensure the thorough mixing and particle size reduction. Wet Milling equipment uses mechanical force to reduce the particle size of Curcumin (6.71±0.9 nm) bringing them to nanometre range.
+
+Following ultrasonication the solution is then centrifuged at 9000 rpm for 20-30 minutes. After which the separated Curcumin nanoparticles are collected. These particles can be further freeze dried to convert the liquid nanosuspension into dry powder, ensuring improved stability and storage property. The Wet Milling process is scalable and suitable for industrial applications. The combination of stabilizers and freeze drying ensures long term stability of the Curcumin nanoparticles. However, the stabilizers need to be carefully tailored to avoid toxicity and interference with drug’s therapeutic activity [98]. Schematic diagram for preparation of curcumin nanoparticle by Wet Milling Method is shown in figure 7.
+Desolvation Method
+
+Desolvation method is used for the preparation of Curcumin nanoparticle. In this Chitosan and non-ionized surfactant 0.1% Tween 20 is dissolved in deionized water to create the base solution which is placed on a magnetic stirrer for uniform mixing. After which aqueous ethanol is added dropwise to the Chitosan solution under mixing at 70°C. Nanoparticles are formed. The formed nanoparticles and suspension are centrifuged at 10000 rpm for 2 minutes. The collected centrifuge is again centrifuged at 15000 rpm for 15 minutes to remove excess of free Curcumin. The Curcumin nanoparticle precipitate is washed with 1 ml of desolving agent to remove free Curcumin and ethanol residual. The collected nanoparticles are resuspended in deionized water and freeze dried to obtain the Curcumin nanoparticle. The method involves straightforward steps like stirring, centrifugation and freeze drying making it reproducible. It is well suited for producing nanoparticles with controlled size. Washing and freeze drying ensures that the final nanoparticles are impurity free. However, the method could include a step to calculate the yield of nanoparticles which will help in ensuring minimal loss during centrifugation [79]. Schematic diagram for preparation of curcumin nanoparticle by Desolvation Method is shown in figure 8.
+9. Freeze-Dried Anti-solvent Crystallization and High-Pressure Homogenizer Method.
+
+Among the various preparation methods, the combination of Freeze-dried Anti-solvent Crystallization (CRS-FD) followed by High Pressure Homogenization Method presents a novel and efficient technique for producing Curcumin nanoparticles. The method initiates with the formation of Curcumin nanoparticles through Anti-solvent Crystallization in which 1 gram of Curcumin is dissolved in 20 ml of Acetone, which serves as solvent. This solution is added dropwise to a larger volume (200 ml) of an aqueous anti-solvent that contains different concentrations of stabilizers such as Polyvinyl pyrrolidone (PVP) and Hydroxypropyl Methylcellulose (HPMC). This is an important step as the choice and the concentration of the stabilizer can significantly influence the size and stability of the nanoparticles formed. Thereafter, this resulted Curcumin-stabilizer suspension is subjected to stirring at 600 rpm at 25°C before it is rapidly and instantly freeze dried at -70°C for 48 hours. This step is crucial as it is a step vital for preserving the newly formed nanoparticles. The Freeze-drying process makes sure that the moisture content is reduced which enhances the stability and the shelf life of nanoparticles. Following the Freeze-drying process, the prepared nanoparticle suspension is subjected to High-Pressure Homogenization. This method consists of multiple stages of pressure adjustments. The initial pressure is set at 500 bar for the first five passes after which the suspension further processed at a final pressure of 1000 bar for an additional ten passes. The High-Pressure Homogenization facilitates the reduction of the size of Curcumin nanoparticles and enhances the overall stability of the nanoparticle.
+
+The integration of Freeze Drying with High-pressure Homogenization significantly improves the solubility and the bioavailability of Curcumin, making it more effective for therapeutic applications. The stabilization provided by PVP and HPMC helps to extend the release profile of Curcumin with allows for prolonged therapeutic effect. However, the need for specialized equipment for High-Pressure Homogenization and Freeze-Drying may limit accessibility for some research institutes [81]. Schematic diagram for preparation of curcumin nanoparticle by Freeze-Dried Anti-solvent Crystallization and High-Pressure Homogenizer Method is shown in figure 9.
+
+![Figure 9: Freeze Dried Antisolvent Crystallization and High Pressure Homogenizer Method]
+
+10. Emulsion Polymerization Method
+
+The Emulsion Polymerization Method was employed to synthesize Curcumin nanoparticles. This process was designed to achieve precise particle size and stability of the Curcumin nanoparticles. The method utilizes a surfactant concentration above its critical micelle formation. The technique initiates by dissolving the non-ionic surfactants such as Tween 80 in 50 ml of ultrapure water using sonication at a frequency of 40kHz and then is stored overnight at a control temperature to allow the formation of micelles. Parallelly, Curcumin is dissolved in 5ml of organic solvent such as ethanol or acetone under sonication to ensure proper dispersion. This prepared organic phase was subsequently added to the aqueous phase containing micelles under continuous magnetic stirring at 500 or 1000 rpm for an hour at room temperature this step enables the spontaneous formation of nanoparticles, marked by the solution turning slightly turbid.
+Thereafter the mixture was subjected to continuous overnight stirring using a magnetic stirrer which ensures the removal of the organic solvent. Further it was subjected to centrifugation at 3000 rpm for 10 minutes at a temperature of 4º C to separate any free unencapsulated drug. Key parameters like surfactant concentration, stirring speed and temperature plays an important role in the successful formation and stability of nanoparticle. The method is easily scalable, making it suitable for industrial application.
+
+Emulsion Polymerization can often be performed under mild conditions, which helps in preserving the functional integrity of sensitive compounds like Curcumin. However, optimizing the surfactant type, concentration and polymer selection can be complex and time consuming. Not all polymers are suitable for Emulsion Polymerization which may restrict the choice of encapsulation materials [97]. Schematic diagram for preparation of curcumin nanoparticle by Emulsion Polymerization Method is shown in figure 10.
+
+![Figure 10: Emulsion Polymerization Method](https://doi.org/10.26434/chemrxiv-2025-lvhk3)
+
+### 11. Co-precipitation Method
+
+The Co-precipitation Method is a simple and effective approach to incorporate hydrophobic molecules like Curcumin into nanoparticle system, which enhances its bioavailability and functionality. This technique is employed for the synthesis of Amorphous Calcium Phosphate (ACP) loaded Curcumin Nanoparticles. In this method initially Calcium Nitrate is dissolved in deionised water to achieve a 1mM concentration which forms the base solution. Subsequently and incremental dropwise addition of Ammonium Hydrogen Phosphate in the solution is done which leads to the formation of a stable white suspension that indicates successful precursor preparation.
+
+To optimize the synthesis, process the molar ratio of Calcium to Phosphate is maintained precisely at 1.5 with pH levels stabilized at 8 by the addition of 1M Sodium Hydroxide Solution at 30º C, after which the formed nanoparticles are washed with the help of deionized water to remove any unreacted ions or impurities. After which it is centrifuged and freeze dried.
+
+In the subsequent stage, 5mg/ml of Curcumin is incorporated into the Calcium Nitrate Solution after which this solution is subjected to continuous stirring for 1 hour, allowing Curcumin to interact with the prepared ACP particle. During this step, Sodium Hydrogen Phosphate is gradually introduced into the mixture to facilitate effective loading of Curcumin into the nanoparticle. The stirring is continued for an additional 15 minutes at 30º C which ensures uniform distribution and integration of the Curcumin nanoparticles. The resulted suspension is then subjected to centrifugation that isolates the ACP – Curcumin nanoparticles, which can then be utilized for various biomedical approaches. The Co-precipitation approach is simple, cost effective and has a precise control over nanoparticle. However, the nanoparticle which are synthesized with the help of Co-precipitation method contains a large amount of adsorbed water and it is only applicable to charged species which limits its therapeutic application [75]. Schematic diagram for preparation of curcumin nanoparticle by Co-Precipitation Method is shown in figure 11.
+Comparison of the discussed methods for preparation of Curcumin Nanoparticles
+
+Among the mentioned and discussed methods for the preparation of Curcumin nanoparticles, the Nanoprecipitation, Co-precipitation and Wet Milling Method are considered as highly effective for Curcumin nanoparticles due to their ability to enhance solubility and bioavailability [94]. Techniques like Freeze-Drying, Spray Drying and the Thin-Film Hydration offers stability, but may require careful optimization, hence are considered as mid-tier techniques [95]. Coacervation, Desolvation and Emulsion Polymerization are less commonly used for Curcumin specifically due to limitation in yield, scalability or compatibility and are considered low tier methods [95].
+
+Table 2. Here is a table that summarizes the methods used to prepare Curcumin nanoparticles.
+
+| Methods                        | Key Features       | Advantages                        | Disadvantages                                          |
+|--------------------------------|--------------------|-----------------------------------|--------------------------------------------------------|
+| Coacervation Method            | Phase Separation.  | High encapsulation efficiency.    | Sensitive to condition.                                 |
+| Nanoprecipitation Method       | Solvent diffusion. | Simple and reproducible.          | Difficult to avoid toxicity as complete removal of organic solvent is critical. |
+| Spray Drying Method            | Atomization and drying. | Enhanced Solubility and colorimetric stability. | Not cost effective.                                    |
+| Thin Film Hydration Method     | Lipid film hydration. | Biocompatible and versatile.      | Time consuming.                                        |
+| Single Emulsion Sonication Method | Emulsion formation and solvent removal. | Straight forward and is best suited for Hydrophobic drugs like Curcumin. Besides Sonicator and Centrifuge no specialized instruments are needed. | Excess of PVA interacts with the performance of nanoparticles. DCM may remain which could cause toxicity. |
+|-----------------------------------|----------------------------------------|----------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| Microemulsion Method              | Sonication of Microemulsions.          | Uniform and stable particles                                                                                      | Scalability challenge and is not cost effective.                                                                  |
+| Wet Milling Method                | Mechanical grinding.                   | High drug loading                                                                                                 | Energy intensive.                                                                                                  |
+| Desolvation                       | Precipitation with desolating agents.  | Mild conditions are needed, and the procedure is simple, and the method is straight forward.                      | Scaling difficulties.                                                                                            |
+| Freeze-Dried Antisolvent & High-Pressure Homogenizer Method | Crystallization and Homogenization | Stable Nanocrystals.                                                                                             | Expensive and time intensive.                                                                                     |
+| Emulsion Polymerization Method    | Monomer Polymerization                 | Controlled Particle size                                                                                            | Residual Monomers needs to be removed.                                                                              |
+| Co-Precipitation Method           | Simultaneous Precipitation             | Cost effective                                                                                                    | Poor size control                                                                                                |
+
+**Conclusion**
+
+Nanotechnology has emerged as a promising approach in drug delivery systems due to its enhanced stability, functionality and ability to improve the pharmacodynamic and pharmacokinetic properties of the drug [77]. Curcumin, which is a Hydrophobic Polyphenolic compound, is widely known for its medical properties, which includes anti-inflammatory, anticancer, antiseptic, antidiabetic and antimicrobial activity [23]. However, low solubility in water and poor bioavailability limits its clinical application in its pure untreated form [45]. To overcome these challenges Nanotechnology has been utilized to modify the physiochemical properties of Curcumin, thus enhancing its solubility, stability, bioavailability and resistance against physical and chemical degradation [45]. Nanoparticles like Polymeric nanoparticles, Polymeric Micelles, Liposomes and Phospholipid complexes plays a crucial role in achieving these improvements [47].
+
+This review has explored various advantages and application of Curcumin nanoparticles. This review also focuses on the method of preparation of Curcumin nanoparticles giving a detailed explanation of each method and discussing its merits and demerits.
+
+**References**
+
+1. Nair K. L., Thulasidasan A. K., Deepa G., Anto R. J., Kumar G. S. (2012). Purely Aqueous PLGA Nanoparticulate Formulations of Curcumin Exhibit Enhanced Anticancer Activity with Dependence on the Combination of the Carrier. Int. J. Pharm. 425 (1-2), 44–52. 10.1016/j.ijpharm.2012.01.003 [DOI] [PubMed] [Google Scholar]
+2. Naseri S., Darroudi M., Aryan E., Gholoobi A., Rahimi H. R., Ketabi K., et al. (2017). The Antiviral Effects of Curcumin Nanomicelles on the Attachment and Entry of Hepatitis C Virus 11 (2), 29–35. [Google Scholar]
+3. Neelofar K., Shreaz S., Rimple B., Muralidhar S., Nikhat M., Khan L. A. (2011). Curcumin as a Promising Anticandidal of Clinical Interest. Can. J. Microbiol. 57 (3), 204–210. 10.1139/W10-117 [DOI] [PubMed] [Google Scholar]
+4. Ng Q., Soh A., Loke W., Venkatanarayanan N., Lim D., Yeo W.-S. (2018). A Meta-Analysis of the Clinical Use of Curcumin for Irritable Bowel Syndrome (IBS). Jcm 7 (10), 298. 10.3390/jcm7100298 [DOI] [PMC free article] [PubMed] [Google Scholar]
+5. Nisar T., Iqbal M., Raza A., Saifdar M., Ifikhar F., Waheed M. (2015). Estimation of Total Phenolics and Free Radical Scavenging of Turmeric (Curcuma longa). Environ. Sci. 15 (7), 1272–1277. [Google Scholar]
+
+6. Nishiyama T., Mae T., Kishida H., Tsukagawa M., Mimaki Y., Kuroda M., et al. (2005). Curcuminoids and Sesquiterpenoids in Turmeric (Curcuma Longa L.) Suppress an Increase in Blood Glucose Level in Type 2 Diabetic KK-Ay Mice. J. Agric. Food Chem. 53 (4), 959–963. 10.1021/jf0483873 [DOI] [PubMed] [Google Scholar]
+
+7. Nita C.-W. (2003). Safety and Anti-inflammatory Activity of Curcumin: a Component of Tumeric (Curcuma Longa). J. Altern. Complement. Med. 9 (1), 161–168. [DOI] [PubMed] [Google Scholar]
+
+8. Okanlawon E. O., Okanlawon E. O., Bello K. O., Akinola O. S., Oluwatosin O. O., Irekhore O. T., et al. (2020). Carcass Yield and Intestinal Morphology of Male Rabbits Fed Diets Supplemented with Turmeric (Curcuma Longa) Powder. Ghana J. Agric. Sci. 55 (2), 97–106. 10.4314/jgs.v55i2.8 [DOI] [Google Scholar]
+
+9. Ozawa H., Imaizumi A., Sumi Y., Hashimoto T., Kanai M., Makino Y., et al. (2017). Curcumin β-D-Glucuronide Plays an Important Role to Keep High Levels of Free-form Curcumin in the Blood. Biol. Pharm. Bull. 40 (9), 1515–1524. 10.1248/bpb.b17-00339 [DOI] [PubMed] [Google Scholar]
+
+10. Ozawa-Umeta H., Kishimoto A., Imaizumi A., Hashimoto T., Asakura T., Kakeya H., et al. (2020). Curcumin β-d-glucuronide Exhibits Anti-tumor Effects on Oxaliplatin-Resistant colon Cancer with Less Toxicity In Vivo. Cancer Sci. 111 (5), 1785–1793. 10.1111/cas.14383 [DOI] [PMC free article] [PubMed] [Google Scholar]
+
+11. Paranjpe P., Pranjpe S. (2001). Herbs for beauty, 39. Delhi: Chaukhamba Sanskrit Pratisthan. [Google Scholar]
+
+12. Parasarmona M. A., Gupta S. V. (2012). Synergistic Effect of Garcinol and Curcumin on Antiproliferative and Apoptotic Activity in Pancreatic Cancer Cells. J. Oncol. 10.1155/2012/709739 [DOI] [PMC free article] [PubMed] [Google Scholar]
+
+13. Park A. M., Omura S., Fujita M., Sato F., Tsunoda I. (2017). Alkaloids from Helicobacter pylori and Gut Microbiota in Multiple Sclerosis versus Alzheimer's Disease: 10 Pitfalls of Microbiom Studies. Clin. Exp. Neuroimmunol 8 (3), 215–232. 10.1111/cen.12401 [DOI] [PMC free article] [PubMed] [Google Scholar]
+
+14. Park E. J., Jeon C. H., Ko G., Kim J., Sohn D. H. (2000). Protective Effect of Curcumin in Rat Liver Injury Induced by Carbon Tetrachloride. J. Pharm. Pharmacol. 52 (4), 437–440. 10.1211/002357001774048 [DOI] [PubMed] [Google Scholar]
+
+15. Parveen A., Kulkarni N., Yalagatti M., Abbaraju V., Deshpande R. (2018). In Vivo efficacy of Biocompatible Silver Nanoparticles for Empirical Wound Healing. J. Tissue Viability 27 (4), 257–261. 10.1016/j.jtv.2018.08.007 [DOI] [PubMed] [Google Scholar]
+
+16. Pawitan J. A. (2020). Curcumin as Adjuvant Therapy in COVID-19: Friend or Foe? J. Int. Dental Med. Res. 13 (2), 824–829. [Google Scholar]
+
+17. Perkins S., Verschoyle R. D., Hill K., Parveen M. D., Sharma R. A., et al. (2002). Chemopreventive Efficacy and Pharmacokinetics of Curcumin in the Min/+ Mouse, a Model of Familial Adenomatous Polyposis. Cancer Epidemiol. Biomarkers Prev. 11 (6), 535–540. [PubMed] [Google Scholar]
+
+18. Phuong Nguyen M. (2020). Synergistic Effect of Turmeric (Curcuma Longa), Galanga (Alpinia Galanga) Powder and Lemongrass (Cymbopogon Citratus)) Essential Oil as Natural Preservative in Chilled Storage of White Hard Clam (Meretrix Lyrata). Orient. J. Chem. 36, 195–200. 10.13055/ojc/360126 [DOI] [PubMed] [Google Scholar]
+
+19. Puteri A. I. S., Sandhika W., Hasanatuludhiyah N. (2020). Effect of Javanese Turmeric (Curcuma Xanthorrhiza) Extract on Hepatitis Model of Alcohol-Induced Mice. Jkb 31 (1), 39–42. 10.21776/ub.jkb.2020.031.01.8 [DOI] [Google Scholar]
+
+20. Qi X. J., Liu X. Y., Tang L. M., Li P. F., Qiu F., Yang A. H. (2020). Anti-depressant Effect of Curcumin-Loaded Guanidine-Chitosan Thermo-Sensitive Hydrogel by Nasal Delivery. Pharm. Dev. Technol. 25 (3), 316–325. 10.1080/10837450.2019.1686524 [DOI] [PubMed] [Google Scholar]
+
+21. Qin S., Huang L., Gong J., Shen S., Huang J., Ren H., et al. (2017). Efficacy and Safety of Turmeric and Curcumin in Lowering Blood Lipid Levels in Patients with Cardiovascular Risk Factors: a Meta-Analysis of Randomized Controlled Trials. Nutr. J. 16 (1), 68–10. 10.1186/s12937-017-0293-y [DOI] [PMC free article] [PubMed] [Google Scholar]
+
+22. Rai P. K., Jaiswal D., Mehta S., Rai D. K., Sharma B., Watal G. (2010). Effect of Curcuma Longa Freeze Dried Rhizome Powder with Milk in STZ Induced Diabetic Rats. Indian J. Clin. Biochem. 25 (2), 175–181. 10.1007/s12291-010-0032-z [DOI] [PMC free article] [PubMed] [Google Scholar]
+
+23. Rajkumari S., Sanatombi K. (2017). Nutritional Value, Phytochemical Composition, and Biological Activities of Edible Curcuma Species: A Review. Int. J. Food properties 20 (Suppl. 3), S2668–S2687. 10.1080/10942912.2017.1387556 [DOI] [Google Scholar]
+
+24. Rao C. V., Desai D., Rivenson A., Simi B., Amin S., Reddy B. S. (1995). Chemoprevention of colon Carcinogenesis by Phenylethyl-3-Methylcaffeate. Cancer Res. 55 (11), 2310–2315. [PubMed] [Google Scholar]
+25. Ravikumar N., Kavitha C. N. (2020). Therapeutic Potential of Curcumin in Immune Dysregulation in Comorbid Diabetic Asthma in Mice. Biomed. Pharmacol. J. 13 (2), 821–831. 10.13005/bpj/1948 [DOI] [Google Scholar]
+
+26. Reddy B. S., Rao C. V. (2002). Novel Approaches for colon Cancer Prevention by Cyclooxygenase-2 Inhibitors. J. Environ. Pathol. Toxicol. Oncol. 21 (2), 155–164. 10.1615/jenviroopatholtoxicoloncol.v21.i2.90 [DOI] [PubMed] [Google Scholar]
+
+27. Royal Botanic Gardens Kew (2021). Curcuma Longa L. [Online]. Available: https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:796451-1 (Accessed January 20, 2021).
+
+28. Sahu S., Mishra B., Pradhan J., Das B. (2005). Antibacterial Activity of Curcuma Longa on Fish Microbial Pathogens. [Google Scholar]
+
+29. Salehi B., Del Prado-Audelo M. L., Cortés H., Leyva-Gómez G., Stojanović-Radić Z., Singh Y. D., et al. (2020). Therapeutic Applications of Curcumin Nanomedicine Formulations in Cardiovascular Diseases. J. Clin. Med. 9 (3), 746. 10.3390/jcm9030746 [DOI] [PMC free article] [PubMed] [Google Scholar]
+
+30. Sandur S. K., Pandey M. K., Sung B., Ahn K. S., Murakami A., Sethi G., et al. (2007). Curcumin, Demethoxycurcumin, Bisdemethoxycurcumin, Tetrahydrocurcumin and Turmerones Differentially Regulate Anti-inflammatory and Anti-proliferative Responses through a ROS-independent Mechanism. Carcinogenesis 28 (8), 1765–1773. 10.1093/carcin/bgm123 [DOI] [PubMed] [Google Scholar]
+
+31. Shaikh J., Ankola D. D., Beniwal V., Singh D., Kumar M. N. (2009). Nanoparticle Encapsulation Improves Oral Bioavailability of Curcumin by at Least 9-fold when Compared to Curcumin Administered with Piperine as Absorption Enhancer. Eur. J. Pharmacol. 37 (3–4), 223–230. 10.1016/j.ejps.2009.02.019 [DOI] [PubMed] [Google Scholar]
+
+32. Sharma M., Manoharal R., Negi A. S., Prasad R. (2010). Synergistic Anticandidal Activity of Pure Polyphenol Curcumin I in Combination with Azoles and Polyenes Generates Reactive Oxygen Species Leading to Apoptosis. FEMS Yeast Res. 10 (5), 570–578. 10.1111/j.1567-1364.2010.00637.x [DOI] [PubMed] [Google Scholar]
+
+33. Sharma P. V. (2000). Namarupajnanam. (1st edn). SatyapriyaPrakashan. India: Varanasi. [Google Scholar]
+
+34. Sharma R. A., Steward W. P., Gescher A. J. (2007). Pharmacokinetics and Pharmacodynamics of curcuminThe Molecular Targets and Therapeutic Uses of Curcumin in Health and Disease, 453–470. [Google Scholar]
+
+35. Shimatsu A., Kakeya H., Imaizumi A., Morimoto T., Kanai M., Maeda S. (2012). Clinical Application of “Curcumin”. A Multi-functional Substance. Anti-aging Med. 9 (2), 75–83. [Google Scholar]
+
+36. Singh S., Aggarwal B. B. (1995). Activation of Transcription Factor NF-Kappa B Is Suppressed by Curcumin (Diferuloylmethane) [corrected]. J. Biol. Chem. 270 (42), 24995–25000. 10.1074/jbc.270.42.24995 [DOI] [PubMed] [Google Scholar]
+
+37. Soleimani V., Sahebkar A., Hosseinzadeh H. (2018). Turmeric (Curcuma Longa) and Its Major Constituent (Curcumin) as Nontoxic and Safe Substances: Review. Phytother Res. 32 (6), 985–995. 10.1002/ptr.6054 [DOI] [PubMed] [Google Scholar]
+
+38. Subramani P. A., Cheeran V., Munuswamy-Ramanujam G., Narala V. R. (2018). Clinical Trials of Curcumin, Camptothecin, Astaxanthin and Biochitin. Nat. Prod. Clin. Trials 1, 79–113. 10.2174/9781681081314180100005 [DOI] [PubMed] [Google Scholar]
+
+39. Tajbakhsh S., Mohammad K., Deilami I., Zandi K., Fouladvand M., Ramedani E., et al. (2008). Antibacterial Activity of Indium Curcumin and Indium Diacetylcurcumin. Afr. J. Biotechnol. 7 (21), 3832–3835. [Google Scholar]
+
+40. Tao G., Wang Y., Cai R., Chang H., Song K., Zuo H., et al. (2019). Design and Performance of Sericin/poly(vinyl Alcohol) Hydrogel as a Drug Delivery Carrier for Potential Wound Dressing Application. Mater. Sci. Eng. C Mater. Biol. Appl. 101, 341–351. 10.1016/j.msec.2019.03.011 [DOI] [PubMed] [Google Scholar]
+
+41. Tripatho G., Chlapanidas T., Perteghella S., Viganò B., Mandracchia D., Trapani A., et al. (2015). Mesenchymal Stromal Cells Loading Curcumin-INVITE-Micelles: A Drug Delivery System for Neurodegenerative Diseases. Colloids Surf. B Biointerfaces 125, 300–308. 10.1016/j.colsurfb.2014.11.034 [DOI] [PubMed] [Google Scholar]
+
+42. Tsai J. R., Liu P. L., Chen Y. H., Chou S. H., Cheng Y. J., Huang J. J., et al. (2015). Curcumin Inhibits Non-small Cell Lung Cancer Cells Metastasis through the Adiponectin/ NF-κB/MMPs Signaling Pathway. PLoS One 10 (12), e0144462. 10.1371/journal.pone.0144462 [DOI] [PMC free article] [PubMed] [Google Scholar]
+
+43. Tsunoda I. (2017). Lymphatic System and Gut Microbiota Affect Immunopathology of Neuroinflammatory Diseases, Including Multiple Sclerosis, Neuromyelitis Optica and Alzheimer's Disease. Wiley Online Library. [DOI] [PMC free article] [PubMed] [Google Scholar]
+
+44. Uchio R., Kawasaki K., Okuda-Hanafusa C., Saji R., Muroyama K., Muroskii S., et al. (2021). Curcuma Longa Extract Improves Serum Inflammatory Markers and Mental Health in Healthy Participants Who Are Overweight: a Randomized, Double-Blind, Placebo-Controlled Trial. Nutr. J. 20 (1), 91–14. 10.1186/s12937-021-00748-8 [DOI] [PMC free article] [PubMed] [Google Scholar]
+61. Vajragupta O., Boonchooong P., Morris G. M., Olson A. J. (2005). Active Site Binding Modes of Curcumin in HIV-1 Protease and Integrase. Bioorg. Med. Chem. Lett. 15 (14), 3364–3368. 10.1016/j.bmcl.2005.05.032 [DOI] [PubMed] [Google Scholar]
+
+60. Valizadeh H., Abdolmohammadi-Vahid S., Daniusha S., Ziya Gencer M., Ammari A., Sadeghi A., et al. (2020). Nano-curcumin Therapy, a Promising Method in Modulating Inflammatory Cytokines in COVID-19 Patients. Int. Immunopharmacol 89, 107088. 10.1016/j.intimp.2020.107088 [DOI] [PMC free article] [PubMed] [Google Scholar]
+
+59. Vareed S. K., Kakarala M., Ruffin M. T., Crowell J. A., Normolle D. P., Djuric Z., et al. (2008). Pharmacokinetics of Curcumin Conjugate Metabolites in Healthy Human Subjects. Cancer Epidemiol. Biomarkers Prev. 17 (6), 1411–1417. 10.1158/1055-9965.EPI-07-2693 [DOI] [PMC free article] [PubMed] [Google Scholar]
+
+58. Verma R. K., Kumari P., Maurya R. K., Kumar V., Verma R., Singh R. K. (2018). Medicinal Properties of Turmeric (Curcuma Longa L.); A Review. Int. J. Chem. Stud. 6 (4), 1354–1357. [Google Scholar]
+
+57. von Rhein C., Weidner T., Henß L., Martin J., Weber C., Sliva K., et al. (2016). Curcumin and Boswellia Serrata Gum Resin Extract Inhibit Chikungunya and Vesicular Stomatitis Virus Infections In Vitro. Antivir. Res 125, 277–286. 10.1016/j.antiviral.2015.11.007 [DOI] [PubMed] [Google Scholar]
+
+56. Wilken R., Veena M. S., Wang M. B., Srivatsan E. S. (2011). Curcumin: A Review of Anti-cancer Properties and Therapeutic Activity in Head and Neck Squamous Cell Carcinoma. Mol. Cancer 10 (1), 12–19. 10.1186/1476-4598-10-12 [DOI] [PMC free article] [PubMed] [Google Scholar]
+
+55. Wong T. F., Takeda T., Li B., Tsuiji K., Kitamura M., Kondo A., et al. (2011). Curcumin Disrupts Uterine Leiomyosarcoma Cells through AKT-mTOR Pathway Inhibition. Gynecol. Oncol. 122 (1), 141–148. 10.1016/j.ygyno.2011.03.001 [DOI] [PubMed] [Google Scholar]
+
+54. Xu D., Tian W., Shen H. (2011). Curcumin Prevents Induced Drug Resistance: A Novel Function? Chin. J. Cancer Res. 23 (3), 218–223. 10.1007/s11607-011-0218-9 [DOI] [PMC free article] [PubMed] [Google Scholar]
+
+53. Xue H., Hu L., Xiong Y., Zhu X., Wei C., Cao F., et al. (2019). Quaternized Chitosan-Matrigel-Polyacrylamide Hydrogels as Wound Dressing for Wound Repair and Regeneration. Carbohydr. Polym. 226, 115302. 10.1016/j.carbpol.2019.115302 [DOI] [PubMed] [Google Scholar]
+
+52. Yadav V. S., Mishra K. P., Singh D. P., Mehrotra S., Singh V. K. (2005). Immunomodulatory Effects of Curcumin. Immunopharmacol Immunotoxicol 27 (3), 485–497. 10.1080/08923970500242244 [DOI] [PubMed] [Google Scholar]
+
+51. Yallapu M. M., Jaggi M., Chauhan S. C. (2012). Immunopharmacol Immunotoxicol 27 (3), 485–497. 10.1080/08923970500242244 [DOI] [PubMed] [Google Scholar]
+
+50. Yallapu M. M., Jaggi M., Chauhan S. C. (2012). Curcumin Nanof ormulations: a Future Nanomedicine for Cancer. Drug Discov. Today 17 (1-2), 71–80. 10.1016/j.drudis.2011.09.009 [DOI] [PMC free article] [PubMed] [Google Scholar]
+
+49. Yang X. X., Li C. M., Huang C. Z. (2016). Curcumin Modified Silver Nanoparticles for Highly Efficient Inhibition of Respiratory Syncytial Virus Infection. Nanoscale 8 (5), 3040–3048. 10.1039/c5nr07918g [DOI] [PubMed] [Google Scholar]
+
+48. Ye M. X., Li Y., Yin H., Zhang J. (2012). Curcumin: Updated Molecular Mechanisms and Intervention Targets in Human Lung Cancer. Int. J. Mol. Sci. 13 (3), 3959–3978. 10.3390/ijms13033959 [DOI] [PMC free article] [PubMed] [Google Scholar]
+
+47. Yin H., Guo R., Xu Y., Zheng Y., Hou Z., Dai X., et al. (2012). Synergistic Antitumor Efficiency of Docetaxel and Curcumin against Lung Cancer. Acta Biochim. Biophys. Sin (Shanghai) 44 (2), 147–153. 10.1093/abbs/gmr106 [DOI] [PubMed] [Google Scholar]
+
+46. Yu J., Zhou X., He X., Dai M., Zhang Q. (2011). Curcumin Induces Apoptosis Involving Bax/bcl-2 in Human Hepatoma SMMC-7721 Cells. Asian Pac. J. Cancer Prev. 12 (8), 1925–1929. [PubMed] [Google Scholar]
+
+45. Uma Pradeep K., Geervani P., Eggum B. O. (1993). Common Indian Spices: Nutrient Composition, Consumption and Contribution to Dietary Value. Plant Foods Hum. Nutr. 44 (2), 137–148. 10.1007/BF01088378 [DOI] [PubMed] [Google Scholar]
+66. Yue G. G.-L., Kwok H.-F., Lee J. K.-M., Jiang L., Chan K.-M., Cheng L., et al. (2015). Novel Anti-angiogenic Effects of Aromatic-Turmerone, Essential Oil Isolated from Spice Turmeric. J. Funct. Foods 15, 243–253. 10.1016/j.jff.2015.03.030 [DOI] [Google Scholar]
+
+67. Yuliani S., Mustofa P. G. (2018). Turmeric (Curcuma Longa L.) Extract May Prevent the Deterioration of Spatial Memory and the Deficit of Estimated Total Number of Hippocampal Pyramidal Cells of Trimethyltin-Exposed Rats. Drug Chem. Toxicol. 41 (1), 62–71. 10.1080/01480545.2017.1293087 [DOI] [PubMed] [Google Scholar]
+
+68. Zhang J., Si G., Zou J., Fan R., Guo A., Wei X. (2017). Antimicrobial Effects of Silver Nanoparticles Synthesized by Fatsia Japonica Leaf Extracts for Preservation of Citrus Fruits. J. Food Sci. 82 (8), 1861–1866. 10.1111/1750-3841.13811 [DOI] [PubMed] [Google Scholar]
+
+69. Zhang N., Hu Z., Qiang Y., Zhi X. (2019). Circulating miR-130b- and miR-21-Based Diagnostic Markers and Therapeutic Targets for Hepatocellular Carcinoma. Mol. Genet. Genomic Med. 7 (12), e1012. 10.1002/mgg3.1012 [DOI] [PMC free article] [PubMed] [Google Scholar]
+
+70. Articles from Frontiers in Pharmacology are provided here courtesy of Frontiers Media SA.
+
+71. Livia C. Massimino, Henrique A. M. Faria, Sergio A. Yoshioka. Industrial Crops And Products
+
+72. Curcumin Bioactive nanosizing:Increasing of Bioavailability, Industrial crops and product, 2017:493-497.
+
+73. Saikia, C.; Das, M.K.; Ramteke, A.; Maji, T.K. Effect of crosslinker on drug delivery properties of curcumin loaded starch coated iron oxide nanoparticles. Int. J. Biol. Macromol. 2016, 93, 1121–1132.
+
+74. Mohamed A. Akl, Alma Kartal-Hodzic, Timo Oksanen, Hatem R. Ismael, Mohsen M.Afouna, Marj Yliperttula. Factorial design Optimization and in Vitro characterization of curcumin-loaded PLGA nanoparticles for colon delivery,Drug Delivery Science And Technology Vol 32 part A2016:1-42.
+
+75. Xia Guo, Wenfeng Li, Heping Wang, Yan-Ying Fan, Huifang Wang, Xianghua Gao, Baolong Niu,Xuechen Gong. Journal of Non-Crystalline Solids 2018:1-9.
+
+76. Alireza Homayouni, Masoumeh Sohrabi, Marjan Amini, Jaleh Varshosaz, Ali Nokhodchi. Curcumin nanoparticles containing poloxamer or soluplus tailored by high pressure Homogenization using antisolvent crystallization, International Journal of Pharmaceutics MaterialScience And Engineering .2018:185-196.
+
+77. Vikram Choudhary, Hosakote Shivakumar, Himanshu Ojha. Curcumin-Loaded liposomes forwound Healing: Preparation, optimization,in-vivo skin permeation and bioevaluation DrugDelivery Science And Technology 2018:1-24.
+
+78. Elham Sadati Behbahani, Mehrorang Ghaedi, Mohammadreza Abbaspour, Cobra Rostamizadeh,Kheibar Dushtian. Polyhydron. One-pot synthesis of magnetic lipid nanoparticles as an efficient sorbent for curcumin determination in magnetic dispersive solid-phase extraction system,European Polymer Journal, 2019:113-122.
+
+79. Amir Maghsoudi, Fatemeh Yazdian, Saleheh, Shahmoradi, Leila Ghaderi, Mehran Hemati,Ghassem Amoabediny. Curcumin-Loaded polysaccharide nanoparticles;Optimization andanticariogenic activity against Streptococcus mutans Materials Science & Engineering .2017:1-27.
+
+80. Ram P.Das, Vishwa V. Gandhi , Beena G. Singh, Amit Kunwar, N.Naveen Kumar, K.I.Priyadarssini. Colloids And Surfaces A: Physicochem. Eng. Aspects: 2019:1-29.
+
+81. Alireza Homayouni, Masoumeh Sohrabi, Marjan Amini, Jaleh Varshosaz, Ali Nokhodchi. Effect of high pressure homogenization on physicochemical properties of curcumin nanoparticle esprepared by antisolvent crystallization using HPMC or PVP, Materials Science & Engineering C:2019, 98,185–196.
+
+82. Yucel Baspinar, Mehmet Ustundas, Oguz Bayeaktar, Canfeza Sezgin. Response surfaceMethodology for Extraction of Curcumin from Turmeric and Piperine from Black Pepper,Saudi Pharmaceutical Journal. 2018:323-334.
+
+83. Durgaprasad S., Pai C. G., Vasanthkumar J. F., Alves J. F., Namitha S. (2005). A Pilot Study of the Antioxidant Effect of Curcumin in Tropical Pancreatitis. Indian J. Med. Res. 122 (4), 315–318. [PubMed] [Google Scholar]
+
+84. El Nebrisi E., Javed H., Ojha S. K., Oz M., Shehab S. (2020). Neuroprotective Effect of Curcumin on the Nigrostriatal Pathway in a 6-Hydroxydopamine-Induced Rat Model of Parkinson’s Disease Is Mediated by α7-Nicotinic Receptors. Int. J. Mol. Sci. 21 (19), 7329. 10.3390/ijms21197329 [DOI] [PMC free article] [PubMed] [Google Scholar]
+
+85. Elgert K. D. (2009). Immunology: Understanding the Immune System. John Wiley & Sons. [Google Scholar]
+
+86. Emirik M. (2020). Potential Therapeutic Effect of Turmeric Contents against SARS-CoV-2 Compared with Experimental COVID-19 Therapies: In Silico Study. J. Biomol. Struct. Dyn., 1–14. 10.1080/07391102.2020.1835719 [DOI] [PubMed] [Google Scholar]
+87. Etemadi S., Barhaghi M. H. S., Memar M. Y., Mohammadi A. B., Ghotaslou R. (2021). The Synergistic Effect of Turmeric Aqueous Extract and Chitosan against Multidrug-Resistant Bacteria. New Microbes New Infect. 41, 100861. 10.1016/j.mni.2021.100861 [DOI] [PMC free article] [PubMed] [Google Scholar]
+
+88. Faizal P., Suresh S., Satheesh Kumar R., Augusti K. T. (2009). A Study on the Hypoglycemic and Hypolipidemic Effects of an Ayurvedic Drug Rajanyamalakadi in Diabetic Patients. Indian J. Clin. Biochem. 24 (1), 82–87. 10.1007/s12291-009-0014-1 [DOI] [PMC free article] [PubMed] [Google Scholar]
+
+89. Gaurav I., Tanuja fnm. (2021). Green Synthesis and Characterization of Silver Nanoparticles with Rhizome Extract of Curcuma Longa (AgNPs-RECL) for Antimicrobial Activity towards Xanthomonas and Erwinia Species. Res. J. Pharm. Tech. 14 (1), 325–330. 10.5958/0974-360x.2021.00060.3 [DOI] [Google Scholar]
+
+90. Ghoneum M., Gollapudi S. (2011). Synergistic Apoptotic Effect of Arabinoxylan rice Bran (MGN-3/Biobran) and Curcumin (Turmeric) on Human Multiple Myeloma Cell Line U266 In Vitro. Neoplasma 58 (2), 118–123. 10.4149/neo_2011_02_118 [DOI] [PubMed] [Google Scholar]
+
+91. Ghotaslou R., Leylabadlo H. E., Akhi M. T., Sadeghi J., Yousefi L., bialvaei A. Z., et al. (2017). The Importance of Helicobacter pylori tnpA, tnpB, and cagA Genes in Various Gastrointestinal Diseases. Mol. Genet. Microbiol. Virol. 32 (1), 62–65. 10.3103/s0891416817010049 [DOI] [Google Scholar]
+
+92. Goud V. K., Polasa K., Krishnaswamy K. (1993). Effect of Turmeric on Xenobiotic Metabolising Enzymes. Plant Foods Hum. Nutr. 44 (1), 87–92. 10.1007/BF01088486 [DOI] [PubMed] [Google Scholar]
+
+93. Guimarães A. F., Vinhas A. C. A., Gomes A. F., Souza L. H., Krepsy P. B. (2020). Essential Oil of Curcuma Longa L. Rhizomes Chemical Composition, Yield Variation and Stability. Química Nova 43, 909–913. 10.21577/0100-4042.20170547 [DOI] [Google Scholar]
+
+94. Gupta A., Briffa S. M., Swingler S., Gibson H., Kannappan V., Adamus G., et al. (2020). Synthesis of Silver Nanoparticles Using Curcumin-Cyclodextrins Loaded into Bacterial Cellulose-Based Hydrogels for Wound Dressing Applications. Biomacromolecules 21 (5), 1802–1811. 10.1021/acs.biomac.9b01724 [DOI] [PMC free article] [PubMed] [Google Scholar]
+
+95. Gupta S. C., Patchva S., Aggarwal B. B. (2013). Therapeutic Roles of Curcumin: Lessons Learned from Clinical Trials. AAPS J. 15 (1), 195–218. 10.1208/s12248-012-9432-8 [DOI] [PMC free article] [PubMed] [Google Scholar]
+
+96. Hajavi J., Moomtazi A. A., Johnston T. P., Banach M., Majeed M., Sahebkar A. (2017). Curcumin: a Naturally Occurring Modulator of Adipokines in Diabetes. J. Cel Biochem 118 (12), 4170–4182. 10.1002/jcb.26121 [DOI] [PubMed] [Google Scholar]
+
+97. Curcumin-Loaded PLA Nanoparticles: Formulation and Physical EvaluationHenri Rachmawati 1,* Yulia L Yanda 1, Annisa Rahma 1, Nobuyuki Mase 2Author informationArticle notesCopyright and License informationPMCID: PMC4839549 PMID: 27110509.
+
+98. GRAIN-BASED PRODUCTS AND THEIR PROCESSING C.F. Morris, in Encyclopedia of Food Grains (Second Edition), 2016.
+
+99. Nano- and Micro-Particles by Nanoprecipitation: Possible Application in the Food and Agricultural IndustriesCarlos Gregorio Barreras-Urbina, Benjamin Ramirez-Wong, Guadalupe Amanda Lopez-Ahumada, Silvia Elena Burrue-Ibarra, Olivier Martinez-Cruz, José Agustín Tapia-Hernández & Francisco Rodriguez Félix show less. Pages 1912-1923 | Received 03 May 2015, Accepted 28 Aug 2015, Published online: 26 May 2016.
+
+100. A 1995 journal article by J. Nairn in Adv. Pharm. Sci

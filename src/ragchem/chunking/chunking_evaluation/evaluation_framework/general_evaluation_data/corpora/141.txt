@@ -1,0 +1,439 @@
+Abstract
+
+Phenolic compounds and their derivatives represent a significant concern within the realm of water pollution, due to their pronounced toxicity, environmental persistence, and extensive utilization across industrial sectors. These pollutants emanate from a multitude of sources, including petrochemical industries, pharmaceutical production, and the manufacture of pesticides, thereby posing considerable threats to both aquatic ecosystems and human health. Conventional water treatment methodologies, encompassing biological degradation, adsorption, and chemical oxidation, frequently fall short in achieving complete elimination of these contaminants or may inadvertently generate secondary pollutants, thereby underscoring the need for the formulation of alternative treatments that are more effective and sustainable. Silver nanoparticles (AgNPs) have been recognized as an innovative material for the remediation of phenol and its derivatives, because of their high surface area, remarkable catalytic efficacy, and pronounced adsorption properties. The distinctive characteristics of AgNPs facilitate the efficient degradation and transformation of phenolic compounds through mechanisms such as adsorption, photocatalysis, and catalytic degradation redox reactions. Furthermore, the functionalization of AgNPs with stabilizing agents enhances their stability, selectivity, and reusability, thereby rendering them as a viable option for water purification. This article critically reviews recent progress in AgNP-based purification of waterbodies by removing phenols. Notable findings indicate that AgNPs substantially augment the rates of phenol degradation, with variables such as nanoparticle size, surface modifications, and prevailing environmental conditions playing pivotal roles in their operational efficiency. Nevertheless, challenges pertaining to nanoparticle aggregation, potential environmental toxicity, and the feasibility of large-scale application require further exploration. Future research should prioritize eco-friendly synthesis or green synthesis methodologies, enhanced recovery techniques, and the mitigation of potential risks linked to nanoparticle discharge.
+
+Keywords: Phenol, Toxicity to humans, Toxicity to environment, Silver nanoparticles, Green synthesis of silver nanoparticles.
+
+Introduction
+
+Water pollution in the environment has become a significant concern due to the toxic nature of phenolic derivatives which can adversely affect aquatic life and human health. Phenolic compounds are the organic compounds that are characterized by the hydroxyl group attached to them [1]. These compounds are widely recognized for their presence in industrial effluents and their potential to cause significant environmental harm due to their toxicity and persistence in water [2]. Phenolic derivatives are significant contributors to water pollution, as they are widely used in dye industries which discharge their organic dyes such as Azo dye (which contains nitrophenols). These dyes are highly stable, carcinogenic and non-biodegradable [5]. Furthermore, phenolic compounds can accumulate in food chain, contaminated water sources and food products; posing risk to human health [3]. Adsorption which is usually followed by oxidative degeneration has emerged as an effective technique to accelerate the treatment of dye effluent pollution. [6]. Dyes such as Rh B is also treated with this technique [4]. Phenols and the nitro derivatives of phenols were categorized as toxic pollutants by the US – EPA [7]. The nitrophenols besides odour problem causes colour change in many water bodies, which becomes the
+source of environmental damage of living organisms by decreasing sunlight, which disturbs the aquatic environment [8,9].
+
+Phenolic contamination is majorly sourced by industrial effluents (by activities like petroleum refining, plastic manufacturing and effluents released from dye industries in the form of Azo-dyes which contain nitrophenols) [9]. Phenol is used in chemical industries to produce derivatives such as alkylphenols, resins, aniline and cresols [11]. It also finds a noteworthy application in energy sector [10], pharmaceutical sector [35], textile, pesticides [54], and explosive industries from where the effluents or/and influents are discharged into the water bodies contributing in polluting them. As the phenolic compounds are highly reactive, they have the tendency of interacting and reacting with other components present in the aquatic environment such as the interaction of phenols with microbes [12,13] and with inorganic compounds [14,15]. Once in the environment, the phenolic compounds undergo metabolic transformation readily oxidising to quinone radicals that is known to have toxic effects on humans by forming covalent bonds with protein which can lead to DNA damage [16]. Other phenolic compounds such as chlorophenols, nitrophenols, aminophenol, bisphenol A are identified to have adverse effects on human [17]. The effects may include disrupting the development of mammary glands and delaying the onset of puberty in females [18,19], damage the vital organs like heart, kidney, liver, lungs and stomach [20-24]. Conventional methods like adsorption, chemical oxidation, microbial degradation, membrane separation [40,41,42] are used to reduce phenols from waste water, however due to the high polarity and chemical persistence of phenolic compounds these methods have relatively low efficiency (as low as 20-40%) in reducing phenolic derivatives from water system [43].
+
+Nanoparticles, especially purely made inorganic nanoparticles such as gold (Au), silver (Ag) and copper (Cu), have distinctive optical and photochemical properties which makes them ideal for reducing phenolic compounds in water [36]. Silver nanoparticles (AgNPs) due to its properties such as high surface area and reactivity [81], surface plasmon resonance (SPR) [82], surface-enhanced Raman scattering (SERS) [83,84] are used to remove phenol from water system by adsorption [82-90], catalytic degradation [91-101] and photocatalytic degradation [102-110] mechanism. The silver nanoparticles works as photocatalyst in degradation (oxidation) of phenolic derivation [37,38,39], when AgNPs is combined with metallic oxides such as TiO₂ [106] and ZnO [107] enhances the photocatalytic degradation of phenol. The removal efficiency of phenol depends on size [92] and morphology [115-118] of AgNPs. Environmental factors such as pH [119,120], temperature [121-123] organic and inorganic contaminants [124-128] which blocks the active sites on the surface of AgNPs, reducing the removal efficiency of phenol. AgNPs released in the environment to remove phenol has toxic effects to mammals [129,130], non-mammals [131] and plants [132]. In this review the importance of green synthesis is highlighted as the green synthesis uses non-toxic and biodegradable reagents that can work as both reducing and capping agents which enhances the cost-effectiveness and reduce the toxicity of silver nanoparticles in the environment. More emphasis should be made to do relevant research on microbial mediated synthesis especially viral mediated synthesis of AgNPs [147]. The scope of this review is to discuss the effects and sources of phenol contamination. This review also discusses the use of silver nanoparticles to remove phenol and its derivatives from waste water, also highlighting the toxic effects of silver nanoparticles and the importance of using green synthesis which consist of plant and microbial mediated synthesis of silver nanoparticles.
+
+1.Phenoic Derivatives: Sources, Properties and Environmental Impact.
+
+1.1 Sources of Phenolic Derivative in water.
+
+The source of phenolic contamination in water can be categorized as Anthropogenic sources and Natural sources.
+
+1.1.1 Anthropogenic Sources
+
+Due to their wide range of application, phenolic compounds are used in different industries such as chemical industries, coal and gas industries, dye, textile, explosive industries and pharmaceutical industries. It is used in chemical industries to produce other derivatives such as resins, aniline, cresols and alkylphenols [11]. Phenol
+serves as a vital part of many products like paints, medicine and lubricants. It is specially used as an intermediate product in the synthesis of phenolic compounds such as formaldehyde resins. It is also used to produce epoxide resins and polycarbonate which serves as a precursor for making plastic [47]. The pharmaceutical application of phenolic derivatives is remarkable as it used as a flexible precursor in drugs like aspirin and pharyngitis, cosmetics like sunscreen, skin lighting products and hair dye [48]. Phenolic derivatives find its application in wood distillation, water disinfection and for making paper, all this results in the formation of chlorophenols [46]. The phenolic contaminated effluents are discharged by the industries directly or indirectly which results in water pollution due to phenolic contamination. It is observed that the concentration of phenolic discharge from refineries is 6-500 mg L\(^{-1}\), cooking processes is 28-3900 mg L\(^{-1}\), coal and gas processing is 9-6800 mg L\(^{-1}\), pharmaceutical product is 0.1-1600 mg L\(^{-1}\) and petrochemical plants is 2.8-1220 mg L\(^{-1}\) [49-51]. In a study, second largest river of Ukraine, Dniester was studied, which reported that due to oil field nearby the river, phenolic concentration on the surface water of Dniester River was observed to be 0.009 and 0.081 mg L\(^{-1}\), whereas the reservoir contained an average of 0.026 mg L\(^{-1}\) of phenolic derivatives [52]. Phenols are the major constituents of pesticides, insecticides and herbicides which are the main agricultural sources of water pollution by phenolic compounds. Most pentachlorophenol [55] and chlorophenols such as 2,4-dichlorophenol, 2-chlorophenol are used in pesticides [53]. Other phenolic derivatives such as 2,4-dichlorophenoxyacetic acid are used as pesticides [54]. Pentachlorophenol degrades to other chlorophenols with lower chlorine substituents [55]. These pesticides, insecticides, herbicides and their degradation by products are often washed into the water system.
+
+1.1.2 Natural Sources
+
+Plants, microorganism and decomposition of organic matter are recognized to be the natural sources responsible for contamination of phenolic derivatives in water bodies. Dead plants and animals in water bodies usually release phenolic compounds in water as the phenolic derivatives are components of many aquatic or terrestrial plant species. Few phenolic compounds are formed from amino acids present in hemicellulose of plants under the influence of ultraviolet light irradiation [56]. Phenylalanine which is a precursor for synthesis of phenols in plants is deaminated through phenylalanine ammonia-lyase catalysis and is converted to cinnamate. The obtained cinnamate is then converted to coumaric acid through hydroxylation catalyzed by cinnamate-4-hydroxylase. Coumaric acid is the starting material for producing flavonoids, stilbenes and furanocoumarins [63]. As these compounds are stored in roots and leaves, decomposition of dead roots and leaves introduces phenolic derivatives to soil and eventually into water bodies. The metabolic waste of human and other mammals also contains phenol [58] which is produced in the gut of human and other mammals as a result of tyrosine transformation [59]. It is well known fact that microorganism have the potential to degrade naturally occurring substrates into phenolic compounds [60]. Red and green marine algae contain macromolecules of phenolic derivatives [57]. In a study, Max et al. [61], reported that *Debaryomyces hansenii* metabolizes ferulic acid to produce 4-vinyl guaiacol, vanillic acid, vanillin and 4-ethylguaiaicol. Another study by Shashwati et al. [62] reported *Streptomyces sannanensis* ability to convert ferulic acid to vanillic acid. All this contributes to contamination of phenol and its derivatatives in water system.
+
+1.2 Classification and Effects of Phenolic derivatives on Human.
+
+1.2.1 Classification of Phenolic Derivatives
+
+Based on the number of phenolic groups present in a molecule, phenolic compounds can be grouped as simple, bi and polyphenols. Phenolic derivatives such as hydroquinone, resorcinol, thymol, etc. have only one substituted phenolic ring and hence are simple phenols. These phenolic compounds are highly soluble in water due to the presence of single hydroxyl group, it often finds its application in disinfectants and chemical industries [64,66]. Biphenols are identified by the presence of two phenolic rings. These phenols have low solubility. Bisphenol A (BPA) is a common example of bi phenols, which is found in industrial waste and is known to have adverse effects on human health [66]. Compounds that consist of multiple units of phenolic structure are known as
+
+**https://doi.org/10.26434/chemrxiv-2025-gzq66** ORCID: https://orcid.org/0009-0008-1072-7074 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+polyphenols; these are naturally found in plant (roots and leaves) [63]. Flavonoids, tannins, lignin and stilbenes are few examples of polyphenols [65]. The solubility of polyphenol is variable. Lower molecular weight polyphenols (e.g., flavonoids) are moderately soluble in water, on the other hand high molecular weight polyphenols (e.g., tannins) are poorly soluble in water and form colloidal suspension in water, however these are soluble in organic solvents such as ethanol [67].
+
+1.2.2. Toxicity to Humans
+
+Phenols are considered as one of the most toxic organic contaminants in waste water as they are highly toxic, even at low concentrations [69]. The European Union Directive 2455/2001/EC has set a limit of 0.5µgL⁻¹ of phenolic concentration in drinking water with its individual concentration not exceeding 0.1µgL⁻¹ [68]. Due to their non-biodegradable nature, they remain in the aquatic system for a long time [70]. According American Conference of Government Industrial Hygienist (ACGIH) the exposure limit of phenol on skin should be less than 5 mgL⁻¹ [72]. Exposing to high concentration of phenol to skin can cause blisters and burns [20]. Once in the system they metabolize and transform into reactive intermediate form such as quinone, which is known to form covalent bonds with protein, thus exhibiting toxic effects to humans [16]. For instance, catechols have the tendency to damage DNA by destroying some proteins in the body [16]. Phenols and its derivatives were identified as stable priority chemical pollutants by US Environmental Protecting Agency (EPA) [7], which are summarized in Table 1. Phenolic derivatives such as chlorocatechol, nitrophenol, chlorophenols and aminophenol are also categorized to exert toxic effects on humans [17]. Burning sensation in throat and mouth can be caused by chlorophenols [22]. Chlorophenol poisoning may also damage liver, kidney, lungs, digestive system and skin [23]. Bisphenol A which is a biphenol known to disrupt the development of mammary glands [18] and delay the onset of puberty in female [19]. Liquids that contain high phenolic concentration (1g) if ingested can cause fatality to humans as it may damage heart, kidney, liver and other internal vital organs [20]. In a study, Alshabib et al. [71] reported that acute phenol exposure may cause complication of central nervous system and exposure to fumes containing phenol can damage internal organs such as lungs, kidney, liver heart, and spleen. Due to these effects, strict limits on effluent discharge are amended. Therefore, an effluent discharge is limited to 0.05 mgL⁻¹ in the water system [72]; for non-chlorinated water it is 0.1 mgL⁻¹ and chlorinated water is 0.001-0.002 mgL⁻¹ [72,73].
+
+Table 1. Eleven phenolic compounds considered priority pollutants by US-EPA.
+
+| Phenolic Structure | Number of Phenolic unit | Functional Group | Additional groups | Effect | Ref |
+|-------------------|-------------------------|------------------|------------------|--------|-----|
+| Phenol (PH)       | 1                       | Hydroxyl Group   | -                | Skin irritation and burns, can damage kidney and liver, CNS depression. | [22] |
+| 2-Chlorophenol (2-CP) | 1                   | Hydroxyl Group | Chlorine atom  | Skin and eye irritation, damage to vital organs like kidney and liver, when inhaled can cause respiratory problems. | [23] |
+| 2,4-Dichlorophenol | 1                       | Hydroxyl Group | Chlorine atom  | Damage to liver and kidney, headache, nausea and long-term exposure can cause cancer. | [23] |
+| Compound                        | Hydroxyl Group | Functional Groups          | Toxicity                                                                                   | Reference |
+|-------------------------------|----------------|----------------------------|-------------------------------------------------------------------------------------------|------------|
+| 2,4,6-Trichlorophenol (2,4,6-TCP) | 1              | Hydroxyl Group, Chlorine atom | Endocrine disruption and headache.                                                           | [18]       |
+| Pentachlorophenol (PCP)       | 1              | Hydroxyl Group, Chlorine atom | Damages liver, kidney and nervous system, endocrine disruption.                              | [23]       |
+| 2-Nitrophenol (2-NP)          | 1              | Hydroxyl Group, Nitro (-NO2) group | Reduces Oxygen supply in Blood, damages liver and kidney and irritation of skin and eyes.  | [3]        |
+| 4-Nitrophenol (4-NP)          | 1              | Hydroxyl Group, Nitro (-NO2) group | Reduces Oxygen, damages liver.                                                              | [5]        |
+| 2,4-Dinitrophenol (2,4-DNP)   | 1              | Hydroxyl Group, Nitro (-NO2) group | Can cause hyperthermia, vomiting, nausea.                                                    | [3]        |
+| 4,6-Dinitro-o-cresol (4,6-DNOC) | 1              | Hydroxyl Group, Nitro (-NO2) and methyl group | Neurotoxic, skin irritation and metabolic disruption.                                         | [71]       |
+| 2,4-Dimethylphenol (2,4-DMP)  | 1              | Hydroxyl Group, Methyl group | Burning in respiratory tract and skin, damages liver.                                        | [20]       |
+1.3 Environmental Impact
+
+Phenols cause damage to aquatic life when the concentration in the water system exceeds 1mgL⁻¹ [71]. Due to the growing worldwide demand for textile products, these industries consume a high volume of water [76]. Phenols and their derivatives are used extensively in dyes such as Azo dyes that holds around 70% of market share [77]. Many of these dyes are known to have toxic effects on human health and environment, concerns regarding their toxicity and carcinogenicity have led to studies on toxicity of these dyes [74]. Due to dyes such as Dispersive blue 3 [77] which have low biodegradability, have toxicity and complex chemical structure, reduction of these effluents from environment is of great environmental concern [78]. Industrial activities have adversely affected the ecology of water system. Most of the water bodies near industrial zone has been contaminated by the effluents released by textile industries [79]. In a study Castro et al. [75], evaluated the toxicity of pre and post-treatment of textile effluents, on four different organisms, namely *A.fischer, Raphidocelis subcapitata, Daphnia magna* and *Lemnar minor* were used. Each of these organisms represented trophic levels. This study reviled that pre-treatment effluents have more toxic effects on organism as compared to when it was treated. However, treated effluents still exhibited toxicity towards D.magna. Due to high reactivity and non-biodegradability, phenolic compounds in water system have the tendency to react with other components of aquatic environment. Certain bacteria are known to degrade non-ionic surfactants into more toxic and harmful phenolic derivatives such as alkyl phenolic compounds. For example, bacteria can degrade nonylphenol polyethoxylated which may result in nonylphenol [12]. Tetrachlorocatechol which is formed by bacteria mediated degradation of pentachlorophenol and chlorocatechol is identified to be the result of microbial degradation [13]. Radiation in the form of UV radiation from sun may result in the reaction between phenol and nitrite ion which forms 2-nitrophenol and 4-nitrophenol in water system [14], 2-nitrophenol can also be produced by the interaction between hydroxyl radical and phenol in water system [80]. The reduced products are more toxic and poses greater threat to the environment.
+
+2. Properties of AgNPs used for the removal of Phenol from Water System.
+
+Silver nanoparticles (AgNPs) possess unique physicochemical properties that enhances its effectiveness in wastewater treatment, which also includes removal of phenol and its derivatives from untreated anthropogenic effluents [11]. Some of the key properties contributing to their effectiveness includes:
+
+1. High Surface Area and reactivity.
+
+Silver nanoparticles, because of their small size exhibits high surface area and high surface-to-volume ratio, which enhances their reactivity with organic pollutants such as phenol and its derivatives. Increased surface area provides more active sites for adsorption and catalytic degradation. For instance, AgNPs are used to reduce 4-nitrophenol to 4-aminophenol [81]. This makes silver nanoparticles an efficient material for removal of contaminants such as phenol and its derivatives from waste water.
+
+Catalytic reduction of 4-nitrophenol to 4-aminophenol.
+2. Surface Plasmon Resonance (SPR)
+
+Differing from their bulk metal counterpart silver nanoparticles show unique properties such as strong surface plasmon resonance (SPR), which arises from the collective oscillation of conduction electrons in response to incident light. This property enhances the ability of AgNPs to interact with organic molecules facilitating photolytic and adsorption-based removal of phenolic compounds [82]. SPR also contributes to improve electron transfer, which is essential for oxidative degradation mechanisms.
+
+3. Surface-Enhanced Raman Scattering (SERS)
+
+AgNPs exhibits surface-enhanced Raman scattering which remarkably amplifies the Raman signals of adsorbed molecules. This property of silver nanoparticles facilitates the detection and monitoring of phenol and its derivatives in water system [83]. Additionally, the interaction between AgNPs and phenolic contamination through SERS can improve degradation efficiency [84].
+
+Due to these properties AgNPs are widely studied for their role in adsorption, catalytic oxidation and photodegradation of toxic organic pollutants such as phenol and its derivatives.
+
+3. Removal of phenol from water bodies by using silver nanoparticles
+
+Water pollution is caused by phenol and its derivatives, due to their high toxicity and persistence have become a significant environment concern [5]. Silver nanoparticles (AgNPs) due to their excellent adsorptive, catalytic and photocatalytic properties have gained attention [44,45].
+
+3.1. Adsorption Mechanism of phenol removal using silver nanoparticles
+
+The adsorption of phenol in waste water by silver nanoparticles is facilitated via surface interaction [82]. The AgNPs provide a high surface area to volume ratio, which allows phenol molecules in waste water to be adsorbed on the surface of AgNPs [82]. The attraction of phenol molecules in aqueous environment also depends on the surface charge of AgNPs which is often modified by stabilizers or surfactants such as sodium dodecyl sulfate (SDS), triton X-100 (non-ionic), polyvinyl pyrrolidone (PVP) [85]. This is often governed by:
+
+- **Vander Waals Force**: These are weak intermolecular forces between phenol molecules and AgNPs which helps in the adsorption of phenol molecules onto AgNPs [86].
+- **π-π Interaction**: Phenol and its derivatives consist of aromatic rings which can interact with the metallic surface of AgNPs via π-electron closed interaction [87].
+- **Hydrogen bonding**: Phenolic hydroxyl (-OH) group may form hydrogen bonds with hydroxylated AgNPs and form weak coordinated complexes [87]. The oxygen atom in hydroxyl group (-OH) acts as a donor, binding to silver ions, which provides stability and retention of phenol on nanoparticles surface [87].
+
+Surface-modifiers such as graphene, silica or activated carbon provides more functional groups for interaction thus enhancing phenol adsorption [88]. AgNPs supported on zeolites or biochar increases the surface area and improve adsorption efficiency [89,90].
+
+3.2. Catalytic Degradation for removal of phenol by using silver nanoparticles
+Silver nanoparticles are widely used as catalyst for the degradation of organic contaminants like phenol and its derivatives, this is due to their small size which translated in high surface area, strong redox properties and their ability to generate reactive oxygen species (ROS) [81]. AgNPs acts as electron mediator and donor which facilitates oxidation and reduction reactions, resulting in breaking down of phenols into smaller less harmful compounds [93]. AgNPs enables the transfer of electrons between oxidants such as hydrogen peroxide or dissolved oxygen and phenol molecules [94]. This promotes the generation of ROS such as hydroxyl radicals (·OH) and superoxide radicals (O2·−) which breaks the aromatic ring of phenol by attacking it predominantly at ortho and para position due to their high electron density [99,100]. AgNPs can facilitate reduction of oxidants such as hydrogen peroxide (H2O2) or Ferric ion by acting as an electron donor [95]. In Fenton-like reaction Fe3+ is reduced to Fe2+ which is essential for the generation of hydroxyl radicals which accelerates phenol degradation [96]. Fenton reaction, results in catechol ring opening which converts catechol into muconioic acid that is further oxidized to maleic and fumaric acid [91]. As the Fe and H2O2 concentration is high, all the intermediates convert to formic acid which then oxidizes to non-toxic CO2 and H2O in water bodies [92]. **Fig 1.** Illustrates the mechanism of phenolic degradation by Fenton-like reaction by using AgNPs.
+
+AgNPs mimics enzyme like activity of peroxidase enzyme, promoting ROS production without requiring biological enzymes [97]. AgNPs due to their high surface area catalysis the conversion of H2O2 into ·OH and O2 allowing efficient adsorption, accelerating phenol degradation. Due to their stability under reaction conditions AgNPs can be better alternative to biological peroxidase to remove phenol and its derivatives from the water system [98].
+
+**Fig 1.** Mechanism of degradation of Phenol and its derivatives by Fenton-like reaction by using silver nanoparticles.
+
+---
+
+3.3. Photocatalytic Degradation of phenol and its derivatives with the use of silver nanoparticles
+
+Photocatalytic degradation of phenolic compound takes place with the use of silver nanoparticles in combination with metal oxides catalyst like TiO2 and ZnO [111]. This has emerged as an effective method to degrade phenol from water bodies [101]. Semiconductors such as TiO2 and ZnO absorbs photons through UV or visible light, exciting electrons (e−) from valence bond to conduction band, this electron hole pairs (h+)
+initiates photocatalytic degradation. AgNPs acts as an electron trap and helps in preventing recombination, ensuring more reactive species are generated. These conduction band electrons react with dissolved oxygen (O$_2$) reducing it to superoxide anions (O$_2^-$), while valence band holes react with water (H$_2$O) or hydroxide ions (OH⁻) to produce hydroxyl radical (OH·). These reactive radicals attack and convert organic pollutants such as phenol into carbon dioxide and water [102,103].
+
+Titanium dioxide (TiO$_2$) due to its high stability, non-toxicity and strong oxidation potential is widely used as photocatalyst [105]. However, because of its wide bandgap ( ~3.2 eV for anatase phase), that mainly restricts its photocatalytic activity to UV light (λ < 387nm) [106]. AgNPs can be used to significantly improve TiO$_2$ – based photocatalysis [106]. Like TiO$_2$, ZnO has a wide bandgap (~3.37 eV) but it suffers from high electron-hole recombination. AgNPs enhances charge separation and visible light adsorption when combined with ZnO [107]. Owing to SPR effect, AgNPs can absorb visible light (400-700nm) and transfer energy to semiconductor material, improving electron excitation and extending the photolytic activity beyond UV range. This enhances phenol degradation under sunlight [82].
+
+In a study, Stanley et al. [108] employed Ag-ZnO nanoparticles in powder form to degrade textile dye such as Methylene blue, methyl orange and rhodamine B dyes. It reported the removal efficiency of 98.5%. In another experiment, Thi et al. [109] reported 85% removal efficiency when Ag-ZnO nanostructures in powdered form were used to remove Methylene blue from water. Wang L et al. [110] conducted a study in which AgNPs were used to reduce Methyl Orange and Coomassie brilliant blue from waste water by photocatalytic degradation. It reported the removal efficiency of 60-70%. By this we can state that the combination of AgNPs with photocatalytic metal oxides enhances the removal of phenol.
+
+The degree of effectiveness of photocatalytic degradation relies heavily on catalyst dose, exposure time, solution pH and light intensity [101].
+
+4. Factors affecting the efficiency of phenolic removal using silver nanoparticles
+
+The removal of phenol and its derivatives usually depends on the size, morphology of nanoparticles and environmental factors such as pH, temperature, ionic strength and presence of competing pollutants. The size of silver nanoparticles plays a crucial role in removal of phenol and its derivatives. Smaller nanoparticles have high surface area to volume ratio which translates in high surface energy, resulting in increased number of active sites available for adsorption and catalytic degradation [85,92]. This enhanced surface, improves the interaction between AgNPs and phenolic molecules, which leads to higher removal efficiency [111]. However, agglomeration may occur in extremely small nanoparticles, reducing their effectiveness [112]. Therefore, it is necessary to use surfactants or capping agents like Tween 20 and Polyvinyl pyrrolidone to maintain optimal size for maximum efficiency [113,114].
+
+AgNPs of varying morphologies such as spherical, triangular, cubic and rod-like nanoparticles are used due to the difference in surface area and active sites available which affect the catalytic and adsorption ability [115]. Among these spherical AgNPs are used widely due to their uniform distribution and stability. These nanoparticles provide moderate reactivity and are effective in adsorption-based removal [116]. Rod-shaped AgNPs have enhanced surface area as compared to spherical AgNPs, which enhances its interaction with organic pollutants like phenolic compounds. However, the efficiency of nanostructures depends on dispersion stability [118]. Triangular and cubic AgNPs have high surface energy as they have more exposed facets, therefore they tend to exhibit better catalytic and adsorptive properties as compared to spherical silver nanoparticles [117]. Optimization of both morphology and size of AgNPs is essential for high efficiency in phenolic removal.
+
+Environmental factors such as pH and temperature greatly affect the efficiency of phenolic removal from the water system with the use of AgNPs. The pH of the water system affects the surface properties of silver nanoparticles and the chemical state of phenolic compounds [119]. Typically, slightly acidic to neutral  
+
+https://doi.org/10.26434/chemrxiv-2025-gzq66 ORCID: https://orcid.org/0009-0008-1072-7074 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+conditions (pH 5-7) increases the efficiency of phenol removal [121]. At high pH (basic) phenols tend to ionize into phenolate anions, that has negative charges, as AgNPs often develop negative surface charge, which may cause electrostatic repulsion that reduces adsorption efficiency [120]. Like pH, adsorption, catalytic degradation and photocatalytic degradation of phenolic compounds is highly dependent on temperature. At high temperature the kinetic energy of molecules increases which enhances their interaction with AgNPs [121]. High temperatures with light exposure increase the removal efficiency of photocatalytic degradation of phenol in the water system [122]. However, excessive temperature may destabilize AgNPs which may lead to agglomeration and reduced surface area, thereby lowering efficiency of removal [123].
+
+Other than pH and temperature the contaminants present in waste water alters the removal efficiency of phenol. Organic pollutants such as humic acid and fulvic acid are dissolved in water that can compete with phenol for adsorption sites on AgNPs [124]. These relatively large organic compounds from coating on the surface of AgNPs reducing phenolic removal, by blocking the active sites [125] disrupting the catalytic degradation of phenol and its derivatives in water. Some of the organic compounds like dyes, pesticides and pharmaceuticals reacts with phenolic compounds or alters the surface charge of AgNPs which may lead to unpredictable interaction that affects removal efficiency [126], heavy metals such as Pb$^{2+}$, Ca$^{2+}$ and Cd$^{2+}$ may catalytically reduce AgNPs, reducing their effectiveness [127]. Chlorides, sulfates and phosphates present in water bodies may react with AgNPs to form insoluble compounds like AgCl and AgSO$_4$, that decreases the available sites and surface area for phenol adsorptions [128].
+
+5. Challenges and Future Perspectives
+
+Environmental conditions such as high pH and high temperature may destabilize AgNPs and ionize phenol into phenolate anions which may decrease the removal efficiency of phenol in waste water [120,121]. AgNPs used in the removal of phenol and its derivatives when released into the environment have toxic effects on mammals, non-mammals and plants. The toxic effects on mammals were studied in an experiment in which Sprague-Dawley rats were exposed to AgNPs of size 18 nm of dose concentration 2.9X10$^6$ particles cm$^{-3}$. This experiment resulted in lung inflammation and damage to respiratory system [129]. In another similar study conducted by Kim et al. [130], Sprague-Dawley rats were ingested with AgNPs of size 60 nm which are mixed with diet for 28 weeks, which resulted in accumulation of AgNPs in kidney. In an experiment demonstrating the toxic effects of AgNPs on non-mammals, Zebrafish embryos were exposed to AgNPs of size 11.6 nm ± 3.5 nm for 120 hours. This resulted in 100 percent mortality and malformation of embryonic morphology [131]. A study on Lolium Multiflorum was conducted to evaluate the effects of AgNPs on plants in which L. multiflorum was exposed to AgNPs of size 6nm with concentration 1- 4 mgL$^{-1}$ for 7-21 days. This study reported the decrease in root and shoot length [132].
+
+Often the conventional methods used to synthesize AgNPs can be costly [133] and may require the use of harmful chemical such as NaBH$_4$ [134], dimethyl formamide (DMF) [135] and hydrazine [136] which acts as strong reducing agents, that reduces silver ions to metallic silver. Hydrazine has been ranked as a potential carcinogen by United Staes Environmental Protection Agency [137].
+
+Other than that, AgNPs reacts with phenol and form other phenolic derivatives such as quinone which is known to form covalent bonds with proteins, thus exhibiting adverse effects to humans [16]. Silver nanoparticles need to be modified by metallic oxides like TiO$_2$ [104] and ZnO [108,109] to enhance its catalytic and photocatalytic degradation for the removal of phenol and its derivatives. If not combined with organic or inorganic materials the removal efficiency of phenol is reduced [110].
+Due to the toxicity related to the conventional chemical synthesis and high cost of physical synthesis of silver nanoparticles, green synthesis which consist of microbial and plant mediated synthesis of AgNPs should be promoted and considered. This method is based on the use of non-toxic, non-hazardous and biobased compounds as reducing agents and reagents [138] which are biodegradable. In this microorganism or plant extracts are used as reducing agents which traditionally have higher biodegradability and bioavailability than conventionally used chemical reagents [139,140]. More research should be conducted to have a better understanding of the mechanism of plant mediated synthesis of AgNPs. Plant extracts can naturally reduce heavy metal ions such as Ag⁺ and can convert it to metallic Ag⁰ which then can be used to synthesize silver nanoparticles [142]. These plant compounds are cost effective as the reagents used can act as both reducing and capping agents therefore no additional chemical reagent like DMF [135] or PVP [139] is required, thus reducing the cost [139,141] and toxicity of AgNPs as these chemical reagents used in conventional methods can be hazardous to human health and environment. No additional medium is required to synthesize AgNPs in plant mediated synthesis as the nanoparticles are synthesized and nucleated within the plant tissue [143].
+
+Better understanding of microbial synthesis method especially viral mediated synthesis including TMV-bio template synthesis of AgNPs is needed as it is used to synthesize 1-D silver nanoparticles [144,145]. These 1-D AgNPs owing to their larger surface area enhances the adsorption and catalytic reduction of phenol [81,82]. Although other microbial methods such as fungi [146], bacteriogenic [139] and algae-mediated [147] synthesis of AgNPs can be slow and time-consuming process affecting its scalability, it uses non-hazardous reagents which can produce non-toxic biodegradable AgNPs that can reduce phenolic contamination in waste water without having adverse effects on human health and environment. However, more studies should be conducted to increase the scalability, stability and enhance the cost and time reduction of plant and microbial mediated synthesis silver nanoparticles.
+
+Nanocomposites such as AgNPs – TiO₂ and AgNPs – ZnO are used widely as these metal oxides enhances the photocatalytic activity of AgNPs [112]. These nanocomposites can significantly degrade phenolic compound and can also be effective against Azo dyes which consist of organic compounds such as 4-nitrophenol which not only has the odour problems but also reduces oxygen contents and blocks the sunlight from reaching the aquatic system [8,9]. However, the AgNPs tends to leach from TiO₂ and ZnO over time which may cause toxicity and reduce the photocatalytic efficiency. To prevent leaching of AgNPs from metal oxide, stabilizers like silica and carbon-based materials should be used [148]. As the bandgap of ZnO and TiO₂ for visible light adsorption via SPR is wide [104,105] metal oxide should be doped with transition metal such as Fe, Cu, Co to narrow the bandgap.
+
+**Conclusion**
+
+Phenol and its derivatives are organic compounds that are characterized by hydroxyl group attached to them. These compounds are widely used in industrial application and are recognized for their presence in industrial effluents of chemical industries, coal and gas industries, dye, textile and pharmaceutical industries. There potential to cause significant environmental damage and heath issue due to their toxicity and persistence in water has made the reduction and removal of phenolic derivatives a priority among researchers and scholars. Among the industrial effluents dyes are major source of contaminants, Azo dyes form almost 70% of the total water contamination which consist of 4-nitrophenol. These pollutants not only cause odour problems but also it reduces oxygen in water bodies and blocks the sunlight. However, adsorption and catalytic degradation can be used to reduce 4-nitropehol to 4-aminophenol by using AgNPs as catalyst. The phenolic contaminants are majorly sourced by anthropogenic and natural sources. The anthropogenic sources involve effluents from industrial sectors as phenol serves as a vital part of many products like paints, medicine, lubricants, herbicides and pesticides. Natural sources which consist of dead plants, animals and microorganism also contributes in phenolic contamination. These phenolic contaminants if not treated properly may be hazardous to humans.
+
+https://doi.org/10.26434/chemrxiv-2025-gzq66 ORCID: https://orcid.org/0009-0008-1072-7074 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+and may have adverse environmental impact. USEPA has categorized phenol and its derivatives such as chlorophenols, nitrophenol and dimethyldiphenols as potential toxic pollutants that cause vomiting, skin irritation and burning, they may also damage vital organs like kidney, lungs or liver. Silver nanoparticles due to their high surface area and reactivity, Surface Plasmon Resonance (SPR), Surface enhanced Raman scattering (SERS) are used as a catalyst in Adsorption, Catalytic degradation and Photocatalytic degradation of phenol from water system. Metal oxides such as TiO$_2$ and ZnO are used in phenolic degradation. These mechanisms depends on factors such as size and morphology and environmental factors such as pH and temperature. AgNPs of small size are ideal for removal of phenol as it has high surface area resulting in increased number active sites for adsorption and catalytic degradation. Spherical nanoparticles are commonly used. However, triangular and cubic AgNPs have greater removal efficiency, because of its high surface area. Typically, slightly acidic to neutral pH (5-7 pH) is preferred for the removal of phenol from waste water, as high pH may cause electrostatic repulsion. High temperature with light exposure enhances photocatalytic degradation of phenol and its derivatives. Phenols are rarely found in isolation and are always with organic and inorganic contaminants that might occupy the active sites on the surface of AgNPs, thus reducing the efficiency of phenol removal. AgNPs besides their ability to remove toxic phenolic contamination, when releases in the environment causes toxicity as the AgNPs are itself non-biodegradable and toxic. These nanoparticles may accumulate in kidney or other vital organs of mammals or adhere the growth of plants. The reducing agents used to synthesize AgNPs in conventional methods may be toxic chemicals such as NaBH$_4$ and hydrazine which are extremely toxic and potentially carcinogenic. To avoid this more emphasis should be on the green synthesis of AgNPs which includes plants and microbial mediated synthesis. Although these methods are time consuming but their cost effectiveness and non-toxic nature makes them ideal for the synthesis of AgNPs to remove phenol and its derivatives from water system.
+
+Reference
+
+[1] Kumar, B., Verma, V. K., Sharma, C. S., & Akolkar, A. B. (2014). Quick and easy method for determination of priority phenolic compounds in water and wastewater. 4(1), 46–52. https://doi.org/10.4081/XENO.2014.4680
+
+[2] Naidu, L. D., Saravanan, S., Goel, M., Periasamy, S., & Stroeve, P. (2016). A novel technique for detoxification of phenol from wastewater: Nanoparticle Assisted Nano Filtration (NANF). Iranian Journal of Environmental Health Science & Engineering, 14(1), 9. https://doi.org/10.1186/S40201-016-0249-8
+
+[3] Ahmaruzzaman, M., Gadore, V., Yadav, G., Roy, S., Bhattacharjee, B., Bhuyan, A., Hazarika, B., Darabdhara, J., & Kumari, K. (2024). Phenolic Compounds in Water: From Toxicity and Source to Sustainable Solutions - An Integrated Review of Removal Methods, Advanced Technologies, Cost Analysis, and Future Prospects. Journal of Environmental Chemical Engineering. https://doi.org/10.1016/j.jece.2024.112964
+
+[4] https://doi.org/10.30574/wjphs.2025.21.2.0197
+
+[5] M. Ismail, M.I. Khan, S.B. Khan, K. Akhtar, M.A. Khan, A.M. Asiri, Catalytic reduction of picric acid, nitrophenols and organic azo dyes via green synthesized plant supported Ag nanoparticles, J. Mol. Liq. 268 (2018) 87–101.
+
+[6] Y. Xu, B. Ren, R. Wang, L. Zhang, T. Jiao, Z. Liu, Facile preparation of rod-like MnO nanomixtures via hydrothermal approach and highly efficient removal of methylene blue for wastewater Treatment, Nano Science and Nano Technology: An Indian
+L. Keith, W. Telliard, ES&T special report: priority pollutants: I-a perspective view, Environ. Sci. Technol. 13 (1979) 416–423.
+
+C. Bruhn, H. Lenke, H.-J. Knackmuss, Nitrosubstituted aromatic compounds as nitrogen source for bacteria, Appl. Environ. Microbiol. 53 (1987) 208–210.
+
+A.N. Ejhieh, M. Khorsandi, Photodecolorization of eriochrome black T using NiS–P zeolite as a heterogeneous catalyst, J. Hazard. Mater. 176 (2010) 629–637.
+
+Bruce R. M., Santodonato J. and Neal M. W. Summary review of the health effects associated with phenol. Toxicology and Industrial Health 3, pp. 535–568, 1987.
+
+careghini A., Mastorgio A. F., Saponaro S. and Szenna E. Bisphenol A, nonylphenols, benzenophenones, and benzotriazoles in soils, groundwater, surface water, sediments, and food: a review. Environmental Science and Pollution Research 22, pp. 5711–5741, 2015.
+
+Montgomery-Brown J. and Reinhard M. Occurrence and behavior of alkylphenol polyethoxylates in the environment. Environmental Engineering Science 20, pp. 471–486, 2003.
+
+Saure T-Ig Nazi G. G. J., Begui N C., Barelle M., Markowicz Y., Pelmo Nt J. and Toussaint T. Characterization of a chromosomally encoded catechol 1.2-diokxygenase [E.C. 1.13.11.1.] from Alicgenes eutrophus CH34. Archives of Microbiology 166, 1996.
+
+Patnaik P. and Khoury J. N. Reaction of phenol with nitrite ion: Pathways of formation of nitrophenols in environmental waters. Water Research 38, pp. 206–210, 2004.
+
+EPA U. Water-Related Environmental Fate of 129 Priority Pollutants. Office of Water Planning and Standards, Office of Water and Waste Management, US Environmental Protection Agency, Washington, DC, 1979.
+
+Schweigert N., Zehnder A. J. and Eggen R. I. Chemical properties of catechols and their molecular modes of toxic action in cells, from microorganisms to mammals. Environmental Microbiology 3, pp. 81–91, 2001.
+
+Schweigert N., Hunziker R. W., Escher B. I. and Eggen R. I. Acute toxicity of (chloro-) catechols and (chloro-) catechol-copper combinations in Escherichia coli corresponds to their membrane toxicity in vitro. Environmental Toxicology and Chemistry 20, pp. 239–247, 2001.
+
+Muñoz-de-Toro M., Markey C. M., Wadia P. R., Luque E. H., Rubin B. S., Sonnenschein C. and Soto A. M. Perinatal exposure to bisphenol-A alters peripubertal mammary gland development in mice. Endocrinology 146, pp. 4138–4147, 2005.
+
+Vom Saal F. S. and Hughes C. An extensive new literature concerning low-dose effects of bisphenol A shows the need for a new risk assessment. Environmental Health Perspectives, 133, pp. 926–933, 2005.
+
+Health U. D. O. and Services H. Agency for Toxic Substances and Disease Registry. Toxicological Profile for Asbestos. Update. Agency for Toxic Substances and Disease Registry, Atlanta, US, 1999.
+
+Li Y. and Trush M. A. Reactive oxygen-dependent DNA damage resulting from the oxidation of phenolic compounds by a copper-redox cycle mechanism. Cancer Research 54, pp. 1895s–1898s, 1994.
+[22] Gosselin R. E., Smith R. P. and Hodge H. C. Clinical Toxicology Of Commercial Products. Williams & Wilkins, Baltimore, 1984.
+
+[23] Schweigert N., Belkin S., Leong-Morgenthaler P., Zehnder A. J. and Eggen R. I. Combinations of chlorocatechols and heavy metals cause DNA degradation in vitro but must not result in increased mutation rates in vivo. Environmental and Molecular Mutagenesis 33, pp. 202–210, 1999.
+
+[24] Zhang L., Wang Y., Shang N. and Smith M. T. Benzene metabolites induce the loss and long arm deletion of chromosomes 5 and 7 in human lymphocytes. Leukemia Research 22, pp. 105–113, 1998.
+
+[25] Fox M. Photocatalysis and Environment: Trends and Applications. New York: Academic Publishers, pp. 445–467, 1988.
+
+[26] Dursun G., Cicek H. and Dursun A. Y. Adsorption of phenol from aqueous solution by using carbonised beet pulp. Journal of Hazardous Materials 125, pp. 175–182, 2005.
+
+[27] Ugurlu M., Gurses A., Yalcin M. and Dogar C. Removal of phenolic and lignin compounds from bleached kraft mill effluent by fly ash and sepiolite. Adsorption 11, pp. 87–97, 2005.
+
+[28] Laoufi N., Tassalit D. and Bentahar F. The degradation of phenol in water solution by TiO2 photocatalysis in a helical reactor. Global NEST Journal 10, pp. 404–418, 2008.
+
+[29] Mirian Z.-A. and Nezamzadeh-Ejhieh A. Removal of phenol content of an industrial wastewater via a heterogeneous photodegradation process using supported FeO onto nanoparticles of Iranian clinoptilolite. Desalination and Water Treatment 57, pp. 16483–16494, 2016.
+
+[30] Shahrezaei F., Akhbari A. and Rostami A. Photodegradation and removal of phenol and phenolic derivatives from petroleum refinery wastewater using nanoparticles of TiO2. International Journal of Energy and Environment 3, pp. 267–274, 2012.
+
+[31] Al-Kandari H., Abdullah A., Mohamed A. and Al-Kandari S. Enhanced photocatalytic degradation of a phenolic compounds’ mixture using a highly efficient TiO2/reduced graphene oxide nanocomposite. Journal of Materials Science 114, pp. 1–15, 2016.
+
+[32] Abdollahi Y., Abdullah A. H., Zainal Z. and Yusof N. A. Photocatalytic degradation of p-Cresol by zinc oxide under UV irradiation. International Journal of Molecular Sciences 13, pp. 302–315, 2011.
+
+[33] Asmaly H. A., Abuissaad B., Saleh T. A., Gupta V. K. and Atieh M. A. Ferric oxide nanoparticles decorated carbon nanotubes and carbon nanofibers: From synthesis to enhanced removal of phenol. Journal of Saudi Chemical Society 19, pp. 511–520, 2015.
+
+[34] Feng Y.-B., Hong L., Liu A.-L., Chen W.-D., Li G.-W., Chen W. and Xia X.-H. High-efficiency catalytic degradation of phenol based on the peroxidase-like activity of cupric oxide nanoparticles. International Journal of Environmental Science and Technology 12, pp. 653–660, 2015.
+
+[35] M.D.G. de Luna, W. Budianta, K.K.P. Rivera, R.O. Arazo, Removal of sodium diclofenac from aqueous solution by adsorbents derived from cocoa pod husks, J. Environ. Chem. Eng. 5 (2) (2017) 1465–1474.
+[36] Kędzierska, M.; Drabczyk, A.; Jamrozy, M.; Kudłacik-Kramarczyk, S.; Głab, M.; Tyłiszczak, B.; Bańkosz, W.; Potemski, P. The Synthesis Methodology and Characterization of Nanogold-Coated Fe3O4 Magnetic Nanoparticles. Materials 2022, 15, 3383.[CrossRef]
+
+[37] Maccora, D.; Dini, V.; Battocchio, C.; Fratoddi, I.; Cartoni, A.; Rotili, D.; Castagnola, M.; Faccini, R.; Bruno, I.; Scotognella, T.; et al. Gold Nanoparticles and Nanorods in Nuclear Medicine: A Mini Review. Appl. Sci. 2019, 9, 3232. [CrossRef]
+
+[38] Proposito, P.; Burratti, L.; Venditti, I. Silver Nanoparticles as Colorimetric Sensors for Water Pollutants. Chemosensors 2020, 8, 26.[CrossRef]
+
+[39] Kodoth, A.K.; Badalamoole, V. Silver nanoparticle-embedded pectin-based hydrogel for adsorptive removal of dyes and metal ions. Polym. Bull. 2020, 77, 541–564. [CrossRef]
+
+[40] Busca, G., Berardinelli, S., Resini, C., Arrighi, L., 2008. Technologies for the removal of phenol from fluid streams: a short review of recent developments. J. Hazard Mater.160, 265–288.
+
+[41] Shourian, M., Noghabi, K., Zahin, H., Baghen, J., Karaballaei, G., Mollaie, M., 2009. Efficient phenol degradation by a newly characterized Pseudomonas species. isolated from pharmaceutical wastewater. Desalination Water Treat. 246, 577–594.
+
+[42] Wang, Y., Zhao, L., Hou, J., Peng, H., Wu, J., Liu, Z., Guo, X., 2018. Kinetic, isotherm, and thermodynamic studies of the adsorption of dyes from aqueous solution by cellulose-based adsorbents. Water Sci. Technol. 77, 2699–2708.
+
+[43] Murniati, M.D.G.L., Budianta, W., Rivera, K.K.P., Arazo, R.O., 2017. Removal of sodium diclofenac from aqueous solution by adsorbents derived from cocoa pod husks. J. Environ. Chem. Eng.
+
+[44] Bhatnagar A. and Minocha A. Conventional and non-conventional adsorbents for removal of pollutants from water-a review. Indian Journal of Chemical Technology 13, pp. 203–217, 2006.
+
+[45] Mohamed E. F., Andriantsiferana C., Wilhelm A.-M. and Delmas H. Competitive adsorption of phenolic compounds from aqueous solution using sludge-based activated carbon. Environmental Technology 32, pp. 1325–1336, 2011.
+
+[46] Paasivirta J. H. K., Humppi T., Karjalainen A., Knutinen J., Maäntykoski K., Paukku R., Piilola T., Surma-Aho K., Tarhanen J., Welling L. and Vihonen H. Polychlorinated phenols, guaiacols and catechols in environment. Chemosphere 14, pp. 469–491, 1985.
+
+[47] Takht Ravanchi, M.; Kaghazchi, T.; Kargari, A. Application of membrane separation processes in petrochemical industry: A review. Desalination 2009, 235, 199–244. [CrossRef]
+
+[48] Mohammadi, S.; Kargari, A.; Sanaeepur, H.; Abbassian, K.; Najafi, A.; Mofarrah, E. Phenol removal from industrial wastewaters: A short review. Desalin. Water Treat. 2015, 53, 2215–2234. [CrossRef]
+
+[49] Ahmed, S.; Rasul, M.G.; Martens, W.N.; Brown, R.; Hashib, M.A. Heterogeneous photocatalytic degradation of phenols in wastewater: A review on current status and developments. Desalination 2010, 261, 3–18. [CrossRef]
+
+[50] Veeresh, G.S.; Kumar, P.; Mehrotra, I. Treatment of phenol and cresols in upflow anaerobic sludge blanket (UASB) process: A review. Water Res. 2005, 39, 154–170. [CrossRef]
+[51] Vazquez, I.; Rodriguez-Iglesias, J.; Maranon, E.; Castrillon, L.; Alvarez, M. Removal of residual phenols from coke wastewater by adsorption. J. Hazard. Mater. 2007, 147, 395–400. [CrossRef].
+
+[52] M. Sprynskyy.; M. Lebedynets.; J.Namiesnik.; B.Buszewski Phenolics occurrence in surface water of Dniesterriver basin (West Ukraine): natural background and industrial pollution. DOI: 10.1007/s00254-00619-0
+
+[53] McBain A., Senior E., Paterson A., Plessis C. and Watson-Craik I. Bioremediation of soil contaminated with 4-chloro-2-methylphenoxyacetic acid (MCPA): essential laboratory studies. South African Journal of Science 92, pp. 426–430, 1996.
+
+[54] Różański L. Transformation of pesticides in the living organisms and the environment. Agra-Enviro Lab, Poznań, pp. 290–292, 1998.
+
+[55] Laine M. M. and Jorgensen K. S. Straw compost and bioremediated soil as inocula for the bioremediation of chlorophenol-contaminated soil. Applied and Environmental Microbiology 62, pp. 1507–1513, 1996.
+
+[56] Davidson R. S. The photodegradation of some naturally occurring polymers. Journal of Photochemistry and Photobiology B: Biology 33, pp. 3–25, 1996.
+
+[57] USEPA. Ambient Water Quality Criteria DOC: Phenol. US EPA-440/5-80-066 (PB 81-117772). pp. 1100–1156, 1980.
+
+[58] Sheets Fact. Breast Cancer & The Environment Research Centers. 2007.
+
+[59] Tsuruta Y., Watanabe S. and Inoue H. Fluorometric determination of phenol and p-cresol in urine by precolumn high-performance liquid chromatography using 4-(N-phthalimidinyl) benzenesulfonyl chloride. Analytical Biochemistry 243, pp. 86–91, 1996.
+
+[60] Toms A. and Wood J. M. Degradation of trans-ferulic acid by Pseudomonas acidovorans. Biochemistry 9, pp. 337–343, 1970.
+
+[61] Max B., Tugores F., Cortés-Diéquez S. and Domínguez J. M. Bioprocess design for the microbial production of natural phenolic compounds by Debaryomyces hansenii. Applied Biochemistry and Biotechnology 168, pp. 2268–2284, 2012.
+
+[62] Ghosh S., Ashish Sachan S. K. S. and Mitra A. Microbial transformation of ferulic acid to vanillic acid by Streptomyces sannanensis MTCC 6637. Journal of Industrial Microbiology and Biotechnology 34, pp. 131–138, 2007.
+
+[63] Daniel O., Meier M. S., Schlatter J. and Frischknecht P. Selected phenolic compounds in cultivated plants: ecologic functions, health implications, and modulation by pesticides. Environmental Health Perspectives 107, p. 109, 1999.
+
+[64] Ignat I., Volf I. and Popa V. I. A critical review of methods for characterisation of polyphenolic compounds in fruits and vegetables. Food Chemistry 126, pp. 1821–1835, 2011.
+
+[65] D Archivio M., Filesi C., Di Benedetto R., Gargiulo R., Giovannini C. and Masella R. Polyphenols, dietary sources and bioavailability. Annali-Istituto Superiore di Sanita 43, p. 348, 2007.
+
+[66] Bravo L. Polyphenols: chemistry, dietary sources, metabolism, and nutritional significance. Nutrition Reviews 56, pp. 317–333, 1998.
+[67] Sánchez-Moreno, C. (2002). Polyphenolic compounds: Structure and classification. Presence in food and consumption. Bioavailability and metabolism. Food 329, PP. 19-27, 2002.
+
+[68] The list of priority substances in the field of water policy and amending directive, Council directive 2455/2001/ECC. Official Journal L331, November 20, 2001, 1-5.
+
+[69] Raza, W.; Lee, J.; Raza, N.; Luo, Y.W.; Kim, K.H.; Yang, J.H. Removal of phenolic compounds from industrial waste water based on membrane-based technologies. J. Ind. Eng. Chem. 2019, 71, 1–18. [CrossRef]
+
+[70] Narayanan, M.; Ali, S.S.; El-Sheekh, M. A comprehensive review on the potential of microbial enzymes in multipollutant bioremediation: Mechanisms, challenges, and future prospects. J. Environ. Manag. 2023, 334, 117532. [CrossRef] [PubMed]
+
+[71] Alshabib, M.; Onaizi, S.A. A review on phenolic wastewater remediation using homogeneous and heterogeneous enzymatic processes: Current status and potential challenges. Sep. Purif. Technol. 2019, 219, 186–207. [CrossRef].
+
+[72] Chand Meena, M.; Band, R.; Sharma, G. Phenol and its toxicity: A case report. Iran. J. Toxicol. 2015, 8, 1222–1224.
+
+[73] Michalowicz, J.; Wluka, A.; Bukowska, B. A review on environmental occurrence, toxic effects and transformation of man-made bromophenols. Sci. Total Environ. 2022, 811, 152289. [CrossRef] [PubMed].
+
+[74] Sabnis, R. Manufacture of dye intermediates, dyes, and their industrial applications. In Handbook of Industrial Chemistry and Biotechnology; Spring: Berlin/Heidelberg, Germany, 2017; pp. 581–676.
+
+[75] Castro, A.M.; Nogueira, V.; Lopes, I.; Rocha-Santos, T.; Pereira, R. Evaluation of the Potential Toxicity of Effluents from the Textile Industry before and after Treatment. Appl. Sci. 2019, 9, 3804. [CrossRef]
+
+[76] Sher, F.; Hanif, K.; Iqbal, S.Z.; Imran, M. Implications of advanced wastewater treatment: Electrocoagulation and electroflocculation of effluent discharged from a wastewater treatment plant. J. Water Process Eng. 2020, 33, 101101. [CrossRef]
+
+[77] Ben Fradj, A.; Boubakri, A.; Hafiane, A.; Ben Hamouda, S. Removal of azoic dyes from aqueous solutions by chitosan enhanced ultrafiltration. Results Chem. 2020, 2, 100017. [CrossRef]
+
+[78] Güleç, F.; Sher, F.; Karaduman, A. Catalytic performance of Cu- and Zr-modified beta zeolite catalysts in the methylation of 2-methylnaphthalene. Pet. Sci. 2018, 16, 161–172. [CrossRef]
+
+[79] Kausar, A.; Naeem, K.; Hussain, T.; Nazli, Z.-I.; Bhatti, H.N.; Jubeen, F.; Nazir, A.; Iqbal, M. Preparation and characterization of chitosan/clay composite for direct Rose FRN dye removal from aqueous media: Comparison of linear and non-linear regression methods. J. Mater. Res. Technol. 2019, 8, 1161–1174. [CrossRef]
+
+[80] Moussavi M. Effect of polar substituents on autooxidation of phenols. Water Research 13, pp. 1125–1128, 1979.
+
+[81] B. Naïk, S. Hazra, V. S. Prasad and N. N. Ghosh, Catal. Commun., 2011, 12, 1104–1108.
+
+[82] T. M. Tolaymat, A. M. El Badawy, A. Genaidy, K. G. Scheckel, T. P. Luxton and M. Suidan, Sci. Total Environ., 2010, 408,999–1006.
+
+[83] X. M. Qian and S. M. Nie, Chem. Soc. Rev., 2008, 37, 912–920.
+[84] B. Roy, P. Bairi and A. K. Nandi, Analyst, 2011, 136, 3605–3607.
+
+[85] Virenque, L., & Sahin, O. (2023). The role of AgNPs in selective oxidation of benzyl alcohol in vapor phase using morphologically tailored MnO2 nanorods in the presence of air. Chemical Engineering Journal, 469, 144007. https://doi.org/10.1016/j.cej.2023.144007
+
+[86] Winterton, R. H. S. (1970). Van der Waals forces. Contemporary Physics, 11(6), 559–574. https://doi.org/10.1080/00107517008202194
+
+[87] Wang, M., Mo, F., Li, H., Li, Y., Zhang, S., Zhu, L., Li, Z., Xu, J., Ningcan, D., Wang, K., Yang, Y., & Kong, Y. (2021). Adsorption Based on Weak Interaction between Phenolic Hydroxyl, Carboxyl Groups and Silver Nanoparticles in Aqueous Environment: Experimental and DFT-D3 Exploration. Journal of Environmental Chemical Engineering, 9(6), 106816. https://doi.org/10.1016/J.JECE.2021.106816
+
+[88] Carrasco, J., Liu, W., Michaelides, A., & Tkatchenko, A. (2014). Insight into the description of van der Waals forces for benzene adsorption on transition metal (111) surfaces. Journal of Chemical Physics, 140(8), 084704. https://doi.org/10.1063/1.4866175
+
+[89] Zhang, X., Ke, X., Du, A., & Zhu, H. (2015). Plasmonic nanostructures to enhance catalytic performance of zeolites under visible light. Scientific Reports, 4(1), 3805. https://doi.org/10.1038/SREP03805
+
+[90] Alhokbany, N., Ahama, T., Naushad, Mu., & Alshehri, S. M. (2019). AgNPs embedded N-doped highly porous carbon derived from chitosan based hydrogel as catalysts for the reduction of 4-nitrophenol. Composites Part B-Engineering, 173, 106950. https://doi.org/10.1016/J.COMPOSITESB.2019.106950
+
+[91] L.F. Liotta, M. Gruttadauria, G.D. Carlo, G. Perrini and V. Librando, J. Hazard. Mater. 162, 588 (2009). doi:10.1016/j.jhazmat.2008.05.115.
+
+[92] Q. Guo, G. Li, D. Liu and Y. Wei, Solid State Sci. 91, 89 (2019). doi:10.1016/j.solidstatesciences.2019.03.016
+
+[93] Khan, Z. U. H., Khan, Z. U. H., Khan, A., Chen, Y. M., Shah, N. S., Khan, A. U., Muhammad, N., Tahir, K., Shah, H. U., Khan, Z. U., Shakeel, M., Nadeem, M., Imran, M., & Wan, P. (2018). Enhanced antimicrobial, anti-oxidant applications of green synthesized AgNPs- an acute chronic toxicity study of phenolic azo dyes & study of materials surface using X-ray photoelectron spectroscopy. Journal of Photochemistry and Photobiology B-Biology, 180, 208–217. https://doi.org/10.1016/J.JPHOTOBIOL.2018.02.015
+
+[94] Guo, Y., Cichocki, N., Schattenberg, F., Geffers, R., Harms, H., & Müller, S. (2019). AgNPs Change Microbial Community Structures of Wastewater. Frontiers in Microbiology, 9, 3211. https://doi.org/10.3389/FMICB.2018.03211
+
+[95] Li, C., Liu, Z., Xu, Y., Chen, X., Zhang, Q., Hu, L., Lv, Z., Liu, X., Xiao, T., Li, D., & Li, J. (2024). AgNPs-induced oxidative stress and inflammation confer an increased susceptibility to aquatic reovirus infection. Aquaculture, 586, 740748. https://doi.org/10.1016/j.aquaculture.2024.740748
+
+[96] Friedrich, L. C., Zanta, C. L. de P. e S., Machulek, A., Silva, V. O., & Quina, F. H. (2012). Interference of inorganic ions on phenol degradation by the Fenton reaction. Scientia Agricola, 69(6), 347–351. https://doi.org/10.1590/S0103-90162012000600001
+
+[97] Miranda, R. R., Oliveira, A. C. S., Skytte, L., Rasmussen, K. L., & Kjeldsen, F. (2022). Proteome-wide analysis reveals molecular pathways affected by AgNP in a ROS-dependent manner. Nanotoxicology, 16(1), 73–87. https://doi.org/10.1080/17435390.2020.2036844
+
+[98] Rani, P., Kumar, V., Singh, P., Matharu, A. S., Zhang, W., Kim, K.-H., Singh, J., & Rawat, M. (2020). Highly stable AgNPs prepared via a novel green approach for catalytic and photocatalytic removal of biological
+and non-biological pollutants. *Environment International, 143*, 105924. https://doi.org/10.1016/J.ENVINT.2020.105924
+
+[99] Ahmed, O. H., Altarawneh, M., Al-Harahsheh, M., Jiang, Z.-T., & Dlugogorski, B. Z. (2020). Formation of phenoxy-type Environmental Persistent Free Radicals (EPFRs) from dissociative adsorption of phenol on Cu/Fe and their partial oxides. *Chemosphere, 240*, 124921. https://doi.org/10.1016/J.CHEMOSPHERE.2019.124921
+
+[100] Terzian, R., Serpone, N., & Fox, M. A. (1995). Primary radicals in the photo-oxidation of aromatics — reactions of xylenols with •OH, N3• and H• radicals and formation and characterization of dimethylphenoxy, dihydroxydimethylcyclohexadienyl and hydroxydimethylcyclohexadienyl radicals by pulse radiolysis. *Journal of Photochemistry and Photobiology A-Chemistry, 90*, 125–135. https://doi.org/10.1016/1010-6030(95)04090-3
+
+[101] Laoufi N., Tassalit D. and Bentahar F. The degradation of phenol in water solution by TiO2 photocatalysis in a helical reactor. *Global NEST Journal* 10, pp. 404–418, 2008
+
+[102] Dursun G., Cicik H. and Dursun A. Y. Adsorption of phenol from aqueous solution by using carbonised beet pulp. *Journal of Hazardous Materials* 125, pp. 175–182, 2005
+
+[103] Ugurlu M., Gurses A., Yalcin M. and Dogar C. Removal of phenolic and lignin compounds from bleached kraft mill effluent by fly ash and sepiolite. *Adsorption* 11, pp. 87–97, 2005
+
+[104] Shahrezaei F., Akhbari A. and Rostami A. Photodegradation and removal of phenol and phenolic derivatives from petroleum refinery wastewater using nanoparticles of TiO2.International Journal of Energy and Environment 3, pp. 267–274, 2012.
+
+[105] Pitre, S. P., Yoon, T. P., & Scaiano, J. C. (2017). Titanium dioxide visible light photocatalysis: surface association enables photocatalysis with visible light irradiation. *Chemical Communications, 53*(31), 4335–4338. https://doi.org/10.1039/C7CC01952
+
+[106] V. Vaiano, O. Sacco, M. Stoller, A. Chianese, P. Ciambelli and D. Sannino, Int. J. Chem. React.Eng. 12, 63 (2014). doi:10.1515/ijcre-2013-0090.
+
+[107] Cassaignon, S., Colbeau-Justin, C., & Durupthy, O. (2013). *Titanium Dioxide in Photocatalysis* (pp. 153–188). Springer, London. https://doi.org/10.1007/978-1-4471-4213-3_6
+
+[108] Stanley, R.; Jebasingh, J.A.; Manisha Vidyavathy, S.; Stanley, P.K.; Ponmani, P.; Shekinah, M.; Vasanthi, J. Excellent Photocatalytic degradation of Methylene Blue, Rhodamine B and Methyl Orange dyes by Ag-ZnO nanocomposite under natural sunlight irradiation. Optik 2021, 231, 166518. [CrossRef]
+
+[109] Thi, V.H.T.; Cao, T.H.; Pham, T.N.; Pham, T.T.; Le, M.C. Synergistic Adsorption and Photocatalytic Activity under Visible Irradiation Using Ag-ZnO/GO Nanoparticles Derived at Low Temperature. J. Chem. 2019, 2019, 2979517. [CrossRef]
+
+[110] Wang, L.; Lu, F.; Liu, Y.; Wu, Y.; Wu, Z. Photocatalytic degradation of organic dyes and antimicrobial activity of silver nanoparticles fast synthesized by flavonoids fraction of Psidium guajava L. leaves. J. Mol. Liq. 2018, 263, 187–192. [CrossRef]
+
+[111] Denrah, S., & Sarkar, M. (2019). Design of experiment for optimization of nitrophenol reduction by green synthesized silver nanocatalyst. *Chemical Engineering Research & Design, 144*, 494–504. https://doi.org/10.1016/J.CHERD.2019.02.021
+
+[112] Naidu, L. D., Saravanan, S., Goel, M., Periasamy, S., & Stroeve, P. (2016). A novel technique for detoxification of phenol from wastewater: Nanoparticle Assisted Nano Filtration (NANF). *Iranian Journal of Environmental Health Science & Engineering, 14*(1), 9. https://doi.org/10.1186/S40201-016-0249-8
+[113] Orrico, M., Pota, G., Venezia, V., de Gennaro, B., Landi, G., Tescione, F., Pezzella, A., Luciani, G., & Silvestri, B. (2024). Phenolic driven decoration of silica with Ag nanoparticles: Towards sustainable water remediation. *Journal of Water Process Engineering*. [https://doi.org/10.1016/j.jwpe.2024.105079](https://doi.org/10.1016/j.jwpe.2024.105079)
+
+[114] Gasser, C. A., Yu, L., Svojitka, J., Wintgens, T., Ammann, E. M., Shahgaldian, P., Corvini, P. F.-X., Corvini, P. F.-X., & Hommes, G. (2014). Advanced enzymatic elimination of phenolic contaminants in wastewater: a nano approach at field scale. *Applied Microbiology and Biotechnology*, 98(7), 3305–3316. [https://doi.org/10.1007/S00253-013-5414-8](https://doi.org/10.1007/S00253-013-5414-8)
+
+[115] Nguyen, T.-D., Nguyen, T.-D., Dang, C.-H., & Mai, D.-T. (2018). Biosynthesized AgNP capped on novel nanocomposite 2-hydroxypropyl-β-cyclodextrin/alginate as a catalyst for degradation of pollutants. *Carbohydrate Polymers*, 197, 29–37. [https://doi.org/10.1016/J.CARBPOL.2018.05.077](https://doi.org/10.1016/J.CARBPOL.2018.05.077)
+
+[116] Tang, H., Meng, G., Huang, Q., Zhang, Z., Huang, Z., & Zhu, C. (2012). Arrays of Cone-Shaped ZnO Nanorods Decorated with Ag Nanoparticles as 3D Surface-Enhanced Raman Scattering Substrates for Rapid Detection of Trace Polychlorinated Biphenyls. *Advanced Functional Materials*, 22(1), 218–224. [https://doi.org/10.1002/ADFM.201102274](https://doi.org/10.1002/ADFM.201102274)
+
+[117] Ajitha, B., Kumar Reddy, Y. A., Kim, M. J., Jeon, H.-J., & Ahn, C. W. (2016). Superior catalytic activity of synthesized triangular silver nanoparticles with optimized sizes and shapes. *Catalysis Science & Technology*, 6(23), 8289–8299. [https://doi.org/10.1039/C6CY01948J](https://doi.org/10.1039/C6CY01948J)
+
+[118] Fernando, I., & Zhou, Y. (2019). Impact of pH on the stability, dissolution and aggregation kinetics of silver nanoparticles. *Chemosphere*, 216, 297–305. [https://doi.org/10.1016/J.CHEMOSPHERE.2018.10.122](https://doi.org/10.1016/J.CHEMOSPHERE.2018.10.122)
+
+[119] Gebru, H., Cui, S., Li, Z., Wang, X., Xianfu, P., Liu, J., & Guo, K. (2017). Facile pH-Dependent Synthesis and Characterization of Catechol Stabilized Silver Nanoparticles for Catalytic Reduction of 4-Nitrophenol. *Catalysis Letters*, 147(8), 2134–2143. [https://doi.org/10.1007/S10562-017-2100-Y](https://doi.org/10.1007/S10562-017-2100-Y)
+
+[120] Caetano, M., Valderrama, C., Farran, A., & Cortina, J. L. (2009). Phenol removal from aqueous solution by adsorption and ion exchange mechanisms onto polymeric resins. *Journal of Colloid and Interface Science*, 338(2), 402–409. [https://doi.org/10.1016/J.JCIS.2009.06.062](https://doi.org/10.1016/J.JCIS.2009.06.062)
+
+[121] Vasudevan, S. (2014). An efficient removal of phenol from water by peroxi-electrocoagulation processes. *Journal of Water Process Engineering*, 2, 53–57. [https://doi.org/10.1016/J.JWPE.2014.05.002](https://doi.org/10.1016/J.JWPE.2014.05.002)
+
+[122] Mohan, G. K., Meenachi, S., Kiruthika, K., & Kirthiga, D. (2025). Unveiling Optimal Conditions for Phenol Degradation: Response Surface Methodology and ANOVA Analysis of ZnO and Ag-Doped ZnO Photocatalysts. *Nature Environment and Pollution Technology*, 24(S1), 293–303. [https://doi.org/10.46488/nept.2024.v24is1.022](https://doi.org/10.46488/nept.2024.v24is1.022)
+
+[123] Su, Y., Zhao, X., Bi, Y., & Han, X. (2019). ZnO/Ag–Ag2O microstructures for high-performance photocatalytic degradation of organic pollutants. *Clean Technologies and Environmental Policy*, 21(2), 367–378. [https://doi.org/10.1007/S10098-018-1641-0](https://doi.org/10.1007/S10098-018-1641-0)
+
+[124] Bhatia, M., & Charola, S. (2019). Phenol removal using non-ionic resin bed from industrial waste water. *International Journal of Advance Research and Innovative Ideas in Education*, 5(3), 601–606. [https://www.ijariie.com/FormDetails.aspx?MenuScriptId=149174](https://www.ijariie.com/FormDetails.aspx?MenuScriptId=149174)
+
+[125] Anku, W. W., Mamo, M. A., & Govender, P. P. (2017). *Phenolic Compounds in Water: Sources, Reactivity, Toxicity and Treatment Methods*. IntechOpen. [https://doi.org/10.5772/66927](https://doi.org/10.5772/66927)
+
+[126] kumar, L. (2021). *The Removal of phenolic compounds from water using natural adsorbnt*. I(01).
+
+[127] Hamad, H. T. (2021). Removal of phenol and inorganic metals from wastewater using activated ceramic. *Journal of King Saud University: Engineering Sciences*, 33(4), 221–226. [https://doi.org/10.1016/J.JKSUES.2020.04.006](https://doi.org/10.1016/J.JKSUES.2020.04.006)
+[128] Shi, H.-X., Liu, S., Guo, J., Fang, F., Chen, Y., & Yan, P. (2023). Potential Role of Agnps within Wastewater in Deteriorating Sludge Floc Structure and Settleability During Activated Sludge Process: Filamentous Bacteria and Quorum Sensing. https://doi.org/10.2139/ssrn.4577974
+
+[129] J. H. Sung, J. H. Ji, J. U. Yoon, D. S. Kim, M. Y. Song, J. Jeong, B. S. Han, J. H. Han, Y. H. Chung, J. Kim, T. S. Kim, H. K. Chang, E. J. Lee, J. H. Lee and I. J. Yu, Inhalation Toxicol., 2008, 20, 567–574.
+
+[130] Y. S. Kim, J. S. Kim, H. S. Cho, D. S. Rha, J. M. Kim, J. D. Park, B. S. Choi, R. Lim, H. K. Chang, Y. H. Chung, I. H. Kwon, J. Jeong, B. S. Han and I. J. Yu, Inhalation Toxicol., 2008, 20, 575–583.
+
+[131] O. Bar-Ilan, R. M. Albrecht, V. E. Fako and D. Y. Furgeson, Small, 2009, 5, 1897–1910.
+
+[132] dx.doi.org/10.1021/es103995x
+
+[133] Zhang, K.-X.; Wen, X.; Yao, C.-B.; Li, J.; Zhang, M.; Li, Q.-H.; Sun, W.-J.; Wu, J.-D. Chem. Phys. Lett. 2018, 698, 147–151. doi:10.1016/j.cplett.2018.03.018
+
+[134] Solanki, J. N.; Murthy, Z. V. P. Ind. Eng. Chem. Res. 2011, 50, 7338–7344. doi:10.1021/ie200536q
+
+[135] Iravani, S.; Korbekandi, H.; Mirmohammadi, S. V.; Zolfaghari, B. Res. Pharm. Sci. 2014, 9, 385–406.
+
+[136] Goswami, S.; Aich, K.; Das, S.; Basu Roy, S.; Pakhira, B.; Sarkar, S. RSC Adv. 2014, 4, 14210–14214. doi:10.1039/c3ra46663a
+
+[137] EPA, Risk Information System Division. Chemical Assessment Summary of Hydrazine/Hydrazine sulfate. https://cfpub.epa.gov/ncea/iris2/chemicalLanding.cfm?substance_nmbr=352.
+
+[138] Sharma, V. K.; Yngard, R. A.; Lin, Y. Adv. Colloid Interface Sci. 2009, 145, 83–96. doi:10.1016/j.cis.2008.09.002
+
+[139] Rafique, M.; Sadaf, I.; Rafique, M. S.; Tahir, M. B. Artif. Cells, Nanomed., Biotechnol. 2017, 45, 1272-1291. doi:10.1080/21691401.2016.1241792
+
+[140] Srikar, S. K.; Giri, D. D.; Pal, D. B.; Mishra, P. K.; Upadhyay, S. N. Green Sustainable Chem. 2016, 6, 34–56. doi:10.4236/gsc.2016.61004
+
+[141] Iravani, S. Green Chem. 2011, 13, 2638–2650. doi:10.1039/c1gc15386b
+
+[142] Khan, M.; Shaik, M. R.; Adil, S. F.; Khan, S. T.; Al-Warthan, A.; Siddiqui, M. R. H.; Tahir, M. N.; Tremel, W. Dalton Trans. 2018, 47, 11988–12010. doi:10.1039/c8dt01152d
+
+[143] Gardea-Torresdely, J. L.; Gomez, E.; Peralta-Videa, J. R.; Parsons, J. G.; Troiani, H.; Jose-Yacaman, M. Langmuir 2003, 19, 1357–1361. doi:10.1021/la020835i
+
+[144] Lee, S.-Y.; Royston, E.; Culver, J. N.; Harris, M. T. Nanotechnology 2005, 16, S435–S441. doi:10.1088/0957-4484/16/7/019
+
+[145] Thangavelu, R. M.; Ganapathy, R.; Ramasamy, P.; Krishnan, K. Arabian J. Chem. 2020, 13, 2750–2765. doi:10.1016/j.arabjc.2018.07.006
+
+[146] Sastry, M.; Ahmad, A.; Islam Khan, M.; Kumar, R. Curr. Sci. 2003, 85, 162–170
+
+[147] Shahverdi AR, Minaeian S, Shahverdi HR, Jamalifar H, Nohi A. Rapid synthesis of silver nanoparticles using culture supernatants of Enterobacteria: A novel biological approach Process Biochemistry. 2007;42:919-923.
+
+[148] Zhang, Q., Li, J. X., & Xu, M. (2022). Ag-decorated ZnO-based nanocomposites for visible light-driven photocatalytic degradation: basic understanding and outlook. 55(48), 483001. https://doi.org/10.1088/1361-6463/ac941a

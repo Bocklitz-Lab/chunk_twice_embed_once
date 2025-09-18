@@ -1,0 +1,9 @@
+model_id,model_name,revision,dataset,ndcg_at_10,rank_in_ds,count_in_ds,rank_pct
+nomic-ai/nomic-embed-text-v1@0759316f275aa0cb93a5b830973843ca66babcf5,nomic-ai/nomic-embed-text-v1,0759316f275aa0cb93a5b830973843ca66babcf5,ChemHotpotQARetrieval,0.83914,1.0,44,0.022727272727272728
+BAAI/bge-base-en-v1.5@a5beb1e3e68b9ab74eb54cfd186867f64f240e1a,BAAI/bge-base-en-v1.5,a5beb1e3e68b9ab74eb54cfd186867f64f240e1a,ChemHotpotQARetrieval,0.82228,2.0,44,0.045454545454545456
+BAAI/bge-large-en-v1.5@d4aa6901d3a41ba39fb536a557fa166f842b0e09,BAAI/bge-large-en-v1.5,d4aa6901d3a41ba39fb536a557fa166f842b0e09,ChemHotpotQARetrieval,0.80654,3.0,44,0.06818181818181818
+intfloat/e5-small@e272f3049e853b47cb5ca3952268c6662abda68f,intfloat/e5-small,e272f3049e853b47cb5ca3952268c6662abda68f,ChemHotpotQARetrieval,0.79384,4.0,44,0.09090909090909091
+intfloat/e5-base@b533fe4636f4a2507c08ddab40644d20b0006d6a,intfloat/e5-base,b533fe4636f4a2507c08ddab40644d20b0006d6a,ChemNQRetrieval,0.63068,1.0,44,0.022727272727272728
+nomic-ai/nomic-embed-text-v1.5@b0753ae76394dd36bcfb912a46018088bca48be0,nomic-ai/nomic-embed-text-v1.5,b0753ae76394dd36bcfb912a46018088bca48be0,ChemNQRetrieval,0.6211,2.0,44,0.045454545454545456
+intfloat/multilingual-e5-base@d13f1b27baf31030b7fd040960d60d909913633f,intfloat/multilingual-e5-base,d13f1b27baf31030b7fd040960d60d909913633f,ChemNQRetrieval,0.61991,3.0,44,0.06818181818181818
+intfloat/e5-large@4dc6d853a804b9c8886ede6dda8a073b7dc08a81,intfloat/e5-large,4dc6d853a804b9c8886ede6dda8a073b7dc08a81,ChemNQRetrieval,0.61953,4.0,44,0.09090909090909091

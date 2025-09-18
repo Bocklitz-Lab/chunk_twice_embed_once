@@ -1,0 +1,199 @@
+How does the concentration of microplastics in recycled toilet paper compare to non-recycled toilet paper when tested in a shredded state and controlled laboratory conditions?
+
+Evan Trinh & Dr. Kevin Trinh
+Higher Colleges of Technology
+November 11th, 2024
+
+Abstract
+This paper aims to compare the concentration of microplastics in recycled and non-recycled toilet paper when tested in a shredded state under controlled laboratory conditions. The goal is to determine whether recycled toilet paper contains fewer microplastics than non-recycled toilet paper. By investigating the microplastic content in recycled and non-recycled toilet paper, this investigation aims to shed light on an often-overlooked source of microplastic pollution. The results will not only enhance the understanding of the environmental impact of toilet paper products but also guide consumers and manufacturers towards more sustainable practices in reducing microplastics in everyday items.
+Table of Contents
+
+Introduction 3
+Variables 3
+Set Up & Equipment 5
+Methodology 5
+Data Analysis 6
+Discussion & Broader Implications 7
+Conclusion 9
+Bibliography 10
+Introduction
+
+Microplastics have become a topic of critical discussion in biodegradability and human sustainability. Toilet paper is an everyday product widely used across the globe. It is typically made from either virgin wood pulp or recycled paper. Recycled toilet paper is often promoted as an environmentally friendly option due to its use of post-consumer waste. However, the recycling process can introduce contaminants, including microplastics, which may be retained in the final product, making it an unknown source of microplastics in wastewater and in the products we consume. Non-recycled (virgin) toilet paper, on the other hand, is less likely to contain contaminants from the recycling process but still contributes to deforestation and resource depletion and poses the chance of containing microplastics due to its manufacturing process and bleaching process. This paper aims to investigate the question “How does the concentration of microplastics in recycled toilet paper compare to non-recycled toilet paper when tested in a shredded state and in controlled laboratory conditions?” Through the usage of oxidative degradation methods the organic matter in toilet paper can be broken down and isolated from microplastics alongside other unintended organic material, similar to how toilet paper can be decomposed with microplastics being left behind in the environment.
+
+This paper’s hypothesis is that recycled toilet paper contains a higher concentration of microplastics than non-recycled toilet paper when tested in a shredded state; and tested with oxidative degradation using hydrogen peroxide and filtration for microplastics.
+
+Variables
+
+| Independent Variable | Name | Measurement & Control |
+|----------------------|------|-----------------------|
+|                      | Types of Toilet Paper:  |
+|                      |  ● Recycled Toilet Paper |
+|                      |  ● Pure Virgin Toilet Paper |
+|                      | The weight of the toilet paper per trial will be consistently measured with a calibrated balance throughout each trial. Each trial of toilet paper will come from the same roll. |
+
+| Dependant Variable | The concentration of microplastics | The concentration of microplastics will be measured from my experiment using hydrogen peroxide digestion |
+
+1Ó Briain, O., Marques Mendes, A. R., McCarron, S., Healy, M. G., & Morrison, L. (2020). The role of wet wipes and sanitary towels as a source of white microplastic fibres in the marine environment. *Water Research, 182*, 116021. [https://doi.org/10.1016/j.watres.2020.116021](https://doi.org/10.1016/j.watres.2020.116021)
+
+2*How to Build a Microplastics-Free Environment: Strategies for Microplastics Degradation and Plastics Recycling—PMC.* (n.d.). Retrieved August 9, 2024, from [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8867153/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8867153/)
+| Control Variables |
+|-------------------|
+| 1. Sample Size:  |
+| ● How: Weigh equal amounts (e.g., 10 grams) of both recycled and non-recycled toilet paper for each sample.  |
+| ● Why: Ensures that comparisons of microplastic concentrations are based on equivalent masses, allowing for accurate and fair comparisons.  |
+| 2. Shredding Method:  |
+| ● How: Shred all samples into pieces approximately 1 cm x 1 cm using the same method.  |
+| ● Why: Ensures uniformity in sample preparation, which helps in achieving consistent digestion and microplastic extraction across all samples.  |
+| 3. Hydrogen Peroxide Concentration:  |
+| ● How: Use a consistent 30% hydrogen peroxide solution for digesting all samples.  |
+| ● Why: Ensures that the chemical digestion process is uniform for all samples, providing consistent conditions for breaking down paper fibers and isolating microplastics.  |
+| 4. Digestion Conditions:  |
+| ● How: Maintain the same temperature (60-70°C) and stirring speed during the digestion process for all samples.  |
+| ● Why: Ensures that the rate and efficiency of digestion are consistent across all samples, preventing variations in microplastic extraction efficiency.  |
+| 5. Filtration Apparatus and Membrane Filter:  |
+| ● How: Use the same filtration apparatus and 0.45 µm membrane filters for all samples.  |
+| ● Why: Ensures that the filtration process is consistent, allowing for accurate and comparable collection of microplastic particles from all samples.  |
+| 6. Rinsing Procedure:  |
+| ● How: Follow a consistent rinsing procedure with distilled water for all samples to ensure all microplastic particles are transferred onto the filters.  |
+| ● Why: Ensures that any residual microplastics in the beaker are consistently transferred to the filter, preventing loss of particles and ensuring accurate counts.  |
+| 7. Drying Environment:  |
+| ● How: Allow all filters to dry in the same clean environment, such as a dust-free lab area.  |
+| ● Why: Prevents contamination from external sources, ensuring that only microplastics from the toilet paper samples are counted.  |
+| 8. Microscopy and FTIR Spectroscopy:  |
+| ● How: Use the same microscope equipment to identify and quantify microplastics in all samples.  |
+| ● Why: Ensures consistency in the identification and measurement of microplastics, preventing variations due to different equipment sensitivities or calibration.  |
+| 9. Environmental Conditions:  |
+| ● How: Conduct all experiments under the same laboratory conditions (e.g., room temperature, humidity).  |
+| ● Why: Minimizes the influence of external environmental factors on the digestion, filtration, and drying processes, ensuring consistent results.  |
+| 10. Timing:  |
+| ● How: Ensure consistent timing for each step in the process (e.g., digestion duration, filtration time) for all samples.  |
+| ● Why: Prevents variations in the treatment of samples that could affect the efficiency of microplastic extraction and quantification, ensuring fair and accurate comparisons.  |
+Set Up & Equipment
+
+- Hydrogen peroxide (H2O2) solution (30%)
+- Recyclable toilet paper samples- Undisclosed due to legal concerns and objective reporting
+- Non-recyclable toilet paper samples- Undisclosed due to legal concerns and objective reporting
+- Distilled water
+- Glass beakers
+- Magnetic stirrer and stir bars
+- Heat source (hot plate)
+- Filtration apparatus (vacuum pump, filter flask, funnel)
+- Membrane filters (pore size 0.45 µm)
+- Glass Petri dishes
+- Tweezers
+- Microscope
+- Protective equipment (gloves, lab coat, safety glasses)
+
+Methodology
+
+1. Sample Preparation:
+   - Cut the toilet paper samples (both recyclable and non-recyclable) into small pieces (approximately 1 cm x 1 cm).
+   - Weigh an equal amount of each type of toilet paper (e.g., 10 grams) and place them into separate glass beakers.
+
+2. Digestion with Hydrogen Peroxide:
+   - Add 100 mL of 30% hydrogen peroxide solution to each beaker containing the toilet paper samples.
+   - Place the beakers on a magnetic stirrer and heat gently using a hot plate to accelerate the digestion process.
+   - Stir the mixture continuously and maintain the temperature around 60-70°C.
+   - Monitor the digestion process until the paper fibers are fully dissolved, leaving behind microplastic particles. This process might take several hours. Add more hydrogen peroxide if needed to ensure complete digestion.
+
+3. Filtration:
+   - Allow the mixture to cool to room temperature.
+   - Set up the filtration apparatus with a 0.45 µm membrane filter in the funnel.
+   - Filter the digested mixture through the membrane filter using a vacuum pump to collect microplastic particles on the filter.
+   - Rinse the beaker with distilled water to ensure all microplastic particles are transferred onto the filter.
+
+4. Microplastic Collection:
+   - Carefully remove the membrane filter from the filtration apparatus using tweezers.
+   - Place the filter in a glass petri dish and allow it to dry in a clean environment to avoid contamination.
+5. Identification and Quantification:
+   ○ Examine the dried filters under a microscope to visually identify and count the microplastic particles.
+
+6. Data Recording:
+   ○ Record the number and types of microplastic particles extracted from each sample.
+   ○ Calculate the concentration of microplastics per gram of toilet paper.
+
+Data Analysis
+
+After conducting the experiment and counting the number of microplastics the results show the following,
+
+Recycled Toilet Paper
+
+| Trial | Microplastic Count (particles/10 grams) |
+|-------|----------------------------------------|
+| 1     | 35                                     |
+| 2     | 40                                     |
+| 3     | 38                                     |
+| 4     | 37                                     |
+| 5     | 42                                     |
+| 6     | 39                                     |
+| 7     | 36                                     |
+| 8     | 41                                     |
+| 9     | 43                                     |
+| 10    | 37                                     |
+Non-Recycled Toilet Paper
+
+| Trials | Microplastic Count (particles/10 grams) |
+|--------|---------------------------------------|
+| 1      | 22                                    |
+| 2      | 20                                    |
+| 3      | 18                                    |
+| 4      | 21                                    |
+| 5      | 19                                    |
+| 6      | 23                                    |
+| 7      | 20                                    |
+| 8      | 22                                    |
+| 9      | 19                                    |
+| 10     | 21                                    |
+
+Discussion & Broader Implications
+
+From the data, we can observe that for recycled toilet paper, the concentration of microplastics ranges from 35 to 43 particles per 10 grams. The average concentration of microplastics is calculated to be 38.8 particles per 10 grams. For non-recycled toilet paper, microplastic concentrations range from 18 to 23 particles per 10 grams. The average concentration of microplastics is calculated to be 20.5 particles per 10 grams. The data supports the hypothesis that recycled toilet paper contains a higher concentration of microplastics than non-recycled toilet paper. Recycled toilet paper has an average of 38.8 particles per 10 grams, while non-recycled toilet paper has an average of 20.5 particles per 10 grams. This suggests that the recycling process may introduce more microplastics into the final product.
+
+The presence of microplastics in everyday items such as toilet paper raises significant concerns about their potential health implications. Although the research on this topic is still evolving, several key points can be highlighted. In the context of air pollution, when toilet paper is shredded or used, tiny microplastic particles can become airborne. These particles may be inhaled, potentially leading to respiratory issues. Once inhaled, microplastics can settle in the lungs, causing inflammation and possibly leading to chronic respiratory diseases.
+
+---
+
+3 Uffelen, C. van. (2018, March 22). How damaging is breathing in microplastics? Plastic Soup Foundation. https://www.plasticsoupfoundation.org/en/2018/03/how-damaging-is-breathing-in-microplastics/
+In terms of ingestion, if microplastics from toilet paper enter the human body through the digestive tract, they can lead to gastrointestinal inflammation, and there is concern that they could accumulate in the body over time. Ingested microplastics may interfere with nutrient absorption or cause other digestive issues.\textsuperscript{4} Furthermore, once ingested or inhaled, microplastics can accumulate in body tissues. Over time, this bioaccumulation could lead to chronic exposure to the toxic chemicals associated with microplastics, potentially causing long-term health effects.\textsuperscript{5} The presence of foreign particles like microplastics in the body can trigger an immune response.\textsuperscript{6} Persistent exposure may lead to chronic inflammation, which is associated with a range of health problems, including cardiovascular diseases, autoimmune disorders, and even cancer.
+
+Additionally, Microplastics often contain or absorb toxic chemicals, such as phthalates, bisphenols, and heavy metals, which are used in plastic manufacturing or picked up from the environment. These chemicals are known endocrine disruptors and can lead to hormonal imbalances, reproductive issues, and increased cancer risks.\textsuperscript{7}
+
+These Microplastics also contribute to environmental pollution, particularly in water bodies. These microplastics can enter the food chain, leading to broader ecological impacts that could indirectly affect human health through the consumption of contaminated seafood and drinkable water.\textsuperscript{8} The continued use of products containing microplastics, including toilet paper, perpetuates the cycle of pollution. As microplastics accumulate in the environment, they increasingly return to human systems through various exposure pathways.\textsuperscript{9}
+
+The health implications of increased microplastics in everyday products like toilet paper are a growing concern. While more research is needed to fully understand the long-term effects, the evidence suggests that microplastics could pose significant risks to human health, particularly through respiratory, digestive, and immune system impacts. Reducing exposure to microplastics and advocating for more sustainable manufacturing practices is crucial for protecting public health and the environment.
+
+\textsuperscript{4} Lee, Y., Cho, J., Sohn, J., & Kim, C. (2023). Health Effects of Microplastic Exposures: Current Issues and Perspectives in South Korea. \textit{Yonsei Medical Journal}, 64(5), 301–308. \url{https://doi.org/10.3349/ymj.2023.0048}
+
+\textsuperscript{5} Kozlov, M. (2024). Landmark study links microplastics to serious health problems. \textit{Nature}. \url{https://doi.org/10.1038/d41586-024-00650-3}
+
+\textsuperscript{6} Caputi, S., Diomede, F., Lanuti, P., Marconi, G. D., Di Carlo, P., Sinjari, B., & Trubiani, O. (2022). Microplastics Affect the Inflammation Pathway in Human Gingival Fibroblasts: A Study in the Adriatic Sea. \textit{International Journal of Environmental Research and Public Health}, 19(13), 7782. \url{https://doi.org/10.3390/ijerph19137782}
+
+\textsuperscript{7} A review of the endocrine disrupting effects of micro and nano plastic and their associated chemicals in mammals—PMC. (n.d.). Retrieved August 9, 2024, from \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9885170/}
+
+\textsuperscript{8} Microplastics in freshwaters and drinking water: Critical review and assessment of data quality—PMC. (n.d.). Retrieved August 9, 2024, from \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6449537/}
+
+\textsuperscript{9} A Numerical Model Approach Toward a Settling Process and Feedback Loop of Ocean Microplastics Absorbed Into Phytoplankton Aggregates—Yoshitake—2023—Journal of Geophysical Research: Oceans—Wiley Online Library. (n.d.). Retrieved August 9, 2024, \url{https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2022JC018961}
+Conclusion
+
+Recycled toilet paper, as revealed in this study, contains higher concentrations of microplastics compared to its non-recycled counterpart. This suggests that the recycling process, while beneficial in reducing waste, may inadvertently introduce contaminants like microplastics, which persist in the environment and contribute to pollution alongside health problems. These microplastics can enter water systems, disrupt ecosystems, and ultimately pose risks to human health through various exposure pathways.
+
+The challenge, therefore, lies in balancing the benefits of recycling with the need to minimize environmental contamination. This study underscores the importance of improving recycling processes to ensure that they do not introduce harmful pollutants into the final products. It also calls for greater transparency in the manufacturing of both recycled and non-recycled toilet paper, encouraging manufacturers to adopt cleaner, more sustainable practices.
+
+For consumers, these findings serve as a reminder to consider the broader environmental impacts of the products they use daily. While recycled products are a step towards sustainability, it's essential to push for innovations that reduce all forms of pollution, including microplastics, to truly achieve a sustainable future.
+
+In conclusion, as we strive for sustainability, it is crucial to address the hidden challenges, such as microplastic contamination, that come with recycled products. By doing so, we can guide both consumers and manufacturers towards practices that not only reduce waste but also safeguard the environment from further harm.
+A Numerical Model Approach Toward a Settling Process and Feedback Loop of Ocean Microplastics Absorbed Into Phytoplankton Aggregates—Yoshitake—2023—Journal of Geophysical Research: Oceans—Wiley Online Library. (n.d.). Retrieved August 9, 2024, from https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2022JC018961
+
+A review of the endocrine disrupting effects of micro and nano plastic and their associated chemicals in mammals—PMC. (n.d.). Retrieved August 9, 2024, from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9885170/
+
+Caputi, S., Diomede, F., Lanuti, P., Marconi, G. D., Di Carlo, P., Sinjari, B., & Trubiani, O. (2022). Microplastics Affect the Inflammation Pathway in Human Gingival Fibroblasts: A Study in the Adriatic Sea. International Journal of Environmental Research and Public Health, 19(13), 7782. https://doi.org/10.3390/ijerph19137782
+
+Kozlov, M. (2024). Landmark study links microplastics to serious health problems. Nature. https://doi.org/10.1038/d41586-024-00650-3
+
+Lee, Y., Cho, J., Sohn, J., & Kim, C. (2023). Health Effects of Microplastic Exposures: Current Issues and Perspectives in South Korea. Yonsei Medical Journal, 64(5), 301–308. https://doi.org/10.3349/vmj_2023.0048
+
+Microplastics and Oxidative Stress—Current Problems and Prospects—PMC. (n.d.). Retrieved August 9, 2024, from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11117644/
+
+Microplastics in freshwaters and drinking water: Critical review and assessment of data quality—PMC. (n.d.). Retrieved August 9, 2024, from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6449537/
+
+Uffelen, C. van. (2018, March 22). How damaging is breathing in microplastics? Plastic Soup Foundation. https://www.plasticsoupfoundation.org/en/2018/03/how-damaging-is-breathing-in-microplastics/

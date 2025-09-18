@@ -1,0 +1,23 @@
+{
+  "dataset_revision": "67aa9e201b030038d16241a39795f5b5e5a89898",
+  "evaluation_time": 137.8908817768097,
+  "kg_co2_emissions": null,
+  "mteb_version": "1.14.2",
+  "scores": {
+    "test": [
+      {
+        "hf_subset": "default",
+        "languages": [
+          "eng-Latn"
+        ],
+        "main_score": 0.7773466360494528,
+        "v_measure": 0.7773466360494528,
+        "v_measure_std": 0.0,
+        "v_measures": [
+          0.7773466360494528
+        ]
+      }
+    ]
+  },
+  "task_name": "WikipediaEasy10Clustering"
+}

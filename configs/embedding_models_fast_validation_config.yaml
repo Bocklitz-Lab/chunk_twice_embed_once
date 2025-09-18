@@ -1,0 +1,308 @@
+output_root: artifacts/embedding_models_screening/validation
+
+# import_modules:
+#   - my_tasks
+
+encode_kwargs: {}
+
+models:
+  - name: sentence-transformers/bert-base-nli-mean-tokens
+    revision: main
+    normalize: true
+
+  - name: allenai/scibert_scivocab_uncased
+    revision: main
+    normalize: true
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: nomic-ai/nomic-bert-2048
+    revision: 40b98394640e630d5276807046089b233113aa87
+    normalize: true
+    batch_size: 32
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: intfloat/e5-small
+    revision: e272f3049e853b47cb5ca3952268c6662abda68f
+    normalize: true
+    batch_size: 64
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: intfloat/e5-base
+    revision: b533fe4636f4a2507c08ddab40644d20b0006d6a
+    normalize: true
+    batch_size: 64
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: intfloat/e5-large
+    revision: 4dc6d853a804b9c8886ede6dda8a073b7dc08a81
+    normalize: true
+    batch_size: 32
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: intfloat/e5-small-v2
+    revision: dca8b1a9dae0d4575df2bf423a5edb485a431236
+    normalize: true
+    batch_size: 64
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: intfloat/e5-base-v2
+    revision: 1c644c92ad3ba1efdad3f1451a637716616a20e8
+    normalize: true
+    batch_size: 64
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: intfloat/e5-large-v2
+    revision: b322e09026e4ea05f42beadf4d661fb4e101d311
+    normalize: true
+    batch_size: 32
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: intfloat/multilingual-e5-small
+    revision: fd1525a9fd15316a2d503bf26ab031a61d056e98
+    normalize: true
+    batch_size: 64
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: intfloat/multilingual-e5-base
+    revision: d13f1b27baf31030b7fd040960d60d909913633f
+    normalize: true
+    batch_size: 64
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: intfloat/multilingual-e5-large
+    revision: ab10c1a7f42e74530fe7ae5be82e6d4f11a719eb
+    normalize: true
+    batch_size: 32
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: nomic-ai/nomic-embed-text-v1
+    revision: 0759316f275aa0cb93a5b830973843ca66babcf5
+    normalize: true
+    batch_size: 64
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: nomic-ai/nomic-embed-text-v1.5
+    revision: b0753ae76394dd36bcfb912a46018088bca48be0
+    normalize: true
+    batch_size: 64
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: recobo/chemical-bert-uncased
+    revision: main
+    normalize: true
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: BAAI/bge-m3
+    revision: main
+    normalize: true
+    batch_size: 32
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: BAAI/bge-small-en
+    revision: main
+    normalize: true
+    batch_size: 64
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: BAAI/bge-base-en
+    revision: main
+    normalize: true
+    batch_size: 64
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: BAAI/bge-large-en
+    revision: main
+    normalize: true
+    batch_size: 32
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: BAAI/bge-small-en-v1.5
+    revision: 5c38ec7c405ec4b44b94cc5a9bb96e735b38267a
+    normalize: true
+    batch_size: 64
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: BAAI/bge-base-en-v1.5
+    revision: a5beb1e3e68b9ab74eb54cfd186867f64f240e1a
+    normalize: true
+    batch_size: 64
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: BAAI/bge-large-en-v1.5
+    revision: d4aa6901d3a41ba39fb536a557fa166f842b0e09
+    normalize: true
+    batch_size: 32
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: sentence-transformers/all-mpnet-base-v2
+    revision: main
+    normalize: true
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: sentence-transformers/multi-qa-mpnet-base-dot-v1
+    revision: main
+    normalize: true
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: sentence-transformers/all-MiniLM-L12-v2
+    revision: main
+    normalize: true
+    batch_size: 64
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: sentence-transformers/all-MiniLM-L6-v2
+    revision: main
+    normalize: true
+    batch_size: 64
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: m3rg-iitd/matscibert
+    revision: main
+    normalize: true
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: allenai/specter
+    revision: main
+    normalize: true
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: facebook/contriever
+    revision: main
+    normalize: true
+    batch_size: 64
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: hkunlp/instructor-xl
+    revision: main
+    normalize: true
+    batch_size: 16
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: facebook/contriever-msmarco
+    revision: main
+    normalize: true
+    batch_size: 64
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: sentence-transformers/gtr-t5-base
+    revision: main
+    normalize: true
+    batch_size: 32
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: sentence-transformers/gtr-t5-large
+    revision: main
+    normalize: true
+    batch_size: 16
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: sentence-transformers/gtr-t5-xl
+    revision: main
+    normalize: true
+    batch_size: 8
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: jinaai/jina-embeddings-v2-small-en
+    revision: main
+    normalize: true
+    batch_size: 32
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: jinaai/jina-embeddings-v2-base-en
+    revision: main
+    normalize: true
+    batch_size: 64
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: microsoft/mpnet-base
+    revision: main
+    normalize: true
+    batch_size: 64
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: microsoft/MiniLM-L12-H384-uncased
+    revision: main
+    normalize: true
+    batch_size: 64
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: sentence-transformers/paraphrase-multilingual-mpnet-base-v2
+    revision: 79f2382ceacceacdf38563d7c5d16b9ff8d725d6
+    normalize: true
+    batch_size: 64
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: nomic-ai/nomic-embed-text-v2-moe
+    revision: main
+    normalize: true
+    batch_size: 32
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract
+    revision: main
+    normalize: true
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext
+    revision: main
+    normalize: true
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: DeepChem/ChemBERTa-77M-MTR
+    revision: main
+    normalize: true
+    batch_size: 64
+    model_kwargs:
+      trust_remote_code: true
+
+  - name: microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract
+    revision: main
+    normalize: true
+    model_kwargs:
+      trust_remote_code: true
+
+tasks:
+  # - { class: "my_tasks.ChemQuest" }
+  - "ChemNQRetrieval"
+  - "ChemHotpotQARetrieval"

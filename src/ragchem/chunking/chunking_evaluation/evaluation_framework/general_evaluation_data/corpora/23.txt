@@ -1,0 +1,444 @@
+Abstract
+
+Reinvigoration of electrochemical education is important for the support of decarbonised economies and net zero climate change targets. Here, explicit instruction and fuel cell engineering are used to exemplify electrochemical science as a platform for teaching a variety of interdisciplinary concepts while addressing common misconceptions related to potentials. One-way analysis of variance of keyword data is consistent with students that struggle to connect overpotentials to the spatial dependence of the electrochemical potential, chemical potential and electric potential.
+
+1. Introduction
+
+A reinvigoration of electrochemical education among talented students is important for the support of decarbonised economies and net zero climate change targets [1, 2]. However, the disconnection between pedagogy and cognitive science emphasises the importance of learning strategies in the classroom teaching of electrochemical technology. The lack of knowledge, insufficient support and resistance to change within a learning institution can highlight the significant challenge of implementing pedagogies from basic cognitive science research to classroom teaching [3]. The rehearsal aspect of the learning process supports the idea that learning autonomy can lower cognitive load since overlearning basic facts and algorithms is the key to building efficient learning [4]. Despite this endorsement of active learning, the traditional lecture-based model exacerbates negative educational experiences instead of striving to integrate cognitive science and education research into modern learning and instruction. Furthermore, the absence of electrochemistry education in chemistry education literature means that the effectiveness of the taught curriculum is undermined by low educator confidence in teaching electrochemistry, especially towards more advanced concepts [2]. Thus, the possibility of
+teaching science curricula in electrochemistry in virtual classrooms warrants investigation (Supplementary Note 1).
+
+The ever-growing energy demand and finite fossil fuel reserves have accelerated interest in renewable energy sources and efficient energy conversion devices. In particular, the proton exchange membrane fuel cell is a commercially viable type of fuel cell due to a relatively low operation temperature and dynamic load response. However, their Nafion membranes are not ideal candidates for future electrochemical energy storage and conversion due to high financial cost [5]. Graphene oxide (GO) is a promising low-cost material for future fuel cell membranes and other proton conducting applications. The fabrication of fuel cells that utilise GO membranes with well-aligned laminar interlayer channels and oxygen bearing groups is imminent [6, 7]. In this work, the importance of the explicit instruction pedagogy and the learning outcomes from novel fuel cells is investigated. This is important because educators have observed that student understanding of electrochemical concepts is insufficient for connections to further concepts and for generating new knowledge in scientific problem-solving [8]. Fuel cell engineering exemplifies electrochemistry as a platform for teaching a variety of interdisciplinary concepts while mitigating common misconceptions related to potentials [1]. Moreover, the emergence of the three-phase boundary (3PB) concept and associated models (Supplementary Note 2) have proven to be phenomenological concepts for advancing the design and fabrication of fuel cell electrodes.
+
+2. Pedagogical approach
+
+Explicit instruction lays a set of instructional steps and cognitive strategies that proceed to teach in small steps, checking for understanding, and seeking active student participation. The challenge of teaching electrochemistry explains why misconceptions and misunderstandings are rife in the field of electrochemistry [1]. In science education, every new concept is buried within an architectural foundation of prior knowledge that needs to be taught alongside core concepts and procedures [9]. Thus, unlike unambiguous educator instruction delivered in isolation, effective teaching practices (like the gradual release of responsibility and explicit instruction) find use in science education because they share the fact that an educator teaches academic content in a systematic and explicit way. The gradual release of responsibility aspect of explicit instruction mirrors the intersection of several theories, such as Thorndike’s law of readiness,
+Piaget’s cognitive schemata, and Vygotsky’s zones of proximal development. Importantly, the interruption of explicit instruction requires student removal from a classroom for disciplinary reasons (i.e. internal exclusion) (Supplementary Note 3). Also, retrieval practice, at the start of explicit instruction, is best implemented through a routine of short answer questions that activates learning by allowing students to construct knowledge [9]. Embedding questions aimed at student misconceptions into retrieval practice addresses the frequent resurfacing of misconceptions [10] while enabling knowledge transfer to a new context.
+
+The selection of an explicit instruction first approach addresses the historical debate concerning the best pedagogy for teaching science: explicit instruction or inquiry-based learning. Against this backdrop, a plethora of science educational policy documents and standards have recommended that science teaching occurs with students conducting scientific investigation [11]. This aligns with teaching science using an inquiry-based approach in which discovery drives knowledge construction by student participation in exploratory tasks [12]. Also, productive failure has been cited to explain the superiority of an inquiry-based learning first approach with exploration activating the pre-existing knowledge of students [13]. Although most educators in the UK believe in inquiry-led practical science, there is an emerging body of cognitive science research indicating a detrimental impact to student understanding from an inquiry-based learning only approach [9]. This is mainly because the flow of information is unregulated by an educator and so the absence of guided instruction increases the chance of cognitive overload on behalf of the student. Moreover, the instructional interventions that help a student move from insecure understanding to full understanding through practice (i.e. scaffolds) are missing. Thus, teaching applied electrochemical science would benefit from explicitly teaching the scientific concept followed by practice to consolidate understanding before finally conducting scientific investigation having already studied each step explicitly [9].
+
+The effectiveness of an explicit instruction first approach is rooted in the need to lower the cognitive load on student working memory to enable information transfer to the long-term memory for automatic access. For instance, understanding spin qubits (Supplementary Note 4) urgently needs pedagogically sound quantum computing instruction [14]. Performing inquiry-based learning first followed by explicit instruction has been found to overload the working memory of students as it requires answers to questions that are inaccessible to the student [15]. Problem-solving to ascertain such answers consumes significant working memory resources,
+which renders learning less productive through an inquiry-based learning first approach. Students that struggle to manipulate multiple learning elements and to engage in learning high element interactivity concepts in science tend to find an explicit instruction first approach more effective [13]. Furthermore, information-processing theories related to explicit instruction impose a limit on the amount of information that a student can process before overloading their working memory [4, 9]. Extensive student practice and frequent effortless recall from explicit instruction allows space in the working memory for knowledge transfer to the long-term memory. The emergence of Industry 4.0 compels students to engage in lifelong learning to develop a wider range of multidisciplinary competencies within future education and learning systems [16].
+
+3. Electrochemical technology
+
+Proton exchange membrane fuel cells enable clean and efficient energy, with many already commercially available. The comparatively low proton conductivity in the out-of-plane direction in GO membranes is problematic when considering fuel cell applications [17]. Despite providing extra proton conducting sites, small molecule and polymer intercalators in these membranes are unable to permanently exist in interlayers due to weak interactions and ion transport inhibition from irregular conformation inside interlayers. Although intercalators are primarily designed to possess proton donor groups, protons hop among donors and acceptors along the hydrogen bond according to the Grotthuss mechanism [18]. Chemical functionalization of GO membranes enhance water retention ability but leads to a substantial loss in mechanical strength, an increase in fuel crossover, and interlayer proton conducting sites that cannot sustain continuous proton transport due to a non-uniform distribution of epoxy and hydroxyl groups [7]. Recently, a sulphate ion-intercalated 3D GO (3DGO) membrane showed the highest proton conductivity and power density among all previously reported GO-based membranes [17]. Given that the structural arrangement in 3DGO is like that of Nafion, it may be possible to induce a permanent structural change in 3DGO by the application of a strong electric field.
+
+Synthesis of a structurally modified 3DGO membrane (or ‘Graphenion’ membrane) may contribute to understanding water percolation and proton transfer dynamics in membrane materials that have low water uptake and fast proton transfer. To this end, the method of thermodynamic integration [19] can be used to describe the difference in Helmholtz free energies between a membrane with and without Coulomb interactions:
+\[
+\Delta A = \int_0^1 \langle \partial H(\xi) / \partial \xi \rangle d\xi
+\]
+
+where \( H(\xi) \) is the configuration part of a parametrized Hamiltonian and \( \xi \) is a coupling parameter that characterises the strength of Coulomb interactions between sulphate groups \( i \) and \( j \). Like Nafion [20], \( \Delta A/(N_p k_B T) \) is the difference in the excess Helmholtz free energy per sulphate where \( N_p \) is the total number of protons, \( k_B \) is the Boltzmann constant and \( T \) is temperature. The irreversible electric-field-induced Graphenion morphology inspires the first learning outcome: if an applied electric field induces microscopic changes in the morphology of a 3DSGO membrane, then the changes remain after the removal of the electric field. By conceiving that H\(_2\)O molecules and H\(_3\)O\(^+\) ions form part of the same cluster for a small separation between oxygen atoms, it is possible to calculate a cluster size distribution \( n_S \), defined as the occurrence probability of clusters of size \( S \), within Graphenion to measure the number of H\(_2\)O molecules and H\(_3\)O\(^+\) ions in a cluster. The mean cluster size is given by
+
+\[
+S_{\text{mean}} = \frac{\sum n_S S^2}{\sum n_S S}
+\]
+
+Percolation is the simplest fundamental model in statistical mechanics that exhibits phase transitions signalled by the emergence of a giant connected exponent [21]. Thus, \( S_{\text{mean}} \) can be fitted [22] using the following
+
+\[
+S_{\text{mean}} = A |\lambda - \lambda_p|^{-v}
+\]
+
+where \( \lambda \) is the hydration level, \( \lambda_p \) is the percolation threshold level of hydration, \( v \) is a characteristic exponent and \( A \) is a constant. From isolated clusters observed at low \( \lambda \), the spatial extent of the clusters increases with \( \lambda \) but do not percolate below \( \lambda_p \) (beyond \( \lambda_p \) a spanning water network is formed). Moreover, the presence of an acidic group (i.e. sulphate ions) in Graphenion creates an appropriate linkage between H\(_2\)O molecules for proton transport. This leads to the second learning outcome: if the hydration level in Graphenion is increased, then ionic clusters grow and aggregate leading to the formation of a continuous water phase. The probability of finding two sulphate ions at a separation distance \( r \) averaged over the equilibrium trajectory of a confined space in Graphenion is indicated by a sulphate-sulphate pair correlation function:
+
+https://doi.org/10.26434/chemrxiv-2024-rmq24 ORCID: https://orcid.org/0009-0005-1551-7111 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+where \( d_nS(r) \) is the number of sulphur atoms located at the distance \( r \) in a water shell of thickness \( dr \) from a fixed sulphur atom and \( N_S \) is the number of sulphate ions in a volume \( V \) of confined space in a Graphenion membrane.
+
+The molar concentration of sulphate ions \( \eta \) decreases as the intensity of sulphur-sulphur correlations increases. This effect originates from an interplay between the electrostatic screening length \( l_D \) and the average separation distance \( l \) between the sulphate ions. For high \( \eta \), the electrostatic correlations between sulphate ions are negligible since \( l_D < l \). Conversely, when \( \eta \) is small and \( l_D > l \), the Coulomb correlations become sufficiently strong to force sulphate ions to form compact clusters. The increasing presence of water molecules that surround sulphate ions decreases interactions between \( H_3O^+ \) ions and sulphate ions which enhance their separation distance. This leads to the third learning outcome: if the concentration of sulphate ions intercalated into a GO membrane increases, then sulphate ions become solvated with more water molecules resulting in the formation of larger water clusters around these ions. Based on 3DSGO membrane fabrication [17], the concentration of sulphate ions intercalated into a membrane is changed by changing the molar concentration of sulphuric acid solution mixed with GO suspension.
+
+4. Outlook
+
+Declarative knowledge in electrochemical technology is more amenable to the literacy-based explicit practice of scripting and dialogue than Rosenshine explicit instruction. The latter is readily applicable to the well-structured, procedural knowledge of science where the objective is to master a body of knowledge or learn a skill, such as the 3PB (Supplementary Note 2 and Fig. 1) and liquid crystal composite (Supplementary Note 5), that is taught in explicit steps [4, 9]. It encounters problems when teaching the ill-structured, opinion-related declarative knowledge of science such as titanium (Supplementary Note 6) and energy storage (Supplementary Note 7). Interestingly, it has been claimed that both non-scripted and scripted instructions are effective in maximising student achievement [23]. However, scripted practice tends to denigrate educator judgement and democratic values [24] while disempowering the ability to respond to the diverse learning needs of students. Although student choral responses may standardise participation, the
+
+https://doi.org/10.26434/chemrxiv-2024-rmq24 ORCID: https://orcid.org/0009-0005-1551-7111 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+expectation that students follow educator scripts exclusively limits the capacity to cater for student differences [25]. Despite limited correlation between classroom discussion and reading comprehension, dialogue-intensive pedagogy is positively related to literary performance on writing tasks [26] while incorporating socially cooperative learning structures that facilitate the transition from guided practice to independent practice. Overall, the social constructivist nature of the student-focused exchanges and interventions in these pedagogies highlights the importance of acquiring knowledge and skills within a social context.
+
+Spacing student practice of lesson content such that the content is familiar but not fresh in student minds ensures that they are retrieving or constructing from their long-term memory as opposed to recognizing answers. The incorporation of spaced practice to schedule knowledge checks builds durable knowledge since students repeatedly study and use the content that they are learning [27]. However, several student misconceptions in electrochemistry potentially arise from published resources [2] which may lead to students resorting to artificial intelligence when completing science assessments (Supplementary Note 8). Furthermore, the most relevant references for searched electrochemical keywords and the associated number of citations (Table 1) from the Google Scholar index includes peer-reviewed online academic journals and books, conference papers, theses and dissertations, preprints, abstracts, technical reports, patents, and other scholarly literature. There is a significant difference between the mean annual number of publications in which the number generated from ‘electrochemical potential’ is significantly lower compared with those from ‘chemical potential’ and ‘electric potential’ (Table 2). This suggests a limited correlation between the electrochemical keywords. This is reasonable since students struggle to connect overpotentials to the spatial dependence of the electrochemical potential, chemical potential, and electric potential [1].
+
+Acknowledgement
+
+We are grateful to Josephine Osarinmwian for support and useful discussions.
+
+References
+
+1. Kempler, P.A., Boettcher, S.W. and Ardo, S. (2021) ‘Reinvigorating electrochemistry education.’ *Iscience*, 24(5).
+
+2. Turner, K.L., He, S., Marchegiani, B., Read, S., Blackburn, J., Miah, N. and Leketas, M. (2024) ‘Around the world in electrochemistry: a review of the electrochemistry curriculum in high schools.’ *Journal of Solid State Electrochemistry*, 28(3), pp. 1361–1374.
+3. Davidesco, I. and Milne, C. (2019) ‘Implementing cognitive science and discipline-based education research in the undergraduate science classroom.’ *CBE - Life Sciences Education*, 18(3), pp.es4.
+
+4. Rosenshine, B. (1987) ‘Explicit teaching and teacher training.’ *Journal of Teacher Education*, 38(3), pp. 34–36.
+
+5. Eftekari, A., Shulga, Y.M., Baskakov, S.A. and Gutsev, G.L. (2018) ‘Graphene oxide membranes for electrochemical energy storage and conversion.’ *International Journal of Hydrogen Energy*, 43(4), pp. 2307–2326.
+
+6. Bayer, T., Bishop, S.R., Nishihara, M., Sasaki, K. and Lyth, S.M. (2014) ‘Characterization of a graphene oxide membrane fuel cell.’ *Journal of Power Sources*, 272, pp. 239–247.
+
+7. Tateishi, H., Hatakeyama, K., Ogata, C., Gezuhara, K., Kuroda, J., Funatsu, A., Koinuma, M., Taniguchi, T., Hayami, S. and Matsumoto, Y. (2013) ‘Graphene oxide fuel cell.’ *Journal of the Electrochemical Society*, 160(11), pp. F1175.
+
+8. Orozco, M., Boon, M. and Susarrey Arce, A. (2023) ‘Learning electrochemistry through scientific inquiry. Conceptual modelling as learning objective and as scaffold.’ *European Journal of Engineering Education*, 48(1), pp. 180–196.
+
+9. Boxer, A. (n.d.) Applying Rosenshine to the science classroom, *Early Career Hub* [Online] [Accessed on May 10, 2024] https://my.chartered.college/early-career-hub/applying-rosenshine-to-the-science-classroom/.
+
+10. Shtulman, A and Valcarcel, J. (2012) ‘Scientific knowledge suppresses but does not supplant earlier intuitions.’ *Cognition*, 124(2) pp. 209–215.
+
+11. NGSS Lead States. (2013) *Next generation science standards: for states, by states*. The National Academies Press.
+
+12. Marfilinda, R., Rossa, R., Jendriadi, J. and Apfani, S. (2020) ‘The effect of 7E learning cycle model toward students’ learning outcome of basic science concept.’ *Journal of Teaching and Learning in Elementary Education*, 3(1), pp. 77–87.
+
+13. Zhang, L. and Sweller, J. (2024) ‘Instructional sequences in science teaching: considering element interactivity when sequencing inquiry-based investigation activities and explicit instruction.’ *European Journal of Psychology of Education*, pp. 1–11.
+
+14. Westfall, L. and Leider, A. (2019) ‘Teaching quantum computing.’ *Proceedings of the Future Technologies Conference 2018*, 2, pp. 63–80.
+
+15. Glogger-Frey, I., Fleischer, C., Grüny, L., Kappich, J. and Renkl, A. (2015) ‘Inventing a solution and studying a worked solution prepare differently for learning from direct instruction.’ *Learning and Instruction*, 39, pp. 72–87.
+
+16. Marope, P.T.M. (2016) ‘Brain science, education, and learning: making connections.’ *Prospects*, 46(2), pp. 187–190.
+
+17. Rahman, M.A., Yagyu, J., Islam, M.S., Fukuda, M., Wakamatsu, S., Tagawa, R., Feng, Z., Sekine, Y., Ohyama, J. and Hayami, S. (2023) ‘Three-dimensional sulfonated graphene oxide proton exchange membranes for fuel cells.’ *ACS Applied Nano Materials*, 6(3), pp. 1707–1713.
+
+18. Kusoglu, A. and Weber, A.Z. (2017) ‘New insights into perfluorinated sulfonic-acid ionomers.’ *Chemical Reviews*, 117(3), pp. 987–1104.
+
+19. Kirkwood, J.G. (1935) ‘Statistical mechanics of fluid mixtures.’ *The Journal of Chemical Physics*, 3(5), pp. 300–313.
+
+20. Allahyarov, E. and Taylor, P.L. (2009) ‘Predicted electric-field-induced hexatic structure in an ionomer membrane.’ *Physical Review E - Statistical, Nonlinear, and Soft Matter Physics*, 80(2), p. 020801.
+
+21. Saberi, A.A. (2015) ‘Recent advances in percolation theory and its applications.’ *Physics Reports*, 578, pp. 1–32.
+22. Rintoul, M.D. and Torquato, S. (1997) ‘Precise determination of the critical threshold and exponents in a three-dimensional continuum percolation model.’ *Journal of Physics A: Mathematical and General*, 30(16), pp. L585.
+
+23. Liem, G.A.D. and Martin, A.J. (2012) *Direct instruction*. International guide to student achievement, Routledge, pp. 366–368.
+
+24. Narayanan, M., Shields, A. L. and Delhagen, T. J. (2024) ‘Autonomy in the spaces: teacher autonomy, scripted lessons, and the changing role of teachers.’ *Journal of Curriculum Studies*, 56(1) pp. 17–34.
+
+25. Xu, L., Wan, M. E. V. and Clarke, D. J. (2013) ‘Discourse patterns employing choral response in mathematics classrooms in seven countries.’ *Proceedings of the 37th Conference of the International Group for the Psychology of Mathematics Education*, 5, pp. 196.
+
+26. Wilkinson, I. A., Murphy, P. K. and Binici, S. (2015) ‘Dialogue-intensive pedagogies for promoting reading comprehension: What we know, what we need to know.’ *Socializing Intelligence through Academic Talk and Dialogue*, pp. 37–50.
+
+27. Carpenter, S. K., Pan, S. C. and Butler, A.C. (2022) ‘The science of effective learning with spacing and retrieval practice.’ *Nature Reviews Psychology*, 1(9), pp. 496–511.
+Fig. 1. Visualising 3PB structure. Each discrete 3PB exists at $0 < \gamma < 1$, $|a\rangle$ is tunnelling coupled to the discrete 3PB $|n_0\rangle$ of the tight-binding 3PB continuum ($n_0 \geq 1$). Dependence of $G(\omega)$ on $n_0$ for $\kappa_0 = 1$. For $n_0 \geq 2$, there are $(n_0 - 1)$ frequencies $\Omega_l = -2\kappa_0 \cos(l\pi/n_0)$ ($l = 1, 2, \ldots, n_0 - 1$) of discrete 3PB states corresponding to $G(\omega) = 0$. For sufficiently small $\kappa_a/\kappa_0$ and a $\omega_a$ not too close to $\pm 2\kappa_0$, $\omega_a$ of $|a\rangle$ probably lies inside the interval $-1 + \Theta < \omega_a/2\kappa_0 < 1 - \Theta$ (where $\Theta = \kappa_a^2 n_0/2\kappa_0^2$) since no discrete states exist outside $\pm 2\kappa_0$. 
+Table 1. Number of references by year of publication according to keyword searches from the web search engine Google Scholar.
+
+| Year of publication | Number of references in a keyword group |
+|---------------------|----------------------------------------|
+|                     | ‘Electrochemical Potential’ | ‘Chemical Potential’ | ‘Electric Potential’ |
+| 1993                | 1040 | 5630 | 3210 |
+| 1994                | 1090 | 6150 | 3400 |
+| 1995                | 1230 | 6240 | 3720 |
+| 1996                | 1420 | 6920 | 3810 |
+| 1997                | 1400 | 6890 | 3950 |
+| 1998                | 1430 | 7440 | 4250 |
+| 1999                | 1420 | 7710 | 4310 |
+| 2000                | 1520 | 8100 | 4640 |
+| 2001                | 1690 | 8710 | 5150 |
+| 2002                | 1890 | 9230 | 5200 |
+| 2003                | 1890 | 9530 | 5810 |
+| 2004                | 2000 | 10200| 6540 |
+| 2005                | 2260 | 11200| 7320 |
+| 2006                | 2280 | 11500| 7950 |
+| 2007                | 2500 | 12200| 8490 |
+| 2008                | 2720 | 12800| 9600 |
+| 2009                | 2960 | 13400| 9900 |
+| 2010                | 3210 | 14600| 12500|
+| 2011                | 3560 | 15700| 14100|
+| 2012                | 4150 | 17900| 15400|
+| 2013                | 4460 | 19300| 15100|
+| 2014                | 4550 | 19800| 14800|
+| 2015                | 4640 | 21000| 15400|
+| 2016                | 5210 | 22400| 16500|
+| 2017                | 5170 | 23300| 16800|
+| 2018                | 5600 | 25200| 17900|
+| 2019                | 6060 | 26100| 18100|
+| 2020                | 6270 | 27600| 18400|
+| 2021                | 7070 | 30900| 21400|
+| 2022                | 7440 | 31300| 21600|
+
+https://doi.org/10.26434/chemrxiv-2024-rmq24 ORCID: https://orcid.org/0009-0005-1551-7111 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+Table 2. One-way analysis of variance. No significant difference between the mean number of publications is the null hypothesis whereas a difference is the alternative hypothesis. The result is significant because the alternative hypothesis cannot be rejected (i.e. p-value ≤ 0.5 and the F statistic > F critical value). Post-hoc tests perform separate T-tests and control multiple comparisons with the Bonferroni correction method. This method adjusts the alpha value to account for multiple hypotheses. The annual number of publications using ‘electrochemical potential’ is significantly lower compared with those using ‘chemical potential’ and ‘electric potential’. Nomenclature: SS – sum of squares, df – degrees of freedom, MS – mean square, A – electrochemical potential, B – chemical potential and C – electric potential.
+
+| Keywords | Count | Sum   | Average | Variance |
+|----------|-------|-------|---------|----------|
+| A        | 30    | 9.81E+04 | 3271   | 3.75E+06 |
+| B        | 30    | 4.49E+05 | 14965  | 6.26E+07 |
+| C        | 30    | 3.15E+05 | 10508  | 3.66E+07 |
+
+| Source of Variation | SS      | df | MS      | F        | p-value | F critical |
+|---------------------|---------|----|---------|----------|---------|------------|
+| Between Keywords    | 2.09E+09| 2  | 1.04E+09| 30.45    | 9.44E-11| 3.10       |
+| Within Keywords     | 2.99E+09| 87 | 3.43E+07|          |         |            |
+| Total               | 5.08E+09| 89 |         |          |         |            |
+
+| Keywords | p-value (T-test) | Significant |
+|----------|-----------------|-------------|
+| A to B   | 1.03E-10        | Yes         |
+| B to C   | 0.0173          | No          |
+| C to A   | 5.51E-08        | Yes         |
+
+Test                | Alpha  |
+---------------------|--------|
+Analysis of variance | 0.05   |
+Post-hoc test        | 0.0167 |
+Supplementary Information
+
+Electrochemical pedagogy
+
+A. Dutton¹, J. Ramwell², C. Osarinmwian³
+
+¹School of Environmental Science, University of Liverpool, Liverpool L69 7ZX, United Kingdom.
+²Holy Cross College, Manchester Road, Bury BL9 9BB, United Kingdom.
+³School of Teacher Education and Professional Development, Manchester Metropolitan University, Manchester M15 6GX, United Kingdom.
+
+Supplementary Note 1: Curriculum
+
+Supplementary Note 1 laid bare a narrative of teaching the social-institutional dimensions of the science curriculum remotely. Currently, science curricula posit learning outcomes that bear no relation to scientific communities, particularly the social values of science in a curriculum [28]. This perspective poses important questions about whether educators are suitably able to teach the diverse aspects of science and whether students are ready to process such content. It is imperative that educators and institutional leaders collaborate to develop science curricula that enhances student outcomes [29] while facilitating ongoing learning and self-reflection among educators. Such collaboration may utilise distributed leadership to stretch the landscape of expertise involved in curricular decisions thereby harnessing collective wisdom while emphasizing decision-driven data collection and a sense of curriculum ownership. The supplementary note also magnified the failure of existing standardized curricula to meet the diverse learning needs of students, which may have been the catalyst for the proposal of virtual classrooms. Therefore, emerging student-centred curricula must champion cultural competency and global awareness to garner learning experiences and science curricula that resonate with student need and interests [30]. Also, inconclusive findings as to whether meaningful learning is taking place and the pervasive absence of verbal student participation in virtual classrooms [31] questions their premise in science curricula.
+
+The supplementary note has exposed gaps in the assessment of inclusivity, innovation, and function of science curricula for improving scientific literacy. Against the backdrop of socially and culturally relevant science, curricula must encourage observation, exploration and experimentation with scientific phenomena as well as experiences and materials that enable data
+collection and the documentation of findings. This is important since effective scaffolding can unlock a student’s capability for rigorous science. The inferred responsivity and flexibility of curricula can lift enthusiasm and improve academic outcomes for a range of learning styles and abilities. This capacity to include all aspects of science in curricula is profound and makes science more authentic [28]. However, the argument for virtual classrooms from this supplementary note is bolstered by children building science capital and inquiry with their families at home via playfulness and joy. Having said that, the false dichotomy of play and learning is circumvented by combining elements of play and direct instruction in guided play [32]. This delves below the surface of playfulness and joy, which is experienced at home, to reveal learning through student autonomy and educator expertise. The curriculum of tomorrow requires a development of active thinkers and doers since such a curriculum may be founded on guided play [33].
+
+Supplementary Note 2: Three-phase boundary
+
+Describing the 3PB as a discrete point is useful in geometric evolution laws while forming a basis for point-contact electrode cell designs. However, 3PB electrochemistry scales with the geometric factors of an electrode and is predominantly focused on an electrode/electrolyte two-phase interface. Thus, the separate expressions of a 3PB and its immediate neighbouring three phases has the same effect as that for an interface and its immediate neighbouring two phases. However, traditional electrochemistry concepts based on classical electrode materials and their two-phase interfaces face challenge when applied to 3PB. Thus, the decay of a discrete 3PB state embedded in a tight-binding 3PB continuum is possible using ground state conditions where probability measures are supported on configurations with minimal energy (i.e. zero-temperature limit). The energy band model [34] for the density of states $\rho(\omega)$ and 3PB spectral function $G(\omega)$ is given by the nonlinear Fano-Anderson model:
+
+$$\rho(\omega) = \frac{\partial k}{\partial \omega} = \frac{1}{(4\kappa_0^2 - \omega^2)^{0.5}}$$
+
+$$G(\omega) \equiv \rho(\omega)|v(\omega)|^2 = \frac{2\kappa_0^2}{(4\kappa_0^2 - \omega^2)^{0.5}} \sin^2 \left[ n_0 \arccos \left( \frac{\omega}{2\kappa_0} \right) \right]$$
+
+where $v(\omega)$ is an interaction function, $n_0$ represents an integer number of discrete 3PB states, $\omega$ is the frequency, $\kappa_0$ is the electron hopping amplitude between adjacent 3PB states, and $k$ is a continuous variable in the range $0 < k < \pi$. By applying multiple-scale asymptotic analysis in the
+Van Hove $\lambda^2 t$ limit, an assumed infinitesimally small coupling $\lambda$ of a decaying discrete 3PB state reveals discrete states embedded in the continuum acting as transient trapping states that slow down the decay (Fig. 1).
+
+The decay of a discrete 3PB state $|a\rangle$ for $n_0 = 1$ reveals a continuum without discrete 3PB states whereas for $n_0 \geq 2$ the $G(\omega)$ shows discrete states as a point-like gap that slows down the decay (Fig. 1). In the latter, discrete states at frequency $\Omega$ exist provided $\rho(\Omega)|v(\Omega)|^2 = 0$ and $\Omega - \omega_d = \lambda^2 \Delta(\Omega)$ are simultaneously satisfied in a tight-binding Hamiltonian [34]. Assuming $t$ is normalized to $1/\kappa_0$, the coupling of $|a\rangle$ scales as $- (\kappa_d/\kappa_0)$ and $\lambda \equiv \kappa_d/\kappa_0$ is a measure of interaction strength where $\kappa_d$ is the electron hopping amplitude between $|a\rangle$ and $|n_0\rangle$ (Fig. 1). Discrete states may exist at an energy $\hbar\omega_d$ of $|a\rangle$ since the resonant $\omega_d = \Omega - \lambda^2 \Delta(\Omega)$ where $\hbar$ is Planck constant and $\Delta(\Omega)$ is an energy shift. The van Hove singularities for $n_0 \geq 2$ at band edge $\omega = \pm 2\kappa_0$ (i.e. maximum $G(\omega)$ at $\pm 2\kappa_0$) are related to the one dimensionality of the continuum. The inverse number of discrete 3PB states occupied by nonlinear eigenstates $|\psi\rangle$ measured by inverse participation ratio (IPR) in real space yields IPR = 1 for $|\psi\rangle$ localized on a discrete 3PB state and IPR = $1/N_{3PB} = 1/L_{3PB}$ for $|\psi\rangle$ distributed equally over $N_{3PB}$.
+
+An ensemble of intermediate species at the 3PB in equilibrium state space is connected along a path measured by the reaction $\gamma$-coordinate. The probability that an intermediate specie $\gamma$ is at position $\mathbf{r}$ and at $t$ is given by the probability distribution $P(\mathbf{r}, \gamma, t)$ since equilibrium states with different values of $\gamma$ correspond to different species. The specific entropy $s(\mathbf{r}, t)$ for $P(\mathbf{r}, \gamma, t)$ is given by the Gibbs-Shannon entropy postulate:
+
+$$s(\mathbf{r}, t) = \int_0^1 P(\mathbf{r}, \gamma, t) s(\mathbf{r}, \gamma, t) d\gamma$$  \hspace{1cm} S3
+
+where $s(\mathbf{r}, \gamma, t) = -(R/M_\gamma)\ln[P(\mathbf{r}, \gamma, t)]$ where $M_\gamma$ is the molar mass of an intermediate specie along the $\gamma$-coordinate. The high surface area-to-volume ratio of certain species renders them thermodynamically unstable which means that the Gibbs free energy change $\Delta G_{\text{species}} = \Delta G_{\text{surface}} + \Delta G_{\text{bulk}} > 0$ where $\Delta G_{\text{surface}}$ is positive and proportional to surface area and $\Delta G_{\text{bulk}}$ is negative and proportional to volume. Assuming negligible co-existent phase equilibria of species, the thermodynamic length between species along path $\gamma$ is given by an equation of state [35] and explicitly depends on the path taken:
+\[ L(\gamma) = \int_{\gamma_1}^{\gamma_2} \left( \sum_{i,j} \eta_{ij} dX_i dX_j \right)^{0.5} \]
+
+where \( \eta_{ij} = \partial^2 U / \partial X_i \partial X_j \) is the second-derivative matrix of the internal energy \( U \) with respect to extensive variables \( X \). The first and second laws of thermodynamics endow \( \eta_{ij} \) with the positivity required to make it a metric on the surface of thermodynamic states.
+
+The time-dependent concentration of ions adsorbed on a 3PB in fuel cell electrodes can be described by combining the generalized Langmuir adsorption equation (assuming negligible desorption and negligible interaction between adsorbed ions) with a form of Fick’s second law of diffusion:
+
+\[
+\frac{\partial c_a}{\partial t} = \frac{\partial}{\partial x} \left( D_a \frac{\partial c_a}{\partial x} \right) + k_a c_d \left( 1 - \frac{c_a}{c_a^p} \right) + r_{cs}
+\]
+
+where \( x \) is a linear distance parameter, \( c_a^p \) is the maximum concentration of adsorption sites on the 3PB, and \( c_a \) and \( c_d \) are respectively the concentration of species adsorbed on the 3PB and the diffusion species on the 3PB into the porous electrode. Assuming negligible chemisorption (i.e. \( r_{cs} = 0 \)), physically adsorbed species are immobile (i.e. \( D_a = 0 \) is the surface diffusion coefficient of ions along the 3PB) while the adsorption rate constant \( k_a \) follows a temperature-dependent Arrhenius law. In the continuum limit, internal configurations are described by an internal variable \( \gamma \) [36]:
+
+\[
+\rho^i \frac{dc^i(\gamma)}{dt} = -\nabla_{\parallel} \cdot J^i(\gamma) - \partial_{\gamma} J^i(\gamma) - J^e_{n}(\gamma)
+\]
+
+where \( \nabla_{\parallel} J^i(\gamma) \) is the gradient for surface diffusion flux, \( \rho^i \) is the surface density, \( c^i(\gamma) \) is the surface mass fraction of the \( k \)-component and \( J^e_{n}(\gamma) \) is related to species arriving at a surface state characterized by \( \gamma \). The stoichiometric coefficients \( v_{kr} \) of species \( k \) in reaction \( r \) of the adsorption process leads to the correspondence:
+
+\[
+\sum_{r=1}^{p} v_{kr} J^r_i \rightarrow \partial_{\gamma} J^i(\gamma)
+\]
+
+where \( J^r_i \) is the adsorption reaction rate along the 3PB. From local surface entropy production, linear laws can be defined according to Curie’s principle for isotropic systems. By applying \( d\mu^e(\gamma) = [\partial \mu^e(\gamma) / \partial c^e(\gamma)] dc^e(\gamma) \), the linear law \( J^e(\gamma) = -L(\gamma) \cdot \nabla_{\parallel} \mu^e(\gamma) \) gives Fick’s law at the 3PB:
+\[ J^i(\gamma) = -D^i(\gamma) \cdot \nabla_{\|} c^i(\gamma) \]  
+\[ J^i(\gamma) = -L(\gamma) \frac{\partial \mu^i(\gamma)}{\partial c^i(\gamma)} \cdot \nabla_{\|} c^i(\gamma) \]  
+
+where \( \mu^i(\gamma) = \mu_0^i + k_B T \ln(z(\gamma)) + U(\gamma) \) where \( \mu_0^i \) is a reference chemical potential, \( z(\gamma) \) is an activity and \( U(\gamma) \) is the potential energy per unit mass related to the diffusion process through an effective potential acting on surface species. Considering the Onsager reciprocal relation \( L_{ij}(\gamma) = L_{ji}(\gamma) \), the following equation describes the evolution of the surface concentration for an unspecified value of \( \gamma \), reflecting the variation in time of the \( \gamma \)-specie concentration is the result of diffusion processes (diffusion along the surface, diffusion in internal space and diffusion from the bulk):
+
+\[ \rho^i \frac{dc^i(\gamma)}{dt} = D^i(\gamma) \nabla_{\|}^2 c^i(\gamma) + \partial_\gamma L_{11}(\gamma) \partial_\gamma \mu^i(\gamma) + \left[ L_{22}(\gamma) + \partial_\gamma L_{12}(\gamma) \right] [\mu_e - \mu^i(\gamma)] \]
+
+where \( L_{11}(\gamma), L_{12}(\gamma) \) and \( L_{22}(\gamma) \) are phenomenological coefficients and \( \mu_e \) is the chemical potential of the electrolyte.
+
+**Supplementary Note 3: Behaviour Management**
+
+Supplementary Note 3 raised concerns about the effectiveness and negative impact of the punitive approach of internal exclusion based on the theory of behaviourism. The uncertainty in the definition, emotional impact, and consistency of internal exclusion reveals its ineffectiveness in sustaining positive student behaviour while exacerbating media concern regarding the exorbitant time students spend in internal exclusion [37]. Students that show positive behaviour for learning is important because disruptive behaviour not only inhibits learning outcomes but adversely impacts educator efficacy and wellbeing [38]. Thus, positive behaviour for learning is effective in science teaching as it relies on student attention and prior knowledge, which are both partly outside the control of an educator [9]. However, corrective behavioural change shown by a student when in internal exclusion may be restricted to that environment since short-term ulterior motives for leaving that environment may continue the same behavioural cycle. Moreover, perpetual cycles of trauma stemming from childhood alongside excess internal exclusions may serve as a vehicle for further trauma while providing a quantum of solace for rejection. This is particularly important since the emotional impact of punitive laden teaching approaches sparks the sympathetic part of the autonomic nervous system, which hinders cognitive reasoning and decision making [39].
+
+https://doi.org/10.26434/chemrxiv-2024-rmq24  ORCID: https://orcid.org/0009-0005-1551-7111  Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+The supplementary note uncovered the importance of educator-student relationships for understanding student behaviour and emotions based on the theory of humanism. Internal exclusion stifles this understanding while inducing disruptive behaviour evidenced by student statements that ‘isolation doesn’t teach you’ [40] as well as possible missed opportunities for student self-reflection during exclusion. Thus, the confrontational aspect of escalation along a chain of consequences may be mitigated if behaviour management policy predicates student’s views and lived experiences. Engaging in a humanistic restorative conversion outside the classroom, to alert a student to imminent internal exclusion, opens an opportunity to spin internal exclusion as a harmonious workspace. Such attempts to involve students in behaviour management discussions cultivates acceptance of shared expectations and boundaries [39] while instilling a sense of fairness and emotional self-awareness that serves to mitigate challenging behaviour. This allies with emerging practices that are attachment-aware [41] and trauma-informed [42]. For instance, the post-instructional action of re-teaching within the tenet of sustainable learning offers a second chance for educators to adjust their instruction and for students to learn content [43]. Also, despite its limitations, scripted instruction is useful for whole class engagement involving large class sizes [25] if student choral responses are simple and concise.
+
+Supplementary Note 4: Molecular spin qubit
+
+With the promise of performing previously impossible computing tasks, quantum computing may perform simulations that will help accelerate novel material and drug discovery while revolutionising data encryption schemes. Unlike quantum bits (or qubits) fabricated using physics, molecular spin qubits fabricated using chemistry are tailored and relatively inexpensive to synthesise. Although most of these qubits are lanthanoid single molecule magnets (Ln-SMMs), with conventional coordination or organometallic complexes with organic ligands, the use of inorganic polyoxometalate ligands in Ln-polyoxometalate complexes provides Ln-SMMs with different characteristics [44]. For instance, polyoxotungstate ligands permit access to nuclear spin free systems, which is beneficial for minimising quantum decoherence and unwanted relaxation. Furthermore, ab initio calculations have proved to be a reliable tool for the description of low-lying multiplets of Ln complexes with experimental accuracy [45]. These advances permit the application of crystal field analysis in a more insightful way than earlier phenomenological approaches. The bottleneck of such approaches is the large number of
+independent parameters required for the description of the crystal field, which cannot all be extracted from experiment.
+
+Polyoxometalates are model systems in molecular magnetism due to their ability to host magnetic ions in chemically tailored environments of high symmetry and rigidity while maintaining their integrity in the solid state and in solution. Although ab initio calculations are relatively uncommon for polyoxometalate-based SMMs, the inclusion of electrostatic effects of a crystal lattice on a Ln$^{3+}$ ion in such calculations affords a substantially better reproduction of experimental crystal field energy levels and simulated static magnetic properties than those obtained when calculated for an isolated polyanion. A combined experimental and ab initio approach into unusual axial symmetries, may open exciting opportunities for the understanding rigid molecular spin qubits. This may contribute to existing design parameters that are enabling chemists to target specific properties in novel SMMs as well as specific quantum properties exploited in emerging quantum technologies. To facilitate this, teaching the experimental aspects of Ln-SMMs requires complimentary theoretical studies for a more complete understanding.
+
+Enhancing coherence in molecular spin qubits, without resorting to extreme dilution, has been achieved by the design of molecular structures with crystal field ground states possessing large tunnelling gaps [46]. This inspires the first learning outcome: the large off-diagonal anisotropy parameters in $Y_{1-x}Ln_xW_{30}$ (induced by 5-fold axial symmetry) contribute to narrowing resonance peaks in electron paramagnetic resonance (EPR) spectra with increases in Ln concentration. This suggests that the spin dynamics in $Y_{1-x}Ln_xW_{30}$ could be dominated by fast tunnelling processes and be strongly affected by hyperfine interactions and external magnetic fields. For $C_5$ symmetry, the crystal field Hamiltonian can be expressed in terms of the operator equivalents [47]:
+
+$$\hat{H} = \alpha A_2^0 \langle r^2 \rangle \hat{O}_2^0 + \beta A_4^0 \langle r^4 \rangle \hat{O}_4^0 + \gamma A_6^0 \langle r^6 \rangle \hat{O}_6^0 + \gamma A_5^0 \langle r^5 \rangle \hat{O}_5^5$$
+
+where $\alpha$, $\beta$, and $\gamma$ are the Stevens constants for each Ln, $\hat{O}_k^q$ are the operator equivalents expressed as polynomials of the total angular momentum operators, $\langle r^k \rangle$ are expectation values of the radial factor $r^k$, and $A_k^q$ are numerical parameters that depend on the nature of the ligand shell. Unlike pseudo-axial systems, where only the $A_k^q \langle r^k \rangle$ terms with $q = 0$ ($A_2^0 \langle r^2 \rangle$, $A_4^0 \langle r^4 \rangle$, $A_6^0 \langle r^6 \rangle$) are different from zero, the $C_5$ symmetry allows a term with $q = 5$($A_5^5 \langle r^5 \rangle$) that mixes
+magnetic states. To experimentally determine $A_k^q r^k$ products, the temperature-dependent direct current magnetic susceptibility measurement can be used. Although dipole interactions between molecules in a crystal are weak, they are sufficient to cause significant inhomogeneous broadening of EPR lines and give rise to decoherence of the quantum spin state; diminishing the efficacy of these systems as qubits.
+
+One method for reducing dipolar interactions in molecular-spin systems is dilution: spacing magnetic molecules apart within a diamagnetic environment either by dissolution in an appropriate solvent or by the co-crystallization of molecules with diamagnetic analogues [46]. Ab initio calculations provide a description of Ln electronic structure according to underlying physics rather than relying on experimental fitting. This leads to the second learning outcome: ab initio calculations agree with experimentally determined low-lying crystal field levels for $Y_{1-x}Ln_xW_{30}$ with an accuracy better than crystal field fitting models to magnetic data. The crystal field describes the effect of the electric field due to the surrounding ligands acting on the Ln ion. Ab initio calculations for the investigation of crystal field in Ln complexes offers advantages over other approaches [45] while permitting the application of crystal field analysis in a more insightful way than earlier phenomenological approaches. However, computational demands of ab initio approaches arise from the complex multiplet structure of many-electron atoms and the possibility of errors $> 20\%$ in comparison to experimentally determined crystal field energies.
+
+**Supplementary Note 5: Liquid crystal composite**
+
+Symmetry-breaking phase transitions in liquid crystals (LCs) are often accompanied by the formation of topological defects (TDs), which are discontinuous configurations of a matter field characterized by topological invariants. Material properties are often dependent on formation history and thus on domain coarsening structures and TD annihilation [48]. This behaviour is observed in other condensed matter systems, such as alloys and semiconductors. LCs provide a versatile system for studying TD dynamics due to easy manipulation by external stimuli while their inherent optical birefringence facilitates in-situ observation on practical time scales. In comparison to TD annihilation, the TD formation process has rarely been investigated in LCs [49]. Progress in electro-optic display technology using nematic LCs originates from their long range orientational order and dielectric anisotropy. Further advancement requires either chemically synthesizing new LCs or altering existing LCs by doping with nanomaterials. The
+latter is more cost-effective, simpler and less intensive while delivering fast response times and low threshold voltages. However, a review of nano-dopants revealed an inconsistent picture of their beneficial effects on LC properties [50]. To this end, more systematic investigation of the effect of size and anchoring strength of nano-dopants on the physical properties of a nematic LC (i.e. nematic LC composites) is needed.
+
+An investigation may involve searching for speed anisotropy in TD pairs and its dependence on both external and applied conditions in different nematic LC composites. Developed nematic LC composite devices address performance degradation of display devices due to impurity ions and nanoparticle aggregation while clarifying TD dynamics in these composites. Importantly, it bridges the gap between soft matter physics and chemical engineering by contributing to the challenge of improving the stability of nematic LC composites while adopting a common language between experimental LC techniques. The is timely because:
+
+- Size dispersion, shape anisotropy, and surface morphology of nanomaterials are well controlled, and will lead to a dramatic increase in the use of LC composites.
+- LC composites are considered a new domain of LC physics because of their association with challenging fundamental properties and innovative applications.
+- Advances have been made in using standard crossed-polarized light microscopies for imaging and tracking nanoparticles in nematic LCs.
+- Spatial patterning and manipulation of nanoparticles is very promising for new and more efficient nanotechnologies while enabling lab-on-a-chip solutions.
+
+Developing Hele-Shaw nematic LC composite devices, founded on electro-optic, dielectric, and TD dynamic properties, enables enhancement in nematic LC properties for LCD technology advancement in terms of low power consumption and high vision angle. This benefits the global nanotechnology market, which was expected to grow at a ~ 17 % compound annual growth rate during the forecast period 2019–2024 by the ‘Global Nanotechnology Market Outlook 2024’.
+
+Once developed, nematic LC composite devices can advance understanding of charge storage and transport phenomenon in LC composites by tuning nano-dopant properties. For TD annihilation, demonstration of whether the annihilation dynamics of electric-field-induced TDs is equivalent to that of topological charge ±1 Schlieren defects would signify universality of
+scaling. For TD formation, determination of whether TD density $\rho$ scales with the rate of change of electric-field ramp rate $\tau_e$ would prove or disprove Zurek predictions. In a device, homeotropic surface anchoring at a dopant size $d_s = 22$ nm either induces metastable nano-dopant pairs or no pair interaction whereas $d_s > 35$ nm induces strong pair interactions [51] while $d_s < 10$ nm enables strong Brownian fluctuations to dominate nano-dopant movement [52]. Universality in terms of temperature and nematic LC type dependency on scaling exponent $\alpha$ in the Zurek scaling law $\rho \propto \tau^{-\alpha}_e$ can be determined from the slope in a $\rho-\tau_e$ plot. The effect of annihilation dynamics at large $\tau_e$ (and $\rho$) indicates deviations in $\alpha$. Moreover, TD formation observed using polarised optical microscopy occurs after a delay time from the onset of Fréedericksz transition. The effect of substrate non-uniformities on TD formation patterns are minimised by averaging over devices of equal Hele-Shaw cell confinement gap.
+
+**Supplementary Note 6: Titanium**
+
+Titanium is used in the biomedical, automotive and aerospace industries because of its corrosion resistance, high specific strength, low density, and biocompatibility. Hence, international recognition of commercially sustainable titanium manufacturing has stimulated much interest and investment with manufacturing leadership depending on new technology paradigms combined with new process and business models. Responding to challenges debated at the 2013 Global Grand Challenges Summit, fellowships in ‘Sustainability’ and ‘Resilience’ opened to act as focal points for future research endeavours. Large international programmes were needed to deliver advances in sustainable manufacturing to drive economic growth. The economic viability of sustainable titanium manufacturing using solid state electro-deoxidation offers well-established infrastructure, huge output, and technological maturation of the materials manufacturing sector [53–59]. In contrast to the renormalized length, the Debye-Hückel length in a molten salt [60] for the electro-deoxidation of titanium dioxide is used to define a characteristic length scale:
+
+$$\lambda h_{th} = \left( \frac{k_B T}{4\pi e_0^2 n_e} \right)^{0.5} \tag{S12}$$
+
+where $e_0$ is the elementary charge and $n_e$ is related to the number density of ions in the electrolyte. The local electro-neutrality condition inside a porous cathode is a consequence of Maxwell’s equations in the thin electric double layer limit $\lambda \rightarrow 0$. Thus, the order of magnitude
+of $\lambda h_{th}$ is within the nanometre range according to the Debye-length scale. Beyond a threshold titanium adatom concentration, the probability of electron interaction with at least second nearest neighbour titanium ions and titanium adatoms becomes significant thereby generating thermodynamically stable titanium nuclei with an electron carrier density:
+
+$$n_e \approx \int_{E_b}^{E_t} f(E) g(E) \, dE = 2 \left( \frac{m_e k_B T}{2 \pi \hbar^2} \right)^{1.5} \exp \left( \frac{\mu}{k_B T} \right)$$
+
+where $g(E)$ is the electron density of state, $f(E)$ is the Fermi-Dirac distribution function, $E_b$ and $E_t$ represents respectively the bottom and top of the conduction band, $m_e$ is the mass of the electron, $\mu$ is the electrochemical potential and $\hbar$ is the reduced Planck constant. Particulate cathode designs (Fig. S1) tend to operate with non-uniform current distributions because of ohmic losses and an under-utilized specific surface area. Therefore, for a fraction of cathode thickness that is electrochemically reactive (exchange current density $j_0 = 0.481r^{-0.434}$ with a correlation coefficient $= 97.5$ % in the time range $t_p \leq t < 2$ hours where $t_p$ is the time taken to reach peak current) introducing an effectiveness factor $\geq 0.5$ is important for the design and scale-up of particulate cathodes. Overall, the design equation for electro-deoxidation reactor scale-up is deduced by using dimensionless terms [61]:
+
+$$Sh = 1.24Re^{0.12}Sc^{1/3} \left( \frac{D_{c/a}}{L_{el}} \right)^{-0.87} \left( \frac{D_{w/c}}{L_{el}} \right)^{-0.42}$$
+
+where $Sh$, $Re$ and $Sc$ is respectively the Sherwood, Reynolds and Schmidt number, and $D_{c/a}$ is the gap between the cathode and anode, $D_{w/c}$ is the gap between the reactor wall and cathode and $L_{el}$ is the length of an electrode. Apart from the supply and demand trends of the titanium market, differences in the shape and size of electro-deoxidised titanium particles available for additive manufacturing could have a significant impact on the surface finish and void formation in titanium products [62]. Thus, narrow particle size distribution with regular particle shapes is crucial for minimizing particle segregation for additive manufacturing.
+
+Current and potential distributions enable rational design and scale-up of electro-deoxidation reactors where geometric similarity is sacrificed for current and potential similarity. Calculation of primary current distribution and resistance represents the first step towards reactor analysis and optimization and is determined by geometric factors. The Maxwell equation $\partial_t \mathbf{P} + \text{curl}(\mathbf{P} \times \mathbf{v}) = \mathbf{j}_P$ for the polarization charge, where $\mathbf{P}$ denotes the vector of polarization, $\mathbf{v}$ is the
+barycentric velocity vector and \( \mathbf{j} \) is the current density vector, defines the normal current on the cathode boundary:
+
+\[
+-\kappa \frac{\partial \varphi}{\partial \mathbf{n}} \equiv -\kappa \mathbf{n} \cdot \nabla \varphi
+\]
+
+where \( \mathbf{n} \) is the outward normal vector, \( \kappa \) is the electrical conductivity of molten salt and \( \varphi \) is the electric potential of the cathode. Alongside physicochemical constants, nonlinear electro-deoxidation requires Dirichlet potential and Neumann flux boundary conditions. Despite cathode renormalization in the statistical continuum limit, Wilson numerical renormalization group determines the thermodynamic properties of quantum impurity systems. For slow cathode kinetics, the discharge of two oxygen moles is equivalent to the charge number on the oxygen ion, according to Faraday’s second law. Thus, the molten salt electrolyte near the cathode is no longer an equipotential surface, resulting in the calculation of secondary current distribution (i.e. kinetic resistance > ohmic resistance). Imposition of an additional cathode resistance (or cathode polarization) renders this distribution more uniform than the primary current distribution in which infinite current at a cathode edge is eliminated [61]. This effect is quantified using the Wagner number:
+
+\[
+Wa = \frac{\kappa}{L_c} \left( \frac{d\varphi}{dj} \right)
+\]
+
+where \( L_c \) is the characteristic length and \( j \) is the current density. Sensitivity analysis of an electro-deoxidation model for titanium production requires the automatic generation of a finite element mesh using the Delaunay triangulation algorithm. The finite element method uses a weak formulation of field variable constraints in coupled systems of partial differential equations to make discontinuities integrable. This is important for accurate numerical simulation at corner discontinuities in a model domain. In addition, increasing the number of finite elements using mesh refinement techniques improve the accuracy to an acceptable level (i.e. error \( \leq 5 \% \) for simulations in 2D axisymmetric model domains).
+
+Titanium and its alloys have been used extensively for orthopaedic implants, dental implants, and medical devices since its Young’s modulus is close to natural bone. Although the \( \alpha + \beta \)-type Ti–6Al–4V alloy is the state-of-the-art material of choice in the orthopaedic field due to an optimal implant-bone interaction, the leaching of vanadium and aluminium from Ti–6Al–4V beyond a threshold level could cause peripheral neuropathy, Osteomalacia, and Alzheimer
+diseases. Thus, there has been increasing interest in β-type titanium alloys because of the non-toxic, non-allergic β phase, and the promising performance of Ti–15Mo and Ti–7.5Mo alloys in biomedical applications with Ti–Mo alloys exhibiting better corrosion resistance than commercially pure titanium [63]. However, electro-deoxidized titanium may emerge as the material of choice because of a revival in 3D-printed porous implants and the inherent difficulty of achieving compositional homogeneity in β-type titanium alloys. Also, the high reactivity of titanium leads to the formation of a thin oxide surface layer (1.5-10 nm thick) that increases corrosion resistance. The long-term stability of this layer in biological environments plays a decisive role in the biocompatibility of titanium implants.
+
+Since the insertion of an implant into the human body is always associated with an inflammatory response caused by surgical trauma, it is of general interest to investigate how titanium behaves under such conditions. One of the features of an inflammatory response is the release of superoxide and hydrogen peroxide from inflammatory cells into extracellular space and the interaction between these reactive oxygen species and a titanium implant [64]. Hydroxyl radicals formed from hydrogen peroxide during this response are potent agents for cellular deterioration. Thus, understanding the behaviour of an implanted titanium material in terms of its ability to sustain or stop free radical formation is of high importance. The interaction between bone and reactive oxygen species from an oxide film may be critical in osseointegration (e.g. biological fixation of titanium dental implants) where changes in local tissue pH and the generation of reactive oxygen species during wound-healing and/or tissue remodelling alters the oxide film. Furthermore, studying titanium biocompatibility using bone marrow derived mesenchymal stem cells may be crucial for understanding bone regeneration in vivo as these cells differentiate to osteoprogenitor cells [65].
+
+**Supplementary Note 7: Energy storage**
+
+One of the great challenges of the twenty-first century is unquestionably materials for energy applications. Although energy storage technology ranges from meeting the needs of individual households to high-voltage transmission grids, advances in energy storage devices and their integration into local distribution networks are needed to meet the UK requirement of cost-effective performance. Thus, developing new materials that have the potential to revolutionise energy storage devices relies on the ability to control material properties such that high
+performance devices can be obtained [66]. To this end, dielectric materials play a crucial role in applications that require short-intense power pulses and the conversion of direct current to alternating current, such as electronic systems for the integration of energy from renewable sources into power grids, transport, and military weapon systems [67]. Energy is stored in conventional dielectrics through a variety of molecular and nanoscale electron-polarisation mechanisms that create oriented dipoles and associated dipolar electric fields. Invariably, some of this stored energy is transferred into molecular translation and vibration leading to dielectric loss. It is preferable that the dielectric constant is large enough to enhance capacitance and charge-storage efficiency, which is a prerequisite for further device miniaturisation, while minimising the dielectric loss thereby lowering the dissipation of stored energy [68].
+
+Preferred energy storage technologies of the future need to be composed of low-cost, easily acquired materials that are developed into products through a relatively simple manufacturing process and installed with few special requirements. However, the shortage of rare earths is expected to have a dramatic influence on the ferroelectric-based multilayer ceramic capacitor market. Considering its resource strategy and management, colossal permittivity co-doped titanium dioxide materials are a suitable replacement in energy storage applications due to high abundance and low toxicity. There electron-pinned defect-dipole engineered capability could pave the way for a new generation of electronic components such as capacitors with outstanding energy storage capabilities [68]. The extrinsic contribution to the colossal permittivity from thermally excited carriers can be avoided at extremely low temperature thereby revealing temperature-dependent intrinsic mechanisms [69]. Emerging applications to achieve energy security and efficiency concerning new materials and their development will be critical to next-generation technologies for energy storage and conversion. Future competitiveness of the UK economy requires the successful development of materials for energy applications based on discovery and innovation.
+
+Supplementary Note 8: Inclusive Assessment
+
+Supplementary Note 8 exposed key issues relating to the coherence and objectivity of formative assessment within a lesson plan. Formative assessment is an ongoing strategy to monitor learning progress to better inform about teaching the next steps necessary to meet student need [70]. This involves poor adaptations to teaching and learning if follow-up activities are not implemented
+The supplementary note is therefore a cautionary tale of formative assessment that is misaligned with decision-driven data collection with no prospect for improvement and adjustment after assessment. Given that lesson objectives tend to exceed lesson duration, formative assessment plans span related lessons to manage difficulties such as alignment between lessons and the planning of follow-up activities [72]. Despite the great opportunities of artificial intelligence in education [73], the supplementary note emphasizes the narrative of a decline in critical thinking and independent problem-solving. This may be exacerbated by educator-centred science inquiry in science education, which calls for long-term corrective professional educator development in science inquiry [74]. Moreover, professional agency and educator motivation are crucial, considering the lack of clarity of how certain educators design and implement successful formative assessment plans [72]. Combining formative assessment and the scientific understanding, which a student possesses with favourable cognitive stimulation, can improve student attainment in science [75].
+
+The supplementary note asserts that educator self-efficacy and behaviour is of supreme importance when influencing learning institution leaders about an inclusive climate. The substantial barriers to implementing cognitive science are focused on interventions that address the intrinsic biases of racism, race science, colonialism, and eugenics [76]. Systemic injustices that underpin this can be addressed using large scale collaborative programmes to systemically rescript existing practices that have defamed developmental science [77]. Such programmes recommend an external ethics board and committee of ethnic social and cultural scientists to highlight the global interest in brain function as well as efforts to guide cognitive science into a closer relationship with education [16]. Importantly, these programmes may address the processes of education and examine ways in which it manages differences and educates about differences, including those arising from ethnicity and social class. An inclusive climate and culture through high visibility of ethnic groups is not the norm while stereotypes and unconscious bias prioritise the label of minority ahead of scholarship and disability ahead of ability [78] with culturally inclusive teaching practices seldom used systematically in science curricula [79]. Although diversity extends beyond gender and cultural diversity to include disability [80], some educators may be hostile to inclusion due to a feeling that they lack the required information when teaching students with special educational needs.
+Fig. S1. Sintered particulate cathode. For \( w \) spherical particles corresponding to \( w + 1 \) intersection volumes, each particle intersection leads to different volume losses (total volume loss \( V_T = w(1 - \zeta)V \) where \( w(1 - \zeta) = w + 1 \)) depending on the distance between particle centres \( d = 0.9(r_1 + r_2) \) in which particle intersection for \( r_1 > r_2 \) and \( V(r_1, r_2, d) \) and \( a(r_1, r_2, d) \) is calculated analytically. Average particle size \( d_{50} = 2r_1 = 62.5 \mu m \) to 4 mm forms a freely settled cathode volume at a void space \( 0.44 \leq \varepsilon_v \leq 0.54 \) to facilitate molten salt flow through the cathode [81]. (a) volume-specific length \( vL \) as a function of \( \varepsilon_v \) for various \( d_{50} \) and (b) \( vL \) as a function of \( d_{50} \) for various \( \varepsilon_v \) for a uniform particle size distribution. The optimum \( \varepsilon_v \) in (a) is consistent with the notion of an optimum porosity. Increasing \( \varepsilon_v \) from 0.44 to 0.54 in (b) leads to a 0.8 % increase in \( vL \) at 62.5 \( \mu m \). (c) Maximum \( vL \) as a function of \( r_2 \) for a non-uniform particle size distribution for \( d_{50} = 62.5 \mu m \).
+References
+
+28. Erduran, S. (2023) ‘Social and institutional dimensions of science: the forgotten components of the science curriculum?’ *Science*, 381(6659), pp. eadc1509.
+
+29. Caena, F. and Redecker, C. (2019) ‘Aligning teacher competence frameworks to 21st century challenges: The case for the European Digital Competence Framework for Educators (Digcompedu).’ *European Journal of Education*, 54(3) pp. 356–369.
+
+30. Corbett, F. and Spinello, E. (2020) ‘Connectivism and leadership: harnessing a learning theory for the digital age to redefine leadership in the twenty-first century.’ *Heliyon*, 6(1).
+
+31. Ho, D. G., Sa'adi, M., He, D. and Hoon, C.Y. (2023) ‘Silence over the wire: student verbal participation and the virtual classroom in the digital era.’ *Asia Pacific Education Review*, pp.1–17.
+
+32. Weisberg, D.S., Hirsh-Pasek, K., Golinkoff, R.M., Kittredge, A.K. and Klahr, D. (2016). ‘Guided play: principles and practices.’ *Current Directions in Psychological Science*, 25(3) pp. 177–182.
+
+33. Raven, S. and Wenner, J.A. (2023) ‘Science at the center: meaningful science learning in a preschool classroom.’ *Journal of Research in Science Teaching*, 60(3) pp.484–514.
+
+34. Longhi, S. (2007) ‘Decay of a nonlinear impurity in a structured continuum from a nonlinear Fano-Anderson model.’ *Physical Review B - Condensed Matter and Materials Physics*, 75(18), pp. 184306.
+
+35. Santoro, M. (2004) ‘Thermodynamic length in a two-dimensional thermodynamic state space.’ *The Journal of Chemical Physics*, 121(7), pp. 2932–2936.
+
+36. Pagonabarraga, I. and Rubi, J.M. (1992) ‘Derivation of the Langmuir adsorption equation from non-equilibrium thermodynamics.’ *Physica A: Statistical Mechanics and its Applications*, 188(4), pp. 553–567.
+
+37. Titheradge, N. (2018) ‘Hundreds of pupils spend week in school isolation booths.’ *BBC News*. [Online] 12 November. [Accessed on February 17, 2024] https://www.bbc.co.uk/news/education-46044394.
+
+38. Barker, K., Yeung, A.S., Dobia, B. and Mooney, M. (2009) *Positive behaviour for learning: differentiating teachers’ self-efficacy*, AARE Conference, Australia.
+
+39. Eisler, R. and Fry, D.P. (2019) *Nurturing our humanity: how domination and partnership shape our brains, lives, and future*. Oxford University Press.
+
+40. Hampton, L. and Ramoutar, L. (2021) ‘An exploration of the use of low-level behaviour management systems in secondary schools: using student views, psychology and social justice to guide educational psychology practice.’ *Educational and Child Psychology* 38(2) pp. 82–94.
+
+41. Rose, J., McGuire-Snieckus, R., Gilbert, L. and McInnes, K. (2019) ‘Attachment aware schools: the impact of a targeted and collaborative intervention.’ *Pastoral Care in Education* 37(2) pp. 162–184.
+
+42. Bomber, L. (2020) *Know me to teach me: differentiated discipline for those recovering from adverse childhood experiences*. Duffield: Worth Publishing Ltd.
+
+43. Bellert, A. (2015) ‘Effective re-teaching.’ *Australasian Journal of Learning Difficulties*, 20(2), pp. 163–183.
+
+44. Clemente-Juan, J.M., Coronado, E. and Gaita-Ariño, A. (2012) ‘Magnetic polyoxometalates: from molecular magnetism to molecular spintronics and quantum computing.’ *Chemical Society Reviews*, 41(22), pp. 7464–7478.
+
+45. Ungur, L. and Chibotaru, L.F. (2017) ‘Ab initio crystal field for lanthanides.’ *Chemistry–A European Journal*, 23(15), pp. 3708–3718.
+
+46. Shiddiq, M., Komijani, D., Duan, Y., Gaita-Ariño, A., Coronado, E. and Hill, S. (2016) ‘Enhancing coherence in molecular spin qubits via atomic clock transitions.’ *Nature*, 531(7594), pp. 348–351.
+
+47. Cardona-Serra, S., Clemente-Juan, J.M., Coronado, E., Gaita-Ariño, A., Camón, A., Evangelisti, M., Luis, F., Martínez-Pérez, M.J. and Sesé, J. (2012) ‘Lanthanoid single-ion magnets based on polyoxometalates with a 5-fold symmetry: the series [LnP$_{2}W_{30}O_{110}$]$^{12-}$ (Ln$^{3+}$ = Tb, Dy, Ho, Er, Tm, and Yb).’ *Journal of the American Chemical Society*, 134(36), pp. 14982–14990.
+
+https://doi.org/10.26434/chemrxiv-2024-rmq24 ORCID: https://orcid.org/0009-0005-1551-7111 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+48. Dierking, I., Ravnik, M., Lark, E., Healey, J., Alexander, G.P. and Yeomans, J.M. (2012) ‘Anisotropy in the annihilation dynamics of umbilic defects in nematic liquid crystals.’ Physical Review E—Statistical, Nonlinear, and Soft Matter Physics, 85(2), pp.021703.
+
+49. Fowler, N. and Dierking, D.I. (2017) ‘Kibble–Zurek scaling during defect formation in a nematic liquid crystal.’ ChemPhysChem, 18(7), pp. 812–816.
+
+50. Shen, Y. and Dierking, I. (2019) ‘Perspectives in liquid-crystal-aided nanotechnology and nanoscience.’ Applied Sciences, 9(12), pp. 2512.
+
+51. Škarabot, M., Ryzhkova, A.V. and Muševič, I. (2018) ‘Interactions of single nanoparticles in nematic liquid crystal.’ Journal of Molecular Liquids, 267, pp. 384–389.
+
+52. Melton, C.N., Riahinasab, S.T., Keshavarz, A., Stokes, B.J. and Hirst, L.S. (2018) ‘Phase transition-driven nanoparticle assembly in liquid crystal droplets.’ Nanomaterials, 8(3), pp. 146.
+
+53. Osarinmwian, C. (2013) ‘Existence of three-phase interlines on a cerium dioxide surface.’ arXiv preprint arXiv:1310.2065.
+
+54. Osarinmwian, C. (2013) ‘Electricity generation using molten salt technology.’ arXiv preprint arXiv:1312.2258.
+
+55. Osarinmwian, C. (2013) ‘Particle aggregation by positive dielectrophoresis.’ arXiv preprint arXiv:1312.1570.
+
+56. Osarinmwian, C. (2016) ‘Modelling and scale-up of metal production.’ Editor’s welcome, pp. 48–50.
+
+57. Osarinmwian, C. (2016) ‘Marketing titanium products.’ Editor’s welcome, pp. 32–34.
+
+58. Osarinmwian, C. (2016) ‘Instrumentation in titanium electro-synthesis.’ Editor’s welcome, pp. 30–32.
+
+59. Osarinmwian, C. (2018) ‘Titanium production in molten electrolytes.’ Textiles Technology, pp. 58–61.
+
+60. Tosi, M.P. (1997) The nonmetal-metal transition in solutions of metals in molten salts. International Atomic Energy Agency, 1C/97/32, pp. 1–18.
+
+61. Sulaymon, A.H. and Abbar, A.H. (2012) ‘Scale-up of electrochemical reactors.’ Electrolysis, 17.
+
+62. Osarinmwian, C. (2018) ‘Flow of electro-deoxidized titanium powder.’ Textiles Technology, pp. 33–36.
+
+63. Zhou, Y.L. and Luo, D.M. (2011) ‘Corrosion behavior of Ti–Mo alloys cold rolled and heat treated.’ Journal of Alloys and Compounds, 509(21), pp. 6267–6272.
+
+64. Tengvall, P. and Lundström, I. (1992) ‘Physico-chemical considerations of titanium as a biomaterial.’ Clinical Materials, 9(2), pp. 115–134.
+
+65. Tsigkou, O., Pomerantsseva, I., Spencer, J.A., Redondo, P.A., Hart, A.R., O’Doherty, E., Lin, Y., Friedrich, C.C., Daheron, L., Lin, C.P. and Sundback, C.A. (2010) ‘Engineered vascularized bone grafts.’ Proceedings of the National Academy of Sciences, 107(8), pp. 3311–3316.
+
+66. Osarinmwian, C. (2017) ‘Graphene electrochemical capacitors.’ Editor’s welcome, pp. 21–23.
+
+67. Ploehn, H.J. (2015) ‘Composite for energy storage takes the heat.’ Nature, 523(7562), pp. 536–537.
+
+68. Hu, W., Liu, Y., Withers, R.L., Frankcombe, T.J., Norén, L., Snashall, A., Kitchin, M., Smith, P., Gong, B., Chen, H. and Schiemer, J. (2013) ‘Electron-pinned defect-dipoles for high-performance colossal permittivity materials.’ Nature Materials, 12(9), pp. 821–826.
+
+69. Kawarasaki, M., Tanabe, K., Terasaki, I., Fujii, Y. and Taniguchi, H. (2017) ‘Intrinsic enhancement of dielectric permittivity in (Nb+ In) co-doped TiO2 single crystals.’ Scientific Reports, 7(1), pp 5351.
+
+70. van der Steen, J., van Schilt-Mol, T., Van der Vleuten, C. and Joosten-ten Brinke, D. (2023) Designing formative assessment that improves teaching and learning: What can be learned from the design stories of experienced teachers? Journal of Formative Design in Learning, 7(2) pp.182–194.
+
+71. Veugen, M.J., Gulikers, J.T.M. and Den Brok, P. (2021) ‘We agree on what we see: Teacher and student perceptions of formative assessment practice.’ Studies in Educational Evaluation, 70, pp. 101.
+72. van der Steen, J., van Schilt-Mol, T., van der Vleuten, C. and Joostenten Brinke, D. (2022) ‘Supporting teachers in improving formative decision-making: Design principles for formative assessment plans.’ *Frontiers in Education*, 7, pp. 925352.
+
+73. Kooli, C. (2023) ‘Chatbots in education and research: a critical examination of ethical implications and solutions.’ *Sustainability*, 15(7), pp. 5614.
+
+74. Staberg, R.L., Febri, M.I.M., Gjøvik, Ø., Sikko, S.A. and Pepin, B. (2023) ‘Science teachers’ interactions with resources for formative assessment purposes.’ *Educational Assessment, Evaluation and Accountability*, 35(1), pp. 5–35.
+
+75. Decristan, J., Klieme, E., Kunter, M., Hochweber, J., Büttner, G., Fauth, B., Hondrich, A.L., Rieser, S., Hertel, S. and Hardy, I. (2015) ‘Embedded formative assessment and classroom process quality: How do they interact in promoting science understanding?’ *American Educational Research Journal*, 52(6) pp. 1133–1159.
+
+76. Prather, R.W., Benitez, V.L., Brooks, L.K., Dancy, C.L., Dilworth-Bart, J., Dutra, N.B., Faison, M.O., Figueroa, M., Holden, L.R., Johnson, C., and Medrano, J. (2022) ‘What can cognitive science do for people?’ *Cognitive Science*, 46(6), pp. e13167.
+
+77. Nketia, J., Amso, D. and Brito, N.H. (2021) ‘Towards a more inclusive and equitable developmental cognitive neuroscience.’ *Developmental Cognitive Neuroscience*, 52, pp. 101014.
+
+78. Malcom, S.M. (2015) ‘Science, all inclusive.’ *Science*, 349(6249), pp. 671.
+
+79. Zellmer, A.J. and Sherman, A. (2017) ‘Culturally inclusive STEM education.’ *Science*, 358(6361), pp. 312–313.
+
+80. Marks, G.S., Solomon, C. and Whitney, K.S. (2021) ‘Meeting frameworks must be even more inclusive.’ *Nature Ecology and Evolution*, 5(5), pp. 552.
+
+81. Rao, K.K., Deane, J., Grainger, L., Clifford, J., Conti, M. and Collins, J. (2017) *Electrolytic production of powder.* Patent US, 9611558, pp. B2.

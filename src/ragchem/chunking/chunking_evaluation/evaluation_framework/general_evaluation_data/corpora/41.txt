@@ -1,0 +1,302 @@
+Novel Zircaloy nanomaterials with antibacterial activity
+Gabriel Onyenso[a], Jiwar Al-Zawity[b], Nastaran Farahbakhsh[a], Annika Schardt[c], Aydan Yadigarli[a], Swathi Naidu Vakamulla Raghu[a], Mareike Müller[b], Holger Schönherr[b], Carsten Engelhard[c-d], Manuela S. Killan[a]
+
+(a) Chemistry and Structure of Novel Materials, University of Siegen, Paul-Bonatz-Str. 9-11, 57076 Siegen, Germany
+(b) Physical Chemistry I, Research Center of Micro and Nanochemistry and (Bio)Technology (Cμ), University of Siegen, Adolf-Reichwein-Str. 2, 57076 Siegen, Germany
+(c) Analytical Chemistry, University of Siegen. Adolf-Reichwein-Str. 2, 57076 Siegen, Germany.
+(d) Federal Institute for Materials Research and Testing (BAM), Richard-Willstätter Str. 11, D-12489 Berlin, Germany
+
+KEYWORDS: Oxide nanostructures, Zirconia, antibacterial coatings, Silver nanoparticles
+
+ABSTRACT:
+The outcome of an implant procedure largely depends on the implant’s surface properties. Biomaterials are now required to have surfaces with multifunctionality such as favorable tissue integration and the ability to combat bacterial adhesion and colonization. Herein, we report on a simple approach to improving the antibacterial properties of zirconia nanotubes (ZrNT) coatings via decoration with silver nanoparticles (AgNp/Ag2O). This was done by electrochemical anodization of Zr-Ag alloy at a constant voltage in a fluoride-containing electrolyte. The modified ZrNTs were characterized using SEM, EDS, ToF – SIMS, and XPS to determine their structural morphology and chemical composition, and were further subjected to antibacterial testing. The silver and zirconium ion release behavior was also monitored via ICP-MS. ZrNT decorated with AgNp/Ag2O exhibited strong antimicrobial activity (> 99 % bacterial killing) against both S. aureus and E. coli. Antimicrobial tests indicated that the antibacterial activity against the Gram-positive pathogen S. aureus could be improved by a factor of 100 compared to unmodified ZrNT while the unmodified ZrNT showed already a comparable reduction of viable Gram-negative E. coli achieved with the additional AgNp/Ag2O decoration. This modification strategy illustrates a simplified and effective approach toward optimizing the interface between the host environment and the biomaterial surface to meet the very important criteria of biocompatibility and antibacterial properties.
+
+INTRODUCTION:
+The surface properties of an implanted biomaterial are crucial to its biocompatibility1–3. Biocompatibility has been the fundamental requirement for every biomaterial and initially, this refers to the ability of a material to be biologically inert4,5. However, this precondition is no longer sufficient in light of the recent endeavor to extend the utility of biomaterials from being just a replacement tool to bioactive systems capable of tissue engineering6. Furthermore, the challenges associated with the use of biomaterial implants such as biomaterial-associated infections and lack of native tissue integration depend largely on the chemical and physical properties of the implant surface7,8, which is often associated with biofilm formation on the implant or the surrounding tissue with Staphylococcus aurus (S. aureus) as one of the common causative pathogen especially in orthopedic applications9. It has been shown that the requirements to inhibit infection and to promote integration of tissue are not mutually exclusive and there is a link...
+between the ability of an implant surface to resist bacterial adhesion, to its capacity to encourage tissue integration and even stimulate specific cellular responses\textsuperscript{10–12}. The phrase “race for the surface” describes the fate of a successful implant procedure (i.e. the possibility of preventing biomaterial-related infections) in terms of a contest between the host tissue cell integration and bacterial adhesion to the implant surface. This concept, largely credited to Anthony Gristina\textsuperscript{13} and is now widely accepted in the field of biomaterial, relates incidents of biomaterial-associated infections and/or the lack of tissue integration to the initial bacterial colonization of the implant surface\textsuperscript{14,15}. This theory has been experimentally studied, and it was demonstrated that the competition for attachment on the implant surface between the desirable host cells and bacteria depends strongly on the amount of initial bacteria on the surface\textsuperscript{16}. Therefore it has become necessary for biomaterials to undergo surface modification capable of multifunctional abilities, such as to resist bacterial adhesion while simultaneously facilitating host cell integration\textsuperscript{17,18}.
+
+Surface modification of implant material is not a recent endeavor; simple techniques like mechanical polishing, grinding, and blasting, which introduce some form of topographical changes with inhomogeneous micrometric features, have been investigated for their ability to improve osseointegration\textsuperscript{19–21}. These procedures, while being a straightforward modification approach, will be limited in their efficiency because it has been shown that interaction between a biomaterial and host tissue occurs at the nanoscale, therefore control can be optimized by nanoscale modification\textsuperscript{22,23}. An effective method for nanoscale modification of biomaterial is by coating with nanoporous/nanotubular structures of metal oxides and such structures have received attention due to their chemical stability, good wettability, mechanical strength, and biocompatibility\textsuperscript{24–27}. Such coating can fit suitably to the multifunctional requirement of biomaterial for implants by the possibility to load the inner volume with various therapeutic agents including antibiotics that can be released in a controlled manner. Furthermore, nanoscale morphology has been shown to affect cell behavior as they can be modified to selectively attach to the desired host tissue\textsuperscript{28–31}. These nanostructures can be fabricated by a relatively simple straightforward electrochemical anodization in a fluoride-containing electrolyte \textsuperscript{32–34}. Nanoporous/nanotubular structures of titania and zirconia synthesized via anodization with good control over their dimension and geometry have been investigated as a potential delivery coating on implants\textsuperscript{28,35}. Titanium and zirconia-based materials have already been widely used in fabricating implant devices mostly for orthopedic and dental applications due to their mechanical strength, good corrosion resistance, and biocompatibility\textsuperscript{36–38}. Attempts at enhancing the antibacterial properties of zirconia and titania nanotube coatings entailed multistep of initially fabricating the nanotube before loading with antibiotics and the release studies investigated\textsuperscript{39–41}. These various studies have shown good promise for example Popat et al. loaded titania nanotubes with Gentamicin and showed a reduced bacterial adhesion and enhanced osteoblast differentiation on the nanotube filled with gentamicin\textsuperscript{41}. However, the drawback of simply loading with antibiotics that mostly are physisorbed on nanotubes is the problem of toxicity, sometimes due to initial burst release; a characteristic release behavior from such media, and a lack of long-term antibacterial properties. Efforts at impacting a seemingly longer antibacterial property have involved an additional step of coating with biopolymer\textsuperscript{42} or polymer brush coating\textsuperscript{43}. While this approach can increase the release time there is the worry of introducing extra material in the fabrication process which in addition to increased cost, the differences in material properties (i.e. mechanical strength) can restrict its application. Furthermore, there is always the problem of degrading of the polymer over time\textsuperscript{44}. Loading with Silver nanoparticles has also attracted interest, as the use of organic antibiotics has the problem of a limited range of antimicrobial activities and in some instances ineffective due to antibiotic resistance development\textsuperscript{45,46}. Silver (Ag) salt and nanoparticles have demonstrated a broad spectrum of antibacterial properties and are currently being used in a variety of medical devices/materials to prevent bacterial infections\textsuperscript{47–49}. Several techniques such as chemical reduction\textsuperscript{50}, silanization\textsuperscript{51}, photo–reduction\textsuperscript{52}, etc have been investigated for incorporating Ag with nanotubes, while these methods enhanced the antibacterial properties of the nanomaterial, there have been reports of cytotoxicity connected with such systems due to high initial release of Ag nanoparticles. Furthermore, these methods require a
+longer time, and can be complex; in particular, the Ag loading process requires also other materials for optimization\textsuperscript{53,54}.
+
+In this work, an alternative strategy for decorating nanotubes with Ag, that avoids the multi-steps of nanotube fabrication before externally loading with Ag salts, preserves the nanostructural morphology that has been shown to facilitate cellular integration and importantly exhibits antibacterial properties with a very low amount of Ag was demonstrated. This facile method involves the electrochemical anodization of zirconium/silver alloy (Zircaloy). A custom-made Zircaloy consisting of Silver metal (~1wt%) was homogeneously mixed with zirconium metal and anodized at constant voltage conditions in a fluoride-containing electrolyte to obtain a composite material with zirconia nanotubes embedded with silver oxide and Ag NPs at the surface and along the length of the nanostructure. These hybrid nanostructures were characterized via SEM, XPS, and Tof – SIMS and tested for their antibacterial properties.
+
+EXPERIMENTAL
+
+Fabrication of ZrNT/Ag\textsubscript{2}O nanotube decorated with Silver nanoparticles
+Zirconium/silver alloy foil (~ 1wt% Ag, 0.1 mm thickness, HMW Hauner) before electrochemical anodization was ultrasonicated in acetone, ethanol, and deionized water for 10 min each and dried in N\textsubscript{2}. The anodization was done using a high-voltage potentiostat (Jaissle IMP 88 – 200 PC) with an electrochemical cell consisting of a circular working area of 1 cm\textsuperscript{2} and a platinum counter electrode in a typical two-electrode setup. The organic electrolyte used in this experiment is based on the previous work of Vakamulla et al. and contains 2 wt% NH\textsubscript{4}F (Sigma Aldrich), 1 wt% H\textsubscript{2}O, and 30 % formamide (Carl Roth) in glycerol (Carl Roth)\textsuperscript{24}. The Zr-Ag alloy was anodized for 1 h at 90 V, constant voltage after gradual ramping from OCP in 60 s. The current density and voltage during anodization were recorded and monitored by the ECM-Win software. The as-anodized ZrNT/Ag\textsubscript{2}O/AgNp nanotubes were rinsed with deionized water and soaked in ethanol for 10 mins to dissolve remains from the organic electrolyte and then dried in N\textsubscript{2}. The non-modified ZrNT arrays were prepared using Zirconium foil with the same anodization steps.
+
+Sample characterization.
+The surface and cross-sectional morphology of the anodized samples were determined by using scanning electron microscopy (SEM) (Quanta FEG 250 FEI) at low vacuum and 30 kV accelerating voltage. The cross-section image was obtained by the cutting anodized foil through the middle to expose the edge of the anodized area and imaging this edge by using a sample holder at 90° tilt. Energy dispersive X-ray spectroscopy (EDS) at 30 kV which is coupled to the SEM was used to determine the elemental composition of the samples. X-ray photoelectron spectroscopy (XPS/ESCA; SSX-100 S-probe) which also gives information about the surface chemical component was performed with monochromatized Al K\textalpha radiation, and the core level binding energies were normalized using the adventitious C 1s peak set at 284.8 eV. Time of flight secondary ion mass spectrometry (ToF – SIMS) which also provides surface chemical information was done. Positive and negative static SIMS spectra were recorded (ToF – SIMS 4, IONTOF GmbH) using a 25 keV Bi\textsuperscript{+} ion beam bunched down to <0.8 ns.
+**Ag⁺ release studies**
+
+To investigate the Ag release characteristics of our samples, they were immersed in 10 mL of phosphate-buffered saline (PBS) at 37 °C. After 24 h stored in the dark, the solution was taken out for analysis and fresh 10 mL PBS was transferred back to the release medium, the release from the samples was monitored for 10 days. This was done to mimic the physiological conditions inside the human body. The amount of the released ions was determined using inductively coupled plasma mass spectrometry (ICP-MS) on a model iCap Qc ICP-Q-MS (Thermo Fisher Scientific, Bremen, Germany). The Qtegra ISDS software (2.10.3324.131, Thermo Fisher Scientific) was used to control the instrument. Sample introduction was achieved with a model ESI SC-2 DX autosampler (ESI Elemental Service & Instruments GmbH, Mainz, Germany), a MicroFlow PFA-ST nebulizer (Thermo Fisher Scientific) with a sample flow rate of ca. 470 µL min⁻¹, and a Peltier-cooled cyclonic quartz spray chamber (cooled to 3 °C). The plasma torch inner diameter was 1 mm and the sampling position was set to 5 mm. The high-sensitivity skimmer cone insert “2.8” (Glass Expansion, Melbourne, Australia) for the nickel skimmer cone was used to increase the sensitivity of the instrument. The radio frequency (RF) generator power was set to 1400 W and extraction lens 1 and 2 voltages were 0 V and -220 V, respectively. The interface pressure was 1.7 mbar. Argon (5.0, Messer Industriegase GmbH, Siegen, Germany) was used as a nebulizer, plasma, and cooling gas with flow rates of 0.51, 0.8, and 14 L min⁻¹, respectively. All dilutions were prepared in deionized, bi-distilled water. For ICP-MS determination of the silver and zirconium content in the immersion liquid of each zirconia substrate, 2 mL of the immersion liquid was added to 8 mL of 2% nitric acid (diluted from 70% nitric acid, Fisher Scientific, Loughborough, UK), respectively, and spiked with indium solution (Inorganic Ventures, Christiansburg, VA, USA) to obtain a concentration of 10 µg L⁻¹ In as internal standard. For analysis, ion signal intensities from ⁹⁰Zr⁺, ⁹¹Zr⁺, ¹⁰⁷Ag⁺, ¹⁰⁹Ag⁺, and ¹¹⁵In⁺ were acquired in triplicate for each sample. Since the AgNP adhered to zirconia substrates, it was assumed that the zirconium concentration in the immersion liquid was high enough to cause significant signal interferences on the silver ion traces during ICP-MS analysis. Therefore, two separate dilution series of silver and zirconium stock solutions (Inorganic Ventures, Christiansburg, VA, USA), respectively, were prepared for silver concentration calibration and mathematical correction of the polyatomic interferences of ⁹¹Zr¹⁶O⁺ on ¹⁰⁷Ag⁺ and ⁹²Zr¹⁶O¹H⁺ on ¹⁰⁹Ag⁺.
+
+**Antibacterial studies**
+
+Media and buffers have been prepared with Milli-Q water (Millipore Elix® Advantage 3, Millipak® Filter), and were sterilized via autoclaving (121 °C, 1.2 bar for 15 min).
+
+*Escherichia coli* (*E. coli*, NTCT 10418) and *Staphylococcus aureus* (*S. aureus*, ATCC 29213, purchased at DMSZ as DSM 2569, wound isolate, Methicillin sensitive *S. aureus*) glycerol stocks stored at -80 °C were streaked onto LB (Lysogeny broth) agar (Carl Roth, Karlsruhe, Germany) and incubated at 37 °C until visible colonies were grown. Overnight cultures were prepared by inoculating 5 mL of LB (Luria/Miller: 10 g/L tryptone, 5 g/L yeast extract, 10 g/L NaCl, pH 7.0 +/- 0.2) with a single colony and incubated at 200 rpm and 37°C (incubator MaxQ6000, Fisher Scientific, Hampton, NH, USA) for 16 h to 18 h.
+
+Overnight cultures were set to an OD₆₀₀ of 0.5 in LB in semi-micro cuvettes (1.6 mL Rotilabo single-use, Carl Roth) and diluted 10-fold in LB. 1 mL of the cultures were then centrifuged at 10,000 rpm for 10 minutes at RT and the pellet was washed 2 times with PBS (phosphate-buffered saline, without calcium or magnesium; Lonza Walkersville, MD USA) and finally resuspended in 1 mL PBS. A further 100-fold dilution of the bacteria suspension in PBS resulted in a starting bacterial inoculum of 5.9 +/- 0.2 log₁₀ CFU/mL for *S. aureus* and 5.3 +/- 0.1 log₁₀ CFU/mL for *E. coli*. 
+
+https://doi.org/10.26434/chemrxiv-2024-jndvt  ORCID: https://orcid.org/0009-0003-5140-0055 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+Zr substrates (1 cm² of anodized area) were sterilized in 2 mL 70% Ethanol for 15 min in a 6 well culture plate (Sarstedt, Germany) and washed 3 times in 2 mL PBS before 2 mL of starting bacteria inoculum were added. The plate was incubated at 37°C for 24 h.
+
+After the incubation time bacterial culture suspensions in each well were collected and the substrates were washed with PBS 3 times. Non-adherent bacteria from each washing step were collected as well.
+
+To determine CFU/mL for each condition, a serial dilution (10-fold) in PBS was performed and spotted onto LB agar at least 3 times. LB agar plates were incubated for 24 h before colonies were counted. The log reduction factor (LRF) was determined by subtracting the average log₁₀ CFU/mL of the treatment condition (Zr-NT, 24 h; Zr-NT/AgNp/AgO, 24 h) from the average log₁₀ CFU/mL of the bacterial starting inoculum.
+
+RESULTS AND DISCUSSION
+
+Fabrication and characterization
+The fabricated ZrNT/Ag₂O/AgNp composite (Ag–ZrNT) and unmodified ZrNT prepared by anodizing Zr–Ag alloy and pure Zr foil respectively were characterized using SEM to determine nanotube characteristics, such as diameter, length, surface coverage, and cross-sectional morphologies. Figure 1 shows the top view image of the fabricated nanostructure; from the top, the nanotubular structure was highly ordered, packed, and with an average diameter of 80 ± 10 nm and 9 µm length for both samples. Notably, the presence of silver did not affect/influence the nanotube geometry, however, on the composite Ag–ZrNT there were silver nanoparticles uniformly deposited on the surface of the nanotubes and Figure 2 showed that Ag nanoparticles were not just on top but also along the length of the nanostructure. Another observable difference is the presence of a thin film of Ag₂O that looks like a mesh that sits on top of the nanotube for the Ag–ZrNT nanostructure Figure S1. The EDS which is coupled with the SEM was used to determine the presence and Ag content of the composite material; results are summarized in Table 1 and describes the average element percentage, calculated based on EDS analysis of 3 spots on different areas of a composite sample. The average weight percentage of Ag was 1.5 ± 0.8 and this value agrees quite favorably with the actual weight percentage of Ag in the original Zr–Ag alloy. XPS analysis was performed which gives information about elemental surface composition. A general xps survey (Figure 3) compares the chemical composition of the different samples and the expected peaks of Zr 3p/3d and O 1s were observed for both samples. The peaks of F 1s and C 1s are due to the organic electrolyte used in the anodization which contains fluoride and despite an attempt at removing this organic residue by dissolving in ethanol, there are still traces in the nanotube matrix. There were no identifiable differences for both samples in terms of detecting the peaks for Ag. This can be due to interference from the Zr 3p peaks with binding energy at 332.78 eV and coupled with the small quantity of the silver in the Ag–ZrNT (~1 wt%), which might be difficult to resolve in a survey scan. However, a high-resolution (HR) XPS spectrum confirms the presence of Ag on the decorated Ag–ZrNT. The signal at 368.2 eV is a confirmation peak for Ag metal 3d with a separated spin orbit (Ag 3d₃/₂ and Ag 5/₂ ΔBE- 6 eV) and as shown in Figure 3 there are peaks at 367.2 and 373.8 eV for Ag 3d₃/₂ and Ag 5/₂ respectively. The broadening of the peak and small shift to lower binding energy is indicative of Ag⁺ species due to the formation of Ag₂O₅. Additional, ToF - SIMS measurement was done to further complement the results from EDS and XPS. Tof – SIMS signals at m/z ratio of 106.9 and 122.9 are typical for Ag and its oxide ion fragment respectively and as observed in Figure 4 the intensity is higher for the decorated ZrNT.
+The electrochemical anodization of zirconium in a fluoride-containing electrolyte at optimal anodic conditions, in this case, means the right amount of voltage, temperature, pH, water content, etc is associated with the competing process between anodic oxidation of the Zr metal and dissolution of the metal, for which there are three main stages in the fabrication of the nanotube. In the initial step, there is the oxidation of the zirconium metal to form a compact oxide barrier, and this barrier inhibits the further movement of ions and this is evidenced in the reduction of the current density. However, subsequently, the oxide layer undergoes electric-assisted dissolution and chemical dissolution due to the formation of a soluble zirconium-fluoro complex that allows for porosification. These pores serve as nucleation sites for the inward formation of porous ordered anodic oxide. In the third stage, when an equilibrium is established between the rate of oxidation and dissolution, stable nanotubular arrays are formed. These processes can be monitored by measuring the current density–time curve, during the anodization and as shown in Figure 5 the shape of the curve is similar for both sets of samples, this means that the doping with Ag did not affect the nanotube formation and further evident in the similar nanotube dimensions as observed in Figure 1. This result agrees with the work of Mazierski et al. where similar conclusions were made after anodizing different concentrations of silver-doped alloys of titanium. Gao et al. also reported little influence on the geometry, specifically the diameter of the titania nanotube when they anodized AgTi coating deposited by magnetron sputtering on Ti. However the difference for both samples is the magnitude of the current density, and that can explain the formation of Ag₂O and Ag NP in addition to the ZrNT for the modified sample. The CD (current density) which is a function of the amount of moving ions in response to the applied potential is slightly higher for Ag – ZrNT (80 A/m² compared to 60 A/m² for unmodified ZrNT) indicating more dissolution of the oxide layer as soluble fluoro – complexes. Therefore it implies that for the modified ZrNT in addition to the formation of soluble zirconium – fluoro complexes, AgF complexes are also formed and have good solubility in the electrolyte. The formation of Ag NP can be due to the electrochemical reduction of Ag⁺ ion to metal Ag⁰ since the reduction potential of Ag⁺/Ag⁰ equals (E° = 0.7994 V). Furthermore, Ag₂O in an aqueous environment has been shown to decompose at room temperature to AgNP. Hence it is plausible that Ag₂O formed underwent thermal decomposition to AgNPs.
+
+The efficacy of Ag coating as an antibacterial agent is related to the release of Ag in its oxidized form (ie as ion Ag⁺). Since the ultimate goal would be to make metallic implant surfaces with the Ag induced surface reactivity, it was important to investigate the release of Ag ions from the fabricated samples in aqueous media to ascertain the extent of Ag NPs transformation to Ag⁺ for effective antibacterial activity, measured here by ICP-MS; the release of Zr ion was also monitored. Figure 6 compares the Ag⁺ release behavior from both samples and it showed that there was relatively no release from the undecorated samples; a flat curve for the 10 days monitored. This is different with the decorated ZrNT; where there was Ag⁺ released with an initially higher concentration (10 µg/L) and subsequently reduced to a constant amount of (~4 µg/L) which further confirms the successful modification. In aqueous solutions, it has been reported that silver nanoparticles can be oxidized, and under acidic conditions, silver ions are released. This can explain the Ag release from the modified sample, where the AgNP released to the PBS medium is oxidized and during sample preparation for ICP – MS measurements, nitric acid used as part of the dilution and conservation medium provides the acidic condition for the dissolution of silver oxide to silver ions (eq 2).
+
+\[
+4\text{Ag}^0 + O_2 \longrightarrow 2\text{Ag}_2\text{O} \quad (1)
+\]
+\[
+2\text{Ag}_2\text{O} + 4\text{H}^+ \longrightarrow 4\text{Ag}^+ + 2\text{H}_2\text{O} \quad (2)
+\]
+
+The controlled release pattern observed in Figure 6 is consistent with release behavior from an ordered nanotubular structure. Typically at the initial stage, the PBS solution interacts with the nanoparticles at the surface, and due to a higher concentration gradient, there is a burst release. Subsequently, equilibrium concentration is established as the
+solution gradually infiltrates along the nanotube, and a constant controlled amount is observed due to the homogenous distribution of the silver nanoparticles and oxide in the nanotubular matrix. The toxicity of Ag ions to human cells is generally observed from above 1 mg/L, the amount of Ag ions released from this system is between 10 µg/L to 4 µg/L; below the toxicity threshold. Furthermore, studies have shown that below 40 µg/L AgNp exhibits some favourable effects on promoting cell spreading. Therefore this approach shows good promise for incorporating into medical devices that can be used to achieve improved interaction with human cells while maintaining a long time antibacterial activity.
+
+**Antimicrobial test**
+
+The prepared Ag – ZrNT and unmodified ZrNT substrates were tested for their antimicrobial properties as proof of concept towards common pathogens that often cause biomaterial-associated infections, namely *E. coli* and *S. aureus*, which serve as model for Gram-negative and Gram-positive bacteria, respectively, to demonstrate the broad spectrum effectiveness of the modified biomaterial. *Figure 7 and Figure S 3* illustrate that Ag – ZrNT exhibited high antimicrobial activity against both *S. aureus* and *E. coli*. Against *S. aureus* bactericidal activity, which is defined as the killing of more than 99.9 % bacteria of the initial inoculum, meaning log reduction factor (LRF) >3 was achieved, while for *E. coli* an LRF>2.1 was reached, meaning less than 0.270% viable bacteria of the starting inoculum could be detected. Unmodified Zr-NT exhibited antimicrobial activity to the same extent (LRF>2.6) against *E. coli* but not towards *S. aureus*, which hints at a clear difference in the antimicrobial efficiency and presumably mode of action of Zr-NT against Gram-positive compared to Gram-negative bacteria. *Figure S 4* revealed that the nanotube formation plays an essential role in the antimicrobial effect of both Zr-NT and Ag –ZrNT as the Zr-foil and the Zr-Ag alloy foil do not exhibit any antimicrobial effect as proven by control antimicrobial tests with just the corresponding foil. One has to consider that for *S. aureus* the incubation with PBS caused 1 LRF (*Figure 7a, and Figure S 3*). Therefore, the antimicrobial effect caused by the tested material when comparing the log_{10}CFU/ml with the control condition that was incubated for 24 h in PBS was about 1 LRF (*S. aureus*) or 0.5 LRF (*E. coli*) lower for all treatment conditions than the LRF calculated relative to the starting inoculum (0 h). These results could be all validated through independent replication of the antibacterial tests using different substrate batches and bacterial cultures (*Figure S 5*). Slight variations of antimicrobial efficiency, indicated by the LRF, were observed that could be caused by small differences in the substrates and the anodization process or the starting bacterial inoculum.
+
+The antibacterial effect of silver-based materials has been extensively studied and known for a long time, and its activities have been reported to be entirely due to its release of silver ions and negligible direct influence from the shape or size of the particle. The AgNp can serve as an effective vehicle to deliver Ag ions directly to the bacterial membrane and cytoplasm by evading binding with natural ligands (which reduces its bioavailability). Others showed that AgNp activity against *E. coli* and *S. aureus* decreases the activity of the respiratory chain dehydrogenase of both bacteria, enhances the protein, and reduces sugar leakage from the bacterial membrane by increasing its permeabilities, and forms reactive oxygen species which can damage the bacterial protein structure and its intracellular system. This also agrees with other published work that came to a similar conclusion that Ag acts through three main mechanisms such as membrane damage, production of reactive oxygen species, and cellular uptake of silver ions.
+
+Antibacterial activity from the undecorated ZrNT against *E. coli* observed can be due to two reasons; zirconia nanoparticles have been demonstrated to have antibacterial properties, primarily due to the interaction of the positively charged zirconium ions with a negatively charged bacteria (*E. coli*) cell walls which can potentially result in the rupturing of the bacterial wall and ultimately cell death. This holds for the undecorated ZrNT and the release of zirconium ions was confirmed via ICP – MP Figure 6. Secondly; recent studies have shown that nanoscale patterning
+can induce the behavior of bacteria on surfaces in terms of ordering and orientation hence even without decoration with an antibacterial agent the geometrical morphology of nanotube can cause an antibacterial effect\textsuperscript{74,75}.
+
+The main question about using silver nanoparticle coating as an antibacterial agent in implant systems to reduce the incidence of biomaterial-associated infections has been the risk of toxicity to the human cells which is linked to the release behavior. In this work, it has been illustrated that the controlled release behavior with a minimal amount of Ag ions can be achieved via simple straightforward electrochemical anodization of Zr-Ag alloy (the wt\% of Ag kept at \~\ 1 wt\%). The antibacterial test showed an effective antibacterial activity against the Gram-positive and Gram-negative model bacteria \textit{S. aureus} and \textit{E. coli} and for the first time to the best of our knowledge, it was shown that ZrNT possesses antibacterial properties against Gram-negative bacteria. In future work, the antimicrobial activity of the 2 tested substrates should be screened for more bacterial species to prove if these antibacterial effects can be generalized for Gram-positive and Gram-negative bacteria. Additionally, the influence of the nanostructural morphology on the antibacterial activity, as well as the impact of Ag decoration on the integration with human tissues should investigated more in-depth.
+
+CONCLUSIONS
+A simple strategy for improving the antibacterial properties of ZrNT via decoration with AgNp/Ag\textsubscript{2}O was described. This involves the electrochemical anodization of Zr-Ag alloy to form ZrNT/Ag\textsubscript{2}O composite material embedded with AgNp along the length of the nanotube while also preserving the nanotubular morphology that can promote cellular integration and potentially be modified for multifunctionality. The composite nanomaterial was found to be an effective antibacterial agent against \textit{Escherichia coli} and \textit{Staphylococcus aureus} killing more than 99.9 \% of bacteria of the initial inoculum after 1 day, with 10\mu g/L of release silver ion. The Ag ion release was at a controlled and relatively constant rate for the 10 days monitored. ZrNT showed antibacterial activity against \textit{Escherichia coli} even without any modification, and this indicates the activity of zirconium ions and the impact of nanotubular topography especially against gram-negative bacteria, that might even act synergistic with the effect of silver ions. Conclusively, it has been demonstrated that ZrNT decorated with AgNp can be a promising candidate as a coating on implant material in preventing the incidence of biomaterial-related infections.
+**Figures/ Captions**
+
+**Figure 1:** SEM top view image a) ZrNT (fabricated by anodizing Zr metal) b) ZrNT/Ag$_2$O/AgNp composite material, the arrow indicates the location of the AgNp (fabricated by anodizing Ag-Zr alloy metal)
+
+**Figure 2:** SEM cross-sectional morphology image a) Side view of ZrNT/Ag$_2$O/AgNp composite material b) High magnification of the side view, the arrow shows that AgNp were deposited inside the nanotube along its length.
+Table 1: Summarized EDS measurement on ZrNT/Ag$_2$O/AgNp composite material showing the weight and atomic percent of the relevant elements
+
+| Element | wt %  | at %  |
+|---------|-------|-------|
+| O       | 22.94 | 45.15 |
+| F       | 21.53 | 35.69 |
+| Zr      | 54.25 | 18.78 |
+| Ag      | 1.50  | 0.38  |
+
+Table 1:
+
+Figure 3: XPS measurement: Top left: XPS survey of ZrNT and ZrNT/Ag, Ag 3d, Zr 3d O 1s high-resolution (HR) XPS spectra on ZrNT and ZrNT/Ag (Top left to bottom)
+Figure 4: ToF – SIMS molecular fragment of a) Ag, b) silver oxide.
+
+Figure 5: Compares the current density time curve during anodization for Zr and Ag-Zr alloy.
+Figure 6: ICP – MS measurement monitoring the ion release behavior for both samples a) Ag⁺ b) Zr⁺
+Figure 7: Antimicrobial activity of Zr-NT and Zr-NT/Ag-Np/AgO on (A) S. aureus ATCC 29213 and (B) E. coli NTCT 10418. Bacterial inocula at concentrations of (A) 5.9 ± 0.2 log_{10} CFU/mL and (B) 5.3 ± 0.1 log_{10} CFU/mL were exposed to Zr-NT and Zr-NT/Ag-Np/AgO substrates for 24 h at 37°C or cultivated untreated under control condition in 6 well plates. A and B: Remaining viable bacteria after 24 h under different treatment conditions are indicated in % compared to the bacterial inoculum at timepoint 0 h, which was set to 100 % (for absolute log_{10} CFU counts see Figure S3 ). Considering the limit of detection for CFU, counting leads to a maximal (<) postulated 0.059 % for S. aureus (A) or 0.270 % for E. coli of viable bacteria or (C) a minimal (>) postulated 3.2 and 2.6 log reduction factor (LRF) for S. aureus and E. coli, respectively. Error bars: Standard deviation of 4 CFU-counting replicates.
+
+| Treatment                  | S. aureus | E. coli |
+|----------------------------|-----------|---------|
+| LRF compared to inoculum (0 h) ± SD | Zr-NT     | 1.3 ± 0.1 | >2.6 |
+|                            | Zr-NT/Ag-Np/AgO | >3.2 | >2.6 |
+| LRF compared to control (24 h) ± SD | Zr-NT     | 0.1 ± 0.1 | >2.1 |
+|                            | Zr-NT/Ag-Np/AgO | >2.1 | >2.1 |
+
+ToC figure:
+References
+
+(1) Hench, L. L.; Paschall, H. A. Histochemical Responses at a Biomaterial’s Interface. *J. Biomed. Mater. Res.* 1974, 8 (3), 49–64. https://doi.org/10.1002/jbm.820080307.
+
+(2) Hench, L. L.; Paschall, H. A. Direct Chemical Bond of Bioactive Glass-ceramic Materials to Bone and Muscle. *J. Biomed. Mater. Res.* 1973, 7 (3), 25–42. https://doi.org/10.1002/jbm.820070304.
+
+(3) Hanker, J. S.; Giammara, B. L. Biomaterials. No. 2.
+
+(4) Todros, S.; Todesco, M.; Bagno, A. Biomaterials and Their Biomedical Applications: From Replacement to Regeneration. *Processes* 2021, 9 (11). https://doi.org/10.3390/pr9111949.
+
+(5) Fiench, L. L.; Wilson, J. Surface-Active Biomaterials. AAAS 1984, 226 (4675), 630–636. https://doi.org/https://www.jstor.org/stable/1693761.
+
+(6) Hench, L. L.; Polak, J. M. Third-Generation Biomedical Materials. *Science (80-. ).* 2002, 295 (5557). https://doi.org/10.1126/science.1067404.
+
+(7) Harris, L. G.; Tosatti, S.; Wieland, M.; Textor, M.; Richards, R. G. Staphylococcus Aureus Adhesion to Titanium Oxide Surfaces Coated with Non-Functionalized and Peptide-Functionalized Poly(L-Lysine)-Grafted-Poly(Ethylene Glycol) Copolymers. *Biomaterials* 2004, 25 (18), 4135–4148. https://doi.org/10.1016/j.biomaterials.2003.11.033.
+
+(8) Besinis, A.; Hadi, S. D.; Le, H. R.; Tredwin, C.; Handy, R. D. Antibacterial Activity and Biofilm Inhibition by Surface Modified Titanium Alloy Medical Implants Following Application of Silver, Titanium Dioxide and Hydroxyapatite Nanocoatings. *Nanotoxicology* 2017, 11 (3), 327–338. https://doi.org/10.1080/17435390.2017.1299890.
+
+(9) Riool, M., Zaat, S. A. J. *Ureteral Stents. Biomaterial-Associated Infection: Pathogenesis and Prevention*; Springer International Publishing, 2022. https://doi.org/https://doi.org/10.1007/978-3-031-04484-7_20.
+
+(10) Lussi, J. W.; Falconnet, D.; Hubbell, J. A.; Textor, M.; Csucs, G. Pattern Stability under Cell Culture Conditions - A Comparative Study of Patterning Methods Based on PLL-g-PEG Background Passivation. *Biomaterials* 2006, 27 (12), 2534–2541. https://doi.org/10.1016/j.biomaterials.2005.11.027.
+
+(11) Shi, Z.; Neoh, K. G.; Kang, E. T.; Poh, C.; Wang, W. Bacterial Adhesion and Osteoblast Function on Titanium with Surface-Grafted Chitosan and Immobilized RGD Peptide. *J. Biomed. Mater. Res. - Part A* 2008, 86 (4), 865–872. https://doi.org/10.1002/jbm.a.31648.
+
+(12) Maddikeri, R. R.; Tosatti, S.; Schuler, M.; Chessari, S.; Textor, M.; Richards, R. G.; Harris, L. G. Reduced Medical Infection Related Bacterial Strains Adhesion on Bioactive RGD Modified Titanium Surfaces: A First Step toward Cell Selective Surfaces. *J. Biomed. Mater. Res. - Part A* 2008, 84 (2). https://doi.org/10.1002/jbm.a.31323.
+
+(13) Grisitina, A. Biomaterial-Centered Infection: Microbial Adhesion versus Tissue Integration. 1987. *Clin. Orthop. Relat. Res.* 2004, 427 (1981), 4–12.
+
+(14) Hall-Stoodley, L.; Costerton, J. W.; Stoodley, P. Bacterial Biofilms: From the Natural Environment to Infectious Diseases. *Nat. Rev. Microbiol.* 2004, 2 (2), 95–108. https://doi.org/10.1038/nrmicro821.
+
+(15) Lewis, K. Riddle of Biofilm Resistance. *Antimicrob. Agents Chemother.* 2001, 45 (4), 999–1007. https://doi.org/10.1128/AAC.45.4.999-1007.2001.
+
+(16) Subbiahdoss, G.; Kuijer, R.; Grijpma, D. W.; van der Mei, H. C.; Busscher, H. J. Microbial Biofilm Growth vs. Tissue Integration: “The Race for the Surface” Experimentally Studied. *Acta Biomater.* 2009, 5 (5), 1399–1404.
+Busscher, H. J.; Van Der Mei, H. C.; Subbiahdoss, G.; Jutte, P. C.; Van Den Dungen, J. J. A. M.; Zaat, S. A. J.; Schultz, M. J.; Grainger, D. W. Biomaterial-Associated Infection: Locating the Finish Line in the Race for the Surface. Sci. Transl. Med. 2012, 4 (153). https://doi.org/10.1126/scitranslmed.3004528.
+
+Muszanska, A. K.; Busscher, H. J.; Herrmann, A.; Van der Mei, H. C.; Norde, W. Pluronic-Lysozyme Conjugates as Anti-Adhesive and Antibacterial Bifunctional Polymers for Surface Coating. Biomaterials 2011, 32 (26), 6333–6341. https://doi.org/10.1016/j.biomaterials.2011.05.016.
+
+Guizzardi, S.; Galli, C.; Martini, D.; Belletti, S.; Tinti, A.; Raspanti, M.; Taddei, P.; Ruggeri, A.; Scandroglio, R. Different Titanium Surface Treatment Influences Human Mandibular Osteoblast Response. J. Periodontol. 2004, 75 (2), 273–282. https://doi.org/10.1902/jop.2004.75.2.273.
+
+Sader, M. S.; Balduino, A.; De Almeida Soares, G.; Borojevic, R. Effect of Three Distinct Treatments of Titanium Surface on Osteoblast Attachment, Proliferation, and Differentiation. Clin. Oral Implants Res. 2005, 16 (6), 667–675. https://doi.org/10.1111/j.1600-0501.2005.01135.x.
+
+Bigerelle, M.; Anselme, K.; Noël, B.; Ruderman, I.; Hardouin, P.; Iost, A. Improvement in the Morphology of Ti-Based Surfaces: A New Process to Increase In Vitro Human Osteoblast Response. Biomaterials 2002, 23 (7), 1563–1577. https://doi.org/10.1016/S0142-9612(01)00271-X.
+
+Varíola, F.; Vetrone, F.; Richert, L.; Jedrzejowski, P.; Yi, J. H.; Zalzal, S.; Clair, S.; Sarkissian, A.; Perepichka, D. F.; Wuest, J. D.; Rosei, F.; Nanci, A. Improving Biocompatibility of Implantable Metals by Nanoscale Modification of Surfaces: An Overview of Strategies, Fabrication Methods, and Challenges. Small 2009, 5 (9), 996–1006. https://doi.org/10.1002/sml.200801186.
+
+Whitesides, G. M. The “right” Size in Nanobiotechnology. Nat. Biotechnol. 2003, 21 (10), 1161–1165. https://doi.org/10.1038/nbt872.
+
+Vakamulla Raghu, S. N.; Killian, M. S. Wetting Behavior of Zirconia Nanotubes. RSC Adv. 2021, 11 (47), 29585–29589. https://doi.org/10.1039/d1ra04751e.
+
+Raghu, S. N. V.; Hartwich, P.; Patalas, A.; Marczewski, M.; Talar, R.; Pritzel, C.; Killian, M. S. Nanodentistry Aspects Explored towards Nanostructured ZrO2: Immobilizing Zirconium-Oxide Nanotube Coatings onto Zirconia Ceramic Implant Surfaces. Open Ceram. 2023, 14 (September 2022), 100340. https://doi.org/10.1016/j.oceram.2023.100340.
+
+Raghu, S. N. V.; Onyenso, G.; Mohajernia, S.; Killian, M. S. Functionalization Strategies to Facilitate Multi-Depth, Multi-Molecule Modifications of Nanostructured Oxides for Triggered Release Applications. Surf. Sci. 2022, 719 (January), 122024. https://doi.org/10.1016/j.susc.2022.122024.
+
+Ganguly, D.; Shahbazian-yassar, R.; Shokuhfar, T. Recent Advances in Nanotubes for Orthopedic Implants. Insm 2019, 1 (2), 1–10. https://doi.org/10.17303/jnsm.2014.1.201.
+
+Santos, A.; Sinn Aw, M.; Bariana, M.; Kumeria, T.; Wang, Y.; Losic, D. Drug-Releasing Implants: Current Progress, Challenges and Perspectives. J. Mater. Chem. B 2014, 2 (37), 6157–6182. https://doi.org/10.1039/c4tb00548a.
+
+Gulati, K.; Aw, M. S.; Losic, D. Drug-Eluting Ti Wires with Titania Nanotube Arrays for Bone Fixation and Reduced Bone Infection. Nanoscale Res. Lett. 2011. https://doi.org/10.1186/1556-276X-6-571.
+
+Park, J.; Bauer, S.; Von Der Mark, K.; Schmuki, P. Nanosize, and Vitality: TiO2 Nanotube Diameter Directs Cell Fate. Nano Lett. 2007. https://doi.org/10.1021/nl070678d.
+(31) Park, J.; Bauer, S.; Pittrof, A.; Killian, M. S.; Schmuki, P.; Von Der Mark, K. Synergistic Control of Mesenchymal Stem Cell Differentiation by Nanoscale Surface Geometry and Immobilized Growth Factors on TiO2 Nanotubes. *Small* **2012**. https://doi.org/10.1002/smll.201100790.
+
+(32) Yasuda, K.; Macak, J. M.; Berger, S.; Ghicov, A.; Schmuki, P. Mechanistic Aspects of the Self-Organization Process for Oxide Nanotube Formation on Valve Metals. *J. Electrochem. Soc.* **2007**, 154 (9), C472. https://doi.org/10.1149/1.2749091.
+
+(33) Tsuchiya, H.; MacAk, J. M.; Ghicov, A.; Taveira, L.; Schmuki, P. Self-Organized Porous TiO2 and ZrO2 Produced by Anodization. *Corros. Sci.* **2005**. https://doi.org/10.1016/j.corsci.2005.05.041.
+
+(34) Macak, J. M.; Tsuchiya, H.; Ghicov, A.; Yasuda, K.; Hahn, R.; Bauer, S.; Schmuki, P. TiO2 Nanotubes: Self-Organized Electrochemical Formation, Properties and Applications. *Current Opinion in Solid State and Materials Science*. 2007. https://doi.org/10.1016/j.cossms.2007.08.004.
+
+(35) Sinn Aw, M.; Kurian, M.; Losic, D. Non-Eroding Drug-Releasing Implants with Ordered Nanoporous and Nanotubular Structures: Concepts for Controlling Drug Release. *Biomater. Sci.* **2014**, 2 (1), 10–34. https://doi.org/10.1039/c3bm60196j.
+
+(36) Liu, X.; Chu, P. K.; Ding, C. Surface Modification of Titanium, Titanium Alloys, and Related Materials for Biomedical Applications. *Mater. Sci. Eng. R Reports* **2004**, 47 (3–4), 49–121. https://doi.org/10.1016/j.mser.2004.11.001.
+
+(37) Apratim, A.; Eachempati, P.; Krishnappa Salian, K.; Singh, V.; Chhabra, S.; Shah, S. Zirconia in Dental Implantology: A Review. *J. Int. Soc. Prev. Community Dent.* **2015**, 5 (3), 147. https://doi.org/10.4103/2231-0762.158014.
+
+(38) Sasikumar, Y.; Indira, K.; Rajendran, N. Surface Modification Methods for Titanium and Its Alloys and Their Corrosion Behavior in Biological Environment: A Review. *J. Bio-Tribo-Corrosion* **2019**, 5 (2), 1–25. https://doi.org/10.1007/s40735-019-0229-5.
+
+(39) Ionita, D.; Bajenaru-Georgescu, D.; Totea, G.; Mazare, A.; Schmuki, P.; Demetrescu, I. Activity of Vancomycin Release from Bioinspired Coatings of Hydroxyapatite or TiO2 Nanotubes. *Int. J. Pharm.* **2017**, 517 (1–2), 296–302. https://doi.org/10.1016/j.ijpharm.2016.11.062.
+
+(40) Feng, W.; Geng, Z.; Li, Z.; Cui, Z.; Zhu, S.; Liang, Y.; Liu, Y.; Wang, R.; Yang, X. Controlled Release Behaviour and Antibacterial Effects of Antibiotic-Loaded Titania Nanotubes. *Mater. Sci. Eng. C* **2016**, 62, 105–112. https://doi.org/10.1016/j.msec.2016.01.046.
+
+(41) Popat, K. C.; Eltgroth, M.; LaTempa, T. J.; Grimes, C. A.; Desai, T. A. Decreased Staphylococcus Epidermis Adhesion and Increased Osteoblast Functionality on Antibiotic-Loaded Titania Nanotubes. *Biomaterials* **2007**, 28 (32), 4880–4888. https://doi.org/10.1016/j.biomaterials.2007.07.037.
+
+(42) Kumeria, T.; Mon, H.; Aw, M. S.; Gulati, K.; Santos, A.; Griesser, H. J.; Losic, D. Advanced Biopolymer-Coated Drug-Releasing Titania Nanotubes (TNTs) Implants with Simultaneously Enhanced Osteoblast Adhesion and Antibacterial Properties. *Colloids Surfaces B Biointerfaces* **2015**, 130, 255–263. https://doi.org/10.1016/j.colsurfb.2015.04.021.
+
+(43) Choi, H.; Schulte, A.; Müller, M.; Park, M.; Jo, S.; Schönherr, H. Drug Release from Thermo-Responsive Polymer Brush Coatings to Control Bacterial Colonization and Biofilm Growth on Titanium Implants. *Adv. Healthc. Mater.* **2021**, 10 (11), 1–12. https://doi.org/10.1002/adhm.202100069.
+
+(44) Van der Giessen, W. J.; Lincoff, A. M.; Schwartz, R. S.; Van Beusekom, H. M. M.; Serruys, P. W.; Holmes, D. R.;
+Ellis, S. G.; Topol, E. J. Marked Inflammatory Sequelae to Implantation of Biodegradable and Nonbiodegradable Polymers in Porcine Coronary Arteries. *Circulation* **1996**, *94* (7), 1690–1697. https://doi.org/10.1161/01.CIR.94.7.1690.
+
+(45) Tenover, F. C. Mechanisms of Antimicrobial Resistance in Bacteria. *Am. J. Med.* **2006**, *119* (6 SUPPL. 1). https://doi.org/10.1016/j.amjmed.2006.03.011.
+
+(46) C Reygaert, W. An Overview of the Antimicrobial Resistance Mechanisms of Bacteria. *AIMS Microbiol.* **2018**, *4* (3), 482–501. https://doi.org/10.3934/microbiol.2018.3.482.
+
+(47) Chernousova, S.; Epble, M. Silver as Antibacterial Agent: Ion, Nanoparticle, and Metal. *Angew. Chemie - Int. Ed.* **2013**, *52* (6), 1636–1653. https://doi.org/10.1002/anie.201205923.
+
+(48) Wang, J.; Li, J.; Guo, G.; Wang, Q.; Tang, J.; Zhao, Y.; Qin, H.; Wahafu, T.; Shen, H.; Liu, X.; Zhang, X. Silver-Nanoparticles-Modified Biomaterial Surface Resistant to Staphylococcus: New Insight into the Antimicrobial Action of Silver. *Sci. Rep.* **2016**, *6* (September), 1–16. https://doi.org/10.1038/srep32699.
+
+(49) Fordham, W. R.; Redmond, S.; Westerland, A.; Cortes, E. G.; Walker, C.; Gallagher, C.; Medina, C. J.; Waechter, F.; Lunk, C.; Ostrum, R. F.; Caputo, G. A.; Hettinger, J. D.; Krchnavek, R. R. Silver as a Bactericidal Coating for Biomedical Implants. *Surf. Coatings Technol.* **2014**, *253*, 52–57. https://doi.org/10.1016/j.surfcoat.2014.05.013.
+
+(50) Gunputh, U. F.; Le, H.; Lawton, K.; Besinis, A.; Tredwin, C.; Handy, R. D. Antibacterial Properties of Silver Nanoparticles Grown in Situ and Anchored to Titanium Dioxide Nanotubes on Titanium Implant against Staphylococcus Aureus. *Nanotoxicology* **2020**, *14* (1), 97–110. https://doi.org/10.1080/17435390.2019.1665727.
+
+(51) Juan, L.; Zhimin, Z.; Anchun, M.; Lei, L.; Jingchao, Z. Deposition of Silver Nanoparticles on Titanium Surface for Antibacterial Effect. *Int. J. Nanomedicine* **2010**, *5* (1), 261–267. https://doi.org/10.2147/ijn.s8810.
+
+(52) Zhao, L.; Wang, H.; Huo, K.; Cui, L.; Zhang, W.; Ni, H.; Zhang, Y.; Wu, Z.; Chu, P. K. Antibacterial Nano-Structured Titania Coating Incorporated with Silver Nanoparticles. *Biomaterials* **2011**, *32* (24), 5706–5716. https://doi.org/10.1016/j.biomaterials.2011.04.040.
+
+(53) Perumal, A.; Kannan, S.; Nallaiyan, R. Silver Nanoparticles Incorporated Polyaniline on TiO2 Nanotube Arrays: A Nanocomposite Platform to Enhance the Biocompatibility and Antibiofilm. *Surfaces and Interfaces* **2021**, *22* (December 2020), 100892. https://doi.org/10.1016/j.surfins.2020.100892.
+
+(54) Gunputh, U. F.; Le, H.; Handy, R. D.; Tredwin, C. Anodised TiO2 Nanotubes as a Scaffold for Antibacterial Silver Nanoparticles on Titanium Implants. *Mater. Sci. Eng. C* **2018**, *91* (February), 638–644. https://doi.org/10.1016/j.msec.2018.05.074.
+
+(55) Hoflund, G. B.; Hazos, Z. F.; Salaita, G. N. Surface Characterization Study of Ag, AgO, and Ag2O Using x-Ray Photoelectron Spectroscopy and Electron Energy-Loss Spectroscopy. *Phys. Rev. B - Condens. Matter Mater. Phys.* **2000**, *62* (16), 11126–11133. https://doi.org/10.1103/PhysRevB.62.11126.
+
+(56) Kaushik, V. K. XPS Core Level Spectra and Auger Parameters for Some Silver Compounds. *J. Electron Spectros. Relat. Phenomena* **1991**, *56* (3), 273–277. https://doi.org/10.1016/0368-2048(91)85008-H.
+
+(57) Tsuchiya, H.; MacAk, J. M.; Taveira, L.; Schmuki, P. Fabrication and Characterization of Smooth High Aspect Ratio Zirconia Nanotubes. *Chem. Phys. Lett.* **2005**. https://doi.org/10.1016/j.cplett.2005.05.065.
+
+(58) Amer, A. W.; Mohamed, S. M.; Hafez, A. M.; Alqaradawi, S. Y.; Aljaber, A. S.; Allam, N. K. Self-Assembled Zirconia Nanotube Arrays: Fabrication Mechanism, Energy Consideration and Optical Activity. *RSC Adv.* **2014**, *4*
+(68), 36336–36343. https://doi.org/10.1039/c4ra05115g.
+
+(59) Riboni, F.; Nguyen, N. T.; So, S.; Schmuki, P. Aligned Metal Oxide Nanotube Arrays: Key-Aspects of Anodic TiO2 Nanotube Formation and Properties. *Nanoscale Horizons*. 2016. https://doi.org/10.1039/c6nh00054a.
+
+(60) Muratore, F.; Baron-Wiecheć, A.; Hashimoto, T.; Skeldon, P.; Thompson, G. E. Anodic Zirconia Nanotubes: Composition and Growth Mechanism. *Electrochem. commun.* 2010. https://doi.org/10.1016/j.elecom.2010.10.007.
+
+(61) Mazierski, P.; Malankowska, A.; Kobylański, M.; Diak, M.; Kozak, M.; Winiarski, M. J.; Klimczuk, T.; Lisowski, W.; Nowaczyk, G.; Zaleska-Medynska, A. Photocatalytically Active TiO2/Ag2O Nanotube Arrays Interlaced with Silver Nanoparticles Obtained from the One-Step Anodic Oxidation of Ti-Ag Alloys. *ACS Catal.* 2017, 7 (4), 2753–2764. https://doi.org/10.1021/acscatal.7b00056.
+
+(62) Gao, A.; Hang, R.; Huang, X.; Zhao, L.; Zhang, X.; Wang, L.; Tang, B.; Ma, S.; Chu, P. K. The Effects of Titania Nanotubes with Embedded Silver Oxide Nanoparticles on Bacteria and Osteoblasts. *Biomaterials* 2014, 35 (13), 4223–4235. https://doi.org/10.1016/j.biomaterials.2014.01.058.
+
+(63) Ismail, S.; Ahmad, Z. A.; Berenov, A.; Lockman, Z. Effect of Applied Voltage and Fluoride Ion Content on the Formation of Zirconia Nanotube Arrays by Anodic Oxidation of Zirconium. *Corros. Sci.* 2011. https://doi.org/10.1016/j.corsci.2010.11.044.
+
+(64) Gallardo, O. A. D.; Moiraghi, R.; MacChione, M. A.; Godoy, J. A.; Pérez, M. A.; Coronado, E. A.; MacAgno, V. A. Silver Oxide Particles/Silver Nanoparticles Interconversion: Susceptibility of Forward/Backward Reactions to the Chemical Environment at Room Temperature. *RSC Adv.* 2012, 2 (7), 2923–2929. https://doi.org/10.1039/c2ra01044e.
+
+(65) Hetrick, E. M.; Schoenfisch, M. H. Reducing Implant-Related Infections: Active Release Strategies. *Chem. Soc. Rev.* 2006, 35 (9), 780–789. https://doi.org/10.1039/b515219b.
+
+(66) Xiu, Z. M.; Zhang, Q. B.; Puppala, H. L.; Colvin, V. L.; Alvarez, P. J. J. Negligible Particle-Specific Antibacterial Activity of Silver Nanoparticles. *Nano Lett.* 2012, 12 (8), 4271–4275. https://doi.org/10.1021/nl301934w.
+
+(67) Liu, J.; Hurt, R. H. Ion Release Kinetics and Particle Persistence in Aqueous Nano-Silver Colloids. *Environ. Sci. Technol.* 2010, 44 (6), 2169–2175. https://doi.org/10.1021/es9035557.
+
+(68) Campoccia, D.; Montanaro, L.; Arciola, C. R. The Significance of Infection Related to Orthopedic Devices and Issues of Antibiotic Resistance. *Biomaterials* 2006, 27 (11), 2331–2339. https://doi.org/10.1016/j.biomaterials.2005.11.044.
+
+(69) Montanaro, L.; Speziale, P.; Campoccia, D.; Ravaïoli, S.; Cangini, I.; Pietrocola, G.; Giannini, S.; Arciola, C. R. Scenery of Staphylococcus Implant Infections in Orthopedics. *Future Microbiology*. 2011. https://doi.org/10.2217/fmb.10.117.
+
+(70) Xiu, Z. M.; Ma, J.; Alvarez, P. J. J. Differential Effect of Common Ligands and Molecular Oxygen on Antimicrobial Activity of Silver Nanoparticles versus Silver Ions. *Environ. Sci. Technol.* 2011, 45 (20), 9003–9008. https://doi.org/10.1021/es201918f.
+
+(71) Gomaa, E. Z. Silver Nanoparticles as an Antimicrobial Agent: A Case Study on Staphylococcus Aureus and Escherichia Coli as Models for Gram-Positive and Gram-Negative Bacteria. *J. Gen. Appl. Microbiol.* 2017, 63 (1), 36–43. https://doi.org/10.2323/jgam.2016.07.004.
+
+(72) Rizzello, L.; Pompa, P. P. Nanosilver-Based Antibacterial Drugs and Devices: Mechanisms, Methodological
+Drawbacks, and Guidelines. *Chem. Soc. Rev.* **2014**, *43* (5), 1501–1518. https://doi.org/10.1039/c3cs60218d.
+
+(73) Tabassum, N.; Kumar, D.; Verma, D.; Bohara, R. A.; Singh, M. P. Zirconium Oxide (ZrO2) Nanoparticles from Antibacterial Activity to Cytotoxicity: A next-Generation of Multifunctional Nanoparticles. *Mater. Today Commun.* **2021**, *26* (January), 102156. https://doi.org/10.1016/j.mtcomm.2021.102156.
+
+(74) Hochbaum, A. I.; Aizenberg, J. Bacteria Pattern Spontaneously on Periodic Nanostructure Arrays. *Nano Lett.* **2010**, *10* (9), 3717–3721. https://doi.org/10.1021/nl102290k.
+
+(75) Ivanova, E. P.; Hasan, J.; Webb, H. K.; Gervinskas, G.; Juodkazis, S.; Truong, V. K.; Wu, A. H. F.; Lamb, R. N.; Baulin, V. A.; Watson, G. S.; Watson, J. A.; Mainwaring, D. E.; Crawford, R. J. Bactericidal Activity of Black Silicon. *Nat. Commun.* **2013**, *4*, 1–7. https://doi.org/10.1038/ncomms3838.
+
+Supporting Information
+
+**Novel Zircaloy nanomaterials with antibacterial activity**
+
+Gabriel Onyenso[a], Jiwar Al-Zawity[b], Nastaran Farahbakhsh[a], Annika Schardt[c], Aydan Yadigari[a], Swathi Naidu Vakamulla Raghu[a], Mareike Müller[b], Holger Schönherr[b], Carsten Engelhard[c,d], Manuela S. Killan[a]
+
+(c) Chemistry and Structure of Novel Materials, University of Siegen, Paul-Bonatz-Str. 9-11, 57076 Siegen, Germany
+
+(d) Physical Chemistry I, Research Center of Micro and Nanochemistry and (Bio)Technology (Cμ), University of Siegen, Adolf-Reichwein-Str. 2, 57076 Siegen, Germany
+
+(c) Analytical Chemistry, University of Siegen. Adolf-Reichwein-Str. 2, 57076 Siegen, Germany.
+
+(d) Federal Institute for Materials Research and Testing (BAM), Richard-Willstätter Str. 11, D-12489 Berlin, Germany
+
+KEYWORDS: Oxide nanostructures, Zirconia, antibacterial coatings, Silver nanoparticles
+
+**Electrochemical anodization of Zr and Ag-Zr alloy**
+
+Anodization of zirconium in a fluoride-containing electrolyte at suitable conditions such as voltage, temperature, pH, etc leads to the formation of ZrNT. However when doped with other metals like Ag, there is the possibility to chemically and structurally modify the ZrNT to achieve specific properties. The Figure below compares the top view of Zr and Ag-Zr alloy foil (~ 1wt% Ag) after anodizing at constant 90 V for 1 h respectively (left to right). For the modified ZrNT in addition to the nanotube, there were AgNp and a mesh of silver oxide. It is critical to observe that the silver oxide did not cover the nanotube, hence can be loaded with other molecules to achieve multifunctionality. Figure S 2 shows the optical image of anodized samples clearly the Ag-Zr alloy is more brownish due to the presence of silver oxide.
+Figure S 1: SEM top view image a) ZrNT b) ZrNT/Ag₂O/AgNP composite material
+
+Figure S 2: Optical image of the anodized Zr and Ag-Zr (left to right)
+
+Antimicrobial test
+Figure S3: Reduction of $\log_{10}$ CFU/mL of (A) S. aureus ATCC 29213 and (B) E. coli NTCT 10418. Bacterial inocula (0 h) at concentrations of (A) $5.9 \pm 0.2$ $\log_{10}$ CFU/mL and (B) $5.3 \pm 0.1$ $\log_{10}$ CFU/mL were exposed to Zr-NT and Zr-NT/Ag-Np/AgO substrates or cultivated untreated under control condition for 24 h at 37°C in 6 well plates. LOD*: The limit of detection for CFUs counting was 500 CFU/mL. Error bars: Standard deviation of 4 CFU-counting replicates.
+
+Figure S4: Zr and Zr-Ag alloy foil do not exhibit any antimicrobial property. Bacterial inocula of S. aureus ATCC 29213 and E. coli NTCT 10418 (0 h) were exposed to Zr-foil or Zr-Ag alloy foil or cultivated untreated under control condition for 24 h at 37°C in 6 well plates. Resulting $\log_{10}$ CFU/mL determined with CFU-counting are plotted. There is no relevant antimicrobial effect detected as all LRF are below 1. Nd: not defined.
+**Figure S5:** Antimicrobial activity of Zr-NT and Zr-NT/Ag-Np/AgO on (A,C) S. aureus ATCC 29213 and E. coli NTCT 10418 (B,D) (reproduction of results from Figure 7 in a completely independent experiment). Bacterial inocula (0 h) were exposed to Zr-NT and Zr-NT/Ag-Np/AgO substrates for 24 h at 37°C or cultivated untreated under control conditions in 6 well plates. A and B: Reduction of absolutely counted log_{10} CFU/mL before and after treatment is shown. LOD*: The limit of detection for CFUs counting was 667 CFU/mL. C and D: Remaining viable bacteria after 24 h under different treatment conditions are indicated in % compared to the bacterial inoculum at timepoint 0 h, which was set to 100 %. Considering the limit of detection for CFU counting leads to a maximal (<) postulated 0.056 % (D) or (C) a minimal (>) postulated 3.4 log reduction factor (LRF) for E. coli. Error bars: Standard deviation of 3 CFU-counting replicates.
+
+|                  | Treatment   | S. aureus | E. coli |
+|------------------|-------------|-----------|---------|
+| LRF compared to  |             |           |         |
+| inoculum (0 h)   | Zr-NT       | 1.1 ± 0.1 | >3.4    |
+|                  | Zr-NT/Ag-Np/AgO | 2.6 ± 0.3 | >3.4    |
+| LRF compared to  |             |           |         |
+| control (24 h)   | Zr-NT       | 0.3 ± 0.3 | >2.0    |
+|                  | Zr-NT/Ag-Np/AgO | 1.8 ± 0.3 | >2.0    |
+
+https://doi.org/10.26434/chemrxiv-2024-jndvt  ORCID: https://orcid.org/0009-0003-5140-0055  Content not peer-reviewed by ChemRxiv. License: CC BY 4.0

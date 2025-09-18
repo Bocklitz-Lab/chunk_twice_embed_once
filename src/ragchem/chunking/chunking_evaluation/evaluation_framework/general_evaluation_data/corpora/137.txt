@@ -1,0 +1,266 @@
+Realizing the magneto-structural correlation of a highly anisotropic Fe(III) porphyrin complex through \textit{ab-initio} approaches
+
+Mayurika Das,\textsuperscript{a} Sujit Kamilya,\textsuperscript{a} Subhankar Mandal,\textsuperscript{a} Sher Singh Meena,\textsuperscript{b} Jiri Pechousek,\textsuperscript{c} Radovan Herchel*\textsuperscript{d} and Abhishake Mondal*\textsuperscript{a}
+
+\textsuperscript{a}Solid State and Structural Chemistry Unit, Indian Institute of Science, Sir C V Raman Road, Bangalore 560012, India.
+
+\textsuperscript{b}Solid State Physics Division, Bhabha Atomic Research Centre, Mumbai 400085, India.
+
+\textsuperscript{c}Department of Experimental Physics, Faculty of Science, Palacky University, 17. listopadu 12, CZ-771 46 Olomouc, Czech Republic.
+
+\textsuperscript{d}Department of Inorganic Chemistry, Faculty of Science, Palacky University, 17. listopadu 12, CZ-771 46 Olomouc, Czech Republic.
+
+ABSTRACT
+
+A mononuclear pentacoordinate Fe(III)-porphyrin-NCS complex has been synthesized and characterized by single-crystal X-ray diffraction, magnetic, electrochemical, spectroscopic, and theoretical studies. Single crystal X-ray diffraction studies show a planar porphyrin moiety with an axial NCS coordinated to the Fe(III) centre. Electrochemical and spectroelectrochemical studies in solution depict clear changes in the
+system during oxidation and reduction processes. Mössbauer spectroscopic analysis at different temperatures also supported the observation of a high-spin state of the Fe(III)-porphyrin complex that was further backed by DFT calculations. Attempts to understand the origin of high magnetic anisotropy in the ground state as determined by DC magnetic measurements was undertaken by detailed CASSCF/QD-NEVPT2 calculations.
+
+INTRODUCTION
+
+For many decades, Fe(III) porphyrin systems have been extensively studied in literature on account of their remarkable physical properties and interesting applications\textsuperscript{1-3} as well as their crucial role in biological systems.\textsuperscript{4-8} Porphyrins being large macrocycles, have plenty of electrons forming extended $\pi$-conjugation system due to which they exhibit characteristic electronic\textsuperscript{9-13} and electrochemical properties\textsuperscript{14-16} both in solid state as well as in solution.
+
+Fe(III)$X$ tetraphenylporphyrins ($X=$Br, Cl, I, NCS) usually forms high-spin complexes with $S=5/2$ spin ground state.\textsuperscript{17, 18} Nevertheless, a spin-state switching phenomenon has been observed by Korszun and Mofat\textsuperscript{19} between the five-coordinate high-spin isothiocyanato methaemoglobin and the six-coordinate low-spin histidine ligated isothiocyanato methaemoglobin. Till now, various literature published on the ambidentate thiocyancate ligand ligated Fe(III) tetraphenylporphyrin have shown the electronic and magnetic properties in solution along with their theoretical justification.\textsuperscript{20-23} However, a complete electrochemical study in solution as well as magnetic properties in the solid state have not been investigated so far. Proper justification of the high-spin state of Fe(III) with uniaxial anisotropy in this particular coordination environment is also another area of interest that requires considerable knowledge of the crystal and electronic structure of these mononuclear porphyrins. On the other hand, the modification of the tetraphenylporphyrin ligand by incorporating a methoxy group at the $p$-position of the aldehyde moiety may lead to a structural phase transition in the system because the methoxy group is known to show change in geometry at different temperatures.\textsuperscript{24-26}
+In this work we have synthesized the isothiocyanato ligated five coordinated square pyramidal Fe(III) tetraphenylporphyrin complex FeTMPP(NCS).CH$_3$CN (1) and have explored the structural, electronic, electrochemical, spectroelectrochemical and magnetic properties and have also explained these properties by theoretical calculations and modelling (H$_2$TMPP = p-methoxytetraphenylporphyrin), in attempts to realize their suitable candidature for molecular magnetic systems$^{27,28}$.
+
+RESULTS AND DISCUSSION
+
+**Synthesis and characterization.** The reaction of FeTMPPCl (H$_2$TMPP = p-methoxytetraphenylporphyrin) with NH$_4$SCN in CH$_3$CN/EtOH (1:1) resulted in a dark-red solution that, on slow evaporation, yielded violet block rectangular crystals in good yield. The purity of 1 was confirmed by elemental analyses and PXRD measurement (Figure SI-8). The TGA analysis of 1 (Figure SI-1) shows that it is stable up to 545 K, after which it steadily loses 3 % weight till 573 K for the removal of one acetonitrile molecule. The experimental PXRD pattern (at 298 K) matches well with the simulated pattern (at 295 K), confirming the bulk phase purity of the system.
+
+**Scheme 1.** Schematic Presentation of Synthesis of Complex 1.
+
+![Scheme 1](https://doi.org/10.26434/chemrxiv-2025-lwh8m)
+
+**Figure 1.** Image of crystals of complex 1.
+Crystal Structures Analyses. Single crystal X-ray structure analyses were carried out on a suitable single crystal of 1 at 100 K, 250 K, and 295 K (Table 1-3), where 1 crystallized in monoclinic space group $P 2_1/n$ ($Z=4$). The asymmetric unit (Figure 2) at all the measured temperatures contains the five-coordinate thiocyanato ligated to the iron porphyrin complex along with one acetonitrile molecule, which appears as solvent of crystallization. The iron centre is bonded to four donor pyrrole nitrogen atoms from the porphyrin moiety and at the axial position to the N end of the ambidentate thiocyanate ligand, adopting a spherical square pyramidal geometry at all the temperatures as determined from continuous shape measures (CShM) program29 (Table 4). The Fe-N$_{eq}$ bond distances lie in the range of [2.058 - 2.067] Å, which is close to the value for the high-spin iron-complex at this temperature$^{30,31}$, whereas the Fe-N$_{NCS}$ bond distances, follow an anomalous trend where the maximum bond length of 2.026 Å is observed at 100 K, after which there is a decrease to 2.007 Å at 250 K and 2.005 Å at 295 K. The N$_{NCS}$-Fe-N$_{eq}$ bond angles deviate from the ideal 90 ° and fall in the range of [101.4 – 105.0] ° whereas the N-Fe-N (eq) bond angles are also not linear with average values of 153.85, 153.70, and 154.10 ° at 100 K, 250 K, and 295 K respectively. This also indicated that the iron centre does not fit well in the porphyrin cavity and is slightly above the porphyrin plane, like a typical SAT metallloporphyrin complex$^{32}$.
+
+Figure 2. Perspective view of the asymmetric unit of 1 (ball and stick) at 100 K (top left), 250 K (top right) and 295 K (bottom). Hydrogen atoms are omitted for clarity. (Fe: yellow, S: yellow, C: grey, N: blue, O: red).
+There are several intermolecular interactions (short contacts) present in the molecule; firstly, two sets of non-covalent C...H interactions between the C atom of the phenyl ring and the H atom of acetonitrile were present. Again, a set of S...C interactions arise from the S centre of NCS- unit and C atom of para-methoxy group. Also, there are weak S...H hydrogen bonding interactions coming from the S centre of NCS- and H atom of phenyl ring and N...H interactions between N of acetonitrile and H atom of phenyl ring (Figure SI-2). Careful analyses of the structure also revealed that the thermal distortions were more at higher temperatures which can be seen from the slight deviation of the FeIII-NCS bond and the Ph-OMe bonds (Figure 3).
+
+**Figure 3.** (Left): Structural overlay of 1 at 100 K, 250 K and 295 K of the Fe-NCS bond and (Right): Ph-OMe bond distortion at 100 K (blue), 250 K (green) and 295 K (red).
+
+**Spectroscopic studies.** It is well known that porphyrins display characteristic electronic spectra and the UV-Vis/NIR spectroscopy is used to give an insight into the electronic states of the metalloporphyrin complex. The solid-state spectrum of 1 (Figure SI-4) displays a characteristic strong absorption band at 431 nm, which is ascribed to the Soret band and two relatively weaker bands at 520 nm and 625 nm due to the Q-bands coming from the porphyrin moiety. A weak band centered at around 718 nm can be assigned to the ligand-to-metal charge-transfer band coming from NCS-→FeIII center. There is another broad band at around 979 nm which can be attributed to the d-d transitions coming from the FeIII centre (5A1 ← 4T1). The UV-Vis/NIR measurements were also carried out in Dichloromethane, Benzonitrile, Acetone and N,N-Dimethylformamide solvents (Figure SI-4) which displays a similar nature as that of the solid-state spectrum.
+IR spectroscopy is a useful tool to understand the nature of the stretching vibrations of the different bonds present in metal complexes and the thiocyanate stretching frequency ($\nu_{\text{NCS}}$) is quite sensitive to the oxidation state and spin state of the bridged metal centre. FT-IR measurements carried out on 1 (Figure SI- 3) show two characteristic $\nu_{\text{NCS}}$ stretches at 2023 and 2008 cm$^{-1}$, coming from the Fe$^{\text{III}}$-NCS bond. The IR spectrum also shows the characteristic $\nu_{\text{C-H}}$ stretch at 2835 cm$^{-1}$ and the $\nu_{\text{C=N}}$ stretching vibration at 1604 cm$^{-1}$.
+
+Variable-temperature IR studies were performed on 1 in the temperature range of 300- 430 K (Figure SI- 5) in both cooling and heating modes. While increasing the temperature to 430 K, the $\nu_{\text{NCS}}$ stretch at 2023 cm$^{-1}$ disappears at 360 K (Figure SI- 6) and reappears during the heating cycle showing the reversible nature of the change. This changes is probably due to the distortion taking place in the Fe(III)-NCS bond at this temperature. An isosbestic point is also observed at 1330 cm$^{-1}$ both in heating and cooling modes (Figure SI- 7). All these changes demonstrate that the system is undergoing some physicochemical change at high temperatures.
+
+**Variable-temperature paramagnetic $^1$H-NMR studies.** To gain a deeper understanding of the spectroscopic properties of 1 in solution, paramagnetic $^1$H-NMR measurements were carried out in CDCl$_3$ solvent in the temperature range of 243 K- 303 K. The VT-NMR spectrum shows the up-field shift of the $\beta$-H (pyrrole) upon increasing the temperature, which is characteristic of a typical paramagnetic system with unpaired electron (Figure 4). It is noteworthy to mention here that the ruffling of the porphyrin core shortens the Fe-N$_p$ bond distances, which destabilizes the $d_{x^2-y^2}$ orbitals that increase the contribution of the intermediate-spin state, which is responsible for this nature in the NMR spectrum. The $\delta T$ vs. $T$ and $\delta/T$ vs. $T$ plots have also been shown where in the latter plot, the linear decrease with increasing temperature corresponds to a typical high-spin trend as determined by the Curie law (Figure SI- 10).
+Figure 4. Paramagnetic $^1$H-NMR spectrum of 1 in CDCl$_3$ in the temperature range of 243 K- 303 K (a: Pyrrole-H; b, c: Phenyl-H signals).
+
+Variable-temperature Mössbauer studies. To determine the exact nature (both oxidation and spin states) of the iron centre in 1, Mössbauer spectroscopic measurements were performed in the solid state both for the solvated and desolvated phases at different temperatures (Table 5). For the solvated phase, the isomer shift ($\delta$) and quadrupole-splitting ($\Delta E_Q$) parameters at 10 K ($\delta = 0.42$ mms$^{-1}$, $\Delta E_Q = 0.75$ mms$^{-1}$) and 50 K ($\delta = 0.38$ mms$^{-1}$, $\Delta E_Q = 0.68$ mms$^{-1}$) fall in the range of a typical high-spin Fe(III) porphyrin$^{36,37}$ (Figure 5). Similarly, for the desolvated phase, the isomer shift ($\delta$) and quadrupole-splitting parameters ($\Delta E_Q$) at 10 K ($\delta = 0.42$ mms$^{-1}$, $\Delta E_Q = 0.83$ mms$^{-1}$), 50 K ($\delta = 0.43$ mms$^{-1}$, $\Delta E_Q = 0.83$ mms$^{-1}$), and 250 K ($\delta = 0.35$ mms$^{-1}$, $\Delta E_Q = 0.80$ mms$^{-1}$) fall in the range of a typical high-spin Fe(III) porphyrin$^{36,37}$ (Figure SI-11).
+**Figure 5.** Mössbauer spectra of the solvated phase of 1 recorded at 10 K and 50 K. Blue curves represent the quadrupole doublets of the HS-Fe(III) ions.
+
+**Differential scanning Calorimetry.** Differential scanning calorimetry measurements on 1 were carried out in the temperature range of 300-500 K (Figure SI-12) with different sweep rates varying from 15-5 Kmin⁻¹ to investigate the presence of any first-order transition occurring in the system. Under a sweep rate of 10 Kmin⁻¹ in heating/cooling modes, the DSC thermogram showed a set of reversible peaks at 473/442 K, respectively, indicating that the system undergoes a first-order phase transition probably coming from the configurational changes (θ) of the -OMe group of the porphyrin ring. The thermodynamic parameters were calculated for this process, and the related ΔH values were evaluated to be 3.92 (T↑)/3.35 (T↓) kJmol⁻¹, respectively. The corresponding ΔS values were estimated to be 8.29 (T↑)/7.59 (T↓) JK⁻¹mol⁻¹, respectively.
+
+**Electrochemical Studies.** The electrochemical properties of 1 were investigated by cyclic voltammetry and square wave voltammetry in dichloromethane solvent containing individual sample (~1 mM) with 0.1 M (°Bu₄N)PF₆ as electrolyte at 300 K (Figure SI-13, Figure SI-14, Figure SI-15). The cyclic voltammogram of FeTMPP(NCS) displays four quasi-reversible peaks and three irreversible reduction peaks. In the oxidation cycle, there are four quasi-reversible oxidation peaks. The first one has Epa/Epc...
+= +0.967 V/+0.838 V, the second one has $E_{pa}/E_{pc} = +0.623$ V/+0.518 V, the third one has $E_{pa}/E_{pc} = +0.458$ V/+0.391 V and the fourth one has $E_{pa}/E_{pc} = +0.296$ V/+0.193 V all of which come from the oxidation of the porphyrin ring. In the reduction cycle there are three irreversible reduction peaks. The first one with $E_{pa}/E_{pc} = -1.506$ V/-1.632 V and the second one with $E_{pc}= -1.339$ V come from the reduction of the porphyrin ring, while the third irreversible peak $E_{pa}/E_{pc} = -0.582$ V/-0.743 V comes from the Fe(III)/Fe(II) reduction.\textsuperscript{41-46}
+
+Spectroelectrochemical Studies.
+
+Fe(III) porphyrin complexes are known to show interesting spectroelectrochemical characteristics.\textsuperscript{47} To get further insight into the electrochemical properties, the spectroelectrochemistry measurements were carried out on the ligand $\text{H}_2\text{TMPP}$ and 1 in dichloromethane solvent using TBAPF$_6$ as the supporting electrolyte at 300 K. All the potentials have been referenced with respect to ferrocene/ferrocenium. The spectral changes during the redox processes can be seen in Figure 6, Figure SI- 16, Figure SI- 17, and Figure SI- 18.
+
+Spectroelectrochemical studies have been conducted on the ligand $\text{H}_2\text{TMPP}$ in dichloromethane from -0.375 V to +1.0 V (vs. Fe/Fe$^+$) for oxidation and from -0.375 V to -1.50 V (vs. Fe/Fe$^+$) for reduction. Upon oxidation in the anodic cycle, the Soret band at 453 nm decreases in intensity and undergoes a red shift to 481 nm. Also, the Q-band at 688 nm decreases in intensity and undergoes a blue shift to 632 nm. Further, the $\pi-\pi^*$ transition band at 265 nm increases in intensity. These changes occur due to the oxidation of the porphyrin ring to form radical cation and radical dication systems. The removal of electrons from the higher energy levels decreases the probability of the transition ($S_0\rightarrow S_2$ or $S_0\rightarrow S_1$), thus decreasing the intensity of the Soret and Q-bands. These changes are completely reversible in the cathodic cycle. Apart from these changes, there are several isosbestic points in the absorption spectrum indicating the equilibrium between two states\textsuperscript{48, 49} (Figure SI- 16). During the reduction process, in the cathodic cycle, there is a small decrease in intensity for the Soret band (421 nm) and small increase in intensity for the Q-bands. Also, the $\pi-\pi^*$ transition band at 265 nm increases in intensity slightly. These changes occur due to the reduction of the
+ligand which reduces the probability of transition. In the anodic cycle, these changes are reversible (Figure SI-17).
+
+**Figure 6.** Solution state spectroelectrochemistry of 1 in 0.1 M (t-Bu4N)PF6/CH2Cl2 over the potential range of -0.38 V - +0.98 V vs. Fe/Fe⁺ in anodic cycle (left) and -0.38 V - -1.50 V vs. Fe/Fe⁺ in cathodic cycle (right). Arrows indicate the change in absorbance with the application of potential.
+
+Spectroelectrochemical properties of 1 have been investigated in dichloromethane solvent from -0.38 V to +0.98 V (vs. Fe/Fe⁺) in the oxidation cycle and from -0.38 V to -1.50 V (vs. Fe/Fe⁺) in the reduction cycle. Upon oxidation, in the anodic cycle, the Soret band at 420 nm decreases in intensity. Also, the π−π* transition band at 322 nm decreases in intensity, and a new band at 377 nm starts to appear. These changes are not quite reversible in the cathodic cycle (Figure 6, Figure SI-18). Such changes can be attributed to oxidation of the porphyrin to generate radical cation. In the reduction process, the absorption spectrum shows changes where the Soret band at 420 nm decreases in intensity in the cathodic cycle. Also, the band at 377 nm almost disappears, while the band at 322 nm increases in intensity. These changes are not quite reversible in the anodic cycle. The spectral changes observed during the reduction process can be ascribed to the reduction of the FeIII metal centre in solution along with the reduction of the porphyrin ring to generate a π anion radical47, 50, 51 (Figure 6, Figure SI-18).
+
+**Magnetic studies.** Magnetic measurements were performed on polycrystalline sample of 1 in the temperature range of 2-300 K under an applied DC field of 1000 and 10000 Oe by determining the thermal dependence of the χT (χ is the magnetic susceptibility equal to M/H per [FeTMPP(NCS).CH3CN] unit) as
+
+https://doi.org/10.26434/chemrxiv-2025-lwh8m ORCID: https://orcid.org/0000-0002-5061-2326 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+a function of temperature (Figure 7, Figure SI-20, Figure SI-21, Figure SI-22, Figure SI-23). At 300 K, the measured $\chi T$ value is 3.68 cm$^3$mol$^{-1}$K using 1000 Oe applied dc field, which is lower than the spin-only $\chi T$ value of 4.375 cm$^3$mol$^{-1}$K ($S = 5/2$, $g = 2.0$) that is expected for one Fe(III) centre in high-spin state. This lower $\chi T$ value suggesting that there may be a mixing of two different spin states, sextet $^6A_1$ and quartet $^4A_2$. On lowering the temperature, the $\chi T$ value decreases to a value of 2.83 cm$^3$mol$^{-1}$K at 10 K and then abruptly decreases to 2.12 cm$^3$mol$^{-1}$K at the lowest temperature (2 K) which is may be due to the combined effect of the zero-field splitting and the weak intermolecular antiferromagnetic interactions in the system. Upon increasing the temperature, the $\chi T$ value increases abruptly to 3.43 cm$^3$mol$^{-1}$K at 50 K and then increases slightly to 3.68 cm$^3$mol$^{-1}$K using 10000 Oe applied DC field, which remains constant up to 300 K (Figure 7).
+
+**Figure 7.** Temperature dependence of $\chi T$ product for 1 at 1000 Oe (blue curve, cooling) and 10000 Oe (red curve, heating) from 2-300 K and Field dependence of the magnetization as $M$ vs $H$ plots for 1 at 2, 5, 6 and 8 K (inset).
+
+The field-dependent magnetization measurements from 0 – 4 T at 2, 5, 6 and 8 K shows that the magnetization value is 2.75 $\mu_B$ at 2 K and 4 T (Figure 7, inset). The value is much lower than the value expected for Fe$^{III}_{HS}$ ($S = 5/2$). Also, the $M$ vs. $H/T$ curve shows the non-superposition of data at different
+temperatures on a single master curve, indicating the presence of significant magnetic anisotropy in the system (Figure SI-22). The M vs. H measured in hysteresis mode from -4 T to +4 T (Figure SI-21) shows the presence of a very narrow hysteresis curve (with a hysteresis width of ~0.1 K). It has been observed in literature that high-spin ferric porphyrins display high zero-field splitting of the $^6A_1$ ground state that results in large value of magnetic anisotropy.$^{52, 53}$
+
+First, the DC magnetic data were analysed with the spin Hamiltonian for $S = 5/2$ comprising the zero-field splitting terms and Zeeman term as
+
+$$\hat{H} = D \left( \hat{S}_z^2 - \hat{S}/3 \right) + E \left( \hat{S}_x^2 - \hat{S}_y^2 \right) + \mu_B g S$$  \hspace{1cm} (Eq.1)
+
+which resulted in $D = 14.1$ cm$^{-1}$, $E/D = 0.0$, $g = 1.81$ (Figure SI-26). Such large axial zero-field splitting parameter $D$ should be the consequence of the orbital angular momentum contributions of low-lying excited states with lower multiplicities. Therefore, also second approach based on M. M. Maltempo et al. work$^{54}$ was applied. This model describes the mixing of two different spin states, sextet $^6A_1$ and quartet $^4A_2$, separated by an energy gap $\Delta = \varepsilon(^4A_2) - \varepsilon(^6A_1)$, through the spin-orbit coupling quantified by the $\xi$ parameter. Generally, the 10x10 matrix must be solved to properly describe these spin-admixed states.$^{55}$
+
+Thus, a homemade model was made suitable to fit magnetic data. In such a way, we obtained $\Delta = 2605$ cm$^{-1}$ and $g = 1.82$ for a fixed value of $\xi = 432$ cm$^{-1}$, which was taken from the respective CASSCF calculations (vide infra) (Figure 8). These parameters imply that the $^6A_1$ state is split into three Kramers doublets with relative energies 0, 39.1, and 119.9 cm$^{-1}$, hence the value of ZFS parameter $D$ can be estimated to be $D \approx +20$ cm$^{-1}$.$^{55}$ The excited quartet Kramers states are located approximately at 3948 and 3987 cm$^{-1}$ (Figure 8).
+Figure 8. Left: temperature dependence of the $\chi T$ product of I (empty symbols) analyzed by the spin-admixed model by M. M. Maltempo et al. (full line) with $D = 2605$ cm$^{-1}$ and $g = 1.82$ for a fixed value of $x = 432$ cm$^{-1}$. Right: reconstructed energy levels of respective ligand-field terms and multiplets.
+
+Ac susceptibility measurements were carried out using 3.5 Oe ac field. The temperature-dependent plots of the real part ($\chi'$) and imaginary part ($\chi''$) of magnetic susceptibility show no maxima at zero DC applied field (Figure SI-24). At different applied fields ranging from 0-5000 Oe, (Figure SI-25) there is a dawn of frequency dependence of $\chi''$ observed at temperatures of 1.9 K and frequencies above 100 Hz, but it does not sum up to actual SMM$^{56, 57}$ behavior due to the absence of any clear-cut maxima.
+
+**Theoretical studies.**
+
+The electronic structure and the magnetic properties of I were also investigated by a theoretical approach based on the state average complete active space self-consistent field (SA-CASSCF)$^{58}$ wave function method, which were complemented by N-electron valence second-order perturbation theory (NEVPT2)$^{59, 60}$ and also by Hermitian quasi-degenerate NEVPT2 variant (QD-NEVPT2)$^{61}$ All calculations were done with ORCA 5.0 software.$^{62}$ The molecular structures were derived from the experimental X-ray data, and only the atomic positions of hydrogen were normalized with Mercury software.$^{63}$ The ZORA relativistic approximation was used,$^{64}$ together with ZORA-def2-TZVPP for iron atoms, ZORA-def2-TZVP(-f) for lighter atoms, and ZORA-def2-SVP for C and H atoms.$^{65}$ The calculations were sped up using the SARC/J Coulomb fitting basis set$^{66}$ and the RIJCOSX approximation.$^{67}$ The largest integration grid (DEFGrid3) and tightSCF convergence criteria were used in all calculations. First, the results for crystal structure measured
+at 100 K are discussed. Usually, the active space in metal complexes is based on their d-orbitals and such calculations are summarized in Figure 9. With the help of ab initio ligand field theory (AILFT)\textsuperscript{68,69} the energies of d-orbitals were calculated, and their energies are ordered as \( d_{xy} < d_{xz}, d_{yz} < d_{z^2} < d_{x^2-y^2} \) as expected for square-pyramidal arrangement (Figure 9a). However, the lowest quartet ligand field term is located at 9396 cm\(^{-1}\) (QD-NEVPT2), which is far away from the \( \Delta \)-value derived from magnetic data. High energy separation of the excited states also caused a small value of the axial ZFS parameter, \( D = 2.1 \text{ cm}^{-1} \).
+
+**Figure 9.** Results of the CASSCF, CASSCF/NEVPT2, and CASSCF/QD-NEVPT2 computation for 1 (100 K crystal structure) with CAS(5e,5o). The plot of the d-orbital splitting calculated by ab initio ligand field theory (AILFT) (a), low-lying ligand-field terms (LFT) (b), and ligand-field multiplets (LFM) (c). Note: different multiplicities of LFT are shown in different colors.
+
+This inspired further calculations with large active spaces; first, the \( \sigma \)-type ligand-based orbital was added, forming CAS(7e,6o). Next, the more diffuse 4d metal orbitals were added resulting in CAS(7e,11o). Finally, it was found essential to include also the \( \pi \)-type ligand-based orbital, and thus, the largest active space CAS(9e,12o) was examined. The outcome of the CASSCF/QD-NEVPT2 method is depicted in Figure 10 and it is obvious that the dominant changes were induced by incorporating the \( \sigma \)-type and \( \pi \)-type ligand-based orbitals. The active orbitals are depicted in **Figure S1-27**. The energy gap of quartet and sextet...
+ligand field terms, $\Delta' = \varepsilon(\Gamma') - \varepsilon(\Gamma)$, was reduced from 9396 cm$^{-1}$ for CAS(5e,5o), through 4679 cm$^{-1}$ for CAS(7e,11o) to a final value of 2749 cm$^{-1}$ for CAS(9e,12o). Therefore, the $D$-parameter also increased from a rather small value of 2.06 cm$^{-1}$ for CAS(5e,5o) to a value of 7.85 cm$^{-1}$ for CAS(9e,12o) (Figure 10). This value is close to those derived from the experimental magnetic data and points out the importance of balancing the active space.
+
+![Figure 10](https://doi.org/10.26434/chemrxiv-2025-lwh8m)
+
+**Figure 10.** Results of the CASSCF/QD-NEVPT2 computation for 1 (100 K crystal structure) with various active spaces showing low-lying ligand-field terms (LFT), ligand-field multiplets (LFM), and the axial ZFS parameter $D$. Note: different multiplicities of LFT are shown in different colors.
+
+Finally, similar calculations were done for molecular structures derived from X-ray data acquired at higher temperatures to investigate how temperature-induced structural changes (Figure 3) influence the properties. Again, the results are summarized for the CASSCF/QD-NEVPT2 method in Figure 11 for the largest active space CAS (9e,12o). Obviously, the $\varepsilon(\Gamma') - \varepsilon(\Gamma)$ energy gap decreases with increasing temperature of the crystal data acquisition, which also reflects an increase of the $D$-parameter from 7.85 cm$^{-1}$ to 10.08 cm$^{-1}$.
+Figure 11. Results of the CASSCF/QD-NEVPT2 with CAS(9e,12o) computation for 1 at various temperatures (crystal structures acquired at 100, 250, and 295 K) showing low-lying ligand-field terms (LFT), ligand-field multiplets (LFM), and the axial ZFS parameter $D$. Note: different multiplicities of LFT are shown in different colors.
+
+Herein, we also conducted DFT theoretical calculations aimed at comprehending the influence of the spin state on $^{57}$Fe Mossbauer parameters. Therefore, we utilized the most recent calibration protocol published by F. Neese and D. A. Pantazis et al.\textsuperscript{70} and the most recent version of ORCA 6.0.\textsuperscript{71} First, the molecular geometries of 1 were optimized for $S = 5/2$ (HS), $S = 3/2$ (IS), and $S = 1/2$ (LS) spin states using TPSSh functional\textsuperscript{72, 73} together with D3BJ dispersion correction\textsuperscript{74, 75} and x2c-TZVPall relativistic basis\textsuperscript{76, 77} was utilized for all atoms. The resulting XYZ coordinates are available in Supporting Information. Next, the published calibration protocol was then used to calculate the isomer shifts from electron densities resulting from the single-point calculations with TPSS0 functional,\textsuperscript{78} for which we can see the following trend: $\delta^{HS} = 0.416 > \delta^{IS} = 0.333 > \delta^{HS} = 0.296$ mms$^{-1}$ (Table 6). The calculated $\delta^{HS} = 0.416$ mms$^{-1}$ is in very good agreement with experimental data measured at 10 K both for solvated and desolvated samples of 1 ($\delta = 0.42$ mms$^{-1}$, Table 5). Concerning the impact of the spin state on the quadrupole splitting, $\Delta E_Q$ increases with decreasing $S$ as follows: $\Delta E_Q^{HS} = 0.162 < \Delta E_Q^{IS} = 2.128 < \Delta E_Q^{LS} = 2.586$ mms$^{-1}$. The calculated value
+of $\Delta E_{Q}^{HS} = 0.162 \text{ mms}^{-1}$ is closest to the experimental data, $\Delta E_{Q}^{HS} = 0.75$ and $0.83 \text{ mms}^{-1}$ for solvated and desolvated samples of 1 measured at 10 K, respectively. The agreement is good, considering that in such DFT calculation, the impact of crystal packing is neglected. To summarize, the theoretical methods helped us to reveal the electronic structure of 1 with high spin sextet ground state and close-lying excited quartet state, which was reflected in its magnetic properties, and $^{57}$Fe Mössbauer spectroscopy parameters.
+
+CONCLUSION
+
+In conclusion, we have synthesized and characterized a five-coordinate Fe(III) porphyrin complex with axial thiocyanate acting as a co-ligand. Structural analyses show that the molecule adopts a square pyramidal geometry, and slight distortions are observed with change in temperature. Paramagnetic NMR solution studies follow the Curie law at the measured temperature range. A first order phase transition is observed at 442 K from DSC measurements indicating some structural phase transition in the system at high temperature. Detailed electrochemical and spectroelectrochemical studies in the solution state have been carried out which show the different oxidation and reduction processes, and magnetic measurements highlight the presence of a highly anisotropic ground state, which is supported by crystal structure analyses and Mössbauer spectroscopic measurements at different temperatures. These observations have also been confirmed by using CASSCF/QD-NEVPT2 and DFT calculations which highlight the effect of temperature on the energy gap between the quartet and sextet energy levels that is responsible for the high anisotropy and structural distortions occurring in the system. We believe our studies will provide a different perspective in the field of molecular magnets using porphyrin molecules as viable options.
+
+EXPERIMENTAL SECTION
+
+Detailed experimental procedures including materials and physical measurements, magnetic measurements and X-ray crystallography have been described in the supporting information.
+
+Synthesis of FeTMPP(NCS).CH$_3$CN (1)
+
+The reaction of FeTMPPCl (82 mg, 0.1 mmol) with ammonium thiocyanate (19 mg, 0.25 mmol) in 50 mL of CH$_3$CN/EtOH (1:1) resulted in a dark-red solution that was stirred for 4 h. This solution was then
+filtered and kept for slow evaporation to obtain analytically pure single crystals of I in 80% yield. Anal. Calcd. for C_{51}H_{39}FeN_{6}O_{4}S (M.W. 887.79 g mol\(^{-1}\)): C, 69.00; H, 4.43; Fe, 6.29; N, 9.47; O, 7.21; S, 3.61. Found: C, 69.30; H, 4.34; Fe, 6.82; N, 8.35; O, 7.60; S, 3.59. IR (KBr, cm\(^{-1}\)): 3135, 3111, 3032, 2999, 2956, 2937, 2900, 2835, 2356, 2322, 2023, 1603, 1572, 1527, 1509, 1488, 1459, 1437, 1333, 1288, 1248, 1176, 1106, 1085, 1031, 998, 864, 846, 805, 785, 727, 716, 668, 635, 598, 564 and 535.
+
+ASSOCIATED CONTENT
+
+Supporting Information. The Supporting Information is available free of charge on the ACS Publications website at DOI:
+
+Experimental and spectral data, and crystallographic data (PDF).
+
+Accession Codes. CCDC 2382151-2382153 contains the supplementary crystallographic data for this paper. These data can be obtained free of charge via www.ccdc.cam.ac.uk/data_request/cif, or by emailing data_request@ccdc.cam.ac.uk, or by contacting The Cambridge Crystallographic Data Centre, 12 Union Road, Cambridge CB2 1EZ, UK; fax: +44 1223 336033.
+
+AUTHOR INFORMATION
+
+Corresponding Author
+*Email: mondal@iisc.ac.in
+
+ORCID
+Abhishake Mondal: 0000-0002-5061-2326
+Radovan Herchel: 0000-0001-8262-4666
+Mayurika Das: 0000-0002-2907-9854
+Sujit Kamilya: 0000-0003-4881-0638
+Subhankar Mandal: 0000-0002-5643-6124
+Sher Singh Meena: 0000-0003-4978-2528
+Jiri Pechousek: 0000-0002-8912-2738
+Notes
+
+The authors declare no competing financial interest.
+
+ACKNOWLEDGEMENT
+
+This research work is supported by the Indian Institute of Science (IISc), Bangalore, India and the Science and Engineering Research Board (SERB-CRG, Core Research Grant, Project No: CRG/2023/003081). R. H. acknowledges the financial support from the institutional sources of the Department of Inorganic Chemistry, Palacký University Olomouc, Czech Republic. We thanks Dr. Varimalla R. Reddy from UGC-DAE Consortium for Scientific Research, Indore for help with the preliminary Mössbauer spectroscopic measurements.
+
+REFERENCES
+
+1. Biesaga, M.; Pyrzynska, K.; Trojanowicz, M. Porphyrins in analytical chemistry. A review. *Talanta* **2000**, *51* (2), 209-224 DOI: 10.1016/s0039-9140(99)00291-x.
+2. Imran, M.; Ramzan, M.; Qureshi, A. K.; Khan, M. A.; Tariq, M. Emerging Applications of Porphyrins and Metalloporphyrins in Biomedicine and Diagnostic Magnetic Resonance Imaging. *Biosensors (Basel)* **2018**, *8* (4), 95 DOI: 10.3390/bios8040095.
+3. Spikes, J. D. Porphyrins and related compounds as photodynamic sensitizers. *Ann N Y Acad Sci* **1975**, *244* (1), 496-508 DOI: 10.1111/j.1749-6632.1975.tb41550.x.
+4. Park, J. M.; Hong, K. I.; Lee, H.; Jang, W. D. Bioinspired Applications of Porphyrin Derivatives. *Acc Chem Res* **2021**, *54* (9), 2249-2260 DOI: 10.1021/acs.accounts.1c00114.
+5. Gholami, H.; Chakraborty, D.; Zhang, J.; Borhan, B. Absolute Stereochemical Determination of Organic Molecules through Induction of Helicity in Host-Guest Complexes. *Acc Chem Res* **2021**, *54* (3), 654-667 DOI: 10.1021/acs.accounts.0c00650.
+6. Agam, Y.; Nandi, R.; Kaushansky, A.; Peskin, U.; Amdursky, N. The porphyrin ring rather than the metal ion dictates long-range electron transport across proteins suggesting coherence-assisted mechanism. *Proc Natl Acad Sci U S A* **2020**, *117* (51), 32260-32266 DOI: 10.1073/pnas.2008741117.
+7. A. Shelnutt, J.; Song, X.-Z.; Ma, J.-G.; Jia, S.-L.; Jentzen, W.; J. Medforth, C.; J. Medforth, C. Nonplanar porphyrins and their significance in proteins. *Chem Soc Rev* **1998**, *27* (1), 31-42 DOI: 10.1039/a827031z.
+8. Moan, J.; Western, A.; Rimington, C. In *Photomodification of Porphyrins in Biological Systems*, Berlin, Heidelberg, 1988; Springer Berlin Heidelberg: Berlin, Heidelberg, 1988; pp 407-418.
+9. Lefebvre, J. F.; Leclercq, D.; Gisselbrecht, J. P.; Richter, S. Synthesis, Characterization, and Electronic Properties of Metalloporphyrins Annulated to Exocyclic Imidazole and Imidazolium Rings. *Eur J Org Chem* **2010**, *2010* (10), 1912-1920 DOI: 10.1002/ejoc.200901310.
+10. Jiang, B.; Yang, S.-W.; Barbini, D. C.; Jones Jr, W. E. Synthesis of soluble conjugated metalloporphyrin polymers with tunable electronic properties. *Chem Commun* 1998, (2), 213-214 DOI: 10.1039/a708044a.
+11. Hirao, H.; Shaik, S.; Kozlowski, P. M. Theoretical analysis of the structural and electronic properties of metalloporphyrin pi-cation radicals. *J Phys Chem A* 2006, 110 (18), 6091-6099 DOI: 10.1021/jp0558066.
+12. Guergueb, M.; Nasri, S.; Brahmi, J.; Loiseau, F.; Molton, F.; Roisnel, T.; Guerineau, V.; Turowska-Tyrk, I.; Aouadi, K.; Nasri, H. Effect of the coordination of pi-acceptor 4-cyanopyridine ligand on the structural and electronic properties of meso-tetra(para-methoxy) and meso-tetra(para-chlorophenyl) porphyrin cobalt(ii) coordination compounds. Application in the catalytic degradation of methylene blue dye. *RSC Adv* 2020, 10 (12), 6900-6918 DOI: 10.1039/c9ra08504a.
+13. Bersuker, I. B.; Stavrov, S. S. Structure and properties of metalloporphyrins and hemoproteins: the vibronic approach. *Coord Chem Rev* 1988, 88, 1-68 DOI: 10.1016/0010-8545(88)80001-8.
+14. Soury, R.; Jabli, M.; Alenezi, K. M.; Chaabene, M.; Haque, A.; Moll, H. E.; Rein, R.; Azzam, E. M. S.; Loiseau, F.; Molton, F.; Roisnel, T.; Guerineau, V.; Turowska-Tyrk, I.; Aouadi, K.; Nasri, H. Effect of the coordination of pi-acceptor 4-cyanopyridine ligand on the structural and electronic properties of meso-tetra(para-methoxy) and meso-tetra(para-chlorophenyl) porphyrin cobalt(ii) coordination compounds. Application in the catalytic degradation of methylene blue dye. *RSC Adv* 2020, 10 (12), 6900-6918 DOI: 10.1039/c9ra08504a.
+15. Prakash, K.; Kumar, R.; Sankar, M. Mono- and tri-beta-substituted unsymmetrical metalloporphyrins: synthesis, structural, spectral and electrochemical properties. *RSC Adv* 2015, 5 (82), 66824-66832 DOI: 10.1039/c5ra12711d.
+16. Dahmane, S.; Lasia, A.; Zhao, Y. Thermal, Optical and Electrochemical Properties of Side-Chain Azopyridine Polymers Complexed with Metalloporphyrins. *Macromol Chem Phys* 2006, 207 (16), 1485-1491 DOI: 10.1002/macp.200600143.
+17. Goff, H. M.; Shimomura, E. T.; Phillippi, M. A. Correlations of axial ligand field strength and zero-field splittings in the carbon-13 NMR spectra of five- and six-coordinate high-spin iron(III) porphyrin complexes. *Inorg Chem* 2002, 22 (1), 66-71 DOI: 10.1021/ic00143a017.
+18. Maricondi, C.; Straub, D. K.; Epstein, L. M. Mossbauer studies on hemin derivatives of , , , -tetraphenylporphine. *J Am Chem Soc* 1972, 94 (12), 4157-4159 DOI: 10.1021/ja00767a017.
+19. Korszun, Z. R.; Moffat, K. Structure of isothiocyanate methemoglobin. *J Mol Biol* 1981, 145 (4), 815-824 DOI: 10.1016/0022-2860(81)90316-8.
+20. Hearne, G. R.; Munro, O.; Pearson, N.; Shongwe, M. Sub-nanoscale, single-molecule, magnetic–electronic switching from externally perturbed spin states in iron (III)-based complexes. *J Phys Condens Matter* 2005, 17 (11), S727-S742 DOI: 10.1088/0953-8984/17/11/002.
+21. Nasri, H.; Debabbi, M. Synthesis, spectroscopic and structural characterization of the pentacoordinate high-spin Fe (III) isothiocyanate “picket fence” porphyrin complex. *Polyhedron* 1998, 17 (20), 3607-3612 DOI: 10.1016/s0277-5387(98)00156-9.
+22. Wolberg, A.; Manassen, J. Electrochemical and electron paramagnetic resonance studies of metalloporphyrins and their electrochemical oxidation products. *J Am Chem Soc* 1970, 92 (10), 2982-2991 DOI: 10.1021/ja00713a010.
+23. Huang, X.; Nakanishi, K.; Berova, N. Porphyrins and metalloporphyrins: versatile circular dichroic reporter groups for structural studies. *Chirality* 2000, 12 (4), 237-255 DOI: 10.1002/(SICI)1520-636X(2000)12:4<237::AID-CHIR10>3.0.CO;2-6.
+24. Klessinger, M.; Zywietz, A. Methoxy group rotation in methoxyethene and methoxybenzene. *J Mol Struct* 1982, 90 (3-4), 341-350 DOI: 10.1016/0022-2860(82)90234-4.
+25. Vincent, M. A.; Hillier, I. H. A theoretical study of methoxy group rotation in anisole. *Chem Phys* 1990, 140 (1), 35-40 DOI: 10.1016/0301-0104(90)89046-s.
+26. Dirks, J. W.; Underwood, G.; Matheson, J. C.; Gust, D. Conformational dynamics of .alpha.,.beta.,.gamma.,.delta.-tetraarylporphyrins and their dications. *J Org Chem* 2002, 44 (14), 2551-2555 DOI: 10.1021/jo01328a046.
+27. Kaushik, K.; Mehta, S.; Das, M.; Ghosh, S.; Kamilya, S.; Mondal, A. Stimuli-responsive magnetic materials: impact of spin and electronic modulation. *Chem Commun* 2023, 59 (88), 13107-13124 DOI: 10.1039/D3CC04268E.
+28. Kamilya, S.; Dey, B.; Kaushik, K.; Shukla, S.; Mehta, S.; Mondal, A. Realm of Spin State Switching Materials: Toward Realization of Molecular and Nanoscale Devices. *Chem Mater* 2024, 36 (10), 4889-4915 DOI: 10.1021/acs.chemmater.3c02654.
+29. Casanova, D.; Llunell, M.; Alemany, P.; Alvarez, S. The rich stereochemistry of eight-vertex polyhedra: a continuous shape measures study. *Chemistry* 2005, 11 (5), 1479-1494 DOI: 10.1002/chem.200400799.
+30. Birdy, R.; Behere, D. V.; Mitra, S. Magnetic properties and electronic structure of high spin iron(III) porphyrins. *J Chem Phys* 1983, 78 (3), 1453-1458 DOI: 10.1063/1.444888.
+31. Scheidt, W. R.; Lee, Y. J.; Geiger, D. K.; Taylor, K.; Hatano, K. Preparation and molecular stereochemistry of six-coordinate (isothiocyanato)(pyridine)(porphinate)iron(III) complexes. (Isthiooxycyanato)(meso-tetraphenylporphinate)(pyridine)iron(III), a low-spin complex with a nonlinear FeNCS group, and (isothiocyanato)(octaethylporphinate)(pyridine)iron(III), a high-spin complex with nonequivalent axial ligands. *J Am Chem Soc* 2002, 104 (12), 3367-3374 DOI: 10.1021/ja00376a021.
+32. Shen, Y.; Ryde, U. The structure of sitting-atop complexes of metalloporphyrins studied by theoretical methods. *J Inorg Biochem* 2004, 98 (5), 878-895 DOI: https://doi.org/10.1016/j.jinorgbio.2004.01.004.
+33. Gouterman, M. Spectra of porphyrins. *J Mol Spectrosc* 1961, 6 (1), 138-163 DOI: 10.1016/0022-2852(61)90236-3.
+34. Weiss, C.; Kobayashi, H.; Gouterman, M. Spectra of porphyrins. *J Mol Spectrosc* 1965, 16 (2), 415-450 DOI: 10.1016/0022-2852(65)90132-3.
+35. Kobayashi, H.; Yanagawa, Y.; Osada, H.; Minami, S.; Shimizu, M. Electronic Spectra of High-Spin Iron(III) Tetraphenylporphins. *BCSJ* 1973, 46 (5), 1471-1479 DOI: 10.1246/bcsj.46.1471.
+36. Neya, S.; Takahashi, A.; Ode, H.; Hoshino, T.; Ikezaki, A.; Ohgo, Y.; Takahashi, M.; Furutani, Y.; Lórenz-Fonfría, V. A.; Kandori, H.; Hiramatsu, H.; Kitagawa, T.; Teraoka, J.; Funasaki, N.; Nakamura, M. Electronic Properties in a Five-Coordinate Azido Complex of Nonplanar Iron(III) Porphyrin: Revisiting to Quantum Mechanical Spin Admixing. *BCSJ* 2008, 81 (1), 136-141 DOI: 10.1246/bcsj.81.136.
+37. Nakamura, M.; Takahashi, M. In *Mössbauer Spectroscopy*; 2013; pp 177-201.
+38. Denden, Z.; Harhouri, W.; Ben Haj Hassen, L.; Rousselin, Y.; Saint-Aman, E.; Nasri, H. Synthesis, spectroscopic, cyclic voltammetry properties and molecular structure of the thiocyanato-N meso-tetralolyporphyrinato zinc(II) ion complex. *J Mol Struct* 2017, 1133, 472-478 DOI: 10.1016/j.molstruc.2016.11.080.
+39. Pu, G.; Yang, Z.; Wu, Y.; Wang, Z.; Deng, Y.; Gao, Y.; Zhang, Z.; Lu, X. Investigation into the Oxygen-Involved Electrochemiluminescence of Porphyrins and Its Regulation by Peripheral Substituents/Central Metals. *Anal Chem* 2019, 91 (3), 2319-2328 DOI: 10.1021/acs.analchem.8b05027.
+40. Tu, Y. J.; Cheng, H. C.; Chao, I.; Cho, C. R.; Cheng, R. J.; Su, Y. O. Intriguing electrochemical behavior of free base porphyrins: effect of porphyrin-meso-phenyl interaction controlled by position of substituents on meso-phenyls. *J Phys Chem A* 2012, 116 (6), 1632-1637 DOI: 10.1021/jp209555k.
+
+41. Sugimoto, H.; Ueda, N.; Mori, M. Preparation and Electrochemical Behaviors of Phenoxide-coordinated Iron(III) Porphyrins. *BCSJ* 1982, 55 (11), 3468-3472 DOI: 10.1246/bcsj.55.3468.
+
+42. Geiger, D. K.; Paviak, E. J.; Kass, L. T. The determination of axial ligand binding constants for iron porphyrins by cyclic voltammetry. *J Chem Educ* 1991, 68 (4), 337-339 DOI: 10.1021/ed068p337.
+
+43. Martin, D. J.; Mercado, B. Q.; Mayer, J. M. All Four Atropisomers of Iron Tetra(o-N,N,N-trimethylanilinium)porphyrin in Both the Ferric and Ferrous States. *Inorg Chem* 2021, 60 (7), 5240-5251 DOI: 10.1021/acs.inorgchem.1c00236.
+
+44. Zheng, R.; Zhai, Z.; Qiu, C.; Gao, R.; Lv, Y.; Song, Y. Highly Active Electrocatalyst Derived from ZIF-8 Decorated with Iron(III) and Cobalt(III) Porphyrin Toward Efficient Oxygen Reduction in Both Alkaline and Acidic Media. *Chem Res Chin Univ* 2021, 38 (4), 961-967 DOI: 10.1007/s40242-021-1199-y.
+
+45. Kamilya, S.; Mehta, S.; Semwal, M.; Lescouëzec, R.; Li, Y.; Pechousek, J.; Reddy, V. R.; Rivièere, E.; Rouzières, M.; Mondal, A. ON/OFF Photo(switching) along with Reversible Spin-State Change and Single-Crystal-to-Single-Crystal Transformation in a Mixed-Valence Fe(II)Fe(III) Molecular System. *Inorg Chem* 2023, 62 (23), 8794-8802 DOI: 10.1021/acs.inorgchem.2c03972.
+
+46. Kamilya, S.; Mehta, S.; Lescouëzec, R.; Li, Y.; Pechousek, J.; Semwal, M.; Mondal, A. Near room temperature stepwise spin state switching and photomagnetic effect in a mixed-valence molecular square. *Dalton Trans* 2023, 52 (31), 10700-10707 DOI: 10.1039/D3DT01615C.
+
+47. Kadish, K. M.; Van Caemelbecke, E.; D'Souza, F.; Medforth, C. J.; Smith, K. M.; Tabard, A.; Guilard, R. Electrochemistry and Spectroelectrochemistry of .sigma.-Bonded Iron(III) Porphyrins with Nonplanar Porphyrin Rings. Reactions of (OETPP)Fe(R) and (OETPP)FeCl, Where R = C6H5, C6F4H, or C6F5 and OETPP Is the Dianion of 2,3,7,8,12,13,17,18-Octaethyl-5,10,15,20-tetraphenylporphyrin. *Inorg Chem* 2002, 34 (11), 2984-2989 DOI: 10.1021/ic00115a028.
+
+48. Dozza, B.; Rodrigues, B. M.; Tisoco, I.; de Souza, V. B.; Angnes, L.; Iglesias, B. A. Spectroelectrochemistry as a powerful technique for porphyrins/corroles derivatives electro-characterization: Fundamentals and some examples. *Microchem J* 2022, 183, 108041 DOI: 10.1016/j.microc.2022.108041.
+
+49. Mayer, I.; Nakamura, K.; Srinivasan, A.; Furuta, H.; Toma, H. E.; Araki, K. Spectroelectrochemical behavior of N-confused dioxohexaphyrins. *JPP* 2012, 09 (12), 813-820 DOI: 10.1142/s108842460500927.
+
+50. Chaudhary, A.; Patra, R.; Rath, S. P. Binding of Catechols to Iron(III)–Octaethylporphyrin: An Experimental and DFT Investigation. *Eur J Inorg Chem* 2010, 2010 (33), 5211-5221 DOI: 10.1002/ejic.201000707.
+
+51. Ucoski, G. M.; Nakagaki, S.; Nunes, F. S. Electrochemistry and spectroelectrochemistry of 5,10,15,20-tetrakis(1,3-benzodioxole) porphyrin and its manganese and iron complexes. *JPP* 2015, 18 (12), 1093-1100 DOI: 10.1142/s1088424614500473.
+52. Behere, D. V.; Birdy, R.; Mitra, S. Effect of axial interaction in high-spin iron(III) porphyrins. Paramagnetic anisotropy and zero-field splitting in (tetraphenylporphyrin)iron(III) thiocyanate and iodide. Inorg Chem 2002, 20 (9), 2786-2789 DOI: 10.1021/ic50223a009.
+
+53. Behere, D. V.; Birdy, R.; Mitra, S. Proton magnetic resonance studies on high-spin iron(III) porphyrins. Inorg Chem 2002, 21 (1), 386-390 DOI: 10.1021/ic00131a069.
+
+54. Maltempo, M. M. The spin 3/2 state and quantum spin mixtures in haem proteins. Q Rev Biophys 1976, 9 (2), 181-215 DOI: 10.1017/s0033583500002407.
+
+55. Boča, R. Theoretical foundations of molecular magnetism. Elsevier: 1999.
+
+56. Ghosh, S.; Kamilya, S.; Das, M.; Mehta, S.; Boulon, M. E.; Nemec, I.; Rouzieres, M.; Herchel, R.; Mondal, A. Effect of Coordination Geometry on Magnetic Properties in a Series of Cobalt(II) Complexes and Structural Transformation in Mother Liquor. Inorg Chem 2020, 59 (10), 7067-7081 DOI: 10.1021/acs.inorgchem.0c00538.
+
+57. Hossain, S. M.; Kamilya, S.; Ghosh, S.; Herchel, R.; Kiskin, M. A.; Mehta, S.; Mondal, A. Tuning of Dimensionality and Nuclearity as a Function of Ligand Field Modulation Resulting in Field-Induced Cobalt(II) Single-Ion Magnet. Cryst Growth Des 2023, 23 (3), 1656-1667 DOI: 10.1021/acs.cgd.2c01255.
+
+58. Malmqvist, P.-Å.; Roos, B. O. The CASSCF state interaction method. Chem Phys Lett 1989, 155 (2), 189-194 DOI: 10.1016/0009-2614(89)85347-3.
+
+59. Angeli, C.; Cimiraglia, R.; Malrieu, J.-P. N-electron valence state perturbation theory: a fast implementation of the strongly contracted variant. Chem Phys Lett 2001, 350 (3-4), 297-305 DOI: 10.1016/s0009-2614(01)01303-3.
+
+60. Angeli, C.; Cimiraglia, R.; Evangelisti, S.; Leininger, T.; Malrieu, J. P. Introduction of n-electron valence states for multireference perturbation theory. J Chem Phys 2001, 114 (23), 10252-10264 DOI: 10.1063/1.1361246.
+
+61. Angeli, C.; Borini, S.; Cestari, M.; Cimiraglia, R. A quasidegenerate formulation of the second order n-electron valence state perturbation theory approach. J Chem Phys 2004, 121 (9), 4043-4049 DOI: 10.1063/1.1778711.
+
+62. Neese, F. Software update: The ORCA program system—Version 5.0. WIREs Computational Molecular Science 2022, 12 (5), e1606 DOI: 10.1002/wcms.1606.
+
+63. Macrae, C. F.; Sovago, I.; Cottrell, S. J.; Galek, P. T. A.; McCabe, P.; Pidcock, E.; Platings, M.; Shields, G. P.; Stevens, J. S.; Towler, M.; Wood, P. A. Mercury 4.0: from visualization to analysis, design and prediction. J Appl Crystallogr 2020, 53 (Pt 1), 226-235 DOI: 10.1107/S1600576719014092.
+
+64. van Wüllen, C. Molecular density functional calculations in the regular relativistic approximation: Method, application to coinage metal diatomics, hydrides, fluorides and chlorides, and comparison with first-order relativistic calculations. J Chem Phys 1998, 109 (2), 392-399 DOI: 10.1063/1.476576.
+
+65. Weigend, F.; Ahlrichs, R. Balanced basis sets of split valence, triple zeta valence and quadruple zeta valence quality for H to Rn: Design and assessment of accuracy. Phys Chem Chem Phys 2005, 7 (18), 3297-3305 DOI: 10.1039/b508541a.
+
+66. Weigend, F. Accurate Coulomb-fitting basis sets for H to Rn. Phys Chem Chem Phys 2006, 8 (9), 1057-1065 DOI: 10.1039/b515623h.
+
+67. Neese, F.; Wennmohs, F.; Hansen, A.; Becker, U. Efficient, approximate and parallel Hartree–Fock and hybrid DFT calculations. A ‘chain-of-spheres’ algorithm for the Hartree–Fock exchange. Chem Phys 2009, 356 (1-3), 98-109 DOI: 10.1016/j.chemphys.2008.10.036.
+68. Atanasov, M.; Ganyushin, D.; Sivalingam, K.; Neese, F. In Molecular Electronic Structures of Transition Metal Complexes II; Mingos, D. M. P. D. P., Ed.; Springer Berlin Heidelberg: 2011; Chapter Chapter 57, Vol. 143, pp 149-220.
+
+69. Singh, S. K.; Eng, J.; Atanasov, M.; Neese, F. Covalency and chemical bonding in transition metal complexes: An ab initio based ligand field perspective. Coord Chem Rev 2017, 344, 2-25 DOI: 10.1016/j.ccr.2017.03.018.
+
+70. Santra, G.; Neese, F.; Pantazis, D. A. Extensive reference set and refined computational protocol for calculations of (57)Fe Mossbauer parameters. Phys Chem Chem Phys 2024, 35 (35), 23322-23334 DOI: 10.1039/d4cp00431k.
+
+71. Neese, F. A perspective on the future of quantum chemical software: the example of the ORCA program package. Faraday Discuss 2024, 254 (0), 295-314 DOI: 10.1039/d4fd00056k.
+
+72. Staroverov, V. N.; Scuseria, G. E.; Tao, J.; Perdew, J. P. Comparative assessment of a new nonempirical density functional: Molecules and hydrogen-bonded complexes. J Chem Phys 2003, 119 (23), 12129-12137 DOI: 10.1063/1.1626543.
+
+73. Tao, J.; Perdew, J. P.; Staroverov, V. N.; Scuseria, G. E. Climbing the density functional ladder: nonempirical meta-generalized gradient approximation designed for molecules and solids. Phys Rev Lett 2003, 91 (14), 146401 DOI: 10.1103/PhysRevLett.91.146401.
+
+74. Grimme, S. Semiempirical GGA-type density functional constructed with a long-range dispersion correction. J Comput Chem 2006, 27 (15), 1787-1799 DOI: 10.1002/jcc.20495.
+
+75. Grimme, S.; Ehrlich, S.; Goerigk, L. Effect of the damping function in dispersion corrected density functional theory. J Comput Chem 2011, 32 (7), 1456-1465 DOI: 10.1002/jcc.21759.
+
+76. Pollak, P.; Weigend, F. Segmented Contracted Error-Consistent Basis Sets of Double- and Triple-zeta Valence Quality for One- and Two-Component Relativistic All-Electron Calculations. J Chem Theory Comput 2017, 13 (8), 3696-3705 DOI: 10.1021/acs.jctc.7b00593.
+
+77. Franzke, Y. J.; Tress, R.; Pazdera, T. M.; Weigend, F. Error-consistent segmented contracted all-electron relativistic basis sets of double- and triple-zeta quality for NMR shielding constants. Phys Chem Chem Phys 2019, 21 (30), 16658-16664 DOI: 10.1039/c9cp02382h.
+
+78. Grimme, S. Accurate calculation of the heats of formation for large main group compounds with spin-component scaled MP2 methods. J Phys Chem A 2005, 109 (13), 3067-3077 DOI: 10.1021/jp050036j.

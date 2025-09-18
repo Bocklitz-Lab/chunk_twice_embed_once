@@ -1,0 +1,512 @@
+Dispersion energy from the time-independent coupled-clusters polarization propagator
+
+Piotr S. Żuchowski*† and Robert Moszynski*‡
+
+†Faculty of Physics, Astronomy and Applied Informatics, Institute of Physics, Nicolas Copernicus University in Toruń
+‡Quantum Chemistry Laboratory, Faculty of Chemistry, University of Warsaw
+
+E-mail: pzuch@fizyka.umk.pl; rmoszyns@tiger.chem.uw.edu.pl
+
+Abstract
+
+We present a new method of calculation of the dispersion energy in the second-order symmetry-adapted perturbation theory. Using the Longuet-Higgins integral and time-independent coupled-cluster response theory one shows that the general expression for the dispersion energy can be written in terms of cluster amplitudes and the excitation operators $\sigma$, which can be obtained by solving a linear equation. We introduced an approximate scheme dubbed CCPP2(T) for the dispersion energy accurate to the second order of intramonomer correlation, which includes certain classes to be summed to infinity. Assessment of the accuracy of the CCPP2(T) dispersion energy against the FCI dispersion for He$_2$ demonstrates its high accuracy. For more complex systems CCPP2(T) matches the accuracy of the best methods introduced for calculations of dispersion so far. The method can be extended to higher-order levels of excitations, providing a systematically improvable theory of dispersion interaction.
+1 Introduction
+
+One of the most important contributions to the intermolecular molecular interaction energy originates from the mutual correlation of the electron movements between molecules. This effect is known as the dispersion interaction, and Fritz London recognized it as early as 1930.\textsuperscript{1} The dispersion energy is crucial in non-covalent systems, as it constitutes the major stabilizing effect. Such interaction is vital in many areas of chemistry and the physics of materials.\textsuperscript{2} In the simplest systems, like interactions of pairs of neutral atoms\textsuperscript{3,4} this interaction is responsible for the attraction of atoms at long range. In more complex systems, the dispersion forces are of key importance in protein folding,\textsuperscript{5} or in the stacking of aromatic rings\textsuperscript{6} due to the strong attraction of coupled $\pi$-orbitals. Importantly, it allows for keeping the nucleic base pairs stacked.\textsuperscript{7}
+
+The dispersion energy can be conveniently calculated in terms of the second-order of the symmetry-adapted perturbation theory\textsuperscript{8} (SAPT): a general theory of calculating the intermolecular forces based on the following partitioning of the system Hamiltonian:
+
+\begin{equation}
+H = H_0 + V_{AB}
+\end{equation}
+
+where the zeroth-order Hamiltonian $H_0 = H_A + H_B$ is the sum of the Hamiltonians of the monomers and the perturbation $V_{AB}$ is the operator of intermolecular perturbation. The symmetry adapted perturbation theory has been established as one of the most useful methods for studying the molecular interactions, since it provides not only the interaction energy itself, but also represents the interaction as the contribution of physically meaningful components.
+
+The calculation of the dispersion energy is a daunting task for two main reasons: it is very sensitive to intramonomer correlation effects and secondly, it is slowly convergent with respect to the basis set size. These properties of the dispersion energy make the calculation of the van der Waals interactions difficult: in particular this is one of the main reasons why
+the supermolecular calculations of interaction energies are also challenging - the methods used need to include the high-order electronic correlation effects, the basis sets employed need to be highly saturated and include augmented functions, or explicit correlation.\textsuperscript{9,10}
+
+Notably, for many-body electron methods, triply excited configurations are often critical to properly describe the dispersion interaction, which lead to emergence of CCSD(T) method as the “gold standard” in calculations of the interaction energies in non-covalent systems.
+
+Several computational approaches to calculating the dispersion energy have been developed so far. In 1976 Jeziorski and van Hemert \textsuperscript{11} initiated the perturbative, order–by–order approach of calculating the dispersion interaction based on the Moller–Plesset type decomposition of Hamiltonian of the system:
+
+$$H = F_A + F_B + \lambda_A W_A + \lambda_B W_B + \mu V_{AB}$$
+
+where $F_C$ ($C = A$ or $B$) denotes Fock operator describing the monomer $C$, $W_C$ is the correlation operator and $V_{AB}$ is the intermolecular interaction operator. The simplest way of calculating the dispersion energy can be obtained when $\lambda_A = \lambda_B = 0$. In this case, the dispersion energy interprets as the correlation energy of two monomers described by Hartree-Fock wavefunctions only. Interestingly such dispersion energy is recovered by MP2 supermolecular calculations. In further works of Szalewicz and Jeziorski,\textsuperscript{12} and Rybak et al.\textsuperscript{13} higher order corrections to the intramonomer correlation effects in the dispersion energy were introduced. This approach was later improved by infinite-order summation techniques, based on random-phase (ring) approximation\textsuperscript{14} or coupled-cluster method.\textsuperscript{15} It turned out that for some van der Waals complexes, the infinite-order summation can be very important, eg. for the molecules with multiple bonds.\textsuperscript{16}
+
+An alternative way for evaluating the dispersion energy is to take advantage of the formula proposed by Longuett-Higgins,\textsuperscript{17} in which the dispersion energy is expressed in terms of a product of polarization propagators integrated over the imaginary frequencies and contracted.
+with coulomb integrals. This methodology was initiated by Jaszuński and McWeeny\textsuperscript{18} by employing the time-dependent Hartree-Fock (TDHF) response function. Such an approach is very general and can be applied with any kind of linear response function. In particular time-dependent density functional theory (TDDFT) was used to obtain the dispersion energy in the framework of DFT\textsuperscript{19,20} which opened opportunity for calculations of accurate interaction energies for large systems in the DFT framework. Korona and Jezierski\textsuperscript{21} demonstrated that such an approach can work very effectively with time-independent coupled cluster response function introduced by Moszynski et al.\textsuperscript{22} at the CCSD level of accuracy for monomer. More recently the dispersion was obtained in a similar manner from extended-RPA (EERP A) theory by Hapka et. al\textsuperscript{23,24} which can be combined with any method providing 2-particle reduced density matrices (2-RDMs).
+
+In this paper we propose a new method for calculation of the dispersion energy, based on Longuet-Higgins formula, which employs time-independent coupled-cluster response function introduced by Moszynski et al.\textsuperscript{22} In contrast to Ref.,\textsuperscript{21} the integral over the imaginary frequencies is performed analytically, and as the final result we obtain the expression for the dispersion energy in terms of cluster amplitudes, and the so-called dispersion amplitudes which include excitations on both monomers simultaneously and they are the solutions of simple linear equation. The method introduced here is valid for arbitrary truncation of cluster operator, and since the dispersion is expressed only by commutators, the equation is explicitly connected. This opens an avenue for formulation of high-accuracy dispersion energy based on wavefunction methods. In present paper we perform the Moller-Plessett order-by-order perturbation analysis in terms of intramonomer correlation operators $W$. We introduce a simplified scheme which allows us to calculate the dispersion energy accurate up to the second-order of $W$ operator. We demonstrate how the simplified method works for several small van der Waals systems and compare it with existing methods.
+
+The plan of this paper is following. First we derive a general theory of the dispersion interactions energy in terms of coupled clusters response functions. In the following section,
+we will present the relation between the derived formula and the dispersion energy given by
+the sum of the first two orders in terms of $W$ which leads us to the convenient approximate
+scheme of calculation of the dispersion energy accurate through the second order in $W$.
+We then perform test of the approximated scheme for the helium dimer (comparison with
+dispersion energy from FCI wavefunction) and few, representative van der Waals complexes.
+Finally, we provide a discussion of the results and prospects for further development of the
+theory.
+
+2 Theory
+
+2.1 Dispersion energy in terms of coupled clusters response function
+
+In this section, we introduce the following notation. The quantities with subscripts A and B
+refer to operators which act on A or B monomer wavefunctions, respectively. We introduce
+the general excitation operators $\tau$ with subscripts $I, J$ and $M, N$ referring to the excitations
+of Slater determinants describing monomers A and B, respectively. We assume that both
+A and B monomers are in non-degenerate ground states, and for both monomers, obtaining
+the reference Hartree-Fock states is possible. The second assumption we need is that for
+each monomer, we can solve coupled cluster equations at the same excitation level. In other
+words, we desire that for arbitrary excitation operators $\tau_I, \tau_M$ acting on Slater determinants
+of A and B, respectively, we have following equations fulfilled:
+
+$$\langle \tau_I | e^{-T_A} H_A e^{T_A} \rangle = 0 \quad \langle \tau_M | e^{-T_B} H_B e^{T_B} \rangle = 0$$  \hspace{1cm} (3)
+In the above and further equations, we use the following short-hand notation for the scalar products and the expectation values of operators:
+
+\[ \langle X|Y \rangle = \langle X|\Phi \rangle \langle \Phi|Y \rangle = \langle \Phi|X \Phi \rangle, \]
+
+where \( \Phi \) denotes the reference state (Slater determinant) of \( A \) or \( B \) monomer. Again we should stress, that the truncation of \( T_A \) and \( T_B \) operators (e.g. to singles and doubles) is not assumed yet, hence our derivations remain general for any truncation level of cluster operators.
+
+The time-independent coupled cluster polarization propagator introduced by Moszynski et al.\(^2^2\) has the following form:
+
+\[ \langle \langle X; Y \rangle \rangle_\omega = \langle e^{-S_C} e^{T_C} Y e^{-T_C} e^{S_C} | P_C | e^{S_C^\dagger} \Omega(\omega) e^{-S_C^\dagger} \rangle + g.c.c. \]
+
+In above equation we introduced the superoperator \( P_C \) projecting on the space spanned by all excitation operators, i.e.
+
+\[ P_C = \sum_L |\tau_L \rangle \langle \tau_L|. \]
+
+The subscript \( C \), introduced here, refers either to \( A \) or \( B \) monomers and label of generalized excitation operator \( L \) stand for either \( I, J \) or \( M, N \). The \( \Omega(\omega) \) operator appearing in the Eq.(5) has also been introduced in the Ref.\(^2^2\) and is the solution of the following linear equation:
+
+\[ \langle \tau_L | [e^{-T_C} H_C e^{T_C}, \Omega_C(\omega)] + \omega \Omega_C(\omega) + e^{-T_C} X e^{T_C} \rangle = 0. \]
+
+In fact the \( \Omega_C(\omega) \) operator are the solution of the same equation which appears in the time-dependent coupled-clusters theory of Monkhorst\(^2^5,2^6\) and represents the response of the system to the external perturbation given by the operator \( X \). The \( S_C \) operator in the Eq. (5) has been introduced by Jeziorski and Moszynski\(^2^7\) in order to provide an explicitly connected expression for the expectation values in the coupled cluster theory. A formal definition of
+the $S_C$ cluster operator in terms of CC amplitudes $T_C$ reads:
+
+$$e^{S_C} \Phi_C = \frac{1}{\langle e^{T_C} | e^{T_C} \rangle} e^{T_C} e^{T_C} \Phi_C,$$  \hspace{1cm} (8)
+
+The operator $S_C$ is connected, and can be determined from the linear equation, which contains finite, nested commutator series of $T_C$ and $T_C^\dagger$ operators. In particular the expression for the $S_C$ operator in CCSD model to the second order in $T_C$ reads:
+
+$$S_C = T_C + P_C([T_1^\dagger, T_2]) + O(T^3).$$  \hspace{1cm} (9)
+
+Clearly, for CCSD model $S_C = T_C$ is accurate to the second order in the electronic correlation operator. This approach has been later developed by Korona, with very efficient implementation of the method, introduced various approximation schemes as well as implementation in terms of local orbitals.
+
+The dispersion energy is related to the linear response functions of monomers by the following formula:
+
+$$E^{(2)}_{\text{disp}} = -\frac{1}{4\pi} \int_{-\infty}^{+\infty} \Omega_k^{l_n} \Omega_m^{l_n'} \Omega_{k'D}^{l_n} \Omega_{m'D}^{l_n'} d\omega,$$  \hspace{1cm} (10)
+
+where $E^k_l = a^\dagger_{k \alpha} a_{l \alpha} + a^\dagger_{k \beta} a_{l \beta}$ is the spin–free unitary group generator and $\nu_{km}^{ln}$ denotes the 4-center Coulomb integral expressed in the molecular orbital basis. From now on the labels $k,l(m,n)$ stand for orbitals of $A$ ($B$) monomer, $\alpha(\beta)$ labels denote occupied spinorbitals, while $\rho(\sigma)$ denote virtual spinorbitals of monomer $A$ ($B$, respectively). Let us now define the following operator, acting in the Hilbert space $\mathcal{H}_A \otimes \mathcal{H}_B$:
+
+$$\sigma = \frac{1}{2\pi} \sum_{k,l,m,n} \Omega_{km}^{ln} \int_{-\infty}^{+\infty} \Omega^k_i(i\omega) \Omega^m_n(-i\omega) d\omega$$  \hspace{1cm} (11)
+
+where $\Omega^k_i(\omega)$ is the solution of Eq. (7) with $X = E^k_l$, and $\Omega^m_n(\omega)$ is defined analogously. The
+The role of $\sigma$ operator is to describe mutual excitations on both monomers which should describe the correlation effects between them. We will also refer to the $\sigma$ operator as the dispersion amplitude.
+
+The $\sigma$ operator acts on the new Fermi vacuum in the $\mathcal{H}_A \otimes \mathcal{H}_B$ Hilbert space defined by the product of two Slater determinants $\Phi_A\Phi_B$. The same Hilbert space has been used by Williams et al. to develop the coupled-cluster doubles model of the dispersion interaction and has been referred to as non-symmetric Fermi vacuum. The projection superoperator can also be introduced in this space:
+
+$$\mathcal{P}_{AB}(X) = \sum_{I,M} \tau_I \tau_M \langle \tau_I \tau_M | X \rangle.$$  \hspace{1cm} (12)
+
+Note that $\mathcal{P}_{AB}(X)$ must contain at least single excitation of each Slater determinant. The operator $\Omega_{kl}^k(\omega)$ can be explicitly written in the spectral expansion form in terms of the eigenvalues and (right and left) eigenvectors of the non-Hermitian similarity-transformed matrix $\mathcal{M}_A_{II'} = \langle \tau_I | [ e^{-T_A H_A e^{T_A}}, \tau_{I'} ] \rangle$.
+
+$$\Omega_{kl}^k(\omega) = \sum_{I,I',J} \tau_I \frac{\langle \tau_{I'} (L^{-1}_A)^{I',J} R^{-1}_A I,I' \rangle}{\omega_{I'} + \omega} \langle \tau_J | e^{-T_A E_k} e^{T_A} \rangle$$ \hspace{1cm} (13)
+
+where $R_A$ and $L_A$ are right and left eigenvectors of the matrix $\mathcal{M}_A$, and the summation runs over all the excitations of the system $A$. By analytical integration over $\omega$, using residue theorem, after some algebra we find the following expression:
+
+$$\sigma = \sum_{k,l,m,n} v_{km}^{ln} \sum_{I,I',J,M,M',N} \tau_I \tau_M \langle \tau_I (R^{-1}_A)^{I,I'} (R^{-1}_B)^{M,M'} (L^{-1}_A)^{I',J} (L^{-1}_B)^{M',N} \rangle \times$$
+
+$$\times \frac{\langle \tau_J | e^{-T_A - T_B} E_k^k E_m^m e^{T_A + T_B} \rangle}{\omega_{I'} + \omega_{M'}} \times \langle \tau_J | e^{-T_A - T_B} E_k^k E_m^m e^{T_A + T_B} \rangle$$ \hspace{1cm} (14)
+
+$$= \sum_{I,I',J,M,M',N} \tau_I \tau_M \langle \tau_I (R^{-1}_A)^{I,I'} (R^{-1}_B)^{M,M'} (L^{-1}_A)^{I',J} (L^{-1}_B)^{M',N} \rangle \times$$
+
+$$\times \frac{\langle \tau_J | e^{-T_A - T_B} E_k^k E_m^m e^{T_A + T_B} \rangle}{\omega_{I'} + \omega_{M'}} \times \langle \tau_J | e^{-T_A - T_B} E_k^k E_m^m e^{T_A + T_B} \rangle$$ \hspace{1cm} (15)
+
+The operator $\sigma$ in Eq. (16) can also be expressed in the form of spectral expansion analogue...
+to the for $\Omega(\omega)$ [Eq.(13)], but for $\omega = 0$. Hence, it is easily to deduce that it $\sigma$ is a solution to analogue equation to Eq. (7) in the Hilbert space $\mathcal{H}_A \otimes \mathcal{H}_B$.
+
+$$
+\langle \tau_I \tau_M \left[ e^{-T_A} H_A e^{T_A} + e^{-T_B} H_B e^{T_B} , \sigma \right] + e^{-T_A - T_B} V_2 e^{T_A + T_B} \rangle = 0 \quad (16)
+$$
+
+where $V_2 = v_{km}^l E_l^k E_n^{km}$ is the two-electron part of the intermolecular interaction operator which in the first-quantization simply reads:
+
+$$
+V_2 = \sum_{i \in A, j \in B} \frac{1}{|r_i - r_j|} \quad (17)
+$$
+
+Finally, substitution of Eq. (11) into the Casimir–Polder formula gives the following expression for the dispersion energy:
+
+$$
+E_{\text{disp}}^{(2)} = -\langle e^{-S_A - S_B} e^{T_A^i + T_B^j} V_2 e^{-T_A^i - T_B^j} e^{S_A + S_B} | P_{AB} | e^{S_A^i + S_B^j} \sigma e^{-S_A^i - S_B^j} \rangle \quad (18)
+$$
+
+Eq. (18) is the main result of this paper. With the Eq. (16) it relates the dispersion energy to the cluster operators of the monomers, and the operator $\sigma$. The Eq. (16) is linear in $\sigma$ and is analogue to the equation for the first-order $\Omega$ operator in the coupled cluster response theory, but with similarity-transformed two-electron intermolecular Coulomb operator as non-homogeneity. Note also that the above equations gives the nested commutator which is finite.\textsuperscript{22} To this point we have not introduced any truncation to the $T_C$ nor $S_C$ operator and, as such, this equation is very general. The derivation of explicit orbital expressions for the Eqs. (16) and (18) is possible, thought involves very tedious algebra, even when the wavefunctions of the monomers are at the level of CCSD. These equations are, however, a good starting point for approximate schemes, as the error in $W$ can be controlled at desired level. Thus, the theory provides opportunity to define a \textit{systematically improvable} family of approximations to above equation.
+2.2 MBPT analysis of dispersion energy
+
+To obtain practical, working equations for the cluster expansion of the dispersion energy, we should expand the Eqs. (16) and (18) using the Baker-Hausdorff-Campbell formula and examine which terms (in terms of the power of $W$ operator) of such expansions are important. This information is crucial for introducing any approximate scheme: the proper working approximation should be exact to the second order of intramonomer correlation since the numerous tests have shown that the perturbation theory with $\lambda_A + \lambda_B = 2$ [cf. Eq. (2)] reproduces the key contributions to the dispersion energy and this the minimum order for any approximation to be effective.
+
+To perform such analysis, we will use the superoperator formalism which has been used in the paper of Rybak et al.\textsuperscript{13} and Williams et al.\textsuperscript{15} to identify the dispersion energy in the second order to compare them with expressions in Ref.\textsuperscript{13}
+
+We start with the Møller-Plesset partitioning of the Hamiltonians describing the monomers given by the Eq. (2). The CC equations can be written in convenient superoperator form\textsuperscript{22}
+
+$$T_C = \mathcal{R}_C(e^{-T_C W_C e^{T_C}})$$
+
+using the resolvent superoperator defined by the equation:
+
+$$\mathcal{R}_C(X) = \sum_L \frac{1}{\Delta\epsilon_L} \tau_L \langle \tau_L | X \rangle$$
+
+where the energy denominator $\Delta\epsilon_I$ corresponding to the excitation operator $\tau_L$ can be found from the equation
+
+$$[F_C, \tau_L] = \Delta\epsilon_L \tau_L.$$\textsuperscript{(21)}
+
+Resolvent superoperator can be introduced also for the Hilbert space $\mathcal{H}_A \otimes \mathcal{H}_B$, analo-
+gously to the projection superoperator given by Eq. 12 in the following way:
+
+\[
+\mathcal{R}_{AB}(X_{AB}) = \sum_{I,M} \frac{1}{\Delta \epsilon_I + \Delta \epsilon_M} \tau_I \tau_M \langle \tau_I \tau_M | X_{AB} \rangle,
+\]
+
+where \(X_{AB}\) operator acts in the Hilbert space \(\mathcal{H}_A \otimes \mathcal{H}_B\) and the energy denominator
+
+\[
+[F_A + F_B, \tau_I \tau_M] = (\Delta \epsilon_I + \Delta \epsilon_M) \tau_I \tau_M.
+\]
+
+To proceed with the Møller–Plesset expansion of Eq. (18) we use the first- and second-order terms in the expansion of \(T\) in powers of \(W\), which can be obtain from the iteration of Eq. (19).
+
+\[
+T^{(1)}_{2C} = \mathcal{R}_C(W_C), \quad T^{(2)}_{mC} = \mathcal{R}_C([W_C, T^{(1)}_C]), \quad m = 1, 2, 3.
+\]
+
+The subscript \(m\) denotes \(m\)-fold excitation of \(T_{mC}\) operator. The lowest order corrections in \(W_C\) to the operator \(S_C\) are also needed to expand Eq. (18). It is not difficult to show that the \(S_C\) and \(T_C\) operators\(^\text{27}\) are the same through the second order in \(W\), i.e.,
+
+\[
+S^{(1)}_{2C} = T^{(1)}_{2C}, \quad S^{(2)}_{1C} = T^{(2)}_C, \quad S^{(2)}_{2C} = T^{(2)}_{2C}.
+\]
+
+Using the resolvent superoperator it is convenient to rewrite Eq. (16) in the following, recursive form:
+
+\[
+\sigma = \mathcal{R}_{AB}([e^{-T_A} W_A e^{T_A} + e^{-T_B} W_B e^{T_B}, \sigma] + e^{-T_A-T_B} V_2 e^{T_A+T_B}).
+\]
+
+which is convenient for expanding the \(\sigma\) operator in powers of \(\lambda^i_A \lambda^j_B\):
+
+\[
+\sigma = \sum_{i,j=0} \lambda^i_A \lambda^j_B \sigma^{(ij)}.
+\]
+
+After substitution into Eq. (26), and using Eqs. (25), (24) one can easily obtain the intra-
+monomer correlation corrections to the $\sigma$ operator:
+
+$$\sigma^{(0)} = \mathcal{R}_{11}(V_2),$$
+
+$$\sigma^{(10)}_{11} = \mathcal{R}_{11}([W_A, \sigma^{(0)}] + [V_2, T_A^{(1)}]),$$
+
+$$\sigma^{(11)}_{11} = \mathcal{R}_{11}([W_A, \sigma^{(10)}_{11}] + [W_B, \sigma^{(10)}_{11}] + [[V_2, T_A^{(1)}], T_B^{(1)}]),$$
+
+$$\sigma^{(20)}_{11} = \mathcal{R}_{11}([W_A, \sigma^{(10)}_{11}] + [[W_A, T_A^{(1)}], \sigma^{(0)}])$$
+
+and
+
+$$\sigma^{(20)}_{21} = \mathcal{R}_{21}([W_A, \sigma^{(10)}_{11}] + [[W_A, T_{2A}^{(1)}], \sigma^{(0)}]).$$
+
+The $\mathcal{R}_{mn}$ denotes the component of resolvent superoperator with $m$-tuply excited $\tau_I$ and $n$-tuply excited $\tau_M$ in Eq. (22). The same convention holds for $\sigma_{mn}$ operator.
+
+By inserting the expansions of operators $T$ and $S$, and (27) into Eq. (18) we obtain the intramonomer correlation corrections to the dispersion energy:
+
+$$E^{(20)}_{\text{disp}} = \langle V_2 | \sigma^{(0)} \rangle,$$
+
+$$E^{(210)}_{\text{disp}} = \langle V_2 | \sigma^{(10)} \rangle + \langle [V_2, T_A^{(1)}] | \sigma^{(0)}_{11} \rangle,$$
+
+$$E^{(211)}_{\text{disp}} = \langle V_2 | \sigma^{(11)}_{11} \rangle + \langle [[V_2, T_A^{(1)}], T_B^{(1)}] | \sigma^{(0)}_{11} \rangle,$$
+
+$$E^{(220)}_{\text{disp}} = \langle V_2 | \sigma^{(20)}_{11} \rangle + \langle [V_2, (T_A^{(1)})^\dagger] | \sigma^{(10)}_{11} \rangle + \langle [V_2, T_A^{(2)}] | \sigma^{(0)}_{11} \rangle + \langle [V_2, T_A^{(1)}] | \sigma^{(10)}_{11} \rangle.$$
+
+The $E^{(201)}_{\text{disp}}$ and $E^{(202)}_{\text{disp}}$ corrections have the form analogous to Eqs.(34) and (37) with $T_A$
+replaced by \(T_B\) and \(\sigma_{11}^{(10)}\) by \(\sigma_{11}^{(01)}\). We immediately identify the Eq. (33) as the simplest approximation to the dispersion energy (often referred as the uncoupled Hartree-Fock dispersion), representing dispersion interaction of the two Hartree-Fock molecules. By using the Hermicity of the resolvent superoperator
+
+\[
+\langle X|\mathcal{R}(Y)\rangle = \langle \mathcal{R}(X)|Y\rangle
+\] (37)
+
+we can simplify the first term in Eq.(34) as
+
+\[
+\langle V_2|\sigma^{(10)}\rangle = \langle \sigma^{(0)}|[W_A, \sigma^{(0)}] + [V_2, T_A^{(1)}]\rangle
+\] (38)
+
+hence the Eq.(34) takes the form
+
+\[
+E_{\text{disp}}^{(210)} = 2\text{Re}\langle[V_2, T_A^{(1)}]|\sigma^{(0)}\rangle + \langle \sigma^{(0)}|[W_A, \sigma^{(0)}]\rangle
+\] (39)
+
+which is exactly the same as Eq. (68) in the Ref.13
+
+\[
+E_{\text{disp}}^{(211)} = 2\text{Re}\langle[W_A, \sigma^{(0)}] + [V_2, T_A^{(1)}]|\mathcal{R}_{11}|[W_B, \sigma^{(0)}] + [V_2, T_B^{(1)}]\rangle + 2\text{Re}\langle[[V_2, T_A^{(1)}], T_B^{(1)}]|\sigma^{(0)}\rangle
+\] (40)
+
+This equation, representing bilinear term in \(W_A\) and \(W_B\) respectively, is exactly the same as Eq. (79) of the Ref.13 The \(E_{\text{disp}}^{(220)}\) naturally splits into the terms which can be attributed to the excitation level of the non-symmetric Fermi vacuum:
+
+\[
+E_{\text{disp}}^{(220)} = E_{\text{disp}}^{(220)}(S) + E_{\text{disp}}^{(220)}(D) + E_{\text{disp}}^{(220)}(T) + E_{\text{disp}}^{(220)}(Q)
+\] (41)
+
+The consecutive terms correspond to singly-, doubly-, triply excited clusters while the last one represents a disconnected quadruples. The consecutive quantities defined in Eq.(41)
+after some manipulations take the following form:
+
+\[ E^{(220)}_{\text{disp}}(S) = 2\text{Re}\langle[V_2, \sigma^{(0)}]|T^{(2)}_{1A}\rangle \]
+
+(42)
+
+\[ E^{(220)}_{\text{disp}}(D) = 2\text{Re}\langle[V_2, \sigma^{(0)}]|T^{(2)}_{2A}\rangle 
++ \langle[W_A, \sigma^{(0)}] + [V_2, T^{(1)}_{2A}]|\mathcal{R}_{11}|[W_A, \sigma^{(0)}] + [V_2, T^{(1)}_{2A}]\rangle, \]
+
+(43)
+
+\[ E^{(220)}_{\text{disp}}(T) = \langle[W_A, \sigma^{(0)}] + [V_2, T^{(1)}_{2A}]|\mathcal{R}_{21}|[W_A, \sigma^{(0)}] + [V_2, T^{(1)}_{2A}]\rangle, \]
+
+(44)
+
+\[ E^{(220)}_{\text{disp}}(Q) = \langle[[V_2, (T^{(1)}_{2A})^\dagger], T^{(1)}_{2A}]|\sigma^{(0)}\rangle + \langle\sigma^{(0)}|[[W_A, T^{(1)}_{2A}], \sigma^{(0)}]. \]
+
+(45)
+
+The \( E^{(201)}_{\text{disp}} \) and \( E^{(202)}_{\text{disp}} \) corrections can be easily obtained from above formulas by appropriate interchanging \( W_B \) for \( W_A \), and \( T_B \) for \( T_A \). The Eqs. (42) - (45) are in one-to-one correspondence with the Eqs. (87) - (90) of the reference\(^{13}\) which proves correctness of the dispersion introduced here to the second order in the intramonomer correlation.
+
+### 2.3 Non-perturbative approximation scheme
+
+Having discussed the relation of the dispersion energy formula derived in Section 2.1 to the MBPT series expansion given in the literature, we can now ask the question of how the effects of intramonomer correlation can be introduced into the dispersion energy in a non-perturbative manner, using the converged cluster amplitudes and \( \sigma \) operator. As we have stressed in previous sections, a satisfactory simplification of the Eqs. Eqs. (16) and (18) must remain exact to the second order of intramonomer correlation. First, note that the \( S \) operator can be simplified to \( T = T_1 + T_2 \) only since higher order terms in \( T \) do not contribute to the second-and lower orders in the intramonomer correlation. The connected triples \( (T_3) \)
+do not contribute to the second-order dispersion either. One can propose the simplest and
+most efficient cost approximation in a two-step procedure. First, we restrict the equations
+for the operator $\sigma$ in Eq. (16) to $\sigma_{11}$ only (we omit $\sigma_{21}$ and $\sigma_{12}$) and appropriate powers of
+$T$ in the nested commutator expansion resulting from the $e^{-T_A H_A e^{T_A}}$, $e^{-T_B H_B e^{T_B}}$ series to
+get the following equation:
+
+$$P([H_A + H_B, \sigma_{11}] + [[H_A, T_{2A}], \sigma_{11}] + [[H_B, T_{2B}], \sigma_{11}]
+V_2 + [V_2, T_{1A} + T_{1B} + T_{2A} + T_{2B}] + [[V_2, T_{2A}], T_{2B}]) = 0. \quad (46)$$
+
+The truncation of nested commutator series resulting from Eq. (18) which satisfies our
+demands can be written in the form (and will be dubbed from now on as CCPP2):
+
+$$E_{\text{disp}}^{(2)}(\text{CCPP2}) = \langle V_2 + [V_2, T_{1A} + T_{1B} + T_{2A} + T_{2B}] +
+[[V_2, T_{2A}], T_{2B}] + [[V_2, (T_{2A})^\dagger], T_{2A}] + [[V_2, (T_{2B})^\dagger], T_{2B}] \rangle \sigma_{11}. \quad (47)$$
+
+However, the term containing the triply excited diagrams is, still, not included in this
+approximation, and has to be added a posteriori. The simplest way to do this is to evaluate
+the $E_{\text{disp}}^{(220)}(T)$ and $E_{\text{disp}}^{(202)}(T)$ from the Eq. (44) with the unconverged amplitudes $\sigma_{11}^{(0)}$ and
+$T_2^{(1)}$ replaced by their converged counterparts, similarly to what was proposed by Williams
+et al.\textsuperscript{15} The Eqs. (48) with (46) can be viewed as an improvement over standard expression
+for SAPT accurate to the second-order in the intramonomer correlation, since they account
+for certain classes of diagrams summed to the infinity.
+
+In this paper we use spinorbital formulation for introduced approximation which is ready
+to use for open-shell systems in future. The working expressions can be be derived after
+some algebra from the Wick theorem for non-symmetric Fermi vacuum.\textsuperscript{15} Below we use the
+tilde to denote the antisymmetrized quantities with respect to the permutation of indices, for example:
+
+$$\tilde{T}_{\rho'\rho}^{\alpha'\alpha} = T_{\rho'\rho}^{\alpha'\alpha} - T_{\rho\rho'}^{\alpha\alpha'} \quad (48)$$
+
+15
+We also use the the labels $\alpha(\beta)$ to denote occupied spinorbitals of the monomer $A(B)$ and $\rho(\sigma)$ for virtual spinorbitals of $A(B)$ monomer, respectively. The working equation for the dispersion energy in the CCPP2 approximation reads
+
+$$E_{\text{disp}}^{(2)}(\text{CCPP2}) = \sigma^\rho_{\alpha\beta}(U_{\rho\sigma}^{\alpha\beta} + \xi_{\rho\sigma}^{\alpha\beta}),$$
+
+where we have defined the following quantities:
+
+$$U_{\rho\sigma}^{\alpha\beta} = v_{\rho\sigma}^{\alpha\beta} + v_{\rho\sigma'}^{\alpha\beta}T_{\alpha\beta} + (v_{\rho'\sigma}^{\alpha'} + c_{\rho'\sigma})T_{\rho\sigma} + v_{\rho\beta}^{\alpha\beta}T_{\beta} + v_{\rho\sigma'}^{\alpha\beta}T_{\rho\sigma'} + v_{\rho\sigma'}^{\alpha\beta}T_{\rho\sigma'} + v_{\rho\beta}^{\alpha\beta}T_{\beta} + v_{\rho\beta}^{\alpha\beta}T_{\beta} +$$
+
+$$+ \sigma^\rho_{\alpha\beta}T_{\rho\sigma'} + v_{\rho\sigma}^{\alpha\beta}T_{\rho\sigma} + v_{\rho\sigma}^{\alpha\beta}T_{\rho\sigma} + v_{\rho\sigma}^{\alpha\beta}T_{\rho\sigma} + v_{\rho\beta}^{\alpha\beta}T_{\beta} + v_{\rho\beta}^{\alpha\beta}T_{\beta} +$$
+
+$$\xi_{\rho\sigma}^{\alpha\beta} = v_{\rho\sigma}^{\alpha\beta}X_{\alpha\beta} + v_{\rho\sigma}^{\alpha\beta}X_{\alpha\beta} + v_{\rho\sigma}^{\alpha\beta}X_{\alpha\beta} + v_{\rho\sigma}^{\alpha\beta}X_{\alpha\beta} +$$
+
+The equations for the $\sigma$ dispersion amplitudes read:
+
+$$A_{\alpha\beta}^{\rho\sigma} + A_{\beta\alpha}^{\rho\sigma} + A_{\alpha\beta}^{\rho\sigma} + A_{\beta\alpha}^{\rho\sigma} + A_{\alpha\beta}^{\rho\sigma} + A_{\beta\alpha}^{\rho\sigma} + A_{\alpha\beta}^{\rho\sigma} + A_{\beta\alpha}^{\rho\sigma} +$$
+
+Finally the expression for the triply–excited terms can be written as:
+
+$$\Delta E_{\text{disp}}^{(2)}(T) = \frac{1}{\epsilon_{\rho\sigma}^{\alpha\beta}}h_{\rho\sigma}^{\alpha\beta}h_{\rho\sigma}^{\alpha\beta} + \frac{1}{\epsilon_{\rho\sigma}^{\alpha\beta}}h_{\rho\sigma}^{\alpha\beta}h_{\rho\sigma}^{\alpha\beta}$$
+
+The intermediates appearing in the Eqs. (51)–(53) are collected in the Table 1. We use combined abbreviation of CCPP2(T) for sum of Eqs. (53) and (48).
+Table 1: Intermediates defined in Eqs.(49) and (53). The intermediates $X, Y, I, J$ for monomer $B$ can be easily obtained by interchanging indices $\alpha, \rho$ by $\beta, \sigma$. For the canonical orbitals the $f$ matrix is diagonal.
+
+| Intermediate | Expression |
+|--------------|------------|
+| $c_{\rho\sigma}^{\alpha\beta}$ | $v_{\rho\sigma}^{\alpha\beta} T_{\rho\sigma}$ |
+| $X_{\alpha}$ | $T_{\rho\sigma}^{\alpha\beta} T_{\rho\sigma}^{\alpha\beta}$ |
+| $X_{\beta}$ | $T_{\rho\sigma}^{\alpha\beta} T_{\rho\sigma}^{\alpha\beta} + T_{\rho\sigma}^{\alpha\beta} T_{\rho\sigma}^{\alpha\beta}$ |
+| $X_{\alpha'}$ | $T_{\rho\sigma}^{\alpha\beta} T_{\rho\sigma}^{\alpha\beta} + T_{\rho\sigma}^{\alpha\beta} T_{\rho\sigma}^{\alpha\beta}$ |
+| $Y_{\alpha}$ | $T_{\rho\sigma}^{\alpha\beta} T_{\rho\sigma}^{\alpha\beta}$ |
+| $Y_{\beta}$ | $T_{\rho\sigma}^{\alpha\beta} T_{\rho\sigma}^{\alpha\beta} + T_{\rho\sigma}^{\alpha\beta} T_{\rho\sigma}^{\alpha\beta}$ |
+| $Y_{\alpha'}$ | $T_{\rho\sigma}^{\alpha\beta} T_{\rho\sigma}^{\alpha\beta} + T_{\rho\sigma}^{\alpha\beta} T_{\rho\sigma}^{\alpha\beta}$ |
+| $T_{\rho\sigma}^{\alpha\beta}$ | $f_{\rho\sigma}^{\alpha\beta} + f_{\rho\sigma}^{\alpha\beta} - v_{\rho\sigma}^{\alpha\beta} - v_{\rho\sigma}^{\alpha\beta}$ |
+
+3 Details of implementation
+
+In this paper we focus on the non-perturbative approximation scheme we have introduced in the Section 2.3. To this end we have implemented derived formulas within the SAPT suite of codes,\textsuperscript{32} and used the MOLPRO2012 package\textsuperscript{33} for evaluation of the molecular integrals and the cluster amplitudes $T_1$ and $T_2$. The linear equation for $\sigma_{11}$ is solved iteratively: in case of the closed-shell systems or UHF orbitals it is possible to extract from the first term of the Eq. 53 the dominant part which is (in closed-shell case) simply the orbital energy difference
+
+$$f_{\rho\sigma}^{\alpha\beta} - f_{\rho\sigma}^{\alpha\beta} - \sigma_{\alpha\beta}^{\rho\sigma} = (\epsilon_\rho + \epsilon_\rho - \epsilon_\alpha - \epsilon_\alpha) \sigma_{\alpha\beta}^{\rho\sigma}. \quad (54)$$
+
+and to set as a starting set of amplitudes $\sigma_{\alpha\beta}^{\rho\sigma} = -U_{\alpha\beta}^{\rho\sigma}/(\epsilon_\rho + \epsilon_\rho - \epsilon_\alpha - \epsilon_\alpha)$. Usually, no more than ten steps are needed to converge $\sigma_{11}$. The correctness of our code could be easily checked by reproducing implemented order-by-order corrections from Eqs. (42) - (45). For the triply excited contribution to the dispersion energy we have used existing routine from the SAPT package into which converged $\sigma_{11}$ and $T_2$ amplitudes were plugged in. The calculations of triples in dispersion is the bottleneck of the method with steep scaling of $N^7$, whereas the computational cost of obtaining $\sigma_{11}$ amplitudes is $N^6$. The implementation is preliminary, and we cannot perform the calculations for larger complexes due to the prohibitive cost of triples.
+4 Numerical results
+
+Although the theory presented in above sections is valid for general order of excitation of cluster operator, we decided to assess the performance of CCPP2(T) introduced in the section 2.3.
+
+We have tested the approximate non-perturbative second-order treatment of the dispersion energy on several small, representative systems for which Korona and Jeziorski\textsuperscript{21} performed detailed comparisons of highly accurate dispersion based on density-fitted CCSD density susceptibilities. We made the comparison with dispersion in CCD+ST(CCD) approximation of Williams and coworkers.\textsuperscript{15} Other models of the dispersion used in these studies are dispersion obtained from TDDFT\textsuperscript{19,34} based on asymptotically corrected PBE0 functional, and TDHF response functions .\textsuperscript{14,18,35} Finally, we also studied SAPT corrections $E_{\text{disp}}^{(20)}$ and the sum of all corrections up to the second order in intramonomer correlation, which we will denote as $E_{\text{disp}}^{(2)}(\text{SAPT2})$ defined as
+
+\begin{equation}
+E_{\text{disp}}^{(2)}(\text{SAPT2}) = E_{\text{disp}}^{(20)} + E_{\text{disp}}^{(21)} + E_{\text{disp}}^{(22)} .
+\end{equation}
+
+We have used exactly the same basis sets and geometries: for the many-electron systems the basis sets was aug-cc-pVTZ, while for tests involving helium dimer we employed DC147 basis introduced in the Ref.\textsuperscript{4} The latter basis set is optimized to reproduce the dispersion energy.
+
+First let us discuss the results for the helium dimer. The Table 2 contains comparisons of CCPP2(T) dispersion energy with models discussed before. For this system the comparison with exact dispersion obtained at the full configuration interaction (FCI) level is possible. Thus, we used $E_{\text{disp}}^{(2)}(\text{FCI})$ as the reference. In the the Fig. 1 we have plotted the percent difference of the dispersion energy in with respect to the FCI dispersion, as a function of interatomic separation (except $E_{\text{disp}}^{(20)}$ which performs significantly worse). One might notice that DF-CCSD(4) dispersion of Korona and Jeziorski recovers the FCI dispersion almost
+exactly (see also discussions in Ref.\textsuperscript{21}), since polarization propagator in CCSD(4) approximation is nearly exact for two electron system. The CCPP2 dispersion energy is very closely follows CCD+ST(CCD) method: both methods reproduce the SAPT interaction energies up to 2nd order in the intramonomer correlation and include summation of some classes of diagrams to infinity. Such summation is important: both methods perform significantly better than "bare" SAPT up to $E_{\text{disp}}^{(22)}$, and significantly outperform the dispersion from TDHF and TDDFT (PBE0) methods. As the distance increases for all methods reported, except TDDFT the accuracy slightly worsen, but for CCPP2(T) is always below 2%.
+
+Figure 1: Distance dependence of percentage difference of various dispersion energy models with respect to FCI dispersion energy within the same basis set (Dc147). The CCSD(4) correspond to density-fitted CCSD response function accurate to 4th order in the correlation operator.
+
+The second test of the performance of the CCPP2(T) dispersion model includes few-electron systems of various complexity. In particular, this test targets molecules with triple
+Table 2: Comparison of the dispersion energy in the CCPP2 approximation with other methods for the helium dimer, for the internuclear separation of 5.6 \( a_0 \) the energy unit is Kelvin
+
+| correction                        | energy  |
+|----------------------------------|---------|
+| \( E_{\text{disp}}^{(2)} \)      | -17.067 |
+| \( E_{\text{disp}}^{(2)} \) (TDHF) | -20.924 |
+| \( E_{\text{disp}}^{(2)} \) (2)  | -21.354 |
+| \( E_{\text{disp}}^{(2)} \) (CCD + ST(CCD)) | -21.816 |
+| \( E_{\text{disp}}^{(2)} \) (FCI) | -22.278 |
+| \( E_{\text{disp}}^{(2)} \) (CCPP2(T)) | -21.903 |
+
+bonds, like \( N_2 \) and CO, making it difficult to describe intramonomer correlation’s effect on intermolecular interactions. All the results are gathered in Table 3. We also show the triples correction contribution to the dispersion energy for completeness. For these system CCSD(3) response function was used (with density-fitting approximation).
+
+The accuracy of the DF-CCSD(3) and CCD+ST(CCD) methods can be considered the most accurate among others; thus, here, we should consider these values as the reference. The CCPP2(T) dispersion usually falls between CCD+ST(CCD) and DF-CCSD(3) except for the CO-H\(_2\)O system, for which the dispersion is slightly lower than DF-CCSD(3). Only for the CO dimer, CCPP2(T) dispersion is significantly lower than DF-CCSD(3). However for this system case CCD+ST(CCD) is even lower than the presented theory.
+
+5 Conclusions and outlook
+
+This paper introduced a new formulation of the dispersion interaction from the Longuet-Higgins type integral over the product of coupled-cluster polarization propagators of the monomers. Unlike previous formulations, instead of numerical integration over imaginary frequencies, we performed analytical integration and introduced a new type of dispersion excitation operator \( \sigma \). The \( \sigma \) operator can be obtained from the solution of the linear equations, similarly to CC response theory. The general, nested commutator expansion,
+Table 3: Comparison of different approximations to the dispersion energy for several van der Waals systems. The test set was taken from the Ref.\textsuperscript{21} The DF-CCSD(3) dispersion corresponds to density-fitted CCSD response function, accurate to 3th order in the correlation operator. The energy unit is milihartree.
+
+| method/system       | (N\textsubscript{2})\textsubscript{2} | (HF)\textsubscript{2} | (H\textsubscript{2}O)\textsubscript{2} | (CO)\textsubscript{2} | CO-H\textsubscript{2}O | Ne-Ar |
+|---------------------|-----------------|-----------------|-----------------|-----------------|-----------------|-------|
+| \(E^{(2)}_{\text{disp}}\) | -0.7463         | -2.5564         | -3.1163         | -0.9945         | -0.9976         | -0.2439 |
+| \(E^{(2)}_{\text{disp}}\) (TDHF) | -0.6784         | -2.6731         | -3.2003         | -0.9599         | -0.9608         | -0.2359 |
+| \(E^{(2)}_{\text{disp}}\) (SAPT2) | -0.7282         | -3.1486         | -3.6265         | -1.0855         | -1.1296         | -0.2634 |
+| \(E^{(2)}_{\text{disp}}\) (TDDFT) | -0.7142         | -3.0704         | -3.5410         | -1.0846         | -1.061          | -0.2590 |
+| \(E^{(2)}_{\text{disp}}\) (CCD + ST(CCD)) | -0.7095         | -3.0987         | -3.5658         | -1.0356         | -1.0803         | -0.2638 |
+| \(E^{(2)}_{\text{disp}}\) (DF - CCSD(3)) | -0.7303         | -3.1796         | -3.6532         | -1.0802         | -1.1008         | -0.2670 |
+| \(E^{(2)}_{\text{disp}}\) (CCPP2(T)) | \textbf{-0.7189} | \textbf{-3.1655} | \textbf{-3.6279} | \textbf{-1.0586} | \textbf{-1.1199} | \textbf{-0.2661} |
+| \(E^{(2)}_{\text{disp}}\) (T) | -0.1218         | -0.4919         | -0.5815         | -0.2086         | -0.2015         | -0.0371 |
+
+arbitrary order CC theory provides the dispersion energy. We have shown how it is possible to introduce accurate approximation to the second order of intramonomer correlation by expanding the dispersion energy. We also introduced non-perturbative approximation to derived formulas with \(N^7\) scaling. For the helium dimer the performance is very similar to CCD+ST(CCD) method of Williams et al.\textsuperscript{15} CCPP2(T) dispersion performs very well for the remaining few-electron dimers: it is very close to the DF-CCSD reference values (mean absolute deviation of 1.1\%). This deviation is smaller than TDDFT dispersion based on PBE0 functional and CCD+ST(CCD) dispersion energies (mean absolute deviation from DF-CCSD 2.5 and 2.6\%, respectively).
+
+The new formulation of the dispersion energy might find applications in the future for highly accurate calculations of the interaction potentials. A big advantage over CCD+ST(CCD) method and TD-DFT approaches is its \textit{systematic improvability}: the general equation (18) was derived for arbitrary order of \(T\). However, similarly to time-independent response theory\textsuperscript{22,28} it is possible to introduce truncation schemes valid to desired level of \(W\) operator. In deriving more elaborate approximations to the dispersion energy in the Eq. (18) it might be essential to use a computer-aided second-quantized-algebra system that enables automatic derivation and implementation of orbital formulas. For a single Fermi vacuum, such
+implementations are already known.\textsuperscript{36,37} Williams et al. implemented a similar system for the product Fermi vacuum;\textsuperscript{15} recently, however, we have implemented a more convenient system in our group, and our future work will include the development of more accurate schemes. Obviously, highly-correlated dispersion-free interaction energy is difficult to obtain in the SAPT theory. However, composite schemes, which use preprocessed supermolecular interaction energies combined with perturbation theory corrections, can work very efficiently. It is particularly worth mentioning here the MP2c approach of Pitonak and Hesselmann\textsuperscript{38} in which poor quality $E_{\text{disp}}^{(20)}$ is replaced by accurate TD-DFT dispersion contribution. Possibly such a scheme could be designed for highly accurate potential energy surfaces, which need to be used to explain bound-state spectroscopy\textsuperscript{39–41} or resonances in low-energy scattering.\textsuperscript{42–44}
+
+A very important issue to address in future is numerical cost of CCPP2(T) approximation. The bottleneck of the wavefunction-based SAPT is a calculation of the triples dispersion correction, which scales as $N^7$ with the system size. Hohenstein and Sherrill demonstrated how to reduce that cost by appropriately truncating the virtual space, and a similar algorithm can be applied to the present theory. One possible way for dealing with $\sigma$ operators with an excitation rank greater than 2 are tensor decomposition algorithms.\textsuperscript{45,46} Recently several works reported the reduction of the scaling of high-order coupled-cluster methods.\textsuperscript{47–49} The application to the dispersion operator $\sigma$ in CCPP can be designed in the same way, as for example, for $T_3$ or $T_4$, except that $\sigma$ operator has lower symmetry related to the index permutation.
+
+Another interesting avenue in developing current theory is extending the method for multireference systems. How would that be possible? One possibility is the application of the recently developed pair-coupled cluster (pCCD) family of methods\textsuperscript{50,51} for which response equations were derived.\textsuperscript{52} The extension of the theory of $S$-operator (\textsuperscript{22}) for pCCD approaches looks straightforward; hence such generalization is possible in the same spirit as the theory presented here.
+6 Acknowledgements
+
+We are deeply indebted to Prof. Bogumil Jeziorski for his comments on this work and many discussions in this project. RM was supported by the Polish National Science Center through Grant No. 2016/21/B/ST4/03877. PZ was funded by Polish National Science Center through the Sonata Bis 9 call No. 2019/34/E/ST4/00407.
+
+References
+
+(1) London, F. On Some Properties and Applications of Molecular Forces. Z. Phys. Chem. (B) 1930, 11, 222.
+
+(2) Patkowski, K.; Jeziorski, B.; Szalewicz, K. Intermolecular interactions via perturbation theory: from diatoms to biomolecules. Struct. Bond. 2005, 116, 43–117.
+
+(3) Patkowski, K.; Podeszwa, R.; Szalewicz, K. Interactions in diatomic dimers involving closed-shell metals. J. Phys. Chem. A 2007, 111, 12822–12838.
+
+(4) Korona, T.; Williams, H. L.; Bukowski, R.; Jeziorski, B.; Szalewicz, K. Helium dimer potential from symmetry-adapted perturbation theory calculations using large Gaussian geminal and orbital basis sets. J. Chem. Phys. 1998,
+
+(5) Tkatchenko, A.; Rossi, M.; Blum, V.; Ireta, J.; Scheffler, M. Unraveling the stability of polypeptide helices: critical role of van der Waals interactions. Phys. Rev. Lett. 2011, 106, 118102.
+
+(6) Wheeler, S. E. Understanding substituent effects in noncovalent interactions involving aromatic rings. Acc. Chem. Res. 2013, 46, 1029–1038.
+
+(7) Riley, K. E.; Hobza, P. Noncovalent interactions in biochemistry. Wiley Interdisciplinary Reviews: Computational Molecular Science 2011, 1, 3–17.
+(8) Jeziorski, B.; Moszynski, R.; Szalewicz, K. Perturbation theory approach to intermolecular potential energy surfaces of Van der Waals complexes. *Chem. Rev.* **1994**, *94*, 1887–1930.
+
+(9) Kodrycka, M.; Patkowski, K. Efficient density-fitted explicitly correlated dispersion and exchange dispersion energies. *J. Chem. Theory Comput.* **2021**, *17*, 1435–1456.
+
+(10) Przybytek, M. Dispersion energy of symmetry-adapted perturbation theory from the explicitly correlated F12 approach. *J. Chem. Theory Comput.* **2018**, *14*, 5105–5117.
+
+(11) Jeziorski, B.; Van Hemert, M. Variation-perturbation treatment of the hydrogen bond between water molecules. *Mol. Phys.* **1976**, *31*, 713–729.
+
+(12) Szalewicz, K.; Jeziorski, B. Symmetry-adapted double-perturbation analysis of intramolecular correlation effects in weak intermolecular interactions. The He-He interaction. *Mol. Phys.* **1979**, *38*, 191–208.
+
+(13) Rybak, S.; Jeziorski, B.; Szalewicz, K. Many-body symmetry-adapted perturbation theory of intermolecular interactions. H$_2$O and HF dimers. *J. Chem. Phys.* **1991**, *95*, 6576–6601.
+
+(14) Moszynski, R.; Jeziorski, B.; Szalewicz, K. Møller-Plesset expansion of the dispersion energy in the ring approximation. *Int. J. Quant. Chem.* **1993**, *45*, 409–431.
+
+(15) Williams, H. L.; Szalewicz, K.; Moszynski, R.; Jeziorski, B. Dispersion energy in the coupled pair approximation with noniterative inclusion of single and triple excitations. *J. Chem. Phys.* **1995**, *103*, 4586–4599.
+
+(16) Rode, M.; Sadlej, J.; Moszynski, R.; Wormer, P. E.; Van Der Avoird, A. The importance of high-order correlation effects for the CO-CO interaction potential. *Chem. Phys. Lett.* **1999**, *314*, 326–332.
+(17) Longuet-Higgins, H. C. Spiers memorial lecture. Intermolecular forces. *Discuss. Faraday Soc.* **1965**, *40*, 7–18.
+
+(18) Jaszunski, M.; McWeeny, R. Time-dependent Hartree-Fock calculations of dispersion energy. *Mol. Phys.* **1985**, *55*, 1275.
+
+(19) Misquitta, A. J.; Jeziorski, B.; Szalewicz, K. Dispersion Energy from Density-Functional Theory Description of Monomers. *Phys. Rev. Lett.* **2003**, *91*, 033201.
+
+(20) Hesselmann, A.; Jansen, G. Intermolecular dispersion energies from time-dependent density functional theory. *Chem. Phys. Lett.* **2003**, *367*, 778–784.
+
+(21) Korona, T.; Jeziorski, B. Dispersion energy from density-fitted density susceptibilities of singles and doubles coupled cluster theory. *J. Chem. Phys.* **2008**, *128*, 144107.
+
+(22) Moszynski, R.; Żuchowski, P. S.; Jeziorski, B. Time-independent coupled-cluster theory of the polarization propagator. *Collect. Czech. Chem. Commun.* **2005**, *70*, 1109–1132.
+
+(23) Hapka, M.; Przybytek, M.; Pernal, K. Second-Order Dispersion Energy Based on Multireference Description of Monomers. *J. Chem. Theory Comput.* **2018**, *15*, 1016–1027.
+
+(24) Hapka, M.; Przybytek, M.; Pernal, K. Symmetry-Adapted Perturbation Theory Based on Multiconfigurational Wave Function Description of Monomers. *J. Chem. Theory Comput.* **2021**, *7*, 1109–1132.
+
+(25) Monkhorst, H. J. Calculation of properties with the coupled-cluster method. *Int. J. Quant. Chem.* **1977**, *12*, 421–432.
+
+(26) Dalgaard, E.; Monkhorst, H. J. Some aspects of the time-dependent coupled-cluster approach to dynamic response functions. *Phys. Rev. A* **1983**, *28*, 1217–1222.
+
+(27) Jeziorski, B.; Moszynski, R. Explicitly connected expansion for the average value of an observable in the coupled-cluster theory. *Int. J. Quantum Chem.* **1993**, *48*, 161–183.
+(28) Korona, T.; Przybytek, M.; Jeziorski, B. Time-independent coupled cluster theory of the polarization propagator. Implementation and application of the singles and doubles model to dynamic polarizabilities and Van der Waals constants. *Mol. Phys.* **2006**, *104*, 2303–2316.
+
+(29) Korona, T. The effect of local approximations on first-order properties from expectation-value coupled cluster theory. *Theor. Chem. Acc.* **2011**, *129*, 15–30.
+
+(30) Christiansen, O.; Jørgensen, P.; Hattig, C. Response Functions from Fourier Component Variational Perturbation Theory Applied to a Time-Averaged Quasienergy. *Int. J. Quantum Chem.* **1998**, *68*, 1–52.
+
+(31) Koch, H.; Jørgensen, P. Coupled cluster response functions. *J. Chem. Phys.* **1990**, *93*, 3333–3344.
+
+(32) Bukowski, R.; Cencek, W.; Jankowski, P.; Jeziorska, M.; Jeziorski, B.; Kucharski, S.; Lotrich, V.; Misquitta, A.; Moszynski, R.; Patkowski, K., et al. SAPT2012: an ab initio program for symmetry-adapted perturbation theory calculations of intermolecular interaction energies. *Sequential and parallel versions. User’s Guide. Revision SAPT2012 2013*, 2.
+
+(33) Werner, H.-J.; Knowles, P. J.; Knizia, G.; Manby, F. R.; Schütz, M. Molpro: a general-purpose quantum chemistry program package. *Wiley Interdisciplinary Reviews: Computational Molecular Science* **2012**, *2*, 242–253.
+
+(34) Misquitta, A. J.; Podeszwa, R.; Jeziorski, B.; Szalewicz, K. Intermolecular potentials based on symmetry-adapted perturbation theory with dispersion energies from time-dependent density-functional calculations. *J. Chem. Phys.* **2005**, *123*.
+
+(35) Zuchowski, P. S.; Bussery-Honvault, B.; Moszynski, R.; Jeziorski, B. Dispersion interaction of high-spin open-shell complexes in the random phase approximation. *J. Chem. Phys.* **2003**, *119*, 10497–10511.
+(36) Kallay, M.; Surjan, P. R. Higher excitations in coupled-cluster theory. *J. Chem. Phys.* **2001**, *115*, 2945.
+
+(37) Hirata, S. Tensor contraction engine: Abstraction and automated parallel implementation of configuration-interaction, coupled-cluster, and many-body perturbation theories. *J. Phys. Chem. A* **2003**, *107*, 9887–9897.
+
+(38) Pitoňák, M.; Heßelmann, A. Accurate Intermolecular Interaction Energies from a Combination of MP2 and TDDFT Response Theory. *J. Chem. Theory Comput.* **2010**, *6*, 168–178.
+
+(39) Jankowski, P.; McKellar, A. R.; Szalewicz, K. Theory untangles the high-resolution infrared spectrum of the ortho-H 2-CO van der Waals complex. *Science* **2012**, *336*, 1147–1150.
+
+(40) Jankowski, P.; Surin, L. A.; Potapov, A.; Schlemmer, S.; McKellar, A. R.; Szalewicz, K. A comprehensive experimental and theoretical study of H2-CO spectra. *J. Chem. Phys.* **2013**, *138*.
+
+(41) Bakr, B. W.; Smith, D. G.; Patkowski, K. Highly accurate potential energy surface for the He-H2 dimer. *J. Chem. Phys.* **2013**, *139*, 144305.
+
+(42) Pawlak, M.; Żuchowski, P. S.; Moiseyev, N.; Jankowski, P. Evidence of Nonrigidity Effects in the Description of Low-Energy Anisotropic Molecular Collisions of Hydrogen Molecules with Excited Metastable Helium Atoms. *J. Chem. Theory Comput.* **2020**, *16*, 2450–2459.
+
+(43) Pawlak, M.; Złuchowski, P. S.; Jankowski, P. Kinetic Isotope Effect in Low-Energy Collisions between Hydrogen Isotopologues and Metastable Helium Atoms: Theoretical Calculations including the Vibrational Excitation of the Molecule. *J. Chem. Theory Comput.* **2021**, *17*, 1008–1016.
+(44) Klein, A.; Shagam, Y.; Skomorowski, W.; Zuchowski, P. S.; Pawlak, M.; Janssen, L. M.; Moiseyev, N.; Van De Meerakker, S. Y.; Van Der Avoird, A.; Koch, C. P.; Narevicius, E. Directly probing anisotropy in atom-molecule collisions through quantum scattering resonances. *Nature Physics* **2017**, *13*, 35–38.
+
+(45) Parrish, R. M.; Zhao, Y.; Hohenstein, E. G.; Martínez, T. J. Rank reduced coupled cluster theory. I. Ground state energies and wavefunctions. *J. Chem. Phys.* **2019**, *150*, 164118.
+
+(46) Hohenstein, E. G.; Fales, B. S.; Parrish, R. M.; Martínez, T. J. Rank-reduced coupled-cluster. III. Tensor hypercontraction of the doubles amplitudes. *J. Chem. Phys.* **2022**, *156*, 054102.
+
+(47) Lesiuk, M. Implementation of the coupled-cluster method with single, double, and triple excitations using tensor decompositions. *J. Chem. Theory Comput.* **2019**, *16*, 453–467.
+
+(48) Lesiuk, M. Near-exact CCSDT energetics from rank-reduced formalism supplemented by non-iterative corrections. *J. Chem. Theory Comput.* **2021**, *17*, 7632–7647.
+
+(49) Lesiuk, M. When gold is not enough: platinum standard of quantum chemistry with \(N^7\) cost. *arXiv:2205.02369* **2022**.
+
+(50) Boguslawski, K.; Tecmer, P.; Limacher, P. A.; Johnson, P. A.; Ayers, P. W.; Bultinck, P.; De Baerdemaeker, S.; Van Neck, D. Projected seniority-two orbital optimization of the antisymmetric product of one-reference orbital geminal. *J. Chem. Phys.* **2014**, *140*, 214114.
+
+(51) Boguslawski, K.; Tecmer, P.; Ayers, P. W.; Bultinck, P.; De Baerdemaeker, S.; Van Neck, D. Efficient description of strongly correlated electrons with mean-field cost. *Phys. Rev. B* **2014**, *89*, 201106.
+Boguslawski, K. Targeting doubly excited states with equation of motion coupled cluster theory restricted to double excitations. *J. Chem. Theory Comput.* 2018, 15, 18–24.

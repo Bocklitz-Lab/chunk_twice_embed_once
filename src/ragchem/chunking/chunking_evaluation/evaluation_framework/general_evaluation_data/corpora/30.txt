@@ -1,0 +1,325 @@
+Expanding metal catalyzed arene C–H borylation beyond boronate esters
+
+Milan Kumar Bisai‡, Justyna Łosiewicz‡, Gary S. Nichol§, Andrew P. Dominey¶, Stephen P. Thomas§, Stuart A. Macgregor§* and Michael J. Ingleson‡ *
+
+‡EaStCHEM School of Chemistry, University of Edinburgh, Edinburgh, EH9 3FJ, UK
+§GSK Medicines Research Centre, Gunnels Wood Road, Stevenage, Hertfordshire SG1 2NY, UK
+¶EaStCHEM School of Chemistry, University of St Andrews, St. Andrews, KY16 9ST, UK.
+
+KEYWORDS. Borylation, zinc, aluminium, σ-bond metathesis, 9-borabicyclo-[3.3.1]-nonane.
+**ABSTRACT:** The metal-catalyzed intermolecular C–H borylation of arenes is an extremely powerful C–H functionalization methodology. However, to date it is effectively restricted to forming organo-boronate esters (Aryl–B(OR)_2) with its application to form other organoboranes rarely explored. Herein, we report a catalytic intermolecular arene C–H borylation method using the commercial and inexpensive hydroborane 9-borabicyclo-[3.3.1]-nonane, (H–BBN)_2. This process is effective for mono- and di-borylation to form a range of Aryl–BBN compounds using either NacNacAl or NacNacZn ((NacNac=\{(2,6-Pr_2C_6H_3)N(CH_3)C\}_2CH) based catalysts. The crude Aryl–BBN products can be used in-situ for subsequent transformations, including an example that does not proceed using the analogous pinacol-boronate ester. Mechanistic studies indicated an unusual σ-bond metathesis process between NacNacZn–Aryl and the hydroborane, with first order kinetics in the hydroborane dimer ((H–BBN)_2). Our proposed calculated metathesis pathway involves ligand non-innocence and addition of both H–BBN units in (H–BBN)_2 to the NacNacZn–Aryl complex. This is in contrast to the conventional σ-bond metathesis mechanism using hydroboranes which invariably proceeds by reaction of one equivalent of a monomeric hydroborane with a M–C unit. Overall, this work demonstrates the utility of extending catalytic arene C–H borylation beyond the boronate esters that currently dominate this field, while highlighting that the σ-bond metathesis reaction can be mechanistically more complex when utilizing dimeric hydroboranes.
+Introduction
+
+The catalytic borylation of arenes is well established as an extremely useful C–H functionalization methodology.[1–3] However, catalytic intermolecular C–H borylation processes are almost exclusively limited to forming aryl-boronate esters (Aryl–B(OR)$_2$), particularly pinacol derivatives (Ar–BPin, Fig. 1A).[1–3] This is due to the commercially available and bench-stable precursors HBPin / B$_2$Pin$_2$ reacting appropriately with transition metal complexes to enable catalysis to form Ar–BPin products that have considerable synthetic utility. In contrast, catalytic intermolecular borylation to access other aryl boranes (i.e., non Ar–B(OR)$_2$) is extremely rare despite the fact that many of these boranes display distinct reactivity profiles compared to the organo-boronate ester analogues. In this area a notable exception are the reports using H–BDan (1,8-naphthalenediaminatoborane) in catalytic C–H borylation.[4–6] However, the Aryl–BDan products and Aryl–BPin compounds are both weakly Lewis acidic at boron. In contrast, $B$-Ar-9-borabicyclo-[3.3.1]-nonane compounds (Ar–BBN) are more Lewis acidic at boron which enables transformations that are not possible using Ar–B(OR)$_2$/Ar–BDan.[7–9] Furthermore, the hydroborane, 9-borabicyclo-[3.3.1]-nonane, (H–BBN)$_2$, is commercially available, inexpensive, and widely used in synthesis.[10] To date the use of (H–BBN)$_2$ in catalytic intermolecular C–H borylation to form a range of Ar–BBN compounds is not reported to our knowledge (Fig. 1A),[11, 12] despite the high utility of these products.[13]
+Figure 1: A: comparison of the current status of catalytic C–H borylation using X–B(OR)$_2$ (X = H or B(OR)$_2$) and (H–BBN)$_2$. B: previous catalyzed C–H zincation and alumination. C: this work.
+
+Previously, we and others have reported zinc-catalyzed C–H borylations using H–BPin, H–BCat, (Cat = $\sigma$-C$_6$H$_4$O$_2$)$^-$ and H–BDan.$^{[5,14–20]}$ The coordination of these boranes through O/N to zinc electrophiles was proposed to be key for borylation.$^{[14,15]}$ This is consistent with catalytic borylation not proceeding in a number of these systems when using (H–BBN)$_2$ (which does not contain a Lewis basic O or N unit).$^{[15]}$ More recently, we have used NacNacM–Y (M = Zn, Y =
+H or M = Al–Me, Y=Me) and sub-stoichiometric ammonium salts to form compound A that
+effects the C–H zincation and C–H aluminiation of arenes (Fig. 1B, NacNac = \{(2,6-
+\text{Pr}_2\text{C}_6\text{H}_3)\text{N(CH}_3\text{)}\text{C}_2\text{CH}\})\text{[21]} Given that NacNacM–R complexes can undergo \(\sigma\)-bond metathesis
+with hydroboranes to form organoboranes and NacNacM–H,\text{[17, 19, 22–24]} we hypothesized that
+performing arene C–H zincation/aluminiation in the presence of (H–BBN)\text{2} could enable catalytic
+C–H borylation to form Ar–BBN compounds. This would require the product from C–H
+metalation, NacNacM–Ar, to undergo \(\sigma\)-bond metathesis with (H–BBN)\text{2} to produce Aryl–BBN
+and NacNacM–H. NacNacM–H would then react rapidly with [(R\text{3}N)H]\text{+} salts to reform
+compound A.\text{[21]} However, the feasibility of this catalytic borylation process is contingent upon
+(H–BBN)\text{2} undergoing \(\sigma\)-bond metathesis with NacNacM–Aryl via a low barrier process. This is
+essential given the endergonic nature of the first step in the putative catalytic cycle, C–H
+metalation using compound A. This results in an increase in the effective transition state energies
+for all steps after the C–H metalation. Notably, there are no previously reported studies into the
+mechanism and associated barriers of the \(\sigma\)-bond metathesis between (H–BBN)\text{2} and (main
+group element)–Y species (Y = R, OR, NR\text{2})\text{[22, 25–29]} As (H–BBN)\text{2} exists as a dimer for which
+dissociation into two equivalents of monomer is significantly endergonic,\text{[26b]} it is distinct to
+monomeric boranes, e.g. HBPin/HBCat/HBDan, which could significantly impact the
+mechanism of the metathesis step.
+
+Herein, we report the Zn/Al-catalyzed C–H borylation of a range of heteroarenes using (H–BBN)\text{2}. The Ar–BBN products can be made and used in-situ, including in a conversion not
+possible using the pinacol boronate ester analogue. Notably, mechanistic studies indicate an
+unusual \(\sigma\)-bond metathesis process proceeding by the addition of both H–BBN units in dimeric
+(H–BBN)\text{2} to the metal complex which is enabled by NacNac ligand non-innocence.
+Results and Discussion
+
+C–H Borylation Studies: In our ammonium salt catalyzed aryl C–H zincation,[21] the highest yields were observed using [(Et₃N)H]⁺ or [(DMT)H]⁺ containing salts (DMT = N,N-dimethyl-p-toluidine). Therefore, these salts were explored in combination with NacNacZnH, 1, for the C–H borylation of 2-methyl-thiophene using (H–BBN)₂ (Table 1). From this it was found that [(DMT)H][B(C₆F₅)₄] significantly outperformed the [(Et₃N)H]⁺ congener (entries 1-2), suggesting that a stronger Brønsted acid is important (pKₐ [(DMT)H]⁺ = 10.8, [(Et₃N)H]⁺ = 18.5).[30] An anion effect also was observed, with [B(C₆F₅)₄]⁻ more effective than the more coordinating anion [OTf]⁻ (entry 3). Importantly, in the absence of 1 or the ammonium salt no C–H borylation was observed (entries 4-5). Ultimately, 5 mol% of 1 and [(DMT)H][B(C₆F₅)₄] was identified as optimal (entry 7, for full optimization see Table S1).
+
+Table 1: Select optimization reactions for 2-methyl-thiophene borylation.
+
+| Brønsted Acid       | x/y mol% | T (°C) | t (h) | Yield (%)<sup>a</sup> |
+|---------------------|----------|--------|-------|----------------------|
+| 1 [(Et₃N)H][B(C₆F₅)₄] | 10/10    | 60     | 18    | <5                   |
+| 2 [(DMT)H][B(C₆F₅)₄] | 10/10    | 60     | 18    | 55                   |
+| 3 [(DMT)H][OTf]     | 10/10    | 60     | 18    | <5                   |
+| 4 [(DMT)H][B(C₆F₅)₄] | 0/10     | 60     | 18    | 0                    |
+| 5 –                  | 10/0     | 60     | 18    | 0                    |
+| 6<sup>b</sup> [(DMT)H][B(C₆F₅)₄] | 10/10    | 80     | 24    | 98                   |
+| 7<sup>b</sup> [(DMT)H][B(C₆F₅)₄] | 5/5      | 80     | 24    | 94                   |
+| 8<sup>b</sup> [(DMT)H][B(C₆F₅)₄] | 2.5/2.5  | 80     | 24    | 84                   |
+
+<sup>a</sup> Yield relative to (H–BBN)₂ using an internal standard. <sup>b</sup> Using 1.15 equiv. 2a.
+With optimized conditions in hand the scope and limitations of the C–H borylation were explored (Chart 1). Other C2 substituted thiophenes were amenable and produced $3b$ and $3c$ in good yield, while the less nucleophilic heteroarene benzothiophene was converted to $3d$ in 81% yield. 3-Me-thiophene was functionalized predominantly at the C5 position to form $3e$ (with only a minor amount of C2-functionalized product formed), while thiophene and bithiophene also were borylated to form $3f$ and $3g$, respectively, in good yield. Other heteroarenes, such as furan and $N$-Me-indole, also were amenable to C–H borylation to form $3h$ and $3i$, respectively, in moderate yield. Note, the products from these reactions are all consistent with $S_{EAr}$ type selectivity.
+
+**Chart 1:** Substrate scope for zinc-catalyzed borylation.
+
+\[
+\begin{align*}
+\text{substrate} + (\text{H–BBN})_2 & \quad \xrightarrow{(0.5 \text{ equiv})} \quad 1 \quad \xrightarrow{(5 \text{ mol\%})} \quad \text{product} \\
+2 & \quad \xrightarrow{\text{PhC (0.6 mL), 80 °C, 24 h}} \quad 3^a
+\end{align*}
+\]
+
+$3b$, 92% $3c$, 88% $3d$, 81% $3e$, 76%
+
+$3f$, 68% $3g$, 68% $3h$, 51% $3i$, 50%
+
+$^a$ Yield relative to (H–BBN)$_2$ using an internal standard. $^b$ at 100 °C
+
+Next, we assessed if aluminium-catalyzed borylation was possible. It was found that 1 could be replaced with NacNacAlMe$_2$ 4 in the catalytic borylation using (H–BBN)$_2$ (Chart 2).
+Aluminium-catalyzed borylation also was applied to N-Me-pyrrole to form diborylated 3j (attempts to form mono-borylated N-Me-pyrrole resulted in mono and diborylated products).
+
+**Chart 2:** Aluminium catalyzed C–H borylation.
+
+\[
+\begin{align*}
+2 + (\text{H–BBN})_2 \rightarrow & \text{NacNacAlMe}_2 \ (1\text{ mol}\%) \\
+& \text{[(DMT)H][B(C_6F_5)_4]} \ (10\text{ mol}\%) \\
+& \text{PhCl, 100-120°C x h}
+\end{align*}
+\]
+
+| Product | Yield | Reaction Conditions |
+|---------|-------|---------------------|
+| 3a      | 91%   | 100°C, 8 h          |
+| 3j      | 62%   | 100°C, 8 h          |
+| 3j     | 39%   | 120°C, 48 h         |
+
+\[\text{a Yield versus an internal standard, b 1.5 equiv. (H–BBN)}_2.\]
+
+From the reactions producing 3i and 3j a small quantity of crystals suitable for X-ray diffraction analysis were formed. Notably, this analysis showed these were not 3i/3j but instead were the H–BBN adducts of 3i and 3j, termed 3i-(H–BBN) and 3j-(H–BBN) (Fig. 2). In-situ analysis of the Zn/Al catalyzed reactions that form 3i/3j revealed that while the major resonance is due to 3i/3j \( (δ_{11\text{B}} \approx 72) \), an additional minor \( ^{11}\text{B} \) resonance at ca. 5 ppm was present consistent with 3i/3j-(H–BBN).\[31\] Indeed, dissolution of crystals of 3i-(H–BBN) or 3j-(H–BBN) led to formation of 3i/3j and (H–BBN)\(_2\) as the major product (by NMR spectroscopy), indicating a solution equilibrium favoring 3i/3j and (H–BBN)\(_2\). Note, no resonances for thienyl analogues of 3i/3j-(H–BBN) were observed in any of the reactions, presumably due to the lower nucleophilicity of thiophenes relative to indoles/pyrroles\[32\] and consistent with the computed trend observed in our DFT calculations (see Table S5). The formation of 3i/3j-(H–BBN) is
+related to the reaction of $\text{Et}_2\text{N–C≡C–BBN}$ with $(\text{H–BBN})_2$ which forms a compound also containing a cyclic $\text{CB}_2\text{H}$ unit (Fig. 2 inset, compound B).\[^{31}\]
+
+$$\text{Et}_2\text{N} \rightleftharpoons \text{BBN} \quad + \quad 0.5 \ (\text{H–BBN})_2 \quad - \quad 0.5 \ (\text{H–BBN})_2$$
+
+\[\text{3i} \quad \text{3i-[H-BBN]}\]
+
+$$\text{NBB} \rightleftharpoons \text{BBN} \quad + \quad 0.5 \ (\text{H–BBN})_2 \quad - \quad 0.5 \ (\text{H–BBN})_2$$
+
+\[\text{3j} \quad \text{3j-[H-BBN]}\]
+
+---
+
+**Figure 2:** Reaction of 3i/3j with $(\text{H–BBN})_2$. Right, solid-state structures of 3i/3j-(H–BBN), ellipsoids at 50% probability and most hydrogens omitted for clarity. Inset bottom the formation of compound B also containing a CB$_2$H core.
+
+With the mono-borylation scope assessed, our attention turned to the diborylation of thiophenes given the importance of diborylated precursors in accessing organic materials.\[^{33}\]
+
+Note, to date the catalytic C–H diborylation of thiophenes via an $\text{S}_{\text{E-Ar}}$ type process (i.e. transition metal free) is limited to only the most highly nucleophilic thiophenes, such as 3,4-dialkoxy-substituted thiophenes.\[^{34}\] Diborylated thienyl products 5b-5f proved accessible through zinc catalysis simply by increasing the equivalents of $(\text{H–BBN})_2$ used (Chart 3). Notably, most of the diborylated products were poorly soluble in the reaction solvent,
+chlorobenzene, facilitating their facile isolation in good yield. X-ray diffraction studies on a number confirmed their formation (inset Chart 3 for 5c, for 5d and 5e see SI).
+
+**Chart 3**: Zinc catalyzed diborylation of thiophenes.
+
+- Chart 3: Zinc catalyzed diborylation of thiophenes.
+
+```
+R₂S⁻ + (H-BBN)₂
+(1.05 equiv)
+NacNacZnH (5.0 mol%)
+[(DMT)H][Br(C₆F₅)]₂ (5.0 mol%)
+PhCl (0.6 mL), 80-100 °C, time
+```
+
+| Compound | Yield | Temp. | Time |
+|----------|-------|-------|------|
+| 5a       | 34%³  | 100 °C | 48 h |
+| 5b       | 65%⁵  | 100 °C | 54 h |
+| 5c       | 61%⁵  | 80 °C  | 48 h |
+| 5d       | 79%⁵  | 80 °C  | 48 h |
+| 5e       | 62%⁵  | 80 °C  | 48 h |
+| 5f       | 55%⁵  | 80 °C  | 48 h |
+
+³ Yield versus an internal standard. ⁵ Isolated yield.
+
+**Synthetic Utility**
+
+With a range of mono- and di-borylated products accessible their utility was explored. Given the importance of thienyl–C(H)(OH)Ph units in active pharmaceutical ingredients, e.g., tiemonium salts,[35] a one-pot route to these motifs from a thiophene precursor was targeted. The reaction of crude (i.e., made *in-situ* and taken forward with no purification) Br–thienylBBN (3c) with benzaldehyde proceeded to form 6a in 70% yield (Scheme 1 top) with the alcohol 6b then formed using the previously reported O–BBN hydrolysis conditions (see Fig. S76).[8]
+Importantly, thienyl–BPin compounds do not react with benzaldehyde under identical conditions, presumably due to their lower Lewis acidity at boron. This demonstrates that this catalytic C–H borylation approach can be harnessed in tandem with the distinct reactivity profile of Ar–BBN derivatives to access value-added products in one-pot from the starting arene. The crude products from zinc-catalyzed C–H borylation also can be telescoped into a Suzuki-Miyaura cross-coupling reaction (Scheme 1, middle), which led to compound 7 in excellent yield for a multi-step process. Bench stable borylated derivatives were easily prepared by trans-borylation of thienyl–BBN species with HBPin to generate the Aryl–Bpin congeners (e.g. to form 8).[36]
+
+Scheme 1: Utilization of thienyl–BBN products. a Borylation conditions from Table 1.
+
+Mechanistic Studies
+
+With the utility of the process demonstrated our attention turned to the mechanism. For this catalytic borylation a NacNacM–Y complex (e.g. 1), and [(DMT)H][B(C6F5)4] were both
+required. This is consistent with the observation that \((\text{H–BBN})_2\) and \([(\text{DMT})\text{H}][\text{B(C}_6\text{F}_5)_4]\) do not react (even on heating to 80°C) to form a \([(\text{DMT})–\text{BBN}]^+\) salt (with related salts known to be effective borylating agents,\(^{[37]}\) including in catalytic processes).\(^{[38,39]}\) To further preclude the possibility of \([(\text{DMT})–\text{BBN}]^+\) mediated borylation occurring in this process, the borylation of 2,5-N-trimethylpyrrole was attempted under the optimized aluminium-catalyzed conditions. This substrate was chosen as it undergoes C–H borylation using stoichiometric \([(\text{amine})–\text{BBN}]^+\) in high yield at room temperature,\(^{[37]}\) while it has a sterically hindered borylation position located alpha to a methyl (C–H alumination is sensitive to steric environment).\(^{[21]}\) Under our optimized aluminium-catalyzed conditions < 5% C–H borylation of 2,5-N-trimethylpyrrole was observed at 100 °C, further disfavoring a \([(\text{DMT})–\text{BBN}]^+\) mediated catalytic borylation process (Scheme 2). Furthermore, DFT calculations (vide infra and Figure S113) disfavored a process proceeding through the borenium equivalent \([\text{NacNacZn}–(\mu\text{-H})–\text{BBN}]^+\). Therefore, our mechanistic studies focused on the hypothesis that C–H metalation followed by \(\sigma\)-bond metathesis leads to Aryl–BBN.
+
+![Scheme 2: Disparate outcomes from the borylation of 2,5-N-trimethylpyrrole.](https://doi.org/10.26434/chemrxiv-2025-15v1c)
+Given the greater substrate scope of the zinc catalyzed metalation/borylation\(^{21}\) all subsequent work focused on this system. The zinc-catalyzed reactions use NacNacZnH (1) and [(DMT)H][B(C\(_6\)F\(_5\))\(_4\)]; and these react to form [NacNacZn(DMT)][B(C\(_6\)F\(_5\))\(_4\)] ([9][B(C\(_6\)F\(_5\))\(_4\)]) rapidly through a low-energy transition state.\(^{21}\) It was proposed that C–H borylation then would proceed by: (i) [9]+ reacting with a heteroarene to form NacNacZn–Aryl and [(DMT)H]+; (ii) the Zn–Aryl species would then undergo σ-bond metathesis with (H–BBN)\(_2\) to form the Ar–BBN product, and regenerate the zinc-hydride 1; (iii) 1 would then react with [(DMT)H]+ to form [9]+ and H\(_2\). At this point it is important to highlight that 2-methyl-thiophene C–H zincation using [9]+ is endergonic by +15 kcal/mol.\(^{21}\) Therefore, to have a feasible \(\Delta G^{\ddagger}_{\text{span}}\) for this catalytic C–H borylation cycle the σ-bond metathesis step has to proceed via a low barrier process.
+
+To probe the metathesis process NacNacZn(thienyl) complex 10 was synthesized and reacted with 0.5 equivalent of (H–BBN)\(_2\). While the metathesis did proceed at room temperature to form thienyl–BBN, 3a, only 50% of 10 was consumed to form a single new NacNacZn product that was not compound 1. Instead, the zinc complex displayed NMR data consistent with formation of NacNacZn–(μ-H)\(_2\)–BBN, 11 (Figure 3). This included a \(^{11}\)B NMR resonance (at -13.5 ppm) comparable with other M–(μ-H)\(_2\)–BBN complexes.\(^{25,26a,40}\) The use of 1 equiv. of (H–BBN)\(_2\) resulted in the full conversion of 10 into 3a and 11. The formation of 11 was confirmed by single crystal X-ray diffraction studies (inset Fig. 3). The structure of 11 contains a Zn--B distance of 2.179 Å consistent with a borohydride unit bound to zinc via two bridging hydrogens, with 11 having comparable metrics to NacNacZn–(μ-H)\(_2\)–BH\(_2\).\(^{41}\) Complex 11 also can be synthesized from NacNacZnH 1 by addition of 0.5 equivalent of (H–BBN)\(_2\). Note, while the boron center in 11 is structurally similar to the active boron electrophile in Wang’s borocation-
+mediated catalytic C–H borylation,\textsuperscript{[42]} complex 11 is neutral and thus is a weak electrophile at boron which is not active in C–H borylation (Table 1, entry 5).
+
+\[
+\begin{align*}
+\text{N} & \text{Zn} & \text{Dipp} \\
+\text{N} & \text{Zn} & \text{H} \\
+\text{N} & \text{Zn} & \text{H} \text{B} & \text{Dipp} \\
+\text{N} & \text{Zn} & \text{H} \text{B} & \text{Dipp}
+\end{align*}
+\]
+
+\begin{align*}
++1 \text{ equiv} \quad \text{(H–BBN)}_2 & \quad \text{PhCl, rt} & \quad -1 \text{ equiv} \quad 3a \\
+0.5 \text{ equiv} \quad \text{(H–BBN)}_2 & \quad \text{PhCl, rt}
+\end{align*}
+
+**Figure 3:** Top left, the formation of 11 by metathesis of 10 with (H–BBN)$_2$ (also forming 3a) or by direct addition of 0.5 equiv. (H–BBN)$_2$ to 1. Inset, the solid-state structure of 11. Bottom, the disparate outcome from protonolysis of 11.
+
+The formation of 11 instead of 1 is significant as to close the C–H borylation cycle the Brønsted acid, [(DMT)H]$^+$, produced during the arene C–H zincation step has to react with a hydridic species to reform 9 (and concomitantly H$_2$). A protonolysis step starting from 11 is distinct to the protonolysis step in our previously reported aryl C–H zincation which involved facile protonolysis of NacNacZnH 1 by [(DMT)H]$^+$ to form [9][B(C$_6$F$_5$)$_4$]. Therefore, the reaction of [(DMT)H][B(C$_6$F$_5$)$_4$] and 11 was investigated. This revealed a rapid reaction at room
+temperature to form \([9][\text{B(C}_6\text{F}_5)\text{H}]]\), \(\text{H}_2\) and 0.5 equiv. \((\text{H–BBN})_2\) (Fig. 3, bottom). In contrast, the reaction between \([(\text{Et}_3\text{N})\text{H}][\text{B(C}_6\text{F}_5)\text{H}]]\) and \(\text{I}\) proceeds very slowly at room temperature indicating a higher barrier protonolysis step starting from \(\text{I}\) than starting from \(\text{I}\) (note, mixtures of \([(\text{Et}_3\text{N})\text{H}][\text{B(C}_6\text{F}_5)\text{H}]]\) and \(\text{I}\) react rapidly at room temperature).\(^{[21]}\) This may explain the poor outcomes using \([(\text{Et}_3\text{N})\text{H}][\text{B(C}_6\text{F}_5)\text{H}]]\) in the catalytic borylation compared to that using \([(\text{DMT})\text{H}][\text{B(C}_6\text{F}_5)\text{H}]]\).
+
+Overall, the proposed cycle is outlined in Figure 4, proceeding via 1. Arene C–H zincation, 2. \(\sigma\)-bond metathesis and 3. Protonolysis. The latter could potentially occur directly from \(\text{I}\) or by initial endergonic conversion of \(\text{I}\) into \(\text{I}\) which would then undergo protonolysis.
+
+\[ \text{I} \rightarrow \text{II} \rightarrow \text{II} \rightarrow \text{II} \]
+
+**Figure 4:** Proposed catalytic cycle for C–H borylation.
+
+While the stoichiometric experiments confirmed that both the \(\sigma\)-bond metathesis and protonolysis step using \([(\text{DMT})\text{H}][\text{B(C}_6\text{F}_5)\text{H}]]\) proceed at room temperature, how they proceed...
+remained a key question. The $\sigma$-bond metathesis process was of particular interest as the C–H borylation reactions were performed in chlorobenzene, where (H–BBN)$_2$ persists in its dimeric form. Cognizant that hidden catalysis can facilitate transformations in organoboron chemistry,[43] several species that could be present at low concentration during the catalysis were tested for their effect on the metathesis step. The addition of 5 mol% of DMT, [(DMT)H][B(C$_6$F$_5$)$_4$] and Me$_2$S–BH$_3$ separately to the reaction between Zn–Aryl 10 and (H–BBN)$_2$ led to no change in the rate of the metathesis reaction, indicating that these species do not catalyze this metathesis reaction. With the positive effect of catalyst loading on borylation rate determined (Table 1 and Fig. S105-106), variable time normalization analysis (VTNA)[44] was used to determine the order with respect to (H–BBN)$_2$. This analysis gave data that was consistent with a first order in (H–BBN)$_2$ dimer for the metathesis step (Fig. S100). Some alkene hydroboration reactions using (H–BBN)$_2$ are first order with respect to the dimer,[45] which indicates the dissociation of the (H–BBN)$_2$ dimer into two equivalents of (H–BBN) monomer is rate limiting. In these cases, the hydroboration reactions are zero order with respect to the other component(s). The situation here is different, as the rate is also affected by the concentration of the zinc complex and the thienyl substrate (see Table 1, S1 and Fig. S104-105). This precludes (H–BBN)$_2$ dimer dissociation into two monomers being the turnover limiting step in this zinc catalyzed arene borylation. The standard metathesis mechanism involves a monomeric hydroborane species reacting via a four membered transition state (e.g., involving M–C and H–B). However, such a process is not consistent with the above data as when one equivalent of monomeric H–BBN reacts with a substrate in the rate limiting step the reaction is 0.5 order with respect to (H–BBN)$_2$ dimer.[45] Therefore, computational analysis was performed to provide further insight into the mechanism.
+**Computational Studies.**
+
+All calculations discussed herein were performed at the B3PW91(def2-TZVP, D3(BJ), PhCl)//B3PW91(Zn: SDD; S: SDD(d); other atoms: 6-31G**) level of theory which was chosen based on its performance in our work on the related catalyzed C–H zincation.\[^{21}\] Note, in the solvent used for the borylation reactions, PhCl, H–BBN exists as a dimer, \((\text{H–BBN})_2\), and at this level of theory +9.9 kcal/mol (\(\Delta G\)) per monomer unit is required for dissociation of the dimer. Therefore, calculations involving association/dissociation of H–BBN use 0.5 equiv. of \((\text{H–BBN})_2\) for determining the energy change.
+
+\[
+\text{Dipp} \quad \text{Zn}^\delta \quad \text{DMT} \quad \overset{\text{TS}_{1\text{B}^+}}{\text{TS}_{1\text{B}^+} + 37.0} \quad \overset{\text{TS}_{2\text{B}^+}}{\text{TS}_{2\text{B}^+} + 33.1} \quad \overset{\text{INT-1B}^+}{\text{INT-1B}^+ + 29.7} \quad \overset{\text{DMT}}{\text{DMT} - \text{DMT}} \quad \overset{\text{INT-2B}^+}{\text{INT-2B}^+ + 22.1} \quad \text{H–BBN}
+\]
+
+**Scheme 3:** Calculated free energies (kcal/mol) to form the borenium equivalent \(\text{INT-2B}^+\).
+
+As mentioned above a borylation mechanism involving borenium equivalents e.g., \(\text{INT-1B}^+\) or \(\text{INT-2B}^+\) was disfavored based on DFT calculations (Scheme 3). Specifically, the displacement of DMT by H–BBN proceeds via formation of \(\text{INT-1B}^+\) which is formed in a significantly endergonic step involving a high energy transition state (\(\Delta G^\ddagger = +37.0\) kcal/mol) which precludes this mechanism. Notably, the formation of \(\text{INT-2B}^+\) from \([9]^+\) is much more endergonic than the displacement of DMT in \([9]^+\) by HBCat (which coordinates through an oxo group to zinc).\[^{14}\]
+
+This significant difference presumably is why there is no C–H borylation using \((\text{H–BBN})_2\) when catalyzed by zinc electrophiles that do not effect C–H metalation.\[^{15}\]
+A range of mechanisms then were explored for the catalytic borylation of 2-methyl-thiophene that proceed via C–H zincation, σ-bond metathesis and protonolysis and a computed profile that is consistent with the VTNA analysis (1st order in (H–BBN)₂ dimer) is shown in Figure 5(a). Here [NacNacZn(DMT)]⁺ ([9]⁺) and 2-methyl-thiophene are taken as the starting point of the cycle. Overall, the reaction proceeds as postulated, with an endergonic C–H zincation to form 10 (+14.8 kcal/mol) proceeding as outlined in our previous report (via a transition state at +21.7 kcal/mol).[21] This is followed by a σ-bond metathesis phase that is effectively thermoneutral (+0.9 kcal/mol) with the overall process driven forward by exergonic dehydrocoupling to reform [9]⁺ with loss of H₂ (ΔG = -16.9 kcal/mol). The overall process is therefore exergonic (ΔG = -1.2 kcal/mol).
+
+The σ-bond metathesis phase proceeds through addition of the (H–BBN)₂ dimer to 10 to form INT-1Zn-B at +20.4 kcal/mol. This involves the Cγ position of the NacNac ligand acting as a Lewis base towards one H–BBN unit, with the other H–BBN unit interacting with the Zn–thienyl moiety.[46] INT-1Zn-B therefore contains two B–H···Zn interactions, with that bridging the Zn–thienyl unit being stronger (Zn···H¹–B¹ = 1.69 Å; B¹–C¹ = 1.64 Å cf. Zn···H²–B² = 2.15 Å; Cγ–B² = 1.77 Å, see Figure 5(b)). This also induces significant elongation of the Zn–C¹ bond (2.41 Å vs 1.93 Å in 10) such that its cleavage has a barrier of only 5 kcal/mol via TS1Zn-B. This forms INT-2Zn-B in which the Zn–H¹···B¹ moiety approaches linearity (165°) and from which dissociation of the thienyl–BBN product proceeds via TS2Zn-B with concomitant contraction of the B²–H²···Zn distance to 1.83 Å. Thus, the non-innocence of the NacNac ligand[47] not only assists the cleavage of the (H–BBN)₂ dimer by Cγ–B bond formation, but the resultant Cγ-bound hydroborane provides flexible ligation of the zinc centre during the metathesis phase.
+**Figure 5:** (a) Computed free energy reaction profile (kcal/mol) for the catalytic C–H borylation of 2-methyl-thiophene focusing on the σ-bond metathesis phase. (Method: B3PW91(def2-TZVP, D3(BJ), PhCl)//BP86(Zn: SDD; S: SDD(d); other atoms: 6-31G**) (b) Details of key intermediates in the σ-bond metathesis process (distances in Å; inset defines the metallacycle folding angle, \(\phi\); \(\text{NacNac}, \text{BBN} \) and 2-methyl-thiophene substituents shown in wireframe for clarity).
+This is also reflected in the variation of the Zn–NacNac metallacycle folding angle, $\phi$, as previously discussed (inset Figure 5(b))$^{[21]}$ and is also seen in INT-3$_{Zn-B}$, formed after product dissociation ($B^2-H \cdots Zn = 1.93 \text{ Å}; \ f = 80.7^\circ$). To complete the $\sigma$-bond metathesis phase, dissociation of H–BBN occurs via TS3$_{Zn-B}$ at +27.6 kcal/mol.
+
+Details of the final phase, protonolysis, are shown in Scheme 4. No pathway involving direct protonolysis of 11 by [(DMT)H]$^+$ to form [9]$^+$ was found with feasible barriers (see Figure S109). However, dissociation of 0.5 equiv. of (H–BBN)$_2$ from 11 to form NacNacZnH, 1, is endergonic by only 7.4 kcal/mol. Complex 1 can then react with [(DMT)H]$^+$ via the mechanism described in our previous work which proceeds by protonation of the C$_\gamma$ position of NacNac.$^{[21]}$
+
+Note, the highest-lying transition state for this process lies at +26.9 kcal/mol and so is competitive with TS3$_{Zn-B}$ at +27.6 kcal/mol in the $\sigma$-bond metathesis phase. However, we disfavor this protonolysis step being rate limiting as that scenario would result in an inverse dependence on [(H–BBN)$_2$],$^{[26]}$ not the first order dependence observed. Finally, as with the $\sigma$-bond metathesis phase, we highlight that NacNac ligand non-innocence again appears essential for accessing sufficiently low barrier mechanisms for the protonolysis phase.
+
+**Scheme 4:** Free energies (kcal/mol) for the protonolysis phase that proceeds via 1 with only the highest transition state energy shown. Energies are in kcal/mol relative to the zero energy defined in Fig. 5.
+Conclusions
+
+A catalytic intermolecular arene C–H borylation process using (H–BBN)$_2$ to make a range of mono- and di-borylated heteroarenes is reported for the first time to our knowledge. Notably, the Aryl–BBN species can be synthesized and utilized in-situ, including in a transformation that is not feasible using the Aryl–BPin compounds that are produced in almost all other catalytic C–H borylation processes. Due to the endergonic nature of the C–H metalation step, for this C–H borylation process to be energetically feasible it requires low barrier $\sigma$-bond metathesis and protonolysis steps. Kinetic studies revealed that the $\sigma$-bond metathesis process proceeds via addition of both H–BBN units in the (H–BBN)$_2$ dimer to the NacNacZn–Aryl complex – i.e., the order of reaction with respect to (H–BBN)$_2$ was found to be 1. This is distinct to conventional $\sigma$-bond metatheses which involve one equivalent of a monomeric hydroborane reacting with a M–Y unit of a metal complex. The involvement of both H–BBN units in the turnover limiting process is crucial as this offsets the significant energetic cost of cleaving dimeric (H–BBN)$_2$. This highlights the importance of considering the correct speciation of the hydroborane when designing borylation processes using (H–BBN)$_2$, as this has a considerable impact on the energy profile for a catalytic cycle. In this case, the ability of the metal complex to interact with two H–BBN units is enabled by ligand non-innocence, specifically interaction of the NacNac C$_\gamma$ position with one of the H–BBN units derived from (H–BBN)$_2$. The second H–BBN unit then effects the $\sigma$-bond metathesis with the M–Aryl unit. Thus, NacNac ligand non-innocence is essential for low barrier $\sigma$-bond metathesis and protonolysis phases, which is crucial for enabling borylation catalysis given the endergonic nature of the C–H metalation phase. Thus, this study showcases the benefits of ligating main group metals with non-innocent NacNac ligands, the dramatic impact (H–BBN)$_2$ has on mechanism relative to monomeric boronate esters (e.g., HBPin), and
+the utility of extending catalytic C–H borylation beyond the synthesis of the aryl-boronate esters that currently dominate this field.
+
+ASSOCIATED CONTENT
+
+Supporting Information. Supporting Information: NMR spectra for all new compounds, in-situ NMR spectra for catalytic and mechanistic reactions (PDF). Cartesian Coordinates for all calculated structures (XYZ).
+
+AUTHOR INFORMATION
+
+Corresponding Author
+
+*Michael J. Ingleson
+
+* Stuart A. Macgregor
+
+Give contact information for the author(s) to whom correspondence should be addressed.
+
+mingleso@ed.ac.uk
+
+sam38@st-andrews.ac.uk
+
+Author Contributions
+
+The manuscript was written through contributions of all authors. All authors have given approval to the final version of the manuscript.
+‡ These authors contributed equally.
+
+Funding Sources
+
+EPSRC
+
+ACKNOWLEDGMENT
+
+This project has received funding from the EPSRC (EP/V03829X/1 and the Program Grant “Boron: Beyond the Reagent” (EP/W007517/1)). We thank the Mass Spectrometry facility (SIRCAMS) at the University of Edinburgh (UoE) for carrying out MS analysis. S.A.M thanks the University of St. Andrews for support. Prof. M. R. Crimmin is thanked for useful discussions.
+
+REFERENCES
+
+[1] I. F. Yu, J. W. Wilson, J. F. Hartwig, Chem. Rev. 2023, 123, 11619–11663.
+[2] S. Guria, M. M. M. Hassan, B. Chattopadhyay, Org. Chem. Front. 2024, 11, 929–953.
+[3] M. M. M. Hassan, S. Guria, S. Dey, J. Das, B. Chattopadhyay, Sci. Adv. 2023, 9, eadg3311.
+[4] S. Kamio, H. Yoshida, Adv. Synth. Catal. 2021, 363, 2310–2324.
+[5] T. Tsuchimoto, H. Utsugi, T. Sugiura, S. Horio, Adv. Synth. Catal. 2015, 357, 77–82.
+[6] N. Iwadate, M. Suginome, J. Organomet. Chem. 2009, 694, 1713–1717.
+[7] M. J. O’Donnell, J. T. Cooper, M. M. Mader, J. Am. Chem. Soc. 2003, 125, 2370–2371.
+[8] P. I. Jacob, H. C. Brown, J. Org. Chem. 1977, 42, 579–580.
+[9] S. Jin, H. T. Dang, G. C. Haug, V. D. Nguyen, H. D. Arman, O. V. Larionov, Chem. Sci. 2020, 11, 9101–9108.
+[10] H. C. Brown, Organic Syntheses via Boranes, New York: Wiley, 1975.
+[11] The following reference contains only one example of catalytic borylation using (H–BBN)$_2$, specifically of the highly activated heteroarene N-Me-pyrrole. M. A. Légaré, M. A. Courtemanche, É. Rochette, F. G. Fontaine, Science 2015, 349, 513–516.
+[12] The following reference contains only one example of catalytic borylation using (H–BBN)$_2$, specifically of the highly activated heteroarene N-Me-indole. T. Stahl, K. Müther, Y. Ohiki, K. Tatsumi, M. Oestreich, J. Am. Chem. Soc. 2013, 135, 10978–10981.
+[13] Note, to our knowledge all other studies reported to date using (H–BBN)$_2$ in catalytic C–H borylation proceed by Lewis base directed C–H borylation. These are thus intramolecular borylation reactions and form four-coordinate at boron products (e.g., base→BBN(Ar)) in which the presence of a dative bond significantly reduces the utility of these products in subsequent transformations. See (and references therein): L. Britton, A. D. Bage, S. L. McOnie, S. P. Thomas, *Angew. Chem. Int. Ed.* 2024, e202423929.
+
+[14] M. E. Grundy, L. Sotorrios, M. K. Bisai, K. Yuan, S. A. Macgregor, M. J. Ingleson, *ACS Catal.* 2023, 13, 2286–2294.
+
+[15] M. E. Grundy, K. Yuan, G. S. Nichol, M. J. Ingleson, *Chem. Sci.* 2021, 12, 8190–8198.
+
+[16] R. J. Procter, M. Uzelac, J. Cid, P. J. Rushworth, M. J. Ingleson, *ACS Catal.* 2019, 9, 5760–5771.
+
+[17] M. Uzelac, K. Yuan, M. J. Ingleson, *Organometallics* 2020, 39, 1332–1338.
+
+[18] R. Zhou, W. Wang, J. Zhang, Q. Wang, Z. Chen, Y. Shao, F. Zhang, *Org. Chem. Front.* 2024, DOI 10.1039/D4QO01796J.
+
+[19] (a) R. K. Sahoo, A. G. Patro, N. Sarkar, S. Nembenh, *ACS Omega* 2023, 8, 3452–3460. (b) R. K. Sahoo, S. Rajput, A. G. Patro, S. Nemben, *Dalton Trans.* 2022, 51, 16009–16016.
+
+[20] B. Zhang, Y. Zou, L. Wang, H. Zhang, *Chem. Commun.* 2021, 57, 11185–11188.
+
+[21] M. E. Grundy, K. Yuan, G. S. Nichol, A. P. Dominey, M. J. Cowley, S. P. Thomas, S. A. Macgregor, M. J. Ingleson, *Angew. Chem. Int. Ed.* 2024, 63, e202404848.
+
+[22] Z. Yang, M. Zhong, X. Ma, K. Nijesh, S. De, P. Parameswaran, H. W. Roesky, *J. Am. Chem. Soc.* 2016, 138, 2548–2551.
+
+[23] J. Li, M. Luo, X. Sheng, H. Hua, W. Yao, S. A. Pullarkat, L. Xu, M. Ma, *Org. Chem. Front.* 2018, 5, 3538–3547.
+
+[24] M. Arrowsmith, T. J. Hadlington, M. S. Hill, G. Kociok-Köhn, *Chem. Commun.* 2012, 48, 4567–4569.
+
+[25] A. G. M. Barrett, M. R. Crimmin, M. S. Hill, P. B. Hitchcock, P. A. Procopiou, *Organometallics* 2007, 26, 4076–4079.
+
+[26] (a) Note, this reference reported significant differences between the σ-bond metathesis involving a NacNacMg–NR$_2$ complex with H–BPin Vs. (H–BBN)$_2$ based on kinetic analysis. D. J. Liptrot, M. S. Hill, M. F. Mahon, A. S. S. Wilson, *Angew. Chem. Int. Ed.* 2015, 54, 13362–13365. (b) This reference, focused on trans-borylation, reports an energy change of +15 kcal/mol for the dissociation of (H–BBN)$_2$ into two monomers. D. R. Willcox, E. Cocco, G. S. Nichol, A. Carlone, S. P. Thomas, *Angew. Chem. Int. Ed.* 2024, e202401737.
+
+[27] S. J. Geier, C. M. Vogels, J. A. Melanson, S. A. Westcott, *Chem. Soc. Rev.* 2022, 51, 8877–8922.
+
+[28] M. Magre, M. Szewczyk, M. Rueping, *Chem. Rev.* 2022, 122, 8261–8312.
+
+[29] C. C. Chong, R. Kinjo, *ACS Catal.* 2015, 5, 3238–3259.
+
+[30] Q. Yang, Y. Li, J. D. Yang, Y. Liu, L. Zhang, S. Luo, J. P. Cheng, *Angew. Chem. Int. Ed.* 2020, 59, 19282–19291.
+
+[31] A. Kobayashi, K. Suzuki, R. Kitamura, M. Yamashita, *Organometallics* 2020, 39, 383–387.
+
+[32] “Mayr’s Database Of Reactivity Parameters - Start page,” can be found under https://www.cup.lmu.de/oc/mayr/reaktionsdatenbank/ (accessed Jan 21st 2025).
+
+[33] See (and references therein) H. Xiong, Q. Lin, Y. Lu, D. Zheng, Y. Li, S. Wang, W. Xie, C. Li, X. Zhang, Y. Lin, Z. X. Wang, Q. Shi, T. J. Marks, H. Huang, *Nat. Mater.* 2024, 23, 695–702.
+Note, transition metal free catalysts reported to date result in (at best) low yields of diborylated products for less activated thiophenes even when using two equivalents of HBCat e.g. 5% diborylation of thienothiophene was reported for one of the most active systems see: V. Desrosiers, A. Gaudy, K. A. Giroux, F. G. Fontaine, *Z. Anorg. Allg. Chem.* 2023, 649, e202300006.
+
+See (and references therein) W. K. O. Teixeira, D. Y. de Albuquerque, S. Narayanaperumal, R. S. Schwab, *Synthesis* 2020, 52, 1855–1873.
+
+A. D. Bage, K. Nicholson, T. A. Hunt, T. Langer, S. P. Thomas, *Synthesis* 2022, 55, 62–74.
+
+A. Prokofjevs, J. W. Kampf, E. Vedejs, *Angew. Chem. Int. Ed.* 2011, 50, 2098–2101.
+
+Q. Yin, H. F. T. Klare, M. Oestreich, *Angew. Chem. Int. Ed.* 2017, 56, 3712–3717.
+
+For recent reviews of this area see: (a) X. Tan, H. Wang, *ChemCatChem* 2023, 15, e202300734. (b) S. Hazra, S. Mahato, K. K. Das, S. Panda, *Chem. Eur. J.* 2022, 28, e202200556.
+
+A. Caise, E. L. Kolychev, J. Hicks, M. Á. Fuentes, J. M. Goicoechea, S. Aldridge, *Dalton Trans.* 2019, 48, 10845–10852.
+
+J. Prust, H. Hohmeister, A. Stasch, H. W. Roesky, J. Magull, E. Alexopoulos, I. Usón, H. G. Schmidt, M. Noltemeyer, *Eur. J. Inorg. Chem.* 2002, 2002, 2156–2162.
+
+X. Tan, X. Wang, Z. H. Li, H. Wang, *J. Am. Chem. Soc.* 2022, 144, 23286–23291.
+
+(a) A. D. Bage, T. A. Hunt, S. P. Thomas, *Org. Lett.* 2020, 22, 4107–4112. (b) A. D. Bage, K. Nicholson, T. A. Hunt, T. Langer, S. P. Thomas, *ACS Catal.* 2020, 10, 13479–13486.
+
+C. D. T. Nielsen, J. Burés, *Chem. Sci.* 2019, 10, 348–353.
+
+H. C. Brown, K. K. Wang, C. G. Scouten, *Proc. Natl. Acad. Sci.* 1980, 77, 698–702.
+
+Several pathways for the formation of INT-1Zn-B were characterized computationally, but these all suffered from a high entropic cost of adding the (H–BBN)2 dimer to 10. Our favored mechanism involves the stepwise addition of two H–BBN monomers, first at Cγ and then across the Zn–thienyl unit. See section S7 of the supporting information for full details.
+
+For a review on NacNac non-innocence see: (a) C. Camp, J. Arnold, *Dalton Trans.* 2016, 45, 14462–14498. (b) for a paper showing binding of BH3 to the g position of NacNac see: D. D. L. Jones, A. J. R. Matthews, C. Jones, *Dalton Trans.* 2019, 48, 5785–5792.

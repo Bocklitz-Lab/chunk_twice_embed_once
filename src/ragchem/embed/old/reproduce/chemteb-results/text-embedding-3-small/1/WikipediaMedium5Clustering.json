@@ -1,0 +1,23 @@
+{
+  "dataset_revision": "178f49f21672a31f3fc94ac28e5703eb7c8d3291",
+  "evaluation_time": 13.386863708496094,
+  "kg_co2_emissions": null,
+  "mteb_version": "1.14.15",
+  "scores": {
+    "test": [
+      {
+        "hf_subset": "default",
+        "languages": [
+          "eng-Latn"
+        ],
+        "main_score": 0.19358157883155563,
+        "v_measure": 0.19358157883155563,
+        "v_measure_std": 0.0,
+        "v_measures": [
+          0.19358157883155563
+        ]
+      }
+    ]
+  },
+  "task_name": "WikipediaMedium5Clustering"
+}

@@ -1,0 +1,285 @@
+Singlet to triplet conversion in molecular hydrogen and its role in parahydrogen induced polarization
+
+Danil A. Markelov, Vitaly P. Kozinenko, Stephan Knecht, Alexey S. Kiryutin, Alexandra V. Yukovskaya, Konstantin L. Ivanov
+
+An analysis is reported of singlet-triplet conversion in molecular hydrogen dissolved in solution together with organometallic complexes used in experiments with parahydrogen (the H₂ molecule in its nuclear singlet spin state). We demonstrate that this conversion, which gives rise to formation of orthohydrogen (the H₂ molecule in its nuclear triplet spin state), is a remarkably efficient process that strongly reduces the resulting NMR (nuclear magnetic resonance) signal enhancement, here of ¹⁵N nuclei polarized at high fields using suitable NMR pulse sequences. We make use of a simple improvement of traditional pulse sequences, utilizing a single pulse on the proton channel that gives rise to an additional strong increase of the signal. Furthermore, analysis of the enhancement as a function of the pulse length allows one to estimate the actual population of the spin states of H₂. We are also able to demonstrate that the spin conversion process in H₂ is strongly affected by the concentration of ¹⁵N nuclei. This observation allows us to explain the dependence of the ¹⁵N signal enhancement on the abundance of ¹⁵N isotopes.
+
+Introduction
+Parahydrogen Induced Polarization (PHIP)⁶⁻⁵ is a well-established tool to enhance weak NMR signals. PHIP makes efficient use of the spin order of parahydrogen (pH₂, the H₂ molecule in its nuclear singlet spin state) which is converted into observable NMR signals. Since pH₂ is NMR silent (as it does not have a magnetic moment) suitable chemical processes must be harnessed to convert the spin order into an enhanced NMR signal. Such processes are given by catalytic hydrogenation reactions with pH₂ or by reversible interactions of pH₂ with an organometallic complex. In the first method, hydrogenative PHIP, pH₂ is added to a substrate with an unsaturated C-C bond; when the ‘nascent’ protons in the reaction product stemming from pH₂ are non-equivalent (chemically or magnetically), one can obtain strong NMR signal enhancements. In the second method, termed Signal Amplification By Reversible Exchange (SABRE), pH₂ and a to-be-polarized substrate bind to an Ir-based complex, where spin order transfer gives rise to polarization of the substrate. An advantage of the SABRE method is that the substrate and pH₂ only bind to the complex transiently, i.e., they are not consumed, and dissociation of substrate from the complex results in the formation of hyperpolarized free substrate molecules in solution. Hence, the substrate can be re-polarized multiple times by supplying pH₂ to the solution. The SABRE method can be used to enhance NMR signals of protons⁷, and “insensitive” nuclei such as ¹⁵N and ¹³C⁸⁻¹⁵ and to polarize various molecules, notably, biomolecules¹⁶⁻¹⁸, metabolites¹⁹ and drugs²⁰⁻²².
+
+Both hydrogenative PHIP and SABRE have been successfully applied to hyperpolarize various compounds; however, the optimization of hyperpolarization experiments still remains challenging. Specifically, reaction conditions have to be optimized, as well as polarization transfer efficiency. In this work, we address one more issue, which turns out to be important in both PHIP and SABRE. Specifically, we address the question: “What is the spin order of H₂ in PHIP/SABRE experiments?”. At the first glance, this question seems to make no sense, as we always introduce pH₂, i.e., two protons in the nuclear singlet spin state, into the chemical reaction. However, this obvious answer holds only in the gas phase, where conversion between pH₂ and triplet H₂ (orthohydrogen, oH₂) is a very slow process. For the actual PHIP and SABRE processes the answer is not so obvious because pH₂ binds to a PHIP substrate or SABRE catalyst in such a way that the two protons occupy non-equivalent positions. In this situation, their magnetic or chemical equivalence is broken and singlet-triplet conversion in H₂ becomes operative. It is important to note that the conversion is not equivalent to a simple decay of singlet spin order via relaxation, since hyperpolarized oH₂ can be formed in a strongly non-equilibrium state, as has been confirmed by several groups²³⁻²⁵.
+
+The aim of this work is to study in detail spin conversion of H₂ and to characterize its actual spin state. Here we perform the study for a SABRE system (using an Ir-based catalyst) and measure the SABRE-derived enhancement of ¹⁵N spins. By introducing radio-frequency pulses on the proton channel
+(which have no effect on the amount of spin state of $\Delta H_2$ and to determine the state of non-thermally polarized $\Delta H_2$. Furthermore, we reveal the influence of the magnetic $^{15}N$ isotope on the singlet-triplet conversion in complex-bound $H_2$. This effect is conditioned by a weak symmetry breaking resulting in magnetic non-equivalence of the chemically equivalent $H_2$-nascent protons in the SABRE complex. The study presented here is driven not only by general interest and curiosity, but has important practical consequences for optimizing PHIP and SABRE experiments and for achieving the highest possible NMR signal enhancement. There are two reasons for this. First, the lifetime of the spin order of $H_2$ (which is the source of NMR signal enhancement) is important to achieving maximal polarization. Second, some of the pulse sequences for transferring spin order from $H_2$ have been designed assuming that the initial spin order of the two protons is a pure state of singlet order: such pulse sequences might become inefficient when the spin state of $H_2$ is a mixture of $H_2$ and $\Delta H_2$. We clearly show in this work that the formation of hyperpolarized $\Delta H_2$ is an important factor in PHIP and SABRE, which has a strong influence on the resulting NMR signal enhancement.
+
+Methods
+
+Sample preparation
+
+All experiments presented here were done for a SABRE system using the IrCl(COD)(IMes) complex $^{26}$, where IMes=1,3-bis(2,4,6-trimethylphenyl)imidazole-2-ylidene and COD= cyclooctadiene; activation of this pre-catalyst by hydrogenation of COD and addition of pyridine forms the main dihydride Iridium complex $[\text{Ir}(H)_2(\text{IMes})(\text{Py})]^+$, with Cl as a counter ion (Py =pyridine). The structure of the SABRE complex is given in Figure 1. The SABRE process in this system is due to exchange of $H_2$ and Py between their free forms in solution and bound forms. It is important to note that in methanol solution there is also exchange $^{27}$ between the main complex and two other complexes: one with a Cl$^-$ and one with an equatorial Py ligand replaced by a methanol solvent molecule. In these complexes the $H_2$-nascent protons are chemically non-equivalent, which strongly affects $^{27}$ the spin conversion. To simplify the reacting system, we have replaced the Cl$^-$ counter-ion with PF$_6^-$, which does not bind to the complex. As previously described $^{27}$ this can be achieved by adding AgPF$_6$ and removing the resulting AgCl precipitate from the sample. As a SABRE substrate, we used either $^{15}N$-labelled Py-d$_5$ or mixtures of $^{15}N$-Py-d$_5$ and $^{15}N$-Py-d$_{10}$, thus varying the abundance of the spin-1/2 $^{15}N$ isotopes. Using a deuterated substrate allowed to simplify the spin system and, hence, to ease the optimization and interpretation of SABRE experiments. In all experiments the sample temperature was 25 °C.
+
+The spin system of the main $^{27}$ SABRE complex can be modelled as an AA’MM’ system, as shown in Figure 1. Here the A spins stand for the protons originating from $pH_2$, while the M-spins are the $^{15}N$ nuclei of the two equatorial Py ligands.
+
+NMR experiments
+
+NMR experiments were mostly carried out at high magnetic fields using the protocols shown in Figure 2. To polarize the $^{15}N$ nuclei we used pulse sequences with radiofrequency (rf) pulses applied to the $^{15}N$ channel. For transferring spin order from $pH_2$ essentially a single long $^{15}N$ pulse of a low intensity is used, hereafter called pseudo continuous-wave (“pseudo-cw”) pulse. When the parameters of the rf field applied to the $^{15}N$ channel are properly set, proton singlet spin order is transferred to $^{15}N$ spins in the SABRE complex. Specifically, the effective field $\omega_{eff}$ (given in the frequency units) should be matched$^{9, 28, 29}$ to a certain combination of scalar J-couplings in the AA’ MM’ system. The effective field is given by the vector sum of the transverse rf-field (in the rf-rotating frame) and the longitudinal field given by offset from resonance $\omega_{res} = (\omega_1 + \Delta)$, where $\omega_1$ is the rf-field strength and $\Delta$ the resonance offset. A more detailed discussion of the definition of $\Delta$ for the system under study is given below. In the case of single-resonance experiments (excitation only on the $^{15}N$ channel) the source of polarization is given by the population difference of the singlet and central triplet states of $H_2$. As we show below, this feature is critical for the performance of the pulse sequences. The magnetization transferred to the $^{15}N$ nuclei is parallel to the effective field. Hence, it is a purely transverse magnetization when $\Delta = 0$ (on-resonance excitation); whereas for $\Delta \neq 0$ the magnetization has a longitudinal component. In SABRE, one seeks to generate polarization of the free substrate molecule via chemical exchange. Upon exchange, longitudinal polarization of the bound species is transferred to the free substrate pool. Thus, in the case of resonant excitation, an additional 90° pulse should be inserted to convert transverse into longitudinal polarization; when $\Delta \neq 0$ this may be not necessary. To maximize $^{15}N$ signal enhancement, the polarization transfer cycle is repeated $^{21}$ times. For this reason, the additional 90° pulse should be selective, exciting only the bound substrate, but not its free form in solution. Finally, after applying a 90° pulse, the $^{15}N$ Free Induction Decay (FID) signal is
+acquired (its Fourier transform gives the NMR spectrum). Two of the pulse sequences shown in Figure 2 exploit resonant rf-excitation (Fig. 2 b, d), whereas the other two make use of off-resonant excitation (Fig. 2 a, c). The sequence in Fig. 2 b is known as LIGHT-SABRE (Low-Irradiation Generation of High Tesla-SABRE). 28
+
+Two of the pulse sequences (Fig. 2 c, d) in Figure 2 comprise a modification which would be meaningless if we were dealing only with pure rotation-invariant singlet order: this is a 90° pulse applied to the proton channel. It turns out that this pulse strongly affects the performance of the polarization transfer experiment if some hyperpolarized oH2 is generated. In this work, we analyse the effect of proton pulses with arbitrary nutation angles on the 15N NMR signal enhancement. The pulse sequences given in Fig. 2 c and d are known9 as SLIC-SABRE (SLIC = Spin-Locking Induced Crossing). 10
+
+In addition to high-field NMR experiments, we also performed field-cycling NMR studies, in which polarization was allowed to build up by SABRE at an ultralow magnetic field (in the range 10 nT < B0 < 1 μT). Subsequently the hyperpolarized sample is transferred to an 400 MHz NMR spectrometer (B0 = 9.4 Tesla). To run such experiments, we used a home-built device for sample shuttling with a set of coils inside the magnetic shield, as described before11, 31.
+
+Figure 2. Experimental protocols used to run high-field SABRE experiments, aimed at enhancing 15N signals of free Py in solution. pH2 is supplied to the sample using an automated bubbling device. The pseudo-cw pulse on the 15N channel is applied either exactly on resonance of the complex bound Py (b, d) or slightly off-resonance (a, c); in the former case an additional 90° pulse is used to generate the longitudinal polarization. In (a, b) no pulses are applied on the proton channel, whereas in (c, d) 90° pulses on the proton channel are used. After each cycle Py-ligands bound to the Ir complex are polarized; this model is sufficient for simplicity, we take the frequency of the rotating frame Zeeman interaction with the B0 field, which is parallel to the z-axis. For the polarization cycle is repeated 11 times and the 15N NMR signal is acquired after applying a 90° pulse. The delay between the cycles is equal to fcw and the duration of the 15N pseudo cw pulse is denoted as fcw.
+
+All NMR spectra were recorded using a 400 MHz Bruker NMR spectrometer. In all high-field SABRE experiments the para-component of H2 was enriched to 85% by using a commercial Bruker parahydrogen generator. In ultralow field experiments we have used 95% enriched pH2, obtained by cooling down H2 in a helium cryostat CFA-200-H2CELL (CryoPribor). The pH2 bubbling pressure was equal to 2 bar. The signal enhancement factor ε (ratio of the hyperpolarized 15N NMR signal and thermal signal both measured at 9.4 tesla) gives a measure of polarization.
+
+Theory
+
+To analyse singlet-triplet conversion in H2 and to optimize the pulse sequences we used spin dynamics simulations and additionally took into account exchange of H2 or SABRE substrate.
+
+In order to consider spin conversion in molecular hydrogen, we introduce a set of equations for the spin density operators, σf and σb, of free and bound H2, respectively:
+
+\[
+\frac{d}{dt}\sigma_f = -i[H_f,\sigma_f] - \frac{\delta_\omega}{\epsilon} \sigma_f - k_{as} \sigma_f + k_{dis} \sigma_b
+\]
+
+\[
+\frac{d}{dt}\sigma_b = -i[H_b,\sigma_b] - \frac{\delta_\omega}{\epsilon} \sigma_b - k_{dis} \sigma_b + k_{as} \sigma_f
+\]
+
+Here \(H_{f,b}\) stand for the Hamiltonians of the free or bound H2 (all Hamiltonians are given in \(\hbar\) units); \(k_{as}\) and \(k_{dis}\) are the corresponding relaxation superoperators; \(k_{as}\) is the rate of association of H2 to form the Ir-based complex and \(k_{dis}\) is the dissociation rate of molecular hydrogen from the complex. This model is sufficient to simulate singlet-triplet conversion, which gives rise to hyperpolarized oH2. To carry out these simulations, we introduce \(\hat{H}_{f,b}\) in the rotating frame (this is done to ease numerical calculations and to get rid of the large nuclear Zeeman interaction with the B0 field, which is parallel to the z-axis). For simplicity, we take the frequency of the rotating frame equal to the NMR frequency of free H2, so that \(\hat{H}_f = 0\) and \(\hat{H}_b = \frac{\delta_\omega}{\epsilon}\).
+\[ \Omega_1 \hat{I}_{1z} + \Omega_2 \hat{I}_{2z} \] (here \( \hat{I}_1 \) and \( \hat{I}_2 \) are the spin operators of the two non-equivalent bound protons, \( \Omega_{1,2} \) are their NMR frequencies in the rotating frame). In fact, the only relevant parameter in \( \hat{H}_b \) is the frequency difference \( \delta \omega = |\Omega_1 - \Omega_2| \). Indeed, it is the term
+
+\[
+\frac{1}{2} \delta \omega (\hat{I}_{1z} - \hat{I}_{2z})
+\]
+
+which is responsible for driving the transitions between the singlet state \( |S\rangle \) and central triplet state \( |T_0\rangle \), as illustrated by the vector diagram\(^{12}\) in Figure 3. Setting \( \delta \omega \neq 0 \) we assume that the chemical equivalence of the two protons in the complex is broken, giving rise to a non-vanishing difference in their chemical shifts. Alternatively, symmetry breaking can be due to magnetic non-equivalence, i.e., caused by a difference in J-couplings with other spin-\(1/2\) nuclei present in the complex. In both cases we achieve \( \delta \omega \neq 0 \). The singlet-triplet states are introduced in the usual way:
+
+\[
+|S\rangle = \frac{1}{\sqrt{2}}(|\alpha \beta\rangle - |\beta \alpha\rangle), \quad |T_0\rangle = \frac{1}{\sqrt{2}}(|\alpha \beta\rangle + |\beta \alpha\rangle)
+\]
+
+\[
+|T_+\rangle = |\alpha \alpha\rangle, \quad |T_-\rangle = |\beta \beta\rangle
+\]
+
+where \(|\alpha\rangle\) and \(|\beta\rangle\) are the states of a spin-\(1/2\) particle with \(\hat{z}\)-projections equal to \(\frac{1}{2}\) and \(-\frac{1}{2}\), respectively.
+
+As far as relaxation effects are concerned, we merely consider the simplest case of relaxation driven by fluctuating local fields experienced by the two protons, ignoring the fluctuations of their mutual dipole-dipole coupling (\(?\)). We also assume that the local fields are almost completely correlated, which implies that they efficiently drive the transitions between the triplet states, but not the transitions between the singlet state and triplet states. Hence, in the absence of exchange, singlet-triplet conversion takes infinitely long (in experiments, conversion in the absence of a SABRE catalyst is indeed a very slow process). Precise details and parameters of the model are given in ESI, as well as the method for numerical solution of the set of equations.
+
+According to the model outlined above, singlet-triplet conversion in \(H_2\) occurs in the following way. When \(H_2\) binds to the complex, the chemical equivalence is lifted so that coherent transitions between the \(|S\rangle\) and the central \(|T_0\rangle\) states become operative. As a result, the population is distributed between these two states. This gives rise to formation of \(\Delta H_2\) in a non-equilibrium spin state. Subsequently, spin relaxation comes into play and tends to equalize the populations of the three triplet states; eventually, all four states acquire the same population. The rate of the first conversion step \(S \rightarrow T_0\) critically depends on \(\delta \omega\), \(k_{ss}\) and \(k_{sd}\). Simulations assuming an initial \(|S\rangle\) state of \(H_2\) are shown in Figure 4 for different \(\delta \omega\) values, presenting the time dependence of the populations of the \(|S\rangle\), \(|T_0\rangle\) and \(|T_\pm\rangle\) states, and of the population imbalance \(\delta P = P_S - P_{T_0}\). When \(\delta \omega\) is small, the conversion process is very slow (just like the inefficient singlet-triplet relaxation in free \(H_2\)). As \(\delta \omega\) increases, the populations of the \(|S\rangle\) and \(|T_0\rangle\) states are redistributed in a coherent fashion via spin mixing in the complex and \(P_{T_0} \neq 0\). As the central \(|T_0\rangle\) state gets populated, relaxation between the triplet states also populates the \(|T_\pm\rangle\) states, \(P_{T_\pm} \neq 0\). Hence, spin order conversion is a two-step process. With the parameters chosen in Fig. 3, the \(|S\rangle\) and \(|T_0\rangle\) state populations are rapidly equilibrated and \(\delta P \rightarrow 0\), whereas the \(|T_0\rangle\) population remains different from that of the \(|T_\pm\rangle\) states for longer time.
+
+![Figure 4](image)
+
+**Figure 4.** Theoretical time dependence of the spin state populations of \(H_2\) and the population difference \(\delta P = P_S - P_{T_0}\) in the presence of exchange between bound and free hydrogen. Calculation parameters: \(k_{ss} = 6 \text{ s}^{-1}\), \(k_{sd} = 60 \text{ s}^{-1}\), \(T_0^{1H} = 3 \text{ s}, T_0^{1H} = 1 \text{ s}\), the values \(\delta \omega/2\pi\) vary from 0, 2, 5, to 20 Hz (a-d). The relaxation model considers only correlated fluctuating local fields, experienced by the two spins, which are modelled as almost completely correlated, so that singlet-triplet relaxation transitions are slow, as compared to transitions within the triplet manifold (see ESI for a detailed explanation).
+
+**Results and Discussion**
+
+**Optimization of the pulse sequence**
+
+Before comparing the performance of the pulse sequences of interest, we optimized the experimental parameters, such as the delays \(t_d\) and \(t_{cw}\) and the number of cycles \(n\). The dependence of the enhancement on these parameters is presented in ESI. In the experiments presented below we always set \(t_d = 500 \text{ ms}\), \(t_{cw} = 39 \text{ ms}\) and \(n = 50\), which provide substantially improved signal enhancements.
+
+To optimize the performance of the pulse sequence, it is necessary to set the optimum resonance offset \(\Delta\) for the pseudo-cw pulse. As pointed out above, the optimization is...
+different for a single pulse and for a pulse followed by an additional 90° pulse. This is indeed the case, see Figure 5. When no extra pulses are used, the resulting longitudinal $^{15}\text{N}$ polarization vanishes for $\Delta = 0$ (the spins are polarized parallel to the effective field, and therefore do not have any longitudinal component). When an additional 90° pulse is used to convert the transverse polarization into longitudinal polarization, the resulting polarization is maximal for $\Delta = 0$. The $\Delta$-dependence of polarization shows positive and negative extrema, see Figure 5a, corresponding to matching of the energy levels of the AA' MM' spin system in the rotating frame, as explained before. To make the pulse sequences work one should also optimize the $\omega_1$ value: when $\omega_1$ is very small, spin mixing is inefficient, whereas if $\omega_1$ is much larger than the relevant J-couplings, the matching conditions can no longer be fulfilled (this is the reason for using a low-intensity cw rf pulse). In the experimental $\omega_1$ polarization on the rf nutation frequency $\omega_1$ for SLIC-SABRE with the offset shown for different $\omega_1$ values: $15$ Hz (squares), $10$ Hz (circles) and $5$ Hz (triangles). (b) Dependence of polarization in the SLIC-SABRE method on the rf nutation frequency $\omega_1$ for SLIC-SABRE with an off-resonant pulse (for $\Delta = -14$ Hz). The experiments were performed with substrate concentration $[S] = 95$ mM and catalyst concentration $[C] = 7$ mM; the polarization is normalized to its maximal value in both cases.
+
+**NMR signal enhancement**
+
+We have optimized the relevant experimental parameters for all four protocols shown in Figure 2. One can see that using off-resonant excitation with a small $\Delta$ value one can achieve higher $\varepsilon$ values, see Figure 5. Although the theoretical treatment suggests that the efficiency of the scheme should be the same or even higher for resonant excitation ($\Delta = 0$); this experiment is more difficult to optimize, in particular, when chemical exchange is constantly going on, as is the case in SABRE. The enhancements obtained by these two methods are moderate, $\varepsilon \approx 30$ for resonant excitation and $\varepsilon \approx 150$ for off-($\omega_1$) resonance excitation, for the experimental conditions used here. We attribute this to efficient $S-T_0$ conversion, rendering $\delta P$ small. Since this population imbalance is the source of non-thermal spin order, the signal enhancement factors become low. A simple way to re-introduce the $\delta P$ population imbalance is to exploit the difference in populations between the $|T_0\rangle$ and $|T_\pm\rangle$ states. This can be done in different ways. Here we investigate the simple method of using a single 90° pulse on the proton channel. In this situation, the state populations change as follows (we assume that before applying the pulse $P_{T_+} = P_{T_-}$):
+
+$$P_{T_0} \to \frac{1}{2}P_{T_+} + \frac{1}{4}P_{T_+} + \frac{1}{4}P_{T_-}$$
+
+Here the populations with primes stand for the state populations after applying the pulse. Hence, the $P_{T_0}$ population remains the same (as the singlet state is invariant to rotations), whereas the $P_{T_+}$ population is altered. Hence, $\delta P$ changes from the value $\{P_{T_+} - P_{T_-}\}$ to $\delta P = \{P_{T_+} - P_{T_-}\}$. Assuming that $S-T_0$ conversion is considerably more efficient than $S-T_\pm$ conversion, one should expect that $\delta P$ should increase significantly, as should the resulting enhancement.
+a selective 90° proton pulse (a) and on-resonant CW 15N pulse (b). SLIC-SABRE scheme (with an additional hard 90° proton pulse before polarization transfer) with off-resonant CW 15N pulse followed by a selective 90° 15N pulse (c) and an on-resonant CW 15N pulse (d). Thermal signal acquired with 256 transients is presented as a reference (e). Experimental parameters: [S] = 95 mM, [C] = 7 mM, \( \omega_1/2\pi = 10 \) Hz, \( n = 50 \), \( t_d = 500 \) ms, \( t_{cw} = 39 \) ms, \( \Delta/2\pi = -14 \) Hz (for off-resonant excitation).
+
+To exploit this effect, we have run two more experiments (with on- and off-resonance excitation) using an additional 90° proton pulse prior to the polarization transfer sequence. As one can see from Figure 6, the resulting enhancement dramatically increases for both transfer schemes, here approximately by a factor of 7. This is a clear indication that fast and efficient \( S-T_0 \) conversion in \( H_2 \) is indeed taking place in the studied sample. Comparison of the pulse sequences also shows that applying a 90° proton pulse is indeed an efficient way to re-establish the desired \( S-T_0 \) population difference.
+
+One should note that the resulting 15N spectra yield a broadened NMR signal with a non-Lorentzian lineshape. This is a result of exchange of deuterons in the ortho-positions of Py with dihydrogen protons, which leads to the formation of three isotopomers of free pyridine, with D-D, H-D and H-H nuclei in the ortho-positions. Since each isotope has its own spin system, the spectral pattern becomes more complex and contains several components. However, the signal of fully deuterated pyridine dominates over any other signal in the resulting 15N spectra.
+
+The improvement of the enhancement \( \epsilon \) by a factor of 7 allows one to calculate the populations of the spin states of \( H_2 \). Here we do so assuming that (i) \( \epsilon \) is proportional to \( \delta P \) and (ii) \( P_{T,0} = 0.05 \) (this corresponds to 85% of pH enrichment). Hence, if we set \( P_S \to x \) before the pulse is applied, we obtain that \( P_{T,0} = 0.9 - x \). After application of the pulse we obtain \( P_S = x \) and \( P_{T,0} = 0.05 \). Consequently,
+
+\[ \frac{\delta P'}{\delta P} = \frac{x - 0.05}{2x - 0.9} \approx 7 \Rightarrow x \approx 0.48 \]
+
+Hence, we obtain about 48% of \( H_2 \) in the \( |S\rangle \) state and about 42% in the \( |T_0\rangle \) state and 10% in the \( |T_1\rangle \) states, i.e., a relatively small population difference of about 6%. After applying the additional pulse it increases to as much as 43%.
+
+**Singlet-triplet conversion**
+
+Inspired by the strong, approximately 7-fold, improvement of \( \epsilon \) provided by the pulse applied to protons, we decided to look more closely at the singlet-triplet conversion efficiency. To this end, we have varied the length of the proton pulse and measured \( \epsilon \) as a function of the flip angle \( \varphi \) of this pulse, see Figure 7a. The dependence is a periodic function \( \epsilon(\varphi) = \alpha_1 - \alpha_2 \varphi \), with maxima at \( \varphi = (2m + 1)\pi \) and minima at \( \varphi = 2m\pi \) (here \( m \) is an integer number). The maximal value is then \( \epsilon_{max} = \alpha_1 \propto \delta P' \) and the minimal value is \( \epsilon_{min} = \alpha_1 - \alpha_2 \propto \delta P \). The ratio
+
+\[ \frac{\epsilon_{max}}{\epsilon_{min}} = \frac{\delta P'}{\delta P} \]
+
+thus can be used to characterize the efficiency of the \( S-T_0 \) conversion process, which is due to symmetry breaking in \( H_2 \) bound to the SABRE complex. Symmetry breaking can be due to the chemical shift difference between the two protons and/or to subtler effects of J-couplings. In the SABRE complex, the \( 1^H-15N \) J-couplings are sizeable; furthermore, there is a large difference in the couplings \( J_{AM} = J_{AM} \) and \( J_{AM} = J_{AM} \), so that it has been estimated that \( \Delta J = J_{AM} - J_{AM} \approx 20 \) Hz. As a consequence, the two \( pH_2 \)-nasonic protons become magnetically non-equivalent and the effective \( \delta \omega \) value becomes non-zero.
+
+We have studied the effect of symmetry breaking through magnetic non-equivalence by varying the enrichment of \( 15N \) nuclei, i.e., by using a mixture of \( 14N-Py \) and \( 15N-Py \) (the fast relaxing quadrupolar \( 14N \) nuclei do not alter the spin dynamics of the proton system).
+
+**Figure 7.** (a) The dependence of \( ^{15}N \) signal enhancement on the flip angle \( \varphi \) of the proton pulse. The experiments were performed with [S] = 95 mM and [C] = 7 mM, deuterated \( ^{15}N \)-enriched Py was used. Experimental parameters: \( \omega_1/2\pi = 10 \) Hz, \( n = 50 \), \( t_d = 500 \) ms, \( t_{cw} = 39 \) ms, offset \( \Delta/2\pi = -14 \) Hz. (b) The dependence of \( ^{15}N \) signal enhancement ratio \( \epsilon_{max}/\epsilon_{min} \) on the percentage of \( ^{15}N \) enrichment of pyridine in the solution, measured for [C] = 2 mM (squares) and 9.5 mM (circles). [S] is equal to 190 mM (total concentration of \( ^{15}N \)-Py and \( ^{15}N \).
+Py); straight lines are drawn to guide the eye. We used solutions after an exchange with AgPFX.
+
+In Figure 7b, the ratio $\frac{f_{\text{max}}}{f_{\text{min}}}$ is plotted as a function of the fraction of $^{15}$N nuclei (we used three values, $\eta_{15N} = 10\%$, 30\% and 100\% of $^{15}$N-Py) and measured the dependence for two different concentrations [C] of the catalyst. We have set the total concentration of substrate (both $^{15}$N labelled and non-labelled) equal to 190 mM in order to achieve sufficient signal-to-noise ratio in cases where the SABRE signal was low, i.e. LIGHT-SABRE experiments with an $^{15}$N enrichment $\eta_{15N} = 10\%$. One can see that the effect of $^{15}$N spins is significant, in particular, at low [C] concentration, where the violation of magnetic equivalence of the protons in bound H$_2$ is the dominant mechanism. Note that $\frac{f_{\text{max}}}{f_{\text{min}}}$ increases from 1 for $\eta_{15N} = 10\%$ to approximately 5 for $\eta_{15N} = 100\%$. For higher concentrations [C] other conversion mechanisms come into play as well, most likely coming from other (?) complexes with molecular hydrogen. This follows from the fact that $\frac{f_{\text{max}}}{f_{\text{min}}} = 5$ for $\eta_{15N} = 10\%$. Nonetheless, the contribution of magnetic non-equivalence to symmetry breaking is still significant in this case, as $\frac{f_{\text{max}}}{f_{\text{min}}}$ increases by roughly a factor of 2 for $\eta_{15N} = 100\%$.
+
+Remarkably, $\frac{f_{\text{max}}}{f_{\text{min}}} > 10$ at high [C] and for $\eta_{15N} = 100\%$. Hence, the contribution of symmetry breaking driven by scalar $^1$H-$^15$N couplings in the SABRE complex to overall conversion is significant. Furthermore, this contribution strongly affects the resulting enhancement.
+
+Ultra-low field experiments
+
+In this context, it is interesting to estimate how the resulting $^{15}$N enhancement depends on the abundance of $^{15}$N nuclei in the SABRE substrate. The experimental data shown in Figure 7 do not give a complete and clear answer to this question: in this figure, only relative $\epsilon$ values are presented, but not the actual values of the enhancement. Furthermore, high-field experiments are not suitable for this purpose, because the pulse sequences have been optimized for a complex with two $^{15}$N nuclei, whereas at lower $^{15}$N abundance a fraction of the complexes have only one $^{15}$N nucleus (at low $^{15}$N abundance the fraction of the complexes with two $^{15}$N nuclei become negligible). The parameters of the complexes with one or two $^{15}$N nuclei are quite different; consequently, for such complexes optimal $\epsilon$ may be achieved for different $\omega_1$ and $\Delta$ values. As a result, direct comparison of $\epsilon$ values measured at different $^{15}$N abundance becomes problematic.
+
+To get around this problem, we have decided to measure $\epsilon$ at ultralow magnetic fields, where the $^1$H and $^{15}$N nuclei become strongly coupled and “spontaneous” polarization transfer without rf-excitation between them becomes efficient. This is the essence of the SABRE-SHEATH method. It is important to note that at ultralow fields the chemical shift difference of the protons bound to the SABRE complex is of no importance, so that symmetry breaking (and hence, singlet-triplet conversion) occurs solely due to magnetic non-equivalence. Furthermore, there is no need to analyse the spin dynamics in additional (?) complexes, which strongly affect the para-to-ortho conversion at high field. Although at ultralow fields we are unable to run experiments to elucidate the relative populations of different spin states since we cannot apply any pulses to the protons, we can measure $\epsilon$ over a wide range of fields.
+
+Comparison of the SABRE field dependences measured as a function of the $^{15}$N enrichment (at the same total concentration of $^{15}$N-Py and $^{14}$N-Py) is shown in Figure 8. The measured signal enhancement indicates that the SABRE polarization efficiency at ultra-low field increases when the abundance of $^{15}$N nuclei is lowered. It is noteworthy that the position of the maximum of the field dependence also depends on the concentration of labelled substrate, which is due to the difference in the parameters of the spin system of the SABRE complex for each specific solution.
+
+We attribute these results to conversion between different forms of H$_2$ driven by the interaction with $^{15}$N spins. Such interactions not only give rise to spin order transfer to the nitrogen spins, but also to singlet-to-triplet conversion in bound H$_2$, by perturbing the spin state of H$_2$. As a consequence, at high concentration of $^{15}$N isotopes, pH$_2$ is converted to thermally polarized H$_2$, which can no longer provides any NMR enhancements. When the abundance of $^{15}$N nuclei is low, the source spin order survives for a longer period of time, giving rise to a stronger $^{15}$N signal enhancement. Our observations also explain why $^{15}$N-NMR enhancement factors are so high, of the order of 30,000 for natural isotopic abundance (which is only 0.365\%$^{21}$). The absolute signal intensity, which is given by the product of the concentration (proportional to $\nu_0$, the fraction of $^{15}$N containing molecules) and the maximal enhancement $\epsilon_{\text{opt}}$, is the highest for large $\eta_{15N}$. The reason is that at low $\eta_{15N}$ $^{15}$N containing molecules very seldom bind to the SABRE complex, resulting in slow polarization build-us and lower signal intensity.
+
+Figure 8. Magnetic field dependence of the $^{15}$N signal enhancement under ZULF conditions ($5 \text{nT} < B_z < 100 \mu \text{T}$), obtained for the percentage of $^{15}$N pyridine in the solution, measured for $[C] = 2$ mM, while $[S] = 40$ mM (= total concentration of $^{14}$N-Py and $^{15}$N-Py) was kept constant. We used solutions without removing $C_1$. 
+
+This journal is © The Royal Society of Chemistry 20xx J. Name., 2013, 00, 1-3 | 7
+Another effect, which supports our conclusions, is the striking dependence of SABRE enhancement levels on the pH₂ bubbling pressure. The results of SABRE experiments performed at bubbling pressures in a range from 5 to 25 bars are presented in ESI (Figure S3). The linear growth of SABRE enhancement with increasing bubbling pressure (which leads to an increasing pH₂ concentration in the sample) demonstrates that the excess of fresh pH₂ in the solution attenuates the negative effect of singlet-triplet conversion. However, it is noteworthy, that even at 25 bar with reasonable gas flow rates, the enhancement level does not reach saturation, which possibly indicates the substantial effect of singlet-triplet conversion even at ultra-low field conditions.
+
+Conclusions
+Our work gives a clear evidence that singlet-triplet conversion in bound H₂ plays an important role in SABRE experiments. Due to the spin dynamics, this conversion becomes fast in the Iridium complex. An important feature of this conversion is that to the spin dynamics, this conversion becomes fast in the triplet state, producing polarized H₂ in bound H₂ of fresh pH₂. Running polarization transfer experiments with an additional pulse applied to the proton channel. Such experiments allow one to estimate the populations of the three spin states of pH₂ experimentally. In the present case, the additional proton pulse giving rise to a strong additional gain in 15N signal, which is more than 10-fold in some cases. Hence, studying the conversion process is not a matter of pure curiosity, but it is of great practical importance for the performance of the SABRE method. In addition, we demonstrated that the conversion process is strongly affected by the presence of 15N nuclei, which make the pH₂-nascent protons in the complex magnetically inequivalent. This effect is of great importance for polarization transfer experiments at ultralow fields, where the signal enhancement decreases when the isotopic abundance of 15N nuclei is increased. The reason is that the limited source of pH₂-derived polarization is exhausted upon polarization transfer to 15N nuclei. Thus, we can conclude that spin order conversion processes from pH₂ to oH₂, and within the triplet manifold of oH₂ are an important for the success of PHIP and SABRE experiments. We believe that consideration of these processes and corresponding optimization of experimental parameters (concentrations, extent of isotopic labelling, pH₂ pressure, parameters of NMR pulse sequences) can significantly improve the signal enhancements that can be achieved by PHIP and SABRE.
+
+Conflicts of interest
+There are no conflicts to declare.
+
+Acknowledgements
+
+Financial support for the theoretical part by the Russian Science Foundation (grant No. 20-62-47038) is gratefully acknowledged. We acknowledge the Ministry of Science and Education of RF (contract No. 075-15-2021-580) for providing financial support for the experimental work at ITC. Geoffrey Bodenhausen suggested several editorial changes.
+
+1. C. R. Bowers and D. P. Weitekamp, *Phys. Rev. Lett.*, 1986, 57, 2645-2648.
+2. C. R. Bowers and D. P. Weitekamp, *J. Am. Chem. Soc.*, 1987, 109, 5541-5542.
+3. J. Natterer and J. Bargon, *Prog. Nucl. Magn. Reson. Spectrosc.*, 1997, 31, 293-315.
+4. R. A. Green, R. W. Adams, S. B. Duckett, R. E. Mewis, D. C. Williamson and G. G. R. Green, *Prog. Nucl. Magn. Reson. Spectrosc.*, 2012, 67, 1-48.
+5. D. A. Barskiy, S. Knecht, A. V. Yurkovskaya and K. L. Ivanov, *Prog. Nucl. Magn. Reson. Spectrosc.*, 2019, 114-115, 33-70.
+6. R. W. Adams, J. A. Aguilar, K. D. Atkinson, M. J. Cowley, P. I. P. Elliott, S. B. Duckett, G. G. R. Green, I. G. Khazal, J. López-Serrano and D. C. Williamson, *Science*, 2009, 323, 1708-1711.
+7. E. B. Dürck, L. T. Kuhn, K. Münnewemann and C. Griesinger, *J. Magn. Reson.*, 2012, 214, 159-165.
+8. S. Knecht, A. S. Kiryutin, A. V. Yurkovskaya and K. L. Ivanov, *J. Magn. Reson.*, 2018, 287, 10-14.
+9. S. Knecht, A. S. Kiryutin, A. V. Yurkovskaya and K. L. Ivanov, *Mol. Phys.*, 2018, 116, 1-10.
+10. A. N. Pravdivtsev, A. V. Yurkovskaya, H. Zimmermann, H. M. Vieth and K. L. Ivanov, *RSC Adv.*, 2015, 5, 63615-63623.
+11. A. S. Kiryutin, A. V. Yurkovskaya, H. Zimmermann, H.-M. Vieth and K. L. Ivanov, *Magn. Reson. Chem.*, 2018, 56, 651-662.
+12. T. Theis, M. L. Truong, A. M. Coffey, R. V. Shchebin, K. W. Waddell, F. Shi, B. M. Goodson, W. S. Warren and E. Y. Chekmenev, *J. Am. Chem. Soc.*, 2015, 137, 1404-1407.
+13. J. F. P. Colell, M. Emondts, A. W. J. Logan, K. Shen, J. Bae, R. V. Shchebin, G. X. Ortiz, P. Spannring, Q. Wang, S. J. Malcolmson, E. Y. Chekmenev, M. C. Feiters, F. Rutjes, B. Blüdmich, T. Theis and W. S. Warren, *J. Am. Chem. Soc.*, 2017, 139, 7761-7767.
+14. R. V. Shchebin, B. M. Goodson, T. Theis, W. S. Warren and E. Y. Chekmenev, *ChemPhysChem*, 2017, 18, 1961-1965.
+15. Z. J. Zhou, J. Yu, J. F. P. Colell, R. Laasner, A. Logan, D. A. Barskiy, R. V. Shchebin, E. Y. Chekmenev, V. Burn, W. S. Warren and T. Theis, *J. Phys. Chem. Lett.*, 2017, 8, 3008-3014.
+16. S. Glöggler, R. Müller, J. Colell, M. Emondts, M. Dabrowski, B. Blümich and S. Appelt, *Phys. Chem. Chem. Phys.*, 2011, 13, 13759-13764.
+17. W. Iali, G. G. R. Green, S. J. Hart, A. C. Whitwood and S. B. Duckett, *Inorg. Chem.*, 2016, 55, 11639-11643.
+18. A. M. Olaru, M. J. Burns, G. G. R. Green and S. B. Duckett, *Chemical Science*, 2017, 8, 2257-2266.
+19. W. Iali, S. S. Roy, B. J. Tickner, F. Ahwal, A. J. Kennerley and S. B. Duckett, *Angew. Chem.*, 0.
+20. D. A. Barskiy, R. V. Shchebin, A. M. Coffey, T. Theis, W. S. Warren, B. M. Goodson and E. Y. Chekmenev, *J. Am. Chem. Soc.*, 2016, 138, 8080-8083.
+21. I. V. Skovpin, A. Svyatova, N. Chukanov, E. Y. Chekmenev, K. V. Koptunov and I. V. Koptyug, Chem.: Eur. J., 2019, 25, 12694-12697.
+
+22. H. Zeng, J. Xu, J. Gillen, M. T. McMahon, D. Artemov, J.-M. Tyburn, J. A. B. Lohman, R. E. Mewis, K. D. Atkinson, G. G. R. Green, S. B. Duckett and P. C. M. van Zijl, J. Magn. Reson., 2013, 237, 73-78.
+
+23. S. Aime, R. Gobetto and D. Canet, J. Am. Chem. Soc., 1998, 120, 6770-6773.
+
+24. S. Knecht, A. S. Kiryutin, A. V. Yurkovskaya and K. L. Ivanov, J. Magn. Reson., 2018, 287, 74-81.
+
+25. A. S. Kiryutin, G. Sauer, A. V. Yurkovskaya, H.-H. Limbach, K. L. Ivanov and G. Buntkowsky, J. Phys. Chem. C, 2017, 121, 9879-9888.
+
+26. M. J. Cowley, R. W. Adams, K. D. Atkinson, M. C. R. Cockett, S. B. Duckett, G. G. R. Green, J. A. B. Lohman, R. Kerssebaum, D. Kilgour and R. E. Mewis, J. Am. Chem. Soc., 2011, 133, 6134-6137.
+
+27. S. Knecht, S. Hadjiali, D. A. Barskiy, A. Pines, G. Sauer, A. S. Kiryutin, K. L. Ivanov, A. V. Yurkovskaya and G. Buntkowsky, J. Phys. Chem. Lett., 2019, 123, 16288-16293.
+
+28. T. Theis, M. Truong, A. M. Coffey, E. Y. Chekmenev and W. S. Warren, J. Magn. Reson., 2014, 248, 23-26.
+
+29. T. Theis, N. M. Ariyasingha, R. V. Shchepin, J. R. Lindale, W. S. Warren and E. Y. Chekmenev, J. Phys. Chem. Lett., 2018, 9, 6136-6142.
+
+30. S. J. DeVience, R. L. Walsworth and M. S. Rosen, Phys. Rev. Lett., 2013, 111, 173002.
+
+31. I. V. Zhukov, A. S. Kiryutin, A. V. Yurkovskaya, Y. A. Grishin, H.-M. Vieth and K. L. Ivanov, Phys. Chem. Chem. Phys., 2018, 20, 12396-12405.
+
+32. P. Kating, A. Wandelt, R. Selke and J. Bargon, J. Phys. Chem., 1993, 97, 13313-13317.
+
+33. M. L. Truong, T. Theis, A. M. Coffey, R. V. Shchepin, K. W. Waddell, F. Shi, B. M. Goodson, W. S. Warren and E. Y. Chekmenev, J. Phys. Chem. C, 2015, 119, 8786-8797.
+
+34. R. V. Shchepin, D. A. Barskiy, A. M. Coffey, T. Theis, F. Shi, W. S. Warren, B. M. Goodson and E. Y. Chekmenev, ACS Sens, 2016, 1, 640-644.
+Electronic Supporting Information (ESI) for the paper
+
+Singlet-triplet conversion in molecular hydrogen and its role in parahydrogen induced polarization
+
+Danil A. Markelov, Vitaly P. Kozinenko, Stephan Knecht, Alexey S. Kiryutin, Alexandra V. Yurkovskaya,* Konstantin L. Ivanov
+
+a International Tomography Center and Novosibirsk State University, Novosibirsk, 630090, Russia
+b NVision-Imaging Technologies, Ulm, 89081, Germany
+
+* Corresponding author, email: yurk@tomo.nsc.ru
+
+This file contains the following information:
+
+1. Model of singlet-triplet conversion in H₂ .................................................................S1
+2. Optimization of experimental parameters ..............................................................S3
+1. Model of singlet-triplet conversion in H$_2$
+
+To implement the model for singlet-triplet conversion we numerically solved the equations for $\sigma_f$ and $\sigma_b$ given in the main article.
+
+In this model, we first specify the Hamiltonians
+
+\[
+\hat{\mathcal{H}}_f = 0, \quad \hat{\mathcal{H}}_b = \frac{1}{2} \delta \omega \{\hat{I}_{1z} - \hat{I}_{2z}\}
+\]
+
+Thus, we neglect any spin evolution in the free form of H$_2$ and consider only a single term in $\hat{\mathcal{H}}_b$, which originates from the frequency difference of the two protons in the bound form. After that, we go to the Liouville space and specify $\sigma_f$ and $\sigma_b$ as column vectors with 16 elements (corresponding to a two-spin system). In this representation, $\hat{\mathcal{H}}_{f,b}$ are written as superoperators, which are $16 \times 16$ matrices, whereas the relaxation superoperators are also matrices $\hat{\Gamma}_{f,b}$. To specify all elements of $\hat{\Gamma}_{f,b}$ we use the model of partly correlated fluctuating local fields, $\mathbf{B}^{(1)}(t)$ and $\mathbf{B}^{(2)}(t)$, experienced by the two spins. This means, that we use the same method as before but averaging of the local fields is performed using the following expressions (here $g(\tau)$ is the auto-correlation function of the process):
+
+\[
+\langle \mathbf{B}^{(1)}(t) \mathbf{B}^{(1)}(t + \tau) \rangle = \langle \mathbf{B}^2 \rangle \delta_{ij} g(\tau),
+\]
+
+\[
+\langle \mathbf{B}^{(2)}(t) \mathbf{B}^{(2)}(t + \tau) \rangle = \langle \mathbf{B}^2 \rangle \delta_{ij} g(\tau),
+\]
+
+\[
+\langle \mathbf{B}^{(1)}(t) \mathbf{B}^{(2)}(t + \tau) \rangle = C \times \langle \mathbf{B}^2 \rangle \delta_{ij} g(\tau)
+\]
+
+Hence, different components are non-correlated while the amplitudes and auto-correlation functions of the two fields are the same. The parameter $\langle \mathbf{B}^2 \rangle$ determines the effective relaxation rate in the system in the free or bound form, $T_1^f$ and $T_1^b$. Specifically, in the limiting narrowing case, each $T_1$-value is related to $\langle \mathbf{B}^2 \rangle$ as follows: $T_1^{-1} = 2 \tau_c \langle \mathbf{B}^2 \rangle$, where $\tau_c$ is the motional correlation time. Hereafter, all products of the field components are expressed via $1/T_1$, omitting all unnecessary coefficients. The coefficient $C$ defines the degree, to which the two fields are correlated: $C = 0$ means independent correlations and $C = 1$ means complete correlation. Here, we use $C$ approaching unity, meaning that the singlet-triplet relaxation transitions are much slower than the relaxation transitions in the triplet manifold. We take $C = 0.9$ in order to keep singlet-triplet transitions operative (for $C = 1$ singlet-triplet relaxation is turned off).
+
+To solve numerically the set of equations
+
+\[
+\begin{align*}
+\frac{d}{dt} \sigma_f &= -i[\hat{\mathcal{H}}_f, \sigma_f] - \hat{\Gamma}_f \sigma_f - k_{as} \sigma_f + k_{dis} \sigma_b \\
+\frac{d}{dt} \sigma_b &= -i[\hat{\mathcal{H}}_b, \sigma_b] - \hat{\Gamma}_b \sigma_b - k_{dis} \sigma_b + k_{as} \sigma_f
+\end{align*}
+\]
+
+we proceed as follows. First, we compose a vector made out of $\sigma_f$ and $\sigma_b$:
+
+\[
+\sigma = \begin{pmatrix} \sigma_f \\ \sigma_b \end{pmatrix}
+\]
+
+and, second, rewrite the system in one equation:
+
+\[
+\frac{d}{dt} \sigma = \hat{A} \sigma, \quad \text{where} \quad \hat{A} = \begin{pmatrix} -i\hat{\mathcal{H}}_f - \hat{\Gamma}_f - k_{as} \hat{1} & k_{dis} \hat{1} \\ k_{as} \hat{1} & -i\hat{\mathcal{H}}_b - \hat{\Gamma}_b - k_{dis} \hat{1} \end{pmatrix}
+\]
+Here \( \hat{1} \) is the unity \( 16 \times 16 \) matrix. Using this equation, we can compute the \( \sigma \)-vector at any instant of time:
+
+\[
+\sigma(t) = \exp[\hat{\mathbf{A}}t]\sigma(0)
+\]
+
+Knowing \( \sigma \), we can calculate any parameter of interest, e.g., the populations of the spin states of \( H_2 \).
+
+Parameters used in the calculations are:
+
+- exchange reaction rates: \( k_{\text{ex}} = 6 \, \text{s}^{-1} \), \( k_{\text{diss}} = 60 \, \text{s}^{-1} \)
+- relaxation times \( T_1' = 3 \, \text{s} \), \( T_1^b = 1 \, \text{s} \), \( C = 0.99 \)
+- the value of \( \delta \omega / 2\pi \) was varied
+2. Optimization of experimental parameters
+
+The dependence of the signal enhancement in the SLIC-SABRE scheme is shown in Figure 1S. The optimal timing is given by $t_d = 500$ ms, $t_{cw} = 39$ ms, which was used in all experiments.
+
+![Figure 1S](image1.png)
+
+**Figure 1S.** Dependence of the $^{15}$N signal enhancement (a) on the duration $t_{cw}$ of the CW pulse (with $t_d = 250$ ms) and (b) on the delay between polarization transfer cycles $t_d$ (with $t_{cw} = 39$ ms.). The experiments were performed with $[S] = 60$ mM and $[C] = 9.5$ mM. SLIC-SABRE parameters were set as follows: $\omega_1/2\pi = 10$ Hz, offset $\Delta/2\pi = -14$ Hz, number of repetitions $n = 50$.
+
+![Figure 2S](image2.png)
+
+**Figure 2S.** Dependence of the $^{15}$N signal enhancement on the number of polarization cycles $n$. The experiments were performed using the SLIC-SABRE method with 192 mM of the substrate (containing 10% of $^{15}$N nuclei). SLIC-SABRE parameters were set as follows: $\omega_1/2\pi = 10$ Hz, offset $\Delta/2\pi = -14$ Hz, $t_d = 500$ ms, $t_{cw} = 39$ ms.
+
+The resulting NMR enhancement also strongly depends on the number of repetitions of the polarization transfer cycle. The $n$-dependence of the signal enhancement in the SLIC-SABRE scheme is shown in Figure 2S. The signal increases with $n$, showing that it is usually sufficient to have $n = 50$ cycles. All experiments reported in the main article have been done with 50 repetitions.
+
+References
+
+1. S. E. Korchak, K. L. Ivanov, A. V. Yurkovskaya and H.-M. Vieth, *J. Chem. Phys.*, 2010, 133, 194502.
+2. K. Ivanov, A. Yurkovskaya and H.-M. Vieth, *J. Chem. Phys.*, 2008, 129, 234513.

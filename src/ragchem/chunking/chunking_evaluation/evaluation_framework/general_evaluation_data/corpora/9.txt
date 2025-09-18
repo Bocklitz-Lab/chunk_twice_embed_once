@@ -1,0 +1,249 @@
+Weak Dewar bond modulates protonated azaindole photodynamics
+
+Ritam Mansour,¹ Saikat Mukherjee,¹* Max Pinheiro Jr.,¹ Jennifer A. Noble,² Christophe Jouvet,²
+Mario Barbatti¹,³*
+
+¹Aix Marseille University, CNRS, ICR, Marseille, France
+²Aix-Marseille University, CNRS, PIIM, Marseille, France
+³Institut Universitaire de France, 75231 Paris, France
+
+ORCID: RM: 0000-0001-8591-2866, SM: 0000-0002-0025-4735; MP: 0000-0002-5120-4172; JN: 0000-0003-4985-8254, CJ: 0000-0002-4071-6455, MB: 0000-0001-9336-6607
+
+* Corresponding authors: SM: saikat.mukherjee@univ-amu.fr; MB: mario.barbatti@univ-amu.fr
+
+Electronic supplementary information (ESI) available.
+
+Abstract
+
+Recent experimental work revealed that the lifetime of the $S_3$ state of protonated 7-azaindole is about ten times slower than that of protonated 6-azaindole. We simulated the nonradiative decay pathways of these molecules using trajectory surface hopping dynamics after photoexcitation into $S_3$ to elucidate the reason for this difference. Both isomers mainly follow a common $\pi\pi^*$ relaxation pathway involving multiple state crossings while coming down from $S_3$ to $S_1$ in the subpicosecond time scale. However, the simulations reveal that the excited-state topographies are such that while the 6-isomer can easily access the region of nonadiabatic transitions, the internal conversion of the 7-isomer is delayed by a pre-Dewar bond formation with a boat conformation.
+1. Introduction
+
+Azaindoles are hetero-bicyclic aromatic organic compounds consisting of a pyrrole ring fused to a pyridine ring. Being structurally different from indole only by one additional nitrogen in the six-membered pyridine ring, the azaindole moiety exhibits interesting biochemical and pharmacological activities.\(^1\,\,^2\) Scientists identified that methylated azaindole chromophores could serve as blue or even green fluorescence protein markers.\(^3\) Among various structural isomers of \(n\)-azaindole, 7-azaindole derivatives (see Figure 1 for the atom numbering) are excellent blue emitters for organic light-emitting diodes (OLEDs).\(^4\)
+
+![Figure 1. Structure and atom labeling for 6- and 7- protonated azaindole molecules.](image)
+
+Table 1. Experimental spectral width and derived lifetimes of \(n\)-AIH\(^+\) isomers from Ref.\(^{25}\)
+
+|   | \(5\)-AIH\(^+\) | \(6\)-AIH\(^+\) | \(7\)-AIH\(^+\) |
+|---|-----------------|-----------------|-----------------|
+| \(S_1\) | \(\delta E\) (cm\(^{-1}\)) | \(<10\) | \(<10\) | \(<10\) |
+| | \(\tau\) (fs) | \(\geq 530\) | \(\geq 530\) | \(\geq 530\) |
+| \(S_2\) | \(\delta E\) (cm\(^{-1}\)) | 280 | 115 | Not visible |
+| | \(\tau\) (fs) | \(\approx 20\) | \(\approx 50\) | |
+| \(S_3\) | \(\delta E\) (cm\(^{-1}\)) | Not probed | 230 | 23 |
+| | \(\tau\) (fs) | \(\approx 25\) | \(\approx 230\) | |
+
+Although one can find a handful of articles on 7-azaindole in isolated monomer,\(^5-8\) in dimeric forms\(^5,6,10-13\) and water and alcohol clusters,\(^11,14-20\) only one recent article\(^{21}\) to date shed light upon the photophysical relaxation mechanism of \(n\)-azaindole molecules by studying gas-phase excited-state dynamics. Experiments and theoretical calculations have also been devoted\(^{16,18,22-24}\) to understanding the excited-state proton transfer and tautomerization mechanism of 7-azaindole with solvent molecules. On the other hand, very recently, Noble et
+al. performed photo-fragmentation spectroscopy on the protonated $n$-azaindole isomers ($n$-AIH$^+$, $n = 5, 6, 7$) to explore the role of the $n$-nitrogen atom position on photodynamics. From the spectral line widths, they estimated the excited-state lifetimes ($\tau = \hbar / \delta E$) tabulated in Table 2 and proposed different decay mechanisms for the isomers. Surprisingly, the lifetime of the $S_3$ state in 7-AIH$^+$ is almost ten times larger than that of 6-AIH$^+$.
+
+This paper aims to elucidate the disparity of excited-state lifetimes between 6- and 7-protonated azaindoles (6/7-AIH$^+$) using trajectory surface hopping (TSH) simulations. TSH is a well-known and efficient way of simulating excited-state dynamics, where the nuclear wavepacket on an electronic state is represented by a swarm of independent trajectories classically propagating the nuclear degrees of freedom, and the negative energy gradient of the corresponding electronic state serves as the force acting on the nuclei. A stochastic process dictates whether the trajectory will propagate on the current electronic state or hop to another one at each time step. Such a state switch mainly occurs in regions of strong nonadiabatic coupling. Among various strategies to compute hopping probabilities, we adopted the decoherence-corrected fewest switches surface hopping (DC-FSSH) algorithm, probably the most common and extensively reviewed literature. Despite a few shortcomings, an ensemble of independent DC-FSSH trajectories is expected to provide a reasonable semi-quantitative description of a photodynamic process in the sub-picosecond timescale.
+
+2. Computational methods
+
+The ground state geometry optimization followed by normal-mode analysis for both protonated species, 6- and 7-AIH$^+$, was performed with Møller-Plesset perturbation theory to the second-order (MP2) with the aug-cc-pVDZ basis set. The excited states were calculated with the resolution-of-identity algebraic diagrammatic construction to the second-order (RI-ADC(2)) with the same basis set. The electronic structure calculations were carried out with Turbomole (version 7.3). The geometries of the intersections between the excited states $S_3/S_2$ and $S_2/S_1$ were located using the penalty function method implemented in the Conical Intersection Optimizer (CIOpt) program and adapted by us to work with Turbomole.
+
+Five hundred initial conditions were sampled from a harmonic oscillator Wigner distribution using the ground-state geometry and normal modes. The absorption spectra
+into eight excited states for both species were simulated\textsuperscript{40} for these initial conditions (see Figure 1 in the SI). For 6-AIH\textsuperscript{+}, we have chosen 60 initial conditions in the energy window 5.5 ± 0.2 eV to start trajectories in the S\textsubscript{3} state (ESI, SI-1). For 7-AIH\textsuperscript{+}, we selected 84 initial conditions in the same energy window, to start trajectories also in S\textsubscript{3}.
+
+The DC-FSSH dynamics were employed to simulate the nonadiabatic relaxation process for both molecules. We have included four singlet electronic states (including the ground state, S\textsubscript{0}) calculated at ADC(2)/aug-cc-pVDZ level of theory in the direct dynamics simulation. The trajectories were launched from the bright S\textsubscript{3} state and propagated up to 1000 fs for both molecules. The classical equations of motion were integrated with a 0.5 fs time step using the velocity Verlet algorithm, whereas the locally-approximated time-dependent Schrödinger equations were integrated with 0.025 fs using interpolated electronic quantities between classical steps. Energy-based decoherence corrections were applied with the simplified decay of mixing approach with the parameter \(\alpha\) set to 0.1 a.u. Time-derivative couplings between excited states were calculated with the Hammes-Schiffer and Tully approach\textsuperscript{41} using the determinant derivative approach.\textsuperscript{42} DC-FSSH was employed to evaluate hoppings between excited states only. Due to the limitation of ADC(2) to describe the multireference character of the S\textsubscript{1}/S\textsubscript{0} crossing, whenever the energy gap between these states dropped to below 0.15 eV, the trajectory propagation was ended, and we assumed the molecule returned to the ground state.
+
+The initial conditions sampling, absorption spectra calculations, and DC-FSSH simulations were carried out with Newton-X (version 2.2 build 12)\textsuperscript{43} interfaced with Turbomole. All the trajectories of each azaindole isomer were processed and summarized into datasets, which are available to download.\textsuperscript{44}
+
+3. Results
+
+3.1. Excited-state topography
+
+We optimized the geometries of the ground- (S\textsubscript{0}) and excited-state (S\textsubscript{1} to S\textsubscript{3}) minima and the S\textsubscript{3}/S\textsubscript{2} and S\textsubscript{2}/S\textsubscript{1} intersections of 6- and 7-AIH\textsuperscript{+}. The results are shown in Table 2 and Figure 2. The excitation character of the electronic states and molecular orbitals associated with
+the corresponding excitation are presented in the SI-2 and SI-3. Cartesian coordinates of all structures are also given in the ESI.
+
+At the ground state minimum of both the molecules, S₃ is a bright state with \(\pi\pi^*\) character. At the S₃ minimum, the energy gap to S₂ is 0.58 eV for 6-AIH⁺ and 0.71 eV for 7-AIH⁺. After populating S₂, both molecules should relax toward the S₂ minimum. There, the energy gap to S₁ is 0.36 eV for 6-AIH⁺ and 0.24 eV for 7-AIH⁺. At the S₁ minimum, the energy gaps to S₀ are 3.32 and 2.75 eV for 6- and 7-AIH⁺, respectively. The S₃/S₂ intersection is about 2 eV higher than the S₃ minimum in 6-AIH⁺, but only 0.5 eV higher in 7-AIH⁺. In S₂, the S₂/S₁ intersection is 0.3 eV above the S₂ minimum in 6-AIH⁺ and only 0.02 eV in 7-AIH⁺.
+
+These topographic features do not deliver any indication of why the S₃ lifetime is much shorter in 6-AIH⁺ than in 7-AIH⁺.
+
+Table 2. Excitation energies at the minima of the S₀ to S₃ states computed with ADC(2)/aug-cc-pVDZ. All values are relative to the ground state minimum. Oscillator strengths are given in the brackets. The adiabatic energies observed in the experiment²⁵ are shown within the parenthesis. X indicates the state intersection. All minima have \(\pi\pi^*\) character.
+
+| Geom. | \(\Delta E₀ / \text{eV}\) | \(\Delta E₁ / \text{eV}\) | \(\Delta E₂ / \text{eV}\) | \(\Delta E₃ / \text{eV}\) | \(\Delta E₀ / \text{eV}\) | \(\Delta E₁ / \text{eV}\) | \(\Delta E₂ / \text{eV}\) | \(\Delta E₃ / \text{eV}\) |
+|-------|----------------|----------------|----------------|----------------|----------------|----------------|----------------|----------------|
+|       | \([f₁₀]\) | \([f₂₀]\) | \([f₅₀]\) | \([f₁₀]\) | \([f₂₀]\) | \([f₅₀]\) | \([f₁₀]\) | \([f₂₀]\) | \([f₅₀]\) |
+| S₃ min | 0.00 | 3.95 | 5.01 | 5.77 | 0.00 | 3.97 | 4.55 | 5.87 |
+|       | [0.12] | [0.05] | [0.48] | [0.03] | [0.17] | [0.54] |
+| S₁ min | 0.34 | 3.66 | 5.17 | 5.83 | 0.70 | 3.45 | 4.91 | 5.97 |
+|       | [0.11] | [0.02] | [0.52] | [0.03] | [0.12] | [0.46] |
+| S₂ min | 0.86 | 4.48 | 4.84 | 6.30 | 0.41 | 4.06 | 4.30 | 6.14 |
+|       | [0.11] | [0.11] | [0.15] | [0.03] | [0.20] | [0.24] |
+| S₁ min | 0.21 | 3.92 | 4.97 | 5.55 | 0.52 | 3.97 | 4.76 | 5.47 |
+|       | [0.1] | [0.02] | [0.44] | [0.02] | [0.04] | [0.53] |
+| S₃/S₂ X | 2.97 | 6.38 | 7.49 | 7.52 | 2.34 | 4.99 | 5.99 | 6.01 |
+|       | [0.03] | [0.04] | [0.27] | [0.01] | [0.02] | [0.20] |
+| S₂/S₁ X | 1.20 | 5.13 | 5.13 | 6.91 | 0.53 | 4.31 | 4.32 | 6.28 |
+|       | [0.04] | [0.24] | [0.02] | [0.03] | [0.21] | [0.15] |
+Figure 2. Excitation energies at the minima of the $S_0$ to $S_3$ states computed with ADC(2)/aug-cc-pVDZ. All values are relative to the ground state minimum.
+
+3.2. Dynamics
+
+Next, we will describe the outcomes from the DC-FSSH dynamics. Figure 3 depicts the evolution of the adiabatic population for both species. We fitted the $S_3$ population of $6$-AIH$^+$ with the exponential decay function
+
+$$f(t) = e^{-t/\tau}.$$  
+
+(1)
+
+For $7$-AIH$^+$, Eq. (1) did not fit the population well, and we needed a second exponential component,
+
+$$f(t) = (1 - A)e^{-t/\tau} + Ae^{-t/\tau}.$$  
+
+(2)
+
+Later we discuss that this component is due to dissociative trajectories occurring only for $7$-AIH$^+$. The results of the fitting are summarized in Table 3. The margins of error were computed for a 95% confidence interval.
+Figure 3. Adiabatic population evolution calculated with ADC(2)/aug-cc-pVDZ for 6-AIH\(^+\) (top) and 7-AIH\(^+\) (bottom). The dashed line indicates the S\(_3\) population fitting.
+
+Table 3. Fitted parameters of the S\(_3\) population curves of 6- and 7-AIH\(^+\) for simulations at ADC(2)/aug-cc-pVDZ. Experimental lifetimes from ref\(^25\) are shown in parenthesis. The margins of error are estimated for a 95\% confidence interval.
+
+|       | \(A\) | \(\tau'\) (fs) | \(\tau\) (fs) |
+|-------|-------|----------------|---------------|
+| 6-AIH\(^+\) | -     | -              | 156 ± 40 (~25) |
+| 7-AIH\(^+\) | 0.58  | 11             | 278 ± 36 (~230) |
+Figure 4. Energy gap distributions between (a) $S_3 \rightarrow S_2$ states and (b) $S_2 \rightarrow S_1$ states considering only geometries at the hopping points for both the molecules. The 7-AIH+ dissociating trajectories (38%) are excluded.
+
+After excitation into the $S_3$ state, both molecules undergo internal conversion to $S_2$ and, then, to $S_1$ in the sub-ps time scale. In 6-AIH+, the $S_3$ state deactivates within $156 \pm 40$ fs, while this process takes longer in 7-AIH+, $278 \pm 36$ fs. 7-AIH+ also shows partial internal conversion to $S_0$ within this time (Figure 3).
+
+The energy-gap distributions at the hopping time are shown in Figure 4 for $S_3 \rightarrow S_2$ and $S_2 \rightarrow S_1$ transitions. The hoppings from $S_3$ to $S_2$ (top) are distributed around a relatively large energy gap for both molecules. The distribution follows approximately a Gaussian shape centered around a mean value of $0.47$ eV for both 6- and 7-AIH+, respectively, while the
+standard deviation is 0.13 eV for 6-AIH\(^+\) and 0.22 eV for 7-isomer. These gap distributions are due to the large energies of the S\(_3\)/S\(_2\) intersections compared to the S\(_3\) minimum (see Table 2). On the other hand, the energy gap histogram for S\(_2\)→S\(_1\) hoppings resembles an exponential distribution (Figure 4-bottom). For 6-AIH\(^+\), the mean value and standard deviations are 0.23 and 0.20 eV while for 7-AIH\(^+\) they are 0.17 and 0.14 eV. Such a gap distribution reflect the small energy gap between the S\(_2\)/S\(_1\) intersection and the S\(_2\) minimum.
+
+We also analyzed the state character at the hopping time by checking the density difference between the current and ground states (SI-4). The result of this analysis is shown in Table 4.
+
+**Table 4.** Fraction of S\(_3\)→S\(_2\) and S\(_2\)→S\(_1\) hoppings occurring only between \(\pi\pi^*\) states and involving at least one \(\pi\sigma^*\) state. For 7-AIH\(^+\), dissociative trajectories are not included.
+
+|       | 6-AIH\(^+\) (%) | 7-AIH\(^+\) (%) |
+|-------|------------------|------------------|
+| S\(_3\)→S\(_2\) | Only \(\pi\pi^*\) | 97               | 75               |
+|       | At least one \(\pi\sigma^*\) | 3       | 25               |
+| S\(_2\)→S\(_1\) | Only \(\pi\pi^*\) | 98               | 98               |
+|       | At least one \(\pi\sigma^*\) | 2       | 2                |
+
+**4. Discussion**
+
+**4.1. Topography and dynamics**
+
+In the ground state, 6-AIH\(^+\) is perfectly planar, and it retains the planarity in the S\(_1\) and S\(_3\) state minima too. Nevertheless, its S\(_2\) state minimum is puckered with a boat distortion of the 6-membered ring, involving atoms C5 and C7a. Its Cremer-Pople Q parameter\(^45\) is 0.24 Å. (The Q parameter indicates the puckering intensity, with Q = 0 being a planar ring.) In turn, 7-AIH\(^+\) is planar in the ground state and puckered in the S\(_3\) excited state, also with a C5-C7a boat conformation (Q = 0.18 Å). This out-of-plane minimum is in good agreement with the experiment, which exhibits a low-frequency vibrational progression in S\(_3\) assigned to out-of-plane modes.\(^25\) The rings in the S\(_1\) and S\(_2\) minima are planar with the H atom attached with the six-membered ring N atom is marginally out of the plane.
+
+The boat conformation at the S\(_2\) minimum of 6-AIH\(^+\) and S\(_3\) minimum of 7-AIH\(^+\) indicates that the \(\pi^*\) orbital tends to form a weak Dewar bond between atoms 5 and 7a across the ring. Because the puckering degree is relatively small, we will refer to it as a pre-Dewar
+structure. The density differences in Figure 5 show this bond is stronger in 6- than in 7-AIH\(^+\), explaining why the puckered \(\pi\pi^*\) minimum is more stable in the former. This figure also shows that while the nitrogen atom in position 6 is an electron donor, it is an electron acceptor in position 7.
+
+**Figure 5.** Left: Density difference between the S\(_2\) and S\(_0\) states at the S\(_2\) minimum of 6-AIH\(^+\). Right: Density difference between the S\(_3\) and S\(_0\) states at the S\(_3\) minimum of 7-AIH\(^+\). The electron is promoted from the red to green regions. The figures at the bottom highlight the C5 and C7a atoms involved in the boat conformation. The dashed line indicates the Dewar bond.
+
+These PES topographies give rise to the following dynamics. After 6-AIH\(^+\) is vertically lifted to the S\(_3\) state, it relaxes to the planar S\(_3\) minimum within only 20 fs (Figure 6, left). This fast relaxation is due to the proximity between the S\(_3\) and S\(_0\) minima, which are only 0.03 Å apart, as measured by the root-mean-square deviation (RMSD) between them. Then, it undergoes S\(_3\)\(\rightarrow\)S\(_2\) hopping within 156 fs. In S\(_2\), it relaxes to the puckered S\(_2\) minimum. The population accumulates there, growing up to 30% before it transfers to the S\(_1\) state within 300 fs. In the case of 7-AIH\(^+\), it relaxes to the S\(_3\) minimum within about 40 fs (Figure 6, right). This minimum is located 0.19 Å from the S\(_0\) minimum. After that, the molecule takes longer to hop to S\(_2\), yielding an S\(_3\) lifetime of 268 fs. The population does not accumulate in S\(_2\), and it is immediately transferred to S\(_1\).
+Figure 6. Time evolution of the average RMSD between the molecular geometries obtained during the dynamics simulation and the ground state reference configuration.
+
+In both molecules, the S₃→S₂ hopping events take place at significant energy gaps, about ~0.4 eV (Figure 4-top) due to the high energy of the S₃/S₂ intersection. On the other hand, the S₂→S₁ hopping energy gap peaks at ~0.1 eV (Figure 4-bottom) thanks to the more energetically favorable S₂/S₁ intersection.
+
+The S₃→S₂ hopping geometries are characterized with the Cremer-Pople parameters Q, θ, and ϕ. The parameters θ and ϕ describe the type of puckering the 6-membered ring undergoes. Q, as mentioned, indicates the puckering intensity. Figure 7 shows that the S₃→S₂ hoppings happen in the entire θ-ϕ space. Later we discuss how this distribution helps understand the S₃ lifetimes of 6- and 7-AIH⁺.
+
+7-AIH⁺ shows an additional feature not present in the dynamics of 6-AIH⁺. A fraction of 38% of 7-AIH⁺ trajectories quickly dissociates (11 fs), losing the hydrogen attached to the five-membered ring. During this dissociation, the molecule returns to the ground state, forming the S₀ population we can see in the bottom panel of Figure 3.
+
+4.2. S₃ lifetimes
+
+Before comparing the S₃ lifetimes of the two molecules, we should consider the short time constant (11 fs; Table 3) we observed in 7-AIH⁺ simulations. As explained, this time constant is associated with dissociative trajectories. This dissociation process results from the
+initial conditions sampling, which contains energy excess well above the 0-0 excitation (see SI-1). Thus, when comparing theory to the experiments, we should only consider the long $S_3$ lifetime predicted for 7-AIH$^+$. 
+
+If we bear these considerations in mind, the dynamics simulations predict a shorter $S_3$ lifetime for 6-AIH$^+$ (156 fs) than for 7-AIH$^+$ (278 fs). The value for 7-AIH$^+$ agrees well with the experimental measurement (~230 fs). The one for 6-AIH$^+$, however, is considerably longer than the experimental $S_3$ lifetime, ~25 fs.
+
+The different $S_3$ lifetimes of the two isomers mainly reflect the time for moving from the $S_3$ minimum to the region of $S_3\rightarrow S_2$ hopping. As shown in Figure 8, the $S_3\rightarrow S_2$ hopping geometries are farther away from the $S_3$ minimum for 7-AIH$^+$ than for 6-AIH$^+$. This happens because the planar $S_3$ minimum of 6-AIH$^+$ provides easy access to the entire puckering conformational space, while the puckered pre-Dewar $S_3$ minimum of 7-AIH$^+$ does not. To reach the hopping region, 7-AIH$^+$ either needs to increase the puckering degree in the 5-7a boat region (around $\theta = 90^\circ$ and $\phi = 30^\circ$) or change the puckering conformation. Either way, these processes take time, delaying the internal conversion. For 6-AIH$^+$ (top-left graph in Figure 7),
+
+![Figure 7](https://example.com/figure7.png)
+
+**Figure 7.** Cremer-Pople parameters at the $S_3\rightarrow S_2$ hopping points for 6-AIH$^+$ (top) and 7-AIH$^+$ (bottom). The colour indicates the $Q$ value in the graphs at the left and the hopping time at the right. A cross marks the puckered $S_3$ minimum of 7-AIH$^+$. The planar $S_3$ minimum is not shown.
+the hoppings tend to happen with slightly puckered geometries. (Note the dominance of red and orange points.) On the other hand, for 7-AIH⁺ (bottom-left graph in Figure 7), there are many hoppings at strongly puckered geometries (green and blue points).
+
+![Figure 8](image)
+
+Figure 8. The distribution of the RMSDs for S₃→S₂ hopping geometries, taking the S₃ minimum geometry as the reference.
+
+The internal conversion delaying effect of the pre-Dewar character is also present in the S₂→S₁ transition, although less pronounced. In 6-AIH⁺, where the S₂ minimum has the boat conformation, the population accumulates in S₂ before transferring to S₁ (Figure 3-top). The hopping to S₁ happens, on average, 140 fs after the hopping to S₂. On the other hand, in 7-AIH⁺, which has a planar S₂ minimum, the population is immediately transferred to S₁, without accumulating in S₂ (Figure 3-bottom). The hopping to S₁ happens on average only 38 fs after the hopping to S₂. This very fast S₂ deactivation should give rise to wide experimental bands when exciting the molecule in this state, helping to explain why the experiments are unable to clearly distinguish S₂, as it was hidden in the higher energy part of S₁.
+
+The hypothesis that Dewar structures play a role in the S₃ lifetime of 6- and 7-AIH⁺ had already been raised in Ref. 25. However, in that paper, the discussion focused on Dewar bonds between atoms 4 and 7, while here, we see them between atoms 5 and 7a.
+4.3. State character
+
+As experimentally predicted, the dynamics of 6-AIH\(^+\) is entirely dominated by \(\pi\pi^*\) states. Both crossing states have \(\pi\pi^*\) character in 97% of the S\(_3\)→S\(_2\) hopping events (Table 4). Nevertheless, in the case of 7-AIH\(^+\), \(\pi\sigma^*\) states play a minor but relevant role. During the S\(_3\)→S\(_2\) internal conversion, the trajectories contributing to the long time constant (278 fs) are split into 75% with \(\pi\pi^*/\pi\pi^*\) crossings and 25% with hoppings involving at least one \(\pi\sigma^*\) state. The occurrence of \(\pi\sigma^*\) states was always associated with elongation to the NH bond distance in the 5-membered ring.
+
+For both molecules (and considering only the non-dissociative trajectories of 7-AIH\(^+\)), the S\(_2\)→S\(_1\) hopping is dominated by \(\pi\pi^*/\pi\pi^*\) crossings (98%). Naturally, the 7-AIH\(^+\) dissociative trajectories deactivate through hoppings involving \(\pi\sigma^*\) states.
+
+4.4. Basis set effects
+
+All results we reported in the previous sections were computed with the aug-cc-pVDZ basis set. Nevertheless, we have also used the cc-pVDZ basis set for fast, exploratory calculations. It may interest the readers to know the differences between these two sets of results. The main results are summarized in SI-5.
+
+The static excited-state topography obtained by using the cc-pVDZ basis set (SI-5, Table 1) remains approximately the same as that obtained by using the augmented one. The results of dynamics are also qualitatively the same. However, the population profiles differ quantitatively when comparing the results of aug-cc-pVDZ (Figure 3) and cc-pVDZ (SI-5). With the smaller basis set, the S\(_3\) lifetime of 6-AIH\(^+\) decreases to 136 fs, whereas the same for 7-isomer increases to 361 fs.
+
+In the cc-pVDZ calculation, hoppings between \(\pi\pi^*\) states are the primary pathways (92% in 6-AIH\(^+\) and 87% in 7-AIH\(^+\)). In the few remaining cases, a \(\pi\sigma^*\) was populated at the time of hopping, always close to a nearly dissociated structure.
+
+5. Conclusions
+
+We investigated the excited-state dynamics of 6- and 7-AIH\(^+\) starting from an S\(_3\) excitation, using potential energy surfaces characterization and surface hopping dynamics with
+the ADC(2) method. Our goal was to understand why the $S_3$ lifetime of $6$-AIH$^+$ is significantly shorter than that of $7$-AIH$^+$.
+
+Our results show that the relevant difference between the excited states of the two molecules is the geometry of the $S_3$ minimum. While in $6$-AIH$^+$, it is planar, and near the Franck-Condon region, in $7$-AIH$^+$, the 6-membered ring is puckered with a boat conformation. This boat conformation results from a weak Dewar bond being formed between atoms C5 and C7a. This bond also occurs in $6$-AIH$^+$ (and is even stronger there) but in the $S_2$ state.
+
+The different lifetimes of the two molecules are due to the dynamic evolution between the time the molecules reach the $S_3$ minimum and the time they convert to the $S_2$ state. The $S_3\rightarrow S_2$ hopping can happen at the entire puckering space of the 6-membered ring, and the planar minimum of $6$-AIH$^+$ allows easy access to such conformations. In the case of $7$-AIH$^+$, with a pre-Dewar $S_3$ minimum, access to $S_3\rightarrow S_2$ hopping region depends on either increasing the puckering degree of the boat conformation or moving away to some other puckering region. Both processes take time and elongate the $S_3$ lifetime.
+
+The internal conversion delay caused by the pre-Dewar minimum is also observed in the $S_2\rightarrow S_1$ transition but to a smaller extent. In this case, $6$-AIH$^+$ $S_2$ minimum has a pre-Dewar character, and the hopping to $S_1$ takes longer than in $7$-AIH$^+$ with a planar $S_2$ minimum.
+
+**Conflicts of interest**
+
+There are no conflicts to declare.
+
+**Acknowledgement**
+
+RM, SM, MP, and MB were financially supported the European Union’s Horizon 2020 research and innovation programme under grant agreement No 832237 (project SubNano). They also acknowledge the Centre de Calcul Intensif d’Aix-Marseille for granting access to its high-performance computing resources. MB and CJ acknowledge funding from the Agence Nationale de la Recherche (ANR) under the WSPLIT project (ANR-17-CE05-0005-01). The authors thank Isaure Carvin for the discussions.
+## References
+
+1. J. Merour and B. Joseph, *Current Organic Chemistry*, 2001, 5, 471-506.
+2. D. R. Motati, R. Amaradhi and T. Ganesh, *Organic Chemistry Frontiers*, 2021, 8, 466-513.
+3. L. Merkel, M. G. Hoesl, M. Albrecht, A. Schmidt and N. Budisa, *Chembiochem*, 2010, 11, 305-314.
+4. S.-B. Zhao and S. Wang, *Chemical Society Reviews*, 2010, 39, 3142-3156.
+5. L. Serrano-Andrés, M. Merchán, A. C. Borin and J. Stålring, *International Journal of Quantum Chemistry*, 2001, 84, 181-191.
+6. R. Brause, M. Schmitt, D. Spangenberg and K. Kleinermanns, *MOLECULAR PHYSICS*, 2004, 102, 1615-1623.
+7. M. Schmitt, C. Ratzer, K. Kleinermanns and W. Meerts, *Molecular Physics*, 2004, 102, 1605.
+8. S. Arulmozhiraja, M. L. Coote and J.-y. Hasegawa, *J Chem Phys*, 2015, 143, 204304.
+9. K. Fuke and K. Kaya, *The Journal of Physical Chemistry*, 1989, 93, 614-621.
+10. A. Douhal, S. K. Kim and A. H. Zewail, *Nature*, 1995, 378, 260-263.
+11. A. Nakajima, M. Hirano, R. Hasumi, K. Kaya, H. Watanabe, C. C. Carter, J. M. Williamson and T. A. Miller, *The Journal of Physical Chemistry A*, 1997, 101, 392-398.
+12. J. Catalán and J. Paz, *J Chem Phys*, 2005, 122, 244320.
+13. R. Crespo-Otero, N. Kungwan and M. Barbatti, *Chemical Science*, 2015, 6, 5762-5767.
+14. Y. N. Svartsov and M. Schmitt, *J Chem Phys*, 2008, 128, 214310.
+15. D. Kina, A. Nakayama, T. Noro, T. Taketsugu and M. S. Gordon, *The Journal of Physical Chemistry A*, 2008, 112, 9675-9683.
+16. R. Daengngern, N. Kungwan, P. Wolschann, A. J. A. Aquino, H. Lischka and M. Barbatti, *The Journal of Physical Chemistry A*, 2011, 115, 14129-14136.
+17. G. A. Pino, I. Alata, C. Dedonder, C. Jouvet, K. Sakota and H. Sekiya, *Physical Chemistry Chemical Physics*, 2011, 13, 6325-6331.
+18. N. Kungwan, K. Kerdpol, R. Daengngern, S. Hannongbua and M. Barbatti, *Theoretical Chemistry Accounts*, 2014, 133, 1480.
+19. H. Fang, B. K. Mai and Y. Kim, *Photochemistry and Photobiology*, 2015, 91, 306-314.
+20. K. Kerdpol, R. Daengngern and N. Kungwan, *Molecular Simulation*, 2015, 41, 1177–1186.
+21. I. Lamas, R. Montero, V. Martinez-Martínez, A. Longarte and L. Blancafort, *Physical Chemistry Chemical Physics*, 2020, **22**, 18639-18645.
+22. J. Catalán, J. C. del Valle and M. Kasha, *Proc Natl Acad Sci U S A*, 1999, **96**, 8338-8343.
+23. O.-H. Kwon, *Proc Natl Acad Sci U S A*, 2007, **v. 104**, pp. 8703-8708-2007 v.8104 no.8721.
+24. R. Daengngern, K. Kerdpol, N. Kungwan, S. Hannongbua and M. Barbatti, *Journal of Photochemistry and Photobiology A: Chemistry*, 2013, **266**, 28-36.
+25. J. A. Noble, E. Marceca, C. Dedonder, W. Phasayavan, G. Féraud, B. Inceesungvorn and C. Jouvet, *Physical Chemistry Chemical Physics*, 2020, **22**, 27280-27289.
+26. R. Crespo-Otero and M. Barbatti, *Chem Rev*, 2018, **118**, 7026-7068.
+27. G. Granucci and M. Persico, *J Chem Phys*, 2007, **126**, 134114.
+28. J. C. Tully, *J Chem Phys*, 1990, **93**, 1061-1071.
+29. T. Nelson, A. Naumov, S. Fernandez-Alberti and S. Tretiak, *Chemical Physics*, 2016, **481**, 84-90.
+30. C. Møller and M. S. Plesset, *Physical Review*, 1934, **46**, 618-622.
+31. T. H. Dunning, *J Chem Phys*, 1989, **90**, 1007-1023.
+32. A. B. Trofimov, I. L. Krivdina, J. Weller and J. Schirmer, *Chemical Physics*, 2006, **329**, 1-10.
+33. A. Dreuw and M. Wormit, *WIREs Computational Molecular Science*, 2015, **5**, 82-95.
+34. R. Ahlrichs, M. Bär, M. Häser, H. Horn and C. Kölmel, *Chemical Physics Letters*, 1989, **162**, 165-169.
+35. S. G. Balasubramani, G. P. Chen, S. Coriani, M. Diedenhofen, M. S. Frank, Y. J. Franzke, F. Furche, R. Grotjahn, M. E. Harding, C. Hättig, A. Hellweg, B. Helmich-Paris, C. Holzer, U. Huniar, M. Kaupp, A. Marefat Khah, S. Karbalaei Khani, T. Müller, F. Mack, B. D. Nguyen, S. M. Parker, E. Perlt, D. Rappoport, K. Reiter, S. Roy, M. Rückert, G. Schmitz, M. Sierka, E. Tapavicza, D. P. Tew, C. van Wüllen, V. K. Voora, F. Weigend, A. Wodyński and J. M. Yu, *J Chem Phys*, 2020, **152**, 184107.
+36. B. G. Levine, C. Ko, J. Quenneville and T. J. Martínez, *Molecular Physics*, 2006, **104**, 1039-1051.
+37. B. Levine, J. Coe and T. Martinez, *The journal of physical chemistry. B*, 2008, **112**, 405-413.
+38. M. Hillery, R. F. o Connell, M. O. Scully and E. P. Wigner, *Physics Reports*, 1984, **106**, 121-167.
+
+39. M. Barbatti and K. Sen, *International Journal of Quantum Chemistry*, 2016, **116**, 762-771.
+
+40. S. Bai, R. Mansour, L. Stojanović, J. M. Toldo and M. Barbatti, *Journal*, 2020, **26**, 107.
+
+41. S. Hammes-Schiffer and J. C. Tully, *J Chem Phys*, 1994, **101**, 4657-4667.
+
+42. J. Pittner, H. Lischka and M. Barbatti, *Chemical Physics*, 2009, **356**, 147-152.
+
+43. M. Barbatti, M. Ruckenbauer, F. Plasser, J. Pittner, G. Granucci, M. Persico and H. Lischka, *WIREs: Comp. Mol. Sci.*, 2014, **4**, 26-33.
+
+44. M. Pinheiro Jr, S. Mukherjee and M. Barbatti, 2021, DOI: 10.1098/rsta-2020-0382.
+
+45. D. Cremer and J. A. Pople, *Journal of the American Chemical Society*, 1975, **97**, 1354-1358.

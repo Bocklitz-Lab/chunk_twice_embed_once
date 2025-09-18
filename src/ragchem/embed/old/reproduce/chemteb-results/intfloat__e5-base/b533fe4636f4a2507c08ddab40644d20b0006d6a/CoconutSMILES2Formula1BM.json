@@ -1,0 +1,23 @@
+{
+  "dataset_revision": "af0913db3a92d4b16ad679733c281b3237d399a5",
+  "evaluation_time": 9.906440258026123,
+  "kg_co2_emissions": null,
+  "mteb_version": "1.14.15",
+  "scores": {
+    "test": [
+      {
+        "accuracy": 0.004,
+        "f1": 0.002165870258811363,
+        "hf_subset": "en-en",
+        "languages": [
+          "en-Latn",
+          "eng-Latn"
+        ],
+        "main_score": 0.002165870258811363,
+        "precision": 0.002042844556310186,
+        "recall": 0.004
+      }
+    ]
+  },
+  "task_name": "CoconutSMILES2Formula1BM"
+}

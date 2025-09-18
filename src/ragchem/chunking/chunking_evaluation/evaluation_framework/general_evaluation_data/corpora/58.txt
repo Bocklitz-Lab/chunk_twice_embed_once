@@ -1,0 +1,140 @@
+C(sp³)–H sulfonylation of light hydrocarbons with sulfur dioxide via hydrogen atom transfer photocatalysis in flow
+
+Dmitrii Nagornîi¹, Fabian Raymenants¹, Nikolaos Kaplaneris¹, Timothy Noël¹-*$
+
+¹ Flow Chemistry Group, Van ’t Hoff Institute for Molecular Sciences (HIMS), University of Amsterdam, Amsterdam, The Netherlands.
+
+*Correspondence to: T.Noel@uva.nl.
+
+ABSTRACT
+
+Sulfur-containing scaffolds originating from small alkyl fragments play a crucial role in various pharmaceuticals, agrochemicals, and materials. Nonetheless, their synthesis using conventional methods presents significant challenges. In this study, we introduce a practical and efficient approach that harnesses hydrogen atom transfer photocatalysis to activate volatile alkanes, such as isobutane, butane, propane, ethane, and methane. Subsequently, these nucleophilic radicals react with SO₂ to yield the corresponding sulfinates. These sulfinates then serve as versatile building blocks for the synthesis of diverse sulfur-containing organic compounds, including sulfones, sulfonamides, and sulfonate esters. Our use of flow technology offers a robust, safe and scalable platform for effectively activating these challenging gaseous alkanes, facilitating their transformation into valuable sulfinates.
+Gases, being lightweight and arguably the most atom-efficient choice of reagents for various transformations, present a unique set of challenges when it comes to their practical use in the laboratory environment.\textsuperscript{1} The inherent difficulties in handling gases using conventional batch equipment, coupled with the physical separation of gases and liquid reaction mixtures due to gravity, often discourage their utilization. When gases serve as reagents, they need to diffuse within the reaction mixture before they can react effectively. To overcome this limitation, researchers frequently turn to Henry's law, which allows for the enhancement of gas solubility by increasing the pressure within the vessel.\textsuperscript{2} However, this approach necessitates specialized equipment, such as Parr bombs, and additional safety precautions. As a consequence, setting up multiple reactions concurrently becomes impractical, resulting in a slow pace of reaction discovery and optimization. To circumvent these challenges, chemists often resort to the development of engineered reagents that are crystalline, easy to handle and store.\textsuperscript{3} However, such reagents tend to be more expensive and less atom-efficient than their gaseous counterparts. For instance, delivering 1 mol of SO\textsubscript{2} from the convenient reagent DABSO\textsubscript{4\textsubscript{6}} [i.e., DABCO-bis(sulfur dioxide)] costs approximately three orders of magnitude more than using the gas itself.
+
+Besides practical considerations, some gases are also challenging to activate under conditions suitable for synthetic organic chemistry due to their inert nature. Notably, achieving selective functionalization of C(sp\textsuperscript{3})–H bonds in saturated volatile hydrocarbons like methane, ethane, propane, and butane represents a significant goal in modern C–H activation chemistry.\textsuperscript{7,8} Despite recent advancements, efficiently functionalizing gaseous alkanes remains a formidable task. This challenge is exacerbated by their unfavorable thermodynamics, with bond dissociation energies (BDE) reaching up to 105 kcal/mol,\textsuperscript{9} and compounded by issues related to chemoselectivity, solvent compatibility, and solubility (Figure 1A).\textsuperscript{1} Consequently, these
+reactions often demand harsh conditions, characterized by high temperatures and pressures, which may not align with the delicate nature of most organic molecules.
+
+Recently, our group and other researchers have demonstrated that hydrogen atom transfer (HAT) photocatalysis offers a promising avenue for achieving mild activation conditions in the functionalization of volatile alkanes.\textsuperscript{10-12} Although this reaction has historically posed practical challenges when conducted in batch conditions, the emergence of flow technology has introduced a convenient reactor platform.\textsuperscript{13} This reactor design enhances the overall irradiation profile within the reaction mixture and increases gas-liquid mass transfer rates.\textsuperscript{14} As a result, this approach leads to substantial reductions in reaction times, increased selectivity,\textsuperscript{15} and enhanced practicality for exploring a wider scope of reactions.\textsuperscript{16} Notwithstanding this recent progress, there are still significant limitations in the scope of available reactions suitable for light alkane activation.
+
+Sulfones, sulfonamides, and sulfonate esters represent ubiquitous functional groups with applications spanning various fields, including pharmaceuticals,\textsuperscript{17, 18} agrochemicals,\textsuperscript{19, 20} and material science (Figure 1C).\textsuperscript{21} Commonly, sulfinate salts serve as versatile precursors for constructing sulfur-containing compounds due to their reactivity and stability.\textsuperscript{22, 23} Industrial methods currently employed for synthesizing sodium sulfinates rely on a two-step process involving the reduction of corresponding sulfonyl chlorides. These chlorides, in turn, are derived from the respective alkanes, sulfur dioxide (SO\textsubscript{2}), and chlorine gas (Figure 1B).\textsuperscript{24} This conventional approach necessitates the handling of highly hazardous and corrosive gases (SO\textsubscript{2} and Cl\textsubscript{2}) at elevated temperatures and pressures. In light of the increasing use of sulfur dioxide and its surrogates in recent methodologies,\textsuperscript{25-27} our objective was to develop a method that harnesses the advantages of both flow chemistry and photocatalysis in conjunction with gaseous alkanes. While alkyl sulfinates derived from C1-4 alkanes are commonly found in drug structures (Figure 1C), their direct synthesis from light alkanes has proven to be an elusive task.
+thus far. As presented herein, we have developed a general flow-based platform for generating synthetically valuable alkyl sulfinates directly from readily available and cost-effective gases (Figure 1B). Most notably, we demonstrated their synthetic utility in the late-stage functionalization of medicinally relevant organic scaffolds.
+
+Figure 1. C(sp<sup>3</sup>)–H sulfinylation of light alkanes as a strategy for the direct valorization of abundant gaseous feedstocks. BDE: bond dissociation energy, FG: functional group.
+
+We initiated our investigation into the proposed C(sp<sup>3</sup>)–H sulfinylation of gaseous alkanes by blending a mixture of propane and an aqueous solution of sulfur dioxide in the presence of tetrabutylammonium decatungstate (TBADT) in an acetonitrile:H<sub>2</sub>O solution (4:1, 0.2 M). This reaction mixture was then passed through a transparent continuous-flow microreactor (FEP tubing, ID=0.5 mm, 1.5 mL volume) exposed to six high-intensity UV-A light sources (Chip-on-Board LED, λ = 365 nm, 144 W optical power).<sup>28</sup> Subsequently, the reaction stream was combined with benzyl bromide and sodium bicarbonate using a fed-batch approach. To facilitate complete liquefaction of the gas and enhance the efficiency of C(sp<sup>3</sup>)–H bond activation through decatungstate-catalysed HAT, a 34 bar back-pressure regulator (BPR) was
+positioned at the reactor outlet.\(^1\) After a careful exploration of various reaction conditions, we successfully obtained the desired product in a 48% yield, with just a one-hour residence time, in the presence of 1 mol% of TBADT (Table 1, Entries 1-2). Prolonged exposure to irradiation did not yield further improvements in the reaction yield likely due to degradation (Table 1, Entry 1). Increasing the amount of propane gas beyond 5 equivalents did not lead to a significant improvement in yield (Table 1, Entry 3). Remarkably, the choice of cation for the decatungstate photocatalyst was found to impact the reaction yield, with sodium decatungstate (NaDT) yielding a 59% yield, likely due to its higher solubility (Table 1, Entry 4).\(^2\) Higher concentrations of SO\(_2\) led to enhanced yields by improving reaction rates, simultaneously increasing the overall throughput and thus the scalability of the process (Table 1, Entry 5).
+
+Given the low cost of the gaseous components, we adjusted the stoichiometry by adding three equivalents of SO\(_2\), resulting in a high yield for the transformation, with benzyl bromide serving as the limiting reagent (Table 1, Entry 6).
+
+**Table 1.** Optimization of the photocatalytic sulfinylation of propane with SO\(_2\) in flow.
+
+| Entry | Parameter                          | Deviation from the standard conditions | Yield [%]\(^3\) |
+|-------|------------------------------------|----------------------------------------|-----------------|
+| 1     | Residence time [h]                 | 0.5 / 1 / 2 / 4                         | 41 / 48 / 46 / 25 |
+| 2     | Catalyst loading [mol%]            | 0.5 / 1 / 2 / 3                         | 18 / 48 / 44 / 34 |
+| 3     | Gas equivalents                    | 2.5 / 5 / 10                            | 19 / 48 / 45    |
+| 4     | DT source                          | TBADT / NaDT                            | 48 / 59         |
+| 5     | Concentration SO\(_2\) [mol/L]    | 0.1 / 0.2                               | 43 / 59         |
+| 6     | BnBr as limiting reagent           | BnBr 1 eq.\(^4\)                        | 95              |
+
+[a] Reaction conditions: SO\(_2\) (0.4 mmol), propane (2.0 mmol), DT catalyst (1 mol%) in CH\(_3\)CN/H\(_2\)O (4:1, 2 mL, 0.2M) irradiated in photoreactor (365 nm, 144 W optical output.
+power) for 1 h. The outflow is collected in a flask containing NaHCO$_3$ (1.0 mmol) and benzyl bromide (0.6 mmol, 1.5 equiv.) and is stirred overnight at room temperature. [b] Yield determined by $^1$H-NMR spectroscopy using trichloroethylene as external standard. [c]
+
+Optimized conditions: SO$_2$ (0.6 mmol), propane (3.0 mmol), DT catalyst (1 mol%) in CH$_3$CN/H$_2$O (4:1, 3 mL, 0.2 M) irradiated in photoreactor (365 nm, 144 W optical output power) for 1 h. The outflow is collected in a flask containing NaHCO$_3$ (1.2 mmol) and benzyl bromide (0.2 mmol, 1 equiv.) and is stirred overnight at room temperature.
+
+Having established optimized conditions, we embarked on exploring the sulfinylation of the light alkane homologous series (C1–C4) as depicted in Scheme 1. Within this study, we selected various electrophilic traps for the intermediate sulfinic acid, including functionally diverse alkyl bromides such as benzyl, allyl bromide, and α-bromo amide. This series encompasses compounds like benzyl bromide, bromomethyl pyridine, geranyl bromide, as well as structurally intriguing substrates such as tryptophan and quinoline derivatives, each bearing a diverse array of functional groups.
+
+By employing isobutane as the hydrogen donor in the sulfinylation reaction, we achieved efficient installation of the tert-butylsulfonyl group on the 2–6 series of electrophiles, yielding good to excellent results ranging from 49% to 93% isolated yield. When isobutane is used, tertiary radicals are the preferred outcome over primary radicals, primarily due to the lower bond dissociation energy (BDE) of the C–H bond and the increased stability of the resulting radical. This preference results in an average regioisomeric ratio of 87:13.10
+
+https://doi.org/10.26434/chemrxiv-2024-djx7b ORCID: https://orcid.org/0000-0002-3107-6927 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+Scheme 1. Reaction scope for the photocatalytic sulfinylation of light alkanes with sulfur dioxide and trapping with electrophiles. Photocatalytic reactions are performed in flow at 0.2 M concentration (SO$_2$, 0.6 mmol scale), with 5 equiv. of light alkane and 1 mol% of NaDT photocatalyst, under irradiation of UV-A light (365 nm, 144 W optical output power). Residence time of 1 h for isobutane, $n$-butane and propane, 2 h for ethane and methane. Pressure of 34 bar for isobutane, $n$-butane and propane, 52 bar for ethane and methane. The outflow is collected in a flask containing NaHCO$_3$ and alkyl bromide (0.2 mmol) and is stirred for 1 h at 60°C. For reactions with methane, the photocatalytic step is performed at 4 mmol scale (SO$_2$), 6 mmol scale for entry 23 and 24. See SI for further experimental details.
+Likewise, when butane was utilized, we achieved good to excellent yields for the same set of electrophiles (ranging from 52% to 90%). However, the regioisomeric ratio in this case was slightly lower (82:18) due to the narrower difference between the BDE values of the secondary and primary C–H bonds. Similarly, propane underwent successful functionalization, resulting in the corresponding sulfones 1, 12–15 in good to excellent isolated yields (ranging from 68% to 95%). Due to its comparable BDE values to butane, we observed a similar trend in regioselectivity (averaging 80:20) during the activation of propane, resulting in the formation of the corresponding adducts with good to excellent isolated yields (1, 12-15, 68-95 %).10
+
+Due to the stronger primary C(sp^3)–H bonds in ethane, the functionalization process necessitated an extended residence time of 2 hours instead of the previous 1 hour. Additionally, to ensure complete liquefaction of the gas and minimize potential gas-to-liquid mass transfer effects, a back-pressure regulator (BPR) set at 52 bar was employed. These optimized conditions yielded synthetically useful to excellent isolated yields, ranging from 41% to 89%. Methane, characterized by its high bond dissociation energy (BDE) of C–H bonds (BDE = 105 kcal/mol), presents a substantial challenge for functionalization. Despite requiring the most demanding activation conditions, methane stands out as one of the most abundant feedstock gases, making it a highly sought-after C1 building block,30 if it were more facile to activate at more benign reaction conditions. To tackle the functionalization of methane, a 2-hour reaction time was employed, along with the use of deuterated acetonitrile to prevent the functionalization of the reaction solvent, a method aligned with our prior work.11 These optimized reaction conditions successfully yielded synthetically valuable building blocks 21 to 25 in satisfactory to good yields, ranging from 27% to 76%.
+
+Furthermore, we harnessed the ease of scaling up flow reactions and synthesized quinoline derivative 15 on a 1 mmol scale, maintaining both yield and regioselectivity (82%, 80:20 r.r). This result underscores the method's ability to be seamlessly scaled up to produce meaningful
+quantities, which is particularly valuable for researchers working in medicinal or crop-protection chemistry.
+
+Notably, by utilizing a single set of reaction conditions, we achieved the synthesis of structural analogues of various sulfone compounds, each modified with distinct short alkyl fragments, accomplished solely by altering the choice of the light alkane gas.
+
+To underscore the extensive applicability of this method in the synthesis of diverse organosulfur compounds, various post-functionalization procedures were applied to ethane sulfinate (Scheme 2). Our mild protocol facilitated straightforward follow-up functionalization through an operationally-simple fed-batch process. One-pot protocols enabled the synthesis of heteroaryl sulfones via aromatic nucleophilic substitution reactions ($\text{SN}_{Ar}$), yielding benzothiazole derivative 26 and thiophene derivative 27 in 76% and 63% yields, respectively. Additionally, the use of diaryliodonium salts led to the synthesis of aryl sulfones 28 and 29 in 79% and 68%, respectively. The Michael addition reaction of ethane sulfinate intermediate with $N$-phenyl succinimide resulted in the formation of imide 30 in 56% yield. A $\text{cine-sulfonylation}$ reaction was applied for the synthesis of highly electrophilic alkenyl sulfone 31 with a yield of 70%. A two-step procedure was utilized for the synthesis of sulfonamides and sulfonate esters, involving a sulfonyl chloride intermediate, leading to medicinally relevant compounds 32–36, including derivatizations of Amoxepine and (+)-Leelamine. Primary, secondary, and aromatic amines, along with two alcohols were sulfonylated, providing the desired products in synthetically useful yields ranging from 27% to 68%.
+Scheme 2. Functionalization of ethyl sulfinic acid into diverse ethyl sulfonyl compounds. See SI for further experimental details. TT = thianthrene.
+
+Lastly, we tested the unique capability of continuous-flow technology to combine different reaction steps in a telescoped reaction sequence (Figure 2). The photocatalytic sulfinylation of propane was initiated in the first step under high-intensity light irradiation, with a residence time of 1 hour. Subsequently, the process stream exiting from the photoreactor was merged with a stream containing benzyl bromide, and introduced into a second flow reactor for nucleophilic
+substitution. A back-pressure regulator (BPR) was positioned at the outlet of the second reactor to maintain stable flow conditions across the entire reactor network. We opted for the soluble organic base, 2,6-lutidine, instead of NaHCO$_3$ to prevent clogging.$^{33}$ Consequently, the corresponding sulfone product 1 was isolated in good yield after both steps (86%, 80:20 r.r), demonstrating similar efficiency to our fed-batch approach.
+
+Figure 2. Telescop ed reaction sequence in flow of the photocatalytic sulfinylation of propane with SO$_2$ and subsequent trapping with benzyl bromide.
+
+In conclusion, we have established a practical protocol for the photocatalytic conversion of C(sp$^3$)–H bonds originating from lightweight alkanes into alkyl sulfinates, employing SO$_2$. This methodology grants unprecedented access to a wide range of valuable organosulfur compounds bearing small aliphatic fragments. Although affordable and atom-economical, gaseous reagents are frequently disregarded due to a combination of chemical and practical considerations. In contrast, our study showcases their facile applicability as versatile reagents within the realm of organic synthesis, facilitated by the use of flow technology.
+
+Acknowledgements
+
+We are grateful to have received generous funding from the European Union H2020 under the HORIZON-HLTH-2021-IND-07 (SusPharma, 101057430, T.N., D.N., N.K.), the ERC CoG (FlowHAT, No. 101044355, T.N.), and the FETopen (FLIX, No. 862179, T.N. and F.R.).
+Keywords: Flow Chemistry • Light Alkane • Sulfinylation • Hydrogen Atom Transfer • Photocatalysis
+
+References
+
+1. Mallia, C. J.; Baxendale, I. R., The Use of Gases in Flow Synthesis. Org. Process Res. Dev. 2016, 20 (2), 327-360.
+
+2. Colquhoun, H. M.; Thompson, D. J.; Twigg, M. V., Practical Aspects. In Carbynlation: Direct Synthesis of Carbonyl Compounds, Springer US: Boston, MA, 1991; pp 33-54.
+
+3. Emmett, E. J.; Willis, M. C., The Development and Application of Sulfur Dioxide Surrogates in Synthetic Organic Chemistry. Asian J. Org. Chem. 2015, 4 (7), 602-611.
+
+4. Andrews, J. A.; Willis, M. C., DABSO – A Reagent to Revolutionize Organosulfur Chemistry. Synthesis 2022, 54 (7), 1695-1707.
+
+5. Woolven, H.; González-Rodríguez, C.; Marco, I.; Thompson, A. L.; Willis, M. C., DABCO-Bis(sulfur dioxide), DABSO, as a Convenient Source of Sulfur Dioxide for Organic Synthesis: Utility in Sulfonamide and Sulfamide Preparation. Org. Lett. 2011, 13 (18), 4876-4878.
+
+6. Seyed Hashtroudi, M.; Fathi Vavsari, V.; Balalaie, S., DABSO as a SO2 gas surrogate in the synthesis of organic structures. Org. Biomol. Chem. 2022, 20 (11), 2149-2163.
+
+7. Hartwig, J. F.; Larsen, M. A., Undirected, Homogeneous C–H Bond Functionalization: Challenges and Opportunities. ACS Cent. Sci. 2016, 2 (5), 281-292.
+
+8. Pulcinella, A.; Mazzarella, D.; Noël, T., Homogeneous catalytic C(sp3)–H functionalization of gaseous alkanes. Chem. Commun. 2021, 57 (78), 9956-9967.
+
+9. Capaldo, L.; Ravelli, D.; Fagnoni, M., Direct Photocatalyzed Hydrogen Atom Transfer (HAT) for Aliphatic C–H Bonds Elaboration. Chem. Rev. 2022, 122 (2), 1875-1924.
+10. Laudadio, G.; Deng, Y.; van der Wal, K.; Ravelli, D.; Nuño, M.; Fagnoni, M.; Guthrie, D.; Sun, Y.; Noël, T., C(sp3)–H functionalizations of light hydrocarbons using decatungstate photocatalysis in flow. Science 2020, 369 (6499), 92-96.
+
+11. Raymenants, F.; Masson, T. M.; Sanjosé-Orduna, J.; Noël, T., Efficient C(sp3)−H Carbonylation of Light and Heavy Hydrocarbons with Carbon Monoxide via Hydrogen Atom Transfer Photocatalysis in Flow. Angew. Chem. Int. Ed. 2023, 62 (36), e202308563.
+
+12. Hu, A.; Guo, J.-J.; Pan, H.; Zuo, Z., Selective functionalization of methane, ethane, and higher alkanes by cerium photocatalysis. Science 2018, 361 (6403), 668-672.
+
+13. Laporte, A. A. H.; Masson, T. M.; Zondag, S. D. A.; Noël, T., Multiphasic Continuous-Flow Reactors for Handling Gaseous Reagents in Organic Synthesis: Enhancing Efficiency and Safety in Chemical Processes. Angew. Chem. Int. Ed., e202316108.
+
+14. Buglioni, L.; Raymenants, F.; Slattery, A.; Zondag, S. D. A.; Noël, T., Technological Innovations in Photochemistry for Organic Synthesis: Flow Chemistry, High-Throughput Experimentation, Scale-up, and Photoelectrochemistry. Chem. Rev. 2022, 122 (2), 2752-2906.
+
+15. Bernús, M.; Mazzarella, D.; Stanić, J.; Zhai, Z.; Yeste-Vázquez, A.; Boutureira, O.; Gargano, A. F. G.; Grossmann, T. N.; Noël, T., A modular flow platform for sulfur(VI) fluoride exchange ligation of small molecules, peptides and proteins. Nat. Synth. 2023, DOI: 10.1038/s44160-023-00441-0.
+
+16. Zondag, S. D. A.; Mazzarella, D.; Noël, T., Scale-Up of Photochemical Reactions: Transitioning from Lab Scale to Industrial Production. Annu. Rev. Chem. Biomol. Eng. 2023, 14 (1), 283-300.
+
+17. Feng, M.; Tang, B.; Liang, H. S.; Jiang, X., Sulfur Containing Scaffolds in Drugs: Synthesis and Application in Medicinal Chemistry. Curr. Top. Med. Chem. 2016, 16 (11), 1200-1216.
+
+18. Tilby, M. J.; Willis, M. C., How do we address neglected sulfur pharmacophores in drug discovery? Expert Opin. Drug Discov. 2021, 16 (11), 1227-1231.
+19. Devendar, P.; Yang, G.-F., Sulfur-Containing Agrochemicals. Top. Curr. Chem. 2017, 375 (6), 82.
+
+20. Scott, K. A.; Njardarson, J. T., Analysis of US FDA-Approved Drugs Containing Sulfur Atoms. Top. Curr. Chem. 2018, 376 (1), 5.
+
+21. Mutlu, H.; Ceper, E. B.; Li, X.; Yang, J.; Dong, W.; Ozmen, M. M.; Theato, P., Sulfur Chemistry in Polymer and Materials Science. Macromol. Rapid Commun. 2019, 40 (1), 1800650.
+
+22. Liang, S.; Hofman, K.; Friedrich, M.; Manolikakes, G., Recent Advances in the Synthesis and Direct Application of Sulfinate Salts. Eur. J. Org. Chem. 2020, 2020 (30), 4664-4676.
+
+23. Reddy, R. J.; Kumari, A. H., Synthesis and applications of sodium sulfinates (RSO2Na): a powerful building block for the synthesis of organosulfur compounds. RSC Adv. 2021, 11 (16), 9130-9221.
+
+24. DOW Improved process for the sulfochlorination of hydrocarbons. US2012116121A1, 2012.
+
+25. Sarver, P. J.; Bissonnette, N. B.; MacMillan, D. W. C., Decatungstate-Catalyzed C(sp3)–H Sulfinylation: Rapid Access to Diverse Organosulfur Functionality. J. Am. Chem. Soc. 2021, 143 (26), 9737-9743.
+
+26. Ye, S.; Li, X.; Xie, W.; Wu, J., Photoinduced Sulfonylation Reactions through the Insertion of Sulfur Dioxide. Eur. J. Org. Chem. 2020, 2020 (10), 1274-1287.
+
+27. Blum, S. P.; Hofman, K.; Manolikakes, G.; Waldvogel, S. R., Advances in photochemical and electrochemical incorporation of sulfur dioxide for the synthesis of value-added compounds. Chem. Commun. 2021, 57 (67), 8236-8249.
+
+28. Wan, T.; Wen, Z.; Laudadio, G.; Capaldo, L.; Lammers, R.; Rincón, J. A.; García-Losada, P.; Mateos, C.; Frederick, M. O.; Broersma, R.; Noël, T., Accelerated and Scalable
+C(sp3)–H Amination via Decatungstate Photocatalysis Using a Flow Photoreactor Equipped with High-Intensity LEDs. *ACS Cent. Sci.* **2022**, *8* (1), 51-56.
+
+29. Schultz, D. M.; Lévesque, F.; DiRocco, D. A.; Reibarkh, M.; Ji, Y.; Joyce, L. A.; Dropinski, J. F.; Sheng, H.; Sherry, B. D.; Davies, I. W., Oxyfunctionalization of the Remote C–H Bonds of Aliphatic Amines by Decatungstate Photocatalysis. *Angew. Chem. Int. Ed.* **2017**, *56* (48), 15274-15278.
+
+30. Schönherr, H.; Cernak, T., Profound Methyl Effects in Drug Discovery and a Call for New C–H Methylation Reactions. *Angew. Chem. Int. Ed.* **2013**, *52* (47), 12256-12267.
+
+31. Liu, M.-S.; Du, H.-W.; Meng, H.; Xie, Y.; Shu, W., Unified metal-free intermolecular Heck-type sulfonylation, cyanation, amination, amidation of alkenes by thianthrenation. *Nat. Commun.* **2024**, *15* (1), 529.
+
+32. Britton, J.; Raston, C. L., Multi-step continuous-flow synthesis. *Chem. Soc. Rev.* **2017**, *46* (5), 1250-1271.
+
+33. Chen, Y.; Sabio, J. C.; Hartman, R. L., When Solids Stop Flow Chemistry in Commercial Tubing. *J. Flow Chem.* **2015**, *5* (3), 166-171.

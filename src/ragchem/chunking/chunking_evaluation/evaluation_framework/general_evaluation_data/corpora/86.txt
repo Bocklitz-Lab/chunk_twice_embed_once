@@ -1,0 +1,313 @@
+Accelerated stochastic simulation of free radical polymerization through a hybrid algorithm
+
+Hang Yin,†‡ Yinghao Li,‡ Wenxin Wang,‡ and Jing Lyu*,‡
+
+†School of Mathematics and Statistics, University College Dublin, Dublin
+‡Charles Institute of Dermatology, School of Medicine, University College Dublin, Dublin
+
+E-mail: jing.lyu@ucd.ie
+
+Abstract
+
+Stochastic Simulation Algorithms (SSA) are a cornerstone in simulating Free Radical Polymerization (FRP) due to their accuracy and reliability. However, computational inefficiency remains a challenge for large-scale and complex polymerization systems. This work introduces a novel stochastic simulation algorithm designed to significantly enhance computational efficiency while maintaining high accuracy. By streamlining simulation processes, the proposed algorithm reduces computational time and extends the scalability of stochastic methods. Beyond FRP, the algorithm is also applied to Degenerative Transfer (DT) systems as a demonstration of its versatility. These results showcase the algorithm’s potential as a universal tool for accelerating stochastic simulations in polymer science, enabling deeper insights and broader applications across various polymerization processes.
+
+1 Introduction
+
+Free radical polymerization (FRP) is a fundamental chain-growth polymerization process that is both well-established and straightforward. Despite its simplicity, FRP holds immense industrial
+importance, with over 50% of plastics produced annually through the polymerization of vinyl monomers. This critical role has driven increasing efforts to simulate FRP, as accurate modeling provides valuable insights into reaction mechanisms, polymer properties, and system optimization.
+
+Computational methods for studying FRP can be broadly categorized into three approaches: statistical models, deterministic methods, and stochastic methods. Statistical models predict macroscopic polymer properties based on bonding rules but overlook kinetic histories, limiting their use in dynamic systems. Deterministic methods provide detailed kinetic insights but are computationally intensive for complex reaction networks, often requiring approximations that may reduce accuracy. In contrast, stochastic methods simulate individual reaction events based on probabilities, offering a more precise representation of the inherent randomness in polymerization processes. Among these, the stochastic simulation algorithm (SSA), also known as the Gillespie algorithm, is particularly notable for capturing the discrete and probabilistic nature of molecular events. SSA simulates each reaction step individually by calculating time intervals between events based on reaction propensities and iteratively updating the system state. Unlike statistical or deterministic methods, SSA avoids the explicit derivation and solution of complex kinetic equations, relying instead on reaction probabilities to drive the simulation. This makes SSA especially suitable for describing the microkinetics of complex polymerization networks, enhancing its utility in the study of both FRP and CRP.
+
+Despite the successful application of the SSA to FRP, when the system size is large and the number of active radicals is typically very low, the simulation requires a large number of species or reactions to achieve reliable results. This results in exceedingly high computational costs, which limit the practicality of SSA for large-scale or complex systems. Addressing this issue is crucial, as reducing the required number of species or reactions without compromising accuracy would make stochastic simulations more efficient and accessible for broader applications.
+
+To address the limitations of SSA in simulating large-scale systems, the $\tau$-leaping algorithm has been developed as one of the most notable methods. $\tau$-leaping allows multiple reactions to occur within a single time step by approximating reaction counts as Poisson random variables,
+significantly reducing computational effort. However, due to the extremely low concentration of radicals in polymerization systems, \( \tau \)-leaping is not well-suited for accurately modeling polymerization processes.
+
+In this work, we propose a novel algorithm specifically designed to address the computational inefficiencies of simulating FRP systems with low concentrations of active radicals. By leveraging the sparse and stochastic nature of these reactions, our approach achieves a substantial 67\% reduction in computation time while maintaining high accuracy in capturing reaction dynamics. The algorithm was further extended to the simulation of degradation-transformation (DT) systems, where it demonstrated similar efficiency gains and precision. The proposed algorithm represents a significant step forward in the computational modeling of polymerization processes, offering new insights into reaction mechanisms and enabling more accurate predictions of polymer properties.
+
+2 Methods and Parameters
+
+2.1 Baseline Algorithm
+
+The SSA is employed as the baseline for evaluating the performance of the proposed method. It has proven to be highly reliable and has been extensively applied in the numerical simulation of numerous chemical reactions.
+
+The derivation of the SSA is relatively straightforward. For a well-stirred chemical system with \( N \) reactions, starting from the reaction probability density function and applying limits as well as solving ordinary differential equations (ODEs), it can be shown that the time interval between two successive reactions follows an exponential distribution with a parameter \( \sum a_i \). Here, \( a_i \), referred to as the propensity function, represents the microscopic reaction rate for the \( i \)-th reaction.
+
+Furthermore, the occurrence of specific reactions is determined stochastically based on the proportion of each reaction’s propensity function to the total propensity function. A detailed pseudocode for implementing this algorithm is provided in the supplementary material.[Algorithm A-1]
+
+https://doi.org/10.26434/chemrxiv-2025-gxj4r ORCID: https://orcid.org/0009-0009-2635-1769 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+According to Gillespie’s theory, it is necessary to transform the actual reaction rate constant $k_i$ into a probability constant $\pi_i$ that can be utilized in Monte Carlo simulations. The transformation rules are provided in Table 1, where $N_A$ denotes Avogadro constant and $V$ represents the simulation volume.
+
+**Table 1: The conversion of $k_i$ and $\pi_i$ for reactions of different orders**
+
+| Order | $\pi_A = k_A^a$ | $\pi_{AB} = \frac{k_{AB}}{N_A^2V^2}$ | $\pi_{AA} = \frac{2k_{AA}}{N_A^2V^2}$ | $\pi_{AAA} = \frac{6k_{AAA}}{N_A^2V^2}$ |
+|-------|-----------------|-----------------------------------|---------------------------------|---------------------------------|
+| 1     |                |                                   |                                |                                |
+| 2     |                |                                   |                                |                                |
+| 3     |                |                                   |                                |                                |
+| ...   |                |                                   |                                |                                |
+
+*a* $A$, $B$, and $C$ represent different reactants.
+
+### 2.2 Parameters choose
+
+In this simulation, the ratio of monomer to initiator was set at 100:1, with the monomer concentration fixed at 5 mol/L. Detailed parameters, including the reaction equilibrium constants, are summarized in Table 2. In the subsequent simulation of the DT system, the condition where the chain transfer agent (CTA) and the initiator are present in equimolar amounts was selected for investigation.
+
+**Table 2: Parameters and Data for Simulation**
+
+| Role   | Concentration(mol/L) | Simulated quantity | Feed ratio |
+|--------|----------------------|--------------------|------------|
+| Monomer| 5                    | $10^9$             |            |
+| Initiator| 0.05               | $10^7$             | 100:1(:1)  |
+| CTA    | 0.05                 | $10^7$             |            |
+
+| Parameter | Value            | Probability ($\pi_i$) | Reference |
+|-----------|------------------|-----------------------|-----------|
+| $k_d$     | $3.78 \times 10^{-5}$ | $3.78 \times 10^{-5}$ |           |
+| $k_p$     | $1.04 \times 10^3$  | $5.20 \times 10^{-6}$ |           |
+| $k_T$     | $3.16 \times 10^7$  | $3.16 \times 10^{-1}$ |           |
+| $k_{tr}$  | $1 \times 10^5$   | $5 \times 10^{-4}$   |           |
+2.3 Limitations of $\tau$-leaping Algorithm in FRP
+
+While the SSA provides an exact solution to the stochastic master equation, its computational cost can be significant, particularly for large systems. This is because the algorithm requires simulating every individual reaction event, making it computationally expensive for systems with a high degree of complexity or a large number of species. To address this limitation, Gillespie later proposed the $\tau$-leaping algorithm, which significantly improves simulation speed at the cost of introducing negligible errors.
+
+The $\tau$-leaping algorithm is closely related to the Poisson process. From the theory of the Poisson process, it is established that if the interarrival times of events follow an exponential distribution with rate parameter $\lambda$, and the intervals are mutually independent, the process can be classified as a Poisson process. Furthermore, the number of events occurring within any given time interval $t$ follows a Poisson distribution with a mean of $\lambda t$.
+
+However, the SSA algorithm is not a Poisson process, as the parameter $\sum N a_i$ of the exponential distribution must be recalculated and updated after each event. Gillespie demonstrated that under the Leap Condition, by selecting an appropriate time interval $\tau$, the process can be approximated as a Poisson process, allowing for "leaps" and thus significantly improving simulation efficiency. The pseudocode is provided in the supplementary material [Algorithm A-2].
+
+However, the $\tau$-leaping algorithm is not practical for FRP and other Chain Reaction Polymerization (CRP) systems. Considering FRP as an example, starting from a simplified perspective, it consists of three primary steps: initiation(1a-1,1a-2), propagation(1b), and termination(1c).
+
+\[
+\begin{align*}
+\text{Ini} & \xrightarrow{\Delta \& \ k_d} 2R
+\end{align*}
+\]  
+
+\[
+\begin{align*}
+R \cdot +M & \xrightarrow{k_p} R-M_1
+\end{align*}
+\]  
+
+\[
+\begin{align*}
+R-M_x \cdot +M & \xrightarrow{k_p} R-M_{x+1}
+\end{align*}
+\]  
+
+\[
+\begin{align*}
+R-M_x \cdot +R-M_y & \xrightarrow{k_T} R-M_{x+y}-R
+\end{align*}
+\]
+For the initiation step, the reaction rate equations can be expressed as:
+
+$$\frac{-d[I]}{dt} = \frac{1}{2} \cdot \frac{d[R^+]}{dt} = k_d [I],$$
+
+(2)
+
+where \( \frac{d[R^+]}{dt} \) represents the generation rate of radicals. By solving the first and third parts of the equation, the following expression is obtained:
+
+$$[I] = C \exp \{-k_d \cdot t\},$$
+
+(3)
+
+where \( C \) is a constant. Similarly, by solving the first and second parts of the equation, the following expression is derived:
+
+$$[R^+] = \sqrt{\frac{k_d}{k_T}} [I].$$
+
+(4)
+
+By substituting Eq. 3 into Eq. 4, the following expressions are obtained:
+
+$$[R^+] = \sqrt{\frac{k_d}{k_T}} [I] = \sqrt{\frac{k_d}{k_T}} [I_0] \exp \{-k_d \cdot t\}.$$  
+
+(5)
+
+Using the parameters provided in Table 2, the calculations yield:
+
+$$[R^+] = \sqrt{5.981 \times 10^{-14} \cdot \exp (-3.78 \times 10^{-5} \cdot t)}.$$  
+
+(6)
+
+It can be observed that the concentration of active radicals in real reaction systems is extremely low. For example, in the simulation where \( 10^7 \) initiators correspond to a real reaction concentration of \( 0.05 \) mol/L, the steady-state concentration of active radicals can be expressed as \( [R^+]_0 \times \frac{10^7}{0.05} \approx 49 \), which gradually decays over time. Notably, when chain initiation, propagation, and termination occur, the concentration of active radicals fluctuates by \( \pm 2 \). Consequently, the parameter \( \sum N a_i \) of the exponential distribution undergoes significant changes, making it difficult to implement the \( \tau \)-leaping algorithm. This also explains the necessity of simulating a large number of particles to maintain system stability and avoid the pronounced effects of low radical concentrations. For
+instance, in a smaller system, the theoretically simulated concentration of active radicals might fall below 1. However, in practical simulations, the concentration must be a non-negative integer, resulting in the number of radicals fluctuating between 0 and 2, which deviates significantly from real reaction behavior.
+
+Furthermore, in polymer chemistry simulations, the focus is often on Chain Length Distribution (CLD), unlike other systems where only particle counts need updating, as described in Gillespie’s concept of $\nu$. Even if the limitations of low radical concentrations are neglected and multiple reaction steps can be identified through $\tau$-selection, the sequential nature of reactions makes updating chain growth particularly challenging.
+
+### 2.4 A New Algorithm for FRP
+
+In FRP, chain propagation reactions do not alter the number of active radicals but consume a single monomer, and their occurrence frequency is significantly higher than that of initiation and termination reactions. This means that between the two ”critical” steps of initiation and termination, there are numerous propagation steps, which only consume monomers. Notably, monomers are the most abundant species in the simulation system. During this period, the changes in the parameter $\sum N a_i$ of the exponential distribution are minimal. Additionally, the active radicals in the system only undergo propagation.
+
+Inspired by the $\tau$-leaping algorithm, the propagation steps occurring between the two ”critical” steps can be approximated using a Poisson process, enabling bulk updates for this process. For the ”critical” steps, however, the significant changes in $\sum N a_i$ before and after the reaction necessitate the continued use of SSA for accurate updates.
+
+The proposed update strategy is as follows: the traditional SSA is used for simulating ”critical” steps. At each step, after selecting the reaction event interval $\tau$, a random number following a Poisson distribution with parameter $a_p \cdot \tau$ is used to approximate the number of propagation steps occurring during $\tau$. These propagation steps are then updated in bulk by adding the corresponding chain lengths to the active radicals. Subsequently, the effects of the ”critical” step are updated. The
+pseudocode for the new algorithm is provided in \[\text{Algorithm 1}\].
+
+\begin{algorithm}
+\caption{New Approximate Algorithm}
+\begin{algorithmic}[1]
+\STATE Input $M$ reaction constants($k_i$) and initial molecules present in the system. $t = 0$;
+\REPEAT
+\STATE Calculate $a_I$, $a_T$, and $a_P$ for the current system;
+\STATE Generate two random numbers: \[r \sim U(0, 1)\quad \tau \sim \text{Exp}(a_I + a_T)\];
+\STATE Generate a random number $r_p \sim \text{Poisson}(a_P \cdot \tau)$ to choose how many propagation steps happen;
+\STATE $t = t + \tau$, one critical reaction happened based on $r$, and batch processing of propagation using vectorization operations;
+\UNTIL termination conditions are met.
+\end{algorithmic}
+\end{algorithm}
+
+2.5 Apply to DT system
+
+\[R-M_x \cdot + R-M_y\text{-CTA} \overset{k_{ir}}{\iff} R-M_y \cdot + R-M_x\text{-CTA}\] (1d)
+
+In comparison to FRP systems, DT systems introduce an additional transfer step (1d). Notably, transfer steps occur frequently and, similar to propagation steps, do not alter the number of active radicals. Therefore, as in FRP systems, a Poisson-distributed random number can be used to approximate the number of transfer events occurring between two "critical" steps, enabling unified batch updates.
+
+However, unlike in FRP, during the "critical" steps, active radicals not only grow their chain lengths but also intermittently exchange with CTAs (Chain Transfer Agents), making the update of new chain lengths relatively more complex.
+
+Two strategies for updates are proposed:
+
+1. **Random Method**: This method uses a strategy similar to the traditional SSA, where the two steps are updated stochastically. While this approach does not significantly differ from the traditional SSA in terms of chain growth updates, it still saves computational time by reducing the number of random draws required.
+
+2. **Survival Time Method**: In this approach, the transfer step is viewed as a process where the chain length of a surviving radical is exchanged with that of a CTA. Assuming that within
+the chosen $\tau$, there is a negligible probability that a newly exchanged chain will immediately be transferred back, the process can be modeled as shown in Figure ?. Specifically, the active radical exchanged out of the CTA is first paired with a randomly chosen active radical. The survival time of the active radicals then follows a discrete ”isosceles trapezoid” distribution. Since chain growth can occur at any time within this period, the probability distribution of chain growth is used to sample chain growth, enabling unified updates. Finally, the active radical that becomes a CTA is returned to the CTA pool.
+
+3. **Uniform method**: It is worth noting that if we do not use the ”isosceles trapezoid” approximation and instead use a simple rectangular uniform distribution of chain growth, we can still obtain almost the same running results
+
+### 2.6 Computer specifications
+
+All simulations were executed on an ASUS laptop with an Intel CPU (Core i7-12700H) and 16GB RAM, running Windows 11 (64-bit). The source code was written in Julia and executed directly in Windows PowerShell. Data visualization was performed using R.
+
+### 3 Results and discussion
+
+Due to the low computational cost of loops in Julia, the simulation achieves high performance and efficiency. Furthermore, advancements in computational technology have greatly accelerated random number generation. For the parameters used in this study, the traditional SSA simulation for FRP can be completed in just one minute. The CLD for a typical FRP system was obtained [Figure 1]. It can be observed that for FRP systems, molecular chains continue to accumulate and PDI continues to increase, while for DT systems, molecules can be observed The chain length gradually increases with the increase of monomer conversion rate. PDI first decreases and then increases.
+
+Subsequently, we used a new algorithm to simulate the FRP and DT systems, obtaining almost
+|        | SSA                  | New Algorithm                  |
+|--------|----------------------|---------------------------------|
+| **CLD**| ![Graph](image1.png) | ![Graph](image2.png)            |
+| **GPC**| ![Graph](image3.png) | ![Graph](image4.png)            |
+| **PDI**| ![Graph](image5.png) | ![Graph](image6.png)            |
+
+Figure 1: Simulation Results of Different Reacts with Comparison of two algorithms. In Each Result, The CLD is plotted at the top, with the simulated GPC curve shown below on the left and the plot of PDI variation with monomer conversion displayed on the right.
+identical results, and compared the execution time with traditional SSA. The simulation results indicate that the runtime of the new algorithm is significantly reduced compared to the traditional SSA [Table 3]. Furthermore, the obtained Chain Length Distribution (CLD) is identical to that derived using the traditional SSA, with other metrics remaining consistent.
+
+Table 3: Performance Comparison of SSA and new Algorithm, showing median execution times (s) of 10 samples and percentage improvement.
+
+|       | SSA  | New Algorithm | Performance Improvement$^a$ |
+|-------|------|---------------|-----------------------------|
+| FRP   | 54.619 | 17.690       | 67.0%                       |
+| DT$_{rm}$ | 417.347 | 343.913     | 17.6%                       |
+| DT$_{stm}$ | 417.347 | 149.817     | 64.1%                       |
+| DT$_{uni}$ | 127.090 | 64.1%       | 69.5%                       |
+
+$^a$ Performance Improvement = \(\frac{\text{SSA} - \text{New}}{\text{SSA}} \times 100\%\)
+
+3.1 Limits of the new Algorithm
+
+Although the new algorithm significantly improves the simulation efficiency of FRP and DT systems, its application to controlled radical polymerization (e.g., ATRP and RAFT) remains challenging. These methods typically achieve control by introducing additional substances, which induce radical dormancy or the formation of unstable intermediates, thereby further reducing the concentration of active radicals. Moreover, the temporary deactivation of radicals dynamically alters their effective concentration, increasing the complexity of the simulation and making the direct application of the new algorithm to such systems difficult. This issue warrants further investigation and exploration.
+
+4 Conclusion
+
+The new algorithm significantly enhances the efficiency of simulating FRP and DT systems, addressing the computational challenges associated with traditional SSA, which can be slow for large-scale or complex systems. By effectively leveraging the sparse and stochastic characteristics of FRP, the algorithm achieves faster simulations while maintaining high accuracy. However, its current ap-
+PLICABILITY IS LIMITED TO SIMPLER SYSTEMS. FOR MORE COMPLEX PROCESSES, SUCH AS ATRP AND RAFT, WHERE THE INTRODUCTION OF ADDITIONAL SUBSTANCES AND DYNAMIC CHANGES IN ACTIVE RADICAL CONCENTRATIONS FURTHER COMPLICATE THE REACTION MECHANISMS, THE NEW ALGORITHM FACES CHALLENGES THAT REQUIRE FURTHER INVESTIGATION. DESPITE THESE LIMITATIONS, THE PROPOSED METHOD REPRESENTS A MEANINGFUL ADVANCEMENT IN THE SIMULATION OF RADICAL POLYMERIZATION PROCESSES AND OFFERS A FOUNDATION FOR FUTURE DEVELOPMENTS IN THIS FIELD.
+
+5 EXTRA INFORMATION WHEN WRITING JACS COMMUNICATIONS
+
+WHEN PRODUCING COMMUNICATIONS FOR J. AM. CHEM. SOC., THE CLASS WILL AUTOMATICALLY LAY THE TEXT OUT IN THE STYLE OF THE JOURNAL. THIS GIVES A GUIDE TO THE LENGTH OF TEXT THAT CAN BE ACCOMMODATED IN SUCH A PUBLICATION. THERE ARE SOME POINTS TO BEAR IN MIND WHEN PREPARING A JACS COMMUNICATION IN THIS WAY. THE LAYOUT PRODUCED HERE IS A MODEL FOR THE PUBLISHED RESULT, AND THE OUTCOME SHOULD BE TAKEN AS A GUIDE TO THE FINAL LENGTH. THE SPACING AND SIZING OF GRAPHICAL CONTENT IS AN AREA WHERE THERE IS SOME FLEXIBILITY IN THE PROCESS. YOU SHOULD NOT WORRY ABOUT THE SPACE BEFORE AND AFTER GRAPHICS, WHICH IS SET TO GIVE A GUIDE TO THE PUBLISHED SIZE. THIS IS VERY DEPENDANT ON THE FINAL PUBLISHED LAYOUT.
+
+YOU SHOULD BE ABLE TO USE THE SAME SOURCE TO PRODUCE A JACS COMMUNICATION AND A NORMAL ARTICLE. FOR EXAMPLE, THIS DEMONSTRATION FILE WILL WORK WITH BOTH TYPE=ARTICLE AND TYPE=COMMUNICATION. SECTIONS AND ANY ABSTRACT ARE AUTOMATICALLY IGNORED, ALTHOUGH YOU WILL GET WARNINGS TO THIS EFFECT.
+
+ACKNOWLEDGEMENT
+
+THE AUTHORS THANK PROF. WANG AND DR. JING FOR INTRODUCTION OF BASIC KNOWLEDGE OF CHEMISTRY AND RADICAL POLYMERIZATION.
+Supporting Information Available
+
+This will usually read something like: “Experimental procedures and characterization data for all new compounds. The class will automatically add a sentence pointing to the information on-line:
+
+References
+
+(1) Lyu, J.; Li, Y.; Li, Z.; Polanowski, P.; Jeszka, J. K.; Matyjaszewski, K.; Wang, W. Modelling Development in Radical (Co)Polymerization of Multivinyl Monomers. *Angewandte Chemie International Edition* **2023**, *62*, e202212235.
+
+(2) Dušek, K.; Ilavský, M. Cyclization in crosslinking polymerization. I. Chain polymerization of a bis unsaturated monomer (monodisperse case). *Journal of Polymer Science: Polymer Symposia* **53**, 57–73.
+
+(3) Wall, F. T. *Principles of Polymer Chemistry*. Paul J. Flory. Cornell Univ. Press, Ithaca, New York, 1953. 688 pp. Illus. $8.50. *Science* **1954**, *119*, 555–556.
+
+(4) Bamford, C. H.; Tompa, H. On the calculation of molecular weight distributions from kinetic schemes. *Journal of Polymer Science* **1953**, *10*, 345–350.
+
+(5) Teymour, F.; Campbell, J. D. Analysis of the Dynamics of Gelation in Polymerization Reactors Using the "Numerical Fractionation" Technique. *Macromolecules* **1994**, *27*, 2460–2469.
+
+(6) Gillespie, D. T. A general method for numerically simulating the stochastic time evolution of coupled chemical reactions. *Journal of Computational Physics* **1976**, *22*, 403–434.
+
+(7) Gillespie, D. T. Exact stochastic simulation of coupled chemical reactions. *The Journal of Physical Chemistry* **1977**, *81*, 2340–2361.
+
+(8) Tobita, H. Dimensions of Cross-Linked Polymers Formed in Living Vinyl/Divinyl Copolymerization. *Macromolecules* **1994**, *27*, 5413–5420.
+(9) Manneville, L., P.and de Sèze In *Numerical Methods in the Study of Critical Phenomena*; Della Dora, J. L. B., Jeanand Demongeot, Ed.; Springer Berlin Heidelberg: Berlin, Heidelberg, 1981; pp 116–124.
+
+(10) Gillespie, D. T. Approximate accelerated stochastic simulation of chemically reacting systems. *The Journal of Chemical Physics* 2001, 115, 1716–1733.
+
+(11) Gillespie, D. T. Stochastic Simulation of Chemical Kinetics. *Annual Review of Physical Chemistry* 2007, 58, 35–55.
+
+(12) Pintos, E.; Sarmoria, C.; Brandolin, A.; Asteasuain, M. Modeling of RAFT Polymerization Processes Using an Efficient Monte Carlo Algorithm in Julia. *Industrial & Engineering Chemistry Research* 2016, 55, 8534–8547.
+
+(13) Drache, M.; Drache, G. Simulating Controlled Radical Polymerizations with mcPolymer—A Monte Carlo Approach. *Polymers* 2012, 4, 1416–1442.
+
+(14) Matyjaszewski, K.; Gaynor, S. G.; shan Wang, J. Controlled Radical Polymerizations: The Use of Alkyl Iodides in Degenerative Transfer. *Macromolecules* 1995, 28, 2093–2095.
+B Appendix
+
+B.1 Algorithm pseudocode
+
+Algorithm A-1 Stochastic Simulation Algorithm
+
+1: Input $M$ reaction constants $(k_i)$ and initial molecules present in the system. $t = 0$;
+2: repeat
+3: Calculate $a_1, a_2, \ldots, a_M$ and $\sum_{i=1}^{M} a_i$ for the current system;
+4: Generate two random numbers $\Delta t, r_2$ based on equations (??) and (?);
+5: $t = t + \Delta t$, the $\mu$-th reaction occurred, i.e. the reactants decrease accordingly, while the products increase correspondingly.
+6: until our termination conditions are met
+
+Algorithm A-2 $\tau$-Leaping Algorithm
+
+1: Input $M$ reaction constants $(k_i)$ and initial molecules present in the system. $t = 0$;
+2: Set initial leap size $\tau$;
+3: repeat
+4: Calculate propensity functions $a_1, a_2, \ldots, a_N$ and $\sum_{i=1}^{N} a_i$ for the current system;
+5: Choose a leap size $\tau$ satisfies Leap Condition such that the system remains valid over the interval $[t, t + \tau]$;
+6: for each reaction $i$ do
+7: Generate a Poisson random variable $P_i$ with parameter $a_i \tau$;
+8: Update the number of molecules for each species according to the reaction stoichiometry and the value of $P_i$;
+9: end for
+10: $t = t + \tau$;
+11: until termination conditions are met.
+B.2 Relevant Distributions and Proofs
+
+B.2.1 Exponential Distribution
+
+Supposing $X$ follows an exponential distribution with rate parameter $\lambda > 0$, i.e. $X \sim \text{Exp}(\lambda)$. Then the probability density function (pdf) of $X$ can be written as
+
+$$f(x) = \begin{cases} \lambda e^{-\lambda x}, & x \geq 0 \\ 0, & x < 0 \end{cases}.$$ 
+
+And cumulative distribution function (cdf) can be written as
+
+$$F(x) = \begin{cases} 1 - e^{-\lambda x}, & x \geq 0 \\ 0, & x < 0 \end{cases}.$$ 
+
+$E(X) = \frac{1}{\lambda}$, $\text{Var} = \frac{1}{\lambda^2}$.
+
+B.2.2 Poisson Distribution
+
+Supposing $X$ follows an Poisson distribution with parameter $\lambda > 0$, i.e. $X \sim \text{Poisson}(\lambda)$. Then the probability mass function (pmf) can be written as
+
+$$p(x = k) = \frac{\lambda^k e^{-\lambda}}{k!}, \quad k = 0, 1, \ldots,$$
+
+$E(\lambda) = \lambda$, $\text{Var} = \lambda$.
+
+B.2.3 Poisson process
+
+We define a process as a Poisson process (with rate $\lambda$) if it satisfies the following conditions:
+
+- $N(0) = 0$: The number of events at time $t = 0$ is zero.
+- The number of events occurring in disjoint time intervals are independent.
+• For any time interval of length \( t \), the number of events follows a Poisson distribution with mean \( \lambda t \).
+Some journals require a graphical entry for the Table of Contents. This should be laid out “print ready” so that the sizing of the text is correct. Inside the tocentry environment, the font used is Helvetica 8 pt, as required by Journal of the American Chemical Society. The surrounding frame is 9 cm by 3.5 cm, which is the maximum permitted for Journal of the American Chemical Society graphical table of content entries. The box will not resize if the content is too big: instead it will overflow the edge of the box.
+
+This box and the associated title will always be printed on a separate page at the end of the document.

@@ -1,0 +1,282 @@
+"Advanced Computational Insights into Ni(II) Schiff Base Complexes: Addressing Sluggish Kinetics and Stability Challenges in Oxygen Reduction Reaction Catalysis"
+
+Author: Chidi Daniel Chukwu
+
+Affiliation: University of electronic Science and Technology of China
+
+ABSTRACT
+
+The development of efficient and stable catalysts for the oxygen reduction reaction (ORR) remains a critical challenge in the pursuit of next-generation energy technologies. In this study, we designed and investigated a Ni (II) Schiff base complex as a potential solution to address the sluggish kinetics and stability limitations of ORR catalysts. A comprehensive computational approach was adopted, integrating ChemDraw for molecular modeling, DMol³ in Material Studio for electronic structure and catalytic property calculations, and MATLAB for precise overpotential analysis. The Ni (II) complex demonstrated a significantly lower overpotential (−0.55) compared to its Co(II) counterpart (−4.95), highlighting its superior catalytic efficiency and faster reaction kinetics. The Schiff base ligand, with its robust chelating ability and electronic tunability, facilitated the stabilization of intermediates and optimized the electronic properties of the Ni (II) center, enabling efficient electron transfer and intermediate transitions. Gibbs free energy calculations revealed a pathway with hydroperoxide (HO₂⁻) as the first intermediate, further validating the thermodynamic feasibility and kinetic superiority of the Ni (II) complex. These findings underscore the Schiff base ligand as an ideal framework for designing high-performance catalysts and demonstrate the potential of the Ni (II) complex for ORR applications in fuel cells and metal-air batteries. This study provides valuable insights into leveraging computational tools for catalyst design and emphasizes the need for further exploration of Schiff base ligands in energy catalysis to address global energy demands.
+
+Keyword: Oxygen Reduction Reaction, Schiff Base, Metal Complex, Ligand, Reaction Kinetic, Catalyst Stability
+1.0 INTRODUCTION
+
+Schiff bases, named after Hugo Schiff, are imine-based ligands formed through the condensation reaction between primary amines and carbonyl compounds, typically aldehydes or ketones [1]. These highly versatile ligands exhibit pronounced chelating abilities, stabilizing a wide range of metal ions by forming robust coordination complexes [2]. Their electronic tunability, structural diversity, and thermal stability make Schiff base-metal complexes indispensable in modern coordination chemistry, particularly in catalytic and electrocatalytic processes [3]. Among these, nickel (Ni) and cobalt (Co) Schiff base complexes have garnered significant attention due to their inherent redox-active centers, facile ligand-field modulations, and tailored coordination geometries, which collectively enhance their catalytic efficacy.
+
+The ORR, a cornerstone electrochemical process, underpins the functionality of various energy conversion and storage technologies, including proton-exchange membrane fuel cells (PEMFCs) and metal-air batteries [4]. ORR encompasses a kinetically complex multi-electron transfer process, reducing molecular oxygen to either water or hydroxide ions, depending on the electrolyte medium. Its inherently sluggish kinetics, attributed to the high activation barrier required to cleave the O=O bond and coordinate proton-electron transfers, represents a formidable challenge to achieving optimal energy efficiency and operational performance in these systems [5].
+
+The role of ORR in energy technology is both pivotal and multifaceted. In PEMFCs, the cathodic ORR is the rate-determining step that directly influences the overall power density and energy efficiency of the system [6]. Likewise, in metal-air batteries, the ORR governs the discharge mechanism, significantly impacting the energy density, cycle life, and coulombic efficiency. Developing high-performance catalysts for ORR is critical to addressing the escalating global demand for clean, sustainable, and cost-effective energy solutions, especially in the context of accelerating the transition to renewable energy and decarbonized energy systems.
+
+Historically, noble metals, particularly platinum (Pt) and its alloys, have set the benchmark for ORR catalysis due to their exceptional activity and selectivity [7]. However, their limitations, including exorbitant costs, scarcity, and susceptibility to poisoning by reaction intermediates, have catalyzed the search for earth-abundant alternatives [8]. Transition metal complexes, particularly Ni (II) and Co (II) Schiff base complexes, have emerged as promising candidates for non-precious metal catalysts. These complexes exhibit remarkable catalytic activity attributed to their distinctive electronic configurations, facile redox cycling, and capability to stabilize oxygen intermediates. Their relatively low synthesis cost, combined with their tunable electronic and steric properties, positions them as viable alternatives to noble metals for sustainable ORR catalysis.
+
+Despite these advancements, significant challenges persist in enhancing catalytic turnover frequency and operational stability under real-world conditions. The intrinsic sluggish kinetics of ORR demands the design of catalysts with optimized active sites capable of reducing activation energy and facilitating efficient oxygen adsorption, activation, and bond dissociation [9]. Furthermore, many catalysts experience performance degradation due to insufficient electrochemical and structural stability in harsh operational environments. Addressing these challenges necessitates innovative approaches in catalyst design, leveraging the unique structural flexibility and electronic adaptability of Schiff base-metal frameworks.
+In this study, we present a novel model (Figure 1 a-f) catalyst comprising Ni (II) and Co (II) Schiff base complexes, engineered to overcome these kinetic and stability bottlenecks. By synergistically integrating rapid electron transfer kinetics with exceptional structural resilience, these complexes represent a breakthrough in ORR catalysis, paving the way for transformative advancements in energy conversion and storage technologies.
+
+2.0 STABILITY OF SCHIFF BASE METAL COMPLEXES
+
+The stability of Schiff base metal complexes is intrinsically tied to the azomethine (-C=N-) functional group, a pivotal feature in their molecular framework. The azomethine bond, formed via the condensation of primary amines and carbonyl compounds, introduces a conjugated π-system that enhances the electron delocalization across the ligand backbone [10]. This electronic conjugation stabilizes the Schiff base and facilitates its ability to act as a robust donor ligand in coordination chemistry. Additionally, the presence of the azomethine moiety contributes to the structural rigidity of the complex, limiting intramolecular rotations and vibrations that could destabilize the coordination framework [11]. The bond's propensity for hydrogen bonding and π-stacking interactions further fortifies the supramolecular stability of these complexes, enabling them to withstand varied chemical and physical conditions.
+
+The coordination of Schiff bases to metal centers plays a critical role in augmenting their stability, leveraging the chelating effect and ligand field stabilization energy. Through coordination, Schiff bases form strong covalent bonds with the central metal ion, resulting in a thermodynamically favorable complexation [12]. The chelation process, often involving bidentate or polydentate Schiff bases, generates five- or six-membered metallacycles, which are inherently more stable due to reduced ring strain and enhanced electronic synergy between the ligand and metal center. Moreover, the nature of the metal ion—its oxidation state, ionic radius, and electronic configuration—further influences the stability, as higher oxidation states often lead to stronger metal-ligand interactions [13]. The interplay of steric and electronic effects in the ligand architecture can also be tailored to maximize complex stability, making Schiff base metal complexes versatile entities in catalysis, material science, and bioinorganic chemistry.
+
+2.1 Ni (II) and Co (II) Reactivity with Oxygen
+
+The reactivity of Co (II) toward oxygen is rooted in its electronic configuration and the associated orbital interactions. Co (II) typically possesses a $d^7$ electronic configuration, where its partially filled $t_{2g}$ and $e_g$ orbitals provide a versatile platform for engaging with oxygen molecules [14]. The high-spin state of Co (II) often features unpaired electrons, which facilitate a strong affinity for paramagnetic oxygen due to spin-pairing interactions [15]. This capability is further amplified by the ability of Co (II) to transition between oxidation states, such as Co (III), during oxygen activation processes [16]. The d-orbitals of Co (II) engage in π-back donation, stabilizing the bound oxygen molecule and enabling the cleavage of the O=O bond in catalytic applications like oxygen reduction and oxygen evolution reactions. This interplay of orbital symmetry and redox flexibility underpins the high reactivity of Co (II) with molecular oxygen.
+
+Ni (II), with its $d^8$ electronic configuration, exhibits a distinct reactivity profile toward oxygen, largely influenced by its electronic structure and coordination environment [17]. The fully filled
+t_{2g} [18] orbitals and partially occupied e_g orbitals allow Ni (II) to stabilize oxygen intermediates through σ-donation and π-back donation mechanisms. Unlike Co (II), Ni (II) typically operates in a low-spin configuration, resulting in fewer unpaired electrons and a slightly reduced direct affinity for paramagnetic oxygen. However, the higher ligand field stabilization energy in Ni (II) complexes can create a favorable environment for oxygen binding and activation [19]. The interplay between ligand field effects and the d-orbital alignment in Ni (II) enhances its ability to stabilize peroxide and superoxide species, making it a critical player in catalytic processes involving oxygen, including ORR. This unique electronic framework enables Ni (II) to function effectively in synergistic catalytic systems, particularly when paired with complementary metal centers.
+
+3.0 Computational Approach
+3.1 Gradient Descent assisted geometry optimization
+
+DMol³ was used to calculate the geometry optimization of the system, employing the gradient descent method as the primary algorithm for minimizing the total energy of the system [20]. Geometry optimization aims to find the equilibrium configuration of a molecular or solid-state system, where the total potential energy is minimized, and the forces on all atoms approach zero. The gradient descent method iteratively updates the atomic positions along the direction of the steepest descent of the energy gradient. Mathematically, the position of an atom at step n+1 is updated based on the gradient of the potential energy E with respect to its coordinates, expressed as in equation (1):
+
+$$\mathbf{R}_{n+1} = \mathbf{R}_n - \alpha \nabla E$$
+
+where \( \mathbf{R}_n \) is the position vector at step n
+\( \alpha \) is the step size,
+\( \nabla E \) is the gradient of the energy with respect to the atomic positions.
+
+This approach ensures a progressive reduction in energy at each iteration, guiding the system towards its lowest energy configuration.
+
+In the gradient descent method, convergence is achieved when the magnitude of the forces, \( |\nabla E| \), falls below a predefined threshold, indicating that the atoms are near their equilibrium positions. To improve convergence efficiency, advanced implementations often include dynamic adjustments of the step size \( \alpha \) to balance between stability and rapid convergence [21]. For systems with many degrees of freedom, the potential energy surface (PES) can exhibit local minima, and the algorithm is designed to avoid being trapped in these through careful initialization and adaptive corrections. The total potential energy is evaluated using density functional theory (DFT), and the forces (equation 2) are derived as the negative gradient of this energy,
+
+$$\mathbf{F} = -\nabla E.$$  (2)
+
+The iterative process in DMol³ continues until both the energy and the atomic forces meet the convergence criteria, ensuring the optimized geometry corresponds to a physically meaningful and energetically favorable configuration.
+3.2 Van der Waals and Electrostatic Calculation of the Rigid Adsorption Energy
+
+The Adsorption Locator in Materials Studio [21-23] calculates the rigid adsorption energy to evaluate how molecules interact with surfaces without considering structural relaxations. The rigid adsorption energy (equation 3), is defined as the energy difference between the total energy of the combined adsorbate-surface system and the sum of the energies of the isolated surface and adsorbate. This is expressed as:
+
+\[ E_{ads}^{Rigid} = E_{total} - (E_{surface} + E_{adsorbate}) \]  
+
+Here, \( E_{total} \) is the total energy of the system with the adsorbate in a fixed geometry on the surface, while \( E_{surface} \) and \( E_{adsorbate} \) are the energies of the isolated surface and adsorbate, respectively. This calculation enables an assessment of adsorption strength and interaction energy without altering the atomic positions.
+
+To account for van der Waals (vdW) interactions [24], the Adsorption Locator employs dispersion-corrected methods or force-field approximations. The vdW energy (equation 4) is typically modeled using the Lennard-Jones potential:
+
+\[ E_{vdW} = 4\varepsilon \left[ \left( \frac{\sigma}{r} \right)^{12} - \left( \frac{\sigma}{r} \right)^{6} \right] \]  
+
+where \( r \) is the interatomic distance, \( \varepsilon \) represents the potential well depth, and \( \sigma \) is the distance at which the potential energy is zero.
+
+This equation captures the balance between attractive and repulsive vdW forces, which are crucial for describing weak adsorption and physisorption phenomena. Incorporating vdW forces provides a detailed picture of non-covalent interactions between the adsorbate and surface.
+
+3.3 MATLAB-Assisted Overpotential Calculation
+
+The utilization of the MATLAB console in the calculation of overpotential is advantageous due to its substantial computational prowess and its adeptness in managing intricate equations, rendering it an expeditious and effective instrument. The MATLAB environment incorporates pre-defined functions that facilitate the resolution of electrochemical models, the graphical representation of current-voltage curves, and the execution of numerical optimizations, thereby rendering it a highly suitable platform for the analysis of overpotential. The interactive nature of the MATLAB environment permits expeditious recalibrations, concurrently providing real-time visualizations of outcomes, thereby ensuring the efficiency and streamlining of the iterative process involved in the evaluation and optimization of electrochemical systems.
+
+Equation (5) was adopted in the calculation of the overpotential.
+
+\[ \eta = \frac{\Delta G_{ls}}{nF} - (E_0) \]  
+
+where:
+Δ\(G_{ls}\) is the Gibbs free energy of the rate-determining step.
+n is the number of electrons transferred in the step.
+F is the Faraday constant (96485 C).
+\(E_0\) is the equilibrium potential of the ORR
+
+The code adopted for calculating the HER overpotential is given below;
+% MATLAB script to calculate ORR overpotential
+
+% Constants
+F = 96485; % Faraday constant (C/mol)
+T = 298.15; % Temperature in Kelvin
+R = 8.314; % Gas constant (J/mol·K)
+U0 = 1.23; % Standard reduction potential for ORR (V)
+
+% Input: Gibbs free energy changes (in eV) for each step in ORR
+% Replace these values with actual data for the Co(II) and Ni(II) complexes
+deltaG_adsorption_Co = 0.10208; % Adsorption of O2 on Co(II) complex
+deltaG_OOH_formation_Co = 0; % Formation of OOH intermediate on Co(II)
+deltaG_OH_formation_Co = -4.94901; % Formation of OH intermediate on Co(II)
+deltaG_OH_desorption_Co = -1.08904; % Desorption of OH intermediate on Co(II)
+deltaG_adsorption_Ni = 0; % Adsorption of O2 on Ni(II) complex
+deltaG_OOH_formation_Ni = -0.55367; % Formation of OOH intermediate on Ni(II)
+deltaG_OH_formation_Ni = 0; % Formation of OH intermediate on Ni(II)
+deltaG_OH_desorption_Ni = 0; % Desorption of OH intermediate on Ni(II)
+
+% Function to calculate overpotential
+calc_overpotential = @(deltaG_steps) U0 - min(deltaG_steps / F + U0);
+
+% Calculate overpotentials for Co(II) and Ni(II) complexes
+deltaG_steps_Co = [deltaG_adsorption_Co, deltaG_OOH_formation_Co, ...
+  deltaG_OH_formation_Co, deltaG_OH_desorption_Co] * F;
+overpotential_Co = calc_overpotential(deltaG_steps_Co);
+
+deltaG_steps_Ni = [deltaG_adsorption_Ni, deltaG_OOH_formation_Ni, ...
+  deltaG_OH_formation_Ni, deltaG_OH_desorption_Ni] * F;
+overpotential_Ni = calc_overpotential(deltaG_steps_Ni);
+
+% Display results
+fprintf('ORR Overpotential for Co(II) complex: %.2f V\n', overpotential_Co);
+fprintf('ORR Overpotential for Ni(II) complex: %.2f V\n', overpotential_Ni);
+
+% Plot Gibbs free energy diagram (optional)
+figure;
+hold on;
+bar(1:4, deltaG_steps_Co / F, 'FaceColor', 'b', 'DisplayName', 'Co(II) Complex');
+bar(1:4, deltaG_steps_Ni / F, 'FaceColor', 'r', 'DisplayName', 'Ni(II) Complex');
+xlabel('Reaction Step');
+ylabel('Gibbs Free Energy Change (eV)');
+legend('show');
+title('Gibbs Free Energy Diagram for ORR');
+hold off;
+
+Figure 1: (a) Predicted model of Co (II) and Ni (II) complex; (b) Structural atomic linkage (c) Bond length details (d) Bond length of Selected atoms (e) Coordination profile of Co (II) complex (f) Coordination profile of Ni (II) complex
+Figure 2: Co (II) metal complex density of state (b) Ni (II) metal complex density of state (c) Co (II) and Ni (II) free energy profile (d) Co (II) and Ni (II) overpotential profile
+Figure 3: Mulliken atomic Charge for Ni(II) and Co(II) Schiff base Metal Complexes
+4.0 RESULTS AND DISCUSSIONS
+
+4.1 Ligand Bond Properties
+
+The observed alternating 120° bond angles across the azomethine group in the Schiff base ligand are indicative of a planar sp² hybridization, which is characteristic of imine functional groups. This planar geometry arises from the delocalization of π-electrons within the C=N bond, ensuring resonance stabilization throughout the ligand framework. The symmetrical arrangement of these angles reflects the electronic distribution around the azomethine group, minimizing steric hindrance and maximizing conjugative interactions. Additionally, the 120° angles are consistent with the trigonal planar geometry often associated with carbon and nitrogen atoms in sp² hybridized systems, a feature critical for maintaining the structural integrity and electronic communication within the Schiff base ligand.
+
+The bond lengths of 1.1, 1.2, and 1.5 Å observed at the furan heterocyclic moiety reveal the nuanced electronic environment and conjugation in the Schiff base ligand. The shortest bond length of 1.1 Å likely corresponds to a double bond within the furan ring, emphasizing localized π-bond character, while the intermediate 1.2 Å bond reflects a delocalized single-to-partial-double bond, characteristic of resonance stabilization in heterocyclic systems. The longest bond, 1.5 Å, corresponds to a typical single bond, completing the aromatic framework of the furan ring. These variations in bond lengths signify the alternating electron density distribution within the ligand, a result of conjugative effects between the furan ring and the azomethine group. This combination of bond length and angle uniformity contributes to the Schiff base ligand's structural rigidity, chemical stability, and suitability for coordination with metal centers.
+
+4.1.1 Ligand Stability
+
+The observed alternating 120° bond angles across the azomethine group and the precise bond lengths within the furan heterocyclic moiety strongly justify the intrinsic stability of the Schiff base ligand. The 120° bond angles result from sp² hybridization in the azomethine group, creating a planar geometry that minimizes steric repulsion and enhances resonance delocalization across the ligand framework. This conjugative effect distributes electron density uniformly, thereby stabilizing the azomethine moiety against external perturbations such as protonation or oxidation. Furthermore, the planar configuration facilitates efficient π-π stacking interactions and secondary bonding with metal centers, enhancing the ligand's stability when coordinated in complex systems.
+
+The variations in bond lengths (1.1, 1.2, and 1.5 Å) within the pyran ring further contribute to the ligand's stability by maintaining an optimal balance between localized and delocalized bonding interactions. The shorter bonds, indicative of double bond character, and the intermediate bonds, signifying partial double bond character, provide resonance stabilization, while the single bonds maintain structural flexibility. This alternating pattern of bond lengths ensures that the ligand remains chemically robust, resisting cleavage or rearrangement under varying environmental conditions [25]. Moreover, the synergistic interplay between the azomethine group and the Pyran ring enhances the ligand’s ability to chelate metal ions, further bolstering its thermodynamic and kinetic stability in coordination complexes. These features make Schiff base ligands ideal for catalytic and electrocatalytic applications where structural integrity is paramount.
+4.2 Electrical Properties
+
+4.2.1 Atomic Charge
+
+The distinct spin (Figure 3; Table 1) states observed in the nickel and cobalt Schiff base complexes significantly influence their electrical properties [26], particularly their conductivity and redox behavior. The Ni(II) complex, with a no-spin (diamagnetic) configuration, arises from a fully paired $d^8$ electronic arrangement in a low-spin square planar geometry. This results in a narrower band gap and diminished unpaired electron density, leading to reduced paramagnetic contributions and a more stabilized electronic structure. In contrast, the Co(II) complex exhibits a high-spin configuration with an unpaired spin density of 1.256, attributed to its $d^7$ electronic configuration in an octahedral or distorted geometry. The presence of unpaired electrons enhances spin polarization, enabling stronger interaction with external fields and charge carriers, thereby increasing conductivity and spin-dependent electron transport. This disparity underscores the ability of the Co (II) complex to engage in more dynamic redox processes, while the Ni(II) complex remains electronically stable, favoring applications requiring low reactivity and minimal electronic noise.
+
+4.2.2 Density of State
+
+The high density of states (DOS) clustered around the Fermi level in both nickel and cobalt Schiff base complexes (Figure 2 a&b) profoundly impacts their electrical and catalytic properties by dictating the availability of electronic states for charge transfer and reaction intermediates. In electronic terms, a dense DOS near the Fermi level implies a significant number of accessible energy states, enhancing the complexes' electrical conductivity by facilitating efficient electron mobility. This property is particularly advantageous in electrocatalysis, as it allows for rapid electron exchange between the catalyst and reactants, thereby improving charge-transfer kinetics.
+
+Catalytically, the clustered peaks around the Fermi level suggest an optimized overlap between the metal $d$-orbitals and the ligand's $\pi$-system [27], enabling robust adsorption and activation of reactant molecules, such as oxygen in ORR. For the Ni(II) complex, the balanced DOS around the Fermi level may favor stable binding of reaction intermediates, ensuring controlled catalytic turnover. In contrast, the Co(II) complex, with its high-spin configuration, benefits from enhanced spin-polarized DOS near the Fermi level, facilitating unpaired electron interactions critical for multi-electron reduction processes. This electronic structure not only promotes the dissociation of molecular oxygen but also stabilizes transition states, thereby reducing the activation energy and improving overall catalytic efficiency. These features collectively highlight the pivotal role of DOS characteristics in tuning the electronic and catalytic profiles of these metal complexes.
+
+4.3 System Reactivity
+
+4.3.1 Zero Point Energy
+
+The progressive zero-point energy (ZPE) values (Table 2), combined with the free energy and overpotential data, reveal the superior catalytic efficiency of the Ni(II) complex compared to the Co(II) complex, which is further enhanced by the coordination effects of the Schiff base ligand. The consistently higher ZPE of the Ni(II) complex indicates stronger metal-ligand interactions,
+with the Schiff base ligand playing a critical role in stabilizing the coordination environment. This stabilization arises from the ligand’s electron-donating azomethine group and aromatic framework, which enhance electronic delocalization and strengthen the metal-ligand bond. These features reduce the free energy barriers for catalytic intermediates and contribute to the lower overpotential observed in the Ni (II) complex, making it more efficient in driving reactions such as the oxygen reduction reaction.
+
+In contrast, the Co (II) complex, despite having a lower ZPE, suffers from a higher energy barrier and overpotential, which can be attributed to its coordination dynamics with the Schiff base ligand. While the ligand provides flexibility and adaptability through its chelating properties, the Co (II) complex’s high-spin configuration results in weaker ligand field stabilization compared to Ni (II). This weaker coordination reduces the complex’s ability to effectively stabilize intermediates, increasing the energy required for catalytic turnover. The Ni (II) complex, benefiting from a stronger ligand field interaction provided by the Schiff base, maintains a thermodynamically favorable pathway by effectively mediating electron transfer and lowering the activation energy. This synergistic interplay between the Schiff base ligand’s coordination effects and the intrinsic electronic properties of Ni (II) underscores its superior catalytic performance over Co (II).
+
+4.3.2 Reaction Kinetics and Rate Determining Stage
+
+The Co (II) complex follows a different thermodynamic profile, where hydroperoxide has zero Gibbs free energy, indicating it as the energetically neutral intermediate. However, the subsequent formation of hydroxide ion (OH⁻) is highly exergonic, with a Gibbs free energy of -4.94901 kJol/Mol, implying a significant thermodynamic driving force but at the expense of requiring higher energy for preceding steps. The intermediate oxygen radical (O*) has a Gibbs free energy of -1.08904 kJol/Mol, highlighting a higher energy barrier relative to the Ni (II) pathway. Additionally, molecular oxygen O₂ with a Gibbs free energy of 0.10208 kJol/Mol points to a less favorable adsorption process compared to Ni (II). The elevated energy barriers in the Co (II) pathway indicate a less efficient reaction mechanism with a higher overpotential and slower kinetics.
+
+The Ni (II) complex, with its lower energy requirements and absence of significant thermodynamic hurdles, demonstrates superior rate-determining properties. The direct formation of hydroperoxide as an energetically favorable intermediate minimizes the activation energy, allowing for efficient electron transfer and intermediate stabilization. In contrast, the Co (II) complex’s pathway, while thermodynamically feasible, suffers from suboptimal energy profiles that hinder catalytic performance. These distinctions underscore the Ni (II) complex's suitability as an ORR catalyst, driven by its low Gibbs free energy barriers and favorable intermediate formation, ultimately resulting in faster reaction kinetics and improved efficiency.
+
+4.4 Tafel characters and Overpotential
+
+The overpotential (Figure 2d; Table 3) values of the Co(II) and Ni(II) Schiff base complexes, -4.95V and -0.55V, respectively, significantly impact their rate-determining steps and overall reaction kinetics in the ORR. Overpotential reflects the extra energy required beyond the
+thermodynamic minimum to drive the reaction, directly influencing the catalytic efficiency and speed.
+
+For the Co (II) complex, the high overpotential (~4.95V) indicates a substantial energy barrier for initiating and propagating the reaction. This high barrier suggests suboptimal binding of intermediates, particularly the hydroxyl ion (OH\(^-\)) and oxygen atom (O*) which are critical in the mechanistic pathway. The excessive energy required to overcome this barrier slows down the reaction kinetics, making the rate-determining step energetically prohibitive and less efficient. Additionally, the pronounced overpotential may cause higher energy dissipation, further reducing the catalytic turnover frequency.
+
+In contrast, the Ni (II) complex exhibits a significantly lower overpotential (~0.55V), signifying an energetically favorable pathway with minimal resistance to electron and proton transfer processes. The lower overpotential corresponds to a well-balanced adsorption and desorption profile of ORR intermediates, particularly hydroperoxide (HO\(_2^-\)), which is the first intermediate in the Ni (II) pathway. This efficient energy profile ensures that the rate-determining step proceeds with minimal energy input, thereby accelerating the reaction kinetics and enhancing the catalytic activity. The reduced overpotential not only lowers the activation energy for intermediate transitions but also aligns the catalytic process more closely with the thermodynamic ideal, resulting in superior catalytic performance.
+
+Generally, the Co (II) complex’s high overpotential hinders its kinetic efficiency, slowing the reaction and increasing energy losses, while the Ni(II) complex, with its low overpotential, demonstrates a faster, more efficient catalytic cycle due to reduced energy barriers and optimized intermediate stabilization. This underscores the critical role of overpotential in determining the rate and efficiency of ORR catalysis.
+5.0 CONCLUSION
+
+The results unequivocally establish the Ni (II) Schiff base complex as an ideal catalyst for the ORR, demonstrating superior catalytic efficiency, faster reaction kinetics, and a lower overpotential compared to its Co (II) counterpart. The optimized interaction between the Ni (II) center and the Schiff base ligand contributes to the complex's enhanced stability, efficient electron transfer, and precise intermediate stabilization, critical factors for achieving high-performance ORR catalysis. The ability of the Schiff base ligand to modulate the electronic structure of the Ni (II) center further enables the reduction of energy barriers and facilitates the rate-determining steps, making it a prime candidate for next-generation energy conversion and storage technologies.
+
+The Schiff base ligand, with its versatile azomethine group, tunable steric properties, and strong chelating capabilities, emerges as an ideal scaffold for designing advanced catalysts. Its ability to stabilize transition metal centers while allowing for electronic delocalization and redox activity provides a robust platform for enhancing catalytic performance. Such structural and electronic versatility positions Schiff base ligands as key components in the development of sustainable and efficient catalysts for critical reactions like ORR. The promise shown by the Ni (II) Schiff base complex underscores the importance of further research in this domain. A deeper exploration of Schiff base ligands, including functionalized derivatives and their coordination to various metal centers, could unlock new pathways for advancing clean energy solutions and addressing global energy challenges.
+|     | Ni(II) | Co(II) |
+|-----|--------|--------|
+|     | Charge | Spin   | Charge | Spin |
+| C   | -0.221 | 0      | -0.217 | 0    |
+| C   | -0.212 | 0      | -0.205 | -0.001 |
+| C   | -0.266 | 0      | -0.267 | 0    |
+| C   | 0.129  | 0      | 0.137  | 0    |
+| C   | 0.124  | 0      | 0.127  | 0    |
+| C   | -0.258 | 0      | -0.264 | -0.001 |
+| C   | -0.345 | 0      | -0.354 | -0.001 |
+| C   | 0.309  | 0      | 0.302  | 0.001 |
+| C   | -0.059 | 0      | 0.019  | -0.001 |
+| C   | -0.326 | 0      | -0.334 | -0.002 |
+| C   | 0.45   | 0      | 0.511  | 0.003 |
+| N   | -0.446 | 0      | -0.517 | -0.004 |
+| O   | -0.483 | 0      | -0.493 | 0.001 |
+| N   | -0.222 | 0      | -0.181 | 0.017 |
+| C   | 0.415  | 0      | 0.368  | -0.121 |
+| C   | -0.778 | 0      | -0.756 | -0.011 |
+| C   | -0.528 | 0      | -0.535 | 0.014 |
+| C   | 0.375  | 0      | 0.371  | -0.035 |
+| C   | -0.368 | 0      | -0.357 | 0.01  |
+| C   | 0.377  | 0      | 0.377  | -0.036 |
+| O   | -0.398 | 0      | -0.425 | 0.003 |
+| C   | 0.523  | 0      | 0.542  | -0.033 |
+| O   | -0.349 | 0      | -0.297 | 0.001 |
+| C   | -0.728 | 0      | -0.726 | 0.003 |
+| O   | -0.403 | 0      | -0.38  | -0.023 |
+| O   | -0.571 | 0      | -0.575 | 0    |
+| M   | 0.149  | 0      | 0.069  | 1.256 |
+| H   | 0.209  | 0      | 0.202  | 0    |
+| H   | 0.21   | 0      | 0.205  | 0    |
+| H   | 0.21   | 0      | 0.204  | 0    |
+| H   | 0.206  | 0      | 0.197  | 0    |
+| H   | 0.228  | 0      | 0.219  | 0    |
+| H   | 0.219  | 0      | 0.191  | 0    |
+| H   | 0.364  | 0      | 0.373  | -0.001 |
+| H   | 0.257  | 0      | 0.235  | 0    |
+| H   | 0.283  | 0      | 0.244  | -0.008 |
+| H   | 0.259  | 0      | 0.293  | -0.007 |
+| H   | 0.222  | 0      | 0.259  | -0.043 |
+| H   | 0.232  | 0      | 0.229  | -0.001 |
+| H   | 0.247  | 0      | 0.245  | 0    |
+| H   | 0.237  | 0      | 0.244  | 0    |
+| Metal | Zero Point Energy | | | |
+|------|------------------|---|---|---|
+|      | Cobalt | Nickel |     |     |
+| 1    | 62.149 | 62.912 |     |     |
+| 2    | 71.522 | 75.099 |     |     |
+| 3    | 79.037 | 85.57 |     |     |
+| 4    | 85.885 | 95.057 |     |     |
+
+Table 2: Thermodynamic Zero point of the Schiff base metal complexes Metal
+
+|         | HOO*ΔG  | OH-ΔG  | O*ΔG  | O2-2ΔG | Overpotential |
+|---------|---------|--------|-------|--------|--------------|
+| Co(II)  | 0       | -4.949 | -1.089 | 0.102  | -4.955       |
+| Ni(II)  | -0.55367| 0      | 0     | 0      | -0.55        |
+
+Table 3: Free Energy, Overpotential Characters
+6.0 REFERENCES
+
+1. Islam, M. H., & Hannan, M. A. (2024). Schiff Bases: Contemporary Synthesis, Properties, and Applications.
+2. Dzhardimalieva, G. I., & Ulfyand, I. E. (2018). Design strategies of metal complexes based on chelating polymer ligands and their application in nanomaterials science. *Journal of Inorganic and Organometallic Polymers and Materials*, 28, 1305-1393.
+3. Akitsu, T. (Ed.). (2023). *Schiff Base in Organic, Inorganic and Physical Chemistry*. BoD–Books on Demand.
+4. Song, Y., Gu, P., Liu, J., Sun, H., Cai, Z., Li, J., ... & Zou, J. (2024). Navigating the developments of air-cathode catalysts for efficient and sustainable bio-energy production from wastewater in microbial fuel cells. *Coordination Chemistry Reviews*, 517, 216019.
+5. Yang, H., An, N., Kang, Z., Menezes, P. W., & Chen, Z. (2024). Understanding Advanced Transition Metal-Based Two Electron Oxygen Reduction Electrocatalysts from the Perspective of Phase Engineering. *Advanced Materials*, 2400140.
+6. Song, Y., Gu, P., Liu, J., Sun, H., Cai, Z., Li, J., ... & Zou, J. (2024). Navigating the developments of air-cathode catalysts for efficient and sustainable bio-energy production from wastewater in microbial fuel cells. *Coordination Chemistry Reviews*, 517, 216019.
+7. Nakaya, Y., & Furukawa, S. (2022). Catalysis of alloys: classification, principles, and design for a variety of materials and reactions. *Chemical Reviews*, 123(9), 5859-5947.
+8. Hernandez, J. (2024). Earth Abundant Catalyst For Environmental Sustainability Applications. *Earth*, 2024, 05-01.
+9. Shi, L., Zhang, Q., Yang, S., Ren, P., Wu, Y., & Liu, S. (2024). Optimizing the Activation Energy of Reactive Intermediates on Single-Atom Electrocatalysts: Challenges and Opportunities. *Small Methods*, 2301219.
+10. Yusof, E. N. B. M. (2019). *Synthesis, Structural Characterization and Cytotoxicity Study of Tin (IV) Compounds Containing ONS Schiff Bases* (Doctoral dissertation, The University of Newcastle).
+11. Afrin, A., Pothulapadu, C. A. S., & Rose, A. (2024). Glowing discoveries: Schiff base-cyanostilbene probes illuminating metal ions and biological entities. *Analytical Methods*.
+12. Through coordination, Schiff bases form strong covalent bonds with the central metal ion, resulting in a thermodynamically favorable complexation.
+13. Kuppuraj, G., Dudev, M., & Lim, C. (2009). Factors governing metal–ligand distances and coordination geometries of metal complexes. *The journal of physical chemistry B*, 113(9), 2952-2960.
+14. Sun, S., Zhang, Y., Shi, X., Sun, W., Felser, C., Li, W., & Li, G. (2024). From Charge to Spin: An In-Depth Exploration of Electron Transfer in Energy Electrocatalysis. *Advanced Materials*, 2312524.
+15. Zhang, Y., Wu, Q., Seow, J. Z. Y., Jia, Y., Ren, X., & Xu, Z. J. (2024). Spin states of metal centers in electrocatalysis. *Chemical Society Reviews*.
+16. Gao, L., Cui, X., Sewell, C. D., Li, J., & Lin, Z. (2021). Recent advances in activating surface reconstruction for the high-efficiency oxygen evolution reaction. *Chemical Society Reviews*, 50(15), 8428-8469.
+17. Schenker, R., Mandimutsira, B. S., Riordan, C. G., & Brunold, T. C. (2002). Spectroscopic and Computational Studies on [(PPhT t Bu)Ni2 (μ-O)2]: Nature of the Bis-μ-oxo (Ni3+) 2 “Diamond” Core. *Journal of the American Chemical Society*, 124(46), 13842-13855.
+18. Tan, H., Ji, Q., Wang, C., Duan, H., Kong, Y., Wang, Y., ... & Yan, W. (2022). Asymmetrical π back-donation of hetero-dicationic Mo4+-Mo6+ pairs for enhanced electrochemical nitrogen reduction. *Nano Research*, 15(4), 3010-3016.
+19. Power, P. P. (2012). Stable two-coordinate, open-shell (d1–d9) transition metal complexes. *Chemical Reviews*, 112(6), 3482-3507.
+20. Chatterjee, A., & Chatterjee, M. (2011). Computational Designing of Gradient-Type Catalytic Membrane. *Industrial Applications of Molecular Simulations*, 23.
+
+21. Zhuang, J., Tang, T., Ding, Y., Tatikonda, S. C., Dvornek, N., Papademetris, X., & Duncan, J. (2020). Adabellief optimizer: Adapting stepsizes by the belief in observed gradients. *Advances in neural information processing systems*, 33, 18795-18806.
+
+22. Song, L., Liu, W., Xin, F., & Li, Y. (2021). "Materials Studio" simulation study of the adsorption and polymerization mechanism of sodium silicate on active silica surface at different temperatures. *International Journal of Metalcasting*, 15, 1091-1098.
+
+23. Issa, A. A., Kamel, M. D., & El-Sayed, D. S. (2024). Depicted simulation model for removal of second-generation antipsychotic drugs adsorbed on Zn-MOF: adsorption locator assessment. *Journal of Molecular Modeling*, 30(4), 106.
+
+24. Halgren, T. A. (1992). The representation of van der Waals (vdW) interactions in molecular mechanics force fields: potential form, combination rules, and vdW parameters. *Journal of the American Chemical Society*, 114(20), 7827-7843.
+
+25. Shieh, P., Hill, M. R., Zhang, W., Kristufek, S. L., & Johnson, J. A. (2021). Clip chemistry: diverse (bio)(macro) molecular and material function through breaking covalent bonds. *Chemical Reviews*, 121(12), 7059-7121.

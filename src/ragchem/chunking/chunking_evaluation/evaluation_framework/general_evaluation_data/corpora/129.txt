@@ -1,0 +1,209 @@
+Integration of Micro-encapsulated Phase Change Materials into Thin Coatings for a Passive Battery Thermal Management System
+
+Matthew J. Quarrell\(^a\), Robert Batty\(^b\), Alex R. Neale\(^a\), Daniel H.S. Harvey\(^a\), Dmitry Shchukin\(^a\)*, and Laurence J. Hardwick\(^a\)*
+
+\(^a\). Stephenson Institute for Renewable Energy, Department of Chemistry, University of Liverpool, Liverpool, L69 7ZF, UK
+
+\(^b\). Department of Physics, University of Liverpool, Liverpool, UK
+
+Keywords: Battery Thermal Management System, Phase Change Materials, Encapsulation, Thermal Coatings, Li-ion
+
+https://doi.org/10.26434/chemrxiv-2025-djtpm ORCID: https://orcid.org/0009-0003-0361-848X Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+Introduction
+
+Lithium-ion batteries are becoming increasingly important in everyday life with an increase in the number of electric vehicles on the road.\textsuperscript{1} This has led to safety and lifetime concerns, which has been linked to the temperature that cells reach during operation with an ideal operational temperature of 20-30 °C.\textsuperscript{2,3} Outside of this optimal range, damaging cell processes occur that lead to loss in performance. At low temperatures slow intercalation kinetics can lead to lithium plating at the negative electrode which could lead to the short circuiting of the cell.\textsuperscript{4} At higher temperatures, a whole host of degradation processes are accelerated, such as dissolution of transition metals, breakdown of the solid electrolyte interphase, and stored lithium leaching from the graphitic electrode.\textsuperscript{5,6} These effects can severely damage the cell, limiting the cycle life and, in extreme cases, lead to thermal runaway, uncontrollable overheating, and eventually potential explosion.\textsuperscript{7}
+
+During operation, especially during abuse conditions such as fast charge or discharge, Li-ion cells generate heat through ohmic resistances and polarization resulting in increased internal temperatures.\textsuperscript{8} There have been attempts to reduce the heat production of Li-ion cells, however these methods have an impact on cost and functionality of the cells.\textsuperscript{9} To prevent the temperature of the cell becoming an issue, battery packs in electric vehicles (EVs) are installed with a battery thermal management system (BTMS). BTMSs are divided into three categories: active, passive and hybrid.\textsuperscript{10} Active BTMS, the most common BTMS currently in use, pump either air or liquid around the battery pack to remove the heat from the cells. To pump fluid, active BTMS require energy input from the battery pack to power the pumping system, with liquid being the most efficient active medium. Chen \textit{et al.} demonstrated the same temperature reduction of a single cell using both liquid and air systems, requiring 0.15 mW and 115 mW of input energy, respectively.\textsuperscript{11} Another issue with current active BTMS is uneven temperature distribution. To prevent uneven aging of cells there should no more than a 5 °C temperature difference between cells within a battery pack.\textsuperscript{12} This is a particular problem in forced air cooling where, without proper space configuration of the cells, it has previously been reported a temperature gradient of 11 °C can be achieved.\textsuperscript{13} Active BTMS are also generally heavy, reducing the gravimetric energy density of the battery pack and can have complex manufacturing processes raising their costs.\textsuperscript{10}
+Passive BTMSs do not require any additional energy input to function making them of interest as an improvement on current active BTMS designs. Passive systems have been shown to be up to 23% more efficient than liquid based systems and 15% more efficient than air based cooling methods.\textsuperscript{14} A class of materials that has been considered for a passive BTMS are phase change materials (PCMs).\textsuperscript{15} Organic PCMs have the ability to store over 200 J·g\textsuperscript{-1} for example, octadecane can store 220 J·g\textsuperscript{-1}, of latent heat during phase change which is stored and then released on the reverse phase change and as such has generate particular interest for BTMS.\textsuperscript{16,17} PCMs have been considered for BTMS for some time, however issues remain over integration. The low thermal conductivity of PCMs (for example paraffin wax has a thermal conductivity of 0.2 W·m\textsuperscript{-1}·K\textsuperscript{-1})\textsuperscript{12} and issues surrounding leaking have so far prevented widespread uptake of organic PCMs into BTMS.\textsuperscript{17} To mitigate low thermal conductivity challenges, the introduction of thermally conductive additives including nanoparticles and graphene, has been explored.\textsuperscript{19,20} Additionally, to limit leakage and material loss composite PCM structures have been designed to hold the PCM in place during operation and impart properties on to the PCM.\textsuperscript{21,22} While composite-PCMs have been shown to be effective, issues remain over the surface area to volume ratio required to effect effective and efficient BTMS. Furthermore, ensuring good contact with the cells for effective heat transfer and the mass added to the battery pack are critical considerations.\textsuperscript{10}
+
+Mico-encapsulation, the formation of a core-shell, has previously been used to provide protection to PCMs.\textsuperscript{23} The encapsulation also has the added benefit that the shell material can be modified to alter the properties of the core within.\textsuperscript{24} For example, graphene oxide-carbon nanotube composite shells have been used to greatly increase the thermal conductivity of capsules containing docosane.\textsuperscript{25} The micro-capsules also have an increased surface area compared to bulk PCM increasing the efficiency and efficacy of the PCM core being used. Furthermore, a slurry of nano capsules containing PCM has been demonstrated to be an effective BTMS simulating a cell using a joule heated block.\textsuperscript{26} The results of computational studies have also indicated the good potential for encapsulated PCMs to be used as part of an effective BTMS.\textsuperscript{27} However, the use of encapsulated PCMs in practical studies on actual Li-ion cells have so far been limited.\textsuperscript{28} In this work, coatings containing carbon micro-encapsulated octadecane (C\textsubscript{18}H\textsubscript{38}, melting point 27 °C) are applied to cylindrical Li-ion cells for evaluation as a passive BTMS. The performance of the micro-encapsulated PCM coating and the heat storage capabilities versus uncoated cells was investigated using thermal imaging and image processing during electrochemical cycling of cells.
+Experimental
+
+Phase Change Material Capsule Formation
+
+The procedure for the preparation of microcapsules consisting of the phase change material, octadecane and a carbon based container was based on previous work. To form the composite shell using graphene oxide and carbon nanotubes, 10 ml of graphene oxide dispersion (2.0 mg/ml, GO Graphene) was set to pH 2 by hydrochloric acid (37%, Sigma Aldrich) in a 14 ml vial and 3.0 mg of multiwall carbon nanotubes (Sigma Aldrich) were added. The resulting mixture was sonicated using a sonicator probe (1.25 cm probe, Qsonica model Q700, 20 kHz) placed 0.5 cm into the liquid for 10 minutes at an amplitude of 30%, 5 seconds on, 5 seconds off. An ice bath was used to prevent overheating by keeping the temperature of the suspension below 40°C.
+
+To the resulting suspension, 1000 mg of octadecane (Sigma Aldrich) was added and melted in a 40 °C water bath and sonicated using the same probe for 3 minutes continuously at an amplitude of 30%. A dark emulsion was formed which is stable (i.e., no visual phase separation) for ~6 months. Emulsion droplets were sized using laser diffraction (Malvern MasterSizer 3000). For further analysis, the resulting emulsion was freeze-dried for 24 h forming a black powder. The energy storage properties and melting temperatures were determined using differential scanning calorimetry (DSC, TA Instruments Discovery DSC), scanning from 10 °C → 60 °C at a rate of 1 °C min⁻¹ in a sealed alumina pan under nitrogen flow. The thermal stability of the capsules was determined by thermogravimetric analysis (TGA, TA Instruments) from 20 °C → 300 °C at a rate of 10 °C min⁻¹ under a nitrogen flow. For scanning electron microscopy (SEM, JSM-7001F JEOL) capsules were suspended in ethanol and dried directly onto an SEM stub. Raman spectroscopy (InVia Renishaw) was performed using a 532 nm laser to assess the formation of products.
+
+Formulation of the Thermal Coatings
+
+Excess octadecane was removed from the emulsion using a separating funnel. The emulsion was then added to a mix of water-based matte black paint (Johnstone’s) and graphite in a ratio of 90:8:2 (emulsion:paint:graphite) respectively in a 250 ml jar. The mixture was moderately stirred using a magnetic stir bar. The paint was analysed using DSC and TGA in the same method as previously stated and was also drop cast on an SEM stub for analysis.
+The coating was applied to the outside of 18650 LiFePO$_4$|Graphite cells (RS Pro, 1600 mAh, mass *ca.* 42 g) by dip coating into the wet active coating until the desired thickness was reached and an additional coat of 0.1 mm containing only graphite was added to the exterior to mitigate octadecane leakage during use (typically leakage led to a decrease in mass of 0.16 g of the coatings containing capsules, representing 2.9% of coating mass). The different coating thicknesses evaluated are presented in Table 1. For a comparison coating without the PCM capsules present, an equivalent cell was coated to the same thickness in a paint made up of 50:40:10 water:paint:graphite ratio to make a cell coated with paint and graphite.
+
+**Table 1.** Thickness and mass of thermo-storage coatings
+
+| Coating Thickness / mm | Coating mass / g | % mass increase* |
+|------------------------|------------------|------------------|
+| 0.6                    | 1.073            | 2.7              |
+| 0.8                    | 2.367            | 5.8              |
+| 1.1                    | 2.817            | 6.9              |
+| 1.3                    | 2.781            | 6.8              |
+| 1.5                    | 2.945            | 7.2              |
+| 2.0                    | 4.441            | 10.9             |
+| 3.0                    | 5.478            | 13.4             |
+| 3.5                    | 6.201            | 15.2             |
+
+*% mass increase calculated relative to uncoated 18650 LiFePO$_4$|graphite cell
+
+**Electrochemical Testing of Li-ion Cells for Thermal Coatings**
+
+Thermal imaging (FLIR T640, sensitivity < 0.03 °C) was used to monitor cell temperature during electrochemical cycling. Thermal imaging has been used previously in literature for the study of Li-ion cells and has the advantage that, unlike thermocouples, the entire surface of the cell can be assessed. 29 Three cells were observed simultaneously: a coating with capsules present, a coating without capsules present, and a cell without any coating. Both coatings contained graphite. The cell testing was conducted using a custom-made stand with thick plastic dividers to reduce radiative heating, Figure 1a, and electrochemical cycling was conducted using a Maccor 4300 battery cycler. The cell stand and IR camera were housed in a sealed metal box (53 x 65 x 76 cm) which was lined with cork to prevent reflection of the IR interfering with the measurement, for safety and to prevent thermal interference from the external environment (Figure 1b). Prior to testing, electrochemical impedance spectroscopy
+(Biologic, VMP-3) was performed on each cell to ensure the contact resistance was within the range of 0.04 – 0.08 Ω to ensure cell-to-cell uniformity.
+
+Two cycling regimens were developed. For the first testing regime, cells were rested for 30 minutes at open circuit voltage (OCV) and then discharged at 0.5C (C=1600 mAh) to 2.6 V and then charged at 2C to 4.5 V. The cells were then rested for 1 hour at OCV. The thermal imaging camera was setup to take an image every 20 seconds (Figure 1c) producing approximately 700 images. This test was repeated five times for each cell with a minimum 24 hrs break between tests to ensure cells did not accumulate heat through repeated testing. Thermal images were analysed using a Python script written for this work to extract the thermal data from the 700 images produced (see supporting information, Figure S1-S3), deriving average temperatures across the cell as well as the maximum and minimum temperatures.
+The alternative testing regime was carried out using a cycling regime based on the New European Driving Cycle (NEDC) to test the coating performances under a drive cycle regime closer to application. The NEDC was adapted by setting the fastest speed (120 km·h⁻¹) to discharge of 3 C (C = 1600 mA) and scaling the other speeds relative to this following the approach of Safdari et al.²⁰ to create a modified-NEDC (m-NEDC). The m-NEDC testing regime applied in this work is shown diagrammatically in (Figure 2) comprising 5 lower power cycles representative of urban driving followed by a series of higher power events, the extra urban cycle, to represent highway-type driving behaviour/speeds. The length of the pulses was tripled to compensate for the low power of the cells used in this work. The cells were again rested for 30 minutes at OCV before the start of the m-NEDC. After completion, the cells were
+
+**Figure 1.** (a) The battery testing box for battery cycling and thermal imaging. (b) The ‘battery stand’ holder containing three 18650 cells used in this work. (c) An example thermal image of coated and uncoated Li-ion cells at open circuit voltage.
+rested at OCV for 1 h. Thermal images were collected every 15 seconds producing approximately 600 images per m-NEDC experiment.
+
+Figure 2. Current pulse power and duration of the Modified New European Driving Cycle.\textsuperscript{30}
+
+Results and Discussion
+
+Formation of Capsules and Properties of the Coatings
+
+Octadecane was chosen as the active phase change material (PCM) to prepare the capsules owing to the melting point of 27 °C, suitable for maintaining cell temperature between the targeted 20-30 °C range. Additionally, octadecane has been previously suggested as a suitable PCM for BTMS.\textsuperscript{17} To characterise the phase change material capsules, Raman spectroscopy was used to confirm the formation of the composite shell material prior to encapsulation, (Figure 3a). An intensification of the band at ~2700 cm\textsuperscript{-1}, assigned to the 2D stretching mode of the carbon nanotubes, was observed in the composite material when compared with graphene oxide; the intensification of the 2D band in the composite material indicates the presence of carbon nanotubes, supported by the large band in the Raman spectrum of pure carbon nanotubes.\textsuperscript{25} Carbon nanotube fibres can also be observed in the SEM image of the composite shell material, (Figure S4a).
+Prior to the sonication of the shell composite and octadecane mixture, the mixture contained a broad range of particle sizes with a span of 170 µm and mean size of 0.117 µm as determined by laser diffraction experiments (Figure 3b). The graphene oxide and carbon nanotubes are attributed to the smaller sized particles (~50 nm), and the octadecane making up the larger particles (~1, 4, 11 and 30 µm). After the sonication process, the multimodal distribution was replaced with a unimodal curve, indicative of a uniform emulsion.\(^{31}\) The mean average size of emulsion droplets was recorded as 2.35 µm with a reduced span of 1.91 µm (Figure 3c). From DSC measurements of the freeze-dried capsules (Figure 3d) the encapsulated PCM had a melting point of 26.1 ± 0.025 °C and enthalpy of 217 ± 0.09 J·g\(^{-1}\). This demonstrates an encapsulation efficiency of 98% which is comparable to the 96% efficiency reported previously for the same synthesis process.\(^{25}\) The melting curve of the capsules is broader than the melting curve of the bulk octadecane which is indicative of the various size of capsules. Furthermore, the crystallisation curve of the capsules has lost the ‘kinetic loop’ observed in the bulk upon recrystallization as nucleation now occurs on the inside of the shell. The capsules also provided some protection from thermal decomposition, TGA of the capsules and the bulk showed that there was a delay in the onset of thermal decomposition (Figure S5).
+
+Analysing the coatings containing the capsules and graphite, SEM images show ca. 2 µm capsules were well dispersed throughout the coating with graphite flakes also equally dispersed (Figure 3e). After being heated to 40 °C for 24 h, the SEM image show the coating and capsules remain intact with no obvious damage to the capsules (Figure 3f). DSC measurements show the coating has an enthalpy of 100 J·g\(^{-1}\) which decreases only by 2% after 100 cycles highlighting the durability of the coating (figure S6).
+Figure 3. Characterisation of capsules. (a) Raman spectroscopy of the composite material used to encapsulate octadecane and the constituent graphene oxide and carbon nanotube materials. (b, c) Laser diffraction measurements of the graphene oxide carbon nanotube composite and octadecane mixture (b) before sonication and (c) after sonication. (d) DSC measurements of bulk and encapsulated octadecane. (e, f) SEM images of coating containing capsules (e) before and (f) after heating.
+
+Testing of coatings applied to LiFePO$_4$|graphite Cylindrical Cells
+
+Prior to assessing the efficacy of the coatings, the thermal behaviour of an uncoated cell was analysed for a 0.5 C discharge and 2 C charge (Figure 4a). These conditions were chosen due to fast charging of Li-ion cells being limited by safety concerns associated with temperature increase. During the 0.5 C discharge phase of the cycle the average temperature of the cell increased by 2 °C. On discharge, a moderate increase in temperature of ca. 2 °C is observed with much of the total 14 °C temperature increase occurring during the charge step.
+
+During the 2 C charge step, due to the increased current rate resulting in increased resistive heating, the cell temperature rapidly increases. The rate of temperature increases during the charging step is not constant and fluctuates throughout the charging process (Figure 4b). Various studies have observed that, during charging, entropic changes can result in a decrease in the temperature of the cell. The result of the 2 C charge is in agreement with these observations, with Figure 4b showing that during the charging stage, the rate of temperature increase does decrease in the middle of the charge step, and this has been attributed to the
+entropic absorption of heat as the ratio of ions at the electrodes changes, but the overall increase is dominated by the high C-rate.\textsuperscript{29,33,34} When the cell is polarised to 4.5 V at the end of the cycle, the excess energy is converted to heat resulting in the spike in temperature that is observed at the end of the charge. Overall, the rate of change varies throughout the charge step due to entropic effects and is greatest when the cell polarises. The temperature profiles are in good agreement with those found in literature using alternative methods for recording temperature.\textsuperscript{6,21,35} After the completion of the cycle, the cell relaxes to OCV and the cell temperature initially rapidly decreases with heat no longer being produced after the current flow has ceased. The rate of temperature decreases then reduces as the temperature of the cell approaches to close to the ambient room temperature.
+
+![Figure 4](https://doi.org/10.26434/chemrxiv-2025-djtpm) ORCID: https://orcid.org/0009-0003-0361-848X Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+
+**Figure 4.** (a) Voltage and temperature profiles of the uncoated Li-ion cell when discharged at 0.5C and charged at 2C, and (b) the rate of temperature change of the uncoated Li-ion cell during the cycling.
+
+The effect of the coatings on the thermal behaviour of the cell during cycling is shown in (Figure 5a) which compares a coating containing as well as an uncoated cell. The temperature profile of the cell with graphite-only coating behaves similarly to the uncoated cell, with only a slight decrease in maximum temperature due to more efficient heat dissipation. The addition of the PCM capsules to the coating alters the temperature profile of the cell during the 2C charging step. Whilst the initial part of the temperature profile remains consistent with the other cells, after an increase of \(~8\) °C the temperature of the cell begins to stabilise indicating the PCM has begun to convert from solid to liquid. During the phase change, the PCM takes up the heat that is being produced by the cell and stores the energy as latent heat resulting in the temperature of the cell no longer increasing. This continues for \(~15\) minutes until all the PCM has completely changed phase and heat produced by the cell ceases to be stored at which point the temperature of the cell will continue to increase. The thermal image taken at the hottest
+temperature (at the end of charge) with the cell coated with PCM (Figure 5 b(i)) cooler than the other two cells (Figure 5 b(ii, iii)). The thermal image of the PCM/graphite coated cell does show temperature variation of 4 °C at this maximum temperature point. However, this temperature variation is within the recommended range.\textsuperscript{12}
+
+The PCM coating modifies the behaviour of the cell during the cooling stage after the cycle has been completed at 11000 seconds. The cells that did not have a coating containing the PCM capsules decrease in temperature rapidly once charging current is ceased as previously described for the uncoated cell.\textsuperscript{36} For a cell with a coating containing PCM capsules, after the charge step is finished, an initial decrease in temperature of \textit{ca.} 1 °C is observed. After this initial decrease, the temperature of the cell stabilises again as the PCM undergoes the reverse phase change from liquid to solid. This process releases the stored latent heat from the PCM heating the cell and maintaining the temperature around the cell. This lasts for approximately 900 seconds (15 minutes) after which, the rate of cooling of the cell returns to normal. The observation of absorbing heat during charging, and that heat then being released in the PCM coating during succeeding rest step is evidence that the phase change is taking place and that the PCM is successfully taking heat up from the cell.
+
+The addition of a graphite only coating does reduce the temperature of the cell, on average, compared with an uncoated cell (Figure 5c). Graphite has a high thermal conductivity and has been used previously to enhance the use of PCMs in BTMS to allow for more efficient heat dissipation away from the cell.\textsuperscript{37} Graphite was added to the coating and showed better heat dissipation than a coating without graphite, Figure S7. The inclusion of graphite was used to prevent the coating having a low thermal conductivity which would be detrimental to the coating controlling the temperature of the cell.
+**Figure 5** (a) Temperature profiles of an uncoated cell and 2 mm thick coatings with and without the PCM present. The relevant impedance spectra can be found in **Figure S8** (b) Thermal image at the hottest stage of the cycle. (i) The cell coated with phase change material is the top cell, (ii) the middle cell is coated with only graphite and (iii) the bottom cell has no coating. In all cases the positive electrode tab is on the left. (c) Changes in average cell temperature as a function of the coating thickness. The error bars represent the standard deviation after 5 repeat experiments.
+When designing a BTMS using PCMs, the thickness of the applied PCM is an important factor in its effective application. Figure 5c shows the relationship between coating thickness and temperature increase. For coatings less than 1.5 mm thickness there are no significant difference between coatings with and without the PCM present. The coatings do not contain enough PCM to take up a significant amount of heat compared to the heat dissipation which is provided by both the shell material and the graphite additive. For coatings of 1.5 mm thickness and higher, the mass of the PCM present is significant enough to absorb more heat than would be dissipated resulting in the observed reduction in the temperature rise. Additionally, the standard deviation of the thicker coatings also narrow. Since dip coating can result in uneven coatings, at thicker coatings there is more even distribution of material resulting in more consistency between tests.
+
+Figure 6a shows the different temperature profiles of 1.5, 2.0 and 3.0 mm thick coatings. For the thickest 3.0 mm coating, the higher loading of available PCM is sufficient to avoid the temperature spike from the profile at the end of the charge. The rate of temperature change shows for the thicker coatings the time at which the change in temperature is 0 °C s⁻¹ is longer, showing that more heat is being absorbed by the PCM at this thickness (Figure 6b).
+
+Figure 6. (a) Change in average temperature profiles during cycling and (b) rate of temperature change for cells with 1.5 mm, 2.0 mm, and 3.0 mm thick PCM coatings. The bold lines show the smoothed data with transparent line being unsmoothed data. The relevant impedance spectra can be found in Figure S9.
+
+To further assess the efficacy of the coatings, the previously described modified New European Driving Cycle (m-NEDC) was used to test the cell coatings under conditions more representative of standard driving. As previous, an uncoated cell was initially analysed to determine baseline
+thermal behaviour of the Li-ion cell, Figure 7. During the first 5 urban cycles, there is a moderate increase in temperature of the cell with the rate increasing fastest as greater current is applied. The bulk of temperature increase is observed during the extra urban cycle which has the highest C-rates. During this stage the rate of temperature change increases rapidly from 0.01 °C·s⁻¹ to 0.04 °C·s⁻¹, Figure 7b. As before, faster C-rates results in greater resistive heating and the rapid increase in temperature.
+
+Figure 7. (a) Current profile of the m-NEDC regime and the correlated temperature profile of an uncoated cell (b) Rate of temperature change during the m-NEDC.
+
+The performance of the two cell coating types was then evaluated using the m-NEDC testing regime. Figure 8a shows the thermal behaviour of cells with 1.5 mm coatings comprising either only graphite, or graphite and PCM capsules. As observed previously during 2C charging rates, after an 8 °C increase in temperature, the PCM capsule-coated cell ceases to increase in temperature. The m-NEDC cycle is shorter than the previous test producing less heat overall, so a thinner coating was able to control the temperature of the cell. During cooling, there is only a slight deviation away from the uncoated cells due to less heat uptake. The thermal image of the three cells under test is shown in Figure 8b. The cell with PCM is shown to be significantly cooler than the comparison cells and shows an even distribution of temperature, with a maximum temperature difference of 6.7 °C.
+
+The effects of different coating thicknesses were also explored using this m-NEDC cycle (Figure 8c). As was observed under the previous testing regime, thinner coatings (0.6 – 1.0 mm) containing both PCM capsules and graphite show limited improvement compared to coatings containing only graphite. However, for coatings of >1.1 mm thickness, the positive effect of the PCM capsules on the thermal behaviour of the cell is much more pronounced. The required coating thickness for effective thermal management is thinner than in the previous test where thermal performance improved after 2.0 mm thick coating was applied. However, unlike
+the previous testing regime, after 2.0 mm thick coatings a diminishing return is observed. From Figure 8b, the 3.0 mm and 3.5 mm thick coatings are on average less effective at controlling the temperature. At this stage the thickness of the coating is detrimental to the efficient dissipation of heat away from the cell.
+
+To further explain this difference, comparing the rate of temperature change, Figure 8d, the thin 0.8 mm coating does not absorb heat for as long as 1.5 mm thick or 2.0 mm thick coating. The 1.5 mm and the 2.0 mm thick coatings absorb heat for an equal length of time which explains why the relative temperature decrease does not improve with thickness – the coating has absorbed all the available heat. The experiment shows that, as well as the coating being an effective BTMS under NEDC conditions, the coating thickness can be effectively modified to the requirements of the cell. Further, during this test the change in rate of temperature increases rapidly, however, the capsules effectively control the output in showing quick response time to a change in temperature, which is important in a practical BTMS and has been considered a problem for PCM BTMS.\textsuperscript{18}
+Figure 8(a) Temperature profile of 1.5 mm thick coatings. The phase change material coating is effective at preventing the uncontrolled increase in cell temperature. The relevant impedance spectra can be found in Figure S10 (b) The thermal image recorded at peak temperatures of the 1.5 mm tests. (i) the cell coated with phase change material (ii) coated with only graphite and (iii) a cell with no coating (c) The relationship between coating thickness and the average temperature of the cell. The coating performs best between 1.1 – 2.0 mm. (d) A comparison of the rate of temperature increase of 0.8 mm, 1.5 mm and 2.0 mm coatings with phase change capsules and graphite. The relevant impedance spectra can be found in Figure S11.
+
+To assess the effectiveness of the micro-capsule PCM-based coatings, these results have been compared to composite PCMs (CPCMs, Table 2) which have been extensively researched as a potential solution for a passive BTMS and most closely resemble the coating that has been used
+in this study.\textsuperscript{40} CPCMs make use of porous materials to house the PCM to avoid leakage during phase change, and have been modified to increase the thermal conductivity of the material. Compared to a CPCM that makes use of octadecane, the proposed coating system reported in this work is effective in controlling Li-ion cell temperature, tested at a single cell level. The coating also has comparable heat storage capabilities to the listed CPCMs meaning there is good potential for scale up.
+
+An added advantage of the coating is that the PCM is directly applied to the cell and does not require any external supports. In the CPCMs presented in Table 2, a variety of methods of attachment to the cell have been used; including external clamping which would add mass to the cell. CPCMs that do not make use of external clamping will form an interconnected network trapping the cells within the foam. The interconnected network can make the implementation of a hybrid BTMS difficult, whereas the coating would be easier to integrate into a hybrid system.
+Table 2. A comparison of various battery thermal management systems (BTMS) that make use of phase change materials (PCMs)
+
+| PCM and attachment method | Cells tested | PCM | LHS / J g⁻¹ | Max temp. / °C | Estimated Mass increase / g | Ref. |
+|---------------------------|--------------|-----|-------------|----------------|----------------------------|------|
+| Octadecane encapsulation using GrO-CNT composite and applied via coating. | 1600 mAh LiFePO₄|C. | Single cell. | 26.1 | 100 | 28 | For 1.5 mm coating: 2.95 g | This work |
+| Lauric acid mixed with SEBS and CNT attached via external clamps. | 10 Ah, 1160100-polymer soft pack Li-ion cell. | 44 | 152 | 45 | 40 per cell | Li et al²⁰ |
+| Paraffin mixed with SBS and carbon fibre stacked between cells. | 5 x 20 Ah LiFePO₄|C. | 50 | 90 | 47 (1C), 48 (2C), 49 (3C) | 10 per cell | Hu et al²¹ |
+
+https://doi.org/10.26434/chemrxiv-2025-djtpm ORCID: https://orcid.org/0009-0003-0361-848X Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+LHS = latent heat storage, GrO = graphene oxide, CNT = carbon nanotubes, SEBS = styrene-butadiene-styrene, SBS = styrene-butadiene-styrene. For calculation of mass increase see supporting information.
+Conclusions
+
+The encapsulation of octadecane as a phase change material (PCM) into 2 μm micro-capsules within a graphene oxide and carbon nanotube composite shell delivered heat storage of 100 J·g⁻¹ when applied as a coating. The PCM capsule based coating was applied to LiFePO₄|graphite 1600 mAh cylindrical cells and the optimised coating was shown to reduce the average temperature rise of the cell by up to 8 °C under high current cycling and limit temperature variation across the cell to >4 °C. This control over thermal changes during electrochemical cycling will protect the cell chemistry from extreme temperature rises and maintain a stable operating temperature during cycling.
+
+Furthermore, the coatings delivered a cell temperature reduction of 4 °C during a modified pulsed cycle regime, representative of real-world drive cycles, when compared to an uncoated cell. Significant reductions in cell maximum and average temperatures were achieved using coatings that only added a 10-15% increase in cell mass and these were effective at a thickness of 3 mm, reducing the drawback of some composite PCMs and other PCM based battery thermal management systems. For future investigations it will be important to explore the integration and evaluation of these thermal storage coatings within larger battery packs, including in use of hybrid BTMS to test the efficacy of using coatings in a wider battery pack in combination with air cooling.
+Acknowledgements
+
+MQ acknowledges PhD funding support from the UKRI (EPSRC DTP). RB acknowledges PhD funding support from the UKRI (EPSRC DTP) and Unilever. This work has been funded by EPSRC, The Department of Physics The University of Liverpool and Unilever. The authors acknowledge the Royce Open Access Laboratories within the Material Innovation Factory and the Albert Crewe Centre for Electron Microscopy.
+References
+
+1. P. Hertzke, N. Muller, S. Schenk, and T. Wu, *The global electric-vehicle market is amped up and on the rise. McKinsey Center for Future Mobility*, (2018).
+
+2. P. Sun, R. Bisschop, H. Niu, and X. Huang, *Fire Technol.*, 56, 1361–1410 (2020).
+
+3. D. Chen, J. Jiang, G.-H. Kim, C. Yang, and A. Pesaran, *Appl. Therm. Eng.*, 94, 846–854 (2016).
+
+4. M. Petzl, M. Kasper, and M. A. Danzer, *J. Power Sources*, 275, 799–807 (2015).
+
+5. X. Liu, Y. Liang, R. Dongsheng, L. Wang, R. Yang, W. Xu, S. Lapidus, H. Wang, X. He, Z. Chen, G. Xu, M. Ouyang and A. Kahlil *Nat Commun.*, 12, 4235 (2021).
+
+6. W. Shen, N. Wang, J. Zhang, F. Wang, and G. Zhang, *ACS Omega*, 7, 44733–44742 (2022).
+
+7. L. Feng, T. Cher Ming, M. Pecht and Z. JiYe, *IEE-CS* (2014).
+
+8. T. M. M. Heenan, *Nature*, 617, 507–512 (2023).
+
+9. R. Zhao, J. Liu, and J. Gu, *Appl. Energy*, 139, 220–229 (2015).
+
+10. R. Kumar and V. Goel, *J. Energy Storage*, 71, 108025 (2023).
+
+11. D. Chen, J. Jiang, G.-H. Kim, C. Yang, and A. Pesaran, *Appl. Therm. Eng.*, 94, 846–854 (2016).
+
+12. J. Luo, D. Zou, Y. Wang, S. Wang, and L. Huang, *Chem. Eng. J.* 430, 132741 (2022).
+
+13. T. Wang, K. J. Tseng, J. Zhao, and Z. Wei, *App. Energy*, 134, 229–238 (2014).
+
+14. M. A. Bamdezh and G. R. Molaeimanesh, *Energy*, 304, 132134 (2024).
+
+15. S. Al Hallaj and J. Selman, *J. Electrochem. Soc.*, 147, 3231–3236 (2000).
+
+16. K. Pielichowska and K. Pielichowski, *Prog. Mater. Sci.*, 65, 67–123 (2014).
+
+17. X. Chen, H. Yang, Y. Song, W. Lai, and L. Zheng, *Phys. Scr.*, 99, 065922 (2024).
+
+18. D. D. Furszyfer Del Rio, D. Al Kes, H. wong, B. M. Fadhi Wong, A. Dolfi, G. Srinivasan, and A. M. Foley *Sustain. Energy Technol. Assessments*, 71, 103980 (2024).
+
+19. D. Zou, X. Ma, X. Liu, P. Zheng, and Y. Hu, *Int. J. Heat Mass Transf.*, 120, 33–41 (2018).
+
+20. Z. Li, Y. Zhang, X. Wang, F. Cao, X. Guo, S. Zhang and, B. Tang, *J.Power Sources*, 603, 234447 (2024).
+
+21. J. Hu, W. Huang, X. Ge, C. Wang, G. Zhang, Y. Chen and, C. Tu, *J. Energy Storage*, 100, 113485 (2024).
+22. W. Wu, J. Liu, M. Liu, Z. rao, H. Deng, Q. Wang, X. Qi and S. Wang, *Energy Conv. Manag.*, **221**, 113145 (2020).
+
+23. E. Shchukina, M. Graham, Z. Zheng, and D. Shchukin, *Chem. Soc. Revs.*, **47**, 4156–4175 (2018).
+
+24. H. Zhou, R. Cheng, M. Quarrell, and D. Shchukin, *J. Colloid Interface Sci.*, **638**, 403–411 (2023).
+
+25. Z. Zheng, J. Jin, G. Xu, J. Zou, U. Wais, A. Beckett, T. Heil, S. Higgins, L. Guan, Y. Wang and, D. Shchukin, *ACS Nano*, **10**, 4695–4703 (2016).
+
+26. J. Gu, J. Du, Y. Li, J. Li, L. Chen, Y. Chai and, Y. Li, *Energies*, **16** (2023).
+
+27. A. J. Torregrosa, A. Broatch, P. Olmeda, and L. Agizza, *J. Energy Storage*, **70**, 107995 (2023).
+
+28. T. Hu, J. Zhang, W. Chan, R. Xiao, H. Xu, X. Zhao, G. Wang, and, W. Yu, *Appl. Therm. Eng.*, **257**, 124409 (2024).
+
+29. S. Goutam, J.-M. Timmermans, N. Omar, P. V. Bossche, and J. Van Mierlo, *Energies*, **8**, 8175–8192 (2015).
+
+30. M. Safdari, R. Ahmadi, and S. Sadeghzadeh, *Appl. Energy*, **315**, 119026 (2022).
+
+31. D. H. S. Harvey, A. Whittaker, K. Arnold, J. F. Mills, and D. G. Shchukin, *Coll and Surf A*, **619**, 126510 (2021)
+
+32. S. Ahmed et al., *J. Power Sources*, **367**, 250–262 (2017).
+
+33. W. Shao, B. Zhao, W. Zhang, Y. Feng, W. Mao, G. Ai, and K. Dai, *Fire Technol.*, **59**, 289–303 (2023).
+
+34. K. Jalkanen, T. Aho, and K. Vuorilehto, *J. Power Sources*, **243**, 354–360 (2013).
+
+35. C.-Y. Lee, S.-J. Lee, M.-S. Tang, and P.-C. Chen, *Sensors*, **11**, 9942–9950 (2011).
+
+36. N. S. Nandagopal, *Fluid and thermal sciences: a practical approach for students and professionals / Nuggenhalli S. Nandagopal.*, Springer, Cham, Switzerland, (2022).
+
+37. A. Mills, M. Farid, J. R. Selman, and S. Al-Hallaj, *Appl. Therm. Eng.*, **26**, 1652–1661 (2006).
+
+38. S. Lin and L. Zhou, *Appl. Therm. Eng.*, **244**, 122743 (2024).
+
+39. H. Chen, Z. Song, X. Zhao, T. Zhang, P. Pei and, C. Liang, *Appl. Energy*, **224**, 289–299 (2018).
+
+40. Y. Zhao, B. Zou, T. Zhang, Z. Jiang, J. Ding, and, Y. Ding *Renew. Sustain. Energy Rev.*, **167**, 112667 (2022).

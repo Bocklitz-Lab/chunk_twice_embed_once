@@ -1,0 +1,634 @@
+Analytical derivatives of symmetry-adapted perturbation theory corrections for interaction-induced properties
+
+Bartosz Tyrcha,*† Tarun Gupta,† Konrad Patkowski,*,‡ and Piotr S. Żuchowski *,†
+
+†Institute of Physics, Faculty of Physics, Astronomy and Informatics, Nicolaus Copernicus University in Toruń, Grudziądzka 5/7, 87-100 Toruń, Poland
+‡Department of Chemistry and Biochemistry, Auburn University, Auburn, Alabama 36849, USA
+
+E-mail: btyrcha@doktorant.umk.pl; patkowsk@auburn.edu; pzuch@fizyka.umk.pl
+
+Abstract
+
+A new approach that allows for the calculation of interaction-induced properties exclusively from the properties of monomers is presented. The method is derived in the spirit of the symmetry-adapted perturbation theory (SAPT). The interaction-induced property is presented in the first order of the molecular interaction operator, including the exchange effects. Test calculations of the interaction induced dipole moment were carried out for a number of small nonpolar and polar atomic and molecular dimers. The numerical results show that the analytical first-order corrections proposed in this paper reproduce the finite-field treatment of the first-order corrections of SAPT. Compared to supermolecular approaches, the performance of the finite-field SAPT (up to the second order) constitutes an insightful alternative for calculations of interaction-induced properties.
+1 Introduction
+
+Although noncovalent interactions are orders of magnitude weaker than covalent bonds, they critically affect many physical properties of chemical systems. They shape the structures of molecular crystals, influence the bulk properties of gases, affect the spectroscopy of molecular complexes, and alter chemical reactions. Beyond phenomena related to changes in the potential energy of weakly bound systems, these interactions can also lead to electron density deformations, causing electron flow between different parts of the interacting systems. Properties sensitive to these changes in electron density deserve special attention. For example, modifications to dipole moments induced by interactions, which determine collision-induced absorption coefficients[11] depend, apart from potential energy surfaces, on dipole moment surfaces. Similarly, NMR spectroscopy parameters in crystals, such as shielding constants and chemical shifts, are affected by these interactions[28]. In addition, induced dipole moments and polarizabilities influence the dielectric properties of gases and their mixtures. More recently, scattering Feshbach resonances in the ultralow kinetic energy regime turned out to be driven by the modification of the hyperfine atomic coupling in collisions of alkali metal atoms with closed shell species[12–14].
+
+Among many approaches, symmetry-adapted perturbation theory (SAPT) has proven to be one of the best tools for studying noncovalent interactions. The current range of applicability of SAPT spans small[15,16] to large systems with 100-200 atoms. In addition, the range of possible systems includes open-shell and multiconfigurational systems[21–23] or even autoionizing dimers[24–26]. The central concept of the SAPT methods is the partitioning of the dimer Hamiltonian into the Hamiltonians of the monomers and the interaction operator between the subsystems
+
+\[ H = H_0 + \lambda V, \]  
+
+(1)
+
+and performing perturbation theory expansion in terms of \( \lambda \) with proper restoration of permutation symmetry of the dimer wavefunction. In numerous benchmark studies, SAPT
+demonstrated competitive accuracy with respect to gold-standard quantum chemistry methods.\textsuperscript{29–31}
+
+Traditionally, SAPT has been predominantly utilized for the analysis of interaction energies, establishing it as an essential tool for exploring multidimensional potential energy surfaces, conducting interaction energy decompositions, and developing force fields.\textsuperscript{32–34} However, its application has remained largely restricted to these areas, with limited use in investigating molecular properties or energy gradients. Given the multitude of challenges in chemical physics that critically rely on energy derivatives, there is a clear need for progress to expand SAPT’s scope into these new directions.
+
+Despite this lack of theory for SAPT derivatives, finite-field numerical differentiation has enabled the study of some essential properties of van der Waals complexes. For example, Heijmen et al.\textsuperscript{35} demonstrated that the interaction-induced dipole moment of a simple complex such as He···H\textsubscript{2} can be derived from the derivative of SAPT components with respect to an external electric field. In addition, several studies have focused on the electric polarizabilities and hyperpolarizabilities of complexes using SAPT or energy decomposition schemes.\textsuperscript{10,36–39} More recently, Iglesias-Reguant et al.\textsuperscript{40,41} presented an innovative approach to understand the infrared spectroscopy of molecular complexes through the decomposition of interaction energy and derivatives of its components with respect to normal modes.
+
+As two molecules approach each other from infinite separation, their properties change because of the distortion of their electronic wavefunctions. Such change is referred to as the interaction-induced property and can be defined in a similar way as the interaction energy
+
+\[
+\Delta X = X_{AB} - X_A - X_B, \tag{2}
+\]
+
+where \(X\) denotes a given property that is measured (calculated) at the given geometry for the dimer complex and separate monomers. Interaction-induced properties (from now on, we will use the abbreviation IIP) have been studied for quite a long time, notably
+starting with Richard Feynman and Hans Hellmann independently in the late 1930s.\textsuperscript{12,13} Much later, Hirschfelder and Eliason\textsuperscript{14} performed a detailed analysis of the second-order corrections in the $V$ operator for two hydrogen atoms. Buckingham\textsuperscript{16} studied polarizability and hyperpolarizability of a pair of atoms and used double perturbation theory for the leading asymptotic terms. In 1990, Hunt\textsuperscript{17} rigorously proved Feynman’s hypothesis on the behavior of dipole moments and derived closed formulas for the effects of polarization on molecular properties in terms of response functions in the asymptotic region. As we briefly stated before, one of the primary reasons for studying dipole moment surfaces is collision-induced absorption.\textsuperscript{18,19}
+
+In this paper, we consider only the first-order properties (i.e., linear with respect to the external field strength associated with $X$), which can be described by the Hellmann-Feynman theorem. To this end, we start with the approach introduced by the group of Jeziorski\textsuperscript{20} in which the IIP are computed directly, without the necessity of computing the dimer property, and adopt it to the SAPT formalism, as a series of perturbations in $X$. Then, we present a formulation for the single reference case, both for Hartree-Fock and Kohn-Sham formalisms. Finally, we provide tests of the method against supermolecular calculations of the dipole moment at the CCSD(T) level and from finite-field SAPT. We use the abbreviation propSAPT for the new framework presented here.
+
+2 Theory
+
+From a formal perspective, the formulation of the IIP theory represents a double perturbation approach and is treated as such in this section. Historically, Hunt\textsuperscript{21} introduced the foundational theory of IIP in the asymptotic region,\textsuperscript{17} where the $V$ operator is expanded into a series of multipoles. The theory presented here extends these calculations to include polarization terms in the valence-overlap region, where the multipole expansion fails to converge. In addition, it encompasses exchange interactions, broadening the model’s applicability be-
+yond traditional asymptotic limits.
+
+2.1 General formulation of theory of interaction-induced properties
+
+We begin with an overview of the theory presented by Piszczatowski, Łach, and Jeziorski, focusing specifically on one-electron properties. For a system comprising two subsystems, we assume that the Schrödinger equations for the monomers are solvable, that is, \( h_A \phi_A = e_A \phi_A \) and \( h_B \phi_B = e_B \phi_B \). When the interaction between subsystems \( A \) and \( B \) is introduced, we assume the combined system satisfies the Schrödinger equation for the dimer:
+
+\[
+(h_A + h_B + V)\psi = (e_A + e_B + e_{\text{int}})\psi,
+\]
+
+where \( V \) represents the intermolecular interaction operator, and \( e_{\text{int}} \) is the interaction energy. At this stage, \( \psi \) denotes the dimer wavefunction, and its expansion is yet to be considered (\textit{vide infra}).
+
+Introducing a one-electron perturbation with the formal expansion parameter \( \zeta X = \zeta(X_A + X_B) \), we will obtain perturbed analogs of interacting and non-interacting equations:
+
+\[
+(h_A + h_B + V + \zeta X)\Psi(\zeta) = E(\zeta)\Psi(\zeta),
+\]
+\[
+(h_A + h_B + \zeta X)\Phi(\zeta) = (E_A(\zeta) + E_B(\zeta))\Phi(\zeta)
+\]
+
+The physical meaning of \( E_A(\zeta) \), \( E_B(\zeta) \), and \( E(\zeta) \) is that they represent monomer and dimer energies perturbed by the \( X \) operator, respectively. By projecting the above equations on \( \Phi(\zeta) \), Piszczatowski et al. demonstrated that the perturbative effect of \( X_A + X_B \) on the difference energy of the dimer and monomers is given by:
+
+\[
+E(\zeta) - E_A(\zeta) - E_B(\zeta) = \frac{\langle \Phi(\zeta)|V\Psi(\zeta) \rangle}{\langle \Phi(\zeta)|\Psi(\zeta) \rangle}.
+\]
+
+Following the Hellmann-Feynman theorem, the interaction-induced expectation value of \( X \)
+can be derived by differentiating the above equation and setting \( \zeta = 0 \), resulting in:
+
+\[
+\Delta X = \frac{1}{\langle \phi_A \phi_B | \psi \rangle} \left[ \langle \Phi^{[1]} | (V - e_{\text{int}}) \psi \rangle + \langle \phi_A \phi_B | (V - e_{\text{int}}) \Psi^{[1]} \rangle \right]
+\] (7)
+
+where \( \Psi^{[1]} \) and \( \Phi^{[1]} \) represent the first-order corrections (in \( \zeta \)) to the wavefunctions \( \Psi \) and \( \Phi \). Note that we use \([1]\) to indicate first-order with respect to the \( X \) operator. The induced property \( \Delta X \), introduced in Eq. (2), is of first order by definition as we have obtained it from the Hellmann-Feynman theorem, so for that particular quantity, we remove the \([1]\) superscript. The functions \( \Psi^{[1]} \) and \( \Phi^{[1]} \) are the solutions of the following linear equations:
+
+\[
+\left[ h_A + h_B + V - (e_A + e_B + e_{\text{int}}) \right] \Psi^{[1]} = \left[ \langle \psi | X \psi \rangle - X_A - X_B \right] \psi
+\] (8)
+
+and
+
+\[
+\left[ h_A + h_B - (e_A + e_B) \right] \Phi^{[1]} = \left[ \langle \phi_A | X_A \phi_A \rangle + \langle \phi_B | X_B \phi_B \rangle - X_A - X_B \right] \phi_A \phi_B
+\] (9)
+
+The last equation is separable into \( A \) and \( B \) parts as
+
+\[
+\Phi^{[1]} = \phi_A^{[1]} \phi_B + \phi_A \phi_B^{[1]}
+\] (10)
+
+where \( \phi_A^{[1]} \) and \( \phi_B^{[1]} \) are solutions of the following equations:
+
+\[
+\left[ h_A - e_A \right] \phi_A^{[1]} = \left[ \langle \phi_A | X_A \phi_A \rangle - X_A \right] \phi_A,
+\] (11)
+
+\[
+\left[ h_B - e_B \right] \phi_B^{[1]} = \left[ \langle \phi_B | X_B \phi_B \rangle - X_B \right] \phi_B.
+\] (12)
+
+We next approximate the wavefunctions appearing in Eq. (7) using a double perturbation expansion of a dimer equation
+
+\[
+(h_A + h_B + \lambda V + \zeta X) \Psi_{\text{pol}}(\lambda, \zeta) = E(\lambda, \zeta) \Psi_{\text{pol}}(\lambda, \zeta),
+\] (13)
+with the exact solution in the double series form being
+
+$$\Psi_{\text{pol}}(\lambda, \zeta) = \sum_{n=0}^{\infty} \sum_{m=0}^{\infty} \lambda^n \zeta^m \Psi_{\text{pol}}^{(n),[m]},$$  \hspace{1cm} (14)
+
+where the $\Psi_{\text{pol}}^{(n),[m]}$ wavefunction is of $n$-th order in the interaction operator $V$ and $m$-th order in the external perturbation $X$. It is worth noting that $\Psi_{\text{pol}}^{(0),[1]} = \Phi^{[1]}$ and $\Psi_{\text{pol}}^{(0),[0]} = \phi_A \phi_B$.
+
+It is well known that such a polarization wavefunction will not have a proper permutation symmetry. How can the exchange effects and the Pauli exclusion principle be incorporated into the presented theory? To restore the proper permutation symmetry, we use weak symmetry forcing, according to the procedure known from the symmetrized Rayleigh-Schrödinger (SRS) approach.\textsuperscript{[27,28]} It relies on projecting the polarization wavefunction onto the subspace of functions with correct symmetry by using the antisymmetrizer operator $\mathcal{A}$. Introducing it into the Eq. (7) yields
+
+$$\Delta X = \frac{1}{\langle \phi_A \phi_B | \mathcal{A} \psi_{\text{pol}} \rangle} \left[ \langle \Phi^{[1]} | (V - e_{\text{int}}) \mathcal{A} \psi_{\text{pol}} \rangle + \langle \phi_A \phi_B | (V - e_{\text{int}}) \mathcal{A} \Psi^{[1]}_{\text{pol}} \rangle \right],$$  \hspace{1cm} (15)
+
+where the functions $\Psi_{\text{pol}}^{[1]}$ and $\psi_{\text{pol}}$ are obtained as the appropriate parts of the double perturbation expansion of Eq. (14), i.e.
+
+$$\Psi_{\text{pol}}^{[1]}(\lambda) = \sum_{n=0}^{\infty} \lambda^n \Psi_{\text{pol}}^{(n),[1]},$$  \hspace{1cm} (16)
+
+and
+
+$$\psi_{\text{pol}}(\lambda) = \sum_{n=0}^{\infty} \lambda^n \Psi_{\text{pol}}^{(n),[0]}.$$  \hspace{1cm} (17)
+
+\subsection*{2.2 First-order interaction-induced property corrections based on coupled-perturbed Hartree-Fock theory}
+
+In this part, we will consider the approximation to $\Delta X$ by employing the single Slater determinant wavefunction, corresponding to the same level approximation as in SAPT0. Such an
+approximation can smoothly be changed to the Kohn-Sham (KS) description, analogously to the SAPT(DFT) method. For convenience, let us use the same notation $\phi_{A,B}$ for the HF (or KS) Slater determinant as we used in the previous section. It is also helpful to introduce the normal-ordered form of spinorbital replacement operators $a^\kappa_\lambda = a^\dagger_\kappa a_\lambda$, and $a^{\kappa\kappa'}_\lambda\lambda' = a^\dagger_\kappa a^\dagger_\kappa' a_\lambda a_\lambda'$ corresponding to monomer $A$ and a similar set $b^\nu_\mu$, $b^{\nu\nu'}_\mu\mu'$ corresponding to monomer $B$. The spinorbitals from now on will be labeled as $\alpha, \beta$ for occupied of $A$ and $B$ and $\rho, \sigma$ for virtual of $A$ and $B$, respectively. Moreover, $\kappa, \lambda, \mu$, and $\nu$ will denote all molecular orbitals of either monomer, both occupied and virtual. Using this second-quantisation language, the intermolecular interaction operator $V$ reads as
+
+$$V = v^{\kappa\mu}_{\lambda\nu} a_\lambda b_\nu + (v_A)_{\mu\nu} b_\nu + (v_B)_{\kappa\lambda} a_\lambda + V_0,$$  
+
+where $v^{\kappa\mu}_{\lambda\nu} = (\kappa(\vec{r}_1)\lambda(\vec{r}_1)|r_{12}^{-1}|\mu(\vec{r}_2)\nu(\vec{r}_2))$ is a standard two-electron repulsion integral (ERI), $(v_A)_{\mu\nu}$ and $(v_B)_{\kappa\lambda}$ describe the electrostatic interaction with the nuclei of monomer $A$ and $B$, respectively, and $V_0$ is the nuclei-nuclei repulsion term. We also introduce a short-hand notation for scalar products:
+
+$$\langle \phi_{A,B}|X|\phi_{A,B}\rangle = \langle X \rangle,$$  
+
+$$\langle X|\phi_{A,B}\rangle\langle\phi_{A,B}|Y \rangle = \langle X|Y \rangle.$$  
+
+To proceed further, let us discuss the symmetry-forcing procedure in more detail. In many-electron theories, the symmetry forcing operator is the antisymmetrizer of all electrons in the system, denoted as $\mathcal{A}$. According to Moszyński (1994), this operator can be expressed in terms of the antisymmetrizers of subsystems:
+
+$$\mathcal{A} = \frac{N_A!N_B!}{(N_A + N_B)!} \mathcal{A}_A \mathcal{A}_B (1 + P)$$  
+
+where $P$ includes all possible permutations interchanging electrons between two interacting
+subsystems. Using the second quantization approach, the intersystem permutation operator can be written as $P = P_2 + P_4 + \ldots$ where the operator of intermolecular exchange of $n$ electron pairs in the second quantization method reads
+
+$$\hat{P}_{2n} = (-1)^n \left( \frac{1}{n!} \right)^2 S_{\mu_1 \sigma_1}^{\alpha_1} S_{\mu_2 \sigma_2}^{\alpha_2} \cdots S_{\mu_n \sigma_n}^{\alpha_n} S_{\lambda_1 \lambda_2}^{\beta_1} S_{\lambda_2 \lambda_3}^{\beta_2} \cdots S_{\lambda_n \lambda_{n+1}}^{\beta_n} \phi_{\mu_1 \mu_2 \ldots \mu_n}. \quad (22)$$
+
+When the above expansion is inserted into Eq. (15), in the first order of $V$, one obtains the first-order correction as
+
+$$\Delta X^{(1)} = \frac{1}{1 + \langle P \rangle} \left( |\langle \Phi^1 \rangle| (V - e^{(1)}_{\text{int}})(1 + P) \phi_A \phi_B \rangle + \langle \phi_A \phi_B \rangle (V - e^{(1)}_{\text{int}})(1 + P) \Phi^1 \rangle \right). \quad (23)$$
+
+It is also important to specify the resolvent operator in this context. Here, it is understood as
+
+$$\mathcal{R} = \frac{1 - |\phi_A \phi_B \rangle \langle \phi_A \phi_B|}{e_A + e_B - h_A - h_B}. \quad (24)$$
+
+The resolvent operator can be decomposed into a series of $\mathcal{R}_{nm}$ operators corresponding to $n$-tuple excitations on $A$ monomer and $m$-tuple excitations on $B$ monomer
+
+$$\mathcal{R} = \sum_{n=0}^{N_A} \sum_{m=0}^{N_B} \mathcal{R}_{nm} \quad \text{for} \quad n + m > 0, \quad (25)$$
+
+where the $\mathcal{R}_{nm}$ operator is defined as
+
+$$\mathcal{R}_{nm} = \left( \frac{1}{n!m!} \right)^2 |a_{\alpha_1 \ldots \alpha_n} b_{\beta_1 \ldots \beta_m} \phi_A \phi_B \rangle \langle a_{\alpha_1 \ldots \alpha_n} b_{\beta_1 \ldots \beta_m} \phi_A \phi_B| \frac{\varepsilon_{\alpha_1 \ldots \alpha_n} + \varepsilon_{\beta_1 \ldots \beta_m}}{\varepsilon_{\rho_1 \ldots \rho_n} + \varepsilon_{\sigma_1 \ldots \sigma_m}} \quad (26)$$
+
+and $\varepsilon_{\alpha_1 \ldots \alpha_n}, \varepsilon_{\beta_1 \ldots \beta_m}$ denote the differences of occupied and virtual spinorbital energies
+
+$$\varepsilon_{\rho_1 \ldots \rho_n} = \varepsilon_{\alpha_1} + \cdots + \varepsilon_{\alpha_n} - \varepsilon_{\rho_1} - \cdots - \varepsilon_{\rho_n}. \quad (27)$$
+
+Since $X$ is a one-particle operator, it is straightforward to obtain that $\Phi^{[1]} = \mathcal{R} X \phi_A \phi_B$ will
+reduce to the sum of only two terms, $\mathcal{R}_{10}X_A\phi_A\phi_B$ and $\mathcal{R}_{01}X_B\phi_A\phi_B$. Furthermore, they read
+
+$$\mathcal{R}_{10}X_A\phi_A\phi_B = \sum_{\alpha\rho} |a^\rho_{\alpha}\phi_A\phi_B\rangle \frac{\langle a^\rho_{\alpha}|X_A\rangle}{\varepsilon_{\alpha} - \varepsilon_{\rho}},$$
+
+$$\mathcal{R}_{01}X_B\phi_A\phi_B = \sum_{\beta\sigma} |b^\sigma_{\beta}\phi_A\phi_B\rangle \frac{\langle b^\sigma_{\beta}|X_B\rangle}{\varepsilon_{\beta} - \varepsilon_{\sigma}},$$
+
+which are solutions of Eqs. (11)–(12) when $h_A$ and $h_B$ are approximated by the Fock operators $f_A$ and $f_B$, and $e_A, e_B$ accordingly are sums of occupied spinorbital energies $\varepsilon_{\alpha}$ and $\varepsilon_{\beta}$, respectively.
+
+Equation (23) can be decomposed into polarization and exchange parts. The polarization correction can be obtained by neglecting all the intermonomer electron permutations arising from the $P$ operator from the Eq. (23). Thus, we obtain:
+
+$$\Delta X^{(1)}_{\text{pol}} = 2\text{Re}\langle VR_{10}X_A\rangle + 2\text{Re}\langle V\mathcal{R}_{01}X_B\rangle.$$ 
+
+(30)
+
+In order to find the first-order exchange counterpart, it is enough to use the formula
+
+$$\Delta X^{(1)}_{\text{exch}} = \Delta X^{(1)} - \Delta X^{(1)}_{\text{pol}},$$
+
+(31)
+
+and subtract Eq. (30) from Eq. (23). This leads to
+
+$$\Delta X^{(1)}_{\text{exch}} = \frac{1}{1 - \langle P \rangle} \left( \langle (V - e^{(1)}_{\text{int}})P \mathcal{R}_{10}X_A \rangle + \langle (V - e^{(1)}_{\text{int}})P \mathcal{R}_{01}X_B \rangle ight. \\
++ \langle P(V - e^{(1)}_{\text{int}}) \mathcal{R}_{10}X_A \rangle + \langle P(V - e^{(1)}_{\text{int}}) \mathcal{R}_{01}X_B \rangle \\
+- 2\text{Re}\langle VR_{10}X_A\rangle \langle P \rangle - 2\text{Re}\langle V\mathcal{R}_{01}X_B\rangle \langle P \rangle \right).$$
+
+(32)
+
+Recently, two of us have demonstrated using the second quantization approach that unlinked terms appearing in the numerator cancel out with the $\langle P \rangle$ terms from the denominator (which is apparent after multiplying both sides of Eq. (32) by $1 + \langle P \rangle$, see also Refs. 55, 57). Such
+a trick also allows the inclusion of $P_{2n}$ operators of any order, allowing to go beyond the $S^2$ approximation. Thus, the final formula for $\Delta X_{\text{exch}}^{(1)}$ reads
+
+$$\Delta X_{\text{exch}}^{(1)} = \langle VP R_{10} X_A \rangle_L + \langle VP R_{01} X_B \rangle_L + \langle PV R_{10} X_A \rangle_L + \langle PV R_{01} X_B \rangle_L,$$
+
+where subscript $L$ denotes that only the linked part of the expression is taken. It is also worth noting that a similar equation for $\Delta X_{\text{pol}}^{(1)}$ was obtained for the change of a property in an external electric field by Błasiak in Ref. 58. Equations (30) and (33) constitute the main result of the present paper.
+
+In order to include proper orbital relaxation effects on the first-order IIP corrections, the resolvent operators $R_{10}$ and $R_{01}$ in Eqs. (30) and (33) can be replaced respectively by the operators $C_A$ and $C_B$ that generate the solutions of the coupled-perturbed Hartree-Fock (CPHF) or coupled-perturbed Kohn-Sham (CPKS) equations,
+
+$$\langle \delta C_A | [h_A, C_A - C_A^\dagger] + Y \rangle = 0,$$
+
+$$\langle \delta C_B | [h_B, C_B - C_B^\dagger] + Y \rangle = 0,$$
+
+where $\delta C_A$, $\delta C_B$ are arbitrary single excitation operators, and $C_A$, $C_B$ denote the solution of CPHF (or CPKS) equations with the perturbation $Y$ (which will be specified below). Similar reasoning was applied to the second-order induction energy. With such a trick, an apparent intramonomer correlation is added to the model. It is well known that $C_A$, $C_B$ correspond to a response at the mean-field level without the explicit contribution of the dynamic correlation.
+
+To obtain the formulas that are exact with respect to intermonomer permutations of electrons (thus, not involving any single, double, ... exchange approximation), we have used a similar approach as in the expressions for the exchange-induction energy presented in the Ref. 57, i.e., considering a series expansion into powers of overlap integral matrix elements $S$ and performing its analytical summation as for a geometric series.
+Equations (36) and (39) below present the resulting working formulas expressed in terms of molecular orbitals. These expressions assume real orbitals and the closed-shell restricted Hartree-Fock (RHF) (or restricted Kohn-Sham (RKS)) reference. The labels \( a \), \( (b) \) refer to occupied orbitals, while \( r \), \( (s) \) to virtual orbitals of monomer \( A \), \( (B) \). Summation over the repeated indices is implied in all expressions. The first-order polarization correction to the IIP reads
+
+\[
+\Delta X_{\text{pol},r}^{(1)} = 4(\chi_A)_r^a(\omega_B)_r^s + 4(\chi_B)_s^b(\omega_A)_b^r,
+\]
+
+where \( (\chi_A)_r^a \), \( (\chi_B)_s^b \) are the solutions of the CPHF (or CPKS) equations with the external perturbation being \( X_A \), \( X_B \) operators, respectively, and \( (\omega_A)_b^s \), \( (\omega_B)_a^r \) are the matrix elements of the electrostatic potential operators of unperturbed monomers and can be written as
+
+\[
+(\omega_A)_b^s = (v_A)_b^s + 2v_{ab}^{bs},
+\]
+
+\[
+(\omega_B)_a^r = (v_B)_a^r + 2v_{ab}^{rb}.
+\]
+
+The corresponding first-order exchange counterpart is
+
+\[
+\Delta X_{\text{exch},r}^{(1)} = 2(\chi_A)_r^a(\Theta_B)_a^r + 2(\chi_A)_r^a(\Xi_B)_a^r + 2(\chi_B)_s^b(\Theta_A)_b^s + 2(\chi_B)_s^b(\Xi_A)_b^s,
+\]
+
+The intermediates \( (\Theta_B)_a^r \) and \( (\Xi_B)_a^r \) are defined as follows
+
+\[
+(\Theta_B)_a^r = \left( B_a^d C_{r'}^{a'} - \delta_a^d \delta_{r'}^{a'} \right) (\omega_B)_{a'}^{r'} + G_{a'}^r H_{a}^s (\omega_A)_b^s + C_{r'}^b H_{a}^s J_{s'}^{a'} v_{a'b}^{r's}
+\]
+
+\[
+- I_{s'}^{b} B_a^d G_{a'}^{r'} v_{a'b}^{r's} + 2E_{s'}^{a'} G_{a'}^{r'} H_{a}^s v_{a'b}^{r's} - 2B_a^d C_{r'}^{a'} F_{s'}^{b} v_{a'b}^{r's}.
+\]
+\[
+(\Xi_B)^r_a = E^r_a(\omega_B)^a_r - E^r_a(\omega_B)^a_r - E^r_a E^r_a(\omega_B)^a_r - I^r_b J^s_a(\omega_A)^b_s
+\]
+\[
++ I^r_b J^s_a v^a_{as} - J^s_a v^a_{as} + 2E^r_a F^s_b v^b_{rs} - 2E^r_a F^s_b v^b_{as}
+\]
+\[
++ 2E^r_a F^s_b v^b_{rs} + 2E^r_a I^r_b J^s_a v^a_{as} - E^r_a I^r_b J^s_a v^a_{as} - E^r_a I^r_b J^s_a v^a_{as} - 2E^r_a v^b_{as}.
+\] (41)
+
+The different possibilities of contracted strings of \(S\) overlap matrices appearing in the intermediates are
+
+\[
+A^b_{\nu} = \delta^b_{\nu} + S^a_b S^a_{\nu} + S^a_b S^a_{\nu} S^a_{\nu} S^a_{\nu} + \cdots,
+\] (42)
+
+\[
+B^a_{\nu} = \delta^a_{\nu} + S^a_b S^a_{\nu} + S^a_b S^a_{\nu} S^a_{\nu} S^a_{\nu} + \cdots,
+\] (43)
+
+\[
+C^r_{\nu} = \delta^r_{\nu} - S^b_b S^b_{\nu} - S^b_b S^b_{\nu} S^b_{\nu} S^b_{\nu} - \cdots = \delta^r_{\nu} - S^r_b A^b_{\nu},
+\] (44)
+
+\[
+D^s_{\nu} = \delta^s_{\nu} - S^s_a S^s_{\nu} - S^s_a S^s_{\nu} S^s_{\nu} S^s_{\nu} - \cdots = \delta^s_{\nu} - S^s_a B^a_{\nu},
+\] (45)
+
+\[
+E^r_a = S^s_a S^a_{\nu} + S^s_a S^a_{\nu} S^a_{\nu} S^a_{\nu} + S^s_a S^a_{\nu} S^a_{\nu} S^a_{\nu} + \cdots = S^r_a A^b_{\nu},
+\] (46)
+
+\[
+F^s_a = S^s_a S^a_{\nu} + S^s_a S^a_{\nu} S^a_{\nu} S^a_{\nu} + S^s_a S^a_{\nu} S^a_{\nu} S^a_{\nu} + \cdots = S^s_a B^a_{\nu},
+\] (47)
+
+\[
+G^r_s = S^r_s S^s_{\nu} + S^r_s S^s_{\nu} S^s_{\nu} S^s_{\nu} + S^r_s S^s_{\nu} S^s_{\nu} S^s_{\nu} + \cdots = S^r_s E^a_{\nu},
+\] (48)
+
+\[
+H^b_a = S^b_a + S^b_a S^b_{\nu} S^b_{\nu} + S^b_a S^b_{\nu} S^b_{\nu} S^b_{\nu} + \cdots = A^b_{\nu} S^b_{\nu} = S^b_{\nu} B^a_{\nu},
+\] (49)
+
+\[
+I^r_b = S^r_b S^b_{\nu} + S^r_b S^b_{\nu} S^b_{\nu} S^b_{\nu} + S^r_b S^b_{\nu} S^b_{\nu} S^b_{\nu} + \cdots = S^r_b A^b_{\nu},
+\] (50)
+
+\[
+J^s_a = S^s_a + S^s_a S^b_{\nu} S^b_{\nu} + S^s_a S^b_{\nu} S^b_{\nu} S^b_{\nu} + \cdots = S^s_a B^a_{\nu}.
+\] (51)
+
+The values of series \(A^b_{\nu}\) and \(B^a_{\nu}\) can be evaluated analytically as it was described by some of us in Ref. 57. Then, the remaining series of contracted \(S\) matrices defined in Eqs. (44)–(51) can be expressed through the analytically evaluated quantities.
+
+Perhaps it is worth mentioning that the expression presented in Eq. (36) is somewhat similar to the orbital expression describing the second-order induction correction from SRS theory, precisely \(E^{(20)}_{\text{ind,r}} = 2(t_A)^a_r(\omega_B)^a_r + 2(t_B)^b_s(\omega_A)^b_s\), where \((t_A)^a_r\) and \((t_B)^b_s\) amplitudes are
+
+13
+3 Details of implementation
+
+In order to derive the orbital formulas for first-order corrections to the induced quantity $\Delta X$, the second quantization approach was used, and the final equations were implemented in Python utilizing the approach based on the Psi4NumPy\textsuperscript{63} framework – an interactive quantum-chemical environment designed for method development, rapid prototyping, and educational purposes. The basis for the newly developed expressions is the open-source quantum-chemical code Psi4.\textsuperscript{64} It is used to perform integral and SCF calculations and solve the CPHF and CPKS equations. All the necessary quantities are then exported from Psi4 into NumPy arrays, and their contractions are optimized and performed using the opt-einsum module.\textsuperscript{65}
+
+The first-order corrections to the induced property have been implemented using molecular orbitals. The contractions of corresponding orbital expressions have a numerical cost that scales as $N^4$, where $N$ is the number of molecular orbitals (due to the cost of the $(\Xi B)_r^a$ intermediate calculations). However, the cost of necessary CPHF (or CPKS) calculations scales as $N^6$, and therefore, it constitutes the actual performance limiting factor of the proposed theory. Additionally, the density-fitting approximation may be employed to reduce the scaling of the propSAPT theory to $N^3$ and the CPHF (or CPKS) calculations to $N^5$.
+
+The supermolecular Hartree-Fock and DFT calculations were carried out using the Psi4 code. In contrast, the reference finite-field SAPT and CCSD(T) calculations were performed using the Molpro\textsuperscript{66} program, employing the four-point stencil for the derivative calculations. The convergence threshold for the energy in the finite field calculations was set to $10^{-11}E_h$. We used a value of $0.001E_h/ea_0$ as field strength for derivative calculations for all test systems (except the He···Ne where the field value of $0.005E_h/ea_0$ was used).
+The finite-field SAPT calculations were carried out for the Hartree-Fock and Kohn-Sham references. In both cases, they include corrections up to the second order of the interaction operator with the dispersion term calculated at the CPHF or CPKS level, respectively. Therefore, the HF-based SAPT calculations used in this work differ from the typically used SAPT0 level by the type of dispersion correction used.
+
+For all systems and types of calculations, the dimer-centered aug-cc-pVTZ basis set was used. The propSAPT calculations of first-order interaction-induced corrections were carried out using the density-fitting approximation. For this purpose the aug-cc-pVTZ-RI basis was used as an auxiliary basis set, with the exception of calculations of He···Ne system where the aug-cc-pV5Z-RI basis was used. Additionally, CPKS calculations needed for the DFT-based propSAPT corrections utilize the adiabatic local-density approximation (ALDA) for the exchange-correlation kernel.
+
+For the SAPT(DFT) calculations, the PBE0 functional was used together with the gradient regulated asymptotic correction (GRAC) in order to restore the correct asymptotic behavior of the energy functional. The PBE0 functional was also used for the supermolecular DFT calculations. In this case, the asymptotic correction was not utilized.
+
+4 Numerical results
+
+The numerical results from the theory presented in this work focus on the interaction-induced dipole moment in van der Waals complexes as an example of a one-electron IIP. The selection of test systems covers atom···atom, non-polar, and polar complexes of high importance in molecular studies. These include: He···H₂, CO₂···N₂, CO₂···CH₄, Ar···BF₃, He···Ne, He···Be, Ar···H₂O and H₂O···H₂O. For most of the selected test systems (exceptions being He···H₂ and H₂O···H₂O), the induced dipole moment vector Δ\( \vec{\mu} \) is always oriented along the intermolecular axis. The values of Δ\( \vec{\mu} \) components in this work are presented as functions of the intermolecular displacement vector \( \vec{R} \), pointing from the center of mass of monomer A to
+the center of mass of monomer B (for a system labeled as A···B). Accordingly, the positive values of the parallel $\Delta \vec{\mu}$ vector component indicate the induction of a dipole moment pointing towards the subsystem B, and negative values indicate the opposite direction (induced dipole moment pointing towards the subsystem A).
+
+![Spatial configurations of selected test systems. For $R$-dependent geometry scans, we used fixed molecular orientations in Jacobi coordinates, corresponding to stretching the vector connecting the centers of mass of the monomers.](image)
+
+Figure 1: Spatial configurations of selected test systems. For $R$-dependent geometry scans, we used fixed molecular orientations in Jacobi coordinates, corresponding to stretching the vector connecting the centers of mass of the monomers.
+
+The dipole moment surfaces for He···H$_2$, CO$_2$···N$_2$, and CO$_2$···CH$_4$ are crucial in calculating collision-induced absorption (CIA) coefficients, with applications to modeling the
+planetary atmospheres or interstellar clouds. Although the He⋯H₂ complex has been very intensely studied, the latter systems are rather complex and to the best of our knowledge, no dipole moment surface calculations have yet been done for them. The selection of the Ar⋯BF₃ complex was dictated by the fact that the B–F bonds are strongly polar. For this system, the induced dipole was also studied by Fowler and Stone. All geometries studied in this work are available in the Supporting Information.
+
+Except the cases containing the water molecule, namely Ar⋯H₂O and H₂O⋯H₂O, no molecule investigated here has a permanent dipole moment. However, at least one molecule in each non atom⋯atom complex has a permanent quadrupole moment. Thus, the induced dipole moment asymptotically decays for those systems like \( R^{-4} \), the electric field from a quadrupole, which originates from the first-order interaction in the operator \( V \). Hence, the theory introduced here should be asymptotically correct and accurate for such a class of systems, provided that the monomer density is reproduced correctly.
+
+Concerning the atom⋯atom cases, we investigated the He⋯Ne and He⋯Be systems, in which the induced dipole at long range originates from dispersion interactions and thus vanishes as \( R^{-7} \). The reason to study these systems is to shed some light on the long-range behavior of the induced dipole moment in the first order compared to a dispersion-dominated behavior.
+
+The last, but not least, subgroup of our test systems represents the case of polar molecules. Two systems were selected: Ar⋯H₂O, constituting a model atom⋯polar example, and a water dimer, being a crucial polar⋯polar case. Selection of the Ar⋯H₂O complex was additionally dictated by the fact that CIA coefficients for this system were not intensively studied yet. In the case of the water⋯water system, fast and reliable methods for induced dipole surface calculations may prove very useful in *ab initio* studies of the infrared and Raman spectra.
+
+The spatial configurations of some test systems used in this work are presented in Fig. Distance-dependent scans of the interaction-induced dipole moment were calculated for most
+systems. These scans were carried out using fixed molecular orientations, i.e., corresponding only to stretching the intermolecular displacement vector $\vec{R}$.
+
+Table 1 collects essential comparisons of the propSAPT results with finite field calculations based on supermolecular methods (HF, DFT with PBE0 functional, and CCSD(T)) and first- and second-order SAPT with the coupled dispersion energy. Table 2 collects the individual corrections calculated with the HF and Kohn-Sham references (the latter using the asymptotically corrected PBE0 functional), along with the finite-field SAPT(HF) and SAPT(DFT) calculations (with the ALDA kernel in the latter case). Note that we expect the HF-based propSAPT results to be in precise agreement with the numerical derivatives of the first-order SAPT corrections, polarization ($\Delta \mu_{\text{pol},r}^{(10)}$) and exchange ($\Delta \mu_{\text{exch},r}^{(10)}$). The corresponding KS-based examples are not expected to have such a level of agreement due to the utilization of the ALDA kernel approximation in the CPKS calculations necessary for the propSAPT(DFT) theory.
+
+4.1 He···H₂
+
+We begin by discussing the interaction induced dipole moment of the He···H₂ system. Following the approach of Heijmen et al., we examined the same geometries: the angular dependence of the interaction-induced dipole moment for the angle between the molecular axis and the line connecting the centers of masses ranging from 0° to 90°, and its two components: perpendicular and parallel to the intermolecular axis, at distances of 5$a_0$ (which corresponds to the van der Waals minimum region) and 7$a_0$, respectively. Figures 2 and 3 present the angular dependence of the induced dipole compared with the finite-field (FF) methods and its decomposition into the polarization and exchange parts. Interestingly, the induced dipole moment is relatively insensitive to electronic correlation effects. Even the HF description alone provides a reasonably good approximation, overestimating the CCSD(T) results by 23% at 7$a_0$ and 13% at 5$a_0$ for the linear geometry presented in Table 1. The supermolecular DFT calculations agree with CCSD(T) quite well for 5$a_0$, but as the atom···molecule separation
+Table 1: Values of the interaction induced dipole moment component along the intermolecular axis specified by the vector $\vec{R}$ (pointing from the center of mass of monomer A to the center of mass of monomer B for a system denoted as A···B). All values of dipole moment are given in $10^{-3} e a_0$.
+
+| System   | $R$ [$a_0$] | propSAPT |         |         |         |         |         |         |
+|----------|-------------|----------|---------|---------|---------|---------|---------|---------|
+|          |             | HF       | DFT     | HF      | DFT     | HF      | DFT     | CCSD(T) |
+| He···H$_2$ (linear) | 5.00 | -16.19   | -17.52  | -15.12  | -16.31  | -14.49  | -13.42  | -12.87  |
+|          | 7.00 | -1.34    | -1.38   | -1.17   | -1.20   | -1.33   | -0.81   | -1.08   |
+| Ar···BF$_3$ | 5.82 | -71.69   | -63.49  | -88.64  | -79.78  | -87.83  | -91.70  | -88.82  |
+|          | 8.73 | -18.21   | -16.23  | -19.23  | -17.17  | -19.00  | -17.97  | -17.89  |
+| CO$_2$···N$_2$ (min1) | 6.00 | 78.73    | 69.66   | 98.97   | 89.55   | 92.31   | 86.34   | 88.40   |
+|          | 10.00 | 12.16    | 11.45   | 12.69   | 11.95   | 12.55   | 12.11   | 12.14   |
+| CO$_2$···N$_2$ (min2) | 6.00 | -144.81  | -115.99 | -194.90 | -170.50 | -173.21 | -170.85 | -162.35 |
+|          | 10.00 | -14.50   | -14.24  | -15.20  | -14.98  | -15.25  | -15.00  | -15.31  |
+| CO$_2$···CH$_4$ (C$_{2v}$) | 6.00 | -260.87  | -238.55 | -332.55 | -307.74 | -267.25 | -211.41 | -230.37 |
+|          | 10.00 | -17.05   | -16.38  | -17.44  | -16.13  | -18.01  | -15.56  | -15.00  |
+| CO$_2$···CH$_4$ (steric) | 6.00 | 37.98    | 25.32   | 51.83   | 42.08   | 46.61   | 46.79   | 45.05   |
+|          | 10.00 | 8.92     | 8.07    | 9.45    | 8.54    | 9.18    | 8.52    | 8.25    |
+| He···Ne | 5.09 | -0.15    | -0.47   | -0.12   | -0.32   | 0.01    | -0.17   | -0.33   |
+|          | 5.65 | -0.06    | -0.19   | -0.06   | -0.15   | -0.01   | -0.05   | -0.16   |
+| He···Be | 6.37 | -60.44   | -49.55  | -54.99  | -46.46  | -44.25  | -27.43  | -28.54  |
+|          | 7.96 | -9.62    | -6.83   | -7.60   | -4.88   | -7.30   | -1.48   | -3.43   |
+|          | 9.95 | -0.82    | -0.48   | -0.38   | -0.06   | -0.64   | 0.69    | -0.05   |
+| Ar···H$_2$O | 5.00 | 88.82    | 95.79   | 104.04  | 113.01  | 98.95   | 113.23  | 109.88  |
+|          | 7.00 | 41.19    | 41.29   | 44.02   | 43.92   | 44.13   | 45.94   | 43.89   |
+| H$_2$O···H$_2$O | 3.04 | 261.59   | 254.18  | 322.77  | 317.41  | 356.56  | 385.35  | 371.42  |
+|          | 3.80 | 166.26   | 166.96  | 193.95  | 197.66  | 205.65  | 231.28  | 218.72  |
+|          | 4.75 | 100.38   | 103.31  | 110.95  | 116.04  | 113.64  | 129.31  | 122.00  |
+Table 2: Decomposition of the first-order interaction-induced dipole moment components along the intermolecular axis into polarization ($\Delta \mu_{\text{pol},r}^{(10)}$) and exchange parts ($\Delta \mu_{\text{exch},r}^{(10)}$). All values of dipole moment are given in $10^{-3} e\alpha_0$. Note that the propSAPT and FF-SAPT columns should match exactly. propSAPT and FF-SAPT(DFT) values are, to some extent, expected to differ due to the ALDA kernel approximation.
+
+| System    | $R$ [$\alpha_0$] | propSAPT $\Delta \mu_{\text{pol},r}^{(10)}$ | propSAPT(DFT) $\Delta \mu_{\text{pol},r}^{(10)}$ | FF-SAPT $\Delta \mu_{\text{pol},r}^{(10)}$ | FF-SAPT(DFT) $\Delta \mu_{\text{pol},r}^{(10)}$ |
+|-----------|-------------------|---------------------------------------------|---------------------------------------------|---------------------------------------------|---------------------------------------------|
+| He··H2    | 5.00              | -0.37                                       | 0.10                                        | -0.37                                       | -0.08                                       |
+| (linear)  | 7.00              | -0.81                                       | -0.53                                       | -0.77                                       | -0.61                                       |
+| Ar··BF3   | 5.82              | -96.19                                      | 24.50                                       | -85.76                                      | -22.27                                      |
+|           | 8.73              | -18.44                                      | 0.23                                        | -16.46                                      | 0.23                                        |
+| CO2··N2   | 6.00              | 107.00                                      | -28.27                                      | 103.97                                      | -34.31                                      |
+| (min1)    | 10.00             | 12.20                                       | -0.03                                       | 11.50                                       | -0.06                                       |
+| CO2··N2   | 6.00              | -81.75                                      | -63.06                                      | -110.37                                     | -5.62                                       |
+| (min2)    | 10.00             | -14.15                                      | -0.34                                       | -13.99                                      | -0.25                                       |
+| CO2··CH4  | 6.00              | 75.72                                       | -336.59                                     | 94.14                                       | -332.70                                     |
+| (C2v)     | 10.00             | -15.62                                      | -1.43                                       | -13.74                                      | -2.64                                       |
+| CO2··CH4  | 6.00              | 78.77                                       | -40.80                                      | 82.53                                       | -57.21                                      |
+| (steric)  | 10.00             | 8.99                                        | -0.07                                       | 8.24                                        | -0.17                                       |
+| He··Ne    | 5.09              | -0.11                                       | -0.04                                       | -0.03                                       | -0.44                                       |
+|           | 5.65              | -0.01                                       | -0.05                                       | 0.01                                        | -0.19                                       |
+| He··Be    | 6.37              | 15.27                                       | -75.71                                      | 12.53                                       | -62.08                                      |
+|           | 7.96              | 2.31                                        | -11.93                                      | 1.60                                        | -8.44                                       |
+|           | 9.95              | 0.18                                        | -1.00                                       | 0.11                                        | -0.58                                       |
+| Ar··H2O   | 5.00              | 61.54                                       | 27.28                                       | 40.82                                       | 54.97                                       |
+|           | 7.00              | 40.05                                       | 1.14                                        | 37.88                                       | 3.41                                        |
+| H2O··H2O  | 3.04              | 223.45                                      | 38.14                                       | 225.13                                      | 29.05                                       |
+|           | 3.80              | 166.66                                      | -0.40                                       | 172.04                                      | -5.07                                       |
+|           | 4.75              | 103.42                                      | -3.04                                       | 108.24                                      | -4.93                                       |
+increases, supermolecular DFT starts to deviate from CCSD(T) quite significantly.
+
+The interaction-induced dipole moments calculated with propSAPT overestimate the CCSD(T) results by 26% for HF orbitals and 36% for PBE0 Kohn-Sham orbitals, respectively, at the distance of 5\(a_0\). For 7\(a_0\), the accuracy of propSAPT slightly improves to 24% and 28%, respectively. We do expect the propSAPT results to be approximate since they include only a first-order correction. However, the amount of second- and higher-order behavior is relatively small and positive, which can be attributed to the fact that the He···H\(_2\) system is weakly polarizable, and the total induction energy in this system is small and does not contribute much to the total interaction energy. The values obtained from the FF supermolecular CCSD(T) and FF-SAPT based on Hartree-Fock orbitals agree to within 17% and 8% for 5\(a_0\) and 7\(a_0\), respectively. At the same time, FF-SAPT(DFT) deviations reach 26% and 11%, respectively. In Table 2 and Fig. 3, we can see that the polarization part is generally small in the valence-overlap region, whereas the exchange is large and is actually the dominant short-range contribution to the induced dipole moment. At long range, however, the polarization effect quickly becomes dominant.
+
+4.2 Nonpolar molecules
+
+For more complex nonpolar molecular systems, namely the CO\(_2\)···N\(_2\), CO\(_2\)···CH\(_4\) (see Figs. 4 and 5), and Ar···BF\(_3\) (see Fig. 6) cases, the propSAPT theory performs on average better than in the He···H\(_2\) case, with the deviations from CCSD(T) ranging between 0.2% and 28%, with a mean unsigned relative error of 9.7% for the Hartree-Fock orbitals. However, the maximum error is reduced to 14% at larger intermolecular separations. The Kohn-Sham description performs similarly well at long range, but, quite surprisingly, it is somewhat more problematic at short range. The maximum error occurs for the ‘steric’ configuration of CO\(_2\)···CH\(_4\) (see Fig. 4b), where the propSAPT(DFT) dipole moment is underestimated by 55%.
+
+The overall good performance of propSAPT compared to the CCSD(T) reference in these
+Figure 2: Angle dependent comparison of interaction-induced dipole moment for the He···H₂ system for two intermolecular separations calculated using the propSAPT approach, finite-field SAPT to the second order (FF-SAPT), and supermolecular methods. The parallel and perpendicular components with respect to the intermolecular axis are presented.
+Figure 3: Angle-dependent comparison of the first-order polarization and exchange contributions to the interaction-induced dipole moment vector for the He···H₂ system for two intermolecular separations. The parallel and perpendicular components with respect to the intermolecular axis are presented. Note that for the Hartree-Fock-based propSAPT contributions (orange plus and cross markers), we expect exact matching with the finite-field numerical derivatives of SAPT (blue box and circle markers).
+systems can be attributed to the more significant contribution of electrostatic energy and the larger polarizability of the investigated species. If the electrostatic interaction dominates, the first-order contributions to the induced dipole are bigger; however, when dispersion interactions are more substantial, higher-order contributions become more critical for the qualitative reproduction of a physically correct picture.
+
+Figure 4: Distance-dependent comparison of interaction-induced dipole moments of the carbon dioxide bearing complexes calculated using the propSAPT approach, finite-field SAPT to the second order (FF-SAPT), and supermolecular methods. Panels (a) and (b) show results for the CO$_2$···CH$_4$ system in two orientations, while panels (c) and (d) pertain to the CO$_2$···N$_2$ complex. All values were obtained along radial cuts of the potential energy surface (PES) where the energy minima occur. See Fig. 1 for the reference.
+Figure 5: Distance-dependent comparison of the first-order polarization and exchange contributions to the interaction-induced dipole moment for the CO$_2$ containing complexes. Note that for the Hartree-Fock-based propSAPT contributions (orange plus and cross markers), we expect an exact match with the finite-field numerical derivatives of SAPT (blue box and circle markers).
+Figure 6: Distance-dependent comparison of interaction-induced dipole moment (panel 6a) and its first-order polarization and exchange contributions (panel 6b) for the Ar···BF$_3$ complex.
+
+4.3 Atom···atom systems
+
+Our atom···atom test systems are different from the others since they are the only ones in which the long-range contribution of the second order is essential. These systems exhibit the asymptotic behavior of the interaction induced dipole moment as $R^{-7}$, which would originate in the second order of the theory, not yet present in our formalism. However, it is good to test these systems to determine the importance of the contribution of dispersion and high-order polarization (induction) effects.
+
+In Fig. 7 the results for He···Be and He···Ne are visualized. The values obtained from the propSAPT method for the diatomic cases are lacking in accuracy compared to the finite-field CCSD(T) reference calculations, leading to the most significant unsigned relative errors observed among our test systems. This is partially likely due to the reason described in the above paragraph, i.e., not accounting for the dispersion effects crucial for the correct description of interactions between two closed-shell atoms. Surprisingly, for the He···Be case, both FF-SAPT and FF-SAPT(DFT) approaches are not constituting a notable improvement over their first-order propSAPT counterparts. The inclusion of second-order induction and dispersion effects does not lead to a significant improvement for this particular system. The
+He···Ne interaction, however, improves significantly when the second-order corrections are included but only for the Kohn-Sham description of monomers, i.e., in the FF-SAPT(DFT) case. For the diatomic cases studied in this work, the DFT versions of both propSAPT and finite-field SAPT methods perform better than the Hartree-Fock-based variants.
+
+4.4 Polar systems
+
+The distance-dependent comparison of the interaction-induced dipole moments and their first-order corrections for the test systems containing a polar molecule is presented in Fig. 8.
+In the case of the Ar···H$_2$O complex, the Hartree-Fock-based version of propSAPT leads to at most 19% error compared to the CCSD(T) reference, whereas its Kohn-Sham-based variant performs even better with a maximum unsigned relative error of 13%. The performance of the FF-SAPT calculations for this system is very good, especially for the DFT-based approach, where the errors with respect to CCSD(T) were below 3%. For the Hartree-Fock version of the FF-SAPT, the agreement was observed to be within 6%.
+
+Compared to the Ar···H$_2$O complex, the performance of the tested methods in the water dimer case is slightly worse. The propSAPT method values of the induced dipole moment lead to at most 32% and 35% error for the theory’s Hartree-Fock- and DFT-based flavors, respectively. However, values of the induced dipole moment calculated with the FF-SAPT approaches are no worse than within 13% of unsigned error for the Hartree-Fock reference and within 17% for the DFT reference, compared to finite-field CCSD(T).
+
+4.5 General remarks
+
+Interestingly, the directions of the polarization and exchange contributions in propSAPT can vary. For example, for CO$_2$···N$_2$ system in the global minimum (min1), the polarization contribution is positive (pointing towards N$_2$), and the exchange contribution is negative (pointing towards CO$_2$) at both distances. In contrast, for Ar···BF$_3$, the situation is exactly reversed (see Table 2). Moreover, both polarization and exchange contributions may be in the same direction simultaneously, as is observed for the (min2) configuration of the CO$_2$···N$_2$ complex. Furthermore, these contributions also vary significantly in magnitude. This large variability results from the high sensitivity of charge distribution within the complex to various effects. Electrostatic (polarization) contributions can be of arbitrary sign (direction), depending on the donor or acceptor character of the atoms within the complex. Similarly, the Pauli exclusion principle can influence the exchange contribution in either direction, depending on the charge distribution within the molecule. Furthermore, it should be mentioned that, in general, the first-order components of the interaction-induced dipole are
+Figure 8: Distance-dependent comparison of interaction-induced dipole moments (panels 8a, 8c and 8e) and first-order polarization and exchange contributions for the polar systems (panels 8b, 8d and 8f).
+not monotonous with respect to the intermolecular separation $R$, similar to what is observed for the total induced dipole.\textsuperscript{47}
+
+As observed in our test cases, the FF-SAPT and FF-SAPT(DFT) methods perform very well for more complex systems studied, agreeing on average within 22\% and 13\% with supermolecular finite-field CCSD(T) results, respectively. This demonstrates that FF-SAPT(DFT) can be effectively applied to dipole moment surfaces and may serve as a less computationally demanding alternative to expensive coupled-cluster calculations, additionally providing valuable insights into the type of interaction driving the property changes.
+
+For some test systems studied in this work, the discrepancies between the values of first-order induced dipole moment corrections from propSAPT(DFT) and FF-SAPT(DFT) were observed. These are mainly due to the ALDA approximation of the exchange-correlation kernel used in CPKS calculations, being a part of the propSAPT(DFT) routine. The discrepancies were well visible especially for the CO$_2$···CH$_4$ in the ‘steric’ configuration (see Fig. 5a), CO$_2$···N$_2$ in the orientation corresponding to min2 (Fig. 5d) and He···Ne (Fig. 7d). It was also observed that the usage of the ALDA kernel for the response had a significantly worse impact on the first-order exchange correction compared to its polarization counterpart.
+
+## 5 Conclusions and outlook
+
+In this paper, we have introduced a new formalism for computing first-order properties within the SAPT framework. Such a formalism facilitates the perturbative and direct calculation of changes in one-electron properties without the necessity of solving the Schrödinger equation for the dimer. The formalism is based on the previously introduced method of direct calculation of interaction-induced properties by Piszczatowski et al.;\textsuperscript{50} however, we have integrated it with SAPT by approximating the dimer wavefunction using the antisymmetrized product of monomer determinants. This approach leads to closed-form expressions, allowing any one-electron property to be expressed exclusively in terms of monomer orbitals. We refer to this
+method as propSAPT. In this initial development, we derived, implemented, and evaluated the propSAPT expressions to first order in the intermolecular interaction operator.
+
+In order to test our theory, we compared the interaction-induced dipole moments from propSAPT with finite-field supermolecular calculations and finite-field SAPT based on both Hartree-Fock (FF-SAPT) and DFT description of monomers (FF-SAPT(DFT)) for several systems, namely: He···H₂, Ar···BF₃, CO₂···N₂, CO₂···CH₄, He···Be, He···Ne, Ar···H₂O and H₂O···H₂O. Since our expressions for the SAPT correction derivatives obey the Hellman-Feynman theorem, we could test their performance rigorously by comparing them with a dipole moment obtained by differentiation of the first-order SAPT energies with respect to the electric field strength. The Hartree-Fock-based propSAPT first-order corrections calculated using analytical derivatives agreed in the worst case within $1.18 \times 10^{-5} \text{e} \alpha_0$ with the corresponding numerical derivatives, assuring us of the correctness of the implementation of the newly derived theory. Given the agreement with the finite-field approach, one can conclude that our theory correctly accounts for the orbital relaxation. Overall, the first-order propSAPT theory based on Hartree-Fock performs quite well for the induced dipole moments. Excluding the atom···atom cases, it is leading on average to 28% error with respect to finite-field CCSD(T). Regarding the Kohn-Sham-based propSAPT(DFT) equivalent, using the PBE0 functional leads to 35% average error (atom···atom cases excluded) compared to reference finite-field CCSD(T) calculations. For molecular systems dominated by electrostatic interactions, the performance of propSAPT is even better. For the long-range region of the dipole moment, the first-order propSAPT agrees very well with CCSD(T).
+
+Based on the numerical tests gathered, the performance of finite-field SAPT approaches leads on average to 28% error for HF-based and 13% error for DFT-based calculations with respect to the CCSD(T) reference. Considering the favorable computational scaling of the FF-SAPT(DFT) method, it may constitute an insightful alternative to the supermolecular approach for dipole moment surface calculations for many-electron systems.
+
+The presented theory may find applications in the calculations of interaction-induced
+property surfaces for complex systems, such as the dipole moment surface (DMS) for polyatomic molecules. Given the high cost and complexity of DMS calculations, a method that primarily involves monomer wave functions presents a significant advantage. The additional benefit of propSAPT is the insight provided by the decomposition of induced dipole moment into distinct contributions; in the first order, those contributions arise from polarization and exchange effects. Examples of such systems could include the DMS of molecules in aqueous solutions or the collision-induced absorption coefficient (CIA) for systems like methane-methane or methane-carbon dioxide.
+
+It should be noted that the presented theory can also provide insights into interaction-induced changes in density matrices. Naturally, $\Delta X$ can be considered as the trace of the property operator $X$ with a change in the density matrix. This matrix can reveal information on the density changes resulting from molecular interactions and their decomposition into physically well-defined contributions in the spirit of SAPT. Given the interpretive power of such an approach, one can relate density changes to specific physical effects. Finally, the theory outlined here can be adapted to include geometric analytical derivatives for SAPT corrections, opening the door to many other applications such as SAPT-based geometry optimizations or direct calculations of frequency shifts in van der Waals complexes. Work on these extensions of the presented theory actively continues in our groups.
+
+Supporting Information
+
+All calculated values of the interaction-induced dipole moments together with all system geometries used in this work are available as Supporting Information.
+
+Acknowledgments
+
+PSZ, TG and BT are grateful for the support of the National Science Centre (NCN) through Grant "Sonata Bis 9" No. 2019/34/E/ST4/00407. We also would like to thank COST action
+(CA21101) "Confined Electronic Systems", COSY. KP is supported by the U.S. National Science Foundation award CHE-1955328.
+
+References
+
+(1) Karman, T.; Gordon, I. E.; van der Avoird, A.; Baranov, Y. I.; Boulet, C.; Drouin, B. J.; Groenenboom, G. C.; Gustafsson, M.; Hartmann, J.-M.; Kurucz, R. L.; Rothman, L. S.; Sun, K.; Sung, K.; Thalman, R.; Tran, H.; Wishnow, E. H.; Wordsworth, R.; Viggas, A. A.; Volkamer, R.; van der Zande, W. J. Update of the HITRAN collision-induced absorption section. *ICARUS* **2019**, *328*, 160–175.
+
+(2) Karman, T.; Miliordos, E.; Hunt, K. L. C.; Groenenboom, G. C.; van der Avoird, A. Quantum mechanical calculation of the collision-induced absorption spectra of N₂−N₂ with anisotropic interactions. *J. Chem. Phys.* **2015**, *142*, 084306.
+
+(3) Karman, T.; Koenis, M. A. J.; Banerjee, A.; Parker, D. H.; Gordon, I. E.; van der Avoird, A.; van der Zande, W. J.; Groenenboom, G. C. O₂−O₂ and O₂−N₂ collision-induced absorption mechanisms unravelled. *Nat. Chem.* **2018**, *10*, 549–554.
+
+(4) Borysow, A.; Moraldi, M.; Frommhold, L. Modelling of collision-induced absorption spectra. *J. Quant. Spectrosc. Radiat. Transf.* **1984**, *31*, 235–245.
+
+(5) Meyer, W.; Borysow, A.; Frommhold, L. Absorption spectra of H₂−H₂ pairs in the fundamental band. *Phys. Rev. A* **1989**, *40*, 6931–6949.
+
+(6) Richard, C.; Gordon, I. E.; Rothman, L. S.; Abel, M.; Frommhold, L.; Gustafsson, M.; Hartmann, J.-M.; Hermans, C.; Lafferty, W. J.; Orton, G. S.; Smith, K. M.; Tran, H. New section of the HITRAN database: Collision-induced absorption (CIA). *J. Quant. Spectrosc. Radiat. Transf.* **2012**, *113*, 1276–1285.
+
+(7) Hartman, J. D.; Beran, G. J. O. Fragment-Based Electronic Structure Approach for
+Computing Nuclear Magnetic Resonance Chemical Shifts in Molecular Crystals. *J. Chem. Theory Comput.* **2014**, *10*, 4862–4872.
+
+(8) Beran, G. J. O.; Hartman, J. D.; Heit, Y. N. Predicting Molecular Crystal Properties from First Principles: Finite-Temperature Thermochemistry to NMR Crystallography. *Acc. Chem. Res.* **2016**, *49*, 2501–2508.
+
+(9) Rizzo, A.; Hättig, C.; Fernández, B.; Koch, H. The effect of intermolecular interactions on the electric properties of helium and argon. III. Quantum statistical calculations of the dielectric second virial coefficients. *J. Chem. Phys.* **2002**, *117*, 2609–2618.
+
+(10) Moszyński, R.; Heijmen, T. G. A.; van der Avoird, A. Second dielectric virial coefficient of helium gas: quantum-statistical calculations from an ab initio interaction-induced polarizability. *Chem. Phys. Lett.* **1995**, *247*, 440–446.
+
+(11) Song, B.; Waldrop, J. M.; Wang, X.; Patkowski, K. Accurate virial coefficients of gaseous krypton from state-of-the-art ab initio potential and polarizability of the krypton dimer. *J. Chem. Phys.* **2018**, *148*, 024306.
+
+(12) Żuchowski, P. S.; Aldegunde, J.; Hutson, J. M. Ultracold RbSr Molecules Can Be Formed by Magnetoassociation. *Phys. Rev. Lett.* **2010**, *105*, 153201.
+
+(13) Barbé, V.; Ciamei, A.; Pasquiou, B.; Reichsöllner, L.; Schreck, F.; Żuchowski, P. S.; Hutson, J. M. Observation of Feshbach resonances between alkali and closed-shell atoms. *Nat. Phys.* **2018**, *14*, 881–884.
+
+(14) Yang, B. C.; Frye, M. D.; Guttridge, A.; Aldegunde, J.; Żuchowski, P. S.; Cornish, S. L.; Hutson, J. M. Magnetic Feshbach resonances in ultracold collisions between Cs and Yb atoms. *Phys. Rev. A* **2019**, *100*, 022704.
+
+(15) Podeszwa, R.; Szalewicz, K. Accurate interaction energies for argon, krypton, and ben-
+zene dimers from perturbation theory based on the Kohn–Sham model. Chem. Phys. Lett. 2005, 412, 488–493.
+
+(16) Derbali, E.; Ajili, Y.; Mehnen, B.; Żuchowski, P. S.; Kędziera, D.; Al-Mogren, M. M.; Jaidane, N.-E.; Hochlaf, M. Towards the generation of potential energy surfaces of weakly bound medium-sized molecular systems: the case of benzonitrile–He complex. Phys. Chem. Chem. Phys. 2023, 25, 30198–30210.
+
+(17) Parrish, R. M.; Parker, T. M.; Sherrill, C. D. Chemical Assignment of Symmetry-Adapted Perturbation Theory Interaction Energy Components: The Functional-Group SAPT Partition. J. Chem. Theory Comput. 2014, 10, 4417–4431.
+
+(18) Parrish, R. M.; Gonthier, J. F.; Corminboeuf, C.; Sherrill, C. D. Communication: Practical intramolecular symmetry adapted perturbation theory via Hartree-Fock embedding. J. Chem. Phys. 2015, 143, 051103.
+
+(19) Parrish, R. M.; Zhao, Y.; Hohenstein, E. G.; Martínez, T. J. Rank reduced coupled cluster theory. I. Ground state energies and wavefunctions. J. Chem. Phys. 2019, 150, 164118.
+
+(20) Garcia, J.; Podeszwa, R.; Szalewicz, K. SAPT codes for calculations of intermolecular interaction energies. J. Chem. Phys. 2020, 152, 184109.
+
+(21) Hapka, M.; Przybytek, M.; Pernal, K. Symmetry-Adapted Perturbation Theory Based on Multiconfigurational Wave Function Description of Monomers. J. Chem. Theory Comput. 2021, 17, 5538–5555.
+
+(22) Hapka, M.; Przybytek, M.; Pernal, K. Second-Order Dispersion Energy Based on Multireference Description of Monomers. J. Chem. Theory Comput. 2019, 15, 1016–1027.
+
+(23) Patkowski, K.; Żuchowski, P. S.; Smith, D. G. A. First-order symmetry-adapted perturbation theory for multiplet splittings. J. Chem. Phys. 2018, 148, 164110.
+(24) Hapka, M.; Chałasiński, G.; Kłos, J.; Żuchowski, P. S. First-principle interaction potentials for metastable He$^3S$ and Ne$^3P$ with closed-shell molecules: Application to Penning-ionizing systems. *J. Chem. Phys.* **2013**, *139*, 014307.
+
+(25) Pawlak, M.; Żuchowski, P. S.; Moiseyev, N.; Jankowski, P. Evidence of Nonrigidity Effects in the Description of Low-Energy Anisotropic Molecular Collisions of Hydrogen Molecules with Excited Metastable Helium Atoms. *J. Chem. Theory Comput.* **2020**, *16*, 2450–2459.
+
+(26) Pawlak, M.; Żuchowski, P. S.; Jankowski, P. Kinetic Isotope Effect in Low-Energy Collisions between Hydrogen Isotopologues and Metastable Helium Atoms: Theoretical Calculations Including the Vibrational Excitation of the Molecule. *J. Chem. Theory Comput.* **2021**, *17*, 1008–1016.
+
+(27) Jeziorski, B.; Szalewicz, K.; Chałasiński, G. Symmetry forcing and convergence properties of perturbation expansions for molecular interaction energies. *Int. J. Quantum Chem.* **1978**, *14*, 271–287.
+
+(28) Jeziorski, B.; Moszyński, R.; Szalewicz, K. Perturbation Theory Approach to Intermolecular Potential Energy Surfaces of van der Waals Complexes. *Chem. Rev.* **1994**, *94*, 1887–1930.
+
+(29) Parker, T. M.; Burns, L. A.; Parrish, R. M.; Ryno, A. G.; Sherrill, C. D. Levels of symmetry adapted perturbation theory (SAPT). I. Efficiency and performance for interaction energies. *J. Chem. Phys.* **2014**, *140*, 094106.
+
+(30) Masumian, E.; Boese, A. D. Benchmarking Swaths of Intermolecular Interaction Components with Symmetry-Adapted Perturbation Theory. *J. Chem. Theory Comput.* **2024**, *20*, 30–48.
+
+(31) Podeszwa, R.; Szalewicz, K. Communication: Density functional theory overcomes the
+failure of predicting intermolecular interaction energies. *J. Chem. Phys.* 2012, 136, 161102.
+
+(32) McDaniel, J. G.; Schmidt, J. R. Physically-Motivated Force Fields from Symmetry-Adapted Perturbation Theory. *J. Phys. Chem. A* 2013, 117, 2053–2066.
+
+(33) Van Vleet, M. J.; Misquitta, A. J.; Schmidt, J. R. New Angles on Standard Force Fields: Toward a General Approach for Treating Atomic-Level Anisotropy. *J. Chem. Theory Comput.* 2018, 14, 739–758.
+
+(34) Patkowski, K. Recent developments in symmetry-adapted perturbation theory. *Wiley Interdiscip. Rev. Comput. Mol. Sci.* 2020, 10, e1452.
+
+(35) Heijmen, T. G. A.; Moszyński, R.; Wormer, P. E. S.; van der Avoird, A. Symmetry-adapted perturbation theory applied to interaction-induced properties of collisional complexes. *Mol. Phys.* 1996, 89, 81–110.
+
+(36) Góra, R. W.; Zaleśny, R.; Zawada, A.; Bartkowiak, W.; Skwara, B.; Papadopoulos, M. G.; Silva, D. L. Large Changes of Static Electric Properties Induced by Hydrogen Bonding: An ab Initio Study of Linear HCN Oligomers. *J. Phys. Chem. A* 2011, 115, 4691–4700.
+
+(37) Góra, R. W.; Blasiak, B. On the Origins of Large Interaction-Induced First Hyperpolarizabilities in Hydrogen-Bonded $\pi$-Electronic Complexes. *J. Phys. Chem. A* 2013, 117, 6859–6866.
+
+(38) Chołuj, M.; Blasiak, B.; Bartkowiak, W. Partitioning of the interaction-induced polarizability of molecules in helium environments. *Int. J. Quantum Chem.* 2021, 121, e26544.
+
+(39) Zawada, A.; Góra, R. W.; Mikołajczyk, M. M.; Bartkowiak, W. On the Calculations of
+Interaction Energies and Induced Electric Properties within the Polarizable Continuum Model. *J. Phys. Chem. A* **2012**, *116*, 4409–4416.
+
+(40) Iglesias-Reguant, A.; Reis, H.; Medveď, M.; Ośmiałowski, B.; Zaleśny, R.; Luis, J. M. Decoding the infrared spectra changes upon formation of molecular complexes: the case of halogen bonding in pyridine···perfluorohaloarene complexes. *Phys. Chem. Chem. Phys.* **2023**, *25*, 20173–20177.
+
+(41) Iglesias-Reguant, A.; Reis, H.; Medveď, M.; Luis, J. M.; Zaleśny, R. A new computational tool for interpreting the infrared spectra of molecular complexes. *Phys. Chem. Chem. Phys.* **2023**, *25*, 11658–11664.
+
+(42) Feynman, R. P. Forces in Molecules. *Phys. Rev.* **1939**, *56*, 340–343.
+
+(43) Feynman, R. P. Forces and stresses in molecules. Thesis, Massachusetts Institute of Technology, 1939.
+
+(44) Hellmann, H. *Einführung in die Quantenchemie*; Deuticke: Leipzig and Wien, 1937; republished by Springer Spektrum Berlin: Heidelberg, 2015.
+
+(45) Hirschfelder, J. O.; Eliason, M. A. Electrostatic Hellmann—Feynman Theorem Applied to the Long-Range Interaction of Two Hydrogen Atoms. *J. Chem. Phys.* **1967**, *47*, 1164–1169.
+
+(46) Buckingham, A. D. The polarizability of a pair of interacting atoms. *Trans. Faraday Soc.* **1956**, *52*, 1035.
+
+(47) Hunt, K. L. C. Dispersion dipoles and dispersion forces: Proof of Feynman’s “conjecture” and generalization to interacting molecules of arbitrary symmetry. *J. Chem. Phys.* **1990**, *92*, 1180–1187.
+
+(48) Hunt, K. L. C. Long-range dipoles, quadrupoles, and hyperpolarizabilities of interacting inert-gas atoms. *Chem. Phys. Lett.* **1980**, *70*, 336–342.
+(49) Frommhold, L.; Abel, M.; Wang, F.; Gustafsson, M.; Li, X.; Hunt, K. L. C. Infrared atmospheric emission and absorption by simple molecular complexes, from first principles. *Mol. Phys.* **2010**, *108*, 2265–2272.
+
+(50) Piszczatowski, K.; Łach, G.; Jeziorski, B. Direct calculation of interaction-induced molecular properties: An application to the relativistic mass-velocity and Darwin terms in the interaction energy of hydrogen atoms. *Phys. Rev. A* **2008**, *77*, 062514.
+
+(51) Misquitta, A. J.; Szalewicz, K. Intermolecular forces from asymptotically corrected density functional description of monomers. *Chem. Phys. Lett.* **2002**, *357*, 301–306.
+
+(52) Misquitta, A. J.; Jeziorski, B.; Szalewicz, K. Dispersion Energy from Density-Functional Theory Description of Monomers. *Phys. Rev. Lett.* **2003**, *91*, 033201.
+
+(53) Misquitta, A. J.; Szalewicz, K. Symmetry-adapted perturbation-theory calculations of intermolecular forces employing density-functional description of monomers. *J. Chem. Phys.* **2005**, *122*, 214109.
+
+(54) Heßelmann, A.; Jansen, G.; Schütz, M. Density-functional theory-symmetry-adapted intermolecular perturbation theory with density fitting: A new efficient method to study intermolecular interaction energies. *J. Chem. Phys.* **2004**, *122*, 014103.
+
+(55) Moszyński, R.; Jeziorski, B.; Szalewicz, K. Many-body theory of exchange effects in intermolecular interactions. Second-quantization approach and comparison with full configuration interaction results. *J. Chem. Phys.* **1994**, *100*, 1312–1325.
+
+(56) Paldus, J.; Jeziorski, B. Clifford algebra and unitary group formulations of the many-electron problem. *Theor. Chim. Acta* **1988**, *73*, 81–103.
+
+(57) Tyrcha, B.; Brzęk, F.; Żuchowski, P. S. Second quantization-based symmetry-adapted perturbation theory: Generalizing exchange beyond single electron pair approximation. *J. Chem. Phys.* **2024**, *160*, 044118.
+(58) Błasiak, B. One-particle density matrix polarization susceptibility tensors. *J. Chem. Phys.* 2018, 149, 164115.
+
+(59) Szalewicz, K.; Jeziorski, B. Symmetry-adapted double-perturbation analysis of intramolecular correlation effects in weak intermolecular interactions. *Mol. Phys.* 1979, 38, 191–208.
+
+(60) Sadlej, A. J. Long range induction and dispersion interactions between Hartree-Fock subsystems. *Mol. Phys.* 1980, 39, 1249–1264.
+
+(61) Moszyński, R.; Żuchowski, P. S.; Jeziorski, B. Time-Independent Coupled-Cluster Theory of the Polarization Propagator. *Collect. Czechoslov. Chem. Commun.* 2005, 70, 1109–1132.
+
+(62) Moszyński, R.; Cybulski, S. M.; Chałasiński, G. Many-body theory of intermolecular induction interactions. *J. Chem. Phys.* 1994, 100, 4998.
+
+(63) Smith, D. G. A.; Burns, L. A.; Sirianni, D. A.; Nascimento, D. R.; Kumar, A.; James, A. M.; Schriber, J. B.; Zhang, T.; Zhang, B.; Abbott, A. S.; Berquist, E. J.; Lechner, M. H.; Cunha, L. A.; Heide, A. G.; Waldrop, J. M.; Takeshita, T. Y.; Alenaizan, A.; Neuhauser, D.; King, R. A.; Simmonett, A. C.; Turney, J. M.; Schaefer, H. F., III; Evangelista, F. A.; DePrince, A. E., III; Crawford, T. D.; Patkowsk, K.; Sherrill, C. D. Psi4NumPy: An Interactive Quantum Chemistry Programming Environment for Reference Implementations and Rapid Development. *J. Chem. Theory Comput.* 2018, 14, 3504–3511.
+
+(64) Smith, D. G. A.; Burns, L. A.; Simmonett, A. C.; Parrish, R. M.; Schieber, M. C.; Galvelis, R.; Kraus, P.; Kruse, H.; Di Remigio, R.; Alenaizan, A.; James, A. M.; Lehtola, S.; Misiewicz, J. P.; Scheurer, M.; Shaw, R. A.; Schriber, J. B.; Xie, Y.; Glick, Z. L.; Sirianni, D. A.; O’Brien, J. S.; Waldrop, J. M.; Kumar, A.; Hohenstein, E. G.; Pritchard, B. P.; Brooks, B. R.; Schaefer, H. F., III; Sokolov, A. Y.;
+Patkowski, K.; DePrince, A. E., III; Bozkaya, U.; King, R. A.; Evangelista, F. A.; Turney, J. M.; Crawford, T. D.; Sherrill, C. D. PSI4 1.4: Open-source software for high-throughput quantum chemistry. *J. Chem. Phys.* **2020**, *152*, 184108.
+
+(65) Smith, D. G. A.; Gray, J. *opt_einsum* - A Python package for optimizing contraction order for einsum-like expressions. *J. Open Source Softw.* **2018**, *3*, 753.
+
+(66) Werner, H.-J.; Knowles, P. J.; Manby, F. R.; Black, J. A.; Doll, K.; Hesselmann, A.; Kats, D.; Köhn, A.; Korona, T.; Kreplin, D. A.; Ma, Q.; Miller, I., Thomas F.; Mitrushchenkov, A.; Peterson, K. A.; Polyak, I.; Rauhut, G.; Sibaev, M. The Molpro quantum chemistry package. *J. Chem. Phys.* **2020**, *152*, 144107.
+
+(67) Dunning, T. H., Jr. Gaussian basis sets for use in correlated molecular calculations. I. The atoms boron through neon and hydrogen. *J. Chem. Phys.* **1989**, *90*, 1007–1023.
+
+(68) Kendall, R. A.; Dunning, T. H., Jr.; Harrison, R. J. Electron affinities of the first-row atoms revisited. Systematic basis sets and wave functions. *J. Chem. Phys.* **1992**, *96*, 6796–6806.
+
+(69) Woon, D. E.; Dunning, T. H., Jr. Gaussian basis sets for use in correlated molecular calculations. IV. Calculation of static electrical response properties. *J. Chem. Phys.* **1994**, *100*, 2975–2988.
+
+(70) Prascher, B. P.; Woon, D. E.; Peterson, K. A.; Dunning, T. H., Jr.; Wilson, A. K. Gaussian basis sets for use in correlated molecular calculations. VII. Valence, core-valence, and scalar relativistic basis sets for Li, Be, Na, and Mg. *Theor. Chem. Acc.* **2011**, *128*, 69–82.
+
+(71) Woon, D. E.; Dunning, T. H., Jr. Gaussian basis sets for use in correlated molecular calculations. III. The atoms aluminum through argon. *J. Chem. Phys.* **1993**, *98*, 1358–1371.
+(72) Weigend, F.; Köhn, A.; Hättig, C. Efficient use of the correlation consistent basis sets in resolution of the identity MP2 calculations. *J. Chem. Phys.* **2002**, *116*, 3175–3183.
+
+(73) Hättig, C. Optimization of auxiliary basis sets for RI-MP2 and RI-CC2 calculations: Core–valence and quintuple-ζ basis sets for H to Ar and QZVPP basis sets for Li to Kr. *Phys. Chem. Chem. Phys.* **2005**, *7*, 59–66.
+
+(74) Gross, E. K. U.; Dobson, J. F.; Petersilka, M. In *Density Functional Theory II: Relativistic and Time Dependent Extensions*; Nalewajski, R. F., Ed.; Springer: Berlin, Heidelberg, 1996; pp 81–172.
+
+(75) Perdew, J. P.; Burke, K.; Ernzerhof, M. Generalized Gradient Approximation Made Simple. *Phys. Rev. Lett.* **1996**, *77*, 3865–3868.
+
+(76) Adamo, C.; Barone, V. Toward reliable density functional methods without adjustable parameters: The PBE0 model. *J. Chem. Phys.* **1999**, *110*, 6158–6170.
+
+(77) Ernzerhof, M.; Scuseria, G. E. Assessment of the Perdew–Burke–Ernzerhof exchange-correlation functional. *J. Chem. Phys.* **1999**, *110*, 5029–5036.
+
+(78) Grüning, M.; Gritsenko, O. V.; van Gisbergen, S. J. A.; Baerends, E. J. Shape corrections to exchange-correlation potentials by gradient-regulated seamless connection of model potentials for inner and outer region. *J. Chem. Phys.* **2001**, *114*, 652–660.
+
+(79) Li, X.; Mandal, A.; Miliordos, E.; Hunt, K. L. C. Interaction-induced dipoles of hydrogen molecules colliding with helium atoms: A new ab initio dipole surface for high-temperature applications. *J. Chem. Phys.* **2012**, *136*, 044320.
+
+(80) Abel, M.; Frommhold, L.; Li, X.; Hunt, K. L. C. Infrared absorption by collisional H$_2$–He complexes at temperatures up to 9000 K and frequencies from 0 to 20 000 cm$^{-1}$. *J. Chem. Phys.* **2012**, *136*, 044319.
+(81) Birnbaum, G.; Chu, S.-I.; Dalgarno, A.; Frommhold, L.; Wright, E. L. Theory of collision-induced translation-rotation spectra: H$_2$–He. *Phys. Rev. A* **1984**, *29*, 595–604.
+
+(82) Meyer, W.; Frommhold, L. Collision-induced rototranslational spectra of H$_2$–He from an accurate ab initio dipole moment surface. *Phys. Rev. A* **1986**, *34*, 2771–2779.
+
+(83) Haskopoulos, A.; Maroulis, G. Interaction induced electric dipole moment and (hyper)polarizability in the dihydrogen–helium pair. *Chem. Phys.* **2010**, *367*, 127–135.
+
+(84) Wormer, P. E. S.; Van Dijk, G. Ab initio calculations of the collision-induced dipole in He–H$_2$. II. SCF results and comparison with experiment. *J. Chem. Phys.* **1979**, *70*, 5695–5702.
+
+(85) Fowler, P. W.; Stone, A. J. Induced dipole moments of van der Waals complexes. *J. Phys. Chem.* **1987**, *91*, 509–511.
+
+(86) Medders, G. R.; Paesani, F. Infrared and Raman Spectroscopy of Liquid Water through “First-Principles” Many-Body Molecular Dynamics. *J. Chem. Theory Comput.* **2015**, *11*, 1145–1154.
+
+(87) Ladjimi, H.; Tomza, M. Diatomic molecules of alkali-metal and alkaline-earth-metal atoms: Interaction potentials, dipole moments, and polarizabilities. *Phys. Rev. A* **2024**, *109*, 052814.

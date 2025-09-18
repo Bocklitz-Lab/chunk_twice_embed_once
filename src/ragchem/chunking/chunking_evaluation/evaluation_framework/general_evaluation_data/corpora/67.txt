@@ -1,0 +1,299 @@
+Cryogenic milling of consumer plastics for high-throughput characterization of polydisperse, amorphous microplastics
+
+Charlie Maslen,† Purnesh Chattopadhyay,‡ Marie Theres Kühne,¶ Gail McConnell,§ and Juliane Simmchen*,∥‡
+
+†Pure and Applied Chemistry, University of Strathclyde, 295 Cathedral Street, Glasgow, G1 1BX, UK
+‡Freigeist group Phys. Chem., Technische Universität Dresden, Zellescher Weg 19, Dresden, 01069, Germany
+¶Medical Faculty Carl Gustav Carus, Technische Universität Dresden, Fetscherstraße 74, Dresden, 01307, Germany
+§Strathclyde Institute of Pharmacy and Biomedical Sciences, University of Strathclyde, 161 Cathedral Street, Glasgow, G4 0RE, UK
+∥Pure and Applied Chemistry, University of Strathclyde, 295 Cathedral street, Glasgow, G1 1BX, UK
+
+E-mail: juliane.simmchen@strath.ac.uk
+
+Abstract
+
+Microplastics – defined as tiny polymer fragments less than 5 mm in size – pose a clear threat to a wide range of small organisms through ingestion, leading to starvation. In addition, there are many reports of their occurrence both in remote geographical areas and in the human body. Small and made of mostly inert materials, they pose a
+significant analytical challenge. While primary microplastics i.e., those manufactured intentionally, have defined characteristics, secondary microplastics resulting from the degradation of larger plastic debris are much less understood. Cryogenic milling has emerged as one of the best ways to generate realistic samples with potential for use as references in studies. Here, we use this technique to generate and study the shapes and properties of a wide range of consumer plastics, providing an overview of optical and analytical properties.
+
+Introduction
+
+The development of synthetic plastics derived from petrochemicals over the past two centuries has led to such a significant uplift in living standards that they are now ubiquitous in the daily life of almost every society.\(^1\)\(^,\)\(^2\) They are cheap to produce, sterile and, importantly, are highly chemically stable, being resistant to oxidation, depolymerization and biodegradation.\(^3\) They have been used to produce pivotal elements in food security, technological development, research, and medical procedures.\(^4\) This manifests in approximately 400 Mt of plastic produced worldwide annually. To meet diverse requirements, plastics exist as many chemically distinct polymers (e.g., polyamides, polyurethanes, rubbers), for which even plastics composed of the same polymer (e.g., polyethylene) can be chemically and materially very different by their molecular weights, degree of branching, and the inclusion proprietary plasticizers, fillers, or dyes.\(^5\) The huge volumes produced, the wide range of materials used and – given that only 20% is recycled (either mechanically, chemically or energetically) and the rest accumulates in landfills or as pollution on land or in rivers and oceans – plastic pollution is fast-becoming one of the most significant global issues of our time.\(^6\)^\(^,\)\(^7\)
+
+Despite their chemical stability, polymer materials can be mechanically broken down via abrasive wear, or impact and tensile fractures into ever smaller pieces – microplastics (1 µm - 5 mm) (MPs) and nanoplastics (1 nm - 1 µm) (NPs).\(^8\)^\(^,\)\(^9\) Morphologically, MPs come in a range of shapes and sizes which is determined by their material, original state and their his-
+These smaller pieces disperse more easily within and between environments, leading to their presence in almost every conceivable environment. MPs are now routinely detected in human samples, however, their inherent effects on human health are still under investigation. Nonetheless, they accumulate toxic materials such as hydrophobic organic pollutants and heavy metals, which then enter the food chain after ingestion by organisms, especially those in aquatic environments. As such, strategies should be developed to both detect and remove them from the environment and, simultaneously, their influence on animal and human health demands deeper investigation.
+
+To better understand the effects of MPs and NPs on their environment and human health, controllable studies must be performed using standard reference materials. This is problematic for a variety of reasons. Currently, many studies on the environmental and toxic impact of MPs, as well as strategies to remove or degrade them, use spherical particles synthesized using well-known colloidal techniques. However, the MPs found in nature are neither chemically pristine, nor morphologically homogeneous, nor monodisperse. The morphology of MPs is highly relevant to their toxicity due to the increased surface area and capacity to carry toxic pollutants. MPs sampled directly from the environment (e.g., rivers, oceans, waste-water treatment plants and soils) come from a diversity of unknown sources, being of unknown age and breakdown history and, as mentioned, are a diversity of chemical make-ups. Additionally, they are very dilute and are vastly outnumbered by naturally found solids such as soils, minerals and biomass. Separating them from this mixture is not straightforward or scalable – this is by itself a research problem that would be aided by having access to reference MPs. Thus, strategies should be developed to produce large numbers of MPs and NPs which can be used as reference materials in controlled studies.
+
+Some examples of methods that produce appropriately polydisperse MP samples are laser ablation, or micro-abrasion. Whilst these methods provide reliable MPs and NPs with diverse morphologies, they are more useful for understanding the underlying processes of MP formation, and less suited for large-scale studies. Von der Esch et al. demonstrate that
+hydrolyzation and subsequent sonication of bulk plastics can be used to prepare MPs in large numbers and with high polydispersity. However, the resulting MP population is highly dependent on the chemistry of the material and the technique is unavailable for certain plastic types.
+
+Among the most promising strategies for the preparation of reference MPs is cryogenic milling (cryo-milling), in which bulk plastics are cooled to below their glass transition temperature ($T_g$) before and during milling (oftentimes in a ball mill).\textsuperscript{35} The technique is robust across many materials and has been used for the preparation of both thermoplastic MPs\textsuperscript{31,36,37} and elastomeric MPs.\textsuperscript{38,39} The resulting MPs are polydisperse and morphologically diverse, making them suitable as reference materials for naturally found MPs. Additionally, the technique can be used to mill naturally found plastic waste and, in so doing, more closely replicate the chemical nature of MPs in a specific local environment.\textsuperscript{40}
+
+In this work, we prepare MP samples by cryo-milling a diverse range of bulk plastics and characterize the resulting populations. The plastics are (mostly) sourced from consumer products to accurately represent the diversity of naturally found plastics. By applying the same mechanical process to a range of materials, we provide a link between research data that focuses on narrower groups of material types. We characterize the shape and size distributions of the MPs, and shed light on the pros and cons of the different methods used. Finally, we demonstrate that the resulting MP samples can be used as reference materials by spiking road-side material with MP samples.
+Results and Discussion
+
+Figure 1: Cryo-milling of Plastics. A) Plastic samples were taken from the lab and consumer sources and cut into pieces before being cryo-milled. B) Photograph of the resulting powders. C) Bar chart showing the weighted averages measured by optical microscopy and ordered by length-weighted average. D, E, F, G) SEM images of resulting microplastics (LDPE, PET, Nylon 6, and Silicone, respectively). Inset shows a photograph of the sample powder on a spatula.
+
+Sample Selection
+
+Plastic samples were taken from various sources - either found in the lab (e.g. Neoprene gloves or commercially available Nylon 6 pellets) or office (e.g. HDPE or LDPE carrier bags), or from consumer products of our daily use (fig. 1A). Included in the samples are the most prevalent types of plastics found as marine microplastics (PP, PE, PS, PU, PVC, PET, Nylon).\(^{41,42}\) Two samples of polyethylene were taken: high- and low- density polyethylene (HDPE and LDPE, respectively). Despite being chemically similar, they are structurally different which imparts significant differences in their mechanical properties. One of our PET samples indicated itself as recycled, so we assume the other one to be virgin. We generally did not distinguish the presence of any fillers, dyes or additives.
+
+All of the plastic samples were cryomilled using the same procedure and milling parameters
+in order to compare how their material properties determine the resulting particle size distribution (see experimental procedures). Milling the plastics at \(-150^\circ\text{C}\), below their glass transition temperature, meant that all samples could be processed into powders (fig. 1B) which showed a broad range of sizes and appearances (fig. 1C).
+
+Since the plastic samples were taken from consumer sources, their exact type was presumed to be unknown despite accompanying labels (provided for recycling instruction). Many commercially available plastics are proprietary blends of a polymer with fillers, dyes, and plasticizers and so to correctly identify the samples, their chemical nature was identified using two spectroscopic techniques: Fourier transform infra-red spectroscopy (FTIR) and Raman microscopy (\(\mu\)-Raman). Almost all of the samples had clearly identifiable FTIR spectra, with notable exceptions being Neoprene (polychloroprene) and tire-rubber composite. Although the chemical structure could be adequately described with the aid of prior knowledge of the materials source, the presence of dyes and fillers produces a range of peaks that would not be present in pure samples. Particularly for the tire rubber, highly absorptive fillers such as carbon black dramatically shift the spectrum baseline.\(^{43}\)
+
+To complement the FTIR analysis, Raman microscopy (\(\mu\)-Raman) was used on all of the samples to confirm their identification and whether there was any spatial heterogeneity in their composition, either by the presence of dyes or additives. To investigate this, \(\mu\)-Raman spectra were taken from different regions of MPs as well as from different individual MPs. No significant differences in the spectra were observed within or between particles which indicates, unsurprisingly, that the plastics are highly homogenized during production.
+
+Scanning electron microscopy (SEM) was used to gain qualitative information about the MP size and morphology, being able to resolve the nanometer-scale features and texture of microplastics. All of the MP samples were highly polydisperse, spanning 3 to 4 orders of magnitude, and clear differences in the morphology of the microplastics are apparent. The morphologies can be described as being between two extreme cases of highly tortuous and deformed, or bulky and 'boulder-like'. SEM is an ideal technique for obtaining this type of
+qualitative information, however it is not suitable for obtaining large population data. To characterize the MP powders quantitatively, the samples were analyzed using a multiscale optical microscopy (OM) method using two magnifications. Wide-field (∼ 4.5 mm × 4.5 mm) images using stitching and tiling with a 10× objective were used to measure a statistically significant amount of MPs. A 40× objective was used to get higher resolution images of the smallest MPs. The data were combined into a single size (equivalent diameter) distribution to be compared with the LD measurement. OM is a useful technique for size characterization as a wide range of microscopes, from cheap and simple to sophisticated high-resolution devices, are available. The shape of the particles can be quantified using shape factors such as the aspect ratio (AR) and solidity.
+
+Laser diffraction (LD) analysis (MasterSizer-2000, Panalytical) was employed to obtain quantitative size distributions of the MPs. This technique offers high-throughput capabilities, enabling rapid size distribution measurements of large sample volumes with minimal sample preparation beyond dispersion. However, limitations arise when analyzing polydisperse and amorphous MP samples. In polydisperse samples, the overlapping diffraction patterns can lead to an underestimation of smaller particles due to their weaker scattering signals. While sample fractionation could improve resolution, it introduces additional steps and equipment requirements. Moreover, the assumption of sphericity, inherent in LD analysis, neglects particle shape factors, which can introduce inaccuracies in size distribution measurements of amorphous MPs. Finally, the measurement provided by LD analysis is inherently volume-weighted, being a measure of volume fraction. Thus, the lower volume MP measurements carry significant errors and can be ‘drowned-out’ by the larger volume ones. It is valid to use volume fraction for the size distributions, however, considering that the most significant problem regarding microplastics is that they are highly diffusive, a more suitable statistic is their number fraction distribution, which emphasizes the smallest, most diffuse particle (all size distributions shown in this work are presented as number fractions). All of these factors contribute to a significant mismatch between the size distributions measured with
+LD and those measured by OM. McColley et al. have demonstrated cryo-milling of consumer polystyrene to form MPs, and they find a similar result to ours: LD measurements give bias to the larger particles and under-report smaller size fractions. The SEM imaging of the samples confirms to us the presence of smaller size fractions, corresponding to ones detected in OM but that are not detected in LD.
+
+The analytical results for four MP samples which represent some of the most commonly detected MP types, are included in the main manuscript for a deeper discussion: a polyolefin, LDPE; a polyaromatic, PET; a polyamide, Nylon 6; and an elastomer, Silicone. Further examples are given in the SI and only some of the key similarities and differences are referred to in the text. Polyolefins (HDPE, LDPE and PP) represent the most commonly produced plastics worldwide by a considerable margin, with 37.5% of European plastic production being these 3 species.\(^{44}\) LDPE alone accounts for 14% of the total European production – being used primarily for the manufacture of single-use plastic bags, food packaging and bottles – and is a significant contributor to MP pollution.\(^{45,46}\) Polyethylene Terephthalate (PET) is another of the most widely produced plastics, being used predominantly in the manufacturing of polyester textiles,\(^{47}\) as well as single-use drinks bottles.\(^{48}\) As a significant contributor to MP pollution, many studies are focused on the health and environmental impacts of PET MPs as well as strategies to remove, recycle or degrade them.\(^{49}\) The polyamides Nylon 6 and Nylon 6/6 are widely used for their excellent mechanical strength, being used as fishing lines, packaging, and clothing. As such, they are a commonly found MP in marine environments.\(^ {50}\) Elastomeric materials, such as silicone and rubbers, are not strictly plastics as their constituent polymers are covalently cross-linked. Nonetheless, micro- and nanoscopic elastomers are routinely described as MPs and NPs owing to their similarity in number and effect on an environment.\(^ {51,52}\) As a representative of the elastomeric materials we selected a silicone elastomer material, obtained by milling a undyed and transparent laboratory bung. The silicone elastomer MPs were by far the largest particle sizes, with the greatest length, area and volume average of all samples (fig.1).
+LDPE
+
+Figure 2: Characterization of LDPE, including OM and SEM (upper left), FTIR and Raman Spectroscopy (upper right), and resulting size (lower left) and shape (lower right) distributions.
+
+The polyolefin MPs show distinct shape characteristics which arise due to their engineered chemical-mechanical properties. LDPE polymers are more branched than their HDPE counterparts, which hinders their crystallization making them more ductile, even below their $T_g$. PP can be considered as having properties in between HDPE and LDPE. It is highly branched, having a methyl group at every monomer unit which allows chains to slide and so imparts a greater ductility than HDPE. However, the small and highly regular size of this
+group compared to the larger, randomly-distributed side chains of LDPE allows it to form crystalline regions which impart rigidity and brittleness to the material.
+
+The microscopy (SEM and OM) images of the polyolefins all show signs of the MPs being deformed and torn, with frayed edges and a distinct tortuosity in the overall shape of the particle (fig. 2, Supplementary Fig. 1, 2). This plastic deformation indicates that the material was not in a glassy state during breakage. This is more likely for these plastics as they represent the thermoset plastics with the lowest $T_g$ ($\sim -110 \, ^\circ C$ for PE and $\sim -20 \, ^\circ C$ for PP). Friction between the milling balls and the plastics, as well as between plastics generates heat which may overcome the cryogenic cooling and heat the plastics above their $T_g$ and can cause them to be stretched or deformed before fracturing. Plastic stretching, flattening, and bending of the particles before breakage can result in particles with a pronounced AR and minimal solidity and, indeed, these features can be seen across the full size range of the LDPE particles (fig. 2).
+
+The OM data shows that the LDPE sample is particularly polydisperse – quantified by large differences between each weighted average. The most numerous size range is $1 \, \mu m – 2 \, \mu m$, with the frequency decreasing approximately inversely with increasing size range. The size distribution obtained by LD follows the behavior of the microscopy data until the $5 \, \mu m$ region, after which, it under-reports the smallest particles greatly. This is likely due to the limitations of LD discussed earlier, with the LDPE sample being highly polydisperse and asymmetrical.
+
+By comparing LDPE with the other polyolefins, HDPE and PP (Supplementary Fig. 1, 2), it can be seen that the size distributions obtained by both LD and OM are similarly shaped, but with a slightly lower frequency of the larger size ranges. The HDPE sample has a narrower distribution of particles with low AR, suggesting 'blockier', less-stretched particles. Contrarily, the PP sample shows a distinct bimodality in the shapes of the MPs. The smallest particles are both high AR and low solidity indicating a highly tortuous, ribbon-like shape, whereas the largest particles are significantly more symmetrical. This may be due to
+only microscopic regions of the PP plastics becoming heated above their $T_g$ and producing small, deformed MPs.
+
+**PET**
+
+The SEM images of the cryo-milled PET shows that the particles are blocky but with a rough surface. Unlike the polyolefin samples they show no signs of having been stretched or deformed, indicating that all the fracturing events occurred above the $T_g$ ($\sim 73 \, ^\circ \text{C}$).
+
+The size distribution, obtained by OM, shows that the most numerous particle size is the...
+1.5 µm - 2 µm range, and there is a significant shoulder located in the 10 µm region. This bimodality appears in almost all of the MP samples, with a sharp peak in the low, 0.5 µm - 2 µm range followed by either a shoulder or plateau in the larger size ranges. This could arise due to distinct underlying breakage mechanisms. For example, a single particle could be split into two similar magnitude, coarse pieces, with many fine particles being generated along the crack. Such a mechanism is likely the source of the bimodality in all samples. The shape characterization of the PET sample show narrow distributions of both high solidity and low AR across all length-scales, supporting the SEM characterization of the particles as blocky and boulder-like. This indicates that PET is highly brittle during the cryo-milling, as such particles are generally formed during rapid fracturing events, with minimal-to-no plastic deformation. Of note, the bimodal breakage mechanism results in particles of similar form across the two length-scales.
+
+The LD analysis measures matching peak size with OM at ∼1 µm, but under-reports the larger particle sizes. Interestingly, this under-reporting of the larger sizes by LD analysis is unique to the PET, recycled PET and PETG samples, as well as PVC (Supplementary Fig. 3, 4, 5). The OM analysis of the recycled PET shows a size distribution with a similar character to the virgin PET, but with a broader range and, hence, greater average size (across all weightings). Morphologically, the SEM shows the particles to be visibly smoother than the virgin PET, but this is not reflected in the solidity measurements. The recycled PET sample displays a much broader range of solidity, with many tortuous, frayed particles in the <10 µm region. PETG is a copolymer of PET and poly(ethylene glycol) which prevents crystallization of the plastic. This results in a lower modulus which can explain why the PETG has more frayed, lower solidity particles. The size is slightly larger, but with similar bimodality – peaks at 1 µm and 10 µm. There is, however, a significantly smaller proportion of the smaller 1 µm particles compared to the PET sample.
+Nylon 6
+
+SEM and OM of the cryo-milled Nylon 6 sample reveals the MPs to have a qualitatively shard-like shape, with sharp edges and smooth, shear faces. The size distribution obtained by OM does not display bimodality evident in other samples, instead showing a high frequency of small particles, with a peak across the 1 µm - 3 µm range, followed by an even distribution of particles in the 2.5 µm - 100 µm range. The shape characterization distributions show that the shape factors are consistent across length scales. There is a much broader range of solidity, but a relatively narrow distribution of AR. This quantifies what is observed of randomly shaped shards, but no stretching or elongation of the particles.
+The size distribution obtained by LD analysis under-reports both the largest and smallest particles, which is potentially due to the large number of particles across a very broad range, with no discernible peak above 4 µm. The position of the peak is approximately matching the OM-obtained distribution (∼2µm from LD versus 1 µm - 3 µm for OM). Interestingly the features of the size distribution are not shared with Nylon 6/6 which has a much more pronounced peak in the sub-micron range and very low frequencies of particles in the 10s and 100s of microns range (Supplementary Fig. 6). Notably, the Nylon 6/6 shows a bimodality with a small but distinct peak at ∼200 µm, which is also qualitatively visible in the OM images. This indicates a slightly different breakage mechanism, which is further evidenced by the much broader range of solidity measured for the Nylon 6/6 sample.
+Silicone
+
+Figure 5: Characterization of Silicone Elastomer, including OM and SEM (upper left), FTIR and Raman Spectroscopy (upper right), and resulting size (lower left) and shape (lower right) distributions.
+
+SEM and OM imaging reveals the elastomeric MPs as 'boulder-like', with sharp corners and shear but rough faces (Fig. 5, Supplementary Fig. 7, 8, 9). FKM is a notable outlier to this trend, having a rough and lumpy surface (Supplementary Fig. 10). This likely results from their different physico-chemical structure to the thermoplastics – they do not have the ability to plastically deform before breakage, due to the inability of their constituent polymers to rearrange permanently. The SEM and OM of the silicone sample clearly shows the presence of MPs that are not accounted for in the LD measurement. This may relate to the much more pronounced bimodality of the distribution.
+The polydispersity of the silicone sample is much greater and has a much more pronounced bimodality than the previously mentioned samples. The vast numerical majority of the particles are below 3 µm, with very few in the 20 µm – 100 µm range, and then a significant portion in the 100 µm – 1 mm range. The largest particles have low AR and high solidity which corresponds to their visual characterization as being boulder-like, with very little tortuosity. Interestingly, the smallest of the silicone particles provide examples of the largest AR and lowest solidity particles out of the mentioned samples, suggesting that there are different breakage mechanisms generating each size population.
+
+The larger, boulder-like particles may break down due to impact fractures below T_g which, as with the previously described samples, generates high numbers of smaller particles of similar form. The smaller particles with high AR and low solidity could be the result of a secondary mechanism, for example wear or abrasion. These are possibly generated above T_g which is plausible as the heating due to friction will be localized to a thin region at the surface, from which wear-generated MPs are produced. These heated regions may allow the formation of rolls and which tear, forming highly tortuous particles, which are measured by their low solidity.  
+
+The pronounced bimodality is what likely leads to the significant under-reporting of the smaller particles by the LD measurement. It can be seen that the LD data does identify a peak and trough at the same location as the OM measurement, however, it does not measure any particles smaller than 13 µm, which are evidenced in both SEM and OM.
+Rubber in particulate matter from environmental sample
+
+Figure 6: Spiking Environmental Samples. A) Dark-field image of road-side particulate matter taken. B) Bright-field image of cryo-milled tire rubber composite MPs. C) Dark-field image of particulate matter, spiked with the cryo-milled MPs (circled). With the knowledge of (B), identifying MPs in (C) is made much easier.
+
+To demonstrate how such engineered MPs can be used in a research context, we devised a simple identification experiment using $\mu$-Raman microscopy: Analysing an environmental roadside sample we anticipated it would contain a detectable amount of MPs. In absence of a prepared automatic search algorithm, we manually screened the material for traces of $\mu$-Raman signals of polymers by taking Raman spectra of each particles, but could not identify any MPs (fig. 6A). This method has been demonstrated previously, but was unsuccessful here, likely due to the high amount of matrix material, including silicates and bio-material. Thus, we spiked our environmental matrix with a small amount of the tire rubber composite (fig. 6B and C) and subsequently analyzed both of these samples using $\mu$-Raman. The cryo-milled tire MPs were easily identifiable in the spiked sample, especially with the aid of the purely tire particle images and spectra. By collecting Raman spectra from the added MPs, we could calibrate the illumination to the optimum conditions to identify tire particles. Furthermore, visual differences between the MPs and the other matter could be observed and used to identify environmental particles, showcasing that the here prepared materials and their characterization are likely to become invaluable for different method developments.
+Conclusion
+
+Cryo-milling is a suitable technique to generate MP from a broad range of polymeric materials through impact applied below the glass temperature. Here, we tested a selection of some of the most common plastics and polymers, mostly obtained from consumer products. We analyze the individual properties of the resulting materials using optical microscopy and subsequently we use complementary techniques to confirm our findings. While most ‘naturally’ formed microplastics are generated at temperatures similar to room temperature, further investigations and comparisons with existing models are required to understand any discrepancy between the resulting size and shape distributions of cryo-milled and naturally formed MPs. We briefly demonstrated the utilization of the obtained materials in an exemplary method development process: a broad range of particulate matter is present in an environmental sample, but the \( \mu \)-Raman analysis does not allow for conclusive results (partly due to the unspecific rubber signal). Spiking with a known sample allows for optimization of measurement conditions and paves the way for streamlined MP identification and quantification.
+
+Methods and Materials
+
+Selection of Materials
+
+All plastic samples were obtained from various everyday sources, primarily including laboratory products (such as gloves, septum stoppers, Falcon tubes, and lab-grade plastic pellets) and consumer materials (such as carrier bags, slushy cups, and 3D printing filaments). For a comprehensive analysis of the results, we further categorized these plastics into four distinct cases, each represented by an example. These cases reflect some of the most commonly detected plastic and microplastic types in wastewater.
+
+- LDPE, a polyolefin, was obtained from a supermarket carrier bag.
+• PET, a polyaromatic polymer was obtained from a household storage container.
+
+• Nylon-6, a polyamide, was laboratory-grade and was obtained as raw pellets from Merck.
+
+• Silicone, an elastomer, was obtained from the septum stopper of a laboratory round-bottom flask.
+
+All these materials were used directly without any chemical modification; however, they were mechanically cut into chunks before undergoing the described cryo-milling procedure.
+
+**Preparation of Microplastics**
+
+Initially, techniques including room temperature (20°C) ball milling, grinding, or tear were tested on the different polymers due to the ease of availability. However, these were unsuitable for producing powders of micro-particles for almost all of the samples. Instead of fracturing, many plastic samples would deform plastically. 0.5 g to 2 g of the plastics were cut into approximately 5-millimeter pieces, where necessary. These samples were then placed into standard grinding vials and loaded into the cylindrical chamber of a cryogenic freezer mill (6775 Freezer mill from Spex SamplePrep). Liquid nitrogen was introduced into the chamber, pre-cooling the plastics to −150°C for 20 minutes. Subsequently, the materials underwent three grinding cycles, each lasting 2 minutes, with 2 minutes of inter-cooling time between cycles. The grinding speed of the mill was maintained at 12 cycles per second.
+
+**Fourier Transform Infrared Spectroscopy**
+
+FTIR was performed on each sample by depositing ∼2 mg of MP powder onto the window of Nicolet iS5 FT-IR Spectrometer equipped with a Thermo Scientific iD5 single-bounce attenuated total reflectance (ATR) accessory featuring a diamond crystal with a ZnSe lens. Spectral data were collected over a range of 4000 cm⁻¹ to 500 cm⁻¹ and were processed (baseline correction and smoothing) using MestreNova.
+Raman Microscopy
+
+Raman spectra were recorded on an Edinburgh Instruments RM5 Confocal Raman Microscope equipped with 532 nm and 785 nm lasers and a back-illuminated charge-coupled device detector. The samples were prepared by depositing ∼10 mg of dry MPs onto stainless steel slides and were viewed with episcopic illumination in dark-field mode. The μ-Raman was aimed at separate regions of individual MPs, as well as at different MPs, and spectra were taken over a range of time-scales and intensities until clear signals could be obtained. The spectra were processed (baseline correction and smoothing) using Edinburgh Instruments Ramacle software, as well as MestreNova.
+
+Laser Diffraction
+
+A MasterSizer-2000 (Malvern Panalytical) was used for LD analysis. The system was washed 3 times with EtOH before taking a background measurement of EtOH flow. MP powder was then added to the system until the laser obscuration was in the 10% - 20% range. Measurements were taken for 30s with a 30s wait time in between. 3 measurements were taken for each sample and the average of these was used for analysis.
+
+Dispersion of MPs
+
+Approximately 50 mg of the MP powders were dispersed in 1.5 mL of absolute ethanol and vortexed for 1 min to disrupt any particle agglomeration. 100 μL micropipette tips were cut at the end to create a wider opening (∼2.5 mm) to allow the passage of larger MPs. The tips were then rinsed with absolute ethanol (EtOH) to remove any MPs that may be generated during the cutting. The use of plastic materials, such as the pipette tips, should be avoided in all MP research, however, due to the large quantities of the MP powders produced and analyzed in this work, we consider them to produce only statistically insignificant numbers of new MPs. Glass slides were cleaned by compressed air and set-down at a tilted angle (10 °)
+from the surface. The MP suspension was agitated using the micropipette with the widened tips before 25 $\mu$L of the suspension was collected and deposited at once on the raised end of the glass slide. The droplet would then extend down the slide, dispersing the MPs as it extended before drying. The resulting dispersion had the faster-sedimenting, larger MPs concentrated on the raised end of slide, with smaller MPs concentrated on the lowered end. This allowed for proper visualization of the smallest particles which would be obscured by the largest particles. For imaging in SEM, a similar process of deposition was used, with 2 $\mu$L of suspension deposited on an SEM mount.
+
+**Scanning Electron Microscopy**
+
+SEM images of the micro plastic samples were taken using a ZEISS Gemini SEM 300 using the SE detector. Samples were prepared by drop-casting 2 $\mu$L of MP suspension in EtOH on aluminum tape coated sample holders. After complete drying of the EtOH, the sample was sputtered with a thin film of Gold Palladium 80:20 to increase the conductivity.
+
+**Optical Microscopy**
+
+The MP dispersions, dry mounted between a glass slide and a cover slip, were placed cover slip down in the automated stage of an Nikon Ti-2 microscope and images were captured with a Photometrics Prime BSI camera. A 10×/0.45 NA (Plan Apo, Nikon) was used. A field of view at the top-left of the cover slip served as the set point for the acquisition of the first image. The automated stage was then used to take 64 images in an 8×8 grid ($\sim$ 4.5 mm $\times$ 4.5 mm). The software then digitally stitched the images to form a single, wide-field, composite image. After saving the image, the stage was manually moved $\sim$1 cm to the right of and/or below the previous region of interest. This process was repeated 9 times so that the dispersion was imaged in 2 rows of 5 composite images, spanning the length and breadth of the MP dispersion. After saving the images, the objective was switched to a 40×/0.75 NA (Plan Apo, Nikon), and the process was repeated. The composite images under 40×
+magnification were \( \sim 1.1 \text{ mm} \times 1.1 \text{ mm} \), and were attempted to be taken within the regions of the 10\( \times \) composite regions (Supplementary Information 2).
+
+**Image Processing**
+
+Images taken from the optical microscope were processed using ImageJ.\textsuperscript{57} The gray-scale images were de-speckled and filtered with a 1.5 pixel Gaussian blur to remove unwanted noise artifacts. The images were then binarized by auto-thresholding. The particle Area, solidity, Aspect Ratio and Feret min and max diameters were measured using the Analyze Particles function (16px\(^2\) to infinity). For amorphous particles, the AR is a measure of the overall symmetry of a particle and solidity is a measure of empty space within the particles external volume (Supplementary Information 3). The measured area was used to calculate an equivalent diameter. The collected data was processed and plotted using Python software (numpy, matplotlib, pandas). For the scatter plots, a 2D kernel density estimation (seaborn) was used to better visualize the density of data points.
+
+To combine the 10\( \times \) and 40\( \times \) measurements into a single histogram, a range of particle sizes was selected (5 \( \mu \text{m} \) - 50 \( \mu \text{m} \)) that both magnifications can easily detect in good numbers. The scaling factor of the particle counts between the two data-sets was measured within this range, and then applied to the whole of one data-set. Finally, the average between the unscaled and re-scaled datasets was used. A more detailed explanation and visualization is provided in Supplementary Information 4.
+
+**Roadside Sampling**
+
+A sample of roadside particulate matter was taken from an inner-city road of Glasgow, UK. The material was collected in November with significant amounts of dead foliage by the road. A cotton swab was used to collect matter by rolling it alongside the gutter of the road. The swab was then deposited in a glass vial containing 2 mL of DI water and sonicated (Vevor Digital Ultrasonic Cleaner) for 5 minutes to release the particulates.
+Acknowledgement
+
+All authors are grateful for the access to Raman microscopy provided by Edinburgh Instruments, as well as access to Laser Diffraction from Mara Knapp. We acknowledge the following undergraduate students for their help with sample collection and early-stage experiments: Rowan Fairweather Graham, Jane Andrews, Stella Bodiguel. We are also grateful to Shannan Foylan’s help with optimizing the tiling and stitching algorithm. Furthermore, we acknowledge the financial support of the German Fulbright Foundation for a Fulbright Cottrell Award.
+References
+
+(1) Horton, A. A. Plastic Pollution in the Global Ocean; World Scientific, 2022; Vol. 1.
+
+(2) Gilbert, M. Brydson’s plastics materials; Elsevier, 2017; pp 1–18.
+
+(3) Shah, A. A.; Hasan, F.; Hameed, A.; Ahmed, S. Biological degradation of plastics: a comprehensive review. Biotechnology advances 2008, 26, 246–265.
+
+(4) Simmchen, J.; Lissel, F. Debating the Everyday Impact of Polymer Materials. Chemistry Views 2023, 1, 1.
+
+(5) Rochman, C. M.; Brookson, C.; Bikker, J.; Djuric, N.; Earn, A.; Bucci, K.; Atthey, S.; Huntington, A.; McIlwraith, H.; Munno, K.; others Rethinking microplastics as a diverse contaminant suite. Environmental toxicology and chemistry 2019, 38, 703–711.
+
+(6) Nayanathara Thathsarani Pilapitiya, P.; Ratnayake, A. S. The world of plastic waste: A review. Cleaner Materials 2024, 11, 100220.
+
+(7) Liang, Y.; Tan, Q.; Song, Q.; Li, J. An analysis of the plastic waste trade and management in Asia. Waste Management 2021, 119, 242–253.
+
+(8) Li, K.; Yu, K.; Zhang, Y.; Du, H.; Sioutas, C.; Wang, Q. Unveiling the mechanism secret of abrasion emissions of particulate matter and microplastics. Scientific Reports 2024, 14, 23710.
+
+(9) Enfrin, M.; Lee, J.; Gibert, Y.; Basheer, F.; Kong, L.; Dumée, L. F. Release of hazardous nanoplastic contaminants due to microplastics fragmentation under shear stress forces. Journal of hazardous materials 2020, 384, 121393.
+
+(10) Rodríguez-Seijo, A.; Pereira, R. Comprehensive analytical chemistry; Elsevier, 2017; Vol. 75; pp 49–66.
+(11) Horton, A. A.; Walton, A.; Spurgeon, D. J.; Lahive, E.; Svendsen, C. Microplastics in freshwater and terrestrial environments: Evaluating the current understanding to identify the knowledge gaps and future research priorities. *Science of the total environment* 2017, 586, 127–141.
+
+(12) Zeb, A.; Liu, W.; Ali, N.; Shi, R.; Wang, Q.; Wang, J.; Li, J.; Yin, C.; Liu, J.; Yu, M.; others Microplastic pollution in terrestrial ecosystems: Global implications and sustainable solutions. *Journal of hazardous materials* 2024, 461, 132636.
+
+(13) Rochman, C. M.; Hoellein, T. The global odyssey of plastic pollution. *Science* 2020, 368, 1184–1185.
+
+(14) Napper, I. E.; Davies, B. F.; Clifford, H.; Elvin, S.; Koldewey, H. J.; Mayewski, P. A.; Miner, K. R.; Potocki, M.; Elmore, A. C.; Gajurel, A. P.; others Reaching new heights in plastic pollution—preliminary findings of microplastics on Mount Everest. *One Earth* 2020, 3, 621–630.
+
+(15) Kim, T.; Park, K.; Hong, J. Understanding the hazards induced by microplastics in different environmental conditions. *Journal of Hazardous Materials* 2022, 424, 127630.
+
+(16) Zhao, Q.; Zhu, L.; Weng, J.; Jin, Z.; Cao, Y.; Jiang, H.; Zhang, Z. Detection and characterization of microplastics in the human testis and semen. *Science of The Total Environment* 2023, 877, 162713.
+
+(17) Amato-Lourenço, L. F.; Dantas, K. C.; Júnior, G. R.; Paes, V. R.; Ando, R. A.; de Oliveira Freitas, R.; da Costa, O. M. M. M.; Rabelo, R. S.; Bispo, K. C. S.; Carvalho-Oliveira, R.; others Microplastics in the olfactory bulb of the human brain. *JAMA Network Open* 2024, 7, e2440018–e2440018.
+
+(18) Atugoda, T.; Vithanage, M.; Wijesekara, H.; Bolan, N.; Sarmah, A. K.; Bank, M. S.; You, S.; Ok, Y. S. Interactions between microplastics, pharmaceuticals and personal
+care products: Implications for vector transport. *Environment International* **2021**, *149*, 106367.
+
+(19) Luo, Z.; Zhou, X.; Su, Y.; Wang, H.; Yu, R.; Zhou, S.; Xu, E. G.; Xing, B. Environmental occurrence, fate, impact, and potential solution of tire microplastics: Similarities and differences with tire wear particles. *Science of the Total Environment* **2021**, *795*, 148902.
+
+(20) Tumwesigye, E.; Nnadozie, C. F.; Akamgwuna, F. C.; Noundou, X. S.; Nyakairu, G. W.; Odume, O. N. Microplastics as vectors of chemical contaminants and biological agents in freshwater ecosystems: Current knowledge status and future perspectives. *Environmental Pollution* **2023**, *330*, 121829.
+
+(21) Foley, C. J.; Feiner, Z. S.; Malinich, T. D.; Höök, T. O. A meta-analysis of the effects of exposure to microplastics on fish and aquatic invertebrates. *Science of the total environment* **2018**, *631*, 550–559.
+
+(22) Wang, L.; Kaeppler, A.; Fischer, D.; Simmchen, J. Photocatalytic TiO2 micromotors for removal of microplastics and suspended matter. *ACS applied materials & interfaces* **2019**, *11*, 32937–32944.
+
+(23) Hildebrandt, J.; Thünemann, A. F. Aqueous dispersions of polypropylene: toward reference materials for characterizing nanoplastics. *Macromolecular Rapid Communications* **2023**, *44*, 2200874.
+
+(24) Chattopadhyay, P.; Ariza-Tarazona, M. C.; Cedillo-González, E. I.; Siligardi, C.; Simmchen, J. Combining photocatalytic collection and degradation of microplastics using self-asymmetric Pac-Man TiO 2. *Nanoscale* **2023**, *15*, 14774–14781.
+
+(25) Tanaka, K.; Takahashi, Y.; Kuramochi, H.; Osako, M.; Tanaka, S.; Suzuki, G. Preparation of nanoscale particles of five major polymers as potential standards for the study of nanoplastics. *Small* **2021**, *17*, 2105781.
+(26) Kefer, S.; Miesbauer, O.; Langowski, H.-C. Environmental microplastic particles vs. engineered plastic microparticles—a comparative review. *Polymers 2021, 13*, 2881.
+
+(27) Mei, W.; Chen, G.; Bao, J.; Song, M.; Li, Y.; Luo, C. Interactions between microplastics and organic compounds in aquatic environments: a mini review. *Science of the Total Environment 2020, 736*, 139472.
+
+(28) Koutnik, V. S.; Leonard, J.; Alkidim, S.; DePrima, F. J.; Ravi, S.; Hoek, E. M.; Mohanty, S. K. Distribution of microplastics in soil and freshwater environments: Global analysis and framework for transport modeling. *Environmental Pollution 2021, 274*, 116552.
+
+(29) Büks, F.; Kaupenjohann, M. Global concentrations of microplastic in soils, a review. *Soil Discussions 2020, 2020*, 1–26.
+
+(30) Stock, F.; Kochleus, C.; Bänsch-Baltruschat, B.; Brennholt, N.; Reifferscheid, G. Sampling techniques and preparation methods for microplastic analyses in the aquatic environment—A review. *TrAC Trends in Analytical Chemistry 2019, 113*, 84–92.
+
+(31) Martínez-Francés, E.; van Bavel, B.; Hurley, R.; Nizzetto, L.; Pakhomova, S.; Buenaventura, N. T.; Singdahl-Larsen, C.; Magni, M.-L. T.; Johansen, J. E.; Lusher, A. Innovative reference materials for method validation in microplastic analysis including interlaboratory comparison exercises. *Analytical and Bioanalytical Chemistry 2023, 415*, 2907–2919.
+
+(32) Magri, D.; Sánchez-Moreno, P.; Caputo, G.; Gatto, F.; Veronesi, M.; Bardi, G.; Catellani, T.; Guarnieri, D.; Athanassiou, A.; Pompa, P. P.; others Laser ablation as a versatile tool to mimic polyethylene terephthalate nanoplastic pollutants: characterization and toxicology assessment. *ACS nano 2018, 12*, 7690–7700.
+
+(33) Nakanishi, Y.; Yamaguchi, H.; Hirata, Y.; Nakashima, Y.; Fujiwara, Y. Micro-abrasive glass surface for producing microplastics for biological tests. *Wear 2021, 477*, 203816.
+(34) Von der Esch, E.; Lanzinger, M.; Kohles, A. J.; Schwaferts, C.; Weisser, J.; Hofmann, T.; Glas, K.; Elsner, M.; Ivleva, N. P. Simple generation of suspensible secondary microplastic reference particles via ultrasound treatment. *Frontiers in Chemistry* **2020**, *8*, 169.
+
+(35) Bejgarn, S.; MacLeod, M.; Bogdal, C.; Breitholtz, M. Toxicity of leachate from weathering plastics: An exploratory screening study with Nitocra spinipes. *Chemosphere* **2015**, *132*, 114–119.
+
+(36) McColley, C. J.; Nason, J. A.; Harper, B. J.; Harper, S. L. An assessment of methods used for the generation and characterization of cryomilled polystyrene micro-and nanoplastic particles. *Microplastics and Nanoplastics* **2023**, *3*, 20.
+
+(37) Seghers, J.; Stefaniak, E. A.; La Spina, R.; Cella, C.; Mehn, D.; Gilliland, D.; Held, A.; Jacobsson, U.; Emteborg, H. Preparation of a reference material for microplastics in water—evaluation of homogeneity. *Analytical and Bioanalytical Chemistry* **2022**, *414*, 385–397.
+
+(38) Hrdlička, Z.; Brejcha, J.; Šubrt, J.; Vrtiška, D.; Malinová, L.; Čadek, D.; Kadeřábková, A. Ground tyre rubber produced via ambient, cryogenic, and water-jet milling: the influence of milling method and particle size on the properties of SBR/NR/BR compounds for agricultural tyre treads. *Plastics, Rubber and Composites* **2022**, *51*, 497–506.
+
+(39) Shin, H.; Jeong, S.; Hong, J.; Wi, E.; Park, E.; Yang, S. I.; Kwon, J.-T.; Lee, H.; Lee, J.; Kim, Y. Rapid generation of aged tire-wear particles using dry-, wet-, and cryo-milling for ecotoxicity testing. *Environmental Pollution* **2023**, *330*, 121787.
+
+(40) Kühn, S.; Van Oyen, A.; Booth, A. M.; Meijboom, A.; Van Franeker, J. A. Marine microplastic: Preparation of relevant test materials for laboratory assessment of ecosystem impacts. *Chemosphere* **2018**, *213*, 103–113.
+(41) Kristanti, R. A.; Hadibarata, T.; Wulandari, N. F.; Sibero, M. T.; Darmayati, Y.; Hatmanti, A. Overview of microplastics in the environment: type, source, potential effects and removal strategies. *Bioprocess and Biosystems Engineering* **2023**, *46*, 429–441.
+
+(42) Curren, E.; Kuwahara, V. S.; Yoshida, T.; Leong, S. C. Y. Marine microplastics in the ASEAN region: A review of the current state of knowledge. *Environmental Pollution* **2021**, *288*, 117776.
+
+(43) Datta, S.; Antos, J.; Stocek, R. Characterisation of ground tyre rubber by using combination of FT-IR numerical parameter and DTG analysis to determine the composition of ternary rubber blend. *Polymer Testing* **2017**, *59*, 308–315.
+
+(44) Europe, P. Plastics—The Fast Facts 2023. 2023,
+
+(45) Luqman, A.; Nugrahapraja, H.; Wahyuono, R. A.; Islami, I.; Haekal, M. H.; Fardiansyah, Y.; Putri, B. Q.; Amalludin, F. I.; Rofiq, E. A.; Götz, F.; others Microplastic contamination in human stools, foods, and drinking water associated with indonesian coastal population. *Environments* **2021**, *8*, 138.
+
+(46) Corradini, F.; Casado, F.; Leiva, V.; Huerta-Lwanga, E.; Geissen, V. Microplastics occurrence and frequency in soils under different land uses on a regional scale. *Science of the Total Environment* **2021**, *752*, 141917.
+
+(47) Yang, T.; Gao, M.; Nowack, B. Formation of microplastic fibers and fibrils during abrasion of a representative set of 12 polyester textiles. *Science of the Total Environment* **2023**, *862*, 160758.
+
+(48) Welle, F. Twenty years of PET bottle to bottle recycling—An overview. *Resources, Conservation and Recycling* **2011**, *55*, 865–875.
+(49) Ziajahromi, S.; Neale, P. A.; Rintoul, L.; Leusch, F. D. Wastewater treatment plants as a pathway for microplastics: development of a new approach to sample wastewater-based microplastics. *Water research* 2017, *112*, 93–99.
+
+(50) Thushari, G. G. N.; Senevirathna, J. D. M.; Yakupitiyage, A.; Chavanich, S. Effects of microplastics on sessile invertebrates in the eastern coast of Thailand: an approach to coastal zone conservation. *Marine pollution bulletin* 2017, *124*, 349–355.
+
+(51) Jurkschat, L.; Gill, A. J.; Milner, R.; Holzinger, R.; Evangelioù, N.; Eckhardt, S.; Materić, D. Using a citizen science approach to assess nanoplastics pollution in remote high-altitude glaciers. *Scientific Reports* 2025, *15*, 1864.
+
+(52) Kole, P. J.; Löhr, A. J.; Van Bellegem, F. G.; Ragas, A. M. Wear and tear of tyres: a stealthy source of microplastics in the environment. *International journal of environmental research and public health* 2017, *14*, 1265.
+
+(53) Parapari, P. S.; Parian, M.; Rosenkranz, J. Breakage process of mineral processing comminution machines–An approach to liberation. *Advanced Powder Technology* 2020, *31*, 3669–3685.
+
+(54) Hakami, F.; Pramanik, A.; Basak, A.; Ridgway, N.; Islam, M. Effect of abrasive particle size on tribological behavior of elastomers. *Proceedings of the Institution of Mechanical Engineers, Part J: Journal of Engineering Tribology* 2020, *234*, 373–385.
+
+(55) Grigoratos, T.; Martini, G.; others Non-exhaust traffic related emissions. Brake and tyre wear PM. *Report EUR* 2014, *26648*.
+
+(56) Araujo, C. F.; Nolasco, M. M.; Ribeiro, A. M.; Ribeiro-Claro, P. J. Identification of microplastics using Raman spectroscopy: Latest developments and future prospects. *Water research* 2018, *142*, 426–440.
+(57) Abràmoff, M. D.; Magalhães, P. J.; Ram, S. J. Image processing with ImageJ. *Biophotonics international* **2004**, *11*, 36–42.
+Supporting Information Available
+
+SI 1) Characterization of Consumer Plastics
+
+Supplementary Figure 1: Characterization of High Density Poly Ethylene, including OM and SEM (upper left), FTIR and Raman Spectroscopy (upper right), and resulting size (lower left) and shape (lower right) distributions.
+Supplementary Figure 2: Characterization of Polypropylene, including OM and SEM (upper left), FTIR and Raman Spectroscopy (upper right), and resulting size (lower left) and shape (lower right) distributions.
+Supplementary Figure 3: Characterization of recycled PET, including OM and SEM (upper left), FTIR and Raman Spectroscopy (upper right), and resulting size (lower left) and shape (lower right) distributions.
+Supplementary Figure 4: Characterization of PETG, including OM and SEM (upper left), FTIR and Raman Spectroscopy (upper right), and resulting size (lower left) and shape (lower right) distributions.
+Supplementary Figure 5: Characterization of Polyvinylchloride, including OM and SEM (upper left), FTIR and Raman Spectroscopy (upper right), and resulting size (lower left) and shape (lower right) distributions.
+Supplementary Figure 6: Characterization of Nylon 6/6, including OM and SEM (upper left), FTIR and Raman Spectroscopy (upper right), and resulting size (lower left) and shape (lower right) distributions.
+Supplementary Figure 7: Characterization of ANB, including OM and SEM (upper left), FTIR and Raman Spectroscopy (upper right), and resulting size (lower left) and shape (lower right) distributions.
+Supplementary Figure 8: Characterization of Neoprene, including OM and SEM (upper left), FTIR and Raman Spectroscopy (upper right), and resulting size (lower left) and shape (lower right) distributions.
+Supplementary Figure 9: Characterization of a Tire Rubber Composite, including OM and SEM (upper left), FTIR and Raman Spectroscopy (upper right), and resulting size (lower left) and shape (lower right) distributions.
+Supplementary Figure 10: Characterization of FKM, including OM and SEM (upper left), FTIR and Raman Spectroscopy (upper right), and resulting size (lower left) and shape (lower right) distributions.
+Supplementary Figure 11: Characterization of PLA, including OM and SEM (upper left), FTIR and Raman Spectroscopy (upper right), and resulting size (lower left) and shape (lower right) distributions.
+Supplementary Figure 12: Characterization of PMMA, including OM and SEM (upper left), FTIR and Raman Spectroscopy (upper right), and resulting size (lower left) and shape (lower right) distributions.
+Supplementary Figure 13: Characterization of PS, including OM and SEM (upper left), FTIR and Raman Spectroscopy (upper right), and resulting size (lower left) and shape (lower right) distributions.
+Supplementary Figure 14: Characterization of PU, including OM and SEM (upper left), FTIR and Raman Spectroscopy (upper right), and resulting size (lower left) and shape (lower right) distributions.
+Supplementary Figure 15: Characterization of PVA, including OM and SEM (upper left), FTIR and Raman Spectroscopy (upper right), and resulting size (lower left) and shape (lower right) distributions.
+
+SI 2) Dispersion of Samples
+
+Supplementary Fig. 16 shows how the MPs were dispersed on glass cover slips before imaging in OM. The approximate measurement regions are overlaid. The 40× region is notably smaller than the 10× region, requiring the data to be re-scaled before combination.
+Supplementary Figure 16: Sampling Regions of the MP Dispersion with 10× and 40× Microscopy
+
+SI 3) Thresholding of Images and Shape Factors
+
+Images were processed in ImageJ and converted to binary masks (Supplementary Fig. 17(i - iii)). The Solidity of the particles was measured by constructing a convex hull around the perimeter of the particles. The Solidity is then calculated as the fraction of the area of the particle within the convex hull area (Supplementary Fig. 17(iv)). The Aspect Ratio of the particles was calculated by fitting an ellipse to the particle (least-squares method provided by ImageJ). The Aspect Ratio is then calculated as the ratio of lengths of the principle axes of this ellipse (L/W in Supplementary Fig. 17(v)).
+Supplementary Figure 17: Processing and Measurement of MPs from OM Images. (i) 40× OM image of LDPE MP. (ii) Image after thresholding. (iii) Image after processing. (iv) Schematic of parameters for equivalent diameter and solidity calculation. (v) Schematic of parameters for AR calculation
+
+SI 4) Optical Microscopy Data Combination
+
+To combine the two particle size distribution datasets, obtained from 10× and 40× magnification OM, the 40× dataset was re-scaled to. A size range that could be easily detected with both magnifications of 5 µm to 50 µm was chosen. A 20 bin histogram was generated for both magnifications within this overlapping region, and an average scaling factor was calculated comparing the height of each bin. This scaling factor was applied to the counts for each bin of the full range of the 40× dataset, essentially synthesizing particles that would be counted if the 40× data covered an equivalent area as the 10× data. To finally combine the two datasets, the average of the counts of the 10× and the synthesized 40× bins was calculated and this value was used as the final counts. If one of the two had a value of 0, the non-zero value is used in the final combined distribution.
+Supplementary Figure 18: 10× and 40× OM Data Combination. Blue) 10× Measurements. Solid Green) 40× Measurements. Dotted Green) Re-scaled 40× Measurements. Red) Average of Blue and Dotted Green where both are non-zero. Black) Boundaries of the Overlapping Region (5 µm and 50 µm).

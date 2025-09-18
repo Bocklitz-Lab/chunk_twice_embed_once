@@ -1,0 +1,135 @@
+Title: A 3D Extra-Large Pore Zeolite Enabled by 1D-to-3D Topotactic Condensation of a Chain Silicate
+
+Authors: Jian Li\textsuperscript{1,2,3*†}, Zihao Rei Gao\textsuperscript{2,4†}, Qing-Fang Lin\textsuperscript{5†}, Chenxu Liu\textsuperscript{6}, Fangxin Gao\textsuperscript{2}, Cong Lin\textsuperscript{2,3,7}, Siyao Zhang\textsuperscript{5}, Hua Deng\textsuperscript{8}, Alvaro Mayoral\textsuperscript{9,10}, Wei Fan\textsuperscript{11}, Song Luo\textsuperscript{11}, Xiaobo Chen\textsuperscript{12}, Hong He\textsuperscript{13}, Miguel A. Camblor\textsuperscript{4*}, Fei-Jian Chen\textsuperscript{5,6*}, Jihong Yu\textsuperscript{6*}
+
+Affiliations:
+
+\textsuperscript{1}Berzelii Center EXSELENT on Porous Materials, Department of Materials and Environmental Chemistry, Stockholm University; Stockholm, 10691, Sweden.
+\textsuperscript{2}Anhui ZEO New Material Technology Co.; 778 Dongliu Road, Hefei, 230071, China.
+\textsuperscript{3}College of Chemistry and Molecular Engineering, Peking University; Beijing, China.
+\textsuperscript{4}Instituto de Ciencia de Materiales de Madrid, Consejo Superior de Investigaciones Científicas (ICMM-CSIC); c/Sor Juana Inés de la Cruz 3, Madrid 28049, Spain.
+\textsuperscript{5}Department of Chemistry, Bengbu Medical College; Bengbu, 233030, China.
+\textsuperscript{6}State Key Laboratory of Inorganic Synthesis and Preparative Chemistry, College of Chemistry; International Center of Future Science, Jilin University; Changchun, China.
+\textsuperscript{7}Department of Mechanical Engineering, The Hong Kong Polytechnic University; Kowloon, Hong Kong, China.
+\textsuperscript{8}Center for Excellence in Regional Atmospheric Environment, Key Laboratory of Urban Pollutant Conversion, Institute of Urban Environment, Chinese Academy of Sciences; Xiamen, 361021, China
+\textsuperscript{9}Instituto de Nanociencia y Materiales de Aragón (INMA), CSIC-Universidad de Zaragoza; Zaragoza 50009, Spain
+\textsuperscript{10}Laboratorio de Microscopias Avanzadas (LMA-Universidad de Zaragoza); 50018, Zaragoza, Spain
+\textsuperscript{11}Department of Chemical Engineering, University of Massachusetts; Amherst, MA 01003, USA.
+\textsuperscript{12}State Key Laboratory of Heavy Oil Processing, China University of Petroleum; Qingdao 266580, China.
+\textsuperscript{13}State Key Joint Laboratory of Environment Simulation and Pollution Control, Research Center for Eco-Environmental Sciences, Chinese Academy of Sciences; Beijing 100085, China.
+\textsuperscript{*Corresponding author. Email: jxpxlijian@pku.edu.cn (J.L.); macamblor@icmm.csic.es (M.A.C.); feijiian@jlu.edu.cn (F.-J.C.); jihong@jlu.edu.cn (J.Y.).
+\textsuperscript{†These authors contributed equally to this work
+
+Abstract: Zeolites are microporous silicates that find an ample variety of applications as catalysts, adsorbents, and cation exchangers. Stable silica-based zeolites with increased porosity are in demand to allow adsorption and processing of large molecules, but challenge our synthetic
+ability. Here we report a novel, highly stable pure silica zeolite, ZEO-3, with a multidimensional, interconnected system of extra-large pores open through windows made by 16 and 14 SiO$_4$ tetrahedra, which is the less dense polymorph of silica known so far. With a specific surface area over 1000 m$^2$/g, ZEO-3 shows an extraordinary performance for Volatile Organic Compounds abatement and recovery. This zeolite is formed by a 1D-to-3D topotactic condensation of a chain silicate, an unprecedented, never predicted approach.
+
+**One-Sentence Summary:** ZEO-3, the most porous stable zeolite known so far, shows potential in volatile organic compounds abatement and recovery.
+Main Text:
+
+The uses of zeolites (1-4) are limited by the size of their pores, so zeolites with larger pores are in demand (5). Natural and synthetic zeolites possess a fully connected three-dimensional network of corner-sharing SiO₄ tetrahedra (i.e. they are tectosilicates or framework silicates (6), with Si occasionally substituted by other atoms). However, in some cases zeolites are obtained in the form of two-dimensional precursors (phyllosilicates or layered silicates) (6) that only become fully connected tectosilicate zeolites by condensation of their layers through a calcination procedure that is "topotactic" because it does not alter the layer topology (7-9). The condensing layers can be obtained by direct synthesis or by disassembly of certain zeolites as in the so-called ADOR (assembly-disassembly-organization-reassembly) process (10). However, in around eight decades of extensive and systematic zeolite synthesis studies (11), there has been no example or prediction of a three-dimensional (3D) zeolite obtained by condensation from a one-dimensional (1D) precursor, either directly synthesized or obtained by disassembly of another zeolite. We report here the first case of such a 1D-to-3D topotactic condensation from ZEO-2, a directly synthesized complex "zeolitic" chain silicate, into ZEO-3, a fully connected three-dimensional extra-large pore zeolite (ZEO-n refers to materials discovered and patented by the Anhui ZEO New Material Technology Co., China). This condensation does not alter the topology of the chain silicate, so it is topotactic. The resulting zeolite ZEO-3 is outstanding for a number of reasons, including its very low density, its multidimensional system of interconnected extra-large pores, and the presence in its structure of double four-member ring units (D4R), i.e. small cubes of silica. For pure silica zeolites, this kind of unit is strained and up to now was believed to need a fluoride anion close to its center to be accessible for crystallization (12) since it has never been seen before in a silica zeolite synthesized without the use of fluoride anions.
+
+The complex chain silica zeolite precursor ZEO-2 can be synthesized using tricyclohexylmethylphosphonium (C₁₉H₃₆P⁺, tCyMP) from a gel of composition 1 SiO₂ : 0.5 tCyMPOH : 10 H₂O heated at 175 °C (see Supplementary Material). The structure of ZEO-2 was successfully solved ab initio by using eight continuous rotation electron diffraction (cRED) (13) datasets. The pure silicate ZEO-2 possesses a needle-like morphology (Fig. S1a) and crystallizes in a C-centred monoclinic cell with a = 23.5465(7) Å, b = 24.7446(7) Å, c = 14.4024(4) Å, β = 115.1974(9)° (Tab. S1-S2, Fig. S2). ZEO-2 is a complex 1D chain silicate decorated with silanol/silanolate groups (Fig. 1A) that hold the structure together through ample hydrogen bonding to adjacent chains (Fig. 1, B-C), with the tCyMP cations located in the interchain space (Fig. S5). The cations are occluded intact, as demonstrated by ¹³C and ³¹P NMR (Fig. S8) and amount to 8.85 OSDA/uc according to C analysis (25.0%). Hydrogen bonds are observed in the ¹H magic-angle spinning (MAS) nuclear magnetic resonance (NMR) spectrum as a broad resonance around 15.1 ppm (Fig. S9), indicating a moderate-to-strong hydrogen bond (14) corresponding to O···O distances (15) of around 2.51 Å, in good agreement with the crystallographic distances of 2.47-2.52 Å. Upon calcination to remove the tCyMP, silanol groups in adjacent chains condense into Si-O-Si bridges with H₂O elimination, resulting in the novel pure silica zeolite ZEO-3 (Fig. 1, E-G), which maintains the needle-like morphology (Fig. S1b). The condensation occurs in the 370-390 °C range (Fig. S10), coincident with the removal of organics (Fig. S18). The structure of ZEO-3 was also solved ab initio by 3D ED with five datasets (Tab. S2-S3, Fig. S3). The unit cell of ZEO-3 shrinks to a = 21.5046(8) Å, b = 21.2757(8) Å, c = 14.4638(4) Å, β = 108.7196(1)° but maintains the same symmetry as ZEO-2, while the topology of the chain is preserved. In fact, a 17% contraction of the structure occurs along a- and b- axis, while along c-axis only a marginal expansion (0.4%) occurs. To obtain more accurate atomic positions, the structures of ZEO-2 and ZEO-3, including the position of the
+disordered tCyMP in ZEO-2, were subsequently Rietveld refined against synchrotron powder X-ray diffraction data (SPXRD, Figs. S4-S5, Tab. S4-S8). The final refined unit-cell compositions of ZEO-2 and ZEO-3 are [Si₈₀O₁₇₆H₂₄]_(C₁₉H₃₆P)₈ and Si₈₀O₁₆₀, respectively (see Supporting Material for details).
+
+Fig. 1. The 1D-to-3D topotactic condensation of the chain silicate ZEO-2 (A-D) into the extra-large pore framework zeolite ZEO-3 (E-H). Only O atoms related to the condensation are shown (small red balls) while Si atoms are shown as blue (always Q⁴) or black (Q³ in ZEO-2 converting into Q⁴ in ZEO-3). A chain of ZEO-2 (A) is hydrogen bonded (B) to four adjacent chains (C). The ²⁹Si MAS NMR spectrum (D bottom) shows resolution of Q³ and Q⁴ silicon sites (4 and 7 sites, respectively). The close proximity of Q³ sites to H atoms is revealed in the ²⁹Si{¹H} cross polarization (CP) MAS NMR spectrum by their relative intensity enhanced by polarization transfer from close protons at short contact time (D top, 1.5 ms). Upon calcination, condensation of Q³ sites through dehydroxilation connects two S4Rs to make a D4R (E), through which each chain is bonded to four adjacent chains, resulting in the extra-large pore ZEO-3 with 14MR (F) and 16MR (G) channels. The corresponding ²⁹Si MAS NMR spectra (H bottom)
+shows essentially only $Q^4$ sites with almost no $Q^3$ defects and hence little intensity enhancement in the $^{29}$Si($^1$H) CP MAS NMR under short (H middle, 1.5 ms) or long contact time (H top, 6 ms).
+
+The 1D pure silica chains in ZEO-2 are aligned along the [001] direction (Fig. 1A) and surrounded by four identical chains in the $ab$ plane (Fig. 1C). At the edge of the ZEO-2 chain, four silanols/silanolates form a single four-member ring (S4R) that faces, slightly displaced, an identical S4R from the next chain, with hydrogen bonding along the [110] and [1-10] directions providing connection between adjacent chains (Fig. 1B). Upon calcination, neighboring S4Rs in ZEO-2 connect to each other to form a D4R (Fig. 1E) by condensation of the terminal Si-OH groups, yielding the fully-connected framework of ZEO-3 (Fig. 1, F-G). The condensed solid is a true, non-interrupted, three-dimensional extra-large pore zeolite. The channel system of ZEO-3 is 3D with 16×14×14 membered-ring (MR) channels (Fig. 1, F-G) and full connectivity between channels (Fig. S6). The structural models obtained were fully corroborated by Cs-corrected scanning transmission electron microscopy (STEM, Figs. S12-S13) where a faint signal corresponding to the tCyMP (C and P) was also identified within the 14 MRs of ZEO-2 (Fig. S12a).
+
+The resolution of the $^{29}$Si MAS NMR spectrum of ZEO-2 is excellent (Fig. 1D), indicating four $Q^3$ Si sites (-94.2, -95.8, -98.6, and -100.4 ppm) spanning a chemical shift range unprecedented for $Q^3$ in zeolites (more typically centered at around -102±1 ppm) but well within the general $Q^3$ range in silicates (16) and seven $Q^4$ Si sites (from -106.8 to -116.8 ppm), in good agreement with the crystallographic results (4 $Q^3$ and 5 $Q^4$ all with the same multiplicity plus 2 $Q^4$ with half multiplicity, see CIF). $^{29}$Si($^1$H) CP MAS NMR spectroscopy proves the existence of those four $Q^3$ Si sites in ZEO-2 (Fig. 1D top), while the $^{29}$Si MAS NMR spectrum of ZEO-3 reveals total condensation (all Si atoms are $Q^4$ sites with a negligible amount of $Q^3$ that could be assigned to connectivity defects, as proved by the very low intensity enhancement by cross polarization, Fig. 1H).
+
+The details of the topology are shown and discussed in the Supplementary Material (Tab. S9-S10). The ZEO-2 chain is topologically identical to the one found in polymorph B of zeolite Beta (although in that zeolite it is not an isolated chain but is embedded in the 3D framework). We point here that condensation of the chain found in polymorph A of the same zeolite (Fig. S7) would result in a new chiral 16×14×14MR hypothetical zeolite. ZEO-3 and this hypothetical chiral zeolite correspond to the σ expansion of polymorphs B and A, respectively, of zeolite Beta (17, 18).
+
+ZEO-3 is the first stable, fully-connected (aluminosilicate) zeolite containing 3D interconnected pores opened only through extra-large windows (i.e. windows of more than 12 tetrahedra, >12MR). The crystallographic pore sizes of ZEO-3 are 10.36×8.51 Å and 9.79×8.00 Å for the 16MR and 14MR, respectively (Fig. S6). The 3D extra-large pore nature of ZEO-3 translates into a very low framework density (FD) value (12.76 tetrahedral atoms, T-atoms, per 1000 Å$^3$). Compared with the other known stable, low density (aluminosilicate) zeolites, including FAU, EMT, *BEA, BEC, ISV, IWV, and the recently reported PST-2, PST-32 (19), and ZEO-1 (5), this value is the lowest and puts ZEO-3 as the crystalline silica polymorph with the most open framework (Tab. S11). The calculated density of ZEO-3 is just 1.27 g/cm$^3$, i.e. less than half that of quartz (2.65 g/cm$^3$) and actually much closer to the density of water. In fact, ZEO-3 breaks the observed tendency between the framework density and the size of the smallest rings in the
+zeolite structure (20). For an average smallest ring of 4.25, the predicted minimum FD (20) is 13 T-atom per 1000 Å³, above ZEO-3’s value. Compared with the real values of non-interrupted zeolites containing 4- and 5-rings, ZEO-3 is well below the lowest calculated FD of ISV and IWV (15.0; experimental values of 15.4 and 15.7, respectively). Additionally, ZEO-3 is significantly more stable than expected according to the known energy-density trend, as shown in Fig. S20, while the hypothetical σ-BEA, has the expected stability based on a calculation of framework energy after minimization (Fig. S20).
+
+The observed N₂ and Ar adsorption/desorption isotherms (type Ia) of ZEO-3 give the very high specific surface area of 989 and 1032 m²/g (Figs. S14-S15), respectively, and the non-local density functional theory (NLDFT) method from the Ar adsorption indicates mean pore sizes of 10.8 and 8.8 Å (Fig. S16), matching well with the crystallographic results. The extra-large pores of ZEO-3 allows the diffusion and adsorption of large molecules, like Nile Blue (Fig. S17), suggesting potential for the removal of large organic pollutants from waste liquid streams.
+
+![Fig. 2. Applications of 3D extra-large pore zeolite ZEO-3.](image)
+
+Fig. 2. Applications of 3D extra-large pore zeolite ZEO-3. Volatile organic compounds (VOCs) adsorption isotherms (A), breakthrough adsorption (B), and desorption curves (C) on ZEO-3 (red) and Beta (black) zeolite.
+
+Adsorption has been considered as one of the most attractive and energy-saving candidates for volatile organic compounds (VOCs) abatement and recovery (21). The development of novel sorbents with high adsorption capacity, water vapor resistance and easy regeneration is critical for a successful adsorption technology (22). Zeolites are among the best adsorbents for VOCs removal due to their unique microporosity, high adsorption capacity, and non-flammable nature (22, 23). The adsorption equilibrium capacities of toluene and water vapor on ZEO-3 are larger than those on Beta due to the larger pores of the former (Fig. 2A). ZEO-3 exhibits much longer breakthrough time (better dynamic capacity) than Beta zeolites with little interference from water (Fig. 2B). The main desorption peak of toluene occurs at a lower temperature for ZEO-3 than for Beta (Fig. 2C), indicating that ZEO-3 demonstrate a better regeneration ability than Beta. Thus, ZEO-3 outperforms Beta, a reference zeolite for this application (24, 25), in terms of adsorption capacity and regeneration potential rendering ZEO-3 as a promising candidate for VOCs adsorption, also helped by its high thermal and hydrothermal stability (Supplementary Material). In addition, it is also possible to introduce active sites (e.g., Ti) into ZEO-3 through a one-pot synthesis method (Figs. S21-S22). UV-vis spectra revealed that Ti-ZEO-3 exhibits both tetra- (~210 nm) and hexa-coordinated (~270 nm) Ti species (Fig. S23). We are currently evaluating the potential of Ti-ZEO-3 as a catalyst for the selective oxidation of large organic compounds.
+References and Notes
+
+1. J. Zhong, J. Han, Y. Wei, Z. Liu, Catalysts and shape selective catalysis in the methanol-to-olefin (MTO) reaction. *J. Catal.* 396, 23-31 (2021). doi: 10.1016/j.jcat.2021.01.027.
+
+2. T.-Y. Cui, A. Rajendran, H.-X. Fan, J. Feng, W.-Y. Li, Review on Hydrodesulfurization over Zeolite-Based Catalysts. *Ind. Eng. Chem. Res.* 60, 3295-3323 (2021). doi: 10.1021/acs.iecr.0c06234.
+
+3. Y. Wu, B. M. Weckhuysen, Separation and Purification of Hydrocarbons with Porous Materials. *Angew. Chem. Int. Ed.* 60, 3295-3323 (2021). doi: 10.1021/acs.iecr.0c06234.
+
+4. S. Montalvo, C. Huiliñir, R. Borja, E. Sánchez, C. Herrmann, Application of zeolites for biological treatment processes of solid wastes and wastewaters – A review. *Biores. Tech.* 301, 122808 (2020). doi: 10.1016/j.biortech.2020.122808.
+
+5. Q.-F. Lin, Z. R. Gao, C. Lin, S. Zhang, J. Chen, Z. Li, X. Liu, W. Fan, J. Li, X. Chen, M. A. Camblor, F.-J. Chen, A Stable Zeolite Catalyst with Intersecting Three-Dimensional extralarge Plus Large Pores. *Science* 374, 1605-1608 (2021). doi: 10.1126/science.abk3258.
+
+6. F. Liebau, Nomenclature and Structural Formulae of Silicate Anions and Silicates. *Structural Chemistry of Silicates*, Springer-Verlag, Berlin, pp. 72 (1985). doi: 10.1007/978-3-642-49076-3_5.
+
+7. L. Schreyeck, P. Caullet, J.-C. Mougenel, J.-L. Guth, B. Marler, A Layered Microporous Aluminosilicate Precursor of FER-type Zeolite. *J. Chem. Soc. Chem. Commun.* 2187-2188 (1995). doi: 10.1039/C39950002187.
+
+8. R. Millini, G. Perego, W. O. Parker Jr., G. Bellussi, L. Carluccio, Layered structure of ERB-1 microporous borosilicate precursor and its intercalation properties towards polar molecules. *Microporous Mater.* 4, 221-230 (1995). doi: 10.1016/0927-6513(95)00013-Y.
+
+9. B. Marler, H. Gies, Hydrous layer silicates as precursors for zeolites obtained through topotactic condensation: a review. *Eur. J. Mineral.* 24, 405-428 (2012). doi: 10.1127/0935-1221/2012/0024-2187.
+
+10. P. Eliášová, M. Opanasenko, P. S. Wheatley, M. Shanzhy, M. Mazur, P. Nachtigall, W. J. Roth, R. E. Morris, J. Čejka, The ADOR mechanism for the synthesis of new zeolites. *Chem. Soc. Rev.* 44, 7177-7206 (2015). doi: 10.1039/c5cs00045a.
+
+11. C. S. Cundy, P. A. Cox, The Hydrothermal Synthesis of Zeolites: History and Development from the Earliest Days to the Present Time. *Chem. Rev.* 103, 663-702 (2003). doi: 10.1021/cr20060oi.
+
+12. C. M. Zicovich-Wilson, M. L. San-Román, M. A. Camblor, F. Pascale, J. S. Durand-Niconoff, Structure, Vibrational Analysis, and Insights into Host-Guest Interactions in As-Synthesized Pure Silica ITQ-12 Zeolite by Periodic B3LYP Calculations. *J. Am. Chem. Soc.* 129, 11512-11523 (2007). doi: 10.1021/ja0730361.
+
+13. M. Gemmi, E. Mugnaioni, T. E. Gorelik, U. Kolb, L. Palatinus, P. Boullay, S. Hovmöller, J. P. Abrahams, 3D Electron Diffraction: The Nanocrystallography Revolution. *ACS Cent. Sci.* 5, 1315-1329 (2019). doi: 10.1021/acscentsci.9b00394.
+
+14. T. Steiner, The Hydrogen Bond in the Solid State. *Angew. Chem. Int. Ed.* 41, 48-76 (2002). doi: 10.1002/1521-3773(20020104)41:1<48::AID-ANIE48>3.0.CO;2-U.
+
+15. H. Eckert, J. P. Yesinowski, L. A. Silver, E. M. Stolper, Water in Silicate Glasses: Quantitation and Structural Studies by 1H Solid Echo and MAS-NMR Methods. *J. Phys. Chem.* 92, 2055-2064 (1988). doi: 0022-3654/88/2092-2055S01.50/0.
+16. G. Engelhardt, Multinuclear solid-state NMR in silicate and zeolite chemistry. *TrAC Trends Anal. Chem.* **8**, 343-347 (1989). doi: 10.1016/0165-9936(89)87043-8.
+
+17. R. M. Barrer, Hydrothermal Chemistry of Zeolites, Academic Press, London, pp. 11 (1982).
+
+18. J. V. Smith, Topochemistry of zeolites and related materials. I. Topology and geometry. *Chem. Rev.* **88**, 149-182 (1988). doi: 0009-2665/88/0788-0149$06.50/0.
+
+19. H. Lee, J. Shin, K. Lee, H. J. Choi, A. Mayoral, N. Y. Kang, S. B. Hong, Synthesis of thermally stable SBT and SBS/SBT intergrowth zeolites. *Science*, **373**, 104-107 (2021). doi: 10.1126/science.abe7208.
+
+20. G. O. Brunner, W. M. Meier, Framework density distribution of zeolite-type tetrahedral nets. *Nature* **337**, 146-147 (1989). doi: 10.1038/337146a0.
+
+21. M. Li, Q. Zhang, B. Zheng, D. Tong, Y. Lei, F. Liu, C. Hong, S. Kang, L. Yan, Y. Zhang, Y. Bo, H. Su, Y. Cheng, K. He, Persistent growth of anthropogenic non-methane volatile organic compound (NMVOC) emissions in China during 1990-2017: drivers, speciation and ozone formation potential. *Atmos. Chem. Phys.* **19**, 8897-8913 (2019). doi: 10.5194/acp-19-8897-2019.
+
+22. C. Yang, G. Miao, Y. Pi, Q. Xia, J. Wu, Z. Li, J. Xiao, Abatement of various types of VOCs by adsorption/catalytic oxidation: A review. *Chem. Eng. J.* **370**, 1128-1153 (2019). doi: 10.1016/j.cej.2019.03.232.
+
+23. S. K. P. Veerapandian, N. De Geyter, J.-M. Giraudon, J.-F. Lamonier, R. Morent, The Use of Zeolites for VOCs Abatement by Combining Non-Thermal Plasma, Adsorption, and/or Catalysis: A Review. *Catalysts* **9**, 98, (2019). doi: 10.3390/catal9010098.
+
+24. T. Blasco, M. A. Camblor, A. Corma, P. Esteve, J. M. Guil, A. Martínez, J. A. Perdigón-Melón, S. Valencia, Direct Synthesis and Characterization of Hydrophobic Aluminum-Free Ti-Beta Zeolite. *J. Phys. Chem. B* **102**, 75-88 (1998). doi: 10.1021/jp973288w.
+
+25. Z. Zhu, H. Xu, J. Jiang, H. Wu, P. Wu, Hydrophobic Nanosized All-Silica Beta Zeolite: Efficient Synthesis and Adsorption Application. *ACS Appl Mater Interfaces* **9**, 27273-27283 (2017). doi: 10.1021/acsami.7b06173.
+
+26. A. Rojas, E. Martínez-Morales, C. M. Zicovich-Wilson, M. A. Camblor, Zeolite Synthesis in Fluoride Media: Structure Direction toward ITW by Small Methylimidazolium Cations. *J. Am. Chem. Soc.* **134**, 2255-2263 (2012). doi: 10.1021/ja209832y.
+
+27. Z. R. Gao, S. R. G. Balestra, J. Li, M. A. Camblor, HPM-16, a Stable Interrupted Zeolite with a Multidimensional Mixed Medium–Large Pore System Containing Supercages. *Angew. Chem. Int. Ed.* **60**, 20249-20252 (2021). doi: 10.1002/anie.202106734; *Angew. Chem.* **133**, 20411-20414 (2021). doi: 10.1002/ange.202106734.
+
+28. S. Smeets, B. Wang, E. Hogenbirk, instamatic-dev/instamatic: 1.7.0. (2021). https://doi.org/10.5281/zenodo.5175957.
+
+29. W. Kabsch, Integration, scaling, space-group assignment and post-refinement. *Acta. Cryst. Sect. D* **66**, 133-144 (2010). doi:10.1107/S0907444909047374.
+
+30. W. Wan, J. Sun, J. Su, S. Hovmoller, X. Zou, Three-dimensional rotation electron diffraction: software RED for automated data collection and data processing. *J. Appl. Cryst.* **46**, 1863-1873 (2013). doi:10.1107/S0021889813027714.
+
+31. G. M. Sheldrick, Phase Annealing in SHELX-90: Direct Methods for Larger Structures. *Acta Cryst. A* **46**, 467-473 (1990). doi: 10.1107/S0108767390000277.
+
+32. O. V. Dolomanov, L. J. Bourhis, R. J. Gildea, J. A. K. Howard, H. Puschmann, OLEX2: a complete structure solution, refinement and analysis program. *J. Appl. Cryst.* **42**, 339-341 (2009). doi.org/10.1107/S0021889808042726
+Acknowledgments: We thank Dr. Carlos Márquez (ICP-CSIC) for the FT-IR measurements, M. J. de la Mata (SIdI-UAM) for her expedited help in collecting MAS NMR spectra, and Dr.
+Agnieszka Ziolkowska (Umeå University) for her help in TEM sample preparation by ultramicrotomy.
+
+**Funding:** Financial support from the National Natural Science Foundation of China (grant numbers: 21601004, 21621001, 21776312, 22078364), the National Key Research and Development Program of China (Grant 2021YFA 1501202), the 111 project (B17020), the Natural Science Foundation of the Higher Education Institutions of Anhui Province, China (grant numbers: KJ2020A0585), and the Spanish Ministry of Science Innovation (PID2019-105479RB-I00 project, MCIN/AEI/10.13039/501100011033, and RYC2018-024561-I, Spain) is gratefully acknowledged. The cRED data were collected at the Electron Microscopy Center (EMC), Department of Materials and Environmental Chemistry (MMK) in Stockholm University with the support of the Knut and Alice Wallenberg Foundation (KAW, 2012-0112) through the 3DEM-NATUR project. Use of the Advanced Photon Source at Argonne National Laboratory was supported by the U. S. Department of Energy, Office of Science, Office of Basic Energy Sciences, under Contract No. DE-AC02-06CH11357. Additional funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No 823717 - ESTEEM3 and the regional government of Aragon (DGA E13_20R) is also acknowledged.
+
+**Author contributions:** F.-J.C. conceived the project. J.L., M.A.C., F.-J.C., and J.Y. supervised this work. Z.R.G., Q.-F.L., C.L. (Liu), F.G., S.Z., and F.-J.C. performed the synthesis work. J.L. solved the structure and performed Rietveld refinement and framework energy calculations. Z.R.G. analyzed the topology. J.L., Z.R.G., C.L. (Liu), C.L. (Lin), W.F., S.L., X.C., and M.A.C. carried out the physicochemical characterization. H.D. worked on the VOCs application. A.M. performed the HRSTEM tests. M.A.C. prepared the initial draft. J.L., W.F., M.A.C., F.-J.C., and J.Y. organized the work and the draft. All the authors discussed the results and revised the manuscript.
+
+**Competing interests:** J.L., Q.-F.L., Z.R.G., C.L., and F.-J.C. have filed a patent on zeolites ZEO-2 and ZEO-3. J.L., Z.R.G., and C.L. are affiliated with the company holding the rights on that patent.
+
+**Data and materials availability:** The datasets generated during and/or analyzed during the current study are available from the corresponding authors on reasonable request. Crystallographic parameters for the structure of ZEO-2 and ZEO-3 refined against SPXRD and cRED data are archived at the Cambridge Crystallographic Data Center (www.ccdc.cam.ac.uk/) under reference Nos. CCDC 2125815-2125816 (SPXRD data) and CCDC 2125677-2125678 (cRED data).
+
+**Supplementary Materials**
+
+Materials and Methods
+Supplementary Text
+Figs. S1 to S23
+Tables S1 to S11
+References (26–48)
+Data S1 to S4

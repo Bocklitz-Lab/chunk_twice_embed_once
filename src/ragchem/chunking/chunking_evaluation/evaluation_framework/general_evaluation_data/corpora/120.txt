@@ -1,0 +1,302 @@
+**High Triplet Energy Iridium(III) NHC Complexes as Photocatalysts**
+
+Máire Griffin\(^{a}\) and Eli Zysman-Colman*\(^{a}\)
+
+\(^{a}\)Organic Semiconductor Centre, EaStCHEM School of Chemistry, University of St Andrews, St Andrews, UK, KY16 9ST. E-mail: eli.zysman-colman@st-andrews.ac.uk
+
+**Keywords**: Photoredox catalysis, Iridium NHC complex, Energy transfer catalysis, Dehalogenation, Metallaphotoredox catalysis.
+
+**Abstract**
+
+Iridium(III) photocatalysts of the type Ir(C\(^{\chi}\)N)\(_{3}\) and [Ir(C\(^{\chi}\)N)\(_{2}\)(N\(^{\chi}\)N)]\(^{+}\) (where C\(^{\chi}\)N and N\(^{\chi}\)N represent cyclometalating and ancillary ligands, like 2-phenylpyridinato and 2,2'-bipyridine, respectively) have seen widespread use over the past two decades. One of the most popular is fac-Ir(ppy)\(_{3}\), a strongly photoreducing photocatalyst (\(E_{\text{ox}}^{*} = -1.75\) V vs. SCE in MeCN) that possesses a reasonably high triplet energy (\(E_{T} = 2.54\) eV in MeCN). Despite its popularity, there has been relatively little exploration of other homoleptic neutral iridium(III) complexes as photocatalysts. Replacement of the pyridyl moiety of the C\(^{\chi}\)N ligands with more strongly \(\sigma\)-donating N-heterocyclic carbene (NHC) groups affords complexes with much higher bandgaps and \(E_{T}\), and significantly cathodically shifted ground-state redox potentials. In this study, mer- and fac-Ir(pmi)\(_{3}\) (where pmi represents 1-phenyl-3-methylimidazolin-2-ylidene-C,C\(^{\chi}\)) were investigated as photocatalysts. These isomeric complexes have exceptionally high \(E_{T} = 3.28\) and 3.30 eV, respectively, and are very strongly reducing photocatalysts (\(E_{\text{ox}}^{*} = -2.72\) and -2.67 V vs. SCE respectively). Both complexes consistently outperformed fac-Ir(ppy)\(_{3}\) across a range of photoredox, energy transfer, and metallaphotoredox transformations. Additionally, Ir(pmi)\(_{3}\) exhibited significantly improved photostability compared to fac-Ir(ppy)\(_{3}\). This study highlights Ir(pmi)\(_{3}\) as an easy to synthesize, powerful, and versatile photocatalyst that should be a welcome addition into the toolbox of photocatalysts for the synthetic organic chemist.
+
+**Introduction**
+
+Over the past two decades, photocatalysis has become an invaluable synthetic tool as it permits the generation of reactive radical intermediates under relatively mild conditions that ultimately lead to the
+formation of products, some of which cannot be accessed under thermal activation conditions.\(^1\sim3\) Photocatalysis operates through the selective photoexcitation of a photocatalyst (PC) into its electronically excited state (PC\(^*\)). Subsequently, the PC\(^*\) relaxes rapidly via a combination of internal conversion and vibrational relaxation to its S\(_1\) excited state. The presence of a heavy metal atom in transition metal complex PCs mediates an ultra-rapid intersystem crossing to populate the triplet excited state, which for iridium complexes typically occurs on the picosecond time scale.\(^4\) Intermolecular photocatalysis occurs following diffusion of the PC\(^*\) to interact with a substrate (S) to form an encounter complex, which typically occurs on the nanosecond time scale.\(^5\) The subsequent photochemistry predominantly proceeds by one of two mechanistic pathways: photoinduced energy transfer (PEnT) or photoinduced electron transfer (PET). PEnT typically occurs though either a Förster or Dexter energy transfer mechanism,\(^6\) while in a PET (aka photoredox) pathway, the PC\(^*\) undergoes either oxidative (PC\(^*\) is oxidized to PC\(^{+}\), and S is reduced to S\(^{-}\)) or reductive (PC\(^*\) is reduced to PC\(^{-}\), and S is oxidized to S\(^{+}\)) quenching, depending on the direction of the single electron transfer (SET). To close the photocatalytic cycle requires that the oxidized or reduced PC undergoes a second SET event to regenerate its ground state.\(^7\)
+
+Organometallic Ir(III) and Ru(II) complexes are arguably still the most widely used class of PCs.\(^8\) In particular, Ir(III) PCs are either neutral homoleptic complexes of the type Ir(C\(^{\wedge}\)N)\(_3\) and almost always are used as their facial isomer, or are heteroleptic cationic complexes of the form \([\text{Ir(C}^{\wedge}\text{N})_2(\text{N}^{\wedge}\text{N})]^+\) (C\(^{\wedge}\)N represents a cyclometalating ligand such as 2-phenylpyridinato and N\(^{\wedge}\)N represents a diimine type ligand like 2,2\(^{-}\)-bipyridine). The appeal of these complexes lies in their readily tuneable redox potentials as a function of ligand electronics and that they possess absorption bands into the visible region, permitting selective photoexcitation.\(^9\) The efficacy and versatility of these Ir(III) PCs has been documented over the past twenty years across a wide range of different photocatalytic transformations.\(^8\),\(^9\),\(^10\) However, despite their popularity, the photocatalytic properties of the derivatives that are typically used are somewhat limited. In particular, the triplet energies (\(E_T\)) of the most commonly used Ir PCs do not typically exceed 2.75 eV and their photoreducing strength does not exceed -2.1 V vs. SCE (Figure 1a). This limits their ability to activate more challenging substrates in both PEnT and PET reactions.
+
+\(\text{https://doi.org/10.26434/chemrxiv-2025-t373h}\)
+\(\text{ORCID: https://orcid.org/0000-0001-7183-6022}\)
+\(\text{Content not peer-reviewed by ChemRxiv. License: CC BY 4.0}\)
+There has been some effort in recent years to design iridium complexes with higher $E_T$ or complexes that are more strongly photoreducing. Typically, the principal approach for designing Ir(C^N)$_3$ PCs with high $E_T$ is to introduce electron-withdrawing fluorine or trifluoromethyl substituents on the cyclometalating aryl groups of ppy-type ligands, thus stabilizing the HOMO and increasing $E_T$. Indeed, fac-Ir(dFppy)$_3$ has a higher $E_T$ (2.75 eV in MeCN) than fac-Ir(ppy)$_3$ (2.50 eV in MeCN) and for this reason is often employed in EnT catalysis with more challenging substrates.
+
+Additionally, fac-Ir(Fppy)$_3$ is more photoreducing ($E^*_{ox}$ of -1.90 V vs. SCE in MeCN) compared to fac-Ir(ppy)$_3$ ($E^*_{ox}$ of -1.75 V vs. SCE in MeCN), while in the ground state the two complexes have effectively the same reducing power ($E_{red}$ = -2.20 and -2.18 V vs. SCE in MeCN for fac-Ir(ppy)$_3$ and fac-Ir(Fppy)$_3$, respectively).
+
+Heteroleptic complexes of the type Ir(C^N)$_2$(L^L) permit the HOMO and LUMO to be sequestered on different ligand, with the LUMO typically localized on the ancillary L^L ligand. When L^L is a π-accepting ligand such as 2,2'-bipyridine (bpy), the redox potentials are generally balanced by more moderate compared to those of fac-Ir(ppy)$_3$ and as such cationic photocatalysts such as [Ir(ppy)$_2$(bpy)]PF$_6$ are employed frequently in reactions proceeding via a reductive quenching mechanism.
+
+When the L^L ligand is electron-rich, such as β-diketiminates (NacNac), then the resulting PCs such as those developed by Teets and co-workers are strongly photoreducing ($E^*_{ox}$ = -2.2 to -2.4 V vs. SCE). These were used in a number of challenging transformations, such as the dehalogenation of unactivated alkyl and aryl bromides and iodides, and the reduction of carbonyl substrates. However, for most transformations these PCs require a specific sacrificial reductant, 1,3-dimethyl-2,3-dihydro-2-phenylbenzimidazole (BIH) and elevated reaction temperatures (45 °C). Recently, Wenger and co-workers developed an iridium(III) isocyanoborato complex with an exceptionally high triplet energy ($E_T$ = 2.99 eV) for use in a range of photocatalytic transformations. This PC is capable of sensitizing substrates with exceptionally high $E_T$ (3.00 eV). In terms of photoredox catalysis, this PC ($E^*_{ox}$ = -1.59 V and $E_{red}$ = -2.4 V vs SCE in MeCN) could engage in dehalogenation and detosylation reactions of moderately difficult substrates ($E_{red}$ = -2.0 to -2.2 V vs. SCE), as well as promote a photochemical degradation...
+of lignin. Although this PC proved particularly promising for PEnT catalysis, its inherent drawbacks lie in a comparatively challenging ligand synthesis as compared to those for C^N, N^N ligands, as well as the C^C ligands discussed in this report. Moreover, complete photodegradation of the complex was observed after 60 minutes of irradiation at 415 nm in deuterated acetonitrile (MeCN-\(d_3\)).
+
+The photostability of such heteroleptic Ir(III) complexes can be improved with the introduction of more robust bidentate ligands, such as those reported by Che and co-workers who employed a series of bis(N-heterocyclic carbene) (NHC) ligands as ancillary ligands in complexes of the type [Ir(C^N)\(2\)(bis-NHC)]^+ (Figure 1).\(^{22}\) One of the investigated PCs, 4\(^{Me}\), underwent only a 5% structural degradation after irradiation with blue LEDs (12 W, \(\lambda_{exc} = 462\) nm) for 120 hours, while under the same conditions Ru(bpy)\(_3\)Cl\(_2\), fac-Ir(ppy)\(_3\) and [(dF[CF\(_3\)]ppy)\(_2\)Ir(dtbbpy)]PF\(_6\) completely photodegraded after 10 hours of irradiation. This family of cationic complexes showed reasonably balanced excited-state redox potentials (\(E^*_{ox} = -1.26\) to -1.70 and \(E^*_{red} = 0.44\) to 1.03 V vs. SCE in MeCN) and were capable of dehalogenating aryl bromides and iodides to facilitate a reductive cyclization cascade. Similarly, Lai Fung-Chan and co-workers employed a series of substituted pyridylidene NHC ancillary ligands to form complexes of the type [Ir(ppy)\(_2\)(py^NHC)]^+ (Figure 1) and [Ir(ppz)\(_2\)(py^NHC)]^+ complexes (where ppz = 1-phenylpyrazolo).\(^{23}\) Like the work by Che and co-workers, the complexes exhibited balanced though moderately reducing/oxidizing excited-state redox potentials (\(E^*_{ox} = -0.99\) to -1.54 and \(E^*_{red} = 0.87\) to 1.09 V vs. SCE in MeCN) and were employed in both an oxidative and reductive quenching reaction.
+
+Moving beyond heteroleptic iridium NHC complexes, Glorius and co-workers reported the use of the homoleptic complex, fac-Ir(pmb)\(_3\) (where pmb represents N-phenyl-N’-methylimidazolium) (\(E_T = 3.1\) eV), in a De Mayo-type ring expansion reaction to access medium-sized rings.\(^{24}\) This represents the first reported use of a homoleptic iridium NHC complex as a photocatalyst. Despite its promise, there has to date been no subsequent study to probe the wider value of this class of complex in photocatalysis, particularly as a photoredox catalyst given it is strongly photoreducing (\(E^*_{ox} = -2.35\) V vs. SCE in MeCN).\(^{25}\)
+
+Some organic photosensitizers possess comparably high \(E_T\) or \(E^*_{ox}\) values, such as benzophenone (\(E_T = 2.99\) eV), xanthone (\(E_T = 3.21\) eV)\(^{26}\) and N-phenylphenothiazine (PTH, \(E^*_{ox} = -2.1\) V vs. SCE).\(^{27}\)
+There are some notable inherent drawbacks for these PCs, including their poor visible light absorption that often requires the use of sub-stoichiometric amounts of PC, and an increased risk of side-reactions between substrate and photosensitizer, particularly for ketone-based PCs. As imperative as it is to identify cheaper and more sustainable PCs to platinoid transition metal complexes, it is evident that iridium complexes remain amongst the most attractive choices for PCs that have both a high triplet energy and are strongly photoreducing.
+(a) Archetypal Iridium(III) Photocatalysts
+
+\[ \text{fac-Ir(ppy)}_3 \] (A)
+\[ E_{ox}^{\text{Fad}} = -1.75 \text{ V vs. SCE} \]
+\[ E_T = 2.52 \text{ eV} \]
+
+[Ir(ppy)\(_2\)(dtbbpy)]\(^+\) (B)
+\[ E_{ox}^{\text{Fad}} = -0.96 \text{ V vs. SCE} \]
+\[ E_T = 2.13 \text{ eV} \]
+
+[Ir(df\(_3\)ppy)\(_2\)(dtbbpy)]\(^+\) (C)
+\[ E_{ox}^{\text{Fad}} = -0.89 \text{ V vs. SCE} \]
+\[ E_T = 2.68 \text{ eV} \]
+
+Chem. Mater. 2005, 17, 1745
+
+(b) Heteroleptic Iridium(III) NHC Photocatalysts
+
+fac-Ir(dfppy)\(_2\) (D)
+\[ E_{ox}^{\text{Fad}} = -1.28 \text{ V vs. SCE} \]
+\[ E_T = 2.75 \text{ eV} \]
+
+[Ir(C\(^\text{+}\)N)\(_2\)(NHC)]\(^+\) (E)
+\[ E_{ox}^{\text{Fad}} = -1.87 \text{ V vs. SCE} \]
+\[ E_{T_d} = 2.69 \text{ eV} \]
+
+[Ir(C\(^\text{+}\)N)\(_2\)(bis-NHC)]\(^+\) (F)
+\[ E_{ox}^{\text{Fad}} = -1.70 \text{ V vs. SCE} \]
+\[ E_{T_d} = 2.74 \text{ eV} \]
+
+Org. Process Res. Dev. 2016, 20, 1156
+Inorg. Chem. 2017, 56, 10835
+Chem. Sci. 2016, 7, 3123
+
+(b) Recently Reported High EnT/
+Strongly Photoreducing Ir(III) PCs
+
+Ir(ppy)\(_2\)(NacNac\(^6\)) (G)
+\[ E_{ox}^{\text{Fad}} = 2.2 \text{ V vs. SCE} \]
+\[ E_T = 2.4 \text{ eV} \]
+
+[Ir(df(Nc\(_2\))ppy)\(_2\)(BcF\(_3\))]\(^+\) (H)
+\[ E_{ox}^{\text{Fad}} = 1.59 \text{ V vs. SCE} \]
+\[ E_T = 2.99 \text{ eV} \]
+
+fac-Ir(df\(_2\)pmmb\(_3\)) (I)
+\[ E_{ox}^{\text{Fad}} = 2.35 \text{ V vs. SCE} \]
+\[ E_T = 3.1 \text{ eV} \]
+
+Chem. Sci., 2021, 12, 4069
+J. Am. Chem. Soc. 2022, 144, 963
+Angew. Chem. Int. Ed. 2022, 61, e202112695
+
+(c) This work:
+
+\[ \text{mer-Ir(ppy)}_3 \]
+\[ E_{ox}^{\text{Fad}} = -2.72 \text{ V vs. SCE} \]
+\[ E_T = 3.28 \text{ eV} \]
+
+\[ \text{fac-Ir(ppy)}_3 \]
+\[ E_{ox}^{\text{Fad}} = -2.67 \text{ V vs. SCE} \]
+\[ E_T = 3.30 \text{ eV} \]
+
+(d) Triplet Energies and Reduction/Excited State Oxidation Potentials:
+
+\[ \text{fac-Ir(ppy)}_3 \]
+\[ \text{mer-Ir(ppy)}_3 \]
+
+https://doi.org/10.26434/chemrxiv-2025-t373h
+ORCID: https://orcid.org/0000-0001-7183-6022
+Content not peer-reviewed by ChemRxiv.
+License: CC BY 4.0
+Figure 1. (a) Examples of archetypal Ir(III) photocatalysts. (b) Reported heteroleptic Ir(III) photocatalysts employing NHC ancillary ligands. (b) Examples of recent reports of high triplet energy/strongly reducing Ir(III) photocatalysts. (c) Ir(III) photocatalysts investigated in this work. (d) Comparison of the triplet energies and reduction potentials/ excited state oxidation potentials of the photocatalysts shown in this figure spectroscopic and electrochemical data were measured in MeCN. Where values for $E_T$ were not reported, $E_{0,0}$ is included.
+
+Recognizing that there are a number of deep-blue emitting iridium(III) NHC complexes reported as emitters for organic light-emitting diodes (OLED), we decided to evaluate the meridional and facial isomers of tris(1-phenyl-3-methylimidazolin-2-ylidene-$C,C'$)iridium(III), $\text{Ir}^{\text{pmi}}_3$, an archetypal iridium NHC complex as photocatalysts. Indeed, the meridional and facial isomers of iridium $\text{Ir}^{\text{pmi}}_3$ were first reported as emitters almost two decades ago.\(^{29}\) Despite emitting in the deep-blue ($\lambda_{\text{PL}} = 410$ nm in dichloromethane, DCM), these complexes have low photoluminescence quantum yields ($\Phi_{\text{PL}} = 2\text{-}5\%$ in 2-methyltetrahydrofuran, 2-MeTHF), making them unattractive as emitters for OLEDs. The replacement of the pyridyl moiety of $\text{Ir}(C^N)_3$ complexes like $\text{fac-Ir(ppy)}_3$ with a strong-field $C^C'$ ligand results in complexes with a destabilized LUMO that is evidenced by significantly cathodically shifted reduction potentials, and higher $E_T$.\(^{30}\) An assessment of the optoelectronic properties of $\text{fac-}$ and $\text{mer-Ir(pmi)}_3$ illustrates their promise as photocatalysts. In MeCN, they have very negative $E^*_{\text{ox}}$ of $-2.67$ and $-2.72$ V vs. SCE, and high $E_T$ of 3.30 and 3.28 eV, respectively for both. Our study reveals that both PCs consistently outperformed the strongly photoreducing archetypal photocatalyst $\text{fac-Ir(ppy)}_3$ across a range of challenging energy transfer, oxidative quenching and copper dual metallaphotoredox catalysis transformations.
+
+**Results and Discussion**
+
+**Electrochemical and Photophysical Characterization**
+
+The measured photophysical and electrochemical properties of $\text{Ir}^{\text{pmi}}_3$ were cross-compared with those of $\text{fac-Ir(ppy)}_3$ (Table 1). The emission spectra of both $\text{mer-}$ and $\text{fac-Ir(pmi)}_3$ ($\lambda_{\text{PL}} = 405$ and 407 nm, respectively, in MeCN) are significantly blue-shifted compared to that of $\text{fac-Ir(ppy)}_3$ ($\lambda_{\text{PL}} = 515$ nm in MeCN). The photoluminescence spectra at 77 K in BuCN (Figure S9) showed $E_T$ of 3.30 and 3.28 eV for $\text{fac-}$ and $\text{mer-Ir(pmi)}_3$, respectively, the highest reported of any Iridium PC to date.\(^{28}\) The
+
+https://doi.org/10.26434/chemrxiv-2025-t373h  ORCID: https://orcid.org/0000-0001-7183-6022  Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+UV-Vis absorption spectrum of both *mer-* and *fac-Ir(pmi)*₃ in MeCN tails off at around 350 nm; however, direct photoexcitation into the weak spin-forbidden bands at 390 nm nonetheless enables the photocatalysis. The emission lifetimes of both isomers of *Ir(pmi)*₃ in MeCN are much shorter at 48 and 58 ns than the originally reported values by Thomson and co-workers in 2-MeTHF (τᵢₚᵢ of 400 and 620 ns for *fac-* and *mer-Ir(pmi)*₃, respectively). The ground-state oxidation potentials of *mer-* and *fac-Ir(pmi)*₃ (Eₒₓ = 0.64 and 0.71 V vs. SCE, respectively, in MeCN are cathodically shifted compared to that of *fac-Ir(ppy)*₃ (Eₒₓ = 0.77 V vs SCE in MeCN). The difference in the oxidation potential between *mer-* and *fac-Ir(pmi)*₃ arises from the mutually trans, longer, electron-rich Ir-C Ph bonds present in the *mer* isomer, which contribute to its destabilized HOMO. Similar Eₒₓ values were expected between *fac-Ir(pmi)*₃ and *fac-Ir(ppy)*₃ as the HOMO is primarily located on the phenyl moiety and the Ir centre of such configurationally analogous complexes; the small cathodic shift in Eₒₓ for *fac-Ir(pmi)*₃ is attributed to the stronger electron donation of the imidazolyl NHC moiety onto the metal centre compared to the pyridyl moiety of *fac-Ir(ppy)*₃, thus destabilizing the HOMO. The Eᵦᵢᵦ values are more strongly cathodically shifted compared to the Eᵦᵦ of *Ir(ppy)*₃ (Eᵦᵦ = -2.19 V vs SCE in MeCN) and fall outside of the electrochemical window of MeCN. Given optical gaps, Eₒₒ of 3.36 and 3.38 eV for the *mer-* and *fac-* isomers, respectively, the Eᵦₒ of *mer-* and *fac-Ir(pmi)*₃ are calculated to be -2.72 and -2.67 V, respectively, which are significantly more photoreducing than *fac-Ir(ppy)*₃ despite having similar Eₒₓ values (Table 1). Furthermore, these values suggest that the isomers of *Ir(pmi)*₃ should be more potent photoreductants than the aforementioned [*Ir(dFN(Me)₂ppy)₂(BCF)₂]*⁺ (Eᵦₒ = -1.59 V vs SCE), *Ir(ppy)₂(NacNac) (Eᵦₒ = -2.2 V vs SCE) and PTH (Eᵦₒ = -2.1 V vs SCE).
+Table 1. Selected optoelectronic properties of *mer-* and *fac-Ir*(pmi)$_3$ and *fac-Ir*(ppy)$_3$.
+
+| Compound | $\lambda_{\text{abs}}$/nm | $\lambda_{\text{PL}}$/nm | $E_T$/eV | $\tau_{\text{PL}}$/ns | $E_{0,0}$/eV | $E_{\text{ox}}$/V | $E_{\text{red}}$/V | $E^{*}_{\text{ox}}$/V | $E^{*}_{\text{red}}$/V |
+|----------|-----------------|----------------|--------|----------------|------------|-------------|-------------|--------------|----------------|
+| *mer-Ir*(pmi)$_3$ | 342 | 407 | 3.28 | 58 | 3.36 | 0.64 | N/A | -2.72 | N/A |
+| *fac-Ir*(pmi)$_3$ | 340 | 405 | 3.30 | 48 | 3.38 | 0.71 | N/A | -2.67 | N/A |
+| *fac-Ir*(ppy)$_3$ | 375 | 515 | 2.50 | 1900 | 2.53 | 0.77 | -2.19 | -1.75 | 0.33 |
+
+$^a$All data was measured in MeCN unless otherwise noted. $^b$Taken from onset of the RT emission spectrum. $^c$ $E_{0,0}$ is estimated from the intersection of the normalized absorption and emission spectra. $^d$Redox potentials reported vs. SCE with a ferrocenium/ferrocene (Fc/Fc$^+$) redox couple as the internal standard (+ 0.38 V in MeCN) and taken from the maxima of the oxidation peak of the DPV. $^e$Excited-state redox potentials were calculated using the Rehm-Weller equations: $E^{*}_{\text{ox}} = E_{\text{ox}} - E_{0,0}$ and $E^{*}_{\text{red}} = E_{\text{red}} + E_{0,0}$. $^f$Literature reported data. $^g$Measured in 2-MeTHF.
+
+Energy Transfer Photocatalysis
+
+Recognizing that the isomers of *Ir*(pmi)$_3$ have an exceptionally high $E_T$ of approximately 3.30 eV, we sought to evaluate its efficiency as an EnT PC with high triplet energy substrates. Taking inspiration from a recent report by Wenger and co-workers, we investigated the [2+2] cycloaddition of norbornadiene ($E_T = 2.7$ eV) to quadricyclane and the 1,3-sigmatropic shift of s-verbenone ($E_T = 3.0$ eV) to chrysanthene.
+
+![Figure 2](https://doi.org/10.26434/chemrxiv-2025-t373h) ORCID: https://orcid.org/0000-0001-7183-6022 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+
+Historically, the photochemical transformation of norbornadiene to quadricyclane has required ketone-based photosensitizers such as acetophenone as these have suitably high $E_T$ ($E_T$ of acetophenone = 3.22
+10 eV)\(^3\) to achieve >90\% yield of quadricyclane.\(^3\) Wenger and co-workers achieved 99\% conversion in just one hour at an NMR-scale reaction using blue LEDs (\(\lambda_{\text{exc}} = 415\text{ nm}\)) and 0.3 mol\% \([\text{Ir(dFN(Me)}_2\text{ppy)}_2\text{(BCF)}_2]\)\(^\dagger\).\(^2\) Using 1 mol\% of \textit{mer-Ir(ppy)}\(_3\) resulted in a yield of 45\% (Table S1). Increasing the PC loading to 2 mol\% resulted in a significant increase in the yield to 83\% (Figure 2). Under these conditions, \textit{fac-Ir(ppy)}\(_3\) afforded a comparable product yield of 79\% (Figure 2), while \textit{fac-Ir(ppy)}\(_3\) only gave a moderate yield of 45\% (Figure 2). When performed under air, the yield with \textit{fac-Ir(ppy)}\(_3\) dropped to 47\%, while no product formed with \textit{fac-Ir(ppy)} as the PC (Table S1). No product formation was observed either in the absence of light (\(\lambda_{\text{exc}} = 390\text{ nm}\)) or photocatalyst (Table S1).\(^3\)
+
+![Photocatalysed 1,3-sigmatropic shift](image)
+
+Figure 3. 1,3-sigmatropic shift of verbenone. Yield determined by \(^1\)H NMR spectroscopy using mesitylene as an internal standard, averaged over two experiments. \(\lambda_{\text{exc}} = 390\text{ nm}\) for \textit{mer-} and \textit{fac-Ir(ppy)}\(_3\) and 427 nm for \textit{fac-Ir(ppy)}\(_3\).
+
+We next explored a more challenging energy transfer reaction, the 1,3-sigmatropic shift of s-verbenone to chrysantheneone. Direct photoexcitation of the substrate (\(\lambda_{\text{exc}} < 300\text{ nm}\)) in acetic acid for one hour can result in yields of up to 67\%.\(^4\) Under similar conditions as the transformation of norbornadiene to quadricyclane, Wenger and co-workers reported an 80\% yield of chrysantheneone after three hours.\(^2\)
+
+At this timescale, using our set up, \textit{fac-Ir(ppy)}\(_3\) achieved a moderate yield of 55\% at 2 mol\% loading (Table S2), which could be improved upon increasing the reaction time to 5 hours for both \textit{mer-} and \textit{fac-Ir(ppy)}\(_3\), affording, respectively, 64 and 62\% of chrysantheneone (Figure 3). No product formation was observed when employing \textit{fac-Ir(ppy)}\(_3\) at this same PC loading (Figure 3). Under air, the yield decreases significantly, with \textit{fac-Ir(ppy)}\(_3\) giving only 23\% product (Table S2), suggesting that competitive quenching of the PC* by molecular oxygen becomes more effective as the substrate \(E_T\) increases. In the absence of PC under deaerated conditions there is a background reaction as 21\% of product is formed over 5 hours, while there is no conversion under air (Table S2); further, in the absence of light, no product formation was observed (Table S2).
+**Photoredox catalysis**
+
+Having established that \( \text{Ir} \text{(pmi)}_3 \) is a competent energy transfer photocatalyst, we next explored its capacity to engage in photoredox catalysis. We investigated the dehalogenation of aryl halides as a model reaction. This transformation can proceed via an oxidative quenching pathway in the presence of an amine, which acts as a sacrificial reductant to close the photocatalytic cycle. Alternatively, the PC* can initially undergo reductive quenching by the amine, after which the PC\textsuperscript{-} reduces the aryl halide substrate to turn over the cycle. Reduction of the aryl halide substrate becomes progressively more difficult with increasing electronegativity of the halide group (\( |E_{\text{red}}| = -|\text{I} < |\text{Br} < |\text{Cl}| \)) and in the presence of electron-donating substituents (\( |E_{\text{red}}| = \text{EWG} < \text{EDG} | \)).
+
+Much progress has been made in photocatalytic dehalogenation of aryl and alkyl halides by transition metal photocatalysts since the first report by Stephenson and co-workers. Jui and co-workers showed that \([\text{Ir}(\text{dF}(\text{CF}_3)\text{ppy})_2(\text{dtbbpy})]\text{PF}_6 \) (where \( \text{dF}(\text{CF}_3)\text{ppy} \) and \( \text{dtbbpy} \) are 3,5-difluoro-2-[5-(tri-fluoromethyl)-2-pyridinyl-N]\text{phenyl}-C and 4,4′-\text{bis(tert-butyl)}-2,2′-\text{bipyridine}, respectively) (\( E_{\text{red}} = -1.37 \text{ V vs SCE} \)) dehalogenates a series of iodo- and bromopyridine substrates (\( E_{\text{red}} \sim -1.7 \text{ to } -2.3 \text{ V vs. SCE} \))\textsuperscript{45} in yields ranging from 39 to 96% over 18 hours.\textsuperscript{48} The resultant pyridyl radical was subsequently trapped with different alkene coupling partners to afford alkylated pyridines. Wenger and co-workers demonstrated the protodehalogenation of bromo- and chlorobenzonitrile substrates (\( E_{\text{red}} \sim -2.0 \text{ V vs SCE for both} \)) by the sacrificial amine generating a one-electron reduced complex, which acts as a potent photoreductant. Impressively, they report a >99% yield for the dehalogenation of 4-bromoanisole (\( E_{\text{red}} = -2.72 \text{ V vs. SCE} \), enabled by this \textit{in situ} generated reduced PC. This short summary provides a
+representative selection of iridium PCs used for the dehalogenation of aryl halides and does not cover examples of other transition metal or organic PCs.\textsuperscript{42,49}
+
+Following the protocol of Connell and co-workers,\textsuperscript{50} we investigated first the dechlorination of methyl 4-chlorobenzoate ($E_{\text{red}} = -1.98$ V vs. SCE), employing 1 mol\% $\text{mer-Ir(pmi)}_3$ as the PC and 10 equivalents of triethylamine (TEA). Under these conditions methyl benzoate was produced in 39% yield (Table S3). The product yield was significantly improved to 79% with a change in the amine to $N,N$-diisopropylethylamine (DIPEA) (Figure 4). This is likely due to its less positive ground-state oxidation potential ($E_{\text{ox}} = 0.68$ V vs. SCE) compared to that of TEA ($E_{\text{ox}} = 0.96$ V vs. SCE),\textsuperscript{51} producing a greater thermodynamic driving force for the reduction of the PC\textsuperscript{+} to re-form the PC. Decreasing the amount of DIPEA to one equivalent resulted in a decrease in the yield to 59% (Table S3). With the optimized conditions in hand, using 10 equivalents of DIPEA, with $\text{fac-Ir(pmi)}_3$, a slightly lower yield of 70% was obtained (Figure 4). This decrease in yield is attributed to the slightly less negative $E_{\text{ox}}^*$ of this isomer ($E_{\text{ox}}^* = -2.67$ V vs SCE) compared to $\text{mer-Ir(pmi)}_3$ ($E_{\text{ox}}^* = -2.71$ V vs SCE). Pleasingly, both isomers outperformed $\text{fac-Ir(ppy)}_3$, which produced only 65% of the dehalogenated product (Figure 4). Under these conditions, yields of $\leq 5\%$ were obtained when either the PC, the sacrificial amine, or the light were absent (Table S2, entries 2-4, respectively). When the reaction was conducted under air with $\text{mer-Ir(pmi)}_3$, the yield decreased to 55% (Table S3), indicating that oxygen is a competitive though somewhat inefficient quencher of the triplet excited state of this PC. Stern-Volmer quenching studies revealed that for $\text{fac-Ir(pmi)}_3$, the mechanism proceeds through oxidative quenching by the aryl halide (Figures S24), while there was no quenching of the excited state with DIPEA for $\text{fac-Ir(ppy)}_3$ (Figure S26) or $\text{fac-Ir(ppy)}_3$.\textsuperscript{52} Stern Volmer quenching experiments with methyl 4-chlorobenzoate also demonstrated a faster rate of quenching of the emission of $\text{fac-Ir(pmi)}_3$ compared to $\text{fac-Ir(ppy)}_3$ ($k_q = 4.03 \times 10^{11}$ vs $1.21 \times 10^{11}$, respectively, Figure S25 and S28).
+Figure 4. Dehalogenation of methyl 4-chlorobenzoate. Yield determined by $^1$H NMR spectroscopy using 1,3,5-trimethoxybenzene as an internal standard, averaged over two experiments. $\lambda_{exc} = 390$ nm for mer- and fac-Ir(pmi)$_3$, and 427 nm for fac-Ir(ppy)$_3$.
+
+Based on these promising results, and to probe the photoreducing power of the better performing isomer, mer-Ir(pmi)$_3$, we carried out a substrate scope, targeting substrates with increasingly negative reduction potentials (Figure 5), associated with their higher C-X bond dissociation energies.
+
+Moving from methyl 4-chlorobenzoate to 4-chlorobenzonitrile where $E_{red}$ increases to -2.04 V vs SCE, the reaction yield increased by approximately ~15%, regardless of the photocatalyst. With 4-chlorobiphenyl ($E_{red} = -2.43$ V vs. SCE) as the substrate there was the greatest divergence in the yield of dehalogenated product as a function of the PC, with mer-Ir(pmi)$_3$ affording 76% of product compared to only 15% with fac-Ir(ppy)$_3$. This PC also produces more of the dehalogenated product when both 4-iodoanisole and 3-bromoanisole are used as substrates, but the difference in yield compared to the use of fac-
+Ir(ppy)$_3$ as the PC is smaller and the overall yields are lower with these two substrates; notably, neither PC can dehalogenate 4-bromoanisole ($E_{\text{red}} = -2.72$ V vs. SCE). This scope study illustrates the superior reactivity of $\text{mer-Ir(pmi)}_3$ to dehalogenate aryl halides with $E_{\text{red}}$ as high as -2.59 V vs SCE. Compared to the previously mentioned studies involving strongly photoreducing Iridium PCs, $\text{mer-Ir(pmi)}_3$ can dehalogenate more difficult substrates than $[\text{Ir(dFN(Me)$_2$ppy)$_2$(BCF)$_2$}]^-$, and displays comparable reactivity to Ir(ppy)$_2$(NacNac). Unexpectedly, despite its less negative redox potentials, $[\text{Ir(ppy)$_2$(dtbbpy)}]^+(E^*_{\text{ox}} = -0.96$ V vs. SCE) achieves quantitative protodehalogenation of 4-bromoanisole$^{50} (E_{\text{red}} = -2.72$ V vs. SCE), which was not possible with Ir(pmi)$_3$. This is the result of an in-situ reduction of the ancillary dtbbpy ligand by the sacrificial amine, generating a more reducing species.
+
+**Atom Radical Transfer Addition (ATRA)**
+
+We also assessed the efficiency of the isomers of Ir(pmi)$_3$ as photoredox catalysts in the atom radical transfer addition (ATRA) of sulfonyl chlorides and allyl trifluoroborate salts.$^{53}$ This reaction proceeds via the putative oxidative quenching of PC* by $p$-toluenesulfonyl chloride ($E_{\text{red}} = -0.94$ V vs. SCE).$^{54}$ The reduced sulfonyl chloride liberates a chloride ion, forming a radical cationic intermediate. Subsequently, the PC$^{*+}$ oxidizes the allyl trifluoroborate ($E_{\text{ox}} = 1.1$ V vs SCE),$^{55}$ liberating BF$_3$ and an allyl radical, which undergoes radical-radical cross-coupling with the sulfonyl radical affording the allyl sulfone product. We chose this reaction as the radical cation of the PC must be sufficiently oxidizing to enable the formation of the allyl radical while the PC$^*$ must be sufficiently photoreducing to generate the sulfonyl radical, necessitating a balanced set of ground- and excited-state redox potentials, unlike transformations such as the dehalogenation reaction where sacrificial oxidants/reductants can be interchanged to align with the redox potentials of the PC.
+Figure 4. ATRA of p-toluenesulfonyl chloride and potassium allyltrifluoroborate. Yield determined by $^1$H NMR spectroscopy in CDCl$_3$ using 1,3,5-trimethoxybenzene as an internal standard, averaged over two experiments. $\lambda_{\text{exc}} = 390$ nm for mer- and fac-Ir(pmi)$_3$ and 427 nm for fac-Ir(ppy)$_3$.
+
+In the literature, the use of fac-Ir(ppy)$_3$ in this reaction produced a modest yield of 50%. When this reaction was run using our photoreactors and this PC, a comparable yield of 44% was achieved. When the PC was changed to fac- and mer-Ir(pmi)$_3$ the yields surprisingly diverged depending on the configuration at iridium at 60 and 40%, respectively (Figure 5). This is correlated to the slightly lower $E_{\text{ox}}$ of the mer- isomer ($E_{\text{ox}} = 0.64$ V vs. SCE) compared to fac-Ir(pmi)$_3$ ($E_{\text{ox}} = 0.71$ V vs. SCE). To the best of our knowledge, this is the first example where the impact of the configuration at the metal centre on the reaction yield has been probed in photocatalysis.
+
+Metallaphotoredox Catalysis
+
+Chan-Lam Cross-Coupling
+
+Dual copper photoredox catalysis is an excellent route to the formation of C-C and C-heteroatom bonds. The use of a photosensitizer in these reactions activates substrates or accelerates sluggish redox processes of the TM co-catalyst through either electron or energy transfer processes. Alternatively, the TM catalyst can be directly photoexcited, as reported by Wang and co-workers for the cross-coupling of diaryl sulfoximines and boronic acids. In terms of C-N cross coupling, Yoo and co-workers developed a photoredox mediated Ullmann cross coupling of carbazole derivatives using fac-Ir(ppy)$_3$. The same group then investigated the copper-mediated Chan-Lam metallaphotoredox catalysis reaction, which we identified as a suitable model reaction in which to test Ir(pmi)$_3$ as a metallaphotoredox catalyst.
+The authors advanced a mechanism in which the PC\(^*\) is oxidatively quenched by molecular oxygen and the resultant PC\(^{**}\) oxidizes the Cu\(^{II}\) intermediate to Cu\(^{III}\), thus accelerating the reductive quenching step.
+
+**Figure 5.** Photocatalysed Chan-Lam Cross-coupling of 4-trifluoromethylaniline and 4-chlorophenylboronic acid. Yield determined by \(^1\)H NMR spectroscopy in CDCl\(_3\) using 1,3,5-trimethoxybenzene as an internal standard, averaged over two experiments. \(\lambda_{\text{exc}} = 390\) nm for mer- and fac-Ir\((\text{pmi})_3\) and 427 nm for fac-Ir\((\text{ppy})_3\).
+
+Following the literature conditions, using fac-Ir\((\text{ppy})_3\) as the PC and 4-chlorophenylboronic acid and 4-trifluoromethylaniline as the reactants resulted in a yield of 52% of the cross-coupled product (Figure 5). This result significantly deviates from the literature reported yield of 72%. The use of both mer- and fac-Ir\((\text{pmi})_3\) outperformed this literature PC, affording yields of 60 and 70% (Figure 5), respectively. This divergence in yield between the two isomers is likely due to mer-Ir\((\text{pmi})_3\) struggling to oxidize the Cu\(^{II}\), which has an estimated \(E_{\text{ox}}\) of 0.72 V vs SCE.\(^{60}\) In the absence of copper catalyst and light, there is virtually no product formation (7 and 8% yield, respectively Table S5). However, there is a significant background reaction in the absence of PC, exciting at both 390 nm (53% yield) and 427 nm (44% yield) (Table S5), illustrating that direct photoexcitation of the Cu\(^{II}\) intermediate directly initiates this reaction.
+
+**Stability Studies**
+
+One issue with many photocatalysts is their poor photostability under photoredox catalysis conditions.\(^{61,62}\) We thus undertook a comparative photostability study of mer- and fac-Ir\((\text{pmi})_3\) and fac-Ir\((\text{ppy})_3\) by measuring both the UV-Vis absorption and \(^1\)H NMR spectra of these complexes before and after irradiation at each of 390 and 427 nm for 24 hours (Figure S29). For each of the three PCs, a decrease in absorbance was observed after irradiation for 24 hours in MeCN. More striking is the significant change in the \(^1\)H NMR spectrum of fac-Ir\((\text{ppy})_3\) following either 390 (Figure 6) and 427 nm irradiation (Table 2 entries 3-4); notably, no remaining PC was detected, which implicates the complete photodegradation
+of this complex in MeCN. Similarly, König and co-workers reported complete photodegradation of $\text{fac-Ir(ppy)_3}$ in DCM after just six hours ($\lambda_{\text{exc}} = 400$ nm), while an improved stability was observed in toluene, with 40% of the PC remaining after 17 hours. A similar result was reported by Kuo and co-workers, suggesting that the nature of the solvent plays a significant role in the reaction outcome and solvent-specific photostability studies are warranted during reaction and photocatalyst development. The same sort of behavior was not observed with either of the $\text{Ir(pmi)_3}$ isomers, and no photocatalyst degradation was observed for $\text{fac-Ir(pmi)_3}$ (Figure 6) by quantitative $^1$H NMR spectroscopy (Table 2 entry 2). For the mer-isomer, the $^1$H NMR spectrum revealed some degradation (Figure 6) while 57% of the PC remained. (Table 2 entry 1).
+
+Figure 6. $^1$H NMR spectra (aromatic region) of $\text{fac-Ir(ppy)_3}$, $\text{mer-Ir(pmi)_3}$ and $\text{fac-Ir(pmi)_3}$ before and after irradiation for 24 hours ($\lambda_{\text{exc}} = 390$ nm for $\text{Ir(pmi)_3}$, and 427 nm for $\text{fac-Ir(ppy)_3}$) in MeCN-$d_3$. 
+
+https://doi.org/10.26434/chemrxiv-2025-t373h  ORCID: https://orcid.org/0000-0001-7183-6022 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+Table 2. Quantitative analysis of Photocatalyst stability.\textsuperscript{a}
+
+| Entry | Photocatalyst    | $\lambda_{\text{exc}}$/ nm | Yield / %$^b$ |
+|-------|------------------|-----------------------------|---------------|
+| 1     | \textit{mer-}Ir(pmi)\textsubscript{3} | 390                         | 57            |
+| 2     | \textit{fac-}Ir(pmi)\textsubscript{3} | 390                         | 100           |
+| 3     | \textit{fac} -Ir(ppy)\textsubscript{3} | 390                         | 0             |
+| 4     | \textit{fac} -Ir(ppy)\textsubscript{3} | 427                         | 0             |
+
+\textsuperscript{a}Conditions: PC (2 mg, 0.0015 mmol) irradiated in degassed MeCN-d\textsubscript{3} (1 mL, 0.0015 M) for 24 hours.
+
+\textsuperscript{b}Percentage remaining of the photocatalyst after irradiation determined by quantitative NMR spectroscopy using dibromomethane as an internal standard.
+
+The origin of the increased photodegradation of \textit{fac} -Ir(ppy)\textsubscript{3} compared to Ir(pmi)\textsubscript{3} may be due to the relatively lower-lying non-emissive metal-centred $^3$MC excited states in \textit{fac} -Ir(ppy)\textsubscript{3} that becomes populated upon photoexcitation.\textsuperscript{36} Population of these non-emissive $^3$MC states leads to structural degradation through thermal decay processes.\textsuperscript{65} Between the two isomers, the increased stability of \textit{fac} - vs. \textit{mer-}Ir(pmi)\textsubscript{3} is expected as \textit{fac} isomers of such cyclometalated Ir(III) complexes are the thermodynamically more stable isomers,\textsuperscript{66} and calculations have revealed a higher energy barrier to access their $^3$MC states.\textsuperscript{67, 68} This high thermal and photostability of Iridium(III) NHC complexes is well-documented in the context of emitter design for OLEDs,\textsuperscript{69} and this behavior seems to be operational in solution as well.
+
+Conclusions
+
+This work illustrates the promise of simple iridium(III) (NHC) complexes as photocatalysts in a broad range of transformations. Both isomers of Ir(pmi)\textsubscript{3} were shown to be attractive alternatives to \textit{fac} -Ir(ppy)\textsubscript{3}, broadly achieving better yields across a range of energy transfer, photoredox, and metallaphotoredox reactions owing to their higher $E_T$ (by ~0.9 eV) more negative $E^*_{\text{ox}}$ (by ~ 1 V) and superior photostability. Additionally, for the 1,3-sigmatropic shift of s-verbenone, \textit{fac} -Ir(ppy)\textsubscript{3} was unable to sensitize the substrate, while using \textit{fac} - and \textit{mer-}Ir(pmi)\textsubscript{3} resulted in comparable yields of 62 and 64%, respectively. This work highlights the value and utility of accessing PCs that are simultaneously strongly photoreducing and can sensitize substrates with very high $E_T$. When compared to other strongly photoreducing and high triplet energy Ir(III) photocatalysts, Ir(pmi)\textsubscript{3} is particularly attractive for its
+relatively simple synthesis, high photostability and versatility in photocatalyzing different reaction classes. To the best of our knowledge this study is the first investigation into the use of homoleptic Ir(III) NHC complexes as photoredox and metallaphotoredox catalysts. It is also the first investigation into the stability of these complexes for photocatalysis, in which we found, in particular, \textit{fac-Ir(pmi)}$_3$ to be an exceptionally stable photocatalyst, and into the difference in reactivity between facial isomers of any transition metal PC. We hope that this report inspires further investigation into the use of iridium(III) NHC photocatalysts as an avenue to access more challenging substrates and improved photocatalytic activity.
+
+**Supporting Information.** Synthetic procedures, electrochemistry, UV-vis absorption, and photoluminescence spectra (room temperature steady-state, 77 K steady-state spectra and room temperature time-resolved photoluminescence measurements), photocatalysis procedure, NMR spectra, photostability studies and Stern–Volmer quenching studies.
+
+**Acknowledgments.** The authors thank Johnson Matthey for financial support in the form of an i-CASE award (PhD studentship to M.G.). The authors thank EPSRC for financial support (grants EP/W007517/1 and EP/M02105X/1). We would like to thank the European Union H2020 research and innovation program for the funding under the Marie Skłodowska-Curie Grant Agreement (PhotoReAct, No 956324). The authors thank Violaine Manet for providing samples of \textit{fac-Ir(ppy)}$_3$.
+
+**TOC:**
+References
+
+1. M. H. Shaw, J. Twilton and D. W. MacMillan, Photoredox Catalysis in Organic Chemistry, *J. Org. Chem.*, 2016, 81, 6898-6926.
+2. M. A. Bryden and E. Zysman-Colman, Organic thermally activated delayed fluorescence (TADF) compounds used in photocatalysis, *Chem. Soc. Rev.*, 2021, 50, 7587-7680.
+3. J. W. Tucker and C. R. Stephenson, Shining light on photoredox catalysis: theory and synthetic applications, *J. Org. Chem.*, 2012, 77, 1617-1622.
+4. K.-C. Tang, K. L. Liu and I. C. Chen, Rapid intersystem crossing in highly phosphorescent iridium complexes, *Chem. Phys. Lett.*, 2004, 386, 437-441.
+5. R. Rathore, S. M. Hubig and J. K. Kochi, Direct Observation and Structural Characterization of the Encounter Complex in Bimolecular Electron Transfers with Photoactivated Acceptors, *J. Am. Chem. Soc.*, 1997, 119, 11468-11480.
+6. F. Strieth-Kalthoff, M. J. James, M. Teders, L. Pitzer and F. Glorius, Energy transfer catalysis mediated by visible light: principles, applications, directions, *Chem. Soc. Rev.*, 2018, 47, 7190-7202.
+7. C. K. Prier, D. A. Rankic and D. W. MacMillan, Visible light photoredox catalysis with transition metal complexes: applications in organic synthesis, *Chem. Rev.*, 2013, 113, 5322-5363.
+8. J. D. Bell and J. A. Murphy, Recent advances in visible-light-activated radical coupling reactions triggered by (i) ruthenium, (ii) iridium and (iii) organic photoredox agents, *Chem. Soc. Rev.*, 2021, 50, 9540-9685.
+9. J. I. Day, K. Teegardin, J. Weaver and J. Chan, Advances in Photocatalysis: A Microreview of Visible Light Mediated Ruthenium and Iridium Catalyzed Organic Transformations, *J. Org. Process Res. Dev.*, 2016, 20, 1156-1163.
+10. R. Bevermaegie, S. A. M. Wehlin, B. Elias and L. Troian-Gautier, A Roadmap Towards Visible Light Mediated Electron Transfer Chemistry with Iridium(III) Complexes, *ChemPhotoChem*, 2021, 5, 217-234.
+11. A. B. Tamayo, B. D. Alleyne, P. I. Djurovich, S. Lamansky, I. Tsyba, N. N. Ho, R. Bau and M. E. Thompson, Synthesis and Characterization of Facial and Meridional Tris-cyclometalated Iridium(III) Complexes, *J. Am. Chem. Soc.*, 2003, 125, 7377-7387.
+12. S. M. Cho, J. Y. Kim, S. Han and D. H. Ryu, Visible Light-Mediated Enantioselective Addition of α-Aminooalkyl Radicals to Ketones Catalyzed by Chiral Oxaazaborolidinium Ion, *J. Org. Chem.*, 2022, **87**, 11196-11203.
+
+13. H.-Y. Li, X.-L. Yang, S. Shen and X. Niu, Visible Light-Induced 6π-Heterocyclization/Dehydroaromatization for Synthesis of Indoloquinolinone Skeletons, *J. Org. Chem.*, 2024, **89**, 14887-14897.
+
+14. P. Das, M. DeSpain, A. Ethridge and J. D. Weaver, III, Exploiting Visible Light Triggered Formation of trans-Cyclohexene for the Contra-thermodynamic Protection of Alcohols, *Org. Lett.*, 2023, **25**, 7316-7321.
+
+15. J. Breu, P. Stössel, S. Schrader, A. Starukhin, W. J. Finkenzeller and H. Yersin, Crystal Structure of fac-Ir(ppy)3 and Emission Properties under Ambient Conditions and at High Pressure, *Chem. Mater.*, 2005, **17**, 1745-1752.
+
+16. K. Teegardin, J. I. Day, J. Chan and J. Weaver, Advances in Photocatalysis: A Microreview of Visible Light Mediated Ruthenium and Iridium Catalyzed Organic Transformations, *Org. Process Res. Dev.*, 2016, **20**, 1156-1163.
+
+17. A. Y. Chan, I. B. Perry, N. B. Bissonnette, B. F. Buksh, G. A. Edwards, L. I. Frye, O. L. Garry, M. N. Lavagnino, B. X. Li, Y. Liang, E. Mao, A. Millet, J. V. Oakley, N. L. Reed, H. A. Sakai, C. P. Seath and D. W. C. MacMillan, Metallaphotoredox: The Merger of Photoredox and Transition Metal Catalysis, *Chem. Rev. (Washington, DC, U. S.)*, 2022, **122**, 1485-1542.
+
+18. J. H. Shon and T. S. Teets, Potent Bis-Cyclometalated Iridium Photoreductants with beta-Diketiminate Ancillary Ligands, *Inorg. Chem.*, 2017, **56**, 15295-15303.
+
+19. J.-H. Shon, D. Kim, M. D. Rathnayake, S. Sittel, J. Weaver and T. S. Teets, Photoredox catalysis on unactivated substrates with strongly reducing iridium photosensitizers, *Chem. Sci.*, 2021, **12**, 4069-4078.
+
+20. V. Q. Dang and T. S. Teets, Reductive photoredox transformations of carbonyl derivatives enabled by strongly reducing photosensitizers, *Chem. Sci.*, 2023, **14**, 9526-9532.
+
+21. L. Schmid, F. Glaser, R. Schaar and O. S. Wenger, High Triplet Energy Iridium(III) Isocyanoborato Complex for Photochemical Upconversion, Photoredox and Energy Transfer Catalysis, *J. Am. Chem. Soc.*, 2022, **144**, 963-976.
+
+22. C. Yang, F. Mehmoood, T. L. Lam, S. L.-F. Chan, Y. Wu, C.-S. Yeung, X. Guan, K. Li, C. Y.-S. Chung, C.-Y. Zhou, T. Zou and C.-M. Che, Stable luminescent iridium(iii) complexes with bis(N-heterocyclic carbene) ligands: photo-stability, excited state properties, visible-light-driven radical cyclization and CO2 reduction, and cellular imaging, *Chem. Sci.*, 2016, **7**, 3123-3136.
+
+23. T. L. Lam, J. Lai, R. R. Annapureddy, M. Xue, C. Yang, Y. Guan, P. Zhou and S. L.-F. Chan, Luminescent Iridium(III) Pyridinium-Derived N-Heterocyclic Carbene Complexes as Versatile Photoredox Catalysts, *Inorg. Chem.*, 2017, **56**, 10835-10839.
+
+24. T. O. Paulisch, L. A. Mai, F. Strieth-Kalthoff, M. J. James, C. Henkel, D. M. Guldi and F. Glorius, Dynamic Kinetic Sensitization of β-Dicarbonyl Compounds—Access to Medium-Sized Rings by De Mayo-Type Ring Expansion, *Angew. Chem., Int. Ed.*, 2022, **61**, e202112695.
+
+25. K. Tsuchiya, S. Yapai, A. Kitamura, T. Karatsu, K. Endo, J. Mizukami, S. Akiyama and M. Yabe, Synthesis and Photophysical Properties of Substituted Tris(phenylbenzimidazolino) Iridium Carbene Complexes as a Blue Phosphorescent Material, *Eur. J. Inorg. Chem.*, 2010, **2010**, 926-933.
+
+26. A. C. Marco Montalti, Luca Prodi, M. Teresa Gandolfi, *Handbook of Photochemistry (3rd ed.)*, CRC Press, 2006.
+
+27. E. H. Discekici, N. J. Treat, S. O. Poelma, K. M. Mattson, Z. M. Hudson, Y. Luo, C. J. Hawker and J. Read de Alaniz, A highly reducing metal-free photoredox catalyst: design and application in radical dehalogenations, *Chem. Commun.*, 2015, **51**, 11705-11708.
+
+28. F. Strieth-Kalthoff and F. Glorius, Triplet Energy Transfer Photocatalysis: Unlocking the Next Level, *Chem.*, 2020, **6**, 1888-1903.
+
+29. T. Sajoto, P. I. Djurovich, A. Tamayo, M. Yousufuddin, R. Bau, M. E. Thompson, R. J. Holmes and S. R. Forrest, Blue and Near-UV Phosphorescence from Iridium Complexes with
+30. M. Idris, S. C. Kapper, A. C. Tadle, T. Batagoda, D. S. Muthiah Ravinson, O. Abimbola, P. I. Djurovich, J. Kim, C. Coburn, S. R. Forrest and M. E. Thompson, Blue Emissive fac/mer-Iridium (III) NHC Carbene Complexes and their Application in OLEDs, *Adv. Opt. Mater.*, 2021, 9, 2001994.
+
+31. V. V. Pavlishchuk and A. W. Addison, Conversion constants for redox potentials measured versus different reference electrodes in acetonitrile solutions at 25°C, *Inorg. Chim. Acta*, 2000, 298, 97-102.
+
+32. D. Rehm and A. Weller, Kinetik und Mechanismus der Elektronübertragung bei der Fluoreszenzlösung in Acetonitril, *Ber. Bunsen-Ges. Phys. Chem.*, 1969, 73, 834-839.
+
+33. D. Rehm and A. Weller, Kinetics of Fluorescence Quenching by Electron and H-Atom Transfer, *Isr. J. Chem.*, 1970, 8, 259-271.
+
+34. T. Koike and M. Akita, Visible-light radical reaction designed by Ru- and Ir-based photoredox catalysis, *Inorg. Chem. Front.*, 2014, 1, 562-576.
+
+35. L. Flamigni, A. Barbieri, C. Sabatini, B. Ventura and F. Barigelletti, in *Photochemistry and Photophysics of Coordination Compounds II*, eds. V. Balzani and S. Campagna, Springer Berlin Heidelberg, Berlin, Heidelberg, 2007, DOI: 10.1007/128_2007_131, pp. 143-203.
+
+36. T. Sajoto, P. I. Djurovich, A. B. Tamayo, J. Oxgaard, W. A. Goddard, III and M. E. Thompson, Temperature Dependence of Blue Phosphorescent Cyclometalated Ir(III) Complexes, *J. Am. Chem. Soc.*, 2009, 131, 9813-9822.
+
+37. A. Cuppoletti, J. P. Dinnocenzo, J. L. Goodman and I. R. Gould, Bond-Coupled Electron Transfer Reactions: Photoisomerization of Norbornadiene to Quadricyclane, *J. Phys. Chem. A*, 1999, 103, 11253-11256.
+
+38. D. I. Schuster and D. Widman, The multiplicity of the [1,3]-sigmatropic photorearrangement of verbenone to chrysanthene, *Tetrahedron Letters*, 1971, 12, 3571-3574.
+
+39. For this study, test reactions including reaction optimization, checking air tolerance, background reactions, reactions in the absence of light and sacrificial reagents were performed using only one isomer on account of their similar reactivities.
+
+40. W. F. Erman, Photochemical transformations of unsaturated bicyclic ketones. Verbenone and its photodynamic products of ultraviolet irradiation, *J. Am. Chem. Soc.*, 1967, 89, 3828-3841.
+
+41. E. H. Discekici, N. J. Treat, S. O. Poelma, K. M. Mattson, Z. M. Hudson, Y. Luo, C. J. Hawker and J. R. de Alaniz, A highly reducing metal-free photoredox catalyst: design and application in radical dehalogenations, *Chem. Commun.*, 2015, 51, 11705-11708.
+
+42. J. Lan, R. Chen, F. Duo, M. Hu and X. Lu, Visible-Light Photocatalytic Reduction of Aryl Halides as a Source of Aryl Radicals, *Molecules*, 2022, 27.
+
+43. X. Tian, Y. Liu, S. Yakubov, J. Schütte, S. Chiba and J. P. Barham, Photo- and electro-chemical strategies for the activations of strong chemical bonds, *Chem. Soc. Rev.*, 2024, 53, 263-316.
+
+44. J. M. R. Narayananam, J. W. Tucker and C. R. J. Stephenson, Electron-Transfer Photoredox Catalysis: Development of a Tin-Free Reductive Dehalogenation Reaction, *J. Am. Chem. Soc.*, 2009, 131, 8756-8757.
+
+45. M. S. Lowry, J. I. Goldsmith, J. D. Slinker, R. Rohl, R. A. Pascal, G. G. Malliaras and S. Bernhard, Single-Layer Electro luminescent Devices and Photoinduced Hydrogen Production from an Ionic Iridium(III) Complex, *Chem. Mater.*, 2005, 17, 5712-5719.
+
+46. E. Farina, L. Nucci, G. Biggi, F. Del Cima and F. Pietra, Occurrence and driving forces for reductive deiodination of haloaromatics by bulky amines, *Tetrahedron Lett.*, 1974, 15, 3305-3306.
+
+47. Y. G. Budnikova, A. G. Kafiyatullina, Y. M. Kargin and O. G. Sinyashin, Kinetic Regularities of Electrochemical Reduction of Organic Halides under the Action of Cobalt Complexes with 2,2′-Bipyridine, *Russ. J. Gen. Chem.*, 2001, 71, 231-233.
+
+48. R. A. Aycock, H. Wang and N. T. Jui, A mild catalytic system for radical conjugate addition of nitrogen heterocycles, *Chem. Sci.*, 2017, 8, 3121-3125.
+
+49. M. A. Bryden, E. Crovini, T. Comerford, A. Studer and E. Zysman-Colman, Organic Donor–Acceptor Thermally Activated Delayed Fluorescence Photocatalysts in the Photoinduced Dehalogenation of Aryl Halides, *Angew. Chem., Int. Ed.*, 2024, 63, e202405081.
+Liao, Y. Chi, G. Wei and F. Kang, Design strategies of iridium(III) complexes for highly...
+efficient saturated blue phosphorescent OLEDs with improved lifetime, *J. Energy Chem.*, 2024, 6, 100120.

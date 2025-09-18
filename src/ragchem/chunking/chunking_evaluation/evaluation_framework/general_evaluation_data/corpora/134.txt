@@ -1,0 +1,126 @@
+Large Thermo-Optic Blue Shift in a Silicon Micro-ring Resonator using Fe/Co Bistable Molecule
+
+Sujit Kamilya,† Aneesh Dash,‡ Viphretuo Mere,‡ Ashutosh Mohanty,† Shankar Kumar Selvaraja,‡ Akshay Naik‡* and Abhishake Mondal†*
+
+† Solid State and Structural Chemistry Unit, Indian Institute of Science, Sir C. V. Raman Road, Bangalore-560012, India. E-mail: mondal@iisc.ac.in, http://m2ssscu.iisc.ernet.in
+
+‡ Centre for Nano Science and Engineering, Indian Institute of Science, Sir C. V. Raman Road, Bangalore-560012, India. Email: anaik@iisc.ac.in
+
+§ S. K. and A.D. contributed equally to this paper
+
+ABSTRACT
+
+Phase change materials (PCMs) with distinct optical properties at different phases are promising candidates for programmable photonics, optical communication and photonic computing. In this work, we have studied thermo-optic effect in a PCM-based integrated photonic device comprising a film of bistable [Fe$_2$Co$_2$] molecular square complex of Prussian Blue Analogue deposited on an on-chip silicon slot waveguide micro-ring resonator. Herein, we are reporting a large thermo-optic blue-shift of 200 pm/K corresponding to a thermo-optic coefficient of $-0.4$ RIU/K at room temperature, which is an order of magnitude larger than conventional photonic materials. The thermo-optic coefficient can be thermally tuned to zero at the phase-transition temperature of the bistable molecule.
+
+https://doi.org/10.26434/chemrxiv-2025-8l031 ORCID: https://orcid.org/0000-0002-5061-2326 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+INTRODUCTION
+
+Phase change materials (PCMs) exhibiting large changes in the optical properties are of great interest due to their application towards next-generation photonic devices such as optical modulators,\textsuperscript{1,2} smart windows,\textsuperscript{3} optical switches,\textsuperscript{4} optical memories,\textsuperscript{5} and photonic integrated circuits,\textsuperscript{6} etc. Transition metal oxides with metal-insulator transition, chalcogenide alloys with crystalline-amorphous transition, and liquid crystals with order-disorder transition are the most studied examples of PCMs.\textsuperscript{7,8} In this perspective, spin crossover (SCO) systems can be used as a PCM due to their reversible change of spin-state between high-spin (HS) and low-spin (LS) states along with their exciting photophysical properties.\textsuperscript{9-15} For last few decades, a lot of effort towards photonic application has been devoted to the SCO systems accompanied by optical property change arising from spin-state switching.\textsuperscript{1,5,16} In 1998, Kahn et al. developed the first SCO molecule-based optical device for information storage and device application where the data writing and erasing were associated with the change of optical properties (violet (LS) to white (HS)) due to the thermal effect.\textsuperscript{17} However, one of the major disadvantages of SCO molecules is having low absorbance coefficient in the visible and near infra-red (Vis-NIR) region which results in a low signal-to-noise ratio for detection.\textsuperscript{16} Therefore, the optical contrast of the two spin states of SCO systems becomes very important for the nano-photonic and display devices. Optical absorbance change in any system is directly related to its refractive index; therefore, it can be a useful tool to study the phase change in a material and its application toward new technological devices. In contrast, most of the metal-to-metal electron-transfer (MMET) systems show a broad and high intense absorbance-based charge-transfer band. MMET-based bistable materials are also one type of PCMs in which the diamagnetic ground state (Fe\textsuperscript{II}LS-CN-Co\textsuperscript{III}LS) transforms into a paramagnetic metastable state (Fe\textsuperscript{III}LS-CN-Co\textsuperscript{II}HS) associated with distinctly different optical, electrical, and magnetic properties due to the application of external stimuli such as light, temperature, pressure, pH, etc.\textsuperscript{12,18} In 2020, a [Fe\textsubscript{2}Co\textsubscript{2}] molecular square, ([Fe(Tp)(CN)\textsubscript{3}]\textsubscript{2}[Co(L)\textsubscript{2}]\textsubscript{2}(BF\textsubscript{4})\textsubscript{2}·2CH\textsubscript{3}CN·6H\textsubscript{2}O (1) (Tp = hydrotris(pyrazol-1-yl)borate, L = bis(1-ethyl-1H-imidazol-2-
+(yl)ketone) has been reported by us having exciting thermal and optical bistability.\textsuperscript{19} 1 exhibits two-step thermo-induced reversible phase transition with $T_{1/2}(1) = 332$ K and $T_{1/2} (2) = 407$ K along with reversible on/off photo-switching by 808 nm and 532 nm laser light. In this work, we explore the temperature-induced phase transition of 1 and its effect on the refractive index. By integrating 1 with an on-chip silicon photonic resonator, we observe a large thermo-optic resonance blue shift at room temperature that disappears at the phase transition temperature.
+
+\textbf{RESULT AND DISCUSSION}
+
+\textbf{Spectroscopic Studies.} To study the change in optical property with temperature, UV-vis-NIR spectroscopic studies have been carried out for this sample in the visible region of the spectrum at the temperature ranging from 303–413 K. At 303 K, the spectrum exhibits a shoulder at around 420 nm and a broad band centered at around 700 nm (Figure 1, right). This result matches well with the previously reported data.\textsuperscript{19} The 420 nm band is described as the ligand-to-metal charge-transfer (LMCT) transition originating from the $[\text{Fe}^{II}(\text{Tp})(\text{CN})_3]^{2-}$ unit, while the 700 nm band is ascribed as the metal-to-metal charge transfer (MMCT) transition band coming from $\text{Fe}^{II}_{\text{LS}}$ to $\text{Co}^{III}_{\text{LS}}$ center. As expected, the MMCT transition band decreased while increasing the temperature, and a new band at 540 nm started to appear above 343 K (Figure S1). This is due to the conversion of green colored diamagnetic ($\text{Fe}^{II}_{\text{LS}}$-$\text{CN}$-$\text{Co}^{III}_{\text{LS}}$) state into red colored paramagnetic ($\text{Fe}^{II}_{\text{LS}}$-$\text{CN}$-$\text{Co}^{IV}_{\text{HS}}$) state. The 540 nm band is arising due to the metal-to-metal charge transfer transition from $\text{Co}^{IV}_{\text{HS}}$ to $\text{Fe}^{III}_{\text{LS}}$ center which matches well with the literature value.\textsuperscript{19-22}
+Fig. 1 Left: Perspective view of molecular unit of 1. Hydrogen atoms are omitted for clarity (Fe, Orange; Co, purple; C, gray; N, blue; O, red; B, light pink; F, green). Reproduced with permission (add the reference); Right: Temperature-dependent UV-vis-NIR spectra of 1 diluted with KBr in the temperature range of 303-413 K and wavelength range of 400-800 nm while heating.
+
+**Dielectric Properties.** Temperature-dependent dielectric properties were measured with variable frequency to study the effect of the electric field on the switching property of 1. Electrical relaxation in general contributes to the charge carrier movement which in turn appears through switching of the dipolar orientation e.g., electron transfer from the diamagnetic Fe(II) → Co(III) pair and/or paramagnetic Co(II) → Fe(III) pair through the cyanide bridge in this system. Thus, the process of electrical conductivity can be better analyzed by understanding the dielectric property of the system across the phase transition temperatures for 1. The real part of the dielectric constant ($\varepsilon'$) has been shown as a function of temperature ranging from 296 K up to 420 K (sweep rate 1 K min$^{-1}$) at different selected frequencies (Figure 2, left) and the corresponding imaginary ($\varepsilon''$) dielectric behavior is plotted in Figure 2 (right). The dielectric constant increases monotonically as a function of temperature and a characteristic jump (a sudden fall) occurs at 408 K corresponding to the transition temperature (dia to para) as evidenced in the DSC and magnetic measurements (*vide supra*, Figure S2) followed by a slow rise in nature.$^{19}$ Upon decreasing the
+temperature, the transition has not been observed which can possibly happen due to hysteresis in the dielectric response and incomplete recovery of the dielectric relaxation. The monotonic decrease upon lowering the temperature is a signature of the slowing down of dipolar relaxations from paramagnetic to diamagnetic state. The frequency at the peak maximum in the dielectric data corresponds to the relaxation time of the dipolar reorientation which has been manifested as well in susceptibility data as diamagnetic \( \text{Fe}^{II}_{\text{LS}}\text{CN}–\text{Co}^{III}_{\text{LS}} \to \text{paramagnetic} \ \text{Fe}^{III}_{\text{LS}}\text{CN}–\text{Co}^{II}_{\text{HS}} \)
+
+**Fig. 2** Temperature dependence of the real \( (\varepsilon', \text{left}) \) and imaginary \( (\varepsilon'', \text{right}) \) components of dielectric constant of 1 at different frequencies from 0.001 MHz to 10 MHz.
+
+conversion observed at the same temperature *i.e.*, at 408 K in the magnetic transition (*vide supra*). The transition around 332 K seen in the DSC data and magnetic measurements is weakly visible in the dielectric measurement (Figure S3), which could occur if the transition involves isostructural transformation or a low-energy structural transition. The Cole-Cole plot at low temperatures (before the transition) shows two semi-circular behaviors, one complete and another just beginning of the semi-circular nature (Figure S4). This characteristic indicates the dimeric nature of the system, which upon heating gradually converts the diamagnetic \( \text{Fe}^{II}_{\text{LS}}\text{CN}–\text{Co}^{III}_{\text{LS}} \) state into paramagnetic \( \text{Fe}^{III}_{\text{LS}}\text{CN}–\text{Co}^{II}_{\text{HS}} \) state. Above 408 K, the single component Cole-Cole plot (Figure S4, 420 K) is indicative of a fully converted paramagnetic
+system, which relaxes back to the diamagnetic-dipolar state upon lowering the temperature. We have utilized this dielectric bistability in the device based application.
+
+**Thermo-optic effect in an integrated hybrid photonic system.** The temperature-dependent modification in the optical and dielectric properties of 1 indicates a temperature dependent change in refractive index. To study such changes in refractive index, we integrate 1 with a slot waveguide silicon micro-ring resonator (MRR) to develop the hybrid materials; the details of device fabrication can be found in the supplementary information (Figure S5). The silicon slot waveguide has a propagating optical mode as shown in Figure 3. The optical mode has a large volume that interacts with 1 and responds to changes in the refractive index of 1.23 The changes in the optical mode are observed as changes in the refractive Index \( n_{\text{eff}} \).23 The MRR is used to convert the change in \( n_{\text{eff}} \) and \( n_g \) into an observable quantity. The typical Lorentzian resonance spectrum of the MRR, with a dip in the transmitted power at the resonant wavelength \( \lambda_0 \), is given by24
+
+\[
+m \lambda_0 = n_{\text{eff}} L
+\]
+
+where \( m \) is the resonance order and \( L \) is the circumference of the MRR. Since \( \lambda_0 \) depends on \( n_{\text{eff}} \), any change in the refractive index of 1 would produce a spectral shift in the optical resonance due to a change in \( n_{\text{eff}} \). We investigate the spectral shifts using the experimental setup shown in Figure 3.
+
+The super-luminescent light emitting diode (SLED) emits a broadband optical signal of wavelength (\( \lambda \)) centered around 1550 nm into the input optical fiber. The input signal passes through a polarization controller to match the polarization of the signal to the transverse-electric mode supported by the on-chip grating couplers and waveguides.23 The chip contains slot waveguide micro-ring resonators as shown in the scanning-electron micrograph (SEM) in Figure 3. The base heater controls the temperature (T) of the chip.
+**Fig. 3** (a) Schematic of the experimental setup: light from the super-luminescent light emitting diode (SLED) is fed into the waveguide through on-chip grating couplers; the output light is collected by optical fibers and the spectrum is observed in optical spectrum analyzer (OSA). (b) Scanning-electron micrograph of the on-chip slot waveguide MRR: insets show the enlarged image of the slot waveguide with 100 nm air gap and the optical field profile confined in the cladding of the silicon waveguide; the molecules spread all over the MRR are illustrative and not to scale.
+Fig. 4 Normalized transmission spectra of the slot waveguide MRR without 1 and with 1 at different temperatures: the bare slot waveguide MRR does not show any resonance, while the MRR with 1 shows resonance that blue shift upon increasing the temperature with a temperature-invariant point at $T \approx 330$ K.
+The output signal is collected by the optical fiber and fed into the optical spectrum analyzer (OSA) to record the optical transmission spectrum. Figure 4 shows the transmission spectra of a slot waveguide MRR without bistable molecule (1) and with the bistable molecule (1) at different temperature (T). The bare slot waveguide MRR does not show any observable resonance because the rate at which light is coupled into the resonator is significantly larger than the rate at which the resonator loses light by absorption and scattering (known as the over-coupled condition). The MRR with 1 shows three optical resonances in the range of $\lambda = 1555 \text{ nm} - 1570 \text{ nm}$ indicating non-zero optical absorption by 1 around $\lambda = 1550 \text{ nm}$ that takes the MRR out of the over-coupled condition. We observe that the transmission spectrum shifts to shorter wavelengths as T changes from 299 K to 378 K. This blue-shift in the resonance spectrum indicates negative changes in $n_{\text{eff}}$ with T. In contrast, a pure silicon slot waveguide experiences positive changes in $n_{\text{eff}}$ with T due to the positive thermo-optic coefficient (TOC) of silicon. Therefore, this experiment suggests that the $n_{\text{eff}}$ of the optical mode is dominated by the refractive index of 1 and the TOC of 1 is negative. We also observe broadening of the resonance with the rise in temperature, confirmed by the monotonically decreasing quality factor (Q) with T shown in Figure 5a.
+
+![Graph showing variation of Q and $\lambda_0$ with T](image-url)
+
+**Fig. 5** Variation of $Q$ and $\lambda_0$ with T: $Q$ decreases and $\lambda_0$ blue-shifts with increase in T.
+We plot the extracted resonance wavelengths with $T$ in Figure 5b. The separation between the consecutive orders of resonance, known as the free spectral range (FSR), is approximately 5 nm which corresponds to a group index of the optical mode $n_g = 2.56$. We do not observe any significant change in $n_g$ and FSR with temperature ($T$). The blue-shift of the resonances is sharp (large magnitude of $d\lambda_0 / dT$) at $T \leq 320$ K and $T \geq 360$ K with a region of negligible resonance shift at $T = 330$ K. This temperature coincides with the phase transition temperature of $T = 332$ K observed in the DSC and magnetic measurements as reported earlier (Figure S4). Since the refractive index is the square root of the dielectric constant, we believe the zero-shift region in Figure 5b is due to the same phase transition as shown in Figure S1.
+
+**Fig. 6** Thermo-optic coefficients of (a) resonance shift and (b) $n_{\text{eff}}$ at different $T$: large negative TOC observed at $T \leq 320$ K and $T \geq 360$ K; zero TOC at $T \approx 330$ K.
+
+The corresponding variation of $d\lambda_0/dT$ with $T$ is shown in Figure 6a. The values of $d\lambda_0/dT$ at $T \leq 320$ K and $T \geq 360$ K are observed to be $\approx -200$ pm/K, which is an order of magnitude larger than the thermo-optic shifts observed in conventional integrated photonic systems in silicon and silicon nitride platforms (with positive thermo-optic effect) as well as in polymer platforms (with negative thermo-optic effect). Based on eq. (1), we understand that $dn_{\text{eff}}/dT$ has large negative value at $T \leq 320$ K and $T \geq 360$ K and tends to zero around $T \approx 330$ K, which has shown in Figure 6b. The extracted values of $dn_{\text{eff}}/dT \approx -0.4$ RIU/K at room temperature are an order of magnitude larger.
+than the reported $dn_{eff}/dT \approx 0.001-0.01$ RIU/K in conventional integrated photonic platforms.\textsuperscript{27} Since the $n_{eff}$ is dominated by the material 1 in the cladding (evident from the large blue shift opposed to the weaker red shift in bare silicon systems\textsuperscript{27}), we can conclude that $dn/dT \approx dn_{eff}/dT \approx -0.4$ RIU/K at room temperature and $dn/dT \approx dn_{eff}/dT \approx 0$ RIU/K at $T \approx 330$ K.
+
+An accurate estimate of the TOC of 1 (after de-embedding the TOC of the waveguide) requires thorough characterization of the material refractive index at 1550 nm wavelength. The experiments are conducted in ambient (white) light. Since the material is sensitive to light, further experiments conducted in dark conditions can provide an accurate estimate of the TOC of the material.
+
+**CONCLUSION**
+
+The bistable molecular system (1) exhibits temperature-induced phase transition associated with the change of dielectric property and refractive index. The temperature-dependent resonance changes also observed in an integrated optical cavity with 1 embedded in the cladding indicate a high negative TOC of 1 ($-0.4$ RIU/K) at $T \leq 320$ K and TOC $\approx 0$ at $T \approx 330$ K. This experiment demonstrates the strong potential of 1 for designing efficient and high-performance thermo-optic phase-shift hybrid materials in integrated photonic platforms, especially those with low intrinsic TOC, such as silicon nitride. The tunability of the TOC from large negative values to almost zero at $T \approx 330$ K is attractive for reconfigurable photonics\textsuperscript{25,28}, and the zero thermo-optic shift observed at $T \approx 330$ K is attributed to the phase transition in the material and can be useful for thermal invariance in integrated photonic systems and photonic switching applications.
+
+**ASSOCIATED CONTENT**
+
+**Supporting Information.** The Supporting Information is available free of charge on the ACS Publications website at DOI: Experimental sections, device fabrication (PDF).
+AUTHOR INFORMATION
+
+Corresponding Author
+
+*Abhishake Mondal* - Solid State and Structural Chemistry Unit, Indian Institute of Science, Sir C. V. Raman Road, Bangalore-560012, India; orcid.org/0000-0002-5061-2326; Email: mondal@iisc.ac.in.
+
+*Akshay Naik* - Centre for Nano Science and Engineering, Indian Institute of Science, Sir C. V. Raman Road, Banga-lore-560012, India. Email: anaik@iisc.ac.in
+
+Authors
+
+Sujit Kamilya - Solid State and Structural Chemistry Unit, Indian Institute of Science, Sir C. V. Raman Road, Bangalore-560012, India; orcid.org/0000-0003-4881-0638.
+
+Aneesh Dash - Centre for Nano Science and Engineering, Indian Institute of Science, Sir C. V. Raman Road, Banga-lore-560012, India.
+
+Viphretuo Mere - Centre for Nano Science and Engineering, Indian Institute of Science, Sir C. V. Raman Road, Banga-lore-560012, India.
+
+Ashutosh Mohanty - Solid State and Structural Chemistry Unit, Indian Institute of Science, Sir C. V. Raman Road, Bangalore-560012, India.
+
+Shankar Kumar Selvaraja - Centre for Nano Science and Engineering, Indian Institute of Science, Sir C. V. Raman Road, Banga-lore-560012, India.
+
+Author Contributions
+A.M. originated and designed the project and experiments. S.K. synthesized and characterized the material. A.D. conceived of the integrated photonics application and performed the photonics experiments. V.M. designed and fabricated the integrated-photonic devices. A.T.M measured the dielectric properties. All authors participated in data analyses and discussions. S.K., A.D., S.M., A.M., B.D., A.K., and A.M. wrote the manuscript with input from all authors.
+
+Notes
+
+Any additional relevant notes should be placed here.
+
+ACKNOWLEDGMENT
+
+This research work is supported by the Indian Institute of Science (IISc), Bangalore, India and the Department of Science and Technology, Mission on Nano Science and Technology (Nano Mission) (DST, Project No. DST/NM/TUE/QM-10/2019(G)/1), Government of India and the Indo-French Centre for the Promotion of Advanced Research (Centre Franco-Indien pour la Promotion de la Recherche Avancée-CEFIPRA, CSRP Project 70T07-2). S.K. thank IISc for the fellowship.
+
+REFERENCES
+
+1. Zhang, Y. et al. Broadband transparent optical phase change materials for high-performance nonvolatile photonics. Nat. Commun. 10, 4279, doi:10.1038/s41467-019-12196-4 (2019).
+2. Simpson, R. E., Yang, J. K. W. & Hu, J. Are phase change materials ideal for programmable photonics?: opinion. Opt. Mater. Express 12, 2368-2373, doi:10.1364/OME.456895 (2022).
+3. Jeroen, B., Kristiaan, N. & Pieter, J. M. V. Liquid-crystal photonic applications. Optical Engineering 50, 081202, doi:10.1117/1.3565046 (2011).
+4. Calvez, S., Camon, H., Ridier, K., Molnar, G. & Gauthier-Lafaye, O. Broadband high-contrast visible optical switches based on a spin-crossover material. Appl. Opt. 61, 9562-9568, doi:10.1364/AO.473176 (2022).
+5. Wuttig, M., Bhaskaran, H. & Taubner, T. Phase-change materials for non-volatile photonic applications. Nat. Photonics 11, 465-476, doi:10.1038/s41566-017-0016 (2017).
+6. Delaney, M., Zeimpekis, I., Lawson, D., Hewak, D. W. & Muskens, O. L. A New Family of Ultralow Loss Reversible Phase-Change Materials for Photonic Integrated Circuits: Sb2S3 and Sb2Se3. Adv. Funct. Mater. 30, 2002447, doi:https://doi.org/10.1002/adfm.202002447 (2020).
+7. Miller, K. J., Haglund, R. F. & Weiss, S. M. Optical phase change materials in integrated silicon photonic devices: review. Opt. Mater. Express 8, 2415-2429, doi:10.1364/OME.8.002415 (2018).
+8. Gong, Z. et al. Phase change materials in photonic devices. J. Appl. Phys. 129, 030902, doi:10.1063/5.0027868 (2021).
+9. Gütlich, P., Gaspar, A. B. & Garcia, Y. Spin state switching in iron coordination compounds. Beilstein J. Org. Chem. 9, 342-391, doi:10.3762/bjoc.9.39 (2013).
+Senthil Kumar, K. & Ruben, M. Emerging trends in spin crossover (SCO) based functional materials and devices. *Coord. Chem. Rev.* **346**, 176-205, doi:[https://doi.org/10.1016/j.ccr.2017.03.024](https://doi.org/10.1016/j.ccr.2017.03.024) (2017).
+
+Halcrow, M. A. Structure:function relationships in molecular spin-crossover complexes. *Chem. Soc. Rev.* **40**, 4119-4142, doi:10.1039/C1CS15046D (2011).
+
+Sato, O., Tao, J. & Zhang, Y.-Z. Control of Magnetic Properties through External Stimuli. *Angew. Chem. Int. Ed.* **46**, 5049-5049, doi:[https://doi.org/10.1002/anie.200790128](https://doi.org/10.1002/anie.200790128) (2007).
+
+Bousseksou, A., Molnár, G., Salmon, L. & Nicolazzi, W. Molecular spin crossover phenomenon: recent achievements and prospects. *Chem. Soc. Rev.* **40**, 3313-3335, doi:10.1039/C1CS15042A (2011).
+
+Angulo-Cervera, J. E. *et al.* Investigation of the Effect of Spin Crossover on the Static and Dynamic Properties of MEMS Microcantilevers Coated with Nanocomposite Films of [Fe(Htrz)2(trz)](BF4)@P(VDF-TrFE). *Magnetochemistry* **7**, 114, doi:10.3390/magnetochemistry7080114 (2021).
+
+Il'ya, A. G. *et al.* Detection of molecular spin-state changes in ultrathin films by photonic methods. *J. Nanophotonics* **6**, 063517, doi:10.1117/1.JNP.6.063517 (2012).
+
+Bogaerts, W. *et al.* Silicon microring resonators. *Laser & Photonics Reviews* **6**, 47-73, doi:[https://doi.org/10.1002/lpor.201100017](https://doi.org/10.1002/lpor.201100017) (2012).
+
+Dash, A., Mere, V., Selvaraja, S. K. & Naik, A. Independent Reconfigurable Internal Loss and Resonance Shift in an Interferometer-Embedded Optical Cavity. *Phys. Rev. Appl.* **18**, 054032, doi:10.1103/PhysRevApplied.18.054032 (2022).
+
+Mere, V., Kallega, R. & Selvaraja, S. K. Efficient and tunable strip-to-slot fundamental mode coupling. *Opt. Express* **26**, 438-444, doi:10.1364/OE.26.000438 (2018).
+
+Bogaerts, W. *et al.* Programmable photonic circuits. *Nature* **586**, 207-216, doi:10.1038/s41586-020-2764-0 (2020).

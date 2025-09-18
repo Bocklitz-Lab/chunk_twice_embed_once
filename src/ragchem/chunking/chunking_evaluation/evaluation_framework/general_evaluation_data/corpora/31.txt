@@ -1,0 +1,551 @@
+Liquid Crystals: Unlocking the Quantum Revolution in Computing
+
+Katarzyna Matczyszyn1,2* Edward Otieno2,3† and Nelson Mokaya1,2†
+
+1*Institute Of Advanced Materials, Wroclaw University of Science And Technology, Wybrzeże Wyspiańskiego 27, Wrocław, 50-370, Poland. 2Chemistry and Engineering of Materials, Wrocław University of Science And Technology, Wybrzeże Wyspiańskiego 27, Wrocław, 50-370, Poland.
+3Chemistry and Engineering of Materials, Wrocław University of Science and Technology, Wybrzeże Wyspiańskiego 27, Wrocław, 50-370, Poland.
+
+*Corresponding author(s). E-mail(s): otienoedwardotieno82@gmail.com; Contributing authors: katarzyna.matczyszyn@pwr.edu.pl; nelsonmokaya@gmail.com
+†These authors contributed equally to this work.
+
+Abstract
+Quantum computing promises exponential advances in information processing, necessitating the development of appropriate materials for implementing quantum qubits and gates. Liquid crystals, known for their electro-optical characteristics and use in displays, have recently received attention as prospective candidates for quantum computing applications. This review delves into the role of liquid crystals in quantum information science, starting with an overview of their characteristics, classification and phase transition mechanisms. It then directs focus to their quantum attributes, their ability to display quantum coherence and entanglement. The review also showcases validations of quantum phenomena in liquid crystals, highlighting their suitability for use in quantum systems. Recent advances are discussed, including the development of liquid crystal qubits, quantum gates, and circuits. The review also explores the integration of liquid crystals with quantum photonic devices, emphasizing their role in enhancing quantum communication and information processing. Potential room temperature operation applications such as quantum sensing and quantum cryptocurrency are illustrated through case studies. Challenges such as material synthesis, decoherence, stability, and compatibility with existing technologies are addressed, with proposed solutions including hybrid systems and novel fabrication techniques. Future research directions focus on innovative liquid crystal materials, interdisciplinary collaboration, and their use in emerging quantum technologies.
+
+Keywords
+Quantum computing, Liquid crystals, Quantum Coherence, Quantum Photonic device
+
+1. Introduction
+Quantum computing is a game changer in the world of technology, offering the potential to tackle problems that traditional computers struggle with[1]. Unlike computers that rely on bits, quantum computers use qubits that can exist in multiple states simultaneously due to superposition and entanglement principles. This unique capability enables quantum computers to perform calculations more efficiently than classical systems, significantly impacting areas like cryptography, optimization, machine learning, and simulations [2].
+
+Liquid crystals have played a role in shaping technology, especially in the advancement of display technologies. Discovered back in 1888 by the botanist and chemist Friedrich Reinitzer, liquid crystals made an impact with the creation of the liquid crystal display (LCD) by George H. Heilmeier in the 1960s[3]. Since then, these liquid crystals have been pivotal in driving innovations due to their unique properties that combine features of solid crystals and isotropic liquids[4]. Researchers are currently exploring their potential in quantum computing, where their capacity to manipulate light at a quantum level could pave the way for scalable quantum systems[5].
+
+The use of Liquid crystals in quantum computing is motivated by their electro-optical characteristics, which make them well-suited for manipulating photons—an essential aspect in quantum systems. Liquid crystals are
+highly beneficial for their capacity to manage the polarization states of photons, which is a requirement for optical quantum gates to function. These gates carry out operations on qubits, a process in quantum computing. Moreover, liquid crystals have the ability to adjust phases at extremely low levels of photon counts, aiding in preserving the fragile quantum states of qubits with minimal interference and decoherence—significant hurdles faced by current quantum computing technologies [6,7]. Liquid crystals offer another benefit in the realm of quantum computing. Their ability to seamlessly integrate with computing materials and substrates. This seamless integration not only proves cost-effective but also paves the way for the creation of yet powerful quantum computing devices, as evidenced in a range of experimental configurations [7]. The capacity to combine liquid crystals with materials opens up avenues for future commercialization and expansion of quantum computing technology.
+
+1.1 Fundamentals of Liquid Crystals
+
+Liquid crystals are a form of matter that shows characteristics of both crystals and liquids. They have an arrangement akin to solids while retaining the fluidity of liquids. This dual behavior allows them to react to influences like magnetic fields, which can change their molecular orientation and, thereby, affect their optical traits [8]. These qualities are crucial for their use in quantum computing, where accurate manipulation of quantum states is essential.
+
+1.2 Phases of Liquid Crystals
+
+Liquid crystals can be categorized into various phases based on their molecular arrangement and the properties they exhibit. The most common phases of liquid crystals are nematic, smectic, and cholesteric (or chiral), with each phase offering unique advantages for different applications:
+
+| Phases of Liquid Crystal | Orientational Order | Positional Order | Distinctive Properties |
+|-------------------------|---------------------|------------------|------------------------|
+| Nematic                 | Molecules oriented parallel [8]. | No positional order [8]. | High anisotropic (electrical and magnetic) responsiveness allowing for precise control [8]. |
+| Smectic                 | Molecules oriented parallel [8]. | Molecules arranged in layers [8]. | Reinforced stability due to layered molecular arrangement. Structured organization necessary for quantum coherence [9]. |
+| Chiral                  | Helical orientation [8]. | No positional order [8]. | Molecular chirality enabling discriminatory reflection of circularly polarized light [9]. |
+| Blue Phase              | Helical orientation [8]. | Three-dimensional cubic structures [8]. | Exhibit rapid response time to applied electric fields and the ability to form photonic bandgaps, making them ideal for fast and efficient quantum information processing [9]. |
+
+Table (I): Shows different phases of liquid crystals, comparing the orientational and positional order for each phase and outlining the distinctive characteristics of each phase.
+1.3 Physical and Chemical Properties
+
+Liquid crystals are characterized by their anisotropy, which means their properties vary depending on the direction of measurement. This anisotropy arises from the unique rod-like or discotic shape of their molecules and their regular packing in space. The most notable forms of anisotropy in liquid crystals include:
+
+- **Electrical Anisotropy**: This allows liquid crystals to modulate light propagation, which is critical for display technologies and is increasingly important in quantum computing applications.
+- **Optical Anisotropy**: This property influences how light interacts with the material, often resulting in phenomena such as birefringence, which is used in optical switches and modulators.
+- **Magnetic Anisotropy**: Similar to electrical anisotropy, this property affects how liquid crystals respond to magnetic fields, which can also be utilized in quantum computing.
+
+Other significant properties include viscosity and elasticity, which are also direction-dependent, as well as the thermal properties that influence phase transitions.
+
+Liquid crystals' ability to change their optical properties in response to external electric fields is one of their most valuable characteristics for quantum computing. This electro-optical behavior enables the precise control of light's polarization state and phase, which is essential for the operation of quantum gates and other optical components in quantum computers.
+
+Quantum computing explores the quantum properties found in liquid crystals. These materials play a role in manipulating the quantum states of photons acting as qubits. Liquid crystals stand out for their anisotropic qualities and ability to respond to influences, enabling precise functions like preparing, manipulating, and measuring quantum states with exceptional accuracy and minimal energy usage, as extensively discussed in this review.
+
+Throughout this review, we will look at the phases of liquid crystals, focusing on their unique characteristics and possible uses in quantum computing. Specifically, we will examine Twisted Nematic liquid crystals (TN LCs), which have shown great potential in quantum applications, particularly in accurately controlling light phase and polarization within quantum systems. Applying TN LCs in arrangements like the Mach Zehnder interferometer has proven its effectiveness in modulating light using minimal energy. This positions them as contenders for advancing quantum computing technologies.
+
+Moreover, we will discuss other intriguing phases of liquid crystals, such as ferroelectric liquid crystals, particularly the Smectic C* phase, which offers bistability and rapid switching times—key characteristics for qubit stability and coherence. These properties make ferroelectric liquid crystals highly viable for developing quantum gates. Additionally, the emerging class of ferroelectric nematic liquid crystals presents exciting opportunities for enhancing quantum system fault tolerance and coherence times while enabling the efficient generation of entangled photon pairs. These advancements position liquid crystals as pivotal materials in the ongoing development of quantum computing, promising enhanced performance and scalability.
+2. Quantum Coherence and Entanglement in Liquid Crystals
+
+Quantum coherence refers to the phenomenon in a quantum system where particles exhibit wave correlations. In the realm of Liquid crystals, quantum coherence can be observed as the behavior of molecules maintaining phase connections over long distances. This kind of coherence plays a role in the functioning of systems such as quantum computers and sensors, where preserving quantum states without decoherence is essential. Liquid crystal (LC) devices, like twisted TN) LCs, have the ability to manipulate light polarization, phase, and rotation, making them well-suited for optical quantum computing applications. Terazawa and colleagues investigated optical logic operations using TN LCs in a Mach Zehnder interferometer to control quantum light interference. They demonstrated alterations in optical interference states and photon counts at levels [15]. These LC devices facilitate encoding quantum bits (qubits) by modifying the polarization state of light, enabling the superposition of 0 and 1 states for executing quantum logic operations.
+
+Figure (ii): Optical experiment set-up by Terazawa et al., 2024, laser: He-Ne Laser(632.8nm), BS: Beam Splitter, M: Mirror, TN: LC
+
+Studies have showcased how we can control the polarization of light in pathways using TN LCs in setups like Mach Zehnder interferometers [15]. Studies by Terazawa and colleagues demonstrated alterations in optical interference patterns, and photon counts at different levels, highlighting the potential for incorporating LC devices into logic operation elements. In their experiment, a change in interference pattern was observed when voltage was applied to the TN LC cell, resulting in fluctuations in photon numbers under weak lighting conditions. At 1 V, there was no interference due to a 90-degree shift in laser beam polarizations. However, at voltages of 2 V or higher, interference patterns started emerging as the laser beam polarization gradually changed. The study revealed a ring pattern in the interference image, indicating the interference between two laser beams, with fringe patterns shifting as the voltage increased. Photon counting experiments showed a decrease in photon counts and saturation at 0.77 counts at 5 V, underscoring alterations in interference scenarios with changes in voltage [15]. These findings underscore the effectiveness of TN LCs in achieving quantum coherence and controlling optical interference states, setting the stage for advancements in quantum information processing. Harnessing the potential to manipulate quantum coherence and entanglement within crystals shows prospects for advancing cutting-edge quantum technologies.
+
+Quantum entanglement is a phenomenon where particles become entangled in such a way that one particle’s
+state instantly influences another’s state, regardless of distance. This fundamental feature of quantum mechanics has significant consequences for quantum computers, communication, and cryptography. Recent research has delved into how liquid crystals, particularly q-plates, patterned, non-uniform LC, specifically designed liquid crystal cells with patterns to manipulate photons’ quantum properties for various quantum information applications.
+
+These q-plates are essential in producing entangled polarization states and orbital angular momentum of photons, transmitting quantum information between distinct photon characteristics, and enabling quantum cloning of orbital angular momentum-encoded qubits [15]. The coupling is essential for creating entangled states where the polarization and OAM of photons are interdependent. [15] This is demonstrated in several key experiments showcasing the quantum capabilities of q-plates, as discussed below.
+
+2.1 Generation of Entangled States
+
+Q-plates can produce entangled states of polarization and OAM for a single photon. When a photon passes through a q-plate, its polarization state becomes entangled with its OAM. For example, a linearly polarized photon input produces an entangled state as follows:
+
+\[ | \text{H} \rangle \rightarrow \frac{1}{\sqrt{2}} (| \text{R} \rangle + | \text{L} \rangle ) \]
+
+Here, |H\rangle is the horizontal polarization state, |R\rangle and |L\rangle are the right and left circular polarization states, and |±2\rangle denotes the OAM states\[16,17\].
+
+2.2 Quantum information transfer
+
+Q-plates promote quantum information transfer between photon polarization and OAM. This transfer is critical for quantum communication and computation because it permits multiple degrees of freedom of a photon to be used when encoding information. The experiments demonstrated efficient transmission mechanisms with high fidelity\[17\].
+Figure (iv): Pictorial illustration of basic devices for transferring quantum information from polarization to OAM (SAM-OAM) and vice versa (OAM-SAM)
+
+2.3 Hong-Ou-Mandel Coalescence
+
+The Hong Ou Mandel effect showcases the merging of two photons into a mode through interference. It was verified by employing photons with non-zero orbital angular momentum (OAM). This occurrence exemplifies quantum properties. Highlights the effectiveness of q plates in quantum optical studies\(^{(17,18)}\).
+Figure (v): An illustration of the Hong-Ou-Mandel two-photon interference effect in a beam-splitter using OAM-carrying photons. If the input OAM of two photons is equivalent, interference does not occur, as all processes result in separate outputs and no enhancement.
+
+2.4 Quantum Cloning
+
+The q plates were used to enhance the quantum replication of qubits encoded in OAM states. Quantum cloning involves copying information in a quantum state into states, which is crucial for error correction and quantum communication protocols. The experiments demonstrated that when photons traverse these q plates, their polarization states are transformed into OAM states and vice versa, maintaining quantum coherence and entanglement. The effectiveness of these processes was evaluated through photon counting and analysis of interference patterns, which showed accuracy and minimal loss of photons [16].
+
+3. Liquid Crystals as Quantum systems
+
+Recently, there has been a growing interest in using liquid crystals in quantum information technology as single photon sources (SPS) for applications in quantum communication and computing [7,13,15]. Although liquid crystals are not quantum systems in the classic sense, they have unique features that can be used in quantum applications. Below is a look at their potential and current research status:
+
+3.1 Tunable optical properties.
+
+Liquid crystals have tunable optical properties through molecule orientation twists along the sample or by introducing an electric field, allowing for dynamic modulation of the polarization state of photon pairs. The modification of LC molecule orientation offers remarkable tunability of two-photon states, allowing for quantum-state creation with pixel-wise tunable optical characteristics [10,11]. This tunability is critical for creating quantum devices that need precise control over light-matter interactions. The unique molecular twist structure of liquid crystals enables reconfigurable quasi-phase matching, which helps achieve photon pairs’ desired spectral and polarization properties [18]. Ferroelectric nematic liquid crystals (FNLC), known for their responsiveness to influences, are highly valued for their precise adjustment of optical properties in real-time, a crucial aspect for applications in quantum optics [13]. Sultanov and colleagues discovered the phenomenon of SPDC (spontaneous down conversion) in a nematic liquid crystal (FNLC) for the first time, marking a significant milestone in liquid crystal and organic material research [18]. The FNLC exhibited a rate comparable to top nonlinear crystals, showcasing the potential of FNLCs as effective generators of entangled photons.
+The research also found that changing a field influenced how the FNLC molecules were aligned, impacting the polarization of the photon pairs produced. Adjusting the field enabled instant tuning of optical characteristics, as the polarization of photon pairs could be switched between horizontal and vertical orientations. Moreover, the study illustrated the alterations in the polarization state of two photons when influenced by a field. Using polarization tomography, the scientists reconstructed the density matrix of the two-photon states. The study revealed that adjusting the orientation with an applied field made it possible to change the two-photon polarization state from horizontal to vertical or any point in between. One significant finding was the Broadband Photon Pair Spectrum analysis from the photon pairs generated through two-photon fiber spectroscopy. The spectrum showed a mainly even distribution, suggesting that FNLCs could produce photon pairs spanning wavelengths, which could be helpful for tasks requiring precise temporal resolution and complex quantum encoding. The findings indicate that FNLCs hold promise as adjustable quantum light sources. The ability to alter alignment using a field is a valuable method for controlling the characteristics of generated photon pairs, positioning liquid crystals as a promising material for upcoming quantum technology endeavors.
+
+### 3.2 Integration with Quantum Dots.
+
+Studies have shown that when quantum dots (QDs) are paired with Liquid crystals (LCs), they can display distinct quantum characteristics that are beneficial for various purposes, like generating single photons and producing circularly polarized luminescence (CPL)\[^{14,19}\]. This review also explores how liquid crystals and quantum dots are combined, focusing on how this affects quantum systems. Quantum dots are semiconductor crystals with properties such as distinct energy levels and optical characteristics that vary based on their size. When paired with liquid crystals, they form systems that merge the adjustability of LCs with the quantum traits of QDs\[^{19,20}\]. Recent studies discovered that by adding quantum dots to blue phase liquid crystal elastomers (BPLCEs), they were able to create color-changing circularly polarized light (CPL) effects\[^{14}\]. Unlike liquid crystal elastomers (CLCEs), BPLCEs, with their 3D cubic superstructure, exhibit opposing CPL signals independent of photonic bandgaps (PBG). This configuration allows for high luminescence dissymmetry factors (glum), which is ideal for counterfeiting applications. Moreover, liquid crystal polymers have shown responsiveness to stimuli like temperature, pH, and electric fields. By leveraging this responsiveness in quantum systems, researchers can develop materials with valuable characteristics for applications such as information storage and anti-counterfeiting measures. It is also worth noting that producing QD-doped LC films requires photopolymerization and precise control over QD distribution inside the LC matrix. This approach assures uniform dispersion of QDs, which is critical for achieving consistent optical characteristics and high-performance quantum systems. Combining liquid crystals and quantum dots is a potential approach to creating Tunable and responsive quantum systems. These hybrid materials' increased optical characteristics and stimulus-responsive behavior hold great promise for advances in quantum information technology. Future research should focus on improving integration techniques and investigating novel applications in quantum communication, encryption, and optical storage.
+
+### 3.3 Photonic Bandgap Materials
+
+Photonic bandgap (PBG) materials are structures that limit light propagation within a specified range of wavelengths, resulting in a photonic bandgap in which specific frequencies cannot pass through the material. With their distinct optical characteristics and reconfigurability, liquid crystals are increasingly exploited to create these PBG materials. This feature is critical for creating sophisticated photonic circuits and quantum communication systems. In this review, we also looked at Liquid crystals that can be utilized to construct photonic bandgap materials that control the flow of photons. Liquid crystals (LCs) have variable optical characteristics, making them excellent for creating photonic bandgap materials. These materials utilize LCs' anisotropy to develop structures that dynamically control photon flow. LCs' reconfigurability enables real-time tweaking of the photonic bandgap, making them highly adaptable for various quantum system applications\[^{21,22}\]. Photonic circuits are critical in quantum communication systems because they can modify and transfer information via light. Liquid crystals embedded with photonic bandgap materials improve the functionality of these circuits by allowing for dynamic control of photon flow. This dynamic control is critical for applications in quantum information processing and secure communication networks\[^{23}\]. Integrating crystal layers into structures allows for dynamically altering the refractive index through external
+triggers, like electric fields. This capability enables the manipulation of band gaps, which is essential for developing adaptable photonic tools and circuits\[^{21}\].
+
+A recent study on integrating liquid crystals with photonic bandgap materials for quantum systems has yielded promising results. Studies have shown that photonic crystal cavities may effectively couple nano emitters to photonic integrated circuits with excellent quality factors and small mode volumes\[^{21}\]. These advancements open up possibilities for quantum technology by enabling effective interactions between light and matter. By manipulating the polarization and phase of light with LCs integrated into waveguides, we can create electromodulators. These modulators can dynamically adjust states, which is crucial for signal processing within photonic circuits\[^{22}\].
+
+Ensuring data transmission is an aspect of quantum communication. Using LCs in bandgap materials allows for the development of reliable QKD (Quantum key distribution) systems. The dynamic control offered by LCs over photon properties enhances the flexibility and security of QKD systems, making them more resilient to interception or eavesdropping attempts\[^{21,23}\].
+
+Individual photons must be precisely controlled for quantum communication to occur. LCs serve as a medium for fine-tuning photon properties within photonic bandgap structures, supporting efficient photon routing, entanglement distribution, and other key quantum activities\[^{22}\]. While there are advantages, we discovered that incorporating LCs into systems comes with challenges. The extensive and expensive process of developing integrated chips hinders their widespread use. Yet progress in devices where LCs have a crucial role could significantly reduce development expenses, expedite market entry, and enhance sustainability. Future studies ought to focus on improving the stability and response times of LC-based materials and exploring manufacturing methods for seamless integration into quantum systems\[^{21,22}\].
+
+---
+
+4. Experimental Demonstrations of Quantum Behaviors in Liquid Crystals
+
+Recent research has offered compelling evidence for liquid crystals' quantum characteristics, particularly when combined with quantum dots and other nanomaterials. These findings are vital for advancing quantum information technologies like quantum communication and quantum computing. This review delves into some of these experimental demonstrations, which give insights into how liquid crystals exhibit quantum behaviors.
+
+4.1 Quantum Dot Doping in Liquid Crystal:
+
+Recent studies have indicated that incorporating quantum dots into crystals can significantly enhance their dielectric properties. A study by Kocakulah and Köysal (2024) analyzed the effects of doping liquid crystals with quantum dots on bandgap, transmittance, and dielectric constants. The results demonstrated that introducing Indium Phosphide/Zinc Sulfide quantum dots leads to alterations in the dielectric characteristics of liquid crystals, opening up new possibilities for their application in cutting-edge optical systems\[^{23}\].
+
+In a study, Rani, Chakraborty, and Sinha (2021) examined how CdSe/ZnS quantum dots affect ion movement in liquid crystals in quantum systems with detailed features.
+liquid crystals. Their research revealed that the method of doping can change how ions move. This change in ion movement plays a role in the development of quantum devices[25].
+
+4.2 Topological Solitons and Knots:
+
+Topological solitons and knots have been experimentally seen in soft condensed matter systems like liquid crystals and colloids. These structures, which include skyrmions, hopfions, and torons, are stable within the liquid crystal matrix, allowing for precise experimental characterization and manipulation with tools such as laser tweezers and structured light fields. Topological features exhibit behaviors akin to quantum phenomena due to their stability and interactions, making them ideal for exploring quantum field theories in laboratory environments[26].
+
+4.3 Quantum Fluctuations, Nematic Phases:
+
+Experiments on the nematic phases of liquid crystals have revealed quantum fluctuations that affect the order parameters of these systems. These fluctuations are vital for understanding phase transitions and critical phenomena in liquid crystals, which mirror characteristics seen in quantum critical systems. Neutron scattering and sophisticated spectroscopy have been used to investigate these quantum effects, offering insights into the interaction of thermal and quantum fluctuations in influencing the macroscopic features of liquid crystals. [26,27]
+
+4.4 Light-Matter Interaction and Quantum Optics:
+
+The interaction of light, with liquid crystals has opened up avenues for exploring quantum optics effects. The unique properties of liquid crystals, such as birefringence, allow for the creation of light patterns that can be used to explore concepts like quantum entanglement and coherence. Recent studies have successfully demonstrated the generation and control of photons using devices based on liquid crystals. This evidence underscores the role of liquid crystals in applications related to quantum communication and information processing[15,16,21,22,26].
+
+4.5 Quantum Interference and Liquid Crystal Device:
+
+Quantum interference effects have been observed in devices like polarization beam splitters (PBS) and photonic crystal fibers (PCF) using liquid crystals. The unique properties of LCs enhance birefringence, which is crucial for splitting or combining quantum light states. Developing core crystal fibers (PS DC PCF PBS) filled with nematic liquid crystals has led to the creation of extremely short splitting lengths and wide bandwidths, making them beneficial for quantum communication systems[27].
+
+Other experimental demonstrations include the preservation of quantum coherence in a liquid crystal medium and manipulating quantum entanglement. Researchers can manipulate and analyze entangled states by embedding quantum dots or other quantum systems within a liquid crystal matrix, making use of the anisotropic features of LCs. This technique uses liquid crystals' tunability to dynamically modify entanglement properties, resulting in a versatile platform for quantum information processing. Furthermore, the structured structure of liquid crystals determines the coherence of quantum states, allowing for greater control over light propagation and polarization. This management is critical for preserving quantum coherence across more considerable distances than traditional mediums[16,28].
+
+5. Advances in Liquid Crystal-Based Quantum Computing
+
+The field of quantum computing using crystals has seen advancements leveraging the distinctive characteristics of liquid crystals (LCs) to enhance quantum technology. These developments encompass a range of approaches and uses showcasing the role of LCs in quantum computing. This review delves into the progress, paths, and obstacles faced in this area.
+
+5.1 LC-SLMs in Quantum Computing
+
+Liquid crystal spatial light modulators (LC-SLMs) have played an essential role in quantum applications, manipulating multidimensional quantum states and facilitating numerous quantum processes. LC-SLMs have been exploited in innovative experiments such as Bell inequality violations, uncertainty principle testing, and the accomplishment of ultrahigh entangled state characterization with few measurements[28,30].
+
+LC-SLMs have been used in quantum ghost imaging scenarios, where photons are employed to encode and recognize objects showcasing the abilities of SLMs. The progress in Liquid crystal quantum computing has paved the way for physics and cutting-edge applications, including quantum random number generation, secure key exchange, communication enhancement, confidential information sharing, quantum entanglement manipulation, and teleportation within large dimensions of up to 100 x 10^g[25,29].
+We delve deeper into the significance of LC SLM roles in quantum applications in the following sections:
+
+5.1.1 Quantum state manipulation and detection
+
+One critical application for LC-SLMs in quantum computing is the manipulation and detection of high-dimensional quantum states. These states are often based on spatial light modes, enabling more sophisticated quantum processes than ordinary qubit systems. LC-SLMs offer dynamic quantum state tomography, allowing for precise characterization of high-dimensional states. This feature is vital for quantum key distribution, quantum communication, and quantum secret sharing. High-dimensional entanglement boosts security and data throughput[29].
+
+5.1.2 Quantum Imaging and Communication
+
+Liquid Crystal spatial light modulators (LC-SLMs) play a role in quantum imaging applications. They facilitate methods such as quantum ghost imaging, where data is encoded in one photon and detected in another, enabling high-quality imaging under low light conditions[29]. Additionally, LC-SLMs can manage vortex beams used in optical communication setups. These beams, characterized by their angular momentum, introduce enhanced data encoding capabilities that significantly boost the capacity and bandwidth of quantum communication channels[29,30].
+
+5.1.3 Quantum simulation and Many-body physics
+
+LC-SLMs play an essential role in optical trapping and atom manipulation, both of which are necessary to develop scalable quantum systems. They enable the design and reconfiguration of holographic micro-traps, resulting in high success rates in single-atom transport and rearrangement. This feature is critical for quantum simulation and the study of quantum many-body physics. It provides a diverse platform for probing complex quantum phenomena[29].
+
+5.2 Topological Defects as Quantum Qubits
+
+One of the most innovative advancements in liquid crystal-based quantum computing is using topological defects as analogues for quantum qubits [31]. Topological defects in liquid crystals can serve as stable, manipulable points that mimic the behavior of quantum bits (qubits). These defects can be engineered and controlled with high precision, making them suitable candidates for robust qubit analogues in quantum computing applications[32,33].
+
+6. Future Directions and Challenges
+
+While the progress in LC-based quantum computing is promising, there are challenges and opportunities that need to be considered.
+
+6.1 Scalability:
+
+Creating systems that efficiently manage several qubits or n bits poses an obstacle. Consequently, a greater challenge lies in advancing LC-SLM arrays and improving the accuracy and reliability of manipulating defects[5,34].
+
+6.2 Integration with Existing Technology:
+
+Integrating LC-based quantum components into current quantum computer frameworks and communication networks is critical for practical use. This includes guaranteeing compatibility with existing quantum error-correcting and communication methods[19,33].
+
+6.3 Experimental validation
+
+Theoretical models show promise, but it’s crucial to validate them through experiments. This involves developing versions of LC-SLMs and topological defect qubits and evaluating their performance in actual quantum computing applications[31]. Advances in liquid crystal-based quantum computing illustrate the potential of LCs to improve quantum technologies. Researchers are opening the path for new quantum computing applications by using LC-SLMs for...
+high-dimensional quantum state manipulation and topological defects as qubit analogs. Addressing scalability, integration, and experimental validation difficulties will be crucial to exploring this exciting field fully[29].
+
+7. Liquid Crystals Qubits - Design and Implementation
+
+Liquid crystal qubits present benefits in quantum computing systems compared to other types of qubits. By utilizing the adaptability and adjustability of crystals, it becomes possible to accurately control quantum states and perform intricate quantum computations. Additionally, liquid crystal qubits have the potential to offer a cost-efficient solution for quantum computing since these materials can be easily incorporated into semiconductor fabrication methods[7,36].
+
+Recent research has highlighted the viability of liquid crystal qubits. Researchers have explored using liquid crystal materials to encode and manipulate quantum information, utilizing their unique properties to achieve coherent control and efficient readout of quantum states[37]. Furthermore, researchers have explored incorporating liquid crystal qubits into superconducting networks, showcasing the possibilities for integrating quantum technology on a scale[38].
+
+Liquid crystal (LC) devices have shown promise for quantum computing applications, such as linear optical quantum computing. These devices are specifically designed to effectively regulate the polarization of laser light, which is essential for quantum information processing. LC devices feature four distinct operating points to control photon polarization, making them suitable for quantum computing[7].
+
+The LC material LIXON5049XX, along with the chiral agent C 15, offers stability, allowing for the control of tuning properties in LC devices. Building LC devices with accurate and consistent cell thickness is crucial to maintain performance in quantum computing applications[7].
+
+To ensure optimal conditions for quantum operations, voltage-transmittance characteristics are measured to evaluate the qualities of LC cells. LC devices boast simpler structures and lower operating voltages than other optical devices, making them appealing for quantum computing applications. The successful implementation of LC devices in several optical quantum studies highlights their adaptability and potential for quantum information processing[7,39].
+
+8. Advantages of Liquid Crystals Qubits
+
+Liquid crystal qubits offer a benefit in their material characteristics that enable precise manipulation of quantum states. By customizing crystals to possess electro-optical properties, they become well suited for quantum information processing. The adaptable nature of crystal materials allows for adjustment of qubit configurations, enhancing the control and accuracy in reading quantum states. Moreover, integrating crystal qubits with semiconductor technology presents a scalable and budget-friendly approach to advancing large-scale quantum computing[37,38].
+
+One of the obstacles in expanding quantum computing systems is effective integration and the direct direction of a significant number of qubits[37]. Superconducting routing platforms have arisen as an answer, enabling the merging of quantum technologies, such as liquid crystal qubits, in a cryogenic setting[37]. By combining these routing platforms with packaging and control systems, scientists aspire to create quantum computers that can address intricate computational challenges[39].
+
+9. Quantum Gates and Circuits Using Liquid Crystals
+
+Recent developments in liquid crystal (LC) technology have opened up possibilities for quantum computing, especially in the realm of building quantum gates and circuits. Liquid crystals, renowned for their electro-optical characteristics, have been investigated for their potential to store qubits and facilitate quantum operations. This review delves into studies exploring the application of Liquid crystals in quantum gates and circuits, emphasizing technological discoveries and advancements.
+
+10. Nematic liquid crystals for Quantum Computing
+
+Nematic liquid crystals (NLCs), known for their rod-like molecular structure and capacity to create topological defects, have shown promise in quantum computing. These defects can be accurately altered using external electric fields, allowing for developing and controlling nematic bits (nqubits) that work similarly to classical and quantum bits. Kos and Dunkel (2022) established the notion of nqubits by mapping LC defects onto the Poincaré-Bloch sphere, illustrating how single nqubit operations similar to Pauli and Hadamard gates can be accomplished using electric fields[31].
+11. Implementation of Quantum Circuit and Gates
+
+The capacity to manipulate LC (liquid crystals) defects with electric fields enables the creation of fundamental quantum gates. Manipulating the direction of the nematic director field allows for single-qubit gates such as the Pauli-X, Pauli-Y, and Hadamard gates. Furthermore, multi-nbit designs have been demonstrated to implement universal classical logic gates such as NOR and NAND, as well as more complicated continuous logic functions\[31\].
+
+Kos and Dunkel’s research demonstrated that nbit states can be manipulated along paths on the Poincaré Bloch sphere using electric field techniques. This capability is crucial for developing quantum circuits that demand the management of qubit states and their interactions.
+
+Various forms of quantum gates have been created with crystals by leveraging their birefringence. These gates consist of the Pauli X, Y, and Z gates for quantum computing. To achieve the targeted phase adjustment or polarization modification, LC molecules are typically aligned in a manner\[31\].
+
+One prominent example is the tristate Pauli gate, which employs liquid crystals to encode information in three states rather than the typical two. This boosted encoding is accomplished via wavelength encoding techniques, in which the states of the signals are determined by their wavelength. This method overcomes the constraints of phase encoding, which is susceptible to disturbances that might alter the phase and, hence, the information\[40\].
+
+Finite Difference Time Domain (FDTD) methods are commonly employed to replicate circuit performance. Through simulations, it is demonstrated that these circuits can handle signals concurrently with loss and rapid response times. As an illustration, the integrated tristate Pauli Y gate circuit is designed to execute four operations representing the gate matrices Y1, Y2, Y3, and Y4. Each output exhibits phase shifts as necessitated by quantum algorithms\[40\].
+
+Incorporating quantum gates into circuits is crucial to building quantum computing systems. Scientists have managed to design and model circuits that utilize state Pauli X, Y, and Z gates made from liquid crystal. These circuits are built using two crystals, offering a streamlined and effective medium for transmitting signals\[39,41\].
+
+Finite Difference Time Domain (FDTD) methods are frequently employed to replicate circuit functioning. The simulations indicate that these circuits can handle signals simultaneously with loss and quick response times. For instance, the integrated tristate Pauli Y gate circuit is structured to execute four operations linked to the gate matrices Y1, Y2, Y3, and Y4. Each output showcases a unique phase shift in line with the needs of quantum algorithms\[39-41\].
+
+11. Challenges and Future Directions
+
+Despite the discoveries, there are still challenges when it comes to actually implementing LC-based quantum gates and circuits. It is crucial to maintain the stability and coherence of nbits over time, prevent decoherence effects, and seamlessly integrate LC-based qubits with quantum computing systems. Progress in material research in creating customized electrical properties for LCs will play a key role in overcoming these hurdles\[31,37,42\].
+
+Future studies should focus on enhancing the manufacturing processes for LC devices, refining the accuracy of electric field applications, and assessing the scalability of LC quantum systems. Collaboration between experimental physicists will be essential in translating concepts into real-world quantum computing applications\[42,43\].
+
+12. Liquid Crystals in Quantum Communications and Cryptography
+
+Quantum communication uses quantum mechanics concepts to provide safe data flow, including superposition and entanglement. Because of their capacity to dynamically adjust the polarization and phase of light, LCs (liquid crystals) are very useful in this application. For example, using LCs in quantum key distribution (QKD) systems can improve the security and efficiency of encryption processes\[23,28,44,45\].
+
+Numerous research studies have highlighted a development: creating microlasers that can adjust their wavelengths using liquid crystals. These microlasers leverage the pitch modulation of liquid crystals to precisely control their laser output. This adjustability ensures secure quantum communication channels, where maintaining the confidentiality and integrity of transmitted data is paramount\[46\]. Changing the lasing wavelength through the transformation of chiral dopants in liquid crystals makes it possible to implement highly secure communication protocols that can be tuned using light. Cryptography aims to protect data from access through encryption techniques. Liquid crystals, known for their ability to generate emissions and respond flexibly to stimuli, provide an excellent foundation for building cryptographic tools\[46\].
+
+This feature enables the encoding of data using the wavelengths of LC microlasers, providing a technique for secure data encryption and validation. Our review also delved into the study of LCRls (Liquid crystal random
+lasers) in lasers, demonstrating promise in enhancing quantum communication systems with better security and anti-counterfeiting measures.
+
+Liquid crystal random lasers, also known as LCRLs, exhibit characteristics that make them appealing for quantum communication and cryptography applications. These lasers can generate beams suitable for cryptographic purposes, serving as fundamental elements for ensuring secure communication, as evidenced by some studies\cite{46, 47}. The ability to flexibly incorporate dopants into LC materials and their photonic crystal structure render them highly effective for encrypting quantum communications\cite{47}.
+
+The ability to adjust the lasing wavelength of LCRLs can be used to encrypt and verify data in quantum communication. Each specific wavelength corresponds to a code that ensures data transfer. The unique crystal properties of LCs, such as birefringence, Bragg reflection, and diffraction, offer advantages for advancing communication technologies in quantum cryptography\cite{46}.
+
+Liquid crystals have proven to be an asset in enhancing quantum communication and cryptography. Their distinctive optical characteristics and adaptability make them ideal for boosting the security and effectiveness of quantum information systems. Ongoing exploration and innovation in this field will lead to advancements and applications in the future.
+
+13. Advantages of using Liquid Crystals in Quantum Computing
+
+As quantum computing continues to push the boundaries of traditional computational models, researchers have increasingly resorted to liquid crystals' unique features to overcome the inherent hurdles of the quantum realm. In this review, we will look at the key benefits of using liquid crystals in designing and optimizing quantum computing systems.
+
+Quantum computing has garnered interest due to its capacity to tackle problems beyond the reach of conventional computers\cite{41}. Yet the real-world deployment of quantum computing systems faces hurdles like the nature of quantum states and the challenges of ensuring quantum control\cite{41, 48}. With their different molecular structures and sensitive activity, liquid crystals present a possible answer to these problems\cite{20}.
+
+One of the fundamental benefits of employing liquid crystals in quantum computing is their ability to preserve and modify quantum states better than standard materials. Liquid crystals have unique qualities such as spontaneous organization, self-assembly, and sensitivity to external stimuli, which can be used to build stable and controllable quantum systems\cite{48}.
+
+LCs (Liquid crystals) can have resilient topological defect structures resistant to external perturbations. These flaws, which may be precisely manipulated and controlled, are reliable carriers of quantum information. LCs' resistance against disturbances makes them a good alternative for stable quantum computing activities, decreasing the error rates often associated with quantum state decoherence\cite{31}.
+
+Another key advantage of liquid crystal-based quantum computing is its ability to seamlessly integrate with conventional semiconductor production processes. LCs are already widely employed in the electronics sector, particularly for display technology. This current infrastructure can be exploited to construct scalable and cost-effective quantum computing systems, simplifying uptake and implementation\cite{37}.
+
+Liquid crystals' inherent flexibility and tunability make them ideal for quantum computing applications. External stimuli like electric and magnetic fields can accurately control LCs, allowing for precision manipulation of their alignment and, as a result, the quantum states they encode\cite{7, 31}. This exact control is necessary for the coherent manipulation and readout of quantum information, which allows the construction of complicated quantum algorithms\cite{41}.
+
+LCs are versatile materials that can be applied in various quantum information processing applications. For example, they can be used in linear optical quantum computing to manipulate quantum states by controlling light polarization. This adaptability extends to the possible construction of new types of quantum logic gates and circuits, increasing the breadth of quantum computing designs\cite{14, 18, 49}.
+
+LC devices typically operate at lower voltages than other quantum computing technologies. This low power consumption not only makes them more energy efficient but also minimizes thermal noise, which can interfere with quantum coherence. As a result, LCs can help make quantum computing systems more stable and efficient\cite{31}.
+
+Moreover, the ability to accurately control crystals on a scale sets the stage for the advancement of highly scalable quantum computing technology. Using electrodes and various control methods makes it possible to create arrays of liquid crystal qubits that can function individually or in coordination. This scalability is essential for the creation of robust quantum computers that can tackle challenges beyond what traditional systems can handle\cite{36, 37}.
+
+Liquid crystals show potential for advancing the development of quantum computing technology. With their characteristics and compatibility with existing technology, they stand out as contenders for creating scalable, effective, and reliable systems for quantum information processing.
+14. Tunability and Control Through External Fields
+
+Liquid crystals (LCs) are versatile soft condensed matter distinguished by their fluidity and orientational order of rod-shaped organic molecules[49]. This distinguishing feature has established LCs as potential materials in the field of quantum computing, where tunability and control via external fields are critical[39,46]. The precise adjustment of liquid crystals (LCs) in areas allows for creating intricate and custom architectures for quantum computing components[50]. The natural optical characteristics of LCs make it possible to generate optical phase patterns by controlling the orientation of molecules. This unique feature enables the production of devices with conversion efficiencies exceeding 90%, surpassing those made from solid dielectric materials. The molecular arrangement of LCs is both programmable and editable, providing the capability to dynamically control light with a range of possibilities, which is essential for quantum information processing[39]. Liquid crystals can create structures that react to various environmental cues, such as electric and magnetic fields, temperature variations, and light exposure. These structures enable the adjustment of properties and manipulation of quantum states essential for applications in quantum computing. Due to their modulation of efficient performance, liquid crystals serve as a promising platform for designing quantum gates and circuits that demand swift and precise control over quantum states[51].
+
+The current study into LC-based soft-matter photonics highlights these materials' potential for developing quantum computer capabilities[34]. As programmable alignment techniques and LC superstructures become more advanced, we should expect major advancements in quantum information control and manipulation. This advancement is projected to generate more compact, efficient, and adaptable quantum computing devices capable of meeting the demands of next-generation information technology[20]. In essence, the adjustability and manipulation offered by liquid crystal-based tools using forces offer a promising path for advancing cutting-edge quantum computing technologies. The unique characteristics of LCs not only enhance the effectiveness and operation of elements but also offer a flexible and lively stage for processing quantum information.
+
+15. Scalability and Integration with Existing Technologies
+
+We also examined how liquid crystal-based quantum computing (LC-QC) devices can be integrated and scaled presenting both opportunities and challenges. Photonic quantum technologies, those utilizing liquid crystals can leverage advancements in classical photonic integration to tackle these issues.
+
+16. Scalability
+
+Scalability remains a significant difficulty in quantum computing, owing to the necessity for precise control over quantum states and minimizing losses during quantum operations. Because of their inherent electro-optic qualities, liquid crystals (LCs) offer a viable path to scalability, allowing for dynamic reconfiguration of optical channels and states within integrated circuits. However, attaining low-loss integration and maintaining coherence across large-scale systems present significant challenges. Addressing these difficulties would require material science and fabrication breakthroughs to reduce flaws and photon losses when several components are connected[30,36,51].
+
+17. Integration with Existing Technologies
+
+The fusion of liquid crystal technology with optical platforms offers a promising approach that taps into the established infrastructure and knowledge of photonics integration. This innovative method harnesses the properties of liquid crystals, like adjustable refractive index and birefringence, to enhance the performance of integrated photonic circuits (IPCs). Advancing diverse integration methods, such as applying liquid crystals onto silicon photonics platforms, is essential for building effective and expandable quantum photonic integrated circuits[21,30,51,52].
+
+18. Challenges and Solutions
+
+18.1 Photon Losses: Reduced photon losses are crucial for scalable quantum computing. Each interaction between components offers possible sources of loss, which is terrible for quantum applications. Innovative design strategies and high-precision fabrication are necessary to eliminate these losses and enable dependable quantum operations throughout integrated systems[30,50,51].
+18.2 Material Compatibility: Liquid Crystal's ability to work well with existing materials is important for seamless integration. Utilizing integration methods like pairing liquid crystals with silicon nitride (SiN) or other suitable substrates can enhance the efficiency of quantum devices while still allowing for design flexibility and easy integration
+
+18.3 Infrastructure and Ecosystem: Establishing an ecosystem for liquid crystal-based quantum technologies requires leveraging current photonic integration expertise and knowledge. Fostering partnerships among academia, industry, and government entities to drive research efforts, establish integration procedures, and expand the production of LC QC systems is essential. Liquid crystal-based quantum computing has great potential for scalability and integration into existing photonic systems. Liquid crystals can help advance quantum photonic technology by overcoming issues such as photon losses, material compatibility, and infrastructure development. Continued collaboration and investment in this research will be required to realize the full potential of LC-QC devices and integrate them into practical quantum computing applications.
+
+19. Potential for Room-Temperature Quantum Operations Using Liquid Crystal-Based Quantum Computing
+
+Quantum computing has been the focus of much research, and several systems are being investigated as potential platforms for scalable and fault-tolerant quantum information processing. One interesting approach is the use of trapped ions, which have shown outstanding control and coherence, as well as the ability to grow into more extensive systems. Nevertheless, achieving low temperatures has been a significant hurdle in the advancement of practical quantum computing. The demand for cooling systems adds layers of intricacy and expense, limiting the reach and expansion potential of these technologies. In response, scientists have explored approaches, like leveraging liquid crystals capable of executing quantum functions at ambient room temperatures. Liquid crystals are a unique class of materials with characteristics that fall somewhere between solids and liquids. Their unique qualities, such as their capacity to maintain long-range order and coherence at ambient temperature, make them an appealing choice for quantum computing. Recent research has shown that liquid crystals can store and control quantum information, bringing up new possibilities for the creation of practical quantum computers.
+
+Using crystals for quantum computing offers a benefit in attaining high performance at room temperature. In contrast to trapped ion setups that need cooling, quantum computers based on crystals can operate at regular room temperatures, reducing system complexity and cost. This review also delves into liquid crystals that can act as robust single-photon sources. Specifically, cholesteric liquid crystals doped with dye molecules like terylene have shown promise for room-temperature quantum processes. These systems take advantage of the photonic band-gap features of cholesteric liquid crystals, which can improve the emission properties of the dye molecules, resulting in more efficient single-photon generation.
+
+These sources that emit photons are currently being worked on to make them efficient, lasting, and pure in polarization. The improvements focus on selecting dye molecules and liquid crystal materials as well as refining photonic band gap structures to match the fluorescence bands of the dyes. For instance, positioning dye molecules to boost excitation efficiency and adjusting the band gap microcavities have been identified as methods for enhancing performance. Moreover, attention has shifted to quantum crystals, which represent a state of matter where electrons act like molecules in liquid crystals—they flow freely but maintain a preferred direction. This property is beneficial for quantum computing as it helps maintain quantum coherence and enables the flow of quantum information at room temperature. The discovery of quantum crystals holds promise for ultrafast quantum computers.
+
+Liquid crystals can also be utilized in cavity systems that operate within the realm of quantum mechanics at room temperature. These systems manipulate quantum states by interacting oscillators with cavities. Combining quality oscillators made from materials like silicon nitride with liquid crystals can achieve low thermal noise and high thermal conductance—both crucial for controlling quantum effects and minimizing photothermal impacts.
+The successful advancement of room-temperature quantum processes using liquid crystal-based systems could open doors to widespread and workable quantum computing technology. Ongoing studies in this field aim to enhance our understanding of processes at elevated temperatures and investigate quantum phenomena, potentially leading to significant progress in quantum science and technology. Researchers are moving towards creating effective room-temperature quantum systems by leveraging the characteristics of liquid crystals and innovative optomechanical designs. This development holds promise for the future of quantum computing, making it more accessible and adaptable across technological domains.
+
+20. Case Studies and Applications of Liquid Crystals in Room-Temperature Quantum Computing
+
+In this review, we examined some case studies and applications that demonstrate the promise of liquid crystals in room-temperature quantum computing. The quest for practical and scalable quantum computing has prompted extensive study on materials and systems that can work at ambient temperature. Liquid crystals (LCs), with their unique electro-optical capabilities, have emerged as attractive prospects in this field[37,42].
+
+20.1 Photonic Band-Gap Materials with Liquid Crystals
+
+Scientists at the University of Central Florida have developed band gap materials by combining quantum dots with liquid crystal hosts. These materials are capable of producing photons at room temperature, a critical factor for quantum communication and cryptography purposes. The unique properties of cholesteric liquid crystals enhance the emission efficiency of incorporated quantum dots, enabling the use of single photon emitters[59]
+
+20.2 Nematic Quantum Hall Liquid
+
+Nematic Quantum Hall Liquid (NQHL) is a phase of matter where quantum fluids display properties in different directions. These states hold promise in the field of quantum computing due to their ability to maintain coherence at room temperature and showcase novel electrical characteristics. This section delves into case studies and applications of NQHLs within quantum computing[60].
+
+Scientists discovered nematic quantum Hall states on the surface of bismuth (Bi(111)). This research revealed that electronic states on bismuth's surface exhibit order under magnetic fields, leading to the breaking of rotational symmetry. Utilizing scanning tunneling microscopy, this study demonstrated the capacity of NQHLs to preserve quantum states, which is crucial for advancements in quantum computing[60].
+
+Another notable work looked into the production of nematic quantum Hall fluids, which lack the usual stripe patterns found in some quantum Hall systems. This study revealed that nematic order might be created by electrical interactions in specific quantum Hall regimes, thereby providing a new method for manipulating quantum states without the requirement for elaborately patterned substrates,[59–61]
+
+21. Applications
+
+21.1 Development of Robust Qubits
+
+Qubits, also known as quantum bits, are the fundamental units of quantum information. Similar to bits in classical computing, qubits can exist in superpositions of states. Qubits' resilience refers to their capacity to retain coherence and prevent decoherence for lengthy durations[31]. Because of their quantum coherence, these quantum liquid crystals become excellent candidates for generating resilient qubits[13,51]. These qubits are crucial for creating scalable quantum computers operating efficiently without cryogenic cooling[53].
+
+The development of qubits is crucial for the advancement of quantum computing. As discussed earlier in this review, advancements in crystal-based technologies and other materials are opening doors to achieving quantum coherence at room temperature and enabling quantum applications[53,62]. Ongoing studies in this area offer hope for overcoming limitations and making quantum computing more accessible for use[62–64].
+
+21.2 Quantum Information Processing
+
+Liquid crystals can be used in cavity optomechanical systems, where they interact with- mechanical oscillators and optical cavities to regulate quantum states. These interactions are possible at average temperatures, reducing the complexity and cost of typical quantum computing systems that require cryogenic conditions[51,62,65]. This application is especially useful for constructing scalable quantum information processing systems.
+21.3 Quantum Sensing
+
+Quantum sensing involves applying the principles of quantum mechanics to leverage quantum states and entanglement for sensitive measurements. Liquid crystals, renowned for their electro characteristics, show great promise in quantum sensing applications, particularly under normal room conditions. Their distinctive features make them ideal for quantum sensors that find utility in fields like healthcare diagnostics, environmental surveillance, and industrial control systems demanding pinpoint accuracy \[65,66\].
+
+21.4 Quantum Communications and Cryptocurrency
+
+Earlier we discussed liquid crystals that could contain dye molecules and quantum dots that serve as single photon emitters. These emitters play a role, in ensuring secure quantum communication channels and cryptography by enabling information transfer through quantum mechanics principles. By incorporating these emitters into structures made of crystals their performance and reliability are enhanced even at room temperature\[23,67\].
+
+Integrating liquid crystals into quantum computing systems operating at room temperature offers advantages, including effective photon control, strong quantum coherence, and simplified experimental processes. The practical examples and uses outlined in this context demonstrate the impact that liquid crystals can have on advancing quantum computing and related fields. Ongoing exploration and advancements in this area are expected to enhance the accessibility and scalability of quantum technology\[14,37,67\].
+
+Figure (vi): Case Studies and Applications of Liquid Crystals in Room-Temperature Quantum Computing
+
+22. Technical Challenges in Material Synthesis and Device Fabrication for Liquid Crystal-based Quantum Computing
+
+The development of liquid crystal-based quantum computing systems faces several technological obstacles in material synthesis and fabrication. First, the physical aspect involved in these systems proves to be a tough technological nut to crack and would require a deep insight into quantum mechanics and materials science to completely explain. Significant progress has been made in several physical implementations of quantum computing, but a true breakthrough has yet to be realized in any one approach.
+
+Designing a system that can effectively shield itself from influences while remaining manageable for executing logical quantum operations and facilitating measurements poses a major hurdle\[35,68\]. Quantum computing requires storing quantum information in a set of two-level systems, processing this information using quantum
+gates, and a means of final readout. Technologies based on quantum optical and solid-state systems are among the most advanced candidates. However, accurate quantum control of the coherent evolution is necessary to implement gate operations while avoiding decoherence[69].
+
+The strict standards require the development of materials and tools used in crystal-based quantum computing. Advancements in superconducting materials, van der Waals materials, and moiré quantum matter offer hope for various quantum technologies, including quantum computing[34]. Combining crystals with materials employed in quantum computing systems poses challenges[70]. This involves ensuring compatibility to avoid disruptions in the characteristics of liquid crystals. Establishing an interface between liquid crystals and substrates, like silicon or graphene, requires innovative manufacturing techniques and thorough material analysis[51,70].
+
+Another challenge is preserving the uniformity of liquid crystal phases under changing external circumstances, such as temperature and pressure. The purity of the starting ingredients and the presence of contaminants can significantly affect the performance and dependability of the liquid crystals, complicating the synthesis process[51].
+
+On the other side, fabricating devices that use liquid crystals for quantum computing involves numerous technical challenges. One major challenge is the perfect alignment of liquid crystal molecules, which is critical for peak device performance. Traditional approaches, such as rubbing or photo alignment, have limitations in scalability and homogeneity, often resulting in flaws that might reduce device efficiency[28,69,71,72].
+
+Furthermore, integrating liquid crystal materials into current quantum computing architecture, such as superconducting qubits or photonic circuits, necessitates sophisticated fabrication procedures. It is challenging to ensure the stability of liquid crystals within these devices, mainly when operating under low temperatures and electromagnetic fields[34].
+
+The fabrication process must, additionally, include liquid crystal encapsulation to prevent contamination and degradation over time. This encapsulation entails creating strong encapsulation materials and processes that do not interfere with the liquid crystal's optical and electrical capabilities[71].
+
+Scaling up the fabrication process for mass production while maintaining device quality and performance remains a significant challenge. Each stage of the fabrication process, from material deposition to patterning and assembly, must be precisely optimized to achieve reproducibility and high yield[34,71].
+
+To tackle these challenges, researchers need to collaborate across fields such as materials science, chemistry, physics, and engineering. Progress in nanofabrication techniques, comprehension of liquid crystal behaviors at a quantum scale, and creative synthesis approaches will play key roles in surmounting these obstacles. The ongoing drive for innovation and teamwork across disciplines is anticipated to speed up the advancement of quantum computing technology based on crystals.
+
+23. The Future Outlook of Liquid Crystal-Based Quantum Computing
+
+Quantum computing has emerged as a transformational technology with the potential to alter industries ranging from data encryption to drug development. Exploring liquid crystal-based systems, which can potentially improve the scalability and performance of quantum devices, is a promising field of quantum computing research[28,42,73].
+
+Liquid crystals, possessing characteristics between those of liquids and solids, exhibit electrical traits that render them attractive for applications in quantum computing. These substances can be engineered to accommodate quantum systems like qubits, which can be influenced and regulated by forces enabling the development of scalable structures for quantum computers[10,11,31].
+
+The development of liquid crystal-based quantum computing systems has received significant attention from the research community. Advances in quantum gate operations, error correction, and integration with classical computing infrastructure have resulted in the birth of new paradigms for quantum computing, which have the potential to overcome the limits of classic solid-state or optical qubit systems[39,66,69].
+
+In this review, we look forward to a bright future fueled by several significant factors and continuing research endeavors:-
+
+23.1 Enhanced Quantum Coherence and Entanglement
+
+Liquid crystals possess characteristics that support the maintenance of quantum coherence and facilitate quantum entanglement. Studies have demonstrated that LCs can alter the polarization of light, showcasing their promise in quantum computing operations and information processing[56]. Reliable quantum computing systems require precise control over photon interference states and photon counts
+23.2 Integration with Quantum Dots and Photonic Bandgap Materials
+
+Recent advances in integrating quantum dots (QDs) with liquid crystals have created new opportunities for constructing programmable and responsive quantum systems. Studies have found that hybrid systems combining LCs and QDs can exhibit unique quantum features, such as circularly polarized luminescence, which are useful for quantum communication and computing\textsuperscript{[14,19]}. The tunable optical features of LCs, paired with QDs' discrete energy levels, allow the development of sophisticated quantum devices with high precision and efficiency\textsuperscript{[62]}.
+
+23.3 Applications in Quantum Communication and Photonic Circuits
+
+LCs (liquid crystals) have a role in bandgap (PBG) materials. These materials enable the manipulation of photon flow, proving essential for cutting-edge circuits and quantum communication systems. The ability to modify bandgaps in time, thanks to the reconfigurability of LCs, enhances their suitability for a range of quantum applications. Studies have demonstrated that PBG materials based on LCs can effectively link nano emitters to circuits, opening up possibilities for effective interactions between light and matter in quantum technologies\textsuperscript{[21,27,62]}.
+
+24. Technical Challenges and Future Research Directions
+
+Despite the positive outlook, several technological challenges remain. Integrating LCs into photonic systems involves complex and costly development techniques. Future research should concentrate on improving the stability and reaction times of LC-based photonic materials and developing novel fabrication techniques for better integration into quantum systems. Meeting these challenges, as well as those related to material synthesis and fabrication, will be important for the widespread adoption of LC-based quantum technologies.
+
+25. Conclusion
+
+Quantum computing using liquid crystals shows promise for advancing practical and scalable quantum technology. Harnessing the features of liquid crystals like their tunability, scalability and ability to function at room temperature alongside quantum computing systems it brings about numerous advantages and paves the way, for innovative developments.
+
+The review focuses on experimental demonstrations of quantum behaviors in liquid crystals, advances in liquid crystal-based quantum computing, and incredible advancements in material synthesis and device manufacturing, which are essential for realizing and developing liquid crystal-based quantum devices. While issues like sustaining quantum coherence, attaining exact molecule alignment, and interfacing with existing quantum systems remain, continuing research and technology developments pave the way to solving them. The development of liquid crystal qubits, quantum gates, and circuits, as well as their applications in quantum communication and cryptography, demonstrates the materials' versatility.
+
+Recent developments in liquid crystal materials and the integration of hybrid systems with quantum materials are expected to drive progress. These advancements hold the potential to enhance the capabilities and effectiveness of quantum computing systems, making them more accessible to a range of applications.
+
+In summary the future prospects of liquid crystal-based quantum computing appear bright with interdisciplinary research and collaboration poised to unlock the technology’s full potential. As this field progresses it is anticipated that liquid crystals will play a role, in the development of generation quantum computers contributing to the advancement of quantum information science and technology.
+
+Author contributions
+
+Edward Otieno: Wrote the manuscript and collected the research on the potential of liquid crystals in quantum computing. ORCID: 0009-0009-8470-4665
+Nelson Mokaya: Wrote the manuscript and collected the research on the potential of liquid crystals in quantum computing. ORCID: 0009-0009-8470-4665
+Katarzyna Matczyszyn: Wrote and supervised the manuscript writing. ORCID: 0000-0001-8378-8340
+
+Funding information:-No funds, grants or other support received.
+Conflict of interest: The authors declare that they have no conflict of interest.
+
+Availability of data and material: None.
+
+Acknowledgement: None
+
+Bibliography
+
+1. Carberry, D. et al. Building Knowledge Capacity for Quantum Computing in Engineering Education. in 31st European Symposium on Computer Aided Process Engineering (eds. Türkay, M. & Gani, R.) vol. 50 2065–2070 (Elsevier, 2021).
+2. Brooks, M. THE RACE TO FIND QUANTUM COMPUTING’S SWEET SPOT. s1–s3 (2023).
+3. Heilmeier, G. H., Zanoni, L. A. & Barton, L. A. Dynamic scattering—a new electrooptic effect in nematic liquid crystals. IEEE Trans. Electron Devices 15, 691–691 (1968).
+4. DiLisi, G. A. An Introduction to Liquid Crystals. (Morgan & Claypool Publishers, 2019). doi:10.1088/2053-2571/ab2a6f.
+5. Nimbe, P., Weyori, B. A. & Yeng, P. K. A Framework for Quantum-Classical Cryptographic Translation. Int. J. Theor. Phys. 60, 793–818 (2021).
+6. Lodahl, P. Quantum-dot based photonic quantum networks. Quantum Sci. Technol. 3, 013001 (2017).
+7. Yokotsuka, S. & Okada, H. 4-Bit Linear Optical Quantum Computing with Liquid Crystal Devices. Preprint at https://doi.org/10.2139/ssrn.4792710 (2024).
+8. Singh, S. Liquid Crystals: Fundamentals. (World Scientific Publishing Company, 2002).
+9. Meier, G., Sackmann, E. & Grabmaier, J. G. Applications of Liquid Crystals. (Springer Berlin Heidelberg, 2012).
+10. Khoo, I.-C. Liquid Crystals. (J. Wiley & sons, Hoboken (N.J.), 2007).
+11. Handbook of Liquid Crystals. (Wiley-VCH, Weinheim ; New York, 1998).
+12. Dunmur, D. & Toriyama, K. Physical Properties: Tensor Properties of Anisotropic Materials. in Handbook of Liquid Crystals 189–203 (John Wiley & Sons, Ltd, 1998). doi https://doi.org/10.1002/9783527620760.ch7a.
+13. Sultanov, V. et al. Tunable entangled photon-pair generation in a liquid crystal. Nature 631, 294–299 (2024).
+14. Li, S. et al. When quantum dots meet blue phase liquid crystal elastomers: visualized full-color and mechanically-switchable circularly polarized luminescence. *Light Sci. Appl.* **13**, 140 (2024).
+
+15. Terazawa, A., Yokotsuka, S. & Okada, H. Quantum optical control experiment using Mach–Zehnder interferometer and twisted nematic liquid crystals. *Jpn. J. Appl. Phys.* **63**, 01SP39 (2024).
+
+16. Marrucci, L. et al. Photonic Quantum Information Applications of Patterned Liquid Crystals. *Mol. Cryst. Liq. Cryst.* **526**, 108–118 (2010).
+
+17. Nagali, E. et al. Optimal quantum cloning of orbital angular momentum photon qubits through Hong–Ou–Mandel coalescence. *Nat. Photonics* **3**, 720–723 (2009).
+
+18. Lukishova, S. G. Nonlinear and quantum optics with liquid crystals. *J. Phys. Conf. Ser.* **497**, 012008 (2014).
+
+19. Petrescu, E., Cirtoaje, C. & Danila, O. Dynamic behavior of nematic liquid crystal mixtures with quantum dots in electric fields. *Beilstein J. Nanotechnol.* **9**, 399–406 (2018).
+
+20. Ajagekar, A., Humble, T. & You, F. Quantum computing based hybrid solution strategies for large-scale discrete-continuous optimization problems. *Comput. Chem. Eng.* **132**, 106630 (2020).
+
+21. Lammers, K., Alberucci, A., Jisha, C. P., Szameit, A. & Nolte, S. Electro-optical control of polarization in femtosecond-laser written waveguides using an embedded liquid crystal cell. *Opt. Mater. Express* **14**, 836 (2024).
+
+22. Olthaus, J., Schrinner, P. P. J., Reiter, D. E. & Schuck, C. Optimal Photonic Crystal Cavities for Coupling Nanoemitters to Photonic Integrated Circuits. *Adv. Quantum Technol.* **3**, 1900084 (2020).
+
+23. Lo, H.-K. & Lütkenhaus, N. Quantum Cryptography: from Theory to Practice. Preprint at http://arxiv.org/abs/quant-ph/0702202 (2007).
+
+24. Önsal, G. Improvement of the Dielectric and Electro-Optic Properties of Phthalocyanine- and Quantum Dot-Doped Nematic Liquid Crystals Under UV Illumination. *J. Electron. Mater.* **51**, 3820–3830 (2022).
+
+25. Delgado, F., Anaya, A., Jaimes-Nájera, A. & Enriquez-Flores, M. A Model to Assess the Impact of Computer Simulations and Photonics Demonstrations in Quantum Information Learning. *J. Phys. Conf. Ser.* **2701**, 012098 (2024).
+
+26. Smalyukh, I. I. Review: knots and other new topological effects in liquid crystals and colloids. *Rep. Prog. Phys.* **83**, 106601 (2020).
+
+27. Ji, Y. et al. Dual-Core Photonic Crystal Fiber Polarization Beam Splitter Based on a Nematic Liquid Crystal with an Ultra-Short Length and Ultra-Wide Bandwidth. *Electronics* **13**, 2343 (2024).
+
+28. Martin, V. et al. Quantum technologies in the telecommunications industry. *EPJ Quantum Technol.* **8**, 19
+29. Yang, Y., Forbes, A., Cao, L., Department of Precision Instruments, Tsinghua University, Beijing 100084, China, & School of Physics, University of the Witwatersrand, Wits, South Africa. A review of liquid crystal spatial light modulators: devices and applications. Opto-Electron. Sci. 2, 230026–230026 (2023).
+
+30. Pelucchi, E. et al. The potential and global outlook of integrated photonics for quantum technologies. Nat. Rev. Phys. 4, 194–208 (2021).
+
+31. Kos, Ž. & Dunkel, J. Nematic bits and universal logic gates. Sci. Adv. 8, eabp8371 (2022).
+
+32. Harth, K. & Stannarius, R. Topological Point Defects of Liquid Crystals in Quasi-Two-Dimensional Geometries. Front. Phys. 8, 112 (2020).
+
+33. Zhang, Z.-F., Wang, Q.-R. & Ye, P. Continuum field theory of three-dimensional topological orders with emergent fermions and braiding statistics. Phys. Rev. Res. 5, 043111 (2023).
+
+34. Lordi, V. & Nichol, J. M. Advances and opportunities in materials science for scalable quantum computing. MRS Bull. 46, 589–595 (2021).
+
+35. Heinosaari, T., Kerppo, O., Leppäjärvi, L. & Plávala, M. Simple Information Processing Tasks with Unbounded Quantum Advantage. Phys. Rev. A 109, 032627 (2024).
+
+36. Bauer, B., Bravyi, S., Motta, M. & Chan, G. K.-L. Quantum algorithms for quantum chemistry and quantum materials science. Chem. Rev. 120, 12685–12717 (2020).
+
+37. Thomas, C. et al. Superconducting routing platform for large-scale integration of quantum technologies. Mater. Quantum Technol. 2, 035001 (2022).
+
+38. Kurochkin, Y., Papadovasilakis, M., Trushechkin, A., Piera, R. & Grieve, J. A. A practical transmitter device for passive state BB84 quantum key distribution. Preprint at http://arxiv.org/abs/2405.08481 (2024).
+
+39. Alexeev, Y. et al. Quantum Computer Systems for Scientific Discovery. PRX Quantum 2, 017001 (2021).
+
+40. Sarfaraj, M. N. & Mukhopadhyay, S. Realization of Tristate Pauli-X, Y and Z gates on photonic crystal using wavelength encoding. Opt. Commun. 550, 129913 (2024).
+
+41. Montanaro, A. Quantum algorithms: an overview. Npj Quantum Inf. 2, 15023 (2016).
+
+42. Ricciardi Celsi, M. & Ricciardi Celsi, L. Quantum Computing as a Game Changer on the Path towards a Net-Zero Economy: A Review of the Main Challenges in the Energy Domain. Energies 17, 1039 (2024).
+
+43. Fauseweh, B. Quantum many-body simulations on digital quantum computers: State-of-the-art and future challenges. Nat. Commun. 15, 2123 (2024).
+
+44. Marrucci, L. et al. Spin-to-orbital conversion of the angular momentum of light and its classical and quantum
+applications. *J. Opt.* **13**, 064001 (2011).
+
+45. Renner, R. & Wolf, R. Quantum Advantage in Cryptography. *AIAA J.* **61**, 1895–1910 (2023).
+
+46. Xu, A. *et al.* Modal Phase Modulators Based on Liquid Crystals with 3D-Printed Polymer Microstructures: Increasing Size and Complexity. *Photonics* **11**, 266 (2024).
+
+47. Qu, G. *et al.* Liquid crystal random lasers. *Phys. Chem. Chem. Phys.* **25**, 48–63 (2023).
+
+48. Fedorov, A. K., Gisin, N., Belousov, S. M. & Lvovsky, A. I. Quantum computing at the quantum advantage threshold: a down-to-business review. Preprint at http://arxiv.org/abs/2203.17181 (2022).
+
+49. David, D. & Toriyama, K. Physical Properties: Tensor Properties of Anisotropic Materials. in *Handbook of Liquid Crystals* 189–203 (John Wiley & Sons, Ltd, 1998). doi:https://doi.org/10.1002/9783527620760.ch7a.
+
+50. Linke, N. M. *et al.* Experimental comparison of two quantum computing architectures. *Proc. Natl. Acad. Sci.* **114**, 3305–3310 (2017).
+
+51. Tholen, H. M., Ambulo, C. P., Lee, K. M., Buskohl, P. R. & Harne, R. L. Optomechanical computing in liquid crystal elastomers. *Soft Matter* **19**, 6978–6986 (2023).
+
+52. Park, S. *et al.* Technologies for Modulation of Visible and Near-UV Light and their Applications. Preprint at http://arxiv.org/abs/2403.15606 (2024).
+
+53. Cui, J., Rick Van Bijnen, Pohl, T., Montangero, S. & Calarco, T. Optimal control of Rydberg lattice gases. *Quantum Sci. Technol.* **2**, 035006 (2017).
+
+54. Chen, C.-Y., Hsieh, C.-F., Lin, Y.-F., Pan, R.-P. & Pan, C.-L. Magnetically tunable room-temperature 2π liquid crystal terahertz phase shifter. (2004).
+
+55. Dunmur, D. & Toriyama, K. Physical Properties: Tensor Properties of Anisotropic Materials. in *Handbook of Liquid Crystals* 189–203 (John Wiley & Sons, Ltd, 1998). doi:https://doi.org/10.1002/9783527620760.ch7a.
+
+56. Terazawa, A., Yokotsuka, S. & Okada, H. Quantum optical control experiment using Mach–Zehnder interferometer and twisted nematic liquid crystals. *Jpn. J. Appl. Phys.* **63**, 01SP39 (2024).
+
+57. Lukishova, S. G. *et al.* Dye-doped cholesteric-liquid-crystal room-temperature single-photon source. *J. Mod. Opt.* **51**, 1535–1547 (2004).
+
+58. Huang, G. Room-Temperature Quantum Optomechanics and Free-Electron Quantum Optics.
+
+59. Harter, J. W., Zhao, Z. Y., Yan, J.-Q., Mandrus, D. G. & Hsieh, D. A parity-breaking electronic nematic phase transition in the spin-orbit coupled metal Cd2 Re3 O4 γ. *Science* **356**, 295–299 (2017).
+
+60. Feldman, B. E. *et al.* Title: Observation of a Nematic Quantum Hall Liquid on the Surface of Bismuth.
+
+61. Goyal, R. K. Exploring Quantum Materials & Applications: A Review.
+62. Li, Q. et al. Room-temperature coherent manipulation of single-spin qubits in silicon carbide with a high readout contrast. Natl. Sci. Rev. 9, nwab122 (2022).
+
+63. Skyrme, T. The Status of Room-Temperature Quantum Computers. https://www.eetimes.eu/the-status-of-room-temperature-quantum-computers/ https://www.eetimes.eu/the-status-of-room-temperature-quantum-computers/ (2023).
+
+64. Mrózek, M. et al. Longitudinal spin relaxation in nitrogen-vacancy ensembles in diamond. EPJ Quantum Technol. 2, 22 (2015).
+
+65. Akio Yamauchi. Room-temperature quantum coherence of entangled multiexcitons in a metal_organic framework.
+
+66. Hoefler, T., Haener, T. & Troyer, M. Disentangling Hype from Practicality: On Realistically Achieving Quantum Advantage. Preprint at http://arxiv.org/abs/2307.00523 (2023).
+
+67. Ajagekar, A., Humble, T. & You, F. Quantum computing based hybrid solution strategies for large-scale discrete-continuous optimization problems. Comput. Chem. Eng. 132, 106630 (2020).
+
+68. Polini, M. et al. Materials and devices for fundamental quantum science and quantum technologies. Preprint at http://arxiv.org/abs/2201.09260 (2022).
+
+69. Cirac, J. I. & Zoller, P. A scalable quantum computer with ions in an array of microtraps. Nature (2000).
+
+70. Thedford, R. P. et al. The Promise of Soft-Matter-Enabled Quantum Materials. Adv. Mater. 35, 2203908 (2023).
+
+71. Sharma, A. K. et al. Processing of Advanced Materials for Next-Generation Electronics and Photonics - A Review. E3S Web Conf. 505, 01025 (2024).
+
+72. Djordjevic, I. B. & Nafria, V. Classical Coherent States Based Quantum Information Processing and Quantum Computing Analogs. IEEE Access 12, 33569–33579 (2024).
+
+73. Flöther, F. F. The state of quantum computing applications in health and medicine. Res. Dir. Quantum Technol. 1–21 (2023) doi:10.1017/qut.2023.4.

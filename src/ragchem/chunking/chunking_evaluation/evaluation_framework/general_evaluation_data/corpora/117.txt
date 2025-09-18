@@ -1,0 +1,136 @@
+Harness first principles thinking in problem-based learning for chemical education
+
+Junjun Tan1, 2*, Xinxin Xiao1
+
+1Department of Chemistry and Bioscience, Section of Chemistry Science and Engineering, Aalborg University, Aalborg, Denmark
+Fredrik Bajers Vej 7H, 9220 Aalborg, Denmark
+2Department of Chemistry, Section of Biological Chemistry, University of Copenhagen, Copenhagen, Denmark
+
+ABSTRACT
+
+In philosophy and science, a first principle is a basic proposition or assumption that cannot be deduced from any other proposition or assumption. Ancient Greek philosophy Aristotle defined the first principle as “the first basis from which a thing is known.” First principles thinking (or reasoning from first principles) is a way of thinking and problem-solving that breaks down a complex problem into its most basic assumptions, facts, concepts, or ideas and then reassembles them from the bottom-up. In this paper, we reported our attempts to harness first principles thinking into problem-based learning (PBL) in chemistry education. Two PBL projects were elaborately designed respectively for two student groups. By utilizing the inquiry-based technique and jigsaw technique, the understanding of the fundamental principles of chemistry was employed to guide the students’ research activity and strengthen the learning of chemistry. We also observed signs of increased creativity during the process. This communication indicated that first principles thinking could be harnessed to increase students’ learning depth and promote creativity in chemical education.
+
+KEY WORDS
+
+Problem-Based Learning, First Principles Thinking, Student Groups, Inquiry-based technique, jigsaw technique, University students and teachers, Chemical education research
+
+GRAPHICAL ABSTRACT
+INTRODUCTION
+
+First principles thinking (or reasoning from first principles) is a way of thinking and problem-solving that breaks down a complex problem into its most basic assumptions, facts, concepts, or ideas to gain new knowledge and find new solutions through reassembling them from the bottom-up. There were attempts to introduce this way of thinking into engineering education in recent years\(^1\),\(^2\). Problem-based learning, a student-centered approach in which students learn a subject by working in groups to solve an open-ended problem, offers great platforms for utilizing first principles thinking in deepening their learning and producing solutions. Here we reported the elaborate design of two PBL projects to facilitate the students’ learning by practicing first principles thinking in two PBL small student groups. The aim of the design was to enable students to develop the first principles thinking by deconstructing problem-based learning projects to their fundamental concepts and rebuilding their solutions from the ground.
+
+First principles thinking
+
+According to Aristotle, new knowledge is known from very basic concepts or assumptions that are first principles, thus ‘the first principle is the basis from which a thing is known’ and the building block of true knowledge\(^3\). For our daily life and work, the most popular and usual way of thinking is to think/reason by analogy which is proven to be very useful and easy. However, ‘first principles thinking’ (or ‘reasoning from first principles) is a way of thinking and problem-solving requiring breaking down a complex problem into its most basic assumptions, facts, or ideas and then reassembling them from bottom-up. In other words, it is a way to build up the solution and knowledge from the foundational truths through rational reasoning other than analogous reasoning. Rational reasoning is built based on logic, consistency, and evidence, which include deductive or inductive processes. However, analogous reasoning draws conclusions based on similarities between two things or situations, inferring that what is true in one case may also be true in the other, which might fall to logical fallacies and errors.
+
+In first principles thinking, these foundational truths are basic building blocks like Lego pieces, with which we can create and build up marvelous structures and architectures with great freedom and creativity. First principles thinking can be applied to solve problems in our daily life, and also complex problems in science, technology, and engineering. It is regarded crucial to innovation and creativity\(^4\).
+
+The problem-based learning (PBL) pedagogy provides an ideal platform to use first principles thinking for students to solve problems and work on projects. Here we explored how first principles thinking was applied in PBL in chemical education carried out at the Department of Chemistry and Bioscience through a one-year pedagogical program provided to researchers at the Aalborg University (AAU).
+
+Problem-based learning
+
+The pedagogy of problem-based learning (PBL) emerged in the 1960s in medical education\(^5\),\(^6\). Students were divided into small groups to solve problems of patient cases or biomedical phenomena\(^5\).\(^6\). PBL is a student-centered approach that empowers students to take ownership of their learning to develop viable solutions to a defined problem/project through conducting research, integrating theory...
+and practice, and applying knowledge and skills\(^5\). In Denmark, two young universities, Roskilde University and Aalborg University (AAU) were founded in the 1970s, initiating the innovative PBL pedagogy\(^7,8\). At AAU, the *Aalborg Mode* has been established, characterized by a syllabus of 50\% percent problem-centered project work and 50\% traditional lecture in an interdisciplinary research environment\(^8\). The PBL approach is organized as group project work and is implemented from the first semester until the completion of the master’s degree. Throughout the university program, the group sizes generally decrease. Initially, groups typically consist of 6-7 students in the first year, gradually reducing to a maximum of 2-3 students in the final semester\(^8\). Learning is thus organized around problems and naturally frames a student-centered pedagogy to drive the students to be autonomous learners. The other benefits for students include the potential to reach a high academic level in interdisciplinary areas, the development of the team-work capacity, and better preparation for the labor market. One special advantage of PBL is its great relevance to the practice of the project work, thus allowing students to move from theoretical knowledge to practical application seamlessly. Logically, PBL offers an excellent pedagogical platform for employing first principles thinking to enhance students’ learning and their capacity to solve real-world problems\(^9\).
+
+**Existing problems of PBL in chemistry education**
+
+It was reported that syllabus coverage of fundamental theory and knowledge could sometimes be insufficient in Problem-Based Learning (PBL), resulting in the so called “holes” in the conceptual knowledge base\(^10-12\). At the Department of Chemistry and Bioscience in AAU, most of the PBL projects in the chemistry section are research projects, especially experimental projects related with the on-going research that are mainly in the area of applied supramolecular chemistry, disordered materials, and separation processes (https://www.en.bio.aau.dk/research/sections). The training in experimental skills and the operation of instruments are crucial and indispensable for completing PBL projects. In most cases, students can effectively carry out their projects in an analogous way by applying the experimental skills and instrumental operation techniques. However, gaps often exist between the theoretical foundation and the practical requirements for performing research projects, highlighting the need to bridge this divide during the learning process. They may know well the “hows” in conducting the project, but not need to know “whys” from the the aspects of fundamental principles. Considering the syllabus of 50\% traditional lecture, the learning of fundamental theories and knowledge is insufficient for students, which also limits their learning depth in chemistry and the exertion of their creativity. Overall, the general pedagogical problem that we targeted was to strengthen in-depth active learning of the fundamental principles and excite creativity in PBL. **First principles thinking** has recently been introduced into engineering education\(^1,2\), which offered a solution to improve the depth of learning and creativity. Hereby we described our recent practice and achievements in strengthening first principles thinking in PBL of chemistry.
+Here the fundamental principles in the discipline of chemistry were taken as the ‘first principles’ where new knowledge and new solutions can be grounded.
+
+In the fall semester of 2022, two projects were designed. The first project (**Project 1: Kinetic modeling of chemically fueled assemblies**) was to build kinetic models from experimental data in the domain of theoretical chemistry for the 3rd semester students for 4 months. For the details of chemically fueled assemblies, several research works are referenced\textsuperscript{13, 14}. Basically, to construct chemically fueled assembly, the building elements should include an activation/deactivation reaction cycle, a non-assembling precursor, and a self-assembling product (**Figure 1A**). Specifically, a molecular precursor that cannot self-assemble is converted to a product that can self-assemble into ordered structures after reacting with a high-energy molecule. This conversion reaction is the activation reaction and the high-energy molecule is the chemical fuel that is irreversibly converted to waste. The deactivation reaction which converts the product back to the disassembled precursors constitutes the second reaction in the activation/deactivation reaction cycle. Consequently, the assemblies are only present for a finite time until the chemical fuel is depleted and can be regenerated by resupplying the chemical fuel. Sustaining the non-equilibrium assembly thus requires continuous input of the chemical fuel. Such transient assemblies are accessible to accurate temporospatial programming by controlling the kinetics of the reaction cycles. The participating students at the same time were taking the courses of physical chemistry and organic chemistry. This PBL project required the students to build the kinetic model based on the understanding of the fundamental principles in interdisciplinary area of physical chemistry and organic chemistry.
+
+The second project was designed for 3 students from *Ecole Technique Supérieure de Chimie de l'Ouest* in France for two months. They exchanged to AAU with the support of Erasmus+ project for 2-month traineeships in the winter of 2022. They were in the level of 2nd year of the ‘brevet de technicien supérieur’ (an equal of the second year in college). They applied for the internship in our lab to gain some experimental techniques in organic synthesis. As they had taken the organic chemistry course in France, thus they were grouped into a small PBL group. A PBL project (**Project 2: Synthesis of a peptide aldehyde**) in organic chemistry was designed for them. The research goal set for them is to synthesize a peptide aldehyde with the amine and aldehyde group protected (Thr-Phe-Thr-Phe-acetal) in the solution phase (**Figure 2A**). The synthesis included suitable protection of the N, and C-terminal, amidation reaction, conversion of Weinrebamide to aldehyde and further protection of the aldehyde by converting aldehyde to dimethyl acetal. The main training goal was to promote the understanding of the basic principles in organic chemistry in addition to the training of organic synthesis skills.
+
+For project 1, a group of 7 students selected this PBL project. In inquiring why they selected this project, they explained that this project could allow them to use what they have learned from lectures of physical chemistry and organic chemistry. This has partly proven that the project design is appropriate to practice first principles thinking. To strengthen the usage of first principles thinking, cascades of
+coupled inquiries (inquiry-based technique) were designed to drive the students to reversely breakdown the complex problems to the fundamental principles in the supervision meetings. The cascade of main questions is shown as follows.
+
+1) Experimental aspects: what are the building elements for creating chemically fueled assemblies? This question aimed to drive students to look for the basic compositional elements for constructing dissipative assemblies. What is the precondition to make the experiment work? This question aimed to drive the students to think of the requirements of the reaction rates in the reaction cycles (i.e. the activation reaction must be faster than deactivation reactions) which logically requires the students to understand reaction kinetics in physical chemistry.
+
+2) Physical chemistry aspects: what determines the reaction rates? What is the rate equations? These questions aimed to drive students to understand the basic principles of chemical kinetics in physical chemistry. Students then logically realized the reaction rate's mathematical expression depended on the chemical reaction mechanisms.
+
+3) Organic chemistry aspects: what are the reaction mechanisms for all the reactions in the reaction cycles? This question would drive students to apply the basic principles of organic chemistry to work out the reaction mechanism and the order of reactions. Based on the understanding of the reaction mechanism, the student could further work out the reaction orders and rate equations to build the kinetic model.
+
+![Figure 1. Schematic presentation of chemically fueled assembly (A) (reproduced with permission from reference 15 copyright 2024 Chemistry—A European Journal) and the approach to breakdown/reverse-engineer the project (B).](https://doi.org/10.26434/chemrxiv-2025-67s9h)
+
+Through reverse-engineering the project, the group could break down the big project to fundamental principles in organic chemistry and physical chemistry, these basic pieces was recombined to successfully produce the kinetic models for this project (Figure 1B). The students firstly determined the rate equations by analyzing and identifying the mechanisms of activation and deactivation reaction in the reaction cycle. Then kinetic models were built for data fitting and MATLAB codes were produced for the data correlation. Based on the first turn of successful data fitting, they further found that a simplified model with a steady state approximation could also be used to fit this set of data nicely. Moreover, they could play with the basic building elements of kinetic modeling to predict the kinetics of a reaction cycle.
+For project 2, we aimed to build the experimental project on the understanding of the basic principles in organic chemistry. As this group of students from France did not have any experience in research projects or PBL and had no clue to create a synthetic route for synthesizing the targeting compound, the project was thus broken down and reframed to 3 sub-problems by us to help them work out the synthetic route. Jigsaw technique was employed to enable the generation of the synthetic route by this group. The jigsaw technique is a collaborative learning strategy where students are divided into small groups to work on specific assignments\textsuperscript{16-18}. These groups are then reshuffled into mixed groups. Each person in the groups teaches the rest of the group what he/she knows to complete a comprehensive task, integrating all the pieces to form a complete understanding, like a jigsaw puzzle. Jigsaw techniques have been proved effective in chemistry education\textsuperscript{17, 18}. Specifically, in this small PBL group, each student was assigned to solve one individual sub-problem through self-study and the basic organic chemistry principles. One student was assigned to work on how to make amide bond and its reaction mechanism, the second student worked on the basic protection/deprotection concept and the protection/deprotection methods in peptide synthesis, and the third student focused on the chemistry and mechanism to transform the carboxylate group into aldehyde group (Figure 2B). They further taught each other what basic chemistry they have learned and what their solutions are to their sub-problems.
+
+![Structure of target molecules](image1)
+
+Figure 2. Structure of target molecules (A) and the approach to breakdown/reverse-engineer the project 2 (B).
+
+The major aim in the supervision of the two student groups was to drive the student to go deeper the fundamental principles of organic reaction mechanism beneath the empirical project and find new solutions other than to develop experimental techniques in PBL.
+
+**OUTCOMES AND DISCUSSION**
+
+The designs, measures, and results of the utilization of the first principle thinking in PBL were summarized in Table 1. The primary goals of emphasizing and strengthening first principles thinking were to enable a deeper understanding of the chemistry discipline and to foster creativity in PBL. Through the elaborate design of PBL projects, first principles thinking was applied through the implementation of the projects. For the project 1, according to the pedagogy request at AAU, the group of students wrote a report together. In the final 118-page report, the students not only presented their methods, MATLAB codes, and fitting results, they also comprehensively elaborated fundamental
+concepts, principles, and knowledge, formulated with their own words which included the basics in reaction mechanisms of nucleophilic substitution, reaction kinetics, the driving forces behind molecular assembly, and the distinctions between equilibrium and non-equilibrium molecular assembly from a thermodynamic perspective. This indicated their active engagement in learning the fundamental principles in chemistry. The successful building of the kinetic model also proved a solid understanding of the first principles in chemistry. An oral exam was subsequently conducted for this group, with 3 examiners including the supervisors over a span of 5 hours. The questions ranged from fundamental principles in general chemistry and physical chemistry to reaction mechanisms and the details of research methods and results in their report. All the questions were answered with a certain degree of clarity and relevance although the answers are given by different students. One of the students could even identify what types of non-covalent interactions are involved in the formation of supramolecular structures. The students could also give reasonable explanations and judgments through reasoning from the fundamental principles. Their performances were graded respectively. Denmark’s grading system is based on a scale that ranges from -3 to 12 to grade the performance from unacceptable to excellent. Score 2 corresponds to a performance meeting only the minimum requirements for acceptance. In this study group, 3 students are scored 12, 2 students scored 10, and 2 students scored 7. Overall, their collective performance was above the average compared to all student groups in the fall semester. The report and the evaluation indicated first principles thinking was effectively enabled in PBL to increase students’ learning depth and their ability to solve problems. For the project 2, by reframing the problem of synthesizing a target compound, the synthetic problem has been broken down to 3 sub-problems. Each student has finally worked out the sub-problems and taught with each other how the synthesis could be performed and what the reaction mechanisms and underpinned chemistry were. By combining their learning and solutions, this group has designed multiple plausible solutions (several potential synthetic routes). Finally, they identified and selected the simplest synthetic route, and the target product was successfully synthesized. This specific design of the PBL which combines problem breakdown and the jigsaw technique enables the production of multiple solutions, primarily indicative of the possibility to the generation of creative solutions. Moreover, this group expressed high satisfaction with their training and performance via an obligatorily survey carried out by their project coordinator at the École Technique Supérieure de Chimie de l’Ouest. As a result, our lab has formalized an agreement with the project coordinator to host intern students regularly each year.
+
+Table 1. Summary of utilization of first principles thinking in PBL
+
+| Project NO. | Project title | Discipline | Group size | Main measures to apply first principles thinking | Results |
+|-------------|---------------|------------|------------|-------------------------------------------------|---------|
+| 1           | Kinetic modeling of chemically fueled assemblies | Interdisciplinary area of organic chemistry and 3rd semester | 7 students (3rd semester) | Inquiry-directed reasoning | Increased the learning depth. |
+CONCLUSIONS AND PERSPECTIVES
+
+In summary, two PBL projects were elaborately designed to enable students practicing first principles thinking to promote both learning of fundamental principles in chemistry and using the fundamental principles to generate solutions for research problems. PBL project 1 was focused on constructing kinetic models based on chemically fueled assemblies. To strengthen the practice of first principles thinking for students through working on the project, cascades of coupled inquiries (inquiry-based technique) were designed and used to drive the students to reversely breakdown the problems to the foundations in physical and organic chemistry through regular supervision meetings. The learning of the foundations was strengthened and kinetic models were successfully built. PBL project 2 was focused on synthesizing a target compound. In this project, Jigsaw method was used to allow students to learn the fundamental principles in organic chemistry and apply the foundations to product synthetic routes. Through applying first principles thinking, the learning depth has been increased. We have also seen the sign of ‘creativity’ emerge.
+
+The overarching goals of our teaching is to increase students’ learning depth and excite creativity. We demonstrated how incorporating first-principles thinking into problem-based learning (PBL) can serve as a powerful approach to achieving these objectives. We anticipate that a variety of PBL projects will be designed to help students adopt this mindset in their studies by incorporating various teaching methods and techniques in chemistry education which would also allow us to quantify the effectiveness of first principles thinking in PBL in pedagogical research in the future. We also expect to strengthen first principles thinking in the education and supervision of MSc students and PhD students.
+
+AUTHOR INFORMATION
+
+Corresponding Author
+
+*E-mail: jt@chem.ku.dk
+
+NOTES
+
+The authors declare no conflict of interest.
+
+ACKNOWLEDGMENTS
+
+We thank the support of 2022 adjunct pedagogical program at the Aalborg University and JT’s pedagogical supervisors Professor Kim Lambertson Larson and Associate Professor Lykke Brogaard Bertel for insightful perception, discussion, and inputs during the one-year pedagogical program journey. JT acknowledges financial support from European Union’s Horizon 2020 Research and Innovation program for the Marie Sklodowska Curie Individual Fellowship in the grant agreement n° 101031072 and Novo Nordisk Foundation New Exploratory Research and Discovery (NERD) Program in the grant
+agreement n° NNF22OC0075972. XX acknowledges Novo Nordisk Foundation Start Package grant in the grant agreement n° NNF0081331.
+
+SAFETY STATEMENT
+
+All the experiments carried out at the Aalborg University complied with the safety regulation in the Department of Chemistry and Bioscience and met the criteria of occupational safety and health administration in Denmark (Arbejdstilsynet: https://at.dk/en).
+
+REFERENCES
+
+(1) Moozeh, K.; Romkey, L.; Dawe, N.; Khan, R. Conceptualizing First Principles Thinking in Engineering Education. In 2022 ASEE Annual Conference & Exposition, 2022.
+
+(2) Bühler, M. M.; Nübel, K.; Jelinek, T. Educating tomorrow's workforce for the Fourth Industrial Revolution—the necessary breakthrough in mindset and culture of the engineering profession. 2021.
+
+(3) Irwin, T. Aristotle's first principles; Clarendon Press, 1989.
+
+(4) Cross, N. Creative thinking by expert designers. The Journal of Design Research 2004, 4 (2), 123-143.
+
+(5) Savery, J. R. Overview of problem-based learning: Definitions and distinctions. Essential readings in problem-based learning: Exploring and extending the legacy of Howard S. Barrows 2015, 9 (2), 5-15.
+
+(6) Schmidt, H. G. A brief history of problem-based learning. In One-day, one-problem, Springer, 2012; pp 21-40.
+
+(7) Andersen, A. S.; Kjeldsen, T. H. Theoretical foundations of PPL at Roskilde university. In The Roskilde model: problem-oriented learning and project work, Springer, 2015; pp 3-16.
+
+(8) Kolmos, A.; Fink, F. K.; Krogh, L. The Aalborg PBL model: progress, diversity and challenges; Aalborg University Press Aalborg, 2004.
+
+(9) Finucane, P. M.; Johnson, S. M.; Prideaux, D. J. Problem-based learning: its rationale and efficacy. Medical Journal of Australia 1998, 168 (9), 445-448.
+
+(10) Albanese, M. A.; Mitchell, S. Problem-based learning: A review of literature on its outcomes and implementation issues. Academic medicine 1993, 68 (1), 52-81.
+
+(11) Herreid, C. F. Why isn't cooperative learning used to teach science? BioScience 1998, 48 (7), 553-559.
+
+(12) Ribeiro, L. R. The pros and cons of problem-based learning from the teacher's standpoint. Journal of University Teaching and Learning Practice 2011, 8 (1), 34-51.
+
+(13) Boekhoven, J.; Hendriksen, W. E.; Koper, G. J.; Eelkema, R.; van Esch, J. H. Transient assembly of active materials fueled by a chemical reaction. Science 2015, 349 (6252), 1075-1079.
+
+(14) Tena-Solsona, M.; Rieß, B.; Grötsch, R. K.; Löhner, F. C.; Wanzke, C.; Käsdorf, B.; Bausch, A. R.; Müller-Buschbaum, P.; Lieleg, O.; Boekhoven, J. Non-equilibrium dissipative supramolecular materials with a tunable lifetime. Nature communications 2017, 8 (1), 1-8.
+
+(15) Gu, R.; Larsen, K. L.; Wang, A.; Tan, J. Approaching Dynamic Behaviors of Life through Systems Chemistry. Chemistry—A European Journal 2024, e202403083.
+
+(16) Active Learning Methodologies. https://pdst.ie/sites/default/files/teaching%20toolkit%20booklet%20without%20keys%20skills_0.pdf.
+
+(17) Doymus, K. Teaching chemical equilibrium with the jigsaw technique. Research in science Education 2008, 38, 249-260.
+
+(18) Oliveira, B. R.; Vailati, A. L.; Luiz, E.; Boll, F. G.; Mendes, S. R. Jigsaw: using cooperative learning in teaching organic functions. Journal of Chemical Education 2019, 96 (7), 1515-1518.
+(19) The Danish Grading System. https://ufm.dk/en/education/the-danish-education-system/grading-system.

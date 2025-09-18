@@ -1,0 +1,244 @@
+An Assessment of drying agents for use in desiccator for teachers, undergraduate and graduates
+
+Marcus Herbig
+
+Institut für Anorganische Chemie, TU Bergakademie Freiberg, Leipziger Str. 29, 09599 Freiberg, Germany.
+
+* Corresponding authors. E-mail address: marcus.herbig@chemie.tu-freiberg.de
+
+Keywords: Desiccator, Drying, Desiccant
+
+Abstract: This article assesses various drying agents suitable for use in desiccators, aimed at teachers, undergraduates, and graduates. Desiccators are essential laboratory tools for drying solids and maintaining low humidity to prevent unwanted reactions. The choice of desiccant is critical, as they reach different residual humidity and perform the drying process with different speed. Additionally, the desiccant can react and therefore remove not only water from the gas phase inside the desiccator. This study details the structure of classical and modern desiccators, the choice of vacuum conditions, and the hazards associated with using certain desiccants. Several desiccants, including calcium chloride, copper(II) sulfate, magnesium perchlorate, and molecular sieves, and others are evaluated, discussing their properties, capacities, and safety considerations. Besides, an experimental setup for measuring humidity absorption rates and residual moisture is outlined. The findings indicate that desiccants like magnesium perchlorate and molecular sieves demonstrate low residual moisture and high absorption speeds, but have disadvantages considering regeneration or safety issues. The article concludes with recommendations for selecting appropriate
+desiccants based on their characteristics, and ease of use, while acknowledging the need for careful handling of hazardous materials.
+
+Introduction
+
+The desiccator is a common laboratory apparatus. It is used for drying solids or to store compounds at low or well-defined humidity to prevent undesired reactions with water or deliquescence of the solid.
+
+The choice of desiccant is crucial for the effectiveness of the drying process. Desiccant are hygroscopic, so they absorb humidity from the atmosphere around. Furthermore, saturated salt solutions are used to obtain atmospheres of stable humidity, e.g. \([1]\). Stable hydrates can be formed which bind water, but the hydrates can be still hygroscopic. Therefore, hygroscopic solids can show deliquescence\([2]\) when the surrounding atmosphere is humid.
+
+The use of a desiccator and the selection of the desiccant will be discussed in this article in a practical form. As desiccant material calcium chloride, copper(II) sulfate, magnesium perchlorate, magnesium sulfate, molecular sieves 3Å, phosphorous pentoxide (as Siccapent), potassium carbonate, potassium hydroxide, silicagel, sodium carbonate, sodium sulfate and sulphuric acid are considered in this work.
+
+Results and discussion
+
+Structure of a desiccator
+A classical desiccator (fig. 1) consists of a base (B) and a lid (A). The base is divided in a lower (L) and an upper (U) compartment by a perforated ceramic plate (1). On top of the lid, there could be a glass joint to place a stop cock for evacuation of the desiccator (3). In the lower compartment of the base, a porcelain bowl (2) with desiccator is placed and the objects, which should be stored away from humidity, are placed in the upper compartment.
+
+![Fig. 1: Schematic layout of a desiccator. A: Lid, B: Base, U: upper compartment, L: lower compartment, 1 perforated ceramic plate, 2: porcelain bowl for desiccant, 3: glass joint for plug or stop cock.](image)
+
+There are several “modern” desiccator systems made of other materials or in the form of a cupboard compartment (fig. 2).
+**Fig. 2:** Photos of two desiccators, Glass desiccator (left) with attached vacuum system on the top and a sample inside as well as desiccant in the porcelain bowl on the bottom; and plastic box desiccator (right) with two chambers with desiccants in the cups.
+
+*Choosing desiccator material*
+
+Desiccators are made of glass or plastic. In contrast to plastic desiccators, those made of glass are most often suitable for vacuum operations but more expensive than their plastic pendants. Since glass desiccators are made of thick walled glass they are heavy and breakable. Therefore, careful handling is crucial. The airtight sealing is achieved using a suitable grease on the flat ground joint. The lid has to be slid on and off the ground joint of the base to prevent damage.
+
+For storing objects at a controlled (low) humidity, dry boxes are available with doors with gaskets instead of ground joints. In these boxes, the desiccator has to be placed in a container next to the objects, which should be stored away from humidity.
+
+*Vacuum or not?*
+
+When drying solids in the desiccator, often the apparatus is evacuated. This procedure is useful to favor evaporation of volatile substances like water by lowering the pressure inside the desiccator. For the evacuation, a membrane pump should be used. A water aspirator as vacuum ejector will evacuate the vessel only to the vapor pressure of water at the given temperature and fill the atmosphere inside the desiccator with water vapor, which has to be removed while drying too. The use of oil-based pumps, like a rotary vane pump, will lead to an oil vapor inside the desiccator consisting of many volatile organic compounds (VOC).
+Some desiccants release water on standing in a low-pressure atmosphere, so they are not suitable when evacuating the desiccator.
+
+For long time self storage of solids in the desiccator, the evacuation is unfavorable. Since the pressure inside the desiccator is lower, air and therefore humidity will enter the apparatus through any leakage in the sealing more likely than without a pressure difference. Therefore, dry boxes often do not have a stop cock for evacuation.
+
+When using low-pressure inside the desiccator, special safety precautions must be considered: Only fully intact desiccators may be evacuated at all. While evacuating the desiccator may implode, therefore, a lab coat and safety goggles are essential for the operator. During refilling the desiccator with air, the lid may pop up when applying slightly over-pressure. Be aware of this the whole time!
+
+Choosing the right desiccant
+
+Before regarding the most important facts for choosing a desiccant material, the stable hydrates of the considered salts are discussed. A stable hydrate can still be hygroscopic. If the hydrate is deliquescent, the deliquescent humidity is given as relative humidity (%RH).
+
+**Calcium Chloride** hexahydrate is the hydrate with the highest water amount per formula unit. It looses subsequently water on heating:
+
+\[
+\begin{align*}
+\text{CaCl}_2 \cdot 6\text{H}_2\text{O} &= \text{CaCl}_2 \cdot 4\text{H}_2\text{O} + 2\text{H}_2\text{O} & > 30 \, ^\circ\text{C} \\
+\text{CaCl}_2 \cdot 4\text{H}_2\text{O} &= \text{CaCl}_2 \cdot 2\text{H}_2\text{O} + 2\text{H}_2\text{O} & > 45 \, ^\circ\text{C} \\
+\text{CaCl}_2 \cdot 2\text{H}_2\text{O} &= \text{CaCl}_2 + 2\text{H}_2\text{O} & > 175 \, ^\circ\text{C}
+\end{align*}
+\]
+At a high heating rate, hydrolysis can take part and form calcium oxides or chloride hydroxides and hydrochloric acid. The hexahydrate is still hygroscopic and deliquescent (deliquescence humidity: 28.8 %RH).
+
+**Copper Sulfate** pentahydrate has a blue colour. It looses water on heating until the white anhydrate is formed.\(^4\)
+
+\[
+\begin{align*}
+\text{CuSO}_4 \cdot 5\text{H}_2\text{O} &\rightleftharpoons \text{CuSO}_4 \cdot 3\text{H}_2\text{O} + 2\text{H}_2\text{O} & > 59.3 \degree\text{C} \\
+\text{CuSO}_4 \cdot 3\text{H}_2\text{O} &\rightleftharpoons \text{CuSO}_4 \cdot \text{H}_2\text{O} + 2\text{H}_2\text{O} & > 91.2 \degree\text{C} \\
+\text{CuSO}_4 \cdot \text{H}_2\text{O} &\rightleftharpoons \text{CuSO}_4 + \text{H}_2\text{O} & > 205 \degree\text{C}
+\end{align*}
+\]
+
+**Magnesium Perchlorate** hexahydrate losses water on heating\(^5\) but decomposes above 250 °C.
+
+\[
+\begin{align*}
+\text{Mg[ClO}_4\text{]}_{1\frac{1}{2}} \cdot 6\text{H}_2\text{O} &\rightleftharpoons \text{Mg[ClO}_4\text{]}_{1\frac{1}{2}} \cdot 4\text{H}_2\text{O} + 2\text{H}_2\text{O} & > 130 \degree\text{C} \\
+\text{Mg[ClO}_4\text{]}_{1\frac{1}{2}} \cdot 4\text{H}_2\text{O} &\rightleftharpoons \text{Mg[ClO}_4\text{]}_{1\frac{1}{2}} \cdot 2\text{H}_2\text{O} + 2\text{H}_2\text{O} & > 150 \degree\text{C} \\
+\text{Mg[ClO}_4\text{]}_{1\frac{1}{2}} \cdot 2\text{H}_2\text{O} &\rightleftharpoons \text{Mg[ClO}_4\text{]}_{1\frac{1}{2}} + 2\text{H}_2\text{O} & > 230 \degree\text{C}
+\end{align*}
+\]
+
+**Magnesium Sulfate** heptahydrate looses water on heating\(^6\):
+
+\[
+\begin{align*}
+\text{MgSO}_4 \cdot 7\text{H}_2\text{O} &\rightleftharpoons \text{MgSO}_4 \cdot 6\text{H}_2\text{O} + \text{H}_2\text{O} & 25 - 55 \degree\text{C} \\
+\text{MgSO}_4 \cdot 6\text{H}_2\text{O} &\rightleftharpoons \text{MgSO}_4 \cdot 0.1\text{H}_2\text{O} + 5.9\text{H}_2\text{O} & 60 - 265 \degree\text{C} \\
+\text{MgSO}_4 \cdot 0.1\text{H}_2\text{O} &\rightleftharpoons \text{MgSO}_4 + 0.1\text{H}_2\text{O} & > 275 \degree\text{C}
+\end{align*}
+\]
+
+The heptahydrate is still slightly hygroscopic, but has a deliquescence humidity of 87 – 89 %RH\(^7\).
+
+**Molecular Sieves** have pores of distinct sizes (e. g. 3 Å). The absorption of water is caused by the uptake of water molecules into these pores. All substances with a lower dynamic radius than the pore size can enter these pores, but at least in air, water is preferred due to the charge of the pore structure.
+Potassium Carbonate is a hygroscopic compound which easily forms the sesquihydrate $K_2CO_3\cdot1.5\:H_2O$ which is still hygroscopic (deliquescence humidity: 43.1 %RH$^1$). The sesquihydrate can be dehydrated by heat or reduced pressure.$^8$
+
+Potassium Hydroxide is a hygroscopic substance (deliquescence humidity: 8.3 %RH$^1$).
+
+Silicagel has a huge inner surface on which water can be absorbed. It is loaded with an indicator which changes the color with the amount of absorbed water.
+
+Sodium Sulfate decahydrate looses all its water above 32.384 °C which is quite exact. Therefore, the decahydrate is used as calibrant for thermometers.$^3$
+
+Sodium Carbonate decahydrate looses water on heating$^3$:
+
+$$Na_2CO_3\cdot10H_2O \rightleftharpoons Na_2CO_3\cdot7H_2O + 3H_2O \quad > 32.5 \: ^\circ C$$
+$$Na_2CO_3\cdot7H_2O \rightleftharpoons Na_2CO_3\cdotH_2O + 6H_2O \quad > 35.4 \: ^\circ C$$
+$$Na_2CO_3\cdotH_2O \rightleftharpoons Na_2CO_3 + H_2O \quad > 107 \: ^\circ C$$
+
+Sulphuric Acid is a hygroscopic viscous liquid.
+
+There are many facts to be considered for choosing the desiccant:
+
+1. Possible reactions with the atmosphere, e. g. acid-base reactions,
+2. The capacity for absorbing water from the atmosphere,
+3. The residual moisture at the end of the drying process,
+4. The speed of absorption of water from the atmosphere,
+5. The possibility and effort for regeneration of the drying agent,
+
+6. Safety issues,
+
+7. easy use
+
+Possible reactions of the gas phase with the desiccant are hydration, acid-base reactions and the formation of adducts and complexes. For example, if the product was washed with acetic acid and should be dried in a desiccator, the use of basic desiccants is favorable. So, the acetic acid as volatile substance in the gas phase will also be absorbed by the desiccant. Ammonia can be absorbed by copper sulfate forming the \([\text{Cu(NH}_3)_4]^{2+}\) complex and acetone or alcohols are absorbed by \(\text{CaCl}_2\) forming adducts. The formed compounds may not be hygroscopic anymore. So a higher amount of desiccant has to be used.
+
+Table 1: Parameters to consider for choosing the desiccant.
+
+| Desiccant       | Theoretical capacity | Residual humidity | acidity | Absorption speed | Regeneration               |
+|-----------------|----------------------|-------------------|---------|------------------|-----------------------------|
+| Calcium chloride| \(\text{CaCl}_2\): 97 % \(\text{CaCl}_2\cdot 2\text{H}_2\text{O}: 49 %\) \(\text{CaCl}_2\cdot 4\text{H}_2\text{O}: 19 %\) The hexahydrate is still hygroscopic, deliquescence humidity: 28.8 %RH[^1] | 7.815 %RH ± 1.475 gm[^3] | acid | (3.224 +/- 0.044) %RH h[^1] | Slow heating, 250 °C[^9] |
+| Copper sulfate  | \(\text{CuSO}_4\): 56 % \(\text{CuSO}_4\cdot 5\text{H}_2\text{O}: 40 %\) \(\text{CuSO}_4\cdot 3\text{H}_2\text{O}: 16 %\) | 10.927 %RH ± 2.482 gm[^3] | neutral | (3.420 +/- 0.079) %RH h[^1] | Slow heating, 50 °C/Vacuum or 250 °C |
+| Magnesium perchlorate | \(\text{Mg(ClO}_4)_2\): 48 % \(\text{Mg(ClO}_4)_2\cdot 2\text{H}_2\text{O}: 27 %\) | 3.418 %RH ± 0.802 gm[^3] | neutral | (4.108 +/- 0.083) %RH h[^1] | Slow heating, 240 |
+
+[^1]: \(\text{RH} = \frac{100}{21} T P\) where \(T\) is the dew point temperature in °C and \(P\) is the absolute pressure of the gas in mbar.
+
+[^9]: Data taken from \[1\].
+| Compound            | Formula                  | Deliquescence Humidity | State     | Deliquescence Humidity | RH Rate | Temperature Range |
+|---------------------|--------------------------|------------------------|-----------|------------------------|---------|-------------------|
+| Magnesium sulfate   | MgSO₄: 104 % MgSO₄·0,1 H₂O: 101 % MgSO₄·6 H₂O: 7 % | 27.473 %RH = 6.235 gm⁻³ | neutral   | 1.126 +/- 0.011 %RH h⁻¹ | Slow heating; 330 °C (anhydirate) or 200 °C (less water than monohydrate) |
+| Molecular sieves 3 Å | 15 - 24 %³ | 3.29 %RH = 0.713 gm⁻³ | basic     | 3.404 +/- 0.087 %RH h⁻¹ | Slow heating, > 250 °C |
+| Phosphorous pentoxide (Siccapent) | 33 %³ | 2.299 %RH = 0.469 gm⁻³ | acid      | 3.271 +/- 0.093 %RH h⁻¹ | Not possible³ |
+| Potassium carbonate | deliquescence humidity: 43.1 %RH¹ | 7.366 %RH = 1.619 gm⁻³ | basic     | 3.757 +/- 0.099 %RH h⁻¹ | Heating, 110 - 160 °C |
+| Potassium hydroxide | deliquescence humidity: 8.3 %RH¹ | 7.329 %RH = 1.459 gm⁻³ | basic     | 3.576 +/- 0.058 %RH h⁻¹ | Not recommended |
+| Silicagel           | 20 - 27 %³ | 12.053 %RH = 2.338 gm⁻³ | neutral   | 4.035 +/- 0.070 %RH h⁻¹ | Heating, 130 °C |
+| Sodium carbonate    | Na₂CO₃: 170 % Na₂CO₃·H₂O: 130 % Na₂CO₃·7 H₂O: 23 % | 34.6 %RH = 7.143 gm⁻³ | basic     | 0.522 +/- 0.021 %RH h⁻¹ | Heating, 110 °C |
+| Sodium sulfate      | Na₂SO₄: 125 % | 26.528 %RH = 5.068 gm⁻³ | neutral   | 0.320 +/- 0.013 %RH h⁻¹ | Heating, 150 °C³ |
+| Sulfuric acid       | no information | 5.817 %RH = 1.051 gm⁻³ | acid      | 1.395 +/- 0.043 %RH h⁻¹ | Not possible |
+The second point to be considered for desiccants is the capacity for absorbing water. For water free substances that form hydrates the capacity can be calculated as follows, for the example copper sulfate:
+
+Anhydrous copper sulfate has a molar mass of 159.61 g mol\(^{-1}\). The most water rich hydrate stable at ambient temperature is the pentahydrate with a molar mass of 249.69 g mol\(^{-1}\) which make the hydrate 1.56 times heavier per mole. So the capacity is 56 %. Furthermore, copper sulfate pentahydrate is not hygroscopic anymore (at ambient conditions). For hygroscopic substances which do not form stable hydrates, the deliquescence humidity can be used for comparing the capacity with other substances. The deliquescence humidity is the relative humidity where a solid salt starts to liquefy in the absorbed water. The theoretical capacity is shown in figure 3 and in table 1.
+
+Fig. 3: Theoretical capacity of desiccants considering up to 3 stable hydrates. Calcium chloride is as hydrate still deliquescent and can take up more water to form a solution. Molecular Sieves, Phosphorous pentoxide (Siccapent) and Silicagel do not absorb water stochiometrically, so values from \cite{9} were used. The potassium salts are excluded from this diagram since there is only the deliquescent humidity given and not distinct capacity can be calculated.
+For determining the residual moisture and the speed of absorption of water experiments were performed (see fig. 4). The lowest residual moisture shows magnesium perchlorate, phosphorous pentoxide and molecular sieves; the highest amount of residual water shows both sodium salts and magnesium sulfate. The most rapid drying was possible with magnesium perchlorate, silicagel and potassium carbonate.
+
+Fig. 3: Comparative chart for the residual moisture and the absorption speed (incl. errors) of desiccants.
+
+For reducing the waste of chemicals, the desiccant should be regenerated. Normally, it is heated to higher temperature for several hours to remove the water. The energy consumption of the process is lower if a lower temperature can be used. A lower temperature can be achieved by heating under reduced pressure in a dynamic vacuum. So the released water is pumped off the regeneration area. The heating speed has to be small because of possible side reactions for some desiccants (like CaCl₂) or problems occurring from rapid...
+evaporation of water in the pores of molecular sieves. The formed gas bubbles can blow up the structure and destroy the molecular sieve. The lowest regeneration temperature without reducing the pressure have potassium carbonate, sodium carbonate and silicagel at 100 to 130 °C. Copper sulfate can be dehydratisated at even lower temperature but under vacuum conditions.
+
+For safety reasons, sulphuric acid, phosphorous pentoxide and potassium hydroxide as very corrosive desiccants and magnesium perchlorate a strongly oxidizing agent have to be handled cautiously. Copper sulfate is also dangerous for the environment. So, the disposal must be done according to the local regulations or has to be recycled by dehydration. Calcium chloride, potassium carbonate and sodium carbonate are weak acid or bases respectively and have to be handled with caution. Magnesium sulfate, sodium sulfate, molecular sieves and silicagel do not need special safety precautions. For all powdery substances, dust should be avoided during decanting to prevent uncontrolled release of the substance or exposure of the decanting person. Therefore, the last four drying agents should be used in schoolary and undergraduate education.
+
+The following safety precautions must be observed when handling desiccants: Always wear your lab coat and safety goggles, especially when handling powdery substances. Suitable gloves are essential when handling the most hazardous substances, namely sulphuric acid, phosphorous pentoxide, potassium hydroxide and magnesium perchlorate. Gloves are also recommended when handling calcium chloride, potassium carbonate, sodium carbonate, and copper sulfate.
+The use of the desiccants is similar for all substances: the porcelain bowl is filled with the desiccant. It is crucial to remove "wet" desiccant and replace it with fresh and "dry" one. Desiccants with a high capacity have to be changed less often than desiccants with a low capacity. But it is not easy to verify if the desiccant is "wet" already. Copper sulfate changes its colour to blue (forming the pentahydrate), when absorbing water. Silicagel often contains indicators, which may be harmful or can react with the atmosphere. For example, cobalt(II) chloride or methyl violet are often used as indicators, but quite hazardous. Non-toxic indicators like ammonium iron(III) sulfate may decompose in a basic atmosphere.
+
+Sometimes mixtures of desiccants are used, like a mixture of molecular sieve for the low residual moisture together with indicator containing silica gel for the use of indicator. These mixtures are difficult to regenerate as silica gel cannot be heated above 250 °C without losing the desiccator characteristics, but molecular sieves have to be heated above 250 °C to regenerate.
+
+Table 2 gives an overview about the advantages and disadvantages of the desiccants.
+
+**Table 2: Advantages and disadvantages of desiccants.** black = no data; Limits:
+theoretical capacity (green >= 150 %, blue >90 %, amber >50 %, red < 50 %), residual moisture (green < 5 %RH, blue <10 %RH, amber < 20%RH, red > 20%RH), absorption speed (green > 4%RH h⁻¹, blue >3 %RH h⁻¹, amber >1 %RH h⁻¹, red < 1 %RH h⁻¹), regeneration (green < 150 °C, blue < 200 °C, amber < 300 °C, red no regeneration), safety issues (green no issues, blue few issues, amber some issues, red major issues), indicator (green ▶ is indicator or available with indicator, red ▶ no indicator), (+) ▶ can be better under distinct circumstances
+| Desiccant            | Theoretical capacity | Residual moisture | Absorption speed | Regeneration | Safety issues | Indicator |
+|----------------------|----------------------|-------------------|------------------|--------------|---------------|-----------|
+| Calcium chloride     |                      |                   |                  |              |               |           |
+| Copper sulfate       |                      |                   |                  |              |               |           |
+| Magnesium perchlorate|                      |                   |                  |              |               |           |
+| Magnesium sulfate    |                      |                   |                  | (+)          |               |           |
+| Molecular sieves 3 Å |                      |                   |                  |              |               |           |
+| Phosphorous pentoxide (Siccapent) | |                   |                  |              |               |           |
+| Potassium carbonate |                      |                   |                  |              |               |           |
+| Potassium hydroxide  |                      |                   |                  |              |               |           |
+| Silicagel            |                      |                   |                  | (+)          |               |           |
+| Sodium carbonate     |                      |                   |                  |              |               |           |
+| Sodium sulfate       |                      |                   |                  | (+)          |               |           |
+| Sulfuric acid        |                      |                   |                  |              |               |           |
+
+According to table 2, the best neutral desiccants are silicagel (without toxic indicator), molecular sieves and anhydrous copper sulfate. As an acid desiccant calcium chloride is often a good choice, and as a base, potassium carbonate is recommended.
+
+*Experimental*
+
+*Materials and Methods*
+
+The experiments were performed with the following desiccants:
+| Desiccant                | Source                             | Purification         |
+|-------------------------|------------------------------------|----------------------|
+| Calcium chloride        | Grüssing GmbH, 99 %                | none                 |
+| Copper sulfate          | AppliChem, 99 %                    | 4 h at 250 °C (until white) |
+| Magnesium perchlorate   | Thermo Scientific, ACS reagent     | none                 |
+| Magnesium sulfate       | Fluka > 98 %                       | none                 |
+| Molecular sieves 3 Å    | Carl Roth                          | 5 h at 250 °C        |
+| Phosphorous pentoxide (Siccapent) | Merck                          | none                 |
+| Potassium carbonate     | AppliChem, p. A.                   | 4 h at 130 °C        |
+| Potassium hydroxide     | AppliChem, tech.                   | none                 |
+| Silicagel               | Carl Roth, blue indicator          | none                 |
+| Sodium carbonat         | Grüssing, 99,5 %                   | 5 h at 130 °C        |
+| Sodium sulfate          | VWR AnalR NORMAPUR                 | none                 |
+| Sulfuric acid           | AppliChem, tech.                   | none                 |
+
+The experimental setup can be found in fig. 3. The experiments were performed inside a polystyrene box with a volume of about 15 L. Inside this box an open container with a saturated K$_2$CO$_3$ solution and a plastic container of a volume of about 1 L which can be closed airtight. In the inner container, a beaker with the desiccant is placed. The humidity and temperature measurement were performed with two BME680, one inside the inner container and one in the polystyrene box. Both sensors are connected to an arduino nano inside the polystyrene box. With a USB cable, the arduino is controlled from the outside. All wired connections thought the container or box wall were sealed with hot glue. The measured values were collected by a python script listening to the serial port of the arduino.
+An experiment starts with the equilibration of the humidity adsorbed at the surfaces inside the box and the inner container. The inner container is opened, but the empty beaker and the container lid are placed inside the box. In the closed box, a constant humidity of about 36 to 40 % RH is reached after 2 hours. Then, the desiccant is placed in the beaker and the inner container is closed airtight. After closing the polystyrene box, the measurements starts and runs until the humidity inside the inner container is constant.
+
+For the interpretation, a python script is used. The first 30 minutes were assumed to be the equilibration time. The next 180 minutes (30 to 210 from the start of the experiment) were used in a linear regression to define the absorption speed. The minimum humidity in the whole dataset is used as residual humidity.
+
+The error of the BME680 is 3 %RH. This uncertainty is used in the calculations. The absolute humidity is calculated regarding the temperature using the Magnus formula.
+Using a desiccator seems effortless, but picking the right desiccant is crucial for a successful drying process. Reactions apart from the hydratisation of the desiccant must also be considered, as well as the capacity, drying speed, residual moisture, safety precautions, and the regeneration of the desiccant. This study found that magnesium sulfate and sodium sulfate are good drying agents with a high capacity that can easily be renewed and show some residual moisture even when they are drying slowly. The residual humidity at a higher speed is shown by molecular sieves and silica gel, but they need higher temperatures to be regenerated or may contain hazardous indicators and show a lower capacity. A general choice for graduate students may be copper sulfate. It possesses a moderate capacity, medium residual humidity, and a high absorption rate and a “built-in” indication. It is possible to regenerate it, but due to its harmfulness to the environment, safety precautions must be taken, making it potentially inappropriate for undergraduates. Higher desiccant speeds or more complete drying require other desiccants, and higher safety requirements must be accepted or side effects, especially acid base reactions, must be considered. There is no desiccant suitable for every purpose, but many good choices for different applications.
+
+Author Contributions
+
+Marcus Herbig: Conceptualization, Data Curation, Formal analysis, Methodology, Software, Visualization, Writing - Original Draft
+
+Conflicts of interest
+
+There are no conflicts to declare.
+
+Acknowledgements
+The author thanks TU Bergakademie for financial support and Uwe Böhme for reading, corrections and useful comments on the manuscript.
+
+References
+
+[1] G. Richardson, R. Malthus, *Journal of Applied Chemistry* **1955**, *5*, 557-567, DOI:10.1002/jctb.5010051006.
+
+[2] Deliquescence in: The IUPAC Compendium of Chemical Terminology, **2014**.
+
+[3] A. Holleman, E. und Nils Wiberg, G. Fischer, *Lehrbuch der Anorganischen Chemie*, Walter de Gruyter, **2007**, DOI: 10.1515/9783110177701.
+
+[4] L. Cheng, W. Li, Y. Li, Y. Yang, Y. Li, Y. Cheng, D. Song, *Journal of Thermal Analysis and Calorimetry* **2018**, *135*, 2697-2703, DOI:10.1007/s10973-018-7595-y.
+
+[5] K. Robertson, D. Bish, *Acta Crystallographica Section B Structural Science* **2010**, *66*, 579-584, DOI:10.1107/s0108768110039686.
+
+[6] V. van Essen, H. Zondag, J. Gores, L. ans M. Bakker, R. Schuitema, W. van Helden, Z. Ze, C. Rindt, *Journal of Solar Energy Engineering* **2009**, *131*.
+
+[7] C. Peng, L. Chen, M. Tang, *Fundamental Research* **2022**, *2*, 578-587, DOI:10.1016/j.fmre.2021.11.021.
+
+[8] N. Mazur, H. Huinink, B. Borm, S. Sansota, H. Fischer, O. Adan, *Thermochimica Acta* **2022**, *715*, 179286, DOI:10.1016/j.tca.2022.179286.
+
+[9] M. KGaA, *Dry and safe*, **2013**, www.merck-millipore.com/drying-agents.

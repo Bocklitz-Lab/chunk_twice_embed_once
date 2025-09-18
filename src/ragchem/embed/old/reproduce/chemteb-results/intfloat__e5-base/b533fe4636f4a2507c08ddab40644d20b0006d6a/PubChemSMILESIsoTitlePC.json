@@ -1,0 +1,58 @@
+{
+  "dataset_revision": "d8865a1b3a269aa2f4b4059a13c1037a9adfbc5d",
+  "evaluation_time": 4.212740421295166,
+  "kg_co2_emissions": null,
+  "mteb_version": "1.14.15",
+  "scores": {
+    "test": [
+      {
+        "cosine_accuracy": 0.89990234375,
+        "cosine_accuracy_threshold": 0.851892352104187,
+        "cosine_ap": 0.10283690707108388,
+        "cosine_f1": 0.18533886583679116,
+        "cosine_f1_threshold": 0.694936990737915,
+        "cosine_precision": 0.10229007633587786,
+        "cosine_recall": 0.9852941176470589,
+        "dot_accuracy": 0.89990234375,
+        "dot_accuracy_threshold": 0.8518924117088318,
+        "dot_ap": 0.10283690707108388,
+        "dot_f1": 0.18533886583679116,
+        "dot_f1_threshold": 0.694936990737915,
+        "dot_precision": 0.10229007633587786,
+        "dot_recall": 0.9852941176470589,
+        "euclidean_accuracy": 0.89990234375,
+        "euclidean_accuracy_threshold": 0.5442564487457275,
+        "euclidean_ap": 0.10283690707108388,
+        "euclidean_f1": 0.18533886583679116,
+        "euclidean_f1_threshold": 0.7811055779457092,
+        "euclidean_precision": 0.10229007633587786,
+        "euclidean_recall": 0.9852941176470589,
+        "hf_subset": "default",
+        "languages": [
+          "eng-Latn"
+        ],
+        "main_score": 0.18533886583679116,
+        "manhattan_accuracy": 0.89990234375,
+        "manhattan_accuracy_threshold": 11.976231575012207,
+        "manhattan_ap": 0.10180165659506549,
+        "manhattan_f1": 0.18406593406593408,
+        "manhattan_f1_threshold": 17.343643188476562,
+        "manhattan_precision": 0.10151515151515152,
+        "manhattan_recall": 0.9852941176470589,
+        "max_accuracy": 0.89990234375,
+        "max_ap": 0.10283690707108388,
+        "max_f1": 0.18533886583679116,
+        "max_precision": 0.10229007633587786,
+        "max_recall": 0.9852941176470589,
+        "similarity_accuracy": 0.89990234375,
+        "similarity_accuracy_threshold": 0.8518924117088318,
+        "similarity_ap": 0.10283690707108388,
+        "similarity_f1": 0.18533886583679116,
+        "similarity_f1_threshold": 0.6949371099472046,
+        "similarity_precision": 0.10229007633587786,
+        "similarity_recall": 0.9852941176470589
+      }
+    ]
+  },
+  "task_name": "PubChemSMILESIsoTitlePC"
+}

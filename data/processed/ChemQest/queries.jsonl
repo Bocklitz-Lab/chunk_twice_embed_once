@@ -1,0 +1,971 @@
+{"_id": "0", "text": "What is the primary chemical process used for extracting furfural from sugarcane bagasse in this study?"}
+{"_id": "1", "text": "What are the main components of sugarcane bagasse that make it suitable for furfural production?"}
+{"_id": "2", "text": "What is the range of furfural yield obtained from the bagasse samples in this study?"}
+{"_id": "3", "text": "Which spectroscopy methods were used to verify the presence of furfural in the samples?"}
+{"_id": "4", "text": "What is the role of sodium chloride in the furfural extraction process described in the study?"}
+{"_id": "5", "text": "What is the significance of the peak at 283.6 nm in the UV spectra of Sample A?"}
+{"_id": "6", "text": "What is the role of anhydrous sodium sulfate in the furfural extraction process?"}
+{"_id": "7", "text": "What is the significance of the aldehyde proton signal in the \u00b9H NMR spectra for confirming furfural?"}
+{"_id": "8", "text": "What is the maximum furfural yield obtained from the bagasse samples, and which sample achieved this yield?"}
+{"_id": "9", "text": "What is the core material of the nanoparticles used for magnetic water cleaning of PCBs?"}
+{"_id": "10", "text": "How do the self-assembled monolayers (SAMs) on SPIONs interact with PCBs?"}
+{"_id": "11", "text": "What are the two main types of interactions used by the SPIONs to remove PCBs?"}
+{"_id": "12", "text": "Which phosphonic acid derivative provides positive charges on the SPION surface?"}
+{"_id": "13", "text": "Which PCB congener is most efficiently extracted by positively charged SPIONs?"}
+{"_id": "14", "text": "What is the primary diameter of the SPIONs used in this study?"}
+{"_id": "15", "text": "How is the PCB concentration analyzed after magnetic extraction?"}
+{"_id": "16", "text": "What is the specific surface area provided by the SPIONs used in the study?"}
+{"_id": "17", "text": "What is the theoretical specific capacity of phosphorene as an anode material for sodium-ion batteries?"}
+{"_id": "18", "text": "What is the optimal applied potential identified for the electrochemical conversion of black phosphorus to phosphorene quantum dots?"}
+{"_id": "19", "text": "What are the emission wavelengths observed in the photoluminescence spectra for the different sizes of PQDs?"}
+{"_id": "20", "text": "What is the role of Prussian white (PW) when combined with PQDs in sodium-ion batteries?"}
+{"_id": "21", "text": "What is the energy barrier for Na intercalation in phosphorene according to DFT studies?"}
+{"_id": "22", "text": "What is the role of N-Methyl-2-Pyrrolidone (NMP) in the electrochemical synthesis of PQDs?"}
+{"_id": "23", "text": "What role does pyromellitic acid play in the formation of Zn(II)-metallogel?"}
+{"_id": "24", "text": "Which solvent is used as the gel-immobilized solvent media for Zn(II)-metallogel?"}
+{"_id": "25", "text": "What are the main non-covalent interactions involved in the formation of the Zn(II)-metallogel?"}
+{"_id": "26", "text": "What is the minimum critical gelation (MCG) concentration for the Zn-PMA metallogel?"}
+{"_id": "27", "text": "Which Zn(II) salt was found to be crucial for achieving stable Zn(II)-metallogel?"}
+{"_id": "28", "text": "What is the effect of different solvent media on the formation of Zn-PMA metallogel?"}
+{"_id": "29", "text": "What is the observed antimicrobial efficacy of Zn(II)-metallogel against Gram-positive and Gram-negative bacteria?"}
+{"_id": "30", "text": "What rheological properties were monitored to evaluate the mechanical aptitude of Zn-PMA metallogel?"}
+{"_id": "31", "text": "What is the significance of the storage modulus ($G'$) and loss modulus ($G''$) in the rheological analysis of Zn-PMA metallogel?"}
+{"_id": "32", "text": "How does the proportion of albumin relative to total protein content differ between DKD patients and control samples?"}
+{"_id": "33", "text": "What are the main spectral markers used to identify DKD in the study?"}
+{"_id": "34", "text": "What machine learning algorithms were evaluated for DKD diagnosis in this study?"}
+{"_id": "35", "text": "What is the significance of the Amide I, II, and A bands in the context of this study?"}
+{"_id": "36", "text": "What was the purpose of using Standard Normal Variate (SNV) normalization in the spectral analysis?"}
+{"_id": "37", "text": "How were the spectra pre-processed before analysis?"}
+{"_id": "38", "text": "What is the purpose of using a large excess of NaCl in the synthesis of FATO NPs?"}
+{"_id": "39", "text": "How does the oxidative stability of FATO nanoparticles compare to Super P in terms of side reactions?"}
+{"_id": "40", "text": "What is the median particle size of FATO nanoparticles as determined by TEM and DLS?"}
+{"_id": "41", "text": "What is the role of gold leaf in the assembly of FATO-based battery cells?"}
+{"_id": "42", "text": "What is the role of \u03b2-diketone ligands in the synthesis of lanthanide-based complexes?"}
+{"_id": "43", "text": "How does the magnetic anisotropy of Dy(III) based complexes get affected?"}
+{"_id": "44", "text": "What is the role of the 'antenna effect' in luminescent thermometry?"}
+{"_id": "45", "text": "What is the coordination environment of the Dy(III) centers in complex 3?"}
+{"_id": "46", "text": "What is the impact of the absence of interstitial solvent molecules on the complexes?"}
+{"_id": "47", "text": "What is the range of hydrogen bond strengths in the clusters studied in the paper?"}
+{"_id": "48", "text": "Which type of hydrogen bond is the strongest in the clusters?"}
+{"_id": "49", "text": "What is the range of hydrogen bond energies for the S-H\u2026S bond in the clusters?"}
+{"_id": "50", "text": "How does cooperativity affect the hydrogen bond energies in the clusters?"}
+{"_id": "51", "text": "What is the effect of cooperativity on hydrogen bond energies in dimers compared to larger clusters?"}
+{"_id": "52", "text": "What is the significance of the negative cooperativity observed in some hydrogen bonds?"}
+{"_id": "53", "text": "What is the range of individual hydrogen bond energies in pure (H\u2082S)\u2099 clusters?"}
+{"_id": "54", "text": "How do the hydrogen bond energies in pure (H\u2082S)\u2099 clusters compare to those in mixed (H\u2082O)\u2098(H\u2082S)\u2099 clusters?"}
+{"_id": "55", "text": "What is the main reason for the difference in the S3 state lifetime between protonated 6-azaindole and 7-azaindole?"}
+{"_id": "56", "text": "What percentage of 7-AIH+ trajectories quickly dissociate, losing the hydrogen attached to the five-membered ring?"}
+{"_id": "57", "text": "What is the primary purpose of accurate mass measurements in high-resolution mass spectrometry (HRMS)?"}
+{"_id": "58", "text": "What is a common error when calculating the exact mass for a charged species in HRMS?"}
+{"_id": "59", "text": "How does the Python script handle discrepancies in molecular formulas during HRMS data analysis?"}
+{"_id": "60", "text": "What type of errors can occur due to human intervention in HRMS data handling?"}
+{"_id": "61", "text": "What is the most common minor deviation observed in HRMS data reporting according to the study?"}
+{"_id": "62", "text": "How does the script address typographical errors in HRMS data?"}
+{"_id": "63", "text": "What is the range of particle sizes for the synthesized boron, cerium, and silver ternary-doped TiO\u2082 photocatalysts?"}
+{"_id": "64", "text": "What is the bandgap energy range of the synthesized photocatalysts?"}
+{"_id": "65", "text": "Which dopant did not leach out from the catalysts into the solution according to ICP-OES analysis?"}
+{"_id": "66", "text": "What percentage of ciprofloxacin degradation was achieved by the best performing photocatalyst under UV-A light?"}
+{"_id": "67", "text": "What is the primary mechanism by which the photocatalysts degrade ciprofloxacin?"}
+{"_id": "68", "text": "What is the significance of the EDTA-citrate method used in the synthesis of the photocatalysts?"}
+{"_id": "69", "text": "What are the potential strategies suggested for improving the performance of the tri-doped photocatalysts?"}
+{"_id": "70", "text": "What is the role of silver in the ternary-doped TiO\u2082 photocatalysts?"}
+{"_id": "71", "text": "What are the primary substrates for class IIb HDACs?"}
+{"_id": "72", "text": "What is the function of HDAC10's active polyamine deacetylase (PDAC) domain?"}
+{"_id": "73", "text": "Which residues in HDAC10 are critical for its selectivity for polyamine substrates?"}
+{"_id": "74", "text": "What is the significance of the tertiary amine in the capping group of tubastatin A?"}
+{"_id": "75", "text": "What is the role of the \u03b7A2 helix and specific loop in HDAC10?"}
+{"_id": "76", "text": "How do PROTACs differ from classical inhibitors in terms of their mode of action?"}
+{"_id": "77", "text": "What is the observed effect of HDAC10 inhibition on cancer cell sensitivity to chemotherapy?"}
+{"_id": "78", "text": "What is the significance of the zinc-finger ubiquitin-binding domain (UBD) in HDAC6?"}
+{"_id": "79", "text": "What are the top five most abundant phytochemicals identified in the *Calotropis procera* extract using GC-MS analysis?"}
+{"_id": "80", "text": "What was the observed effect of the *Calotropis procera* extract and ampicillin combination on the zones of inhibition for *Staphylococcus aureus*?"}
+{"_id": "81", "text": "Which phytochemicals identified in the study demonstrated anticancer properties?"}
+{"_id": "82", "text": "What role does sulfuric acid play in the preparation of the *Calotropis procera* extract and ampicillin mixture?"}
+{"_id": "83", "text": "What is the retention time of oleic acid in the GC-MS analysis?"}
+{"_id": "84", "text": "What is the molecular weight of cystamine as identified in the GC-MS analysis?"}
+{"_id": "85", "text": "Which compound identified in the GC-MS analysis is associated with the highest retention time?"}
+{"_id": "86", "text": "What is the effect of the *Calotropis procera* extract and ampicillin combination on the zones of inhibition for *Salmonella spp.*?"}
+{"_id": "87", "text": "What is the role of zwitterionic moieties in the pBAE-CRHR-Zw formulation?"}
+{"_id": "88", "text": "How do oligopeptide end-modified pBAEs (OM-pBAEs) enhance polynucleotide encapsulation?"}
+{"_id": "89", "text": "What is the significance of the CRHR sequence in the simplified OM-pBAE formulation?"}
+{"_id": "90", "text": "What effect does the position of histidine have on the transfection efficiency of OM-pBAEs?"}
+{"_id": "91", "text": "What is the role of arginine residues in the OM-pBAE formulations?"}
+{"_id": "92", "text": "How does the zwitterionic-graft affect the transfection potential of pBAEs?"}
+{"_id": "93", "text": "What is the purpose of adding a photo-cleavable moiety to the pBAE-CRHR-Zw formulation?"}
+{"_id": "94", "text": "What is the function of BrainBike-4 in the pBAE-CRHR-Zw formulation?"}
+{"_id": "95", "text": "What is the significance of the Z-potential in the characterization of OM-pBAEs?"}
+{"_id": "96", "text": "What is the role of carbon additives in lithium-ion battery electrodes?"}
+{"_id": "97", "text": "What are the advantages of solvent-free (SF) manufacturing processes for lithium-ion battery electrodes?"}
+{"_id": "98", "text": "What is the significance of the twin-screw extruder (TSE) in the solvent-free process?"}
+{"_id": "99", "text": "What is the role of the recirculation circuit in the extrusion model?"}
+{"_id": "100", "text": "What is the effect of screw rotation speed on the microstructure of extruded filaments?"}
+{"_id": "101", "text": "What is the purpose of using a Discrete Element Method (DEM) in the extrusion process simulation?"}
+{"_id": "102", "text": "What are the main components of the model geometry in the extrusion process simulation?"}
+{"_id": "103", "text": "What is the assumed diameter for Active Material (AM) particles in the model?"}
+{"_id": "104", "text": "What is the assumed diameter for Binder-Carbon (BC) particles in the model?"}
+{"_id": "105", "text": "What is the main contribution to the intermolecular interaction energy in non-covalent systems?"}
+{"_id": "106", "text": "How does the CCPP2(T) method improve the calculation of dispersion energy?"}
+{"_id": "107", "text": "How does the paper propose to handle the slow convergence of dispersion energy calculations with respect to basis set size?"}
+{"_id": "108", "text": "What structural changes occur in CFO/CN after prolonged cycling?"}
+{"_id": "109", "text": "What are the main degradation mechanisms affecting the CFO/CN catalyst during OER?"}
+{"_id": "110", "text": "What is the significance of oxygen vacancies in the CFO/CN composite?"}
+{"_id": "111", "text": "How does the presence of CN affect the electrochemical impedance spectroscopy (EIS) results for CFO/CN?"}
+{"_id": "112", "text": "What type of interactions predominantly govern polysaccharide retention on a non-polar diamond surface initially?"}
+{"_id": "113", "text": "How does the adsorption capacity and binding strength of polysaccharides compare between goethite and diamond surfaces?"}
+{"_id": "114", "text": "What type of interactions follow electrostatic interactions during polysaccharide adsorption on goethite?"}
+{"_id": "115", "text": "What happens to the hydrophobic character of organo-mineral associations upon polysaccharide adsorption?"}
+{"_id": "116", "text": "What type of spectroscopy was used to study the conformational changes of polysaccharides at the interfaces?"}
+{"_id": "117", "text": "What is the significance of the water contact angle (WCA) in the context of this study?"}
+{"_id": "118", "text": "How does the decomposition rate of TCP change with temperature and shear stress?"}
+{"_id": "119", "text": "What are the differences in TCP decomposition between iron, iron carbide, and iron oxide surfaces?"}
+{"_id": "120", "text": "What is the effect of surface energy and stiffness on the mechanochemical reactivity of TCP?"}
+{"_id": "121", "text": "What is the role of the ortho-isomers of TCP in its lubricating properties?"}
+{"_id": "122", "text": "What is the primary reason for the formation of iron phosphate from TCP on steel surfaces?"}
+{"_id": "123", "text": "How does the reactivity of TCP compare to trialkyl phosphates on Fe\u2082O\u2084 surfaces?"}
+{"_id": "124", "text": "What is the effect of temperature on the chemisorption of TCP on hydroxylated amorphous Fe\u2082O\u2084?"}
+{"_id": "125", "text": "What are the main products of TCP decomposition on iron surfaces at high temperatures?"}
+{"_id": "126", "text": "What is the significance of the elastic modulus of surfaces in the mechanochemical decomposition of TCP?"}
+{"_id": "127", "text": "What role do chloride ions play in the CO\u2082 electroreduction process using SnCl\u2084-modified Cu\u2082O catalysts?"}
+{"_id": "128", "text": "What is the peak Faradaic efficiency achieved for ethane production using the SnCl\u2084-modified Cu\u2082O catalyst?"}
+{"_id": "129", "text": "How does the SnCl\u2084 modification affect the electronic environment of the Cu\u2082O catalyst?"}
+{"_id": "130", "text": "What is the total current density achieved with the SnCl\u2084-modified Cu\u2082O catalyst during electrolysis?"}
+{"_id": "131", "text": "What is the Tafel slope observed for the SnCl\u2084-modified Cu\u2082O catalyst at 0.4 V overpotential?"}
+{"_id": "132", "text": "What is the primary challenge in achieving high selectivity for ethane in electrochemical CO\u2082 reduction?"}
+{"_id": "133", "text": "How does the presence of chloride anions affect CO selectivity in electrochemical CO\u2082 reduction?"}
+{"_id": "134", "text": "What is the overpotential of the cobalt boride-phosphite electrode at a current density of 10 mA cm\u207b\u00b2?"}
+{"_id": "135", "text": "What role does sodium borohydride play in the synthesis of the cobalt boride-phosphite electrode?"}
+{"_id": "136", "text": "How does the incorporation of phosphorous affect the cobalt boride system?"}
+{"_id": "137", "text": "What is the significance of the mixed crystalline-amorphous phases in the cobalt boride-phosphite electrode?"}
+{"_id": "138", "text": "What is the binding energy shift observed in the Co 2p\u2083/\u2082 spectrum due to Co-B interaction?"}
+{"_id": "139", "text": "What is the observed morphology of the Co\u2093B-[0.2]P-O catalyst as seen in TEM?"}
+{"_id": "140", "text": "What is the surface composition of the Co\u2093B-[0.2]P-O catalyst as revealed by XPS?"}
+{"_id": "141", "text": "How does the choice of anode material affect the selectivity in the electrocatalytic reactions?"}
+{"_id": "142", "text": "How does the electrocatalytic method compare to chemical oxidant-based systems in terms of efficiency and waste production?"}
+{"_id": "143", "text": "What types of reactions are enabled by the Co(II/III/IV) electrocatalytic platform?"}
+{"_id": "144", "text": "What is the effect of doubling the current in the electrocatalytic reactions?"}
+{"_id": "145", "text": "What is the main reason graphene oxide (GO) is considered a promising material for future fuel cell membranes?"}
+{"_id": "146", "text": "What is the Grotthuss mechanism in the context of proton exchange membranes?"}
+{"_id": "147", "text": "Why is the proton conductivity in the out-of-plane direction of GO membranes problematic for fuel cell applications?"}
+{"_id": "148", "text": "What is the impact of chemical functionalization of GO membranes on their mechanical strength and fuel crossover?"}
+{"_id": "149", "text": "What structural feature of the 3DGO membrane contributes to its high proton conductivity and power density?"}
+{"_id": "150", "text": "How does the application of a strong electric field affect the 3DGO membrane?"}
+{"_id": "151", "text": "What is the significance of the sulphate-sulphate pair correlation function in the Graphenion membrane?"}
+{"_id": "152", "text": "What happens to sulphate ions in a GO membrane as their concentration increases?"}
+{"_id": "153", "text": "What is the role of the hydration level \\( \\lambda \\) in the formation of a continuous water phase in Graphenion?"}
+{"_id": "154", "text": "What is the relationship between the electrostatic screening length \\( l_D \\) and the average separation distance \\( l \\) in the context of sulphate ion interactions?"}
+{"_id": "155", "text": "What is the significance of the potential of -7 V in the electrochemical synthesis of SnQDs?"}
+{"_id": "156", "text": "How does the size of SnQDs affect their photoluminescence properties?"}
+{"_id": "157", "text": "What is the role of acetonitrile in the electrochemical synthesis of SnQDs?"}
+{"_id": "158", "text": "What are the observed binding energies in the XPS analysis of SnQDs after 6 hours of electrochemical exfoliation?"}
+{"_id": "159", "text": "What is the significance of the interlayer distance in SnQDs?"}
+{"_id": "160", "text": "What are the main products formed during electrolysis at different potentials in the synthesis of SnQDs?"}
+{"_id": "161", "text": "What is the observed shift in the XRD peak for SnQDs synthesized at different times?"}
+{"_id": "162", "text": "What are the two prominent FeNC active site models studied in the paper?"}
+{"_id": "163", "text": "What is required to stabilize the high spin configuration in FeNC catalysts according to the study?"}
+{"_id": "164", "text": "What spectroscopy method is extensively used to study FeNC catalysts and why?"}
+{"_id": "165", "text": "What are the two types of nitrogen coordination in the FeNC models discussed?"}
+{"_id": "166", "text": "What is the ground state configuration for the FeN\u2084 system with an iron(II) ion?"}
+{"_id": "167", "text": "What is the effect of the graphene-like environment on the electronic configurations of FeNC models?"}
+{"_id": "168", "text": "What computational method is primarily used to study the FeNC catalyst models?"}
+{"_id": "169", "text": "What is the role of the conjugated \u03c0-system in the FeN\u2084 system?"}
+{"_id": "170", "text": "What are the electronic configurations identified for the FeNC models?"}
+{"_id": "171", "text": "What is the significance of the quadrupole splitting in M\u00f6ssbauer spectroscopy for FeNC catalysts?"}
+{"_id": "172", "text": "How does the solvent composition affect ionomer aggregation according to the study?"}
+{"_id": "173", "text": "What is the primary mechanism by which LyTONs achieve mRNA knockdown?"}
+{"_id": "174", "text": "What chemical modification is used in RNase H-inactive ASOs for higher chemical stability?"}
+{"_id": "175", "text": "How does ispinesib contribute to the function of LyTONs?"}
+{"_id": "176", "text": "What was the observed effect of bafilomycin on LyTON activity?"}
+{"_id": "177", "text": "What is the role of the autophagosome in the mechanism of LyTONs?"}
+{"_id": "178", "text": "What was the effect of LyTONs on Menin (MEN1) mRNA and protein levels?"}
+{"_id": "179", "text": "How does the knockdown efficiency of LyTONs compare to that of RNase H-active gapmer ASOs?"}
+{"_id": "180", "text": "What is the role of ispinesib in the synthesis of LyTONs?"}
+{"_id": "181", "text": "What is the proposed advantage of using LyTONs over traditional RNase H-mediated ASOs?"}
+{"_id": "182", "text": "How does the shape anisotropy of iron oxide nanocrystals evolve according to the study?"}
+{"_id": "183", "text": "What is the role of methylcellulose (MC) and cetyltrimethylammonium bromide (CTAB) in the synthesis process?"}
+{"_id": "184", "text": "What are the polymorphic forms of iron oxide nanoparticles synthesized in the study?"}
+{"_id": "185", "text": "Which biogenic ligand was used in the study to influence the shape anisotropy of iron oxide nanocrystals?"}
+{"_id": "186", "text": "What techniques were used to characterize the synthesized iron oxide nanoparticles?"}
+{"_id": "187", "text": "What is the role of the electrochemical work function (\u03a6\u2090d\u2070) in explaining the photocatalytic behavior of iron oxide nanoparticles?"}
+{"_id": "188", "text": "What is the significance of shape anisotropy in the photocatalytic efficiency of iron oxide nanoparticles?"}
+{"_id": "189", "text": "What is the role of non-classical crystallization theory (NCCT) in this study?"}
+{"_id": "190", "text": "What is the significance of electrochemically active surface area (ESCA) in the study?"}
+{"_id": "191", "text": "What is the primary chemical transformation discussed in the paper?"}
+{"_id": "192", "text": "Which catalysts are used for the C\u2013H borylation process in the study?"}
+{"_id": "193", "text": "What is the unusual mechanistic feature of the \u03c3-bond metathesis process described in the paper?"}
+{"_id": "194", "text": "What is the role of the NacNac ligand in the borylation mechanism?"}
+{"_id": "195", "text": "What is the significance of using (H\u2013BBN)2 in the borylation process?"}
+{"_id": "196", "text": "What is the role of [(DMT)H][B(C6F5)4] in the borylation reactions?"}
+{"_id": "197", "text": "What is the outcome of the reaction between NacNacZn(thienyl) and (H\u2013BBN)2?"}
+{"_id": "198", "text": "What is the significance of the diborylation of thiophenes in the study?"}
+{"_id": "199", "text": "What are the most common phases of liquid crystals mentioned in the paper?"}
+{"_id": "200", "text": "How do liquid crystals benefit quantum computing in terms of photon management?"}
+{"_id": "201", "text": "What is the significance of the Smectic C* phase in quantum computing?"}
+{"_id": "202", "text": "How do liquid crystals exhibit quantum coherence?"}
+{"_id": "203", "text": "What is the primary advantage of metal hydride-based hydrogen compressors over mechanical compressors?"}
+{"_id": "204", "text": "What thermodynamic relationship is used to describe hydrogen compression using a metal hydride?"}
+{"_id": "205", "text": "What is the role of effective thermal management in metal hydride-based hydrogen compressors?"}
+{"_id": "206", "text": "What is the significance of the pressure-composition-temperature (PCT) isotherms in evaluating metal hydride materials?"}
+{"_id": "207", "text": "What is the primary challenge in predicting metal hydride thermodynamic properties using machine learning models?"}
+{"_id": "208", "text": "What is the effect of Co substitution for Mn in the TCMFL material?"}
+{"_id": "209", "text": "What is the significance of the C14 Laves structure in the TCMFL material?"}
+{"_id": "210", "text": "What type of magnetic ordering is observed in the complex at low temperatures?"}
+{"_id": "211", "text": "What is the observed pore size of the tetragonal void in the 1D network?"}
+{"_id": "212", "text": "What type of adsorption isotherm is observed for the desolvated sample at 77 K?"}
+{"_id": "213", "text": "What is the significance of the Cr-Cr-C(trans) bond angles in the complex?"}
+{"_id": "214", "text": "What is the primary advantage of using gold nanostars over gold nanospheres in colorimetric LFIA assays?"}
+{"_id": "215", "text": "How does the incorporation of a magnetic core enhance the sensitivity of the mpLFIA platform?"}
+{"_id": "216", "text": "What is the limit of detection (LOD) achieved by the mpLFIA platform for RVFV nucleoprotein?"}
+{"_id": "217", "text": "Why is a surfactant-free synthesis method used in the preparation of mpGNS?"}
+{"_id": "218", "text": "How does the mpGNS-3 nanoparticle system compare to Fe3O4@PDA in terms of optical brightness?"}
+{"_id": "219", "text": "What is the effect of the anisotropic sharp-spiked morphology on the antibody conjugation efficiency of mpGNS-3?"}
+{"_id": "220", "text": "What is the role of pyrolysis in the pre-treatment of black mass from lithium-ion batteries?"}
+{"_id": "221", "text": "How does the FBRM technique improve the measurement of particle size distribution in black mass recycling?"}
+{"_id": "222", "text": "What are the crystalline phases of graphite identified in untreated black mass using XRD?"}
+{"_id": "223", "text": "What gases are evolved during the pyrolysis of black mass as identified by TGA/MS?"}
+{"_id": "224", "text": "What is the significance of the ID/IG ratio in Raman spectroscopy for graphite particles in black mass?"}
+{"_id": "225", "text": "What is the purpose of using a Ni filter in XRD analysis of black mass?"}
+{"_id": "226", "text": "How does the pyrolysis pre-treatment affect the phase chemistry of NMC particles in black mass?"}
+{"_id": "227", "text": "What is the role of SEM/EDS in the characterization of black mass?"}
+{"_id": "228", "text": "How is the metal composition of black mass determined after digestion?"}
+{"_id": "229", "text": "What is the role of the electronic conductive additive in a lithium-ion battery electrode?"}
+{"_id": "230", "text": "What is the purpose of calendering in the electrode manufacturing process?"}
+{"_id": "231", "text": "How does the BMM application allow users to explore the effects of different manufacturing parameters on battery performance?"}
+{"_id": "232", "text": "What is the significance of having a slightly higher capacity of active material in the negative electrode?"}
+{"_id": "233", "text": "What are the limitations posed by the rheology of the slurry in electrode manufacturing?"}
+{"_id": "234", "text": "Why is it important to balance the thickness of the electrode for energy and power density?"}
+{"_id": "235", "text": "How does the BMM application facilitate collaboration among users?"}
+{"_id": "236", "text": "What is the role of the Solid Electrolyte Interphase (SEI) in lithium-ion batteries?"}
+{"_id": "237", "text": "What is the role of cations in the electrochemical CO\u2082 reduction (eCO\u2082R) on Ag surfaces?"}
+{"_id": "238", "text": "How does the O\u2013C\u2013O bond angle change in the presence of cations during eCO\u2082R?"}
+{"_id": "239", "text": "What is the effect of potential on the binding energies of surface intermediates in the CO pathway on Ag(111)-K\u207a system?"}
+{"_id": "240", "text": "What is the proposed active site for eCO\u2082R on Ag surfaces?"}
+{"_id": "241", "text": "How does the coordination number of cations change as they move from the OHP towards the electrode?"}
+{"_id": "242", "text": "How does the steric limit affect the concentration of K\u207a at strongly negative potentials?"}
+{"_id": "243", "text": "What is the impact of different milling instruments on the decarboxylation ratios of THCA and CBDA?"}
+{"_id": "244", "text": "Which milling condition was found to optimize THCA and THC levels?"}
+{"_id": "245", "text": "How does the pulsed operation of a coffee grinder affect cannabinoid concentrations compared to continuous operation?"}
+{"_id": "246", "text": "What was the effect of milling speed on cannabinoid recovery in single-use containers?"}
+{"_id": "247", "text": "What operational challenges are associated with the use of traditional milling methods in cannabis analysis?"}
+{"_id": "248", "text": "How does the use of single-use containers impact the operational efficiency and environmental sustainability of cannabis milling?"}
+{"_id": "249", "text": "What is the significance of optimizing milling parameters for THC preservation in the cannabis industry?"}
+{"_id": "250", "text": "What were the observed differences in cannabinoid recovery between the 1.4L mill type and other mill types?"}
+{"_id": "251", "text": "What role does the choice of milling parameters play in the analytical evaluation of cannabis?"}
+{"_id": "252", "text": "What is the role of ionisable lipids in lipid nanoparticle RNA (LNP-RNA) formulations?"}
+{"_id": "253", "text": "How does cholesterol contribute to the stability of lipid nanoparticles?"}
+{"_id": "254", "text": "What is the significance of PEG-lipids on the surface of LNPs?"}
+{"_id": "255", "text": "What is the observed molecular orientation of DMG-PEG2k in LNPs?"}
+{"_id": "256", "text": "What is the role of helper lipids such as DSPC and DOPE in LNPs?"}
+{"_id": "257", "text": "How does Cryo-OrbiSIMS depth profiling provide information about LNPs?"}
+{"_id": "258", "text": "What is the specific capacity of the HAT-DAB COF at a current density of 0.02 A/g?"}
+{"_id": "259", "text": "What is the energy density achieved by the HAT-DAB COF?"}
+{"_id": "260", "text": "What is the Coulombic efficiency of the HAT-DAB COF after several hundred cycles?"}
+{"_id": "261", "text": "What is the BET surface area of the HAT-DAB COF?"}
+{"_id": "262", "text": "What is the thermal stability of the HAT-DAB COF as determined by TGA?"}
+{"_id": "263", "text": "What are the characteristic Raman spectrum bands observed for the HAT-DAB COF?"}
+{"_id": "264", "text": "What is the plausible mechanism for lithiation/de-lithiation in the HAT-DAB COF?"}
+{"_id": "265", "text": "What method was used to fabricate the zirconia nanotubes (ZrNT) decorated with silver nanoparticles?"}
+{"_id": "266", "text": "What role do silver nanoparticles play in the antibacterial activity of the zirconia nanotubes?"}
+{"_id": "267", "text": "What analytical techniques were used to characterize the structural morphology and chemical composition of the modified ZrNTs?"}
+{"_id": "268", "text": "How was the release behavior of silver and zirconium ions monitored?"}
+{"_id": "269", "text": "What is the observed antibacterial activity improvement factor against S. aureus for the modified ZrNT compared to unmodified ZrNT?"}
+{"_id": "270", "text": "What is the average weight percentage of silver in the composite material as determined by EDS?"}
+{"_id": "271", "text": "What is the predicted band gap of the Fddd phase of K\u2083C\u2086O\u2086?"}
+{"_id": "272", "text": "What type of bonding interaction is responsible for the face-to-face stacking of rhodizonates in K\u2082C\u2086O\u2086?"}
+{"_id": "273", "text": "What is the significance of the \u03c0-band superconductivity prediction for K\u2083C\u2086O\u2086?"}
+{"_id": "274", "text": "What is the predicted charge of the rhodizonate anions in the C2/m phase of K\u2093C\u2086O\u2086?"}
+{"_id": "275", "text": "What are the main mechanical properties of biological materials that make them competitive with synthetic materials?"}
+{"_id": "276", "text": "What is the role of induced pluripotent stem cells (iPSCs) in the production of material-producing organoids?"}
+{"_id": "277", "text": "What are the challenges associated with scaling up the production of material-producing organoids?"}
+{"_id": "278", "text": "What is the role of the cyanide bridge in the [FeCo] chain complexes?"}
+{"_id": "279", "text": "What are the Fe-C bond length ranges for compounds 1 and 2?"}
+{"_id": "280", "text": "What is the significance of the photo-induced metal-to-metal electron transfer (MMET) observed in compound 1?"}
+{"_id": "281", "text": "What are the observed cyanide stretching frequencies in the IR spectrum of compound 1?"}
+{"_id": "282", "text": "What type of charge transfer transitions are observed in the UV/vis/NIR spectra of compounds 1 and 2?"}
+{"_id": "283", "text": "What is the coordination geometry around the iron center in compounds 1 and 2?"}
+{"_id": "284", "text": "What is the significance of the hydrogen bonding interaction in compound 1?"}
+{"_id": "285", "text": "What role does silver play in the ternary doped TiO2 photocatalyst?"}
+{"_id": "286", "text": "What is the purpose of doping cerium in the TiO2 photocatalyst?"}
+{"_id": "287", "text": "How does boron contribute to the photocatalytic activity of the TiO2 photocatalyst?"}
+{"_id": "288", "text": "What is the significance of the absorption edge shift observed in the DRS analysis?"}
+{"_id": "289", "text": "What is the role of EDTA in the synthesis of the ternary doped TiO2 photocatalyst?"}
+{"_id": "290", "text": "What is the significance of the XRD analysis not showing distinct peaks for silver in the doped photocatalysts?"}
+{"_id": "291", "text": "What is the chemical formula of the tetravalent phosphaza-adamantane cage discussed in the paper?"}
+{"_id": "292", "text": "What is the observed P=N bond length in the solid-state structure of compound 2?"}
+{"_id": "293", "text": "What is the P=N-Si angle observed in the solid-state structure of compound 2?"}
+{"_id": "294", "text": "What is the calculated P=N bond length for an isolated molecule of compound 2?"}
+{"_id": "295", "text": "What is the main reason for the dramatic deceleration in the oxidation reaction of compound 1?"}
+{"_id": "296", "text": "What is the main type of intermolecular force holding the lattice of compound 2 together?"}
+{"_id": "297", "text": "What is the observed stability of compound 2 in methanol?"}
+{"_id": "298", "text": "How do the hydrogen-bonded layers in Form I and Form II xanthine compare?"}
+{"_id": "299", "text": "What is the stacking sequence of layers in Form II xanthine?"}
+{"_id": "300", "text": "What type of disorder is indicated by the streaking observed in the diffraction patterns of xanthine?"}
+{"_id": "301", "text": "What are the preferred relative positions of xanthine molecules between consecutive layers in both forms?"}
+{"_id": "302", "text": "What is the significance of the sharpness of individual reflections in the diffraction patterns of xanthine?"}
+{"_id": "303", "text": "What are the four types of porous liquids (PLs) as categorized in the research paper?"}
+{"_id": "304", "text": "What is the main challenge in selecting solvents for type II porous liquids?"}
+{"_id": "305", "text": "What computational method was used to estimate the solubility of POC candidates, and what was its accuracy?"}
+{"_id": "306", "text": "What are Hansen solubility parameters (HSPs) used for in the context of this research?"}
+{"_id": "307", "text": "What is the role of porous organic cages (POCs) in the formation of type II porous liquids?"}
+{"_id": "308", "text": "What is the significance of the 'scrambled' POC, 3:13:1-R, in the study?"}
+{"_id": "309", "text": "What are the primary factors that influence the properties of silver nanoparticles?"}
+{"_id": "310", "text": "What is the role of surface plasmon resonance in silver nanoparticles?"}
+{"_id": "311", "text": "What are the advantages of using green synthesis over chemical synthesis for silver nanoparticles?"}
+{"_id": "312", "text": "What is the primary advantage of using azide-alkyne cycloaddition for bioconjugation on nanoparticles?"}
+{"_id": "313", "text": "Why is the quantification of azides on nanoparticle surfaces important?"}
+{"_id": "314", "text": "What is the role of catechol ligands in the fluorescence quenching method for azide quantification?"}
+{"_id": "315", "text": "How does the UV-Vis method quantify azides on nanoparticles?"}
+{"_id": "316", "text": "What is the limitation of using qNMR for azide quantification on nanoparticles?"}
+{"_id": "317", "text": "Why is the fluorescence quenching method limited to certain types of nanoparticles?"}
+{"_id": "318", "text": "What is the role of nitrodopamine-based ligands in the fluorescence quenching method?"}
+{"_id": "319", "text": "What is the effect of azide content on the colloidal stability of nanoparticles?"}
+{"_id": "320", "text": "What was the yield of the reaction when lithium hydroxide monohydrate was used as a base?"}
+{"_id": "321", "text": "Which organic photocatalyst was used to achieve a 66% yield in the reaction?"}
+{"_id": "322", "text": "What was the result of using 2,4,6-collidine as a base in the reaction?"}
+{"_id": "323", "text": "What was the yield of azetidine 3 when the reaction was scaled up in flow using 4CzIPN?"}
+{"_id": "324", "text": "Which alkene was used to prepare a new E3 ubiquitin ligase recruiter building block?"}
+{"_id": "325", "text": "What was the yield of azetidine 22 when using vinyl sulfones as a reactant?"}
+{"_id": "326", "text": "What was the yield of azetidine 37 when using quaternary azetidine-2-carboxylic acids?"}
+{"_id": "327", "text": "What is the deliquescence humidity of calcium chloride hexahydrate?"}
+{"_id": "328", "text": "What safety precautions are recommended when handling magnesium perchlorate?"}
+{"_id": "329", "text": "Which desiccant is noted for changing color upon absorbing water?"}
+{"_id": "330", "text": "What is a potential hazard of using oil-based pumps for evacuating desiccators?"}
+{"_id": "331", "text": "What were the main polymers identified in the microplastic samples from surface water and sediment in Japan?"}
+{"_id": "332", "text": "What percentage of particles from surface water were identified as plastics using Fourier Transform Infrared Spectroscopy?"}
+{"_id": "333", "text": "What chemical process was used to purify microplastic samples and reduce debris before microscopic analysis?"}
+{"_id": "334", "text": "What method was used to identify and characterize the chemical composition of microplastic particles?"}
+{"_id": "335", "text": "What environmental factors were identified as major drivers of microplastic concentrations?"}
+{"_id": "336", "text": "What is the definition of microplastics as agreed upon in the scientific literature?"}
+{"_id": "337", "text": "What are the two main categories of microplastics based on their source?"}
+{"_id": "338", "text": "What role do biofilms and marine organisms play in the transport of microplastics?"}
+{"_id": "339", "text": "What is the main advantage of the new approach to calculating interaction-induced properties presented in the paper?"}
+{"_id": "340", "text": "What is the role of the symmetry-adapted perturbation theory (SAPT) in the study of noncovalent interactions?"}
+{"_id": "341", "text": "How does the paper propose to handle the exchange effects and the Pauli exclusion principle in the theory of interaction-induced properties?"}
+{"_id": "342", "text": "What is the significance of the Hellmann-Feynman theorem in the context of this research?"}
+{"_id": "343", "text": "What is the role of the antisymmetrizer operator in the presented theory?"}
+{"_id": "344", "text": "How does the paper define interaction-induced properties?"}
+{"_id": "345", "text": "What is the significance of the interaction-induced dipole moment in the study of molecular complexes?"}
+{"_id": "346", "text": "What is the stability constant (logK) for the Zn(II)-PDMA complex in the pH range between 6 and 9?"}
+{"_id": "347", "text": "What is the dominant species of Zn(II)-PDMA complex at pH > 9?"}
+{"_id": "348", "text": "Which metal ion forms the strongest complex with PDMA according to the stability constant values?"}
+{"_id": "349", "text": "At what pH does the formation of Zn(II)-PDMA complexes start in solutions with an ionic strength of 0.02 M?"}
+{"_id": "350", "text": "How does PDMA compare to DMA in terms of complexation ability with Zn(II) at different ionic strengths?"}
+{"_id": "351", "text": "Which metal ions are unlikely to be significant competitors for Zn(II) with PDMA?"}
+{"_id": "352", "text": "What is the main phytosiderophore secreted by rice that is similar to PDMA?"}
+{"_id": "353", "text": "What conditions must be met for a chemical reaction to be considered spontaneous in the ChemChallenge game?"}
+{"_id": "354", "text": "How can players achieve a negative Gibbs free energy in ChemChallenge?"}
+{"_id": "355", "text": "How does the game encourage creative thinking in solving chemical reaction equations?"}
+{"_id": "356", "text": "What type of indenter tip is used in the optimized nanoindentation protocol for 3D printed elastomers?"}
+{"_id": "357", "text": "Which model is used for data analysis in the optimized nanoindentation protocol?"}
+{"_id": "358", "text": "What is the effect of adhesion forces on the mechanical properties estimation in the study?"}
+{"_id": "359", "text": "What is the purpose of using lift-off segments in the displacement profile during nanoindentation?"}
+{"_id": "360", "text": "How does the choice of photoinitiator affect the mechanical properties of the printed structures?"}
+{"_id": "361", "text": "What is the recommended peak displacement for nanoindentation to minimize substrate effects?"}
+{"_id": "362", "text": "What is the role of $^1$H NMR spectroscopy in the study?"}
+{"_id": "363", "text": "What is the effect of using sodium decatungstate (NaDT) instead of TBADT in the reaction?"}
+{"_id": "364", "text": "How does the bond dissociation energy (BDE) influence the regioselectivity of the sulfinylation reaction?"}
+{"_id": "365", "text": "How does the regioselectivity differ between the sulfinylation of butane and propane?"}
+{"_id": "366", "text": "What are the challenges associated with the functionalization of methane in this study?"}
+{"_id": "367", "text": "What type of chemical interactions are highlighted as putative interaction hotspots in the RNA binding site of Nsp13?"}
+{"_id": "368", "text": "What was the binding affinity range of the two compound scaffolds identified in the CACHE #2 challenge?"}
+{"_id": "369", "text": "What computational methods were used by the six best performing teams in the CACHE #2 challenge?"}
+{"_id": "370", "text": "What is the significance of the electrostatic potential coloring in the RNA-binding site of Nsp13?"}
+{"_id": "371", "text": "What was the purpose of using Surface Plasmon Resonance (SPR) in the CACHE #2 challenge?"}
+{"_id": "372", "text": "What was the concentration used for testing compounds in the SPR and ATPase assays?"}
+{"_id": "373", "text": "What was the outcome of using machine-learning methods compared to purely physics-based methods in the CACHE #2 challenge?"}
+{"_id": "374", "text": "What are the stoichiometric components involved in the formation of silver nanoprisms?"}
+{"_id": "375", "text": "What experimental technique was used to analyze the silver nanoprisms formed in the study?"}
+{"_id": "376", "text": "What are the three categorical parameters varied in the Buchwald\u2013Hartwig coupling reaction screening?"}
+{"_id": "377", "text": "How does Chemspyd facilitate the execution of Buchwald\u2013Hartwig coupling reactions?"}
+{"_id": "378", "text": "What is the purpose of the simulation mode in Chemspyd?"}
+{"_id": "379", "text": "What is the role of the 'Manager' in the Chemspyd setup?"}
+{"_id": "380", "text": "How does Chemspyd ensure that wells are not overfilled or depleted during experiments?"}
+{"_id": "381", "text": "What is the significance of the t-SNE plot in the silver nanoprisms experiment?"}
+{"_id": "382", "text": "What type of reaction monitoring was performed in the amide coupling experiment?"}
+{"_id": "383", "text": "How does Chemspyd facilitate the integration with third-party software or hardware?"}
+{"_id": "384", "text": "What percentage of the current chemical space is covered by China according to the study?"}
+{"_id": "385", "text": "How did the 2007/2008 Global Financial Crisis affect the expansion of the chemical space?"}
+{"_id": "386", "text": "What is the current share of China in the rare-earth element (REE) chemical space?"}
+{"_id": "387", "text": "What is the role of China in the organometallic chemical space post-pandemic?"}
+{"_id": "388", "text": "How does the US's contribution to the chemical space differ from China's in terms of international collaboration?"}
+{"_id": "389", "text": "Which countries are the second largest producers of REE compounds after China?"}
+{"_id": "390", "text": "What trend is observed in the organometallic chemical space expansion since 2013?"}
+{"_id": "391", "text": "How does the chirality of the guest and host affect the RTP intensity in the guest-host system?"}
+{"_id": "392", "text": "What is the relationship between RTP intensity and the parameters \\( \\eta_{\\text{ET}} \\), \\( k_{\\text{ISC}} \\), and \\( k_{\\text{nr}} \\)?"}
+{"_id": "393", "text": "What is the observed RTP lifetime for the S@S guest-host combination?"}
+{"_id": "394", "text": "What is the enantiomeric excess (ee) detection limit achieved by the RTP chiral recognition method?"}
+{"_id": "395", "text": "What is the degree of circular polarization (DOCP) achieved in the chiral cavity setup?"}
+{"_id": "396", "text": "What is the role of apparent circular dichroism (ACD) in the chiral cavity?"}
+{"_id": "397", "text": "What material is used to create the chiral thin film in the laser cavity?"}
+{"_id": "398", "text": "How does the PTPO thin film affect the absorption of RCP and LCP light?"}
+{"_id": "399", "text": "What is the thickness of the PTPO thin films used in the study?"}
+{"_id": "400", "text": "What is the purpose of the rotating quarter-wave plate (QWP) in the experimental setup?"}
+{"_id": "401", "text": "What is the role of the half-wave plate (HWP) in the experimental setup?"}
+{"_id": "402", "text": "What is the oxidation state of rhodium in the rhodocene anion [Rh(C\u2085(CH\u2083)\u2085)(C\u2085(CF\u2083)\u2085)]\u207b?"}
+{"_id": "403", "text": "What is the role of the [C\u2085(CF\u2083)\u2085]\u207b ligand in the stabilization of the rhodocene anion?"}
+{"_id": "404", "text": "What is the observed shift in the \u00b9\u2070\u00b3Rh NMR signal upon reduction from Rh(III) to Rh(I)?"}
+{"_id": "405", "text": "What is the coordination geometry change observed in the rhodocene anion compared to the cationic rhodocenium species?"}
+{"_id": "406", "text": "What is the structural feature of the [C\u2085(CF\u2083)\u2085]\u207b ligand that contributes to the stabilization of the rhodocene anion?"}
+{"_id": "407", "text": "What is the role of the multiple resonance effect in B,N-substituted graphene ribbons?"}
+{"_id": "408", "text": "How does the distribution of B and N heteroatoms affect the spectroscopic properties of the ribbons?"}
+{"_id": "409", "text": "What is the significance of the singlet-triplet inversion in CBN ribbons?"}
+{"_id": "410", "text": "What is the effect of nitrogen content on the oscillator strengths of CBN ribbons?"}
+{"_id": "411", "text": "What is the role of terminal metal-oxo species in the methane-to-methanol conversion process?"}
+{"_id": "412", "text": "What is the significance of Mn MOFs in methane hydroxylation activity?"}
+{"_id": "413", "text": "What criteria were used to consider a MOF stable and suitable for catalysis?"}
+{"_id": "414", "text": "What is the radical rebound mechanism in the context of methane to methanol conversion?"}
+{"_id": "415", "text": "What is the significance of the coordination number in determining the catalytic activity of MOFs?"}
+{"_id": "416", "text": "Why were Mg(II) ions used in the modeling of SBU clusters?"}
+{"_id": "417", "text": "What are the morphological characteristics of LDPE microplastics as observed in the study?"}
+{"_id": "418", "text": "What are the characteristics of PET microplastics as observed in SEM images?"}
+{"_id": "419", "text": "What is the significance of the bimodal size distribution observed in PET microplastics?"}
+{"_id": "420", "text": "What is the role of cryogenic milling in the preparation of microplastics?"}
+{"_id": "421", "text": "What are the main degradation mechanisms observed in anion exchange membrane water electrolysers?"}
+{"_id": "422", "text": "What effect does catalyst detachment have on the electrochemical performance of AEMWEs?"}
+{"_id": "423", "text": "What role does the polymer backbone play in the degradation of anion exchange membranes?"}
+{"_id": "424", "text": "What differences were observed between Fumasep\u00ae and Selemion\u2122 membranes during operando X-ray microtomography studies?"}
+{"_id": "425", "text": "What deep learning models are used in the proposed image captioning system for feature extraction and caption generation?"}
+{"_id": "426", "text": "What is the role of the attention mechanism in the image captioning system?"}
+{"_id": "427", "text": "Which pre-trained model is utilized for feature extraction in the proposed system?"}
+{"_id": "428", "text": "What is the maximum length of the generated sequence in the caption generation process?"}
+{"_id": "429", "text": "What loss function is used for training the image captioning model?"}
+{"_id": "430", "text": "What optimization algorithms are mentioned for updating model parameters during training?"}
+{"_id": "431", "text": "What evaluation metrics are used to assess the quality of the generated captions?"}
+{"_id": "432", "text": "How does the token system function within specifications grading systems?"}
+{"_id": "433", "text": "What challenges does specifications grading aim to address in traditional grading systems?"}
+{"_id": "434", "text": "What role does feedback play in specifications grading?"}
+{"_id": "435", "text": "What is the purpose of providing advanced learning options in specifications grading?"}
+{"_id": "436", "text": "How does the zwitterionic form of glycine influence its pI?"}
+{"_id": "437", "text": "What is the significance of the imidazole side chain in histidine's pI?"}
+{"_id": "438", "text": "What method was used to synthesize graphene oxide (GO) in the study?"}
+{"_id": "439", "text": "What are the main oxygen functional groups present on the surface of graphene oxide flakes?"}
+{"_id": "440", "text": "What techniques were used to characterize the lateral dimensions and thickness of GO flakes?"}
+{"_id": "441", "text": "What is the typical thickness range for the GO flakes produced in the study?"}
+{"_id": "442", "text": "What is the role of the \\( \\pi \\rightarrow \\pi^* \\) transitions in the UV-Vis absorbance spectra of GO?"}
+{"_id": "443", "text": "What is the significance of the C:O ratio in the XPS analysis of GO?"}
+{"_id": "444", "text": "What are the main weight loss steps observed in the thermogravimetric analysis (TGA) of GO?"}
+{"_id": "445", "text": "What is the significance of the \\( I_D/I_G \\) ratio in the Raman spectra of GO?"}
+{"_id": "446", "text": "What is the role of Ag\u2082S nanoparticles in the EH@Ag\u2082S co-assembled system?"}
+{"_id": "447", "text": "What type of interactions stabilize the supramolecular structure of EH?"}
+{"_id": "448", "text": "What is the significance of the 'pH-responsive switch' in the EH peptide?"}
+{"_id": "449", "text": "How does the EH@Ag\u2082S system enhance the tumor immune microenvironment?"}
+{"_id": "450", "text": "What is the role of the charged residues D, E, K, and H in the EH peptide?"}
+{"_id": "451", "text": "What is the average diameter of the nanofibers formed by the self-assembly of EH?"}
+{"_id": "452", "text": "What is the role of ultrasound (US) irradiation in the EH@Ag\u2082S system?"}
+{"_id": "453", "text": "What are the four fundamental taste categories that FART can predict?"}
+{"_id": "454", "text": "Why was the 'salty' taste category excluded from FART's predictions?"}
+{"_id": "455", "text": "What is the accuracy of FART for parallel taste prediction?"}
+{"_id": "456", "text": "What is the purpose of SMILES augmentation in the context of FART?"}
+{"_id": "457", "text": "What is the significance of the amide group in FART's prediction of umami taste?"}
+{"_id": "458", "text": "What is the role of the C=S bond in thionolactones during radical ring-opening polymerization?"}
+{"_id": "459", "text": "How do electron-donating groups affect the copolymerization efficiency of thionolactones with acrylate derivatives?"}
+{"_id": "460", "text": "What effect do electron-withdrawing groups have on the copolymerization of thionolactones with styrene and acrylate?"}
+{"_id": "461", "text": "What is the effect of substituents on the addition rate constant \\(k_{add}\\) of thionolactones?"}
+{"_id": "462", "text": "How does the reverse addition rate constant \\(k_{add}^{-1}\\) change with electron-withdrawing substituents?"}
+{"_id": "463", "text": "What is the observed trend for the addition rate constant \\(k_{add}\\) when substituting POT with electron-withdrawing groups during copolymerization with styrene?"}
+{"_id": "464", "text": "How does the presence of electron-withdrawing groups affect the \\(\\beta\\)-scission rate constant \\(k_\\beta\\) in the copolymerization of POT with methyl acrylate?"}
+{"_id": "465", "text": "What is the effect of substituting the aromatic ring in the \\(\\alpha\\) position of the thiocarbonyl with an electron-withdrawing group on the reactivity of thionolactones?"}
+{"_id": "466", "text": "What is the oxidation state of cobalt in the Co-N-C pre-catalyst as determined by XPS?"}
+{"_id": "467", "text": "What is the observed Tafel slope for the Co-N-C catalyst after activation on a carbon-cloth electrode?"}
+{"_id": "468", "text": "What is the BET surface area of the Co-N-C pre-catalyst?"}
+{"_id": "469", "text": "What is the role of pyridinic and pyrrolic nitrogen in the Co-N-C catalyst?"}
+{"_id": "470", "text": "What is the Faradaic efficiency of the Co-N-C catalyst for OER?"}
+{"_id": "471", "text": "How does the Co-Fe-N-C catalyst's structure change during OER according to operando XAS?"}
+{"_id": "472", "text": "What is the role of di-1-adamantyl-n-butylphosphine in the palladium-catalysed formylation of aryl bromides?"}
+{"_id": "473", "text": "What is the proposed turnover-limiting step in the palladium-catalysed formylation of aryl bromides?"}
+{"_id": "474", "text": "How does the electronic nature of aryl bromides affect the reaction kinetics in the palladium-catalysed formylation?"}
+{"_id": "475", "text": "What is the order of reaction with respect to the catalyst [Pd(PAd\u2082Bu)\u2082] in the formylation of 4-bromoanisole?"}
+{"_id": "476", "text": "What is the observed order of reaction with respect to the aryl bromide substrate in the formylation process?"}
+{"_id": "477", "text": "What is the observed effect of reducing the partial pressure of CO on the formylation reaction?"}
+{"_id": "478", "text": "What is the coordination environment of the Cu ions in the [Cu24] cage?"}
+{"_id": "479", "text": "What is the role of the TC[4]A ligand in the [Cu24] cage?"}
+{"_id": "480", "text": "What is the effect of adding CO2\u207b ions to the reaction mixture for the [Cu24] cage?"}
+{"_id": "481", "text": "What is the magnetic behavior of the [Cu24] cage at low temperatures?"}
+{"_id": "482", "text": "What are the coordination geometries of Cu ions in the [Cu8] cluster?"}
+{"_id": "483", "text": "What is the effect of the Jahn-Teller distortion on the Cu ions in the [Cu24] cage?"}
+{"_id": "484", "text": "How does the introduction of CO3\u00b2\u207b ions affect the formation of the [Cu8] cluster?"}
+{"_id": "485", "text": "What computational method was primarily used to determine the low-energy structures of nanoclusters in this study?"}
+{"_id": "486", "text": "What is the significance of the HOMO-LUMO gap in the context of nanoclusters?"}
+{"_id": "487", "text": "What is the significance of the Pearson correlation coefficients in the context of this study?"}
+{"_id": "488", "text": "What is the effect of Spin Orbit Coupling (SOC) on the ranking of low-energy structures according to the study?"}
+{"_id": "489", "text": "What is the average isotope spacing used in the mass defect encoding strategy?"}
+{"_id": "490", "text": "What is the primary advantage of using electrospray ionization (ESI) in mass spectrometry?"}
+{"_id": "491", "text": "What is the main challenge in data analysis when using ESI mass spectrometry?"}
+{"_id": "492", "text": "What is the purpose of the mass defect encoding in the neural network model?"}
+{"_id": "493", "text": "What is the significance of the cosine similarity score in the IsoDec workflow?"}
+{"_id": "494", "text": "What is the maximum charge state that the initial neural network model can classify?"}
+{"_id": "495", "text": "How does the neural network handle the encoding of isotope clusters for charge state assignment?"}
+{"_id": "496", "text": "What is the purpose of the synthetic mixing of clusters during training?"}
+{"_id": "497", "text": "What is the role of phenacyl bromide (PAB) in the photoinduced step-growth polymerization of EDOT?"}
+{"_id": "498", "text": "What is the molecular weight of the PEDOT synthesized using the photoinduced method?"}
+{"_id": "499", "text": "What type of photoluminescence does doped PEDOT exhibit when excited at 355 nm?"}
+{"_id": "500", "text": "What is the electronic band gap of doped PEDOT as calculated from the redox potential?"}
+{"_id": "501", "text": "What is the proposed mechanism for the photoinduced step-growth polymerization of EDOT?"}
+{"_id": "502", "text": "What solvent is used in the photopolymerization of EDOT with PAB?"}
+{"_id": "503", "text": "What is the significance of the peak at 24\u00b0 in the powder X-ray diffractogram of doped PEDOT?"}
+{"_id": "504", "text": "How does the solubility of doped PEDOT compare to dedoped PEDOT in organic solvents?"}
+{"_id": "505", "text": "What is the effect of doping on the thermal stability of PEDOT?"}
+{"_id": "506", "text": "What is the chemical formula of the heterobimetallic assembly discussed in the paper?"}
+{"_id": "507", "text": "What type of network structure does the complex exhibit?"}
+{"_id": "508", "text": "What phenomenon does the partially desolvated form 1:2DMF exhibit?"}
+{"_id": "509", "text": "What is the range of Mo-C bond distances at 120 K for bridging cyanides?"}
+{"_id": "510", "text": "What type of transition is associated with the broad absorption band centered at 550 nm in the optical studies?"}
+{"_id": "511", "text": "What is the maximum photoexcitation effect observed using which LED light wavelength?"}
+{"_id": "512", "text": "What is the main limitation of traditional models in describing concentrated electrolyte solutions?"}
+{"_id": "513", "text": "How does the proposed statistical approach differ from traditional models in describing electrolyte solutions?"}
+{"_id": "514", "text": "What is the significance of the observation droplet in the new model?"}
+{"_id": "515", "text": "What role do multipole expansions play in the new model for electrolyte solutions?"}
+{"_id": "516", "text": "How does the model account for the interaction energy between the observation droplet and its environment?"}
+{"_id": "517", "text": "What is the relationship between the weighting function and the microscopic partition function?"}
+{"_id": "518", "text": "How does the model handle electrolytes with strong ion-ion interactions?"}
+{"_id": "519", "text": "What is the primary chemical structure of Curcumin and its related curcuminoids?"}
+{"_id": "520", "text": "How do Curcumin nanoparticles affect the bioavailability and solubility of Curcumin?"}
+{"_id": "521", "text": "What are the advantages of using lipid-based nanoparticles for Curcumin delivery?"}
+{"_id": "522", "text": "What is the significance of metal chelation in the antioxidant activity of Curcumin nanoparticles?"}
+{"_id": "523", "text": "What is the representation used for compounds in the simplified model of iterative compound optimization?"}
+{"_id": "524", "text": "How is molecular recognition achieved in the model?"}
+{"_id": "525", "text": "What is the purpose of using a 'digital twin' in the context of this model?"}
+{"_id": "526", "text": "How does the model simulate the evolution of a compound sequence?"}
+{"_id": "527", "text": "What is the relationship between the Hamming distance and the number of steps away from the first string?"}
+{"_id": "528", "text": "What parameters control the overall project simulation in the model?"}
+{"_id": "529", "text": "What is the role of the stochastic simulation algorithm (SSA) in simulating free radical polymerization (FRP)?"}
+{"_id": "530", "text": "How does the new algorithm proposed in the paper improve the simulation of FRP systems?"}
+{"_id": "531", "text": "What is the role of the chain transfer agent (CTA) in the simulation of DT systems?"}
+{"_id": "532", "text": "What is the main advantage of using machine learning interatomic potentials (MLIPs) in molecular dynamics simulations?"}
+{"_id": "533", "text": "How is the total energy divided in the ML/MM approach?"}
+{"_id": "534", "text": "What method is used to describe the interactions in the ML-MM interaction part?"}
+{"_id": "535", "text": "What is the purpose of calculating virials in the ML/MM approach?"}
+{"_id": "536", "text": "What is the role of the reorganization energy in the thermodynamic integration (TI) protocol for ML/MM?"}
+{"_id": "537", "text": "How does the ML/MM approach ensure energy conservation during simulations?"}
+{"_id": "538", "text": "How does the ML/MM approach handle the calculation of forces in the ML region?"}
+{"_id": "539", "text": "What is the main challenge in QM/MM MD simulations that ML/MM aims to address?"}
+{"_id": "540", "text": "What is the role of the Fortran/C++ interface in the ML/MM implementation in AMBER?"}
+{"_id": "541", "text": "How does LabIMotion enhance the Chemotion ELN for interdisciplinary research?"}
+{"_id": "542", "text": "What are the three levels of structuring information in the LabIMotion extension?"}
+{"_id": "543", "text": "What role does the Parsing Engine play in the LabIMotion extension?"}
+{"_id": "544", "text": "How does LabIMotion ensure the creation of FAIR data?"}
+{"_id": "545", "text": "What is the purpose of the Element Connector in the LabIMotion extension?"}
+{"_id": "546", "text": "What database system does LabIMotion use for data storage, and what are its capabilities?"}
+{"_id": "547", "text": "What is the function of the Metadata Mapper in the LabIMotion extension?"}
+{"_id": "548", "text": "How does LabIMotion support the design of workflows?"}
+{"_id": "549", "text": "What programming languages are used to develop the GUI for LabIMotion?"}
+{"_id": "550", "text": "What is the observed overpotential for the Ni(II) Schiff base complex in the oxygen reduction reaction?"}
+{"_id": "551", "text": "What is the first intermediate in the oxygen reduction reaction pathway for the Ni(II) Schiff base complex?"}
+{"_id": "552", "text": "What role does the azomethine (-C=N-) functional group play in the stability of Schiff base metal complexes?"}
+{"_id": "553", "text": "What is the significance of the 120\u00b0 bond angles observed in the azomethine group of the Schiff base ligand?"}
+{"_id": "554", "text": "How does the Schiff base ligand facilitate the stabilization of intermediates in the Ni(II) complex?"}
+{"_id": "555", "text": "What computational tools were used to analyze the electronic structure and catalytic properties of the Ni(II) Schiff base complex?"}
+{"_id": "556", "text": "What is the significance of the bond lengths observed in the furan heterocyclic moiety of the Schiff base ligand?"}
+{"_id": "557", "text": "What is the key intermediate formed during the N-difluoromethylation of N-heterocycles?"}
+{"_id": "558", "text": "What role does K2CO3 play in the difluoromethylation reaction?"}
+{"_id": "559", "text": "What is the yield of the difluoromethylated product when using bromo(difluoro)acetic acid?"}
+{"_id": "560", "text": "What is the role of the difluoromethylene group in drug candidates?"}
+{"_id": "561", "text": "What is the significance of the N-difluoromethylated products in medicinal chemistry?"}
+{"_id": "562", "text": "How are chemical changes represented in the embedding space according to the paper?"}
+{"_id": "563", "text": "What is the purpose of using a large cutoff distance in the SchNet GNN model?"}
+{"_id": "564", "text": "What is the RMSE achieved for carbon NMR prediction using the transfer learning model?"}
+{"_id": "565", "text": "How does the embedding space of chemical GNN models compare to word embeddings in NLP?"}
+{"_id": "566", "text": "What role does Principal Component Analysis (PCA) play in the visualization of embeddings?"}
+{"_id": "567", "text": "What is the purpose of the dataset creation procedure described in the paper?"}
+{"_id": "568", "text": "What is the accuracy of the trained SchNet model on the testing set's molecular energy?"}
+{"_id": "569", "text": "How do SSAs potentially mediate cell death through ion transport?"}
+{"_id": "570", "text": "What is the significance of the carboxylate functionality in the structure of SSA anions?"}
+{"_id": "571", "text": "What is the role of the hydrophobic amino acid R-group in SSAs?"}
+{"_id": "572", "text": "How were SSAs 3, 5, 7, and 9 synthesized?"}
+{"_id": "573", "text": "What is the significance of the hydrogen bond mediated dimerization constant (K_dim) in SSA characterization?"}
+{"_id": "574", "text": "What is the role of electrostatic surface potential values in estimating hydrogen bonding strength of SSA anions?"}
+{"_id": "575", "text": "What is the typical LUMO value range for 1,3,5-triazine in TADF emitters?"}
+{"_id": "576", "text": "What is the effect of ortho-substitution on the \u0394E_ST of TADF emitters?"}
+{"_id": "577", "text": "What is the relationship between the number of carbazole donors and the \u0394E_ST in TADF emitters?"}
+{"_id": "578", "text": "What is the role of through-space charge transfer (TSCT) in TADF emitters?"}
+{"_id": "579", "text": "What is the primary mechanism by which Remdesivir inhibits SARS-CoV-2 RdRp according to the study?"}
+{"_id": "580", "text": "How does the V557L mutation affect the inhibition of SARS-CoV-2 RdRp by Remdesivir?"}
+{"_id": "581", "text": "What structural feature of Remdesivir is responsible for its inhibitory action on SARS-CoV-2 RdRp?"}
+{"_id": "582", "text": "What is the effect of Remdesivir on the base pairing stability at the active site of SARS-CoV-2 RdRp?"}
+{"_id": "583", "text": "How does the presence of Remdesivir at the template strand affect the translocation dynamics of SARS-CoV-2 RdRp?"}
+{"_id": "584", "text": "What is the role of the 1\u2019-cyano group of Remdesivir in its interaction with the SARS-CoV-2 RdRp?"}
+{"_id": "585", "text": "What is the observed effect of the V557L mutation on the translocation pathway of Remdesivir?"}
+{"_id": "586", "text": "How does the V557L mutation influence the efficiency of UTP incorporation opposite to Remdesivir?"}
+{"_id": "587", "text": "What is the significance of the P\u03b1-O3\u2019 distance in the context of NTP incorporation in SARS-CoV-2 RdRp?"}
+{"_id": "588", "text": "What is the observed effect of Remdesivir on the thermal stability of the pre- and post-translocation states of SARS-CoV-2 RdRp?"}
+{"_id": "589", "text": "What is the natural abundance of the 11B isotope, and why is it more suitable for NMR investigations compared to 10B?"}
+{"_id": "590", "text": "Why do the boron atoms in B7H7^2- exhibit less shielding despite having higher electron density?"}
+{"_id": "591", "text": "How does the \u03c0-donating ability of substituents affect 11B NMR chemical shifts?"}
+{"_id": "592", "text": "What dynamic motion is parameterized in the MFU-4l metal-organic framework for CO2 capture?"}
+{"_id": "593", "text": "What is the stoichiometric difference between bicarbonate and carbonate mechanisms in hydroxide-based CO2 capture?"}
+{"_id": "594", "text": "What are the quadrupolar parameters derived from 17O NMR quadrupolar lineshapes?"}
+{"_id": "595", "text": "What is the significance of hydroxyl environments in bicarbonates in 17O NMR spectra?"}
+{"_id": "596", "text": "What is the role of machine learning force fields (MLFFs) in the study of dynamic NMR effects?"}
+{"_id": "597", "text": "What is the effect of dynamic motion on the observed NMR spectrum?"}
+{"_id": "598", "text": "What electronic structure method was used to assess noncovalent interaction energetics in the study?"}
+{"_id": "599", "text": "Which amino acid substitutions were analyzed for their impact on ACE2 affinity between SARS-CoV and 2019-nCoV?"}
+{"_id": "600", "text": "What is the significance of the interaction 1-SARS-b in the study?"}
+{"_id": "601", "text": "What statistical measures were used to describe the interaction space for SARS-CoV and 2019-nCoV?"}
+{"_id": "602", "text": "What is the significance of the S-\u03c0 stabilization in the interactions studied?"}
+{"_id": "603", "text": "How does the study challenge previous predictions about ACE2 affinity for 2019-nCoV?"}
+{"_id": "604", "text": "What is the role of conformational flexibility in the study's analysis of virus-ACE2 interactions?"}
+{"_id": "605", "text": "What is the role of aluminium positioning within the zeolite framework in industrial applications?"}
+{"_id": "606", "text": "Why is $^{27}\text{Al}$ NMR spectroscopy used in the study of zeolites?"}
+{"_id": "607", "text": "What challenges are associated with interpreting $^{27}\text{Al}$ NMR spectra?"}
+{"_id": "608", "text": "What is the significance of water content and temperature on $^{27}\text{Al}$ chemical shifts in zeolites?"}
+{"_id": "609", "text": "What is the main advantage of using machine learning-based methods over traditional DFT approaches in this study?"}
+{"_id": "610", "text": "What is the role of molecular dynamics simulations in this study?"}
+{"_id": "611", "text": "What is the significance of the Si/Al ratio in the zeolite models used in this study?"}
+{"_id": "612", "text": "How is the chemical shift of $^{27}\text{Al}$ calculated from chemical shielding values in this study?"}
+{"_id": "613", "text": "What is the purpose of using the kernel ridge regression (KRR) model in this study?"}
+{"_id": "614", "text": "What is the ideal band gap range for a 2D conjugated polymer to be an effective photocatalyst for water splitting?"}
+{"_id": "615", "text": "Why are 2D conjugated polymers considered appealing candidates for photocatalytic water splitting?"}
+{"_id": "616", "text": "What is the role of heteroatoms in the design of 2D conjugated polymers for photocatalysis?"}
+{"_id": "617", "text": "How can the exciton binding energy (EBE) be reduced in graphitic carbon nitrides?"}
+{"_id": "618", "text": "What is the advantage of using Z-scheme photocatalytic systems?"}
+{"_id": "619", "text": "What are the challenges associated with the photocatalytic efficiency of 2D polymers?"}
+{"_id": "620", "text": "What is the role of \u03c0-conjugation in enhancing the photocatalytic performance of 2D polymers?"}
+{"_id": "621", "text": "What is the bandgap of the 2D perovskite used in the study?"}
+{"_id": "622", "text": "What is the peak photoluminescent emission wavelength of the perovskite film?"}
+{"_id": "623", "text": "What is the external quantum efficiency (EQE) achieved by the PeLEDs in this study?"}
+{"_id": "624", "text": "What is the purpose of using a dual electron transport layer architecture in the study?"}
+{"_id": "625", "text": "What are the two materials used in the dual electron transport layer?"}
+{"_id": "626", "text": "What is the ionization potential (IP) of the perovskite as measured by UPS?"}
+{"_id": "627", "text": "What is the electron affinity (EA) of the perovskite as measured by LEIPS?"}
+{"_id": "628", "text": "What is the main advantage of using TmPyPB in the electron transport layer?"}
+{"_id": "629", "text": "What is the peak electroluminescent emission wavelength achieved by the PeLEDs?"}
+{"_id": "630", "text": "What is the role of the 3-center-3-electron (3c-3e) Rh(II)-silane \u03c3-adduct in the silyl radical transfer process?"}
+{"_id": "631", "text": "How does the MOF matrix contribute to the silyl radical transfer process?"}
+{"_id": "632", "text": "What is the calculated Gibbs free energy difference between the reagents and products in the Rh(II) porphyrin catalysis?"}
+{"_id": "633", "text": "What is the significance of the 3c-2e interaction in the context of silyl transfer reactions?"}
+{"_id": "634", "text": "What experimental evidence supports the formation of the 3c-3e silane \u03c3-adduct?"}
+{"_id": "635", "text": "How does the presence of oxygen affect the performance of Rh(II)-3 in thermal hydrosilylation?"}
+{"_id": "636", "text": "What role does light play in the formation of the active Rh(II) catalyst?"}
+{"_id": "637", "text": "What is the effect of the Rh(II)-Rh(II) intermolecular separation on the catalytic activity?"}
+{"_id": "638", "text": "What is the proposed mechanism for the formation of Rh(III)-hydroperoxide 10?"}
+{"_id": "639", "text": "How does the 3c-3e interaction differ from the 3c-2e interaction in terms of stability and reactivity?"}
+{"_id": "640", "text": "What is the chemical shift range observed for $^{31}$P NMR in the 1-Ln series?"}
+{"_id": "641", "text": "Which lanthanide complex exhibited the largest chemical shift anisotropy (CSA) in solid-state $^{31}$P NMR?"}
+{"_id": "642", "text": "What is the observed effect of paramagnetic broadening on the $^{31}$P NMR spectra of the 1-Ln family?"}
+{"_id": "643", "text": "What is the effect of THF on the synthesis of 1-Ln complexes?"}
+{"_id": "644", "text": "How do the $^{31}$P NMR chemical shifts of heavier nuclei compare with ab initio-calculated values for paramagnetic 1-Ln?"}
+{"_id": "645", "text": "What are the three main components of a PROTAC molecule?"}
+{"_id": "646", "text": "What is the role of the linker segment in a PROTAC molecule?"}
+{"_id": "647", "text": "What is the significance of the ubiquitin-proteasome system in the function of PROTACs?"}
+{"_id": "648", "text": "How does the PROTAC-INVENT model differ from previous PROTAC generative models?"}
+{"_id": "649", "text": "What is the purpose of using reinforcement learning (RL) in the PROTAC-INVENT model?"}
+{"_id": "650", "text": "Why is the linker length important in PROTAC design?"}
+{"_id": "651", "text": "What is the significance of the 'local-only' docking mode in the PROTAC-INVENT model?"}
+{"_id": "652", "text": "What are the challenges in designing PROTAC linkers?"}
+{"_id": "653", "text": "How does the PROTAC-INVENT model utilize 3D PTS data?"}
+{"_id": "654", "text": "How does the fraction of stickers affect the properties of the LAL polymers?"}
+{"_id": "655", "text": "What is the effect of increasing the volume fraction of glassy nodules in the LAL polymers?"}
+{"_id": "656", "text": "How does the self-assembly of block copolymers contribute to the properties of the LAL polymers?"}
+{"_id": "657", "text": "How does the presence of reversible bonds affect the self-assembly of block copolymers?"}
+{"_id": "658", "text": "What is the relationship between the fraction of amide bonds and the tensile toughness of the LAL polymers?"}
+{"_id": "659", "text": "What is the linear range of glucose detection for the electrochemical sensor described in the paper?"}
+{"_id": "660", "text": "What is the main advantage of using hollow microneedles in the sensor design?"}
+{"_id": "661", "text": "How does the Fe-N-C SANs improve the electrocatalytic performance for H\u2082O\u2082 detection?"}
+{"_id": "662", "text": "What is the mechanism by which glucose oxidase (GOx) catalyzes glucose oxidation in the sensor?"}
+{"_id": "663", "text": "How does the sensor ensure the accuracy of glucose detection in the presence of interfering substances?"}
+{"_id": "664", "text": "What is the primary advantage of using vanadium disulfide (VS\u2082) as a cathode material in zinc-ion batteries?"}
+{"_id": "665", "text": "What role does ethylene glycol play in the hydrothermal synthesis of VS\u2082?"}
+{"_id": "666", "text": "What is the significance of the microflower morphology of VS\u2082 in the 3D printing process?"}
+{"_id": "667", "text": "What are the two different oxidation states of vanadium observed in the XPS spectrum of VS\u2082?"}
+{"_id": "668", "text": "How does the shear thinning response of the VS\u2082 ink benefit the 3D printing process?"}
+{"_id": "669", "text": "What is the observed electrochemical behavior of VS\u2082 cathodes in a WISE electrolyte compared to a conventional ZnSO\u2084 electrolyte?"}
+{"_id": "670", "text": "What is the significance of the peak at ~23\u00ba in the XRD pattern of VS\u2082 during charging?"}
+{"_id": "671", "text": "How does the 3D2SMILES model handle the issue of occlusions in 3D molecular images?"}
+{"_id": "672", "text": "What is the significance of using the CPK coloring convention in the synthetic dataset?"}
+{"_id": "673", "text": "What are the two types of 3D dynamic protein descriptors (3DDPDs) developed in the study?"}
+{"_id": "674", "text": "What is the purpose of using molecular dynamics (MD) simulations in the development of 3DDPDs?"}
+{"_id": "675", "text": "How are atomic coordinates and partial charges used in the generation of 3DDPDs?"}
+{"_id": "676", "text": "What dimensionality reduction technique is applied in the development of 3DDPDs?"}
+{"_id": "677", "text": "What was the performance comparison between 3DDPDs and non-dynamic descriptors in regression tasks?"}
+{"_id": "678", "text": "What is the significance of using GPCRs as a test case for 3DDPDs?"}
+{"_id": "679", "text": "What is the role of Root Mean Square Fluctuation (RMSF) in analyzing GPCR dynamics?"}
+{"_id": "680", "text": "What was the optimization strategy for the 3DDPD generation?"}
+{"_id": "681", "text": "What is the significance of including protein dynamic information in machine learning tasks?"}
+{"_id": "682", "text": "How do 3DDPDs capture dynamic changes driven by somatic point mutations in GPCRs?"}
+{"_id": "683", "text": "Why is hydrazine monohydrate preferred over anhydrous hydrazine in the synthesis described?"}
+{"_id": "684", "text": "What is the observed color of hydrazone 1 when synthesized using the new method?"}
+{"_id": "685", "text": "What is the effect of methanol on the color of hydrazone 1?"}
+{"_id": "686", "text": "How does the conjugation in 5-nitrofuranyl derivatives affect their electronic excitation?"}
+{"_id": "687", "text": "What is the observed NMR behavior of 5-nitrofurfural in methanol-d4 compared to CDCl3?"}
+{"_id": "688", "text": "What are the two types of acid sites identified in the gallosilicate material Ga@SiO2?"}
+{"_id": "689", "text": "What structural feature is associated with the Br\u00f8nsted acidic sites in Ga@SiO2?"}
+{"_id": "690", "text": "What is the bond angle range for O-Ga-O in the crystal structure of Ga(OSi(OtBu)3)3(py)?"}
+{"_id": "691", "text": "What is the isotropic chemical shift for 31P in the solid state for Ga(OSi(OtBu)3)3(TPPO)?"}
+{"_id": "692", "text": "What is the edge energy characteristic of tetra-coordinate Ga species in the XANES spectrum?"}
+{"_id": "693", "text": "What is the structural transformation that occurs during the formation of ZEO-3 from ZEO-2?"}
+{"_id": "694", "text": "What is the specific surface area of the zeolite ZEO-3?"}
+{"_id": "695", "text": "What type of NMR spectroscopy was used to confirm the presence of hydrogen bonds in ZEO-2?"}
+{"_id": "696", "text": "What are the crystallographic pore sizes of ZEO-3 for the 16MR and 14MR channels?"}
+{"_id": "697", "text": "What is the framework density (FD) value of ZEO-3?"}
+{"_id": "698", "text": "What is the chemical composition of the gel used to synthesize the ZEO-2 precursor?"}
+{"_id": "699", "text": "What is the observed N\u2082 adsorption isotherm type for ZEO-3?"}
+{"_id": "700", "text": "What is the role of tricyclohexylmethylphosphonium (tCyMP) in the synthesis of ZEO-2?"}
+{"_id": "701", "text": "What is the significance of the double four-member ring units (D4R) in ZEO-3?"}
+{"_id": "702", "text": "What is the purpose of the nanofibrous scaffold in the 3D hepatocyte model?"}
+{"_id": "703", "text": "How does the drug clearance rate of HepaRG cells on the scaffold compare to 2D cultures?"}
+{"_id": "704", "text": "What is the significance of using a 3D-printed device in this study?"}
+{"_id": "705", "text": "What is the role of the $\\gamma$-FeOOH nanoclusters in the new OER catalyst?"}
+{"_id": "706", "text": "What is the minimal theoretical overpotential for an oxide catalyst according to the scaling relationship?"}
+{"_id": "707", "text": "How does the bifunctional mechanism proposed by Rossmeisl and co-workers aim to overcome the volcano limit in OER?"}
+{"_id": "708", "text": "What is the significance of the scaling relationship in the context of OER catalysts?"}
+{"_id": "709", "text": "What is the relationship between the adsorption energies of OH and OOH on metal oxide catalysts?"}
+{"_id": "710", "text": "What is the significance of the bifunctional mechanism in the new OER catalyst?"}
+{"_id": "711", "text": "What is the significance of the ligand field strength (\u0394) and spin pairing energy (P) in spin crossover (SCO) systems?"}
+{"_id": "712", "text": "How does the light-induced excited spin state trapping (LIESST) effect work in iron(II) and iron(III) systems?"}
+{"_id": "713", "text": "What is the role of donor-acceptor energy transfer in the synergic correlation between SCO and luminescence?"}
+{"_id": "714", "text": "What is the observed effect of spin-state switching on the luminescence of the donor moiety in SCO complexes?"}
+{"_id": "715", "text": "How does the introduction of polar and chiral groups affect the dielectric properties of SCO molecules?"}
+{"_id": "716", "text": "What is the significance of the Fe-N bond distance changes in the context of SCO in iron(II) complexes?"}
+{"_id": "717", "text": "What is the role of metal-to-ligand charge transfer (MLCT) in the luminescence of SCO complexes?"}
+{"_id": "718", "text": "What are the primary components of vegetable oils?"}
+{"_id": "719", "text": "How does the presence of metal surfaces affect the degradation of vegetable oils?"}
+{"_id": "720", "text": "What is the impact of heating temperature and time on the oxidation of canola oil?"}
+{"_id": "721", "text": "What is the role of antioxidants in the thermal stability of vegetable oils?"}
+{"_id": "722", "text": "What is the effect of frying time on the degradation of soybean oil?"}
+{"_id": "723", "text": "What structural features do organic optoelectronic molecules (OOMs) typically consist of?"}
+{"_id": "724", "text": "How does the O\u00b2-GEN framework improve the generation of fused-ring molecules?"}
+{"_id": "725", "text": "What is the role of the 3D pretraining backbone in the O\u00b2-GEN framework?"}
+{"_id": "726", "text": "What is the significance of the property selector in the O\u00b2-GEN framework?"}
+{"_id": "727", "text": "What are the new metrics defined to evaluate the models' ability to generate integral fragments assembled OOMs?"}
+{"_id": "728", "text": "What challenges do existing deep generative models face when dealing with OOMs?"}
+{"_id": "729", "text": "What optical and redox properties are targeted for prediction by the O\u00b2-GEN framework's selector?"}
+{"_id": "730", "text": "What are the building elements required for creating chemically fueled assemblies?"}
+{"_id": "731", "text": "What is the role of the high-energy molecule in the chemically fueled assembly?"}
+{"_id": "732", "text": "What determines the reaction rates in the context of chemically fueled assemblies?"}
+{"_id": "733", "text": "What is the significance of the activation reaction being faster than the deactivation reaction in chemically fueled assemblies?"}
+{"_id": "734", "text": "What are the key steps involved in synthesizing a peptide aldehyde in Project 2?"}
+{"_id": "735", "text": "What is the purpose of using the jigsaw technique in Project 2?"}
+{"_id": "736", "text": "How did students in Project 1 determine the rate equations for the kinetic model?"}
+{"_id": "737", "text": "What is the role of MATLAB in Project 1?"}
+{"_id": "738", "text": "What are the fundamental principles emphasized in Project 1?"}
+{"_id": "739", "text": "What was the outcome of using first principles thinking in the PBL projects?"}
+{"_id": "740", "text": "What synthetic method was used to create the chiral \u03c0-conjugated macrocycles (CCMs) in the study?"}
+{"_id": "741", "text": "What property of the tetraarylethene (TAE) units contributes to the bright emission of the chiral macrocyclic molecules and POPs?"}
+{"_id": "742", "text": "What is the role of Rhodamine B when accommodated into chiral POPs?"}
+{"_id": "743", "text": "What is the approximate BET surface area of the chiral macrocyclic POPs PRBT and PSBT?"}
+{"_id": "744", "text": "What is the observed effect of nano-aggregate formation on the emission intensity of the chiral macrocycles in THF-H\u2082O mixtures?"}
+{"_id": "745", "text": "What is the thermal stability of the chiral macrocyclic POPs as indicated by thermogravimetric analysis (TGA)?"}
+{"_id": "746", "text": "How does the optical band gap (E_{opt}) change for the chiral macrocycles with different substitutions?"}
+{"_id": "747", "text": "What is the range of logP values for the environmental and food-related contaminants optimized in the SPE protocol?"}
+{"_id": "748", "text": "Which two SPE sorbents were compared during the method development and optimization?"}
+{"_id": "749", "text": "What was the purpose of using NIST standard reference materials in the study?"}
+{"_id": "750", "text": "What was the primary component of the elution solvent selected for the SPE process?"}
+{"_id": "751", "text": "What were the elution solvents compared for the mixed-mode sorbent (PSA+C18)?"}
+{"_id": "752", "text": "What was the final dilution ratio used for sample dilution before SPE cleanup?"}
+{"_id": "753", "text": "What was the purpose of using a mixture of MeOH/ACN/ISO as an elution solvent?"}
+{"_id": "754", "text": "What was the method used to dry the SPE extracts before reconstitution?"}
+{"_id": "755", "text": "What is the relationship between the size of graphene-like domains and the capacitance of nanoporous carbons?"}
+{"_id": "756", "text": "What is the effect of synthesis temperature on the BET surface area and pore size distribution of nanoporous carbons?"}
+{"_id": "757", "text": "What is the effect of thermal annealing on the graphene-like domain sizes and capacitance of nanoporous carbons?"}
+{"_id": "758", "text": "What is the hypothesis regarding the concentration of microplastics in recycled versus non-recycled toilet paper?"}
+{"_id": "759", "text": "What method is used to break down the organic matter in toilet paper to isolate microplastics?"}
+{"_id": "760", "text": "What is the average concentration of microplastics found in recycled toilet paper?"}
+{"_id": "761", "text": "What is the average concentration of microplastics found in non-recycled toilet paper?"}
+{"_id": "762", "text": "What concentration of hydrogen peroxide is used for digesting the toilet paper samples?"}
+{"_id": "763", "text": "What is the purpose of using a 0.45 \u00b5m membrane filter in the experiment?"}
+{"_id": "764", "text": "What is the main environmental concern associated with microplastics in toilet paper?"}
+{"_id": "765", "text": "What are the potential health implications of inhaling microplastic particles from toilet paper?"}
+{"_id": "766", "text": "What is the effect of the molar ratio between MCPA and dicamba anions on the chemical shift of the methylene group in MCPA anion in DSILs?"}
+{"_id": "767", "text": "How does the molar ratio of DSIL counterparts affect the critical micelle concentration (CMC) of the system?"}
+{"_id": "768", "text": "What is the relationship between the molar ratio of DSIL constituents and their density?"}
+{"_id": "769", "text": "How does the combination of two surface-inactive anions affect the surface activity of DSILs?"}
+{"_id": "770", "text": "What is the impact of DSILs on the aquatic toxicity toward Chlorella vulgaris?"}
+{"_id": "771", "text": "List the sequence in which plants absorbed metals from highest to lowest."}
+{"_id": "772", "text": "What is the significance of the calculated index values for heavy metals in spinach and maize?"}
+{"_id": "773", "text": "What was the observed effect of heavy metal pollution on soil enzyme activity at different concentrations of cadmium (Cd)?"}
+{"_id": "774", "text": "How does fermentation affect the water absorption capacity of cocoyam flour?"}
+{"_id": "775", "text": "What is the critical temperature and pressure of supercritical carbon dioxide (scCO\u2082)?"}
+{"_id": "776", "text": "What are the auxiliary properties of solutes predicted in this study?"}
+{"_id": "777", "text": "What machine learning algorithms were used in this study for solubility prediction?"}
+{"_id": "778", "text": "What is the significance of the dataset compiled in this study?"}
+{"_id": "779", "text": "What is the role of thermodynamic properties in the machine learning models developed in this study?"}
+{"_id": "780", "text": "What is the main challenge in experimental investigation of solute solubility in scCO\u2082?"}
+{"_id": "781", "text": "What preprocessing steps were taken to handle inter-laboratory duplicates in the dataset?"}
+{"_id": "782", "text": "What is the main reaction involved in CO\u2082 methanation on Mars?"}
+{"_id": "783", "text": "What are the side reactions that can occur during CO\u2082 methanation?"}
+{"_id": "784", "text": "What is the role of the Sabatier reactor in the process concept?"}
+{"_id": "785", "text": "What is the purpose of the water separation unit in the process?"}
+{"_id": "786", "text": "What is the effect of pulsed formation on the formation time of graphitic anode full cells?"}
+{"_id": "787", "text": "How does the pulsed formation strategy affect the Solid Electrolyte Interphase (SEI) in batteries?"}
+{"_id": "788", "text": "What is the role of temperature in the formation process of batteries?"}
+{"_id": "789", "text": "What is the composition of the electrolyte used in the coin cells?"}
+{"_id": "790", "text": "What is the N/P ratio of the graphite anode used in the study?"}
+{"_id": "791", "text": "What is the significance of the internal resistance (iR) measurement during pulsed formation?"}
+{"_id": "792", "text": "What is the composition of the NMC-622 cathode used in the study?"}
+{"_id": "793", "text": "What is the impact of higher formation currents on the SEI?"}
+{"_id": "794", "text": "What is the encapsulation efficiency of the phase change material capsules?"}
+{"_id": "795", "text": "What is the observed temperature increase during the 0.5 C discharge phase of the Li-ion cell?"}
+{"_id": "796", "text": "What is the thermal stability range of the PCM capsules as determined by TGA?"}
+{"_id": "797", "text": "What is the effect of the encapsulated PCM on the melting curve compared to bulk octadecane?"}
+{"_id": "798", "text": "What technique was primarily used to link structural, electronic, and magnetic properties of radical thin films?"}
+{"_id": "799", "text": "What is the role of the pyrene in the pyrene-Blatter radical as a molecular quantum bit?"}
+{"_id": "800", "text": "What is the significance of the ferrocene functionalization in PTM derivatives?"}
+{"_id": "801", "text": "What growth mode do the high-spin diradical thin films follow?"}
+{"_id": "802", "text": "What is the impact of air exposure on diradical thin films compared to single radical components?"}
+{"_id": "803", "text": "What is the significance of the nanoneedle morphology of the tetrazolinyl radical?"}
+{"_id": "804", "text": "What is the effect of the substrate on the magnetic character of radical thin films?"}
+{"_id": "805", "text": "What is the role of X-ray magnetic circular dichroism (XMCD) in the study of radical thin films?"}
+{"_id": "806", "text": "How does the presence of multiple radical sites affect the evaporation process of radicals?"}
+{"_id": "807", "text": "What is the role of the Helmholtz layer in the electrode/electrolyte interface?"}
+{"_id": "808", "text": "What is the significance of the camel-shaped differential capacitance curve?"}
+{"_id": "809", "text": "What causes the non-ideal capacitive behavior described by the constant phase element (CPE)?"}
+{"_id": "810", "text": "How does ion concentration affect ionic conductivity at the electrode/electrolyte interface?"}
+{"_id": "811", "text": "What is the impact of electrode potential on the impedance response?"}
+{"_id": "812", "text": "What is the relationship between ion hydration and the thickness of the Helmholtz layer?"}
+{"_id": "813", "text": "How does the electric field affect the permittivity and conductivity at the electrode/electrolyte interface?"}
+{"_id": "814", "text": "What is the effect of the compact layer on the impedance response?"}
+{"_id": "815", "text": "How does the model explain the presence of CPE behavior even in atomically flat blocking electrodes?"}
+{"_id": "816", "text": "What is the main advantage of using JOYCE3.0 for parameterizing quantum-mechanically derived force-fields (QMD-FFs)?"}
+{"_id": "817", "text": "Which types of molecular systems were used as benchmark cases for the JOYCE3.0 parameterization?"}
+{"_id": "818", "text": "How does JOYCE3.0 handle the parameterization of intramolecular terms in QMD-FFs?"}
+{"_id": "819", "text": "What is the role of the Hessian matrix in the JOYCE3.0 parameterization process?"}
+{"_id": "820", "text": "What is the significance of the 'structural mismatch' in classical/quantum mechanical multi-level approaches?"}
+{"_id": "821", "text": "How does JOYCE3.0 improve the integration of QMD-FFs into multi-level protocols?"}
+{"_id": "822", "text": "What is the purpose of using different QM software packages in JOYCE3.0?"}
+{"_id": "823", "text": "What is the role of temperature in the novel measurement method for diffusivity in MOF-based sensors?"}
+{"_id": "824", "text": "How does the diffusivity of VOCs in ZIF-8 compare to that in ZIF-7?"}
+{"_id": "825", "text": "What is the significance of the narrow window aperture in ZIF-8 for VOC diffusion?"}
+{"_id": "826", "text": "Why is the capacitance measured at equilibrium linearly proportional to the adsorbed quantity of an analyte?"}
+{"_id": "827", "text": "How does the kinetic selectivity approach help in eliminating humidity interference in VOC sensing?"}
+{"_id": "828", "text": "What is the effect of molecule size on diffusivity in ZIF-8?"}
+{"_id": "829", "text": "How does the interaction term in the Maxwell-Stefan model indicate independent diffusion of VOCs in ZIF-8?"}
+{"_id": "830", "text": "What is the significance of the cage-and-window structure in MOFs like ZIF-8 for VOC sensing?"}
+{"_id": "831", "text": "How does the novel temperature-perturbation method improve the selectivity of MOF-based sensors?"}
+{"_id": "832", "text": "What is the thermo-optic coefficient of the bistable [Fe2Co2] molecular square complex at room temperature?"}
+{"_id": "833", "text": "What is the observed effect on the metal-to-metal charge transfer (MMCT) transition band as temperature increases?"}
+{"_id": "834", "text": "What happens to the dielectric constant of the bistable molecule as the temperature approaches 408 K?"}
+{"_id": "835", "text": "What is the observed effect on the quality factor (Q) of the micro-ring resonator as temperature increases?"}
+{"_id": "836", "text": "What is the observed free spectral range (FSR) of the micro-ring resonator with the bistable molecule?"}
+{"_id": "837", "text": "What are the cation and anion components of the new quinine-derived quaternary ammonium salts (QASs) described in the paper?"}
+{"_id": "838", "text": "What is the effect of elongating the alkyl substituent in the 1-alkylquininium cation on the properties of the QASs?"}
+{"_id": "839", "text": "How do the quinine-derived QASs affect monocotyledonous and dicotyledonous terrestrial plants?"}
+{"_id": "840", "text": "What is the relationship between antimicrobial activity and aquatic toxicity in the design of new quinine-based antiseptics?"}
+{"_id": "841", "text": "What role does quinine play in the antifeedant activity of the new QASs?"}
+{"_id": "842", "text": "What is the significance of using L-asparagine and L-alanine as anions in the synthesis of quinine-derived QASs?"}
+{"_id": "843", "text": "What is the impact of the alkyl chain length in quinine-derived QASs on their toxicity to aquatic organisms?"}
+{"_id": "844", "text": "What method was used to synthesize quinine-derived QASs with amino acid-derived anions?"}
+{"_id": "845", "text": "What is the significance of the Br\u00f8nsted\u2013Evans\u2013Polanyi (BEP) principle in this study?"}
+{"_id": "846", "text": "What is the energy barrier for the diffusion of CH\u2082* on Pd catalysts, and why is it significant?"}
+{"_id": "847", "text": "What is the coordination geometry of the Fe(III) center in the synthesized Fe(III)-porphyrin complex?"}
+{"_id": "848", "text": "What is the observed magnetic behavior of the complex at low temperatures?"}
+{"_id": "849", "text": "What type of intermolecular interactions are present in the crystal structure of the complex?"}
+{"_id": "850", "text": "What are the electrochemical characteristics observed for the Fe(III) complex in cyclic voltammetry?"}
+{"_id": "851", "text": "What is the impact of metal centers on the flexibility of MOFs?"}
+{"_id": "852", "text": "What is the role of defects in the flexibility of framework materials?"}
+{"_id": "853", "text": "How do molecular dynamics simulations contribute to understanding MOF flexibility?"}
+{"_id": "854", "text": "How do computational methods enhance the understanding of adsorption-induced flexibility in MOFs?"}
+{"_id": "855", "text": "How does adsorption affect the structure of microporous materials?"}
+{"_id": "856", "text": "What is the typical range of adsorption strain in inorganic nanoporous materials like zeolites?"}
+{"_id": "857", "text": "What role do defects play in the flexibility of framework materials?"}
+{"_id": "858", "text": "What is the significance of the DUT-8(Ni) material in the study of framework flexibility?"}
+{"_id": "859", "text": "What are the heavy metals mentioned in the study that contaminate wastewater?"}
+{"_id": "860", "text": "What method was used to analyze the concentration of heavy metals in sewage water?"}
+{"_id": "861", "text": "Which plant peels were used as biosorbents in the study?"}
+{"_id": "862", "text": "What was the effect of using 3g of cucumber extract on chromium in sewage water after 24 hours?"}
+{"_id": "863", "text": "What percentage of lead was removed from Harnouli sewage water using 1g of Bitter Apple peel after 24 hours?"}
+{"_id": "864", "text": "What is the main mechanism by which heavy metals induce toxicity according to the literature review?"}
+{"_id": "865", "text": "What was the observed concentration of lead in sewage water from Piplan compared to Harnouli?"}
+{"_id": "866", "text": "What was the percentage drop in chromium concentration using 1g of cucumber peel in Piplan sewage water after 48 hours?"}
+{"_id": "867", "text": "What is the role of activated carbon in the study?"}
+{"_id": "868", "text": "What are the primary mechanisms by which silver nanoparticles (AgNPs) facilitate the degradation of phenolic compounds?"}
+{"_id": "869", "text": "How does the size of silver nanoparticles affect their efficiency in phenol degradation?"}
+{"_id": "870", "text": "What are the potential environmental risks associated with the use of silver nanoparticles for phenol removal?"}
+{"_id": "871", "text": "What role do stabilizing agents play in the functionalization of silver nanoparticles?"}
+{"_id": "872", "text": "What are the effects of phenolic compounds on human health?"}
+{"_id": "873", "text": "What is the significance of green synthesis in the context of silver nanoparticles?"}
+{"_id": "874", "text": "What are some of the industrial sources of phenolic contamination in water?"}
+{"_id": "875", "text": "What are the primary types of synthetic fibers contributing to polymeric waste in the textile industry?"}
+{"_id": "876", "text": "What is the most commonly used synthetic fiber in the textile industry, and what percentage of global textile production does it account for?"}
+{"_id": "877", "text": "What are the three main methods for repurposing textile polymer waste into biodegradable composites?"}
+{"_id": "878", "text": "What role do enzymes play in the biological degradation of synthetic polymers like polyester?"}
+{"_id": "879", "text": "What are the two distinct molecular binding modes observed in polyethyleneimine-DNA polyplexes?"}
+{"_id": "880", "text": "What are the main structural differences between LPEI and BPEI?"}
+{"_id": "881", "text": "What is the significance of the offset parameter in the kinetics model for BPEI at N/P = 1?"}
+{"_id": "882", "text": "What is the primary limitation of using Lewis structures in graph neural networks for molecular property prediction?"}
+{"_id": "883", "text": "What features are excluded from the RIGR featurizer to ensure resonance invariance?"}
+{"_id": "884", "text": "What is the role of the net charge descriptor in the RIGR featurizer?"}
+{"_id": "885", "text": "What is the primary dataset used in the study, and what does it consist of?"}
+{"_id": "886", "text": "What is the main advantage of using canonicalized SMILES in the dataset preparation?"}
+{"_id": "887", "text": "What is the purpose of data augmentation with resonance forms in the study?"}
+{"_id": "888", "text": "What challenges are associated with generating resonance structures for data augmentation?"}
+{"_id": "889", "text": "What is the acceptable range of Chemical Oxygen Demand (COD) in water according to the research paper?"}
+{"_id": "890", "text": "What is the significance of Biochemical Oxygen Demand (BOD) in assessing water pollution?"}
+{"_id": "891", "text": "What is the recommended turbidity level for drinking water according to the World Health Organization (WHO)?"}
+{"_id": "892", "text": "What is the significance of Total Dissolved Solids (TDS) in determining water quality?"}
+{"_id": "893", "text": "What is the pH range that indicates a substance is alkaline?"}
+{"_id": "894", "text": "How does high turbidity affect aquatic life?"}
+{"_id": "895", "text": "What is the role of Electrical Conductivity in water quality assessment?"}
+{"_id": "896", "text": "What are the potential health impacts of consuming water with high BOD levels?"}
+{"_id": "897", "text": "What is the impact of high TDS levels on water taste?"}
+{"_id": "898", "text": "What is the significance of the pH level in water quality?"}
+{"_id": "899", "text": "What is the primary purpose of the Rotated Fourier Transform (RFT) method introduced in the paper?"}
+{"_id": "900", "text": "What is the weighted order parameter (WOP) used for in the context of the RFT method?"}
+{"_id": "901", "text": "How does the RFT method determine the dominant angles representing structural orientation?"}
+{"_id": "902", "text": "What is the significance of the amplitude calculated for each dominant angle in the RFT method?"}
+{"_id": "903", "text": "What structural feature of soy protein concentrate HME samples was identified using the RFT method?"}
+{"_id": "904", "text": "How does the anisotropic region's spatial extent change along the cooling die according to the study?"}
+{"_id": "905", "text": "What is the typical composition of protein blends used in high-moisture extrusion (HME) for plant-based meat analogues?"}
+{"_id": "906", "text": "What structural changes occur in the protein fibrils near the cooling wall during HME?"}
+{"_id": "907", "text": "What imaging techniques were used to capture anisotropic structural features over the \u03bcm-mm scale in the study?"}
+{"_id": "908", "text": "What analytical technique is essential for elucidating the structure of unknown impurities in drug synthesis?"}
+{"_id": "909", "text": "What is the main challenge in interpreting MS/MS spectra for impurity structure elucidation?"}
+{"_id": "910", "text": "How does the SEISMiQ model improve the accuracy of impurity structure elucidation?"}
+{"_id": "911", "text": "What role does transfer learning play in the SEISMiQ model's performance?"}
+{"_id": "912", "text": "What is the purpose of simulating the entire drug substance synthesis process in silico?"}
+{"_id": "913", "text": "What is the accuracy of the SEISMiQ model on the MassSpecGym benchmark?"}
+{"_id": "914", "text": "How does the SEISMiQ model handle the input for structural elucidation?"}
+{"_id": "915", "text": "What is the reported accuracy of the SEISMiQ model on an internal dataset of experimentally detected impurities?"}
+{"_id": "916", "text": "What is the significance of the common substructure between impurities and the main compound in impurity elucidation?"}
+{"_id": "917", "text": "How does the SEISMiQ model utilize historical data in its finetuning process?"}
+{"_id": "918", "text": "What are the standard techniques for the characterization of organic compounds mentioned in the paper?"}
+{"_id": "919", "text": "How is data consistency checked for $^1$H NMR and $^{13}$C NMR spectroscopy?"}
+{"_id": "920", "text": "What machine learning technique is used for IR data analysis?"}
+{"_id": "921", "text": "What is the purpose of the QuickCheck service from nmrshiftdb2 in the context of $^1$H NMR data?"}
+{"_id": "922", "text": "What are the common adducts considered in mass spectrometry data consistency checks?"}
+{"_id": "923", "text": "What is the role of cheminformatics toolkits in the evaluation process?"}
+{"_id": "924", "text": "How are $^1$H NMR spectra prepared for plausibility checks?"}
+{"_id": "925", "text": "What is the significance of level 3 evaluation in the proposed process?"}
+{"_id": "926", "text": "What are the three levels of data curation defined in the proposed process?"}
+{"_id": "927", "text": "How does the proposed process handle the evaluation of IR spectroscopic data?"}
+{"_id": "928", "text": "What is the role of singlet-triplet conversion in molecular hydrogen in the context of parahydrogen induced polarization (PHIP)?"}
+{"_id": "929", "text": "How does the concentration of \u00b9\u2075N nuclei affect the spin conversion process in H\u2082?"}
+{"_id": "930", "text": "What is the purpose of using a 90\u00b0 pulse in the SABRE experiments?"}
+{"_id": "931", "text": "What is the effect of hyperpolarized oH\u2082 formation on the performance of polarization transfer experiments?"}
+{"_id": "932", "text": "What is the significance of using deuterated substrates in SABRE experiments?"}
+{"_id": "933", "text": "What is the role of PEGylation in the stabilization of proteins according to the paper?"}
+{"_id": "934", "text": "How does the molecular weight of PEG affect the dynamics of PEGylated Gal3C?"}
+{"_id": "935", "text": "What experimental techniques were used to study the solvent dynamics and interactions in PEGylated Gal3C?"}
+{"_id": "936", "text": "What was the observed effect of PEGylation on the thermal stability of Gal3C?"}
+{"_id": "937", "text": "How does PEGylation affect the solvent accessible surface area (SASA) of proteins?"}
+{"_id": "938", "text": "What is the significance of the amide I band in the 2D IR spectra of PEGylated proteins?"}
+{"_id": "939", "text": "What does the elongation of the positive peak in the 2D IR spectra suggest about PEGylation?"}
+{"_id": "940", "text": "What is the impact of PEGylation on the chemical shift perturbations in the HSQC spectra of Gal3C?"}
+{"_id": "941", "text": "What is the effect of adding water or acetic acid to the trisulfide metathesis reaction?"}
+{"_id": "942", "text": "What role does DMF play in the trisulfide metathesis reaction?"}
+{"_id": "943", "text": "What was observed when trisulfides were treated with pyridine in the metathesis reaction?"}
+{"_id": "944", "text": "What was the effect of TEMPO on the trisulfide metathesis reaction?"}
+{"_id": "945", "text": "How does the reactivity of trisulfides compare to disulfides and tetrasulfides in DMF?"}
+{"_id": "946", "text": "What was the effect of using mixed solvent systems on trisulfide metathesis?"}
+{"_id": "947", "text": "What was the outcome when thiols and thiolates were tested as potential intermediates in the trisulfide metathesis reaction?"}
+{"_id": "948", "text": "What is the role of external pressure on the structure and magnetic response of the iron(II) complex?"}
+{"_id": "949", "text": "What is the significance of the absence of interstitial solvent molecules in the crystal lattice of complex 1?"}
+{"_id": "950", "text": "What is the observed effect of temperature on the IR spectrum of complex 1?"}
+{"_id": "951", "text": "What is the effect of temperature on the UV-vis-NIR spectrum of complex 1?"}
+{"_id": "952", "text": "What is the significance of the pyridinophane-based tetradentate ligand in the iron(II) complex?"}
+{"_id": "953", "text": "What is the primary advantage of using Cu/In bimetallic electrocatalysts in CO\u2082 reduction?"}
+{"_id": "954", "text": "How does the incorporation of Indium (In) affect the performance of Cu-based electrocatalysts?"}
+{"_id": "955", "text": "What role does platinum (Pt) play in enhancing the electrocatalytic activity of CuO/In electrodes?"}
+{"_id": "956", "text": "What is the observed improvement in electrocatalyst activity with Pt incorporation compared to Cu\u2082O/In?"}
+{"_id": "957", "text": "How does the deposition depth of Pt affect the electrocatalytic performance of the electrodes?"}
+{"_id": "958", "text": "What is the significance of using a gas-diffusion electrode (GDE) system in the experiments?"}
+{"_id": "959", "text": "How were the gaseous products analyzed during the experiments?"}
+{"_id": "960", "text": "What technique was used to examine the crystal composition of the synthesized electrodes?"}
+{"_id": "961", "text": "What is the primary role of incorporating Indium (In) in Cu-based electrocatalysts for CO\u2082 reduction?"}
+{"_id": "962", "text": "What is the observed effect of Pt deposition depth on the performance of Cu\u2082O/In/Pt electrodes?"}
+{"_id": "963", "text": "What method was used to deposit Indium (In) on Cu\u2082O electrodes, and why is it considered reliable?"}
+{"_id": "964", "text": "What is the impact of In incorporation on the adsorption strength of CO on Cu/In electrocatalysts?"}
+{"_id": "965", "text": "How does the presence of Pt influence the stability of the Cu\u2082O/In electrocatalysts over prolonged use?"}
+{"_id": "966", "text": "What is the role of the cation exchange membrane (CEM) in the electrochemical cell setup?"}
+{"_id": "967", "text": "What is the significance of using a peristaltic pump in the electrochemical experiments?"}
+{"_id": "968", "text": "What is the effect of fluorinated substituents on the anion binding strength of bambusurils?"}
+{"_id": "969", "text": "How does the presence of cholesterol in the membrane affect the transport activity of bambusurils?"}
+{"_id": "970", "text": "Which bambusuril derivatives were found to be the strongest chloride receptors?"}

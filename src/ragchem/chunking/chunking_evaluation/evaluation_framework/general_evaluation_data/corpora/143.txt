@@ -1,0 +1,248 @@
+Revealing Two Distinct Molecular Binding Modes in Polyethyleneimine-DNA Polyplexes using Infrared Spectroscopy
+
+Rusul Mustafa, Danielle Diorio, Madeline Harper, and David Punihaole
+
+Department of Chemistry, University of Vermont, Burlington, Vermont 05405, USA.
+
+(*Electronic mail: David.Punihaole@uvm.edu)
+
+(Dated: 28 February 2025)
+
+In this study, we use infrared spectroscopy to investigate the molecular binding modes of DNA with linear and branched polyethyleneimine (LPEI and BPEI). PEI-based polymers are widely studied as non-viral gene delivery vectors, but their low transfection efficiency limits their clinical success. One key factor affecting their performance is how they bind DNA as it directly impacts the packaging, protection, and release of the cargo in cells. While PEI-DNA binding has traditionally been viewed through the lens of electrostatics, computational models suggest additional binding mechanisms may be involved. Our findings reveal that LPEI and BPEI exhibit two distinct molecular binding modes, which influence DNA condensation. Identifying these unique interactions provides critical insights into polymer complexation mechanisms to nucleic acids that can guide the rational design of more efficient and versatile PEI-based gene delivery systems.
+
+I. INTRODUCTION
+
+Polymers are promising non-viral delivery vehicles for gene editing and therapy applications, offering a safer and more versatile alternative to viral vectors, which face challenges like immunogenicity, limited capacity, and high production costs\textsuperscript{1-2}. Polymers bind and compact DNA or RNA cargo into nanoparticle complexes, called polyplexes, for delivery into cells\textsuperscript{3}. Among the most popular polymer systems is polyethylenimine (PEI), sold commercially as jetPEI\textsuperscript{®}, which is widely used as a basic scaffold for delivery systems employed in routine transfection and gene editing applications\textsuperscript{4-8}.
+
+Despite their potential, PEI-based systems still face significant limitations in achieving the high delivery efficiencies required for clinical use\textsuperscript{9}. A critical factor influencing efficiency is the formation and stability of polyplexes\textsuperscript{10,11}. Strong binding and efficient nucleic acid release must be carefully balanced because overly stable polyplexes can hinder intracellular release, while weak complexes fail to protect and transport cargo effectively into cells\textsuperscript{12-14}. Previous studies have predominantly focused on optimizing transfection efficiency only by adjusting molecular weight\textsuperscript{15,16}, nitrogen-to-phosphate (N/P) ratios\textsuperscript{17}, or complex formation conditions\textsuperscript{18-20}.
+
+Other investigations have examined PEI-DNA complexation mechanisms by examining factors such as binding strength, stability, and structure. For example, Ketola et al.\textsuperscript{21-23} used fluorescence spectroscopy to reveal distinct differences in DNA cargo binding for linear and branched PEI (LPEI and BPEI, respectively). Other studies suggest that BPEI offers better DNA protection than LPEI, but lower delivery efficiency\textsuperscript{24}. However, these studies do not provide a molecular-level picture of the binding modes or conformational dynamics of LPEI and BPEI polyplexes. Developing this molecular-level understanding is crucial for being able to tune the interactions of polymeric carriers so that they can more robustly accommodate different types of cargo, form more stable polyplexes, offer better cargo protection, or release their cargo more efficiently.
+
+Building on this need for deeper molecular insights, recent work by Reineke and coworkers\textsuperscript{14,25} introduced versatile quinine-based polymers capable of delivering multiple cargos, including plasmid DNA, mRNA, and CRISPR/Cas9 machinery. Their studies suggest that the ability of these delivery systems to robustly accommodate and deliver these different types of cargoes is facilitated by their ability to bind them through multiple mechanisms, including electrostatic, \(\pi\)-stacking, and hydrogen bonding interactions\textsuperscript{14,25,26}. This insight opens new avenues for investigating similar phenomena in PEI-based systems, whose interactions with nucleic acid cargo have historically been assumed to be merely electrostatic in nature. Interestingly, a few computational studies have predicted that branched PEI (BPEI) might engage in additional binding modes beyond electrostatics\textsuperscript{27,28}. However, there has not been any experimental evidence to confirm this.
+
+To address this gap, we investigated the binding modes and macromolecular structure of PEI-DNA polyplexes using infrared (IR) spectroscopy and transmission electron microscopy (TEM). IR spectroscopy probes vibrations that report on bond-specific interactions and conformational changes, while TEM provides insights into polyplex morphology. Together, these methods offer a comprehensive molecular-level perspective of PEI-DNA dynamics.
+
+Using TEM, we first examine the morphologies of LPEI and BPEI polyplexes, followed by UV-Vis absorbance spectroscopy to analyze the complexation kinetics of these polymers to DNA. We then apply Fourier Transform IR (FTIR) spectroscopy with Multivariate Curve Resolution (MCR) analysis to differentiate between the binding modes of LPEI and BPEI polyplexes. Our comprehensive approach elucidates new insights into the molecular-level binding mechanisms of PEI systems to DNA, which we anticipate will help guide the development of more efficient and versatile PEI-based gene delivery systems.
+II. MATERIALS AND METHODS
+
+A. Materials
+
+DNA from herring sperm (<50 bp), linear PEI hydrochloride (Mn. 15,000 Da), sodium chloride (NaCl, molecular biology grade, ≥ 99% purity), sodium phosphate monobasic (molecular biology, anhydrous, ≥ 98% purity), sodium phosphate dibasic (molecular biology grade) were all purchased from Sigma Aldrich. Phosphate buffer saline (PBS) tablets were purchased from Fisher Scientific. Branched PEI (Mn. 10,000 Da) was purchased from Polysciences. Buffer solutions were prepared in MilliQ (18.2 MΩ) water. The ratio of the UV absorbance at 260 nm (A_{260 nm}) and 280 nm (A_{280 nm}) for the DNA samples were A_{260 nm}/A_{280 nm} = 1.8, indicative of “pure” DNA.29
+
+B. Polyplex sample preparation
+
+For kinetics experiments involving UV-Vis absorption spectroscopy, we prepared stock solutions of polymer and DNA in PBS (pH 7.4) with final concentrations of 0.5 µM for DNA, 200 µM for linear PEI, and 500 µM for branched PEI. We then added approximately 1 µL aliquots of polymer stock solutions with different volumes to DNA stocks to create solutions with N/P ratios (the molar ratios of polymer amines to DNA phosphate) of 1 and 5 for use in the kinetics experiments. We maintained the pH of all samples at 7.4. Since the polymer volumes were very small, the final concentration of DNA was maintained around 0.5 µM (see the Supplementary Information for details).
+
+We used a similar procedure and final concentrations of polymer and DNA to prepare polyplex solutions for binding affinity experiments involving UV-Vis absorption spectroscopy. By varying the volumes of polymer stock solutions added to DNA stock, we created polyplex formulations with N/P ratio ranging from 0.1-10. Samples became slightly turbid upon adding polymer stock solutions to DNA stocks, indicating polyplex formation. Additionally, we prepared solutions of only polymer, without DNA, with similar final polymer concentrations as the polyplex samples. All samples were then incubated at room temperature for 24 hours to equilibrate prior to performing binding affinity experiments.
+
+For FTIR experiments, we prepared stock solutions of polymer and DNA in phosphate buffer (pH 7.4) with and without NaCl. For NaCl screening experiment, we used concentrations of 50, 100, 150, 200, and 250 mM. The final concentration for the DNA stock solutions were 2 mM, while the final concentration for the polymer stock solutions were 5 mM. We diluted the polymer stocks further to create solutions with different final concentrations. We then added these solutions dropwise to DNA to create polyplex samples with N/P ratios ranging between 0.25 – 3. The final DNA concentration after adding polymer solutions was 1 mM. We maintained the pH of all samples at 7.4. We also prepared DNA samples without polymer at 1 mM concentration with and without NaCl to use as a reference. In addition, we prepared LPEI and BPEI polymer solutions as controls with a final concentration of 1.8 mM and 2.6 mM, respectively. Samples were allowed to equilibrate for one hour prior to measurements.
+
+C. UV Absorbance Spectroscopy
+
+We obtained UV absorbance spectra using an Agilent Cary UV-Vis-NIR Spectrophotometer equipped with a tungsten halogen and deuterium arc lamp. Spectra were collected between 200 – 350 nm using a scan rate of 600 nm/min. For kinetics experiments, spectra were collected every hour over the course of a day.
+
+D. FTIR Spectroscopy measurements
+
+We collected IR absorption spectra using a Bruker INVENIO Fourier transform IR spectrometer with a concentratIR2 multiple reflection silicon ATR head purchased from Harrick Scientific. This ATR unit is designed for micro-liquid samples and has eleven internal reflections with a nominal incident angle of 30°. We performed background measurements first and then we added 60 µL of sample on the ATR sampling area. We measured all spectra in the 1100 – 1800 cm\(^{-1}\) range with 4 cm\(^{-1}\) resolution and 128 scans in transmission mode. We then converted the spectra to absorption mode using the Bruker software.
+
+E. Transmission Electron Microscopy (TEM) Imaging
+
+A 5 µL aliquot of sample was placed on freshly glow discharged carbon-coated grid and incubated for 2 min. Following incubation, the grid was then washed 5× with water and wicked dry with filter paper. The samples were then stained using 3 % (w/v) uranyl acetate for 2 min. Excess stain was then removed from the sample grid by wicking with filter paper. The grids were air dried in a dust free environment. TEM imaging was then performed using a JEOL 1400 electron microscope operating at 120 kV, equipped with a AMT XR611 CCD camera.
+
+F. Data Processing
+
+We processed all FTIR and UV-Vis spectra using custom MATLAB scripts written in-house (see SI). We performed baseline correction and background subtraction for all spectra. To compare the spectra, we additionally normalized FTIR spectra to the total integrated intensity. We used Prism GraphPad software to fit the kinetics and binding affinity data collected with UV-Vis spectroscopy. Multivariate curve resolution (MCR) analysis was performed using the MCR-ALS software developed by Felten et al.30
+III. RESULTS AND DISCUSSION
+
+A. Polymer Systems
+
+To better understand how the chemical architecture of PEI influences complexation behavior to DNA cargo, we studied both LPEI and BPEI (Figure 1). LPEI is a linear polymer that contains only secondary amines, while BPEI has a branched structure containing primary, secondary, and tertiary amines. These structural differences can potentially influence LPEI and BPEI complexation behavior and, consequently, their delivery mechanisms.
+
+![Chemical structures of the polymer systems used in this study.](https://doi.org/10.26434/chemrxiv-2025-x0bv0)
+
+**FIG. 1.** Chemical structures of the polymer systems used in this study.
+
+B. Morphologies of LPEI and BPEI polyplexes
+
+To investigate how these chemical structural differences affect polyplex assembly, we first assessed the morphologies of LPEI and BPEI polyplexes. Figure 2 shows the TEM images for LPEI, BPEI, and DNA controls, as well as LPEI and BPEI polyplexes at an N/P ratio of 2. The images indicate that LPEI, BPEI, and DNA exhibit fibrous morphologies (Figure 2a - c). However, adding the PEI systems to DNA results in nanoparticles with spherical morphologies (Figure 2d and e), indicating the formation of polyplexes. Although both LPEI and BPEI form similar spherical structures, some distinct differences are observed. The images show that LPEI leads to polyplexes with less compact DNA structures, as indicated by the presence of free DNA on the periphery of the polyplexes (Figure 2d, red arrow). In contrast, BPEI forms polyplexes with more compact DNA structures that are not exposed on the exterior of the particles (Figure 2e). Additionally, BPEI polyplexes appear to be more uniform in size compared to LPEI polyplexes.
+
+**FIG. 2.** Representative TEM micrographs of (a) LPEI, (b) BPEI, (c) DNA, (d) LPEI polyplexes, and (e) BPEI. The scale bar is 100 nm for (a), (c), (d), and (e). The scale bar is 500 nm for (b). The red arrow shows the presence of DNA on the periphery of the polyplyex shown in (d).
+complexes exhibit significantly greater aggregation than LPEI complexes.
+
+C. LPEI and BPEI Exhibit Different DNA Binding Behaviors and Complexation Kinetics
+
+The differences in LPEI and BPEI morphologies suggest molecular-level differences in their binding and packaging mechanisms to DNA. To further investigate these differences, we first studied the kinetics of polyplex formation and the binding affinity of LPEI and BPEI polymers to DNA using UV absorbance spectroscopy. The kinetics of polyplex formation at N/P ratios of 1 and 5 were followed by monitoring the apparent absorbance changes in the DNA at 260 nm (Figure S1), corresponding to the $\pi \rightarrow \pi^*$ transition of the nucleobases. As shown in Figure 3, DNA absorbance at 260 nm decreases over time in the presence of both LPEI and BPEI, indicating DNA condensation due to complexation with these polymers.
+
+The kinetics of polyplex formation differ between LPEI and BPEI. For the former at both N/P = 1 and 5, the kinetics data can be satisfactorily described by a two-phase decay model:
+
+$$A_{260\,nm}(t) = A_{PD1}e^{-k_1t} + A_{PD2}e^{-k_2t}$$
+
+where $A_{PD1}$ and $A_{PD2}$ are the initial absorbances for the fast and slow decay phases, with rate constants $k_1$ and $k_2$, respectively. For BPEI, the kinetics depend on the N/P ratio. For N/P = 1, the data fit a two-phase decay model with an offset parameter ($A_0$):
+
+$$A_{260\,nm}(t) = A_{PD1}e^{-k_1t} + A_{PD2}e^{-k_2t} + A_0$$
+
+For N/P = 5, the data are better fit using a a single-phase decay model with an offset:
+
+$$A_{260\,nm}(t) = A_{PD1}e^{-k_1t} + A_0$$
+
+The offsets in eqs. 2 and 3 indicate that additional processes occur at long timescales (with time constants beyond 24 h) during BPEI polyplex formation.
+
+We also investigated the binding affinities of LPEI and BPEI polymers to DNA cargo (Figure S2). The fraction of DNA bound to polymer ($\theta$) was determined using the equation:
+
+$$\theta = \frac{A_{260\,nm}^{DNA} - A_{260\,nm}^{DNA+P}}{A_{260\,nm}^{DNA}}$$
+
+where $A_{260\,nm}^{DNA+P}$ and $A_{260\,nm}^{DNA}$ are the absorbances of DNA with and without polymer, respectively.
+
+The corresponding binding curves (Figure 4) were fit to a cooperative binding model using the Hill equation:
+
+$$\text{FIG. 3. Kinetics measurements of (a,b) LPEI and (c,d) BPEI polyplexes at N/P ratios of 1 (a,c) and 5 (b,d). The data for LPEI polyplexes were fit with two-phase decay model, while the data for BPEI polyplexes were fit with a two phase decay model with an offset parameter for N/P=1 and single-phase decay model with an offset for N/P=5.}$$
+
+https://doi.org/10.26434/chemrxiv-2025-x0bv0 ORCID: https://orcid.org/0000-0002-4637-9672 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+ TABLE I. Summary of Kinetic and Binding Data for LPEI and BPEI Polyplexes
+
+| Polymer | N/P = 1 | N/P = 5 | N/P = 1 | N/P = 5 | $K_d$ (µM) | Hill coefficient (h) | $B_{max}$ |
+|---------|---------|---------|---------|---------|-----------|----------------------|----------|
+| LPEI    | 1.412ε (0.066558) | 0.9182ε (0.05385) | 0.0034ε (0.0028) | 0.0041ε (0.00111) | 0.2879ε (0.01531) | 2.661ε (0.3464) | 0.8060ε (0.03125) |
+| BPEI    | 3.470ε (1.681) | 1.7358ε (0.07375) | 0.1343ε (0.0116) | NA | 0.2686ε (0.02395) | 4.465ε (2.065) | 0.7969ε (0.04546) |
+
+\[
+\theta = \frac{B_{max}[P]^h}{K_d^h + [P]^h} 
+\]
+
+where $K_d$ is the dissociation constant, $[P]$ is the polymer concentration, $B_{max}$ is the maximum fraction of bound DNA, and $h$ is the Hill coefficient.
+
+FIG. 4. Binding curves of (a) LPEI (a) and (b) BPEI polyplexes with N/P ratios ranging from 0 – 10. The DNA bound was calculated using the absorbance values of DNA at 260 nm. The data was fit to a cooperative binding model using the Hill equation. The goodness-of-fit was assessed using the $R^2$ value, which is 0.99 for LPEI and 0.97 for BPEI. Two replicates were measured and the standard deviation was calculated to be less than 2% of the mean for each data point shown.
+
+Our kinetics and binding affinity results suggest that LPEI and BPEI bind to DNA and form polyplexes through different mechanisms. The kinetics data show that both polymers exhibit a complex, multi-phasic process for binding and packaging DNA. These processes may involve initial electrostatic binding of the polymers to the cargo, followed by structural rearrangements or particle aggregation that further condense the DNA at longer timescales. BPEI complexes, however, show a slight hyperchromism effect after approximately 10 hours, suggesting possible intercalation into the DNA nucleobases that disrupts their π-stacking. Additionally, DNA binding to both polymer systems saturate at approximately 80% (Figure 4, Table I). Both LPEI and BPEI show positive binding cooperativity to DNA with similar affinities. However, BPEI has a higher Hill coefficient (4.4) than LPEI (2.6), indicating stronger cooperativity, likely due to its branched structure, which could enable additional binding modes provided by its primary, secondary, and tertiary amines, compared to LPEI, which only has secondary amines.
+
+FIG. 5. FTIR spectrum of 1 mM DNA in phosphate buffer, pH = 7.4. The spectrum was blank subtracted, baselined, and normalized to the total integrated area.
+
+D. LPEI and BPEI Interact with and Package DNA Cargo Differently
+
+While the kinetics and binding studies show key differences in polyplex formation, IR spectroscopy provides molecular-
+level insights into their interactions. To investigate this, we measured the FTIR spectra of free DNA, LPEI, and BPEI, as well as DNA in the presence of these polymers at N/P ratios ranging from 0 – 3. The spectra of LPEI and BPEI (Figure S3) are relatively weak compared to DNA, showing bands around ~1450 cm\(^{-1}\) (CH\(_2\) deformation) and 1620 cm\(^{-1}\) (NH\(_2\) scissoring)\(^{36}\). In contrast, DNA (Figure 5) possesses strong bands at ~1222 cm\(^{-1}\) (PO\(_2\) asymmetric stretching) and ~1680 cm\(^{-1}\) (C=O stretching of thymine and guanine). Additional weak bands that derive from in-plane ring stretching modes of the nucleobases appear between 1250 – 1600 cm\(^{-1}\)\(^{37-41}\).
+
+Significant spectral changes are observed in the DNA bands upon the addition of LPEI and BPEI (Figure 6). For example, the 1222 cm\(^{-1}\) band of DNA decreases in intensity and down-shifts by ~7 cm\(^{-1}\) as the N/P ratio of LPEI increases (Figure 6a). Additionally, although they overlap partially with the ~1450 cm\(^{-1}\) band of the polymers, the nucleobase ring stretching bands between 1400 – 1500 cm\(^{-1}\) increase in intensity as the N/P ratio increases. The 1680 cm\(^{-1}\) band also
+exhibits intensity changes, although no clear trend is observed with increasing N/P ratio.
+
+In contrast, BPEI binding (Figure 6b) results in complex changes in the DNA bands between $\sim 1300 - 1500 \text{ cm}^{-1}$, which generally increase in intensity as a function of N/P ratio. In addition, pronounced intensity decreases for both the 1222 cm$^{-1}$ and 1680 cm$^{-1}$ DNA bands are observed as the N/P ratio increases. However, unlike LPEI, binding of BPEI to DNA does not result in a frequency shift of the PO$_2^-$ asymmetric stretching band at 1222 cm$^{-1}$.
+
+These spectral changes suggest that LPEI and BPEI bind DNA and package it into polyplexes through distinct mechanisms that involve interactions with both the phosphate backbone and nucleobases. For example, the frequency shift and intensity changes in the 1222 cm$^{-1}$ band indicate that LPEI primarily binds DNA through strong electrostatic interactions with the phosphate backbone. The downshift of this band to 1215 cm$^{-1}$ at high N/P ratios further suggests that LPEI binding to the phosphate backbone induces a conformational transition in DNA from B-form to Z-form$^{42}$.
+
+In contrast, the absence of a frequency shift in this band for BPEI suggests weaker binding to the phosphate backbone that does not alter the backbone conformation of DNA. Instead, the significant decrease in intensity of this band suggests that the primary amines of BPEI likely form hydrogen bonds with the phosphate oxygen atoms of DNA in addition to electrostatic interactions. Additionally, the substantial intensity changes observed in the nucleobase bands at 1680 cm$^{-1}$ and between 1300 $- 1500 \text{ cm}^{-1}$ indicate that BPEI also intercalates into the DNA duplex, most likely through hydrogen bonding interactions with nucleobases. The concomitant increase in the intensity of the bands between 1300 $- 1500 \text{ cm}^{-1}$ indicates that BPEI interactions with the nucleobases disrupts their native $\pi$-stacking interactions in the DNA.
+
+E. The presence of NaCl confirms the existence of two binding modes for LPEI and BPEI polyplexes
+
+To validate our spectral interpretation, we examined LPEI and BPEI polyplex formation in the presence of NaCl. We hypothesized that Na$^+$ and Cl$^-$ could screen electrostatic interactions and thereby inhibit polymer binding to the DNA phosphate backbone. If LPEI primarily interacts with DNA via electrostatic forces, its binding should be more sensitive to salt screening effects than BPEI, which our data suggests preferentially interacts with nucleobases.
+
+Figure 7 and Figure S4 show the IR spectra of DNA with LPEI and BPEI at varying N/P ratios and NaCl concentrations. The spectra of DNA in the presence of NaCl (Figure 7a) confirm that Na$^+$ ions do not significantly bind DNA on their own. However, when introduced to polymer-DNA solutions...
+(Figure 7b and c), clear differences can be seen in the complexation behavior of LPEI and BPEI.
+
+To better understand these differences, we constructed polyplex phase diagrams for LPEI and BPEI as a function of both N/P ratio and NaCl concentration. These phase diagrams help visualize the chemical conditions that favor polyplex formation. Using multivariate curve resolution-alternating least-squares (MCR-ALS) analysis (see SI for details), we decomposed the experimental spectra of LPEI and BPEI polyplexes to extract two basis spectra, one representing polymer-bound DNA and the other representing unbound DNA (Figure 8a and d). The extracted basis spectra closely match the experimental spectra of bound and unbound DNA (Figure 8b and e), confirming the accuracy of the decomposition. Using these basis set spectra, we determined the fraction of bound and unbound DNA under different NaCl concentration conditions and polymer N/P ratios (Figure S4). We accomplished this by modeling each experimental spectrum as a linear combination of the bound and unbound DNA basis spectra. From the extracted concentration profiles, we then calculated the probability of DNA binding to LPEI and BPEI (\( P_b \)) (Figure 8c and f, Figure S5):
+
+\[
+P_b = \frac{f_b}{f_b + f_u}
+\]
+
+where \( f_b \) and \( f_u \) are the relative fractions of bound and unbound DNA obtained from the MCR-ALS fitting analysis. The probabilities obtained from eq. 6 were then used to construct the phase diagrams for LPEI and BPEI polyplexes.
+
+The resulting phase diagrams (Figure 9) show that NaCl impacts LPEI and BPEI complexation to DNA differently. NaCl significantly reduces LPEI binding to DNA by up to \( \sim 70\% \) (Figure 9a), depending on the N/P ratio. In contrast, it has a significantly smaller effect on BPEI to DNA, except at high NaCl concentrations (200 and 250 mM) (Figure 9b), where binding is reduced by \( \sim 20-30\% \). The significant susceptibility of LPEI binding to NaCl validates our hypothesis that it preferentially binds DNA through interactions to the phosphate backbone rather than through hydrogen bonding interactions with the nucleobases. In contrast, the insensitivity of BPEI binding to NaCl supports the notion that it interacts with DNA cargo primarily through hydrogen bonding interactions with the nucleobases.
+
+**IV. CONCLUSION**
+
+In this study, we employed UV absorbance and IR spectroscopy to investigate the DNA binding modes and complexation mechanisms of LPEI and BPEI. Our key findings include:
+
+1. TEM images show that LPEI and BPEI complexes both form spherical morphologies. BPEI complexes appeared more aggregated and compacted than LPEI.
+
+2. Kinetics studies show that both LPEI and BPEI exhibit multi-phasic binding behavior, where the initial phase is likely due to binding to the phosphate backbone and the second phase is due to structural rearrangements and condensation of the DNA. Both LPEI and BPEI exhibit positive cooperativity binding DNA.
+
+3. IR measurements reveal two distinct molecular binding modes to DNA for LPEI and BPEI. The IR spectra show that LPEI preferentially binds DNA through electrostatic interactions with the phosphate backbone, while BPEI binds DNA primarily through hydrogen bonding to the DNA nucleobases.
+
+Taken together, we present a binding model for LPEI and BPEI polyplexes in Figure 10. Our model suggests that LPEI binds electrostatically to the phosphate backbone of DNA with a weaker binding to the nucleobases (Figure 10, step 1). This binding causes DNA structural rearrangements from B-form to Z-form and condensation (Figure 10, step 2). The addition of NaCl inhibits the binding of LPEI to the phosphate backbone, thereby making binding to the DNA nucleobases preferable (Figure 10, step 3). In contrast, BPEI binds DNA primarily through hydrogen bonding and weak electrostatic interactions to the phosphate backbone, as well as hydrogen bonding interactions with the nucleobases (Figure 10, step a). This multi-modal binding causes efficient condensation of the DNA, which subsequently contributes to the disruption of
+FIG. 10. Suggested mechanism for LPEI and BPEI binding to DNA and polyplex formation. For LPEI, step (1) represents the electrostatic binding between the positive secondary amine groups and the phosphate backbone of DNA while step (2) represents DNA condensation. For BPEI, step (a) represents the hydrogen bonding and electrostatic interactions between the primary amines and the oxygen on the phosphate backbone of the DNA. BPEI also intercalates into the DNA bases in this step. In step (b) BPEI causes DNA condensation. The final step c shows a possible disruption to the DNA bases. The mechanism also shows that the addition of NaCl inhibits LPEI binding to DNA (step 3) while it does not impact the binding of BPEI (step d). Created with Biorender.
+
+native π-stacking interactions of the nucleobases (Figure 10, step b and c). The addition of NaCl does not significantly impacts binding of BPEI to DNA (Figure 10, step d,e, and f).
+
+Developing effective polymers that can deliver multiple types of cargo is essential for advancing polymer-based gene therapies. This can be achieved by designing polymers with multiple binding mechanisms while optimizing cargo release. PEI-based delivery systems are among these and can be optimized to efficiently deliver plasmid DNA, mRNA, and CRISPR-Cas9 technology\textsuperscript{14,257}. PEI is traditionally thought to interact with nucleic acids through electrostatic forces, but our findings show that multiple binding modes play a key role in DNA condensation. Recognizing and using these distinct binding mechanisms provides a foundation for engineering more versatile PEI formulations that improve DNA release, accommodation of other cargo types, and enhance gene delivery.
+
+David Punihaole: Conceptualization (equal); Formal analysis (equal); Funding acquisition (lead); Methodology (equal); Project Administration (lead); Resources (lead); Supervision (lead); Writing - original draft (supporting); Writing - review & editing (equal).
+
+CONFLICTS OF INTEREST
+
+There are no conflicts to declare.
+
+DATA AVAILABILITY
+
+The data supporting this article have been included as part of the Supplementary Information.
+
+ACKNOWLEDGMENTS
+
+Funding for this work was provided by the University of Vermont and the National Institutes of Health NIGMS (P20 GM1350007). TEM imaging work was performed at the Microscopy Imaging Center at the University of Vermont (RRID# SCR_018821).
+
+REFERENCES
+
+D. Puhl, A. D’Amato, and R. Gilbert, “Challenges of gene delivery to the central nervous system and the growing use of biomaterial vectors,” Brain.
+10
+
+Res. Bull. 150, 216–230 (2019).
+
+R. Kumar, C. Santa, M. Chalarca, Bockman, C. B. Van, C. Grimme, R. Dalal, M. Hanson, J. Hexum, and T. Reineke, “Polymeric delivery of therapeutic nucleic acids,” Chem. Rev. 121, 11527–11652 (2021).
+
+L. Degors, C. Wang, Z. Rehan, and I. Zuhorn, “Carriers break barriers in drug delivery: Endocytosis and endosomal escape of gene delivery vectors,” Acc. Chem. Res. 52, 1750–1760 (2019).
+
+R. Ding, Y. Liu, D. Cheng, G. Yang, W. Wu, H. Du, X. Jin, Y. Chen, Y. Wang, B. Heng, Q. Yang, and J. Xu, “A novel gene-activated matrix composed of pei/plasmid-bmp2 complexes and hydroxyapatite/chitosan microspheres promotes bone regeneration,” Nano Res. 15, 6348–6360 (2022).
+
+W. Zhang, Y. Hou, S. Yin, Q. Miao, K. Lee, X. Zhou, and Y. Wang, “Advanced gene nanocarriers/scaffolds in nonviral-mediated delivery system for tissue regeneration and repair,” J. Nanobiotechnol. 22, 376 (2014).
+
+Y. Sergeeva, L. Jung, C. Weill, P. Erbacher, P. Trope1, O. Felix, S. Viville, and G. Decher, “Control of the transfection efficiency of human dermal fibroblasts by adjusting the characteristics of jetpe®/plasmid complexes/polyplexes through the cation/anion ratio,” Colloids Surf. A 550, 193–198 (2018).
+
+E. Robinson, G. Gowrishankar, A. D’Souza, A. Kheirolomoom, T. Haywood, S. Hori, H. Chuan, Y. Zeng, S. Tumable, A. Aalipour, C. Beinat, I. Alam, A. Sahirachinda, M. Kanada, R. Paulmurugan, K. Ferrara, and S. Al-Ali, “Minicircles for a two-step blood biomarker and peptide imaging early cancer detection strategy,” J. Control. Release. 335, 281–289 (2021).
+
+H. E. Abd, D. Ungor, N. Igaz, M. Gopisetty, M. Kiries, C. Csap, and B. Gyruczík, “High molecular weight poly(ethyleneamine)-based water-soluble lipopolymer for transfection of cancer cells,” Macromol. Biosci. 20, 2000040 (2020).
+
+J. Casper, S. Schenk, E. Parthizkar, P. Detampel, A. Dehshahri, and J. Huwyler, “Polyethylenimine (pe1) in gene therapy: Current status and clinical applications,” J. Control. Release. 201, 193–207 (2015).
+
+D. De, S. Kumar, R. Bunker, S. Maiti, and D. Dhara, “Polyplex formation between pegylated linear cationic block copolymers and dna: Equilibrium and kinetic studies,” Phys. J. Chem. B 118, 7012–7025 (2014).
+
+S. Jung, J. Lodge, and T. Reineke, “Complexation between dna and hydrophilic-cationic diblock copolymers,” Phys. J. Chem. B 121, 2230–2243 (2017).
+
+A. Bertin, “Polyelectrolyte complexes of dna and polycations as gene delivery vectors,” in Polyelectrolyte Complexes of DNA and Polycations as Gene Delivery: II: Application Aspects, edited by M. Müller (Springer Berlin Heidelberg, Berlin, Heidelberg, 2014) pp. 103–195.
+
+S. Wang, F. Wang, Q. Zhang, and Y. Cheng, “A core–shell structured polyplex for efficient and non-toxic gene delivery,” J. Mater. Chem. B 5, 5010–5018 (2017).
+
+P. Roy, N. Kreofsky, and T. Reineke, “Quinine-based polymers are versatile and sattileive effective vectors for intracellulair pdna, mrna, and cas9 protein delivery,” Biomacromolecules 25, 6693–6701 (2024).
+
+M. Madly, W. Mohammed, N.-G. El, and A. Elsayed, “Effect of polymer molecular weight on the dna/pe1 polyplexes properties,” Rom. J. Biophys. 21, 151–165 (2011).
+
+W. Godbey, K. Wu, and A. Mikos, “Size matters: Molecular weight affects the efficiency of poly(ethyleneimine) as a gene delivery vehicle,” J. Biomed. Mater. Res. 45, 268–275 (1999).
+
+Q. Xie, G. Xiong, C. Yuan, and W. Ying, “Pe1/dna formation affects transient gene expression in suspension chinese hamster ovary cells via a one-step transfection process,” Cytotechnology 65, 263–271 (2012).
+
+V. Veilleux, R. Krishnan, P. Gopalakrishna, A. Chevrier, K. Biniecki, D. Veilleux, R. Krishnan, P. Gopalakrishna, A. Chevrier, and K. Biniecki, “Molecular insights into the binding of linear polyethylenimines and single-stranded dna using raman spectroscopy and molecular dynamics simulations,” J. Phys. Chem. B 122, 9840–9851 (2018).
+
+J. Felten, H. Hall, J. Jaumot, R. Tauler, A. de Juan, and A. Gorzs, “Vibrational spectroscopic image analysis of biological material using multivariate curve resolution–alternating least squares (mcr-als),” Nat. Protoc. 10, 217–240 (2015).
+
+1-D. Gonz, E.-M. Puente, J.-G. Lavado, L. Cervera, and F. Gödö, “Micrometric dna/pe1 polyplexes correlate with higher transient gene expression yields in hek 293 cells,” New Biotechnol. 68, 87–96 (2022).
+
+M. Noga, D. Edinger, E. Wagner, G. Winter, and A. Besheer, “Characterization and compatibility of hydroxyethyl starch–polyethylenimine copolymers for dna delivery,” J. Biomater. Sci. Polym. Ed. 25, 855–871 (2014).
+
+Y. Sergeeva, L. Jung, C. Weill, P. Erbacher, P. Trope1, O. Felix, S. Viville, and G. Decher, “Control of the transfection efficiency of human dermal fibroblasts by adjusting the characteristics of jetpe®/plasmid complexes/polyplexes through the cation/anion ratio,” Colloids Surf. A 550, 193–198 (2018).
+
+M. Mirajiddin, S. Ali, and A. Badshah, “Drug–dna interactions and their study by uv–visible, fluorescence spectroscopies and cyclic volatometry,” J. Photochem. Photobiol. B 124, 1–19 (2013).
+
+R. Hajar, P. Hossaini, Z. Mehrayin, P. Woi, and N. Shams, “Dna-binding studies of valrubicin as a chemotherapy drug using spectroscopy and electrochemical techniques,” J. Pharm. Anal. 7, 176–180 (2017).
+
+R. Mustafa, M. Fitian, N. Hamilton, J. Li, J., R. Silva, and D. Puniaho, “Molecular insights into the binding of linear polyethyleneimines and single-stranded dna using raman spectroscopy: Quantitative, a approach,” J. Phys. Chem. B 126, 8404–8414 (2022).
+
+M. Banay, M. Sarkar, and A. Gr, “A library of ir bands of nucleic acids in solution,” Biophys. Chem. 104, 477–488 (2003).
+
+J. Anastassopoulos, E. Boukaki, C. Conti, P. Ferraris, E. Giorgini, C. Rubini, S. Sambatini, T. Theophanides, and G. Tosi, “Microimaging ft-ir spectroscopy on pathological breast tissues,” Vib. Spectrosc. 51, 270–275 (2009).
+
+B. Singh, R. Gantam, S. Kumar, V. Bn, U. Nongthombha, D. Nandi, V. Mukherjee, G. Santosh, K. Somasundaram, and U. Umapathy, “Application of vibrational microspectroscopy to biology and medicine,” Curr. Sci. 102, 232–244 (2012).
+
+License: https://orcid.org/0000-0002-4637-9672 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+E. Froehlich, J. Mandeville, C. Weinert, L. Kreplak, and H.-R. Tajmir, “Bundling and aggregation of DNA by cationic dendrimers,” Biomacromolecules 12, 511–517 (2011).
+
+M. Mello and B. Vidal, “Changes in the infrared microspectroscopic characteristics of DNA caused by cationic elements, different base richness and single-stranded form,” PLOS ONE 7, 1–12 (2012).
+
+E. Taillandier and J. Liquier, “[16] infrared spectroscopy of DNA,” in DNA Structures Part A: Synthesis and Physical Analysis of DNA, Methods in Enzymology, Vol. 211 (Academic Press, 1992) pp. 307–335.

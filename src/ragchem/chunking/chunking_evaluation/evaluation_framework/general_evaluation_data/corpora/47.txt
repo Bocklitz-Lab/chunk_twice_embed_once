@@ -1,0 +1,273 @@
+Polytypes and Planar Defects Revealed in the Purine Base Xanthine using Multi-Dimensional Electron Diffraction
+
+Helen W. Leung[a]*, Royston C. B. Copley[b], Giulio I. Lampronti[a], Sarah J. Day[c], Lucy K. Saunders[c], Duncan N. Johnstone[b], Paul A. Midgley[a] *
+
+[a] Miss H. W. Leung, Dr G. I. Lampronti, Professor P. A. Midgley
+Department of Materials Science and Metallurgy
+University of Cambridge
+27 Charles Babbage Road, Cambridge, CB3 0FS, United Kingdom
+E-mail: hl585@cam.ac.uk, pam33@cam.ac.uk
+[b] Dr R. C. B. Copley, Dr D. N. Johnstone
+GSK R&D
+Gunnels Wood Road, Stevenage, SG1 2NY, United Kingdom
+[c] Dr. S. J. Day, Dr. L. K. Saunders
+Diamond Light Source Ltd, Beamline I11
+Harwell Campus, Didcot, Oxfordshire, OX11 0DE, United Kingdom
+
+Abstract
+
+Layered crystal structures are commonly found across organic and inorganic material systems. When in-plane atomic arrangement remains (nearly) identical, a stacking variation of these layers may result in twinning, planar disorder, or polytypes, a form of polymorphism derived from altering stacking sequences. In this work, we use multi-dimensional electron diffraction (ED) modalities to explore the microstructure of xanthine, an archetypal purine base with a layered crystal structure. Firstly, we identify and characterise the twin operator relating domains of Form I xanthine. We then solve the structure of a new xanthine polymorph, revealing that it is a polytype of Form I. Finally, interfaces between twin and polytype domains are visualised, whilst streaking in the diffraction patterns reveals the presence of planar disorder. Given these observations in the xanthine system, this work suggests that disorder on the nanoscale may be a commonly occurring phenomenon in layered organic molecular crystals.
+Introduction
+
+Layered crystals are a wide class of materials that span inorganic and organic systems of high scientific interest owing to their unique functional and physico-chemical properties\(^1\). Crystals with layered structures lend themselves to the possibility of variations in the stacking sequence of their layers whilst intra-layer atomic co-ordination remain fixed; this can manifest as (1) twinning, (2) polytypism, or (3) planar disorder.
+
+Firstly, twinning refers to the intergrowth of two or more differently oriented crystal domains which are related by a common plane or direction and is an important feature in the microstructure of a material. Twinning is of interest in a number of biogenic crystals such as the purine base guanine for its use as a mechanism for biological control of optical properties\(^2,3\). Secondly, polytypism is a form of polymorphism found in layered structures in which low energy alternate stacking configurations can be adopted by the translation of layers with no change to the intra-layer atomic coordination\(^4,5\). In inorganic systems, different polytypes may display different functional properties, such as in (bilayer / multi-layer) graphene\(^6,7\), or transition metal dichalcogenides\(^5\). Thirdly, planar disorder refers to translational displacements between consecutive layers in the crystal which may, in principle, encompass a range of displacements, from well-defined to random. As displacements between layers become less random (a scenario defined as ‘order-disorder’ polytypism by Dornberger-Schiff\(^8,9\)), geometric equivalence on a local scale is restored but the crystal's long-range symmetry is still disrupted\(^10\). Stacking faults are a type of planar defect in which one atomic plane is stacked out of sequence with another via a defined vector, disrupting the continuity of an otherwise perfect lattice. Understanding the interactions between the three phenomena of twinning, polytypism, and planar disorder builds an important understanding of the microstructure in a layered material. Exploration of these concepts in organic molecular crystals is still an emerging field but these insights may play a key role in mechanisms of crystal growth and resulting mechanical and physicochemical properties in organic crystals\(^11–14\).
+Xanthine (3,7-dihydropurine-2,6-dione) belongs to the purine family and is made of five- and six-membered heterocyclic rings: this chemical skeleton is also found in other purines, such as guanine. It serves as an intermediate in nucleic acid metabolism, acting as a precursor for the synthesis of uric acid and is therefore widely found in organisms and of interest in a pharmacological context. In previous work, 3D-ED was used to elucidate the structure of xanthine (Form I). The Form I xanthine structure consists of hydrogen-bonded layers with weak inter-layer van der Waals’ forces. However, X-ray powder diffraction (XRPD) of the bulk sample shows asymmetric peak profiles and the presence of peaks which do not match the Form I unit cell, indicating the presence of both planar disorder and other phases. As a fundamental organic molecule with a layered structure, xanthine serves as an exemplar system to study the structural behaviour of this class of layered organic molecular crystals.
+
+Transmission electron microscopy (TEM) has been used for decades to establish a fundamental understanding of crystal structure and microstructure across a broad range of (inorganic) materials. However, the beam-radiation sensitivity of organic crystals has, until recently, limited the application of conventional TEM techniques to explore the microstructure of these systems. As a result, the characterization of microstructural features such as defects in organic crystals is a relatively nascent field. Different electron diffraction acquisition modalities...
+can overcome challenges associated with structural characterization of organic crystals, namely: (1) 3D electron diffraction (3D-ED)\textsuperscript{20,21}, and (2) 4D scanning transmission electron microscopy (4D-STEM)\textsuperscript{22}. Over the past decade, 3D-ED has developed as a powerful technique for structure determination of micron-sized organic crystals\textsuperscript{20,21}, and is of particular importance in instances where material is scarce, or single crystals of sufficient size for single-crystal X-ray diffraction (SCXRD) are difficult to grow. In 3D-ED, parallel illumination, with a beam typically ca. 1 micron in diameter, is used to collect diffraction patterns. For heterogeneous regions of interest with perhaps varying domain structures, the resultant pattern will be a superposition of the diffracted signal from across those domains. By contrast, 4D-STEM\textsuperscript{22} uses a quasi-parallel (diffraction-limited) beam a few nm in diameter to raster-scan across a region of interest. A 2D diffraction pattern is acquired at every pixel in the 2D raster scan thus creating a crystallographically-rich 4D data set. Once acquired, diffraction patterns from sub-regions can be determined, orientational variations in those patterns plotted across regions of interest, and virtual bright-field (VBF) or virtual dark-field (VDF) images reconstructed by plotting the spatial variation of a particular diffracted intensity (chosen using a virtual objective aperture).
+
+In this work, we use electron diffraction to explore polytypism and the defect microstructure in xanthine crystals. Firstly, twinning about the [101] axes is observed in Form I. Secondly, we determine a new phase of xanthine (Form II). Using 3D-ED to elucidate its structure, we show that Form II is a polytype of Form I. Next, we apply 4D-STEM to highlight the spatial relationship and interfaces of twin boundaries and intergrowths between polytypes. Here, VDF imaging and distinct streaking in diffraction patterns indicate the presence of rigid-body translational planar disorder within domains. These insights are supported via a multi-phase Rietveld refinement (incorporating a stacking fault model) of in-situ high resolution synchrotron X-Ray powder diffraction (XRPD) data to demonstrate consistency between electron diffraction data and that from the XRPD of the bulk sample.
+
+**Results**
+
+**Twinning in xanthine**
+
+Samples from commercially acquired xanthine (see S1) were deposited onto TEM grids. 3D-ED datasets from multiple sub-micron sized crystals of xanthine were collected and processed, with each comprising of a tilt series of diffraction patterns (as described in Methods). In some datasets from a single particle (Figure 2a), the presence of two separate reciprocal space lattices
+were observed upon the reconstruction of the 3D reciprocal space (Figure S2.1). The low overlap of reflections enabled successful integration and structure solution treating the reflections from each reciprocal lattice as independent, thus splitting the data set into two. Each data set was consistent with Form I xanthine\textsuperscript{23}.
+
+Twin domains are related by a symmetry operator\textsuperscript{24}, defined as the twin law. To preserve the strong intra-planar hydrogen bonding, any twinning mechanisms in xanthine likely involve interlayer displacement which disrupts only the weaker van der Waals’ bonding\textsuperscript{25,26}. To determine whether the xanthine lattices were indeed twinned (as opposed to just two misoriented crystals) the orientation matrices were compared. This revealed an orientation relationship which can be described using either a rotation, in this case about [101], or a reflection about (10\overline{1}); confirming a twinning mechanism and a twin law in xanthine. This analysis and the notation to describe this twin law is given in greater depth in S3, following deformation twin notation. It is not possible to distinguish between the rotation or reflection operation in projection given that Form I xanthine (with P2\textsubscript{1}/c space group) has a centrosymmetric structure. The rotation twin about [101] preserves intra-layer molecular arrangements between twin domains (Figure 2c) and acts to flip the layers. Since the composition surface (the surface along which the lattice points between domains are shared) are parallel to each other, this is a polysynthetic twin and may lend itself to multiple twinning\textsuperscript{27,28}.
+
+![Figure 2](https://doi.org/10.26434/chemrxiv-2025-hj8ks) ORCID: [https://orcid.org/0000-0002-5434-8673](https://orcid.org/0000-0002-5434-8673) Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+A New Polytype of Xanthine, Form II
+
+Most xanthine particles picked for 3D-ED investigation were found to have unit cells consistent with Form I, regardless of whether they were found as single or twinned crystals. However, in one particle of xanthine (shown in the inset in Figure 3d), two different crystal domains were seen: one of the domains had lattice parameters consistent with Form I xanthine whilst the second domain had orthorhombic cell parameters: \( a = 10.10(10) \text{ Å}, b = 12.54(10) \text{ Å}, c = 17.91(17) \text{ Å}, \alpha = 90^\circ, \beta = 90^\circ, \gamma = 90^\circ, V = 2269(36) \text{ Å}^3 \). Reciprocal space sections of the orthorhombic lattice (Figure 3) were used to observe systematic absences of reflections and deduce possible space groups (further described in S4).
+
+**Figure 3:** (a) hk0, (c) 0kl, (d) h0l sections for Form II xanthine from reconstructed reciprocal space. Systematic absences are consistent with the P2\(_1\)2\(_1\)2\(_1\) space group. (b) The h0l section from monoclinic Form I is overlaid onto the orthorhombic Form II hk0 section. The increased symmetry in Form II results in the appearance of more reflections, but sections have common reflections. The inset in (d) shows the micro-crystal of xanthine from which this dataset was obtained. The jagged nature of the left straight facet of the particle hints at its bi-crystalline nature.
+A structure solution for the orthorhombic phase was successfully achieved using *ab initio* Dual Space methods implemented in SHELXD, indicating the P2\(1\)\(2\)\(1\) space group (\(Z' = 4, Z = 16\)) with a 79% completeness. All non-hydrogen atoms were found in the initial structure solution. A kinematical refinement using the least-squares matrix in SHELXL resulted in a final structure, which we call Form II, with an R-factor of 17% to 0.9 Å resolution (corresponding to \(R_{\text{sigma}} = 0.47\)).
+
+Form II is closely related to Form I but has higher point group symmetry. Observed reflections that are common to both forms are highlighted in blue in Figure 3b), with the remaining extra reflections observed resulting from the higher symmetry Form II. A comparison of Form I and II is shown in Figure 4. Molecular arrangements within hydrogen-bonded layers are identical between forms (Figure 4b and d), with these layers in xanthine bearing a strong resemblance to the bonding found in hypoxanthine\(^{16,29}\). In both forms, hydrogen-bonded layers are stacked. The direction of layer stacking is described by the normal to the (10\(\overline{1}\)) planes in Form I and by the normal to the (010) planes in Form II. The difference between Form I and II xanthine lies in their inter-layer stacking sequence. Therefore, Form II can be described as a polytype of Form I. Different polytypes may arise when multiple stacking arrangements lie within a shallow energy landscape and there are multiple energetically-favourable configurations\(^{30}\).
+We inspect Form I and II by mapping the movement of xanthine molecules between consecutive layers in both structures. Inter-layer translations in both forms can be simplified into two preferred relative positions of the xanthine molecule, shown in Figure 5i) by vectors A and C (= -A), or B and D (= -B). A and B are also related by mirror symmetry (Figure 5iii). Vectors C and D are defined to minimise the magnitude of the vectors (further detail on how these vectors are defined is shown in Figure S4.2). Movement between adjacent layers may be described by one of these four vectors. As shown in Figure 5ii) and iv), in Form I, the layer stacking follows repeated application of vectors A and B. Layer positions do not repeat after any set number of layers, consistent with the monoclinic symmetry of the cell. In Form II, the stacking of these layers follows the sequence A B C D, with atom co-ordinates repeating every four layers.
+
+---
+
+**Figure 4:** (a) [010] projection of Form I xanthine. (b) Hydrogen-bonded layers in Form I xanthine which are described by (10̅1) layers. (c) [001] projection of Form II xanthine. (d) Hydrogen-bonded layers, in Form II xanthine which are described by the (001) planes, have identical coordination to the layers found in Form I xanthine, although the stacking sequences between layers shown in (a) and (c) are different.
+Different combinations of the four possible observed stacking vectors (A, B, C and D) will lead to varying degrees of short to long range order in xanthine crystals. This behaviour is consistent with observed streaking in reciprocal space (Figure 3a). The observation of streaking in diffraction points to the presence of planar disorder. To further explore this, 4D-STEM was applied to the crystals.
+
+Figure 5: (i-ii) The translations between layers in xanthine can be described by: A B A B (Form I), A B C D (Form II). (iii) a and c components of the vectors A B C and D are shown: these vectors share the same magnitude (0.377a, 0.250b, 0.041c in terms of the Form II cell) but the direction of a and c components can be positive or negative, with the vectors related by mirrors as depicted by dotted lines. (iv) layer-by-layer translations highlighted across 5 consecutive layers in Form I and Form II. Layer 1 (pink), Layer 2 (dark blue), Layer 3 (orange), Layer 4 (light blue), Layer 5 (red) = Layer 1 (pink) in Form II. In Form I, which has lower symmetry, Layer 5 (red) ≠ Layer 1 (pink).
+Varying degrees of planar disorder
+
+Whilst orientation relationships between twin or polytype domains can be elucidated using 3D-ED, information solely in reciprocal space is limited in its ability to describe the spatial distribution, the number of these domains (although calculating twin fraction is possible and well-established\textsuperscript{31}), or the nature of associated interfaces. Here, 4D-STEM is used to visualise the xanthine microstructure directly. Particles typically appeared blocky in morphology, often with a pair of parallel facets and a pair of less well-defined edges (such as in Figure 6b). The resulting 4D dataset is analysed in two ways: (1) summed diffraction patterns from sub-regions of the crystal are used to understand structural variations and orientation changes; (2) virtual dark field images (VDFs) are formed using the intensity from a specific Bragg reflection mapped across the region of interest; this highlights in particular which areas are at the Bragg condition for that particular reflection and thus can highlight twins and planar disorder.
+
+Firstly, diffraction patterns were summed over small local areas of the xanthine particle to improve the signal–to-noise from a given area and to highlight any streaking (e.g. Figure 6c), akin to that seen in 3D-ED data (e.g. Figure 3a). The streaking observed is consistent with that previously seen in guanine\textsuperscript{32}, amongst other systems\textsuperscript{33–37}. The streaking in reciprocal space is parallel to the direction defined by the normal to the stacked layers (as depicted in Figure 6a). However, there is no streaking through the reflections in the strong systematic row that passes through the origin, i.e. the (h0-h) reflections in Form I and (0k0) reflections in Form II. This is consistent with a rigid body transverse displacement of the layer with respect to the expected sequence, i.e. very much akin to a stacking fault, whose stacking fault vector is likely to be equal to \textbf{A B C} or \textbf{D}. The continuous streaking seen implies that these ‘stacking faults’ occur at near-random intervals.
+
+In some material systems, this streaking may be so severe that a complete set of reflection intensities cannot accurately be measured\textsuperscript{38}. In our case, however, the sharpness of individual reflections suggests we have a relatively large fraction of ordered phase with a modest number of stacking faults.
+Figure 6: a) A schematic to highlight the streaking in diffraction, most visible in c-f). The interlayer distance corresponding to $g_1$ stays constant even as layers are laterally displaced. b) High Angle Annular Dark Field (HAADF) image of a xanthine crystal. Diffraction signal from the areas highlighted in different colours are used to form the summed diffraction patterns shown in c-f). Virtual Dark Field (VDF) images g-j) are formed from apertures circled in these summed patterns and are highlighted in corresponding colours. VDF contrast indicates the presence of domains within the nano-crystals with interfaces parallel to the stacked layers.
+
+Figure 6 c-f) are summed diffraction patterns from isolated areas of the particle highlighted with corresponding colours in Figure 6 b). Indexing these patterns was not straightforward for two reasons. Firstly, the low symmetry of the xanthine unit cell leads to many possible orientations with similar pattern geometries. Relying on simulated intensities to distinguish between orientations based on structure factors is also unreliable given the sensitivity of diffraction data to any changes in orientation, exacerbated by small Bragg angles in the crystal.
+
+Nonetheless, where possible, indexing patterns revealed the complex microstructure of xanthine particles as hinted by 3D-ED data. Ambiguity in indexing was minimised by the identification of the strong, non-streaked reflections corresponding to the layer stacking, fixing one vector of the diffraction pattern. As a result, adjacent domains highlighted in Fig 6 g-h) can be indexed (Fig 6 c-d) as Form II and Form I polytypes of xanthine, separated by a distinct
+flat interface parallel to the molecular layers. This shows that different polytypes may be adjacent in one particle, in addition to any twin domains. This observation of multiple phases / domains within a particle is consistent with 3D-ED data in which multiple lattices were observed in reciprocal space. Reciprocal lattice vectors corresponding to [10\(\bar{1}\)]* in Form I and [010]* in Form II are consistently oriented such that they are normal to the flat habit plane (surface) of each particle. The variable extent of streaking across different summed patterns demonstrates that planar disorder is not homogenous across all domains of the particle. By using virtual apertures centered on certain reflections, the VDFs in Fig 6 h-k) show clear diffraction contrast that corresponds to distinct phases or domains at different positions within each particle. The interface of each highlighted domain is always parallel to a distinct crystal edge and parallel to the layers. Within each domain, fine scale ‘stripy’ VDF contrast suggests the presence of local planar disorder, consistent with streaking observed in diffraction space. Another further example of a particle of xanthine with similar contrast is described in S5.
+
+**Characterisation of bulk material using XRPD**
+
+X-ray powder diffraction (XRPD) was used to establish consistency between the individual particles studied with electron diffraction and the bulk powder sample. In-situ XRPD data previously collected from the Diamond Light Source Synchrotron Beamline I11\(^{23}\) was re-analysed, now including fresh insights from our electron diffraction experiments to account for the new polytype (Form II) and stacking disorder. The presence of multiple phases and stacking faults within individual nanoparticles explains the difficulty in achieving successful structure solution solely through XRPD methods. This is compounded by difficulties in distinguishing between forms due to their structural similarity resulting in shared peaks.
+
+Anisotropic line broadening asymmetry is evident in the XRPD pattern. This is a sign of the presence of planar defects, which causes profiles of Bragg reflections to broaden and shift differently depending on \(hkl\) selection rules\(^{39-41}\). This pattern characteristic has been commonly observed in minerals such as expandable clay minerals, graphitic carbon, boron nitride, and MoS\(_2\)\(^{42,43}\). Peak profiles affected by planar faults may also be convoluted by other line broadening effects\(^{44}\) such as small crystallite size\(^{45}\), in the stacking direction in particular.
+
+Firstly, multi-phase Rietveld refinement of XRPD data was carried out, including both Form I and Form II xanthine structures. This led to an improved fit, giving an \(R_{wp}\) of 2.36\%, and Goodness of Fit (GooF) of 3.72\%, with all peaks accounted for (Figure S6.1).
+To further improve our XRPD model, we created an enlarged unit cell (a supercell) to simulate faulted xanthine structures\cite{46-48}. Our protocol (described in S6) allows for the random introduction of stacking faults to a Form II supercell made of 20 layers (5 unit cells), creating a model of planar disorder. This inclusion of stacking disorder improved the model, in particular in fitting to the asymmetric peak profiles. This model refined to an $R_{wp}$ of 1.55\% and GooF of 2.46\% (Figure 7).
+
+![Figure 7: A supercell multiphase Rietveld refinement produced a convincing fit to high resolution XRPD data, with stacking faults modelled. Expected peak positions for the two phases are shown by the ticks in blue (Form I), green (supercell of Form II). The supercell model leads to a larger number of expected peak positions. The inset shows an improved fit to the asymmetric peak profiles observed compared to a model with perfect lattices shown in Figure S6.1. This refines to an $R_{wp}$ of 1.55\% and GooF of 2.46\%.
+
+Discussion
+
+The nature of different degrees of planar disorder in xanthine stems from stacking variation between its hydrogen-bonded layers. As a small organic molecule with an archetypal purine ring structure, insights derived here may also be applicable to a range of other molecular crystal systems. Cytosine\cite{49}, thymine\cite{50}, guanine, adenine, uracil\cite{51}, eniluracil\cite{52}, caffeine, and theophylline are key examples amongst a large class of inter-related molecules which have layered structures that may exhibit similar behaviour. We discuss and compare interlayer stacking in some of these systems.
+
+In xanthine, a shallow energy landscape likely leads to the variety of structural behaviour of the hydrogen-bonded layers. Applying different translations between adjacent layers leads to
+the Form I (A B A B translation) and II (A B C D translation) polytypes (Fig 8i), whereas applying a rotation about [101]/reflection about (10̅1) in Form I flips the layers, leading to twinning. To consider the similarities between polytypes and twins in xanthine, we studied the stacking sequence in the known crystalline (triclinic) form of hypoxanthine, another product of the purine degradation pathway. Hypoxanthine has an intra-layer structure highly similar to that of xanthine, deriving from similar hydrogen-bonding interactions\(^\text{16,23,29}\). However, hypoxanthine has different interplanar stacking (Fig 8ii). In its triclinic form, the relationship between adjacent layers is described by a translation combined with a 180° rotation which alternates between each layer about two perpendicular axes (one axis coming out of the page in Figure 8ii A, one axis in the plane of the page in Figure 8ii B). This stacking sequence is reminiscent of the twinning mechanism observed in xanthine; both offer a way to alter the stacking of hydrogen-bonded layers. The preferred tendency for layers of hypoxanthine to flip suggests a lower associated energy cost than in twinning in the xanthine structure. Interestingly, selected area electron diffraction of hypoxanthine particles at different stages of maturation also exhibited a range of similar patterns\(^\text{53}\). These patterns range from: (1) only showing diffraction spots relating to the interlayer stacking (akin to Figure S5.1c); (2) diffraction patterns with streaking parallel to the stacking direction (akin to Figure 6c and S5.1d); and (3) indexable, non-streaked electron diffraction patterns (akin to Figure 6d and S5.1b). In the case of hypoxanthine, varying degrees of disorder were observed across a range of time periods during the formation of hypoxanthine crystals. We observe a range of similar electron diffraction patterns in xanthine crystals, but this variation is spatial rather than temporal.
+
+Hypoxanthine also has a second form\(^\text{54}\), a monoclinic polytype. Although hydrogen bonding arrangements in both forms are essentially identical, there is greater out of plane flexibility in the monoclinic form, resulting in larger canting of the molecules within the layers (Figure S7.1). Layers in this polytype are related by a translation vector (Figure 8ii C) with no rotation. The vectors describing the relationship between hypoxanthine layers in this form are different to those found in the triclinic form (Figure 8ii A, B), whereas Form I xanthine is built from a subset of the translations seen in Form II. The variation in stacking possibilities for both structures are a consequence of a likely shallow energy landscape that is a feature of these layered materials.
+
+Next, we consider the stacking of the hydrogen-bonded layers in guanine. Guanine, one of the purine base pairs which make up deoxyribonucleic acid (DNA), has two known forms which are also polytypes of each other\(^\text{55}\). Each form has a stacking sequence which can be described...
+exclusively using translation vectors. Layers in \( \alpha \) guanine are related by applying one vector (Figure 8iii A), whilst layers in \( \beta \) guanine are related by applying another vector (Figure 8iii B). Combinations using both A and B stacking might be possible but are not observed in currently known crystal forms, suggesting that this combination is a less energetically favourable motif. This may explain why streaking in ED data from guanine is not always observed\(^2\), given that the origin of streaking in xanthine likely comes from the variation of stacking sequence. However, as in hypoxanthine, streaking in biogenic guanine crystals is observed when crystals are developing\(^3\). Mature crystals exhibited non-streaked, single-crystal diffraction patterns, pointing to a gradual increase in order as molecules of guanine preferentially oriented along one-dimension arrange into stacked layers. Whilst this variation is seen across individual xanthine particles, it is also possible that defects in guanine and hypoxanthine remain ‘hidden’ from electron diffraction data as streaking may also not be visible unless the particles of interest are viewed in a direction normal to the layered planes\(^3\). Finally, domains in biogenic guanine are observed with similar thicknesses and shape, likely biologically controlled\(^2\). This is consistent with the regular thickness of xanthine domains observed in Figure 6 and S5.1. However, domains of xanthine are otherwise less uniform in shape.
+
+![Figure 8](https://doi.org/10.26434/chemrxiv-2025-hj8ks)
+
+**Figure 8**: (i) stacking sequences in xanthine (where A, B, C and D all appear in Form II) are more varied than that seen in (ii) in hypoxanthine, rotation and translations as shown by A and B are present in its triclinic form. However, in monoclinic hypoxanthine, inter-layer stacking (vector C) is similar to twinning action in xanthine. (iii) guanine polytypes (only A appears as the motif in \( \alpha \) guanine, whilst only B appears as the motif in \( \beta \) guanine). Interlayer vectors are defined by using the shortest magnitude vector.
+Not all molecules with planar crystal structures have polytypes. For example, hydrogen-bonding networks in adenine are different between polymorphic forms, made possible due to the diversity of stable hydrogen bonding interactions\(^5\). As another example, both known crystal structures of caffeine are disordered, in which intra-layer molecular positions are not fixed and there are multiple sites of partial occupancy in the unit cell\(^5,5,5\). Although these crystal structures are not known to display polytypism, they could still display evidence of planar disorder through disruption of stacking sequences or twinning. These systems are obvious candidates for further investigation using 3D-ED and 4D-STEM. Additional degrees of structural complexity may be included when considering that molecular configurations within layers may also alternate.
+
+Beyond small molecule crystals, polymer crystal systems may also exhibit planar disorder in which streaking has been previously observed\(^3\). This behaviour often falls under the wider umbrella of mosaicity and may be regarded as a barrier to structure solution. The extended application of similar electron diffraction techniques used in this work may help to understand the nanoscale structure of larger complexes\(^6\), i.e. in cases where the polytypism affects any crystal large enough for single crystal X-ray diffraction. Finally, further investigation to understand the preferred tendencies of these planar crystal systems could be undertaken using computational Crystal Structure Prediction\(^6,6\) methods such as Density Functional Theory or Ab Initio Random Structure Searching\(^6\). It would also be interesting to understand how this stacking behaviour changes in the hydrated forms of the compounds\(^6\). This is a topic of extensive interest given the role of nucleic acid interaction in stability and conformational variability of biological systems. Within biological systems, most interactions between nucleic acid molecules occur in the presence of solvent molecules, and the successful competition of water may significantly change intermolecular hydrogen bonding\(^6\) and therefore stacking variability\(^6,6\).
+
+**Conclusions**
+
+In this work, planar variation in the form of polytypes, twins, and disorder in xanthine were characterised using multi-dimensional electron diffraction modalities. By comparing relative inter-layer translation vectors between different polytypes, we reveal how Form I and Form II are closely related. This microstructure is pervasive on the nanoscale to the extent that multiple forms may be present within a single sub-micron particle, as shown using 4D-STEM. With XRPD data we confirm the co-existence of these two polytypes, and we show that further
+stacking faults modelling is necessary to fit the data satisfactorily. We believe the methods and findings presented in this work extend beyond xanthine and related purines and apply to a much larger set of organic planar molecules. Via relatively strong supramolecular interactions, many of these small organic molecular crystals form layers held together by weak interactions, which makes them ideal candidates for stacking faults and polytypism. Furthermore, solid solutions doped with different molecules\textsuperscript{66} could also exhibit similar behaviour.
+
+In addition to advancing our understanding of planar molecular crystals, this area of study could also have wider implications in the pharmaceutical industry, where there is a regulatory requirement to understand and characterize polymorphic forms\textsuperscript{67}. This is a topic of interest, where pure polytypes exist, given the range of properties that different polymorphic crystal forms may have\textsuperscript{68–72}. Given that ED has shown a range of crystalline order is possible within individual particles of xanthine, further thought is needed on the way that the solid-state landscapes of layered compounds more generally are described: the interchangeability between different polytypes at the nanoscale introduces an inherent complexity to defining and grouping discrete polymorphs.
+
+In conclusion, we combine the use of 3D-ED and 4D-STEM to highlight the potential for further study of molecular crystal microstructure. More fundamental questions such as possible defect-linked mechanisms of crystal growth could also be answered in future work.
+
+**Methods**
+
+**Materials:** Xanthine powder was purchased from Sigma Aldrich, X7375, batch WXBD7599V as described in S1.
+
+**3D-Electron Diffraction:** Grids were prepared as in previous work\textsuperscript{23}. Continuous rotation 3D-ED was performed using a Thermo Fisher Titan Krios G3i electron microscope operated at 300 kV under cryogenic conditions. A diffraction pattern was recorded for each tilt increment over a range of $\pm 60^\circ$ at a continuous tilt rate of $1^\circ$ s$^{-1}$. Diffraction patterns were recorded on a CETA-16M camera with an exposure time of 0.5 s per frame, forming a tilt series of 240 diffraction patterns. These conditions result in a cumulative dose of 20 e Å$^{-2}$. The camera length was set such that Bragg spots corresponding to a resolution up to 0.7 Å could be detected. EPU-D software was used for the acquisition, making use of the auto-eucentric height function to minimise sample movement when tilting to high angles. 3D-ED data were collected from
+
+https://doi.org/10.26434/chemrxiv-2025-hj8ks ORCID: https://orcid.org/0000-0002-5434-8673 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+crystals with a cross-section of ca. 1 µm x 1 µm. Data were indexed and integrated using CrysAlisPro 1.171.43.110a (Rigaku Oxford Diffraction, 2024)\textsuperscript{73}.
+
+**4D-STEM**: 4D-STEM microscopy was performed using a Thermo Fisher Spectra 300 microscope operated at 200 kV. Diffraction patterns were acquired using a Medipix3 direct electron detector. A 0.1 mrad convergence angle was used and the camera length set such that a resolution of 0.7 Å could be measured. The beam current was 2 pA with a 1 ms dwell time, leading to a cumulative dose per scan of ~ 10 electrons / Å\textsuperscript{2}. Analysis of 4D-STEM data was carried out using hyperspy and pyxem\textsuperscript{74} libraries.
+
+**XRPD**: In-situ XRPD was performed on Beamline I11 at Diamond Light Source\textsuperscript{75,76}. Xanthine powder was loaded into a 0.5 mm borosilicate glass capillary and analysed using an X-ray beam of 0.82408 Å wavelength (15keV energy), refined using a NIST SRM640c Si standard. The sample was cooled to 80 K, consistent with 3D-ED measurement conditions, using a Cryostream Plus. Measurements were made using the Mythen wide-angle position sensitive detector (PSD).
+Acknowledgements
+
+HWL and PAM acknowledge funding from the Engineering and Physical Sciences Research Council (Nos. EP/W522120/1 and EP/R008779/1) and a GSK ICASE studentship (grant No. 210193). We also thank Diamond Light Source for access and support in using the I11 beam (award No. CY34800) which contributed to the results presented here. We thank Rigaku for access to the CrysAlisPro software suite.
+
+References
+
+1. Lieth, R. M. A., *Preparation and Crystal Growth of Materials with Layered Structures*. *Preparation and Crystal Growth of Materials with Layered Structures* (Springer Netherlands, 1977). doi:10.1007/978-94-017-2750-1.
+
+2. Hirsch, A. *et al.* Biologically Controlled Morphology and Twinning in Guanine Crystals. *Angewandte Chemie* **129**, 9548–9552 (2017).
+
+3. Ma, Y., Chen, F., Hu, Y., Liu, Y. & Qi, L. Controlled crystallization of twinned crystalline guanine microplatelets. *CrystEngComm* **21**, 6346–6353 (2019).
+
+4. Missen, O. P. *et al.* Polytypism in mcalpineite: a study of natural and synthetic Cu3TeO6. *Acta Cryst B* **78**, 20–32 (2022).
+
+5. Coutinho, S. S. *et al.* 3R and 2H polytypes of MoS2: DFT and DFPT calculations of structural, optoelectronic, vibrational and thermodynamic properties. *Journal of Physics and Chemistry of Solids* **111**, 25–33 (2017).
+
+6. Salleh Atri, S. *et al.* Spontaneous Electric Polarization in Graphene Polytypes. *Advanced Physics Research* **3**, 2300095 (2024).
+
+7. Beitner, D. *et al.* Mid-Infrared Mapping of Four-Layer Graphene Polytypes Using Near-Field Microscopy. *Nano Lett* **23**, 10758–10764 (2023).
+
+8. Dornberger-Schiff, K. On order–disorder structures (OD-structures). *Acta Cryst.* **9**, 593–601 (1956).
+
+9. Dornberger-Schiff, K. & Grell-Niemann, H. On the theory of order–disorder (OD) structures. *Acta Cryst.* **14**, 167–177 (1961).
+10. Wolflehner, T. & Stöger, B. Order-disorder (OD) polytypism of K3FeTe2O8-(OH)2(H2O)1+x. *Acta Crystallogr B Struct Sci Cryst Eng Mater* **79**, 510–518 (2023).
+
+11. Sun, C., Müller, E., Meffert, M. & Gerthsen, D. Analysis of crystal defects by scanning transmission electron microscopy (STEM) in a modern scanning electron microscope. *Adv Struct Chem Imaging* **5**, 1–9 (2019).
+
+12. Johnstone, D. N. *et al.* Direct Imaging of Correlated Defect Nanodomains in a Metal-Organic Framework. *J Am Chem Soc* **142**, 13081–13089 (2020).
+
+13. Burt, H. M. & Mitchell, A. G. Crystal defects and dissolution. *Int J Pharm* **9**, 137–152 (1981).
+
+14. Shahani, A. J., Gulsoy, E. B., Poulsen, S. O., Xiao, X. & Voorhees, P. W. Twin-mediated crystal growth: an enigma resolved. *Sci Rep* **6**, 1–11 (2016).
+
+15. Leung, H. W. *et al.* Revealing the Crystal Structure of the Purine Base Xanthine with Three-Dimensional (3D) Electron Diffraction. *Cryst Growth Des* (2025) doi:10.1021/acs.cgd.4c01594.
+
+16. Latosińska, J. N., Latosińska, M., Seliger, J., Žagar, V. & Kazimierczuk, Z. An insight into prototropism and supramolecular motifs in solid-state structures of allopurinol, hypoxanthine, xanthine, and uric acid. A 1H-14N NQDR spectroscopy, hybrid DFT/QTAIM, and hirshfeld surface-based study. *Journal of Physical Chemistry B* **118**, 10837–10853 (2014).
+
+17. Hughes, C. E. *et al.* Solid-State Structure of Xanthine Determined by a Combination of 3D Electron Diffraction, Powder X-ray Diffraction, and DFT-D Calculations. *Cryst Growth Des* (2025) doi:10.1021/ACS.CGD.4C01717.
+
+18. Olson, I. A., Shtukenberg, A. G., Kahr, B. & Ward, M. D. Dislocations in molecular crystals. *Reports on Progress in Physics* **81**, 096501 (2018).
+
+19. Li, M. *et al.* Growth defects of organic crystals: A review. *Chemical Engineering Journal* **429**, 132450 (2022).
+
+20. Gemmi, M. *et al.* 3D Electron Diffraction: The Nanocrystallography Revolution. *ACS Cent Sci* **5**, 1315–1329 (2019).
+21. Danelius, E., Patel, K., Gonzalez, B. & Gonen, T. MicroED in drug discovery. *Curr Opin Struct Biol* **79**, 102549 (2023).
+
+22. Bustillo, K. C. *et al.* 4D-STEM of Beam-Sensitive Materials. *Acc. Chem. Res* **54**, 34 (2021).
+
+23. Leung, H. W. *et al.* Revealing the Crystal Structure of the Purine Base Xanthine with 3D Electron Diffraction. ChemRxiv (2024) doi:10.26434/CHEMRXIV-2024-TLGVB.
+
+24. Parsons, S. Introduction to twinning. *Acta Cryst D* **59**, 1995–2003 (2003).
+
+25. Käfer, D., El Helou, M., Gemel, C. & Witte, G. Packing of planar organic molecules: Interplay of van der waals and electrostatic interaction. *Cryst Growth Des* **8**, 3053–3057 (2008).
+
+26. Dahl, T. *et al.* The Nature of Stacking Interactions between Organic Molecules Elucidated by Analysis of Crystal Structures. *Acta Chem Scand* **48**, 95–106 (1994).
+
+27. Fujiwara, T. *et al.* Deformation of polysynthetically twinned crystals of TiAl with a nearly stoichiometric composition. *Philosophical Magazine A* **61**, 591–606 (1990).
+
+28. Smith, J. V. & L., Brown. W. Physical, Chemical, and Microtextural Properties. in *Feldspar Minerals, Volume I* 828 (1988).
+
+29. Schmalle, H. W., Hänggi, G. & Dubler, E. Structure of hypoxanthine. *Acta Cryst C* **44**, 732–736 (1988).
+
+30. Skundric, T., Schön, J. C., Zarubica, A., Fonovic, M. & Zagorac, D. Exploring the energy landscape and crystal structures of CrSi2N4. *Z Anorg Allg Chem* **649**, e202300130 (2023).
+
+31. Fisher, R. G. & Sweet, R. M. Treatment of Diffraction Data from Protein Crystals Twinned by Merohedry. *Acta Cryst* **36**, 755–760 (1980).
+
+32. Wagner, A. *et al.* The Non-Classical Crystallization Mechanism of a Composite Biogenic Guanine Crystal. *Advanced Materials* **34**, 2202242 (2022).
+
+33. Seo, W. S., Koumoto, K. & Aria, S. Morphology and stacking faults of β-silicon carbide whisker synthesized by carbothermal reduction. *Journal of the American Ceramic Society* **83**, 2584–2592 (2000).
+34. Guan, Z. et al. Observation of ‘hidden’ planar defects in boron carbide nanowires and identification of their orientations. Nanoscale Res Lett 9, 1–9 (2014).
+
+35. Lotz, B. An intrinsic crystallographic disorder in the frustrated $\alpha''$ phase of syndiotactic polystyrene. Polymer (Guildf) 56, 245–251 (2015).
+
+36. Wang, R., Zhu, Y. & Shapiro, S. M. Electron diffraction studies of phonon and static disorder in SrTiO 3. Phys Rev B 61, (2000).
+
+37. Takahashi, Y. Structural Disorder of Poly(vinylidene fluoride) Form I: Glides. Macromolecules 26, 5 (1993).
+
+38. Thompson, M. C. Identifying and overcoming crystal pathologies: Disorder and twinning. Methods in Molecular Biology 1607, 185–217 (2017).
+
+39. Gubicza, J. & Ungár, T. Characterization of defect structures in nanocrystalline materials by X-ray line profile analysis. Zeitschrift fur Kristallographie 222, 567–579 (2007).
+
+40. Ungár, T., Balogh, L. & Ribárik, G. Defect-related physical-profile-based X-ray and neutron line profile analysis. Metall Mater Trans A Phys Metall Mater Sci 41, 1202–1209 (2010).
+
+41. Scardi, P. & Leoni, M. Fourier modelling of the anisotropic line broadening of X-ray diffraction profiles due to line and plane lattice defects. J Appl Crystallogr 32, 671–682 (1999).
+
+42. Scardi, P. Diffraction Line Profiles in the Rietveld Method. Cryst Growth Des 20, 6903–6916 (2020).
+
+43. Wang, D. H. et al. Periodically twinned SiC nanowires. Nanotechnology 19, 215602 (2008).
+
+44. Balogh, L., Ribárik, G. & Ungár, T. Stacking faults and twin boundaries in fcc crystals determined by x-ray diffraction profile analysis. Appl. Phys. Lett 100, 23512 (2006).
+
+45. Monshi, A. et al. Modified Scherrer Equation to Estimate More Accurately Nano-Crystallite Size Using XRD. World Journal of Nano Science and Engineering 2, 154–160 (2012).
+46. Coelho, A. A., Evans, J. S. O. & Lewis, J. W. Averaging the intensity of many-layered structures for accurate stacking-fault analysis using Rietveld refinement. *J Appl Crystallogr* **49**, 1740–1749 (2016).
+
+47. Ufer, K. *et al.* Description of X-ray powder pattern of turbostratically disordered layer structures with a Rietveld compatible approach. *Zeitschrift fur Kristallographie* **219**, 519–527 (2004).
+
+48. Wang, X., Hart, R. D., Li, J., Mcdonald, R. G. & Van Riessen, A. Quantitative analysis of turbostratically disordered nontronite with a supercell model calibrated by the PONKCS method. *J. Appl. Cryst* **45**, 1295–1302 (2012).
+
+49. Barker, D. L. & Marsh, R. E. The Crystal Structure of Cytosine. *Acta Cryst* **17**, 1587 (1964).
+
+50. Ozeki, K., Sakabe, N. & Tanaka, J. The crystal structure of thymine. *Acta Crystallographica Section B* **25**, 1038–1045 (1969).
+
+51. Parry, G. S. The crystal structure of uracil. *Acta Cryst.* **7**, 313–320 (1954).
+
+52. Copley, R. C. B. *et al.* Predictable disorder versus polymorphism in the rationalization of structural diversity: A multidisciplinary study of eniluracil. *Cryst Growth Des* **8**, 3474–3481 (2008).
+
+53. Hou, X. *et al.* Bio-Inspired Synthesis of Square-Shaped Anhydrous Hypoxanthine Nanoplatelet Crystals with Superior Optical Properties. *Cryst Growth Des* **24**, 4481–4492 (2024).
+
+54. Yang, R. Q. & Xie, Y. R. A monoclinic polymorph of hypoxanthine. *Acta Crystallographica Section E* **63**, o3309–o3309 (2007).
+
+55. Hirsch, A. *et al.* ‘guanigma’: The Revised Structure of Biogenic Anhydrous Guanine. *Chemistry of Materials* **27**, 8289–8297 (2015).
+
+56. Brandes, R., Vold, R. R., Kearns, D. R. & Rupprecht, A. Static disorder and librational motions of the purine bases in films of oriented Li-DNA. *J Mol Biol* **202**, 321–332 (1988).
+57. Habgood, M. Form II caffeine: A case study for confirming and predicting disorder in organic crystals. *Cryst Growth Des* **11**, 3600–3608 (2011).
+
+58. Enright, G. D., Terskikh, V. V., Brouwer, D. H. & Ripmeester, J. A. The structure of two anhydrous polymorphs of caffeine from single-crystal diffraction and ultrahigh-field solid-state 13C NMR spectroscopy. *Cryst Growth Des* **7**, 1406–1410 (2007).
+
+59. Gallagher-Jones, M. *et al.* Nanoscale mosaicity revealed in peptide microcrystals by scanning electron nanodiffraction. *Commun Biol* **2**, 1–8 (2019).
+
+60. Mortazavi, M. *et al.* Computational polymorph screening reveals late-appearing and poorly-soluble form of rotigotine. *Communications Chemistry* 2019 2:1 **2**, 1–7 (2019).
+
+61. Bowskill, D. H., Sugden, I. J., Konstantinopoulos, S., Adjiman, C. S. & Pantelides, C. C. Crystal Structure Prediction Methods for Organic Molecules: State of the Art. *Annu Rev Chem Biomol Eng* **12**, 593–623 (2021).
+
+62. Pickard, C. J. & Needs, R. J. Ab initio random structure searching. *Journal of Physics Condensed Matter* **23**, (2011).
+
+63. Tavagnacco, L. *et al.* Stacking of purines in water: the role of dipolar interactions in caffeine. *Physical Chemistry Chemical Physics* **18**, 13478–13486 (2016).
+
+64. Ortmann, F., Hannewald, K. & Bechstedt, F. Guanine crystals: A first principles study. *Journal of Physical Chemistry B* **112**, 1540–1548 (2008).
+
+65. Copeland, K. L., Pellock, S. J., Cox, J. R., Cafiero, M. L. & Tschumper, G. S. Examination of tyrosine/adenine stacking interactions in protein complexes. *Journal of Physical Chemistry B* **117**, 14001–14008 (2013).
+
+66. Pinsk, N. *et al.* Biogenic Guanine Crystals Are Solid Solutions of Guanine and Other Purine Metabolites. *J Am Chem Soc* **144**, 5180–5189 (2022).
+
+67. ICH Expert Working Group. ICH Harmonised Tripartite Guideline Q6A, Specifications: Test Procedures and Acceptance Criteria for New Drug Substances and New Drug Products: Chemical Substances. *International Conference on Harmonisation of Technical Requirements for Registration of Pharmaceuticals for Human Use* Preprint at (1999).
+68. Newman, A. & Wenslow, R. Solid form changes during drug development: good, bad, and ugly case studies. *AAPS Open* 2016 2:1 2, 1–11 (2016).
+
+69. Bauer, J. et al. Ritonavir: An Extraordinary Example of Conformational Polymorphism. *Pharm Res* 18, 859–866 (2001).
+
+70. Fabro, S., Smith, R. L. & Williams, R. T. Toxicity and Teratogenicity of Optical Isomers of Thalidomide. *Nature* 215, 296–296 (1967).
+
+71. Elder, D. P., Holm, R. & De Diego, H. L. Use of pharmaceutical salts and cocrystals to address the issue of poor solubility. *Int J Pharm* 453, 88–100 (2013).
+
+72. Byrn, S., Pfeiffer, R., Ganey, M., Hoiberg, C. & Poochikian, G. Pharmaceutical solids: a strategic approach to regulatory considerations. *Pharm Res* 12, 945–954 (1995).
+
+73. Rigaku Oxford Diffraction. CrysAlisPro 1.171.43.110a. Preprint at (2024).
+
+74. Johnstone, D. et al. pyxem/pyxem: pyxem 0.14.1. Preprint at https://doi.org/10.5281/ZENODO.6505200 (2022).
+
+75. Parker, J. E. et al. High-throughput powder diffraction on beamline I11 at Diamond. *J Appl Crystallogr* 44, 102–110 (2010).
+
+76. Thompson, S. P. et al. Beamline I11 at Diamond: a new instrument for high resolution powder diffraction. *Rev Sci Instrum* 80, (2009).

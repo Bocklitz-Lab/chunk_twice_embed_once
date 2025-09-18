@@ -1,0 +1,209 @@
+Development of simplified, photo-active, and Tfr1-targeted poly(β-aminoester)-zwitterion nanovehicles for gene delivery across brain endothelium
+
+Maria C Lucana1, Shambhavi Pandey1, Salvador Borrós1, Benjamí Oller-Salvia1,*
+
+1Department of Bioengineering, Institut Químic de Sarrià, Universitat Ramon Llull, 08017 Barcelona. Spain
+
+*Correspondence should be addressed to: benjami.oller@iqs.url.edu
+
+Abstract
+
+Although nucleotide-based therapeutics hold promise for a variety of diseases, their clinical application is limited because of low stability and poor bioavailability. Among non-viral gene delivery vectors, poly(β-aminoester)s (pBAEs) stand out because of their low cytotoxicity, high transfection capacity, and adequate biodegradation profile. Oligopeptide end-Modified pBAEs (OM-pBAEs) enable enhanced polynucleotide encapsulation, cellular internalization, and transfection. Despite the outstanding properties of OM-pBAEs as non-viral gene delivery vectors, traditional OM-pBAE formulations have low cell selectivity and require formulation with two or more polymers. In this study, we first develop a simplified OM-pBAE formulation with a single polymer (pBAE-CRHR) and then add a zwitterionic moiety as part of the end-capping process (pBAE-CRHR-Zw). Subsequently, we show that addition of a photo-cleavable moiety enabled selective recovery of transfection capacity. Finally, we functionalize pBAE-CRHR-Zw with BrainBike-4, a bicyclic peptidomimetic binding transferrin receptor 1, and show that the targeted polyplexes display improved capacity to transfect cells with high levels of Tfr1 and to transmigrate in a human cell-based model of the BBB.
+
+Keywords
+
+OM-pBAE nanoparticles, targeted gene delivery, zwitterionic peptides, brain shuttle peptides
+Introduction
+
+Nucleotide-based therapeutics have sequence-specific ability to treat various diseases by modulating gene expression[1] They have the potential for precise and customized treatment at the fundamental genetic level. Despite the huge potential of this family of therapeutics, clinical application is limited because of their low stability and poor bioavailability. In order to overcome these challenges, nucleic acid drugs can be packaged and delivered using viral gene delivery vectors, which inherently have high infection capacity. The high infection efficiency, however, comes at the compromise of pathological safety, elevated immunogenicity, low loading capacity, and high production costs. This has prompted the development of safer non-viral gene delivery vectors, which provide high versatility, cost-effectiveness, and high capacity to encapsulate payloads ranging from small oligonucleotides to large DNA plasmids [2].
+
+Among the non-viral gene delivery vectors, poly(β-aminoester)s (pBAEs), a promising class of cationic polymers, offer low cytotoxicity, high transfection capacity, and biodegradable profile, the attributes desirable for an ideal vector [3,4]. pBAEs display outstanding encapsulation and transfection efficiency, which is provided by a balanced combination of hydrophobicity and functional groups with protonation capacity. Electrostatic interactions with oligonucleotides, in addition to a fine-tuned hydrophobicity, enables pBAEs to offer enhanced encapsulation ability [5]. The protonation of tertiary amines by the lower pH of endosomal compartment builds up osmotic pressure that eventually leads to endosomal escape. Moreover, pBAEs can be functionalized at terminal acrylates with cationic oligopeptides such as arginine (R), lysine (K), and histidine (H) via a thia-Michael addition reaction to form oligopeptide end-modified pBAEs (OM-pBAEs). OM-pBAEs enable enhanced polynucleotide encapsulation, cellular internalization, and transfection, both in vitro and in vivo [6–9].
+
+Despite the outstanding properties of OM-pBAEs as non-viral gene delivery vectors, traditional OM-pBAE formulations have low cell selectivity and high adsorption capacity for serum proteins leading to corona formation and systemic removal [7,9]. This feature detrimentally affects their capacity to specifically target the disease sites in vivo and their selective transport across biological barriers. Several studies have explored modifying pBAEs with other polymers and lipids to achieve some degree of tissue selectivity [10–15]. Most prominently, a recent study has reported the development of zwitterionic-grafted pBAEs that enable low opsonization and immunogenic response by rendering stealth properties to the pBAEs against serum protein adsorption [16]. In this publication, the pBAE itself is used as the seed for reversible addition-fragmentation chain-transfer (RAFT) polymerization. Inspired by this example, here we seek to
+design an alternative way that enables direct conjugation of the zwitterionic moiety without the need of an additional polymerization step.
+
+We first propose a simplified OM-pBAE formulation (pBAE-CRHR) with –CRHR sequence acting both as encapsulation enhancer and endosome escape promoter. To this core polymer, a zwitterionic (Zw) moiety was added as part of the end-capping process of the pBAE synthesis to form pBAE-CRHR-Zw. In addition to providing the stealth effect, zwitterionic-graft is expected to mask the excellent transfection potential of pBAEs, thereby preventing its non-specific cellular targeting. Subsequently, addition of a photo-cleavable zwitterionic-graft, enabled recovery of its on-site transfection capacity. Lastly, the pBAEs-CRHR-Zw were functionalized with BrainBike-4 (BB4), aiming to mediate cancer cell selectivity and blood-brain barrier (BBB) transport. BB4 is a bicyclic peptidomimetic recently developed in our lab, that binds transferrin receptor 1 (TfR1) [17]. Aligning with our hypothesis, polyplexes derivatized with BB4 display high transfection capacity in cells overexpressing TfR1. Moreover, we demonstrated that the pBAE-CRHR-Zw polyplexes functionalized with BB4 could significantly enhance transport across a human cell-based model of the BBB.
+
+Materials and Methods
+
+Peptide synthesis, conjugation and characterization
+
+Solid Phase Peptide Synthesis
+
+All peptides were synthesized on 0.100 mmol scale using Liberty Blue 2.0 automated peptide synthesizer (CEM) and rink amide (aminomethyl)polystyrene resin (0.65 mmol/g). Each coupling included amino acid coupling reaction, containing N'-Fmoc protected amino acid (4 equiv.), N,N'-Diisopropylcarbodiimide (DIC, 4 equiv.) and OxymaPure® (4 equiv.) in N,N-dimethylformamide (DMF). The N-terminal Fmoc protecting group was removed using 20% piperidine in DMF before coupling the next amino acid. Peptides were cleaved from the resin using TFA/EDT/H2O/triisopropylsilane (94:2.5:2.5:1 v/v). After cleavage, TFA was removed under Ar flow, then peptides were collected by precipitating in diethyl ether. Crude peptides were purified by reverse-phase HPLC (Agilent 1260 Infinity II) using Aeris Peptide XB-C18 100 LC column (Phenomenex) and a gradient of 5% to 70% MeCN (0.1% TFA) and H2O (0.1% TFA). All peptides were identified by MALDI-TOF (Bruker) and their purities were determined by LC/MS using a Agilent 6200 Series TOF LC/MS equipped with a Aeris PEPTIDE XB-C18 column. Pure peptides were lyophilized and stored at -20 ºC before use.
+Synthesis and characterization of pBAEs
+
+Synthesis of OM-poly(β-aminoesters)
+
+To synthesis C6-pBAE a 10 mL round-bottom flask was charged with a mixture of 5-amino-1-pentanol (1.0 g, 10 mmol, 0.5 equiv.), 6-hexylamine (1.0 g, 10 mmol, 0.5 equiv.) and 1,4-butanediol diacrylate (4.8 g, 24 mmol, 1.2 equiv.) and was allowed to stir at 90°C for 20 h. The resulting triblock copolymer was isolated as a yellowish viscous oil. General protocol A for the end-capping of diacrylate pBAEs with oligopeptides (OM-pBAEs): a 1.5 mL tube was charged with a solution of the diacrylate polymer C6 (1 equiv.) and the corresponding oligopeptide in its hydrochloride form (3.1 equiv.), in DMSO (100 mg/mL). After homogenization by stirring, the mixture was allowed to react at overnight at room temperature. Then the reaction solution was treated with a mixture of acetone:Et₂O 3:7. This treatment induced the precipitation of the oligopeptide-modified polymer. The new mixture was centrifugated, and the pellet was washed with acetone:Et₂O 3:7 (2 x 10 mL). The pure polymeric product was next dried under vacuum overnight. Then the pellet was dissolved in DMSO (100 mg/mL).
+
+Nanoparticles formulation
+
+Oligopeptide-modified pBAE-derived polyplexes were prepared according to previous published procedures. First polymer stock solutions were prepared by dissolving the corresponding pBAEs in DMSO at 100 mg/mL. Next, polyplexes were prepared by mixing equal volumes of nucleic acid (0.5 mg/mL) and polymer (12.5 mg/mL) in a NaOAc buffer solution (pH = 5.2, 12.5 mM) at 25:1 w/w ratio. The nucleic acid was added over the polymer solution and mixed by pipetting, followed by a 30 min incubation at 25°C to allow the uniform formation of nanoparticles. This mixture was added to an equal volume of Milli-Q water for the nanoprecipitation of the particles. Thereafter, another volume equal volume of a solution of HEPES (20 mM) + 4 wt% sucrose was added as cryoprotector.
+
+Characterization of pBAE
+
+Fresh polyplexes (1.2 μL, 0.1 μg pGFP) were mixed with 6X loading buffer (2 μL) and loaded into a 1% agarose gel containing SYBR Safe Stain (10,000X, Water). Electrophoresis was set up in 1XTAE buffer at 120 V and kept for 30 min. Chemidoc Imaging System was used to assess DNA location. The hydrodynamic diameter (nm), polydispersity index (PDI), and surface charge were measured by Dynamic Light Scattering (DLS) on Zetasizer Nano ZS (Malvern Instruments Ltd, United Kingdom, 4-mW laser) at 25 ºC using 633 nm of laser wavelength and 173 ° signal detector. Three measurements of each polyplex batch were performed with 30 runs per
+measurement. The Z potential was also measured by DLS. 1H-NMR spectra were recorded in a Varian 400 MHz spectrometer using chloroform-d as a solvent. For 1H NMR, the peak of the TMS (0.0 ppm) was used as a reference.
+
+**Cell-based assays**
+
+**Cell culture**
+
+For in vitro experiments different cell lines were used. HeLa (human cell line derived from cervical cancer cells). Cells were cultured in DMEM media (glucose 1000 mg/L) supplemented with 10% fetal bovine serum (FBS), 1% of 2 mM L-glutamine and 1% antibiotics (100 units/mL of penicillin and 100 μg/mL of streptomycin). Cells were passaged using 0.05% trypsin/EDTA when they reached 80% confluence. Cells were grown at 37 ºC with 5% CO₂. All work performed with human cells follow the ethical principles and EU Directive 2004/23/EC.
+
+**Cytotoxicity Assay**
+
+*In vitro* cytotoxicity assay of pBAE-CRHR-NB-Zw was evaluated in HeLa cell line and compared with that of the intermediate polymeric complexes of pBAE-CRHR, pBAE-CRHR(EKEKEK)1, and pBAE-CRHR(ERERER)2. At monolayer confluency cells were trypsinated and seeded in a 96-well plate at $1 \times 10^4$ initial cell density in 100 μl of DMEM supplemented growth medium and allowed to grow up to 80% of confluency prior to polyplex treatment. 24 hours later, 100 μl of MTT solution in medium (0.5 mg/ml) was added to each well and incubated for additional 3 h. The medium was carefully aspirated, leaving purple formazan crystals, which were dissolved in DMSO (100 μl). The absorbance was measured at 540 nm using TECAN microplate reader.
+
+**Cell transfection with pBAE nanoparticles**
+
+In a 96-well plate, 10,000 HeLa cells per well were seeded and left to grow for 24 h. Cells were incubated with 100 μL of media containing polyplexes (0.3 μg pGFP). pGFP concentration was selected based on previous studies and correspond to the minimum concentration required to achieve controls. After 48 h incubation in the presence of FBS, transfection efficiency was measured by flow cytometry. Photo-sensitive linker cleavage, the photo-sensitive linker was irradiated under a UV lamp at 15 cm distance and light at 360 nm with a measured irradiance of 1.7 mW/cm². Samples were collected after 1-2 h. BrainBike-4 conjugation to pBAE nanoparticles, shuttle peptide was incubated for 1 h at room temperature with NPs already formed.
+Sample preparation for flow cytometry analysis
+
+Flow cytometry assays were analysed on an Agilent NovoCyte flow cytometer (Agilent). GFP was analysed at 488 nm. Cells were washed three times with 100 μL of PBS, trypsinized with 30 μL of Trypsin-EDTA (Gibco) for 5 min at 37 ºC and, then 80 μL of supplemented medium with formalin (33% v/v) was added. Cells were detached by repeated pipetting and analysed.
+
+Permeability assays in the in vitro BBB cellular model
+
+These experiments were performed using the model developed by Cecchelli and collaborators. Briefly, endothelial cells derived from pluripotent stem cells (brain like endothelial cells obtained and handled following EU Directive 2004/23/EC) and bovine pericytes were defrosted in gelatin-coated Petri dishes (Corning). Pericytes were cultured in DMEM pH 6.8 while endothelial cells were cultured in supplemented endothelial cell growth medium (sECM) (ScienCell). After 48 h, endothelial cells were seeded in 0.4 μm polycarbonate 12-well Transwell inserts (8,000 cell/well) and pericytes were plated in 12-well plates (50,000 cells/well) previously coated with Matrigel and gelatin, respectively. The medium was changed every 2-3 days and the assays were performed 7-8 days after seeding by placing the transwells into new wells without pericytes. Lucifer Yellow (50 μM) was added as a control of barrier integrity (Papp < 17·10^{-6} cm/s). To perform the assay, 500 μL of the compound in Ringer HEPES was added to the donor compartment and 1500 μL of Ringer HEPES was introduced into the acceptor compartment. The plates were incubated for 2 h at 37 ºC, and the solutions from both compartments were recovered and analysed. The samples were evaluated in triplicates. The amount of protein conjugates was quantified by fluorescence with Fluorescence Spectrophotometer F2500 HITACHI. The selected slit for excitation and emission was 5 nm and 10 nm, respectively. The voltage for the detector was 700 V. Apparent permeability was calculated with the following formula:
+
+\[ P_{\text{app}} = \frac{Q_A(t) \cdot V_D}{A \cdot Q_D(t_0)} \]
+
+where \( P_{\text{app}} \) is obtained in cm/s, \( Q_A(t) \) is the amount of compound at the time \( t \) in the acceptor well, \( V_D \) is the volume in the donor well, \( t \) is time in seconds, \( A \) is the area of the membrane in cm and \( Q_D(t_0) \) is the amount of compound in the donor compartment at the beginning of the experiment. Statistical analysis: unpaired two-tailed student t tests were applied to evaluate the significant difference or p values between data sets using Prism 6.0c software.
+Results and Discussion
+
+Simplification of OM-pBAE formulation
+
+The end-capping oligopeptides in OM-pBAEs enhance the encapsulation and transfection efficiency of pBAEs. Traditionally, OM-pBAEs are synthesized via thia-Michael addition by conjugating terminal acrylates of pBAEs with oligopeptides containing a homomeric trimer of arginine (R), lysine (K) or histidine (H) and an N-terminal cysteine (C), abbreviated as CRRR, CKKK, or CHHH. While R or K amino acid residues enhance encapsulation and interaction with cell membranes, H facilitates endosomal escape. Therefore, pBAEs modified with CRRR or CKKK are combined with other pBAEs modified with CHHH. The 60:40 ratio of CRRR or CKKK to CHHH has been determined for optimal transfection [6,7]. To this basal formulation, other polymers are added to endow stealth or targeting properties. The more polymers added, the higher is the polydispersity and variability of the particles [18]. Therefore, we first set out to explore if the formulation of OM-pBAEs could be simplified.
+
+Aiming to generate OM-pBAEs that integrate inherent properties of both CRRR/CKKK and CHHH into homomeric oligopeptides, we designed and synthesized the three possible combination sequences consisting of two arginines and one histidine: CRRH, CRHR, and CHRR (Figure 1a, Figure S1, Table S1). Incorporation of the oligopeptides into pBAEs was monitored by $^1$H-NMR. The disappearance of the acrylate signals at 6.4, 6.1 and 5.8 ppms (Figure S2) demonstrated quantitative conjugation of the oligopeptide to the pBAE polymeric backbone.
+
+For characterization and rapid assessment of transfection efficiency of synthesized OM-pBAEs, a reporter plasmid encoding the green fluorescent protein (pGFP) was selected and condensed with OM-pBAEs to form polyplexes. The hydrodynamic diameter of the resulting polyplexes ranged from 175 to 260 nm, similar to the original formulation, with a polydispersity index (PDI) of 0.2 to 0.6 (Figure 1b) as measured by dynamic light scattering (DLS). All polyplexes had a dimension and size distribution compatible with known cell entry mechanisms and in vivo delivery standards [19–21].
+
+The Z-potential of control OM-pBAE polyplexes having two different homomeric oligopeptides, -CRRR and -CHHH, was roughly 26 mV as previously reported, while OM-pBAEs having single chain of heteromeric oligopeptide show a slightly higher charge, 34-41 mV (Figure 1c). This increase in the zeta potential of OM-pBAEs bearing a single chain of heteromeric -CRHR oligopeptide is due to the higher R:H ratio, from 60:40 in previous formulations with two different homomeric chains to 66:33 ratio present in the simplified formulation. An increase in
+arginines, all of which bear a net positive charge due to their high pKa, results in higher overall charge of the polyplexes.
+
+After the physicochemical characterization of the polyplexes, the transfection capacity of the various OM-pBAE formulations was explored in HeLa cells. To our surprise, we found that the transfection was heavily influenced by the position of histidine within the single chain of end-capping heteromeric oligopeptide. Placing the histidine between the two arginines resulted in no significant difference in transfection with respect to the -CRR + -CHHH OM-pBAE control. By contrast, pBAE-CRRH displayed a 20% decrease in transfection efficiency and, for the pBAE-CHHR formulation, transfection decreased up to 50% (Figure 1d). This effect of histidine position on the transfection capacity might be attributed to the influence of arginines on the protonation state of histidine, which may impact on the interaction of OM-pBAEs with the genetic material and the cell membrane, as well as the proton sponge effect that mediates its endosomal escape.
+
+Figure 1. Synthesis and physico-chemical characterization of heteromeric oligopeptide conjugated OM-pBAEs. a) Schematic route for the synthesis of three heteromeric oligopeptide OM-pBAEs. b) DLS hydrodynamic diameter (bar) and PDI (dot), c) Z-potential measurements of various single-chain oligopeptide OM-pBAEs in comparison to control.
+with two different homomeric oligopeptide chain incorporations. d) Transfection efficiency (%) in HeLa cell line based on the GFP reporter plasmid expression assessed by flow cytometry. Values are expressed as mean ± standard deviation (n=3); ns = non-significant; ****p < 0.0001.
+
+Incorporation of a zwitterionic peptide to pBAEs-CRHR (pBAE-CRHR-Zw)
+
+After identifying the best formulation of a single heteromeric oligopeptide chain conjugated OM-pBAE, we set out to decrease the transfection promiscuity through derivatization of pBAE-CRHR with a zwitterionic peptide. To design the zwitterionic peptides, we selected the EK and ER amino acid zwitterion motifs, which display alternating positive and negative charges at physiological pH and have been used as stealth agents in other formulations [22–24]. We synthesized end-capping peptides with the CRHR moiety followed by 3 or 6 zwitterion motif repeats at the C-terminus (Figure 2a, Figure S3). A GG spacer was added between the CHRR and zwitterionic sequences to minimize any alteration to the encapsulating and proton-sponge capacity of the CRHR peptide. The pBAEs modified with the zwitterionic end-capping peptide will be denominated pBAE-CRHR-Zw.
+
+The pBAE-CRHR-Zw complexes with reporter pGFP showed hydrodynamic diameter of 250 nm, slightly larger than the 175 nm of pBAE-CRHR/pGFP complexes without Zw (Figure 2b). This increase in size may be partly due to the zwitterionic moieties and the structured water hydration shell formed around them. As expected, due to the shielding effect of zwitterionic coating, a substantial drop in Z-potential was observed (Figure 2c). However, the encapsulation capacity of pBAE-CRHR-Zw/pGFP complexes was fully preserved as shown by the gel retardation assay (Figure S4). Given the anti-fouling properties of the zwitterionic polymer, a 25 to 50-fold decrease in transfection efficiency of pBAE-CRHR-Zw/pGFP complexes in HeLa cells (Figure 2d) indicates a decrease in its cellular interaction and uptake. The 6 repeat ER and EK motifs provided half the transfection with respect to the 3 repeat zwitterionic motifs. Hence, the longer zwitterions were used in all subsequent experiments (Figure S5). Similar results were obtained for both the ER and EK zwitterionic motifs. However, more reproducible results were obtained with ER sequences. Thus, the ER motif zwitterion was used for most of the work described in the following sections.
+Figure 2. Characterization of pBAE-CRHR-Zw/GFP complexes. a) Chemical structure of pBAE-CRHR-Zw formed by ER amino acid motifs. Expected amino acid residue charges at physiological pH in aqueous buffer are represented. b) Hydrodynamic diameter (bar) and PDI (dot), c) Z-potential measurements. d) Transfection efficiency (%) in HeLa cell line based on the GFP reporter plasmid expression assessed by flow cytometry. Values are expressed as mean ± standard deviation (n=3); ****p < 0.0001.
+
+Recovery of transfection potential of pBAE-CRHR by photo-activation
+
+We have shown that pBAE-CRHR-Zw displays good packaging capacity and low transfection. To conditionally recover their transfection potential with spatiotemporal resolution, we engineered a linker peptide that could be cleaved enabling the release the zwitterionic moiety upon light irradiation. Accordingly, we synthesized a peptide containing a nitrobenzyl (NB) group and incorporated it in between the CRHR and the zwitterionic peptide (pBAE-CRHR-NB-Zw, Figure 3a), similarly as we have recently reported to generate light-sensitive antibody-polymer conjugates [26]. The nitrobenzyl linker peptide can be cleaved under UVA light irradiation at 365 nm [25]. Despite its relatively low tissue penetration, UVA light is used in clinical settings, thus the photo-cleavable NB linker could enable therapeutic application.
+
+The photo-cleavable linker within the peptide could be readily cleaved within 1 h of UV exposure, as monitored by NB scission using HPLC-UV-MS. The corresponding chromatogram at
+220 nm shows disappearance of the peptide peak at 4.7 min of retention time and gradual generation of two additional peaks at 3.7 and 4.5 min over 1 h, which correspond to the expected cleavage products (Figure 3b). Polypeplexes formed with pBAE-CRHR-NB-Zw and the reporter pGFP showed similar size and surface charge to the ones generated with the non-cleavable polymer, pBAE-CRHR-Zw (Figure 3c-d). Additionally, they show non-cytotoxic profile together with the intermediate polymeric nanoparticles using the MTT assay in HeLa cells with over 95% cell viability (Figure S6).
+
+The pBAE-CRHR-NB-Zw/GFP polypeplexes showed negligible transfection capacity, comparable to pBAE-CRHR-Zw/GFP complexes. However, upon UV irradiation at 350 nm, pBAE-CRHR-NB-Zw/pGFP transfection increased by 18-fold, suggesting the photo-induced release of the Zw component that was masking the transfection potential of the pBAE-CRHR polymer. By contrast, transfection capacity of the control pBAE-CRHR-Zw/pGFP complexes, without the photosensitive linker, remained unaltered upon light irradiation (Figure 3e).
+
+![Figure 3. Characterization and photo-activation of pBAE-CRHR-NB-Zw. a) Chemical structure of the CRHR-NB initial peptide with the photo-cleavable NB linker and the cleavage products generated post photo-activation. b) HPLC-UV-MS chromatogram of non-activated (0 min) and activated -CRHR-NB-Zw peptide (15 min, 30 min, 1h). c) Characterization of the photocleavable pBAE-CRHR-NB-Zw/GFP complexes by measuring hydrodynamic diameter, PDI and d) Z-potential using DLS. e) Transfection efficiency (%) in HeLa cells based on the GFP reporter plasmid expression. Values are expressed as mean ± standard deviation (n=3); ns = non-significant; ****p < 0.0001.](https://doi.org/10.26434/chemrxiv-2025-wcxdb8)
+Conjugation of BrainBike-4 (BB4) peptide to target cancer cells with high levels of Tfr1
+
+After the successful formulation of a pBAE system that reduces off-site targeting by masking its transfection potential, we aimed to incorporate a targeting ligand to enable higher selectivity for cancer cells. Transferrin receptor 1 (Tfr1) has shown overexpression in many cancer types. We have recently developed a new class of bicyclic Tfr1 binding peptidomimetics dubbed BrainBikes [17]. Particularly, BrainBike-4 (BB4) has high affinity for cells with high levels of Tfr1 expression (apparent $K_D \sim 40$ nM) and high resistance to proteases, with a 5.5 h half-life in human serum, enabling enhanced targeting capacity [27]. Therefore, we aim to derivatize the zwitterionic pBAE-CRHR-NB-Zw with BB4 to form polyplexes with high affinity towards cancer cells overexpressing Tfr1.
+
+Since BB4 bears several functional groups, including amine and carboxylic acid groups, a biorthogonal reaction was applied for its conjugation to pBAE-CRHR polymer. More precisely, we utilized an inverse electron-demand Diels-Alder cycloaddition between trans-cyclooctene (TCO) and benzyltetrazine (Tz), one of the fastest and most efficient biorthogonal reactions reported to date. An N-hydroxysuccinimidyl derivative of TCO (TCO-NHS) was conjugated to the N-terminus of the tetrapeptide in pBAE-CRHR, which was then purified by precipitation with acetone:diethyl ether yielding pBAE-CRHR-TCO. BB4 was derivatized in solution with an excess of Tz-NHS to form Tz-BB4 and purified by reverse-phase HPLC (Figure S7). pBAE-CRHR-TCO was then reacted with Tz-BB4 and purified by precipitation with acetone:diethyl ether to yield pBAE-CRHR-BB4. The reaction was monitored by HPLC-UV (Figure S8), which showed disappearance of the Tz-BB4 peak at 6.5 min in the chromatogram and the polymer broad peak also shifted toward a higher retention time (6.2 min). Next, different ratios of BB4-targeted pBAE were mixed with pBAE-CRHR-Zw, ranging from 5% to 20%, and pGFP to form the polyplex (Figure S9). These formulations were tested for transfection in HeLa cells, which express high levels of Tfr1 [17]. With the increase in BB4 peptide functionalization, a gradual increase in transfection was observed reaching 7 times the transfection capacity of polyplexes without BB4. This shows the role of BB4 peptidomimetic in enhancing the transfection capacity of zwitterionic pBAEs-CRHR-BB4-Zw polymer (Figure 4).
+Figure 4. Targeting potential enhancement of pBAE-CRHR-Zw nanoparticles with different percentages of BB4 functionalization. Transfection efficiency (%) in Tfr1 overexpressing HeLa cell line based on the GFP reporter plasmid expression. Values are expressed as mean ± standard deviation (n=3); ns = non-significant, *p < 0.05, **p < 0.01, ***p < 0.001.
+
+In vitro BBB transport of BB4-modified pBAE-CRHR-Zw polyplexes
+
+The promising results obtained in cell transfection of pBAE polyplexes with BB4 encouraged us to also explore its transmigration potential across the blood-brain barrier (BBB). Since Tfr1 is also highly expressed in the brain endothelium, BB4 might also drive the transport of pBAE-CRHR-BB4-Zw/GFP nanoparticles across the brain endothelial cells [17]. Brain shuttle peptides have previously been shown to transport large cargoes across the BBB [28]. Although previously showed that BB4 is an efficient brain shuttle peptide for protein cargoes, it had not yet been applied for the transport of nanoparticles. To measure the BBB permeability of BB4-modified pBAE-CRHR-Zw, we first set up a well validated human cell-based in vitro BBB model reported by Cecchelli et al.[29]. This model is formed by a tight monolayer of CD34+ endothelial-like cells from human umbilical cord seeded on Transwell® inserts. Upon co-culture with pericytes, these cells display a BBB phenotype including tight junctions and BBB receptors, including similar levels of Tfr1 than human endothelium in vivo[30]. Lucifer yellow was used as an internal standard to ensure the barrier integrity in all wells.
+
+When the model was ready, we labelled the DNA with Hoechst 33258, a fluorescent dye that binds AT sequences in the minor groove of double stranded DNA. DNA-labelled polyplexes were formed at three ratios of pBAE-CRHR-Zw-BB4 to pBAE-CRHR-Zw, including 1:9, 1:3, 1:1, and a control without BB4. The Lucifer yellow internal standard indicated the formulations did not alter BBB permeability (Table S2). Remarkably, polyplexes with 25% of pBAE-CRHR-Zw-BB4 resulted in a significant increase of transport (+25%) across the tight endothelial monolayer with
+respect to the control pBAE-CRHR-Zw without BB4 (Figure 5, Table S2). Lower or higher percentages of pBAE-CRHR-Zw-BB4 show lower permeability because BBB transport is highly sensitive to the surface modification of the nanocarriers. While too little peptide may provide inefficient engagement with the brain endothelium, excess functionalization may cluster the receptors and/or prevent adequate intracellular sorting, decreasing transport efficiency [31]. The 25% transport increase achieved with BB4 after 2 h is comparable to the enhancements previously reported with other well-known brain shuttle peptides on other nanoparticulate systems in similar BBB models. For instance, THR retro-enantio peptide enhanced the transport of poly(methylmetacrylate) nanoparticles by 25% after 4h, and peptide 22 provided a 25% increase after 24h of transfection for PEG-PLA nanoparticles [32,33].
+
+**Figure 5. Permeability of pBAE-CRHR-BB4-Zw/DNA in a BBB cell-based model.** Transport of polyplexes with increasing percentage of BB4 across a tight human brain endothelial layer mimicking the human blood-brain barrier. Values are expressed as mean ± standard deviation (n=3); ns = non-significant, **p < 0.01.
+
+**Conclusions**
+
+In this article we report a simplified formulation of OM-pBAEs with low transfection promiscuity and capability to cross biological barriers. We have shown that a single heteromeric oligopeptide bearing arginine and histidine amino acid residues for the end modification of pBAEs is as efficient as the traditional mixture of two polymers with R and H homomeric chains, providing a simplified formulation. We have also demonstrated that conjugation of a zwitterionic peptide to the simplified formulation (pBAE-CRHR-Zw) reduces transfection by 50-fold, resulting in a less promiscuous gene delivery system. The transfection capacity of the polymer can be modulated with light by introducing a nitrobenzyl moiety. Finally, we showed that conjugation of BrainBike-4, our recently developed anti-TfR1 peptidomimetic, to pBAE-CRHR-Zw enables efficient
+transfection of cells with high levels of TfR1 and mediates transport across a tight monolayer of brain endothelial cells mimicking the BBB.
+
+Statements & Declarations
+
+Funding
+
+We acknowledge support from MCIN/AEI/10.13039/501100011033 (PID2020-117486RA-I00), AECC (IDEAS211057OLLE), the European Research Council (ERC) under the European Union’s Horizon Europe research and innovation program (grant agreement No. 101077370), and AGAUR (SGR-2021-00537). B.O.-S. held fellowships funded by “la Caixa” Foundation (100010434) and Marie Sklodowska-Curie Actions (MSCA-IF 844441).
+
+Competing Interests
+
+The authors have no relevant financial or non-financial interests to disclose.
+
+Author contributions
+
+Conceptualization: B.O.-S., S.B.; funding acquisition: B.O.-S., S.B.; methodology: M.C.L., B.O.-S., S.P.; investigation: M.C.L., S.P., formal analysis: M.C.L., B.O.-S., S.P.; writing - original draft: B.O.-S. S.P, M.C.L., S.B.; visualization: M.C.L., B.O., project administration: B.O.-S., supervision: B.O.-S., S.P., S.B.
+
+Acknowledgements
+
+We thank Pr. F. Gosselet (U. Artois) for providing the endothelial-like cells and pericytes, and Dr. C. Díaz for help in setting up the model. Some images have been created with BioRender.com.
+
+References
+
+1. Huayamares SG, Loughrey D, Kim H, Dahlman JE, Sorscher EJ. Nucleic acid-based drugs for patients with solid tumours. Nat Rev Clin Oncol. 2024;21(6):407-427. doi:10.1038/s41571-024-00883-1
+
+2. Wang C, Pan C, Yong H, et al. Emerging non-viral vectors for gene delivery. J Nanobiotechnology. 2023;21(1). doi:10.1186/s12951-023-02044-5
+3. Magaña Rodriguez JR, Guerra-Rebollo M, Borrós S, Fornaguera C. Nucleic acid-loaded poly(beta-aminoester) nanoparticles for cancer nano-immuno therapeutics: the good, the bad, and the future. *Drug Deliv Transl Res.* 2024;14(14):3477-3493. doi:10.1007/s13346-024-01585-y
+
+4. Lynn DM, Langer R. Degradable poly(β-amino esters): Synthesis, characterization, and self-assembly with plasmid DNA. *J Am Chem Soc.* 2000;122(44):10761-10768. doi:10.1021/ja0015388
+
+5. Sunshine JC, Akanda MI, Li D, Kozielski KL, Green JJ. Effects of base polymer hydrophobicity and end-group modification on polymeric gene delivery. *Biomacromolecules.* 2011;12(10):3592-3600. doi:10.1021/bm200807s
+
+6. Dosta P, Segovia N, Cascante A, Ramos V, Borrós S. Surface charge tunability as a powerful strategy to control electrostatic interaction for high efficiency silencing, using tailored oligopeptide-modified poly(beta-amino ester)s (PBAEs). *Acta Biomater.* 2015;20:82-93. doi:10.1016/j.actbio.2015.03.029
+
+7. Segovia N, Dosta P, Cascante A, Ramos V, Borrós S. Oligopeptide-terminated poly(β-amino ester)s for highly efficient gene delivery and intracellular localization. *Acta Biomater.* 2014;10(5):2147-2158. doi:10.1016/j.actbio.2013.12.054
+
+8. Dosta P, Demos C, Ramos V, et al. Delivery of siRNA to Endothelial Cells In Vivo Using Lysine/Histidine Oligopeptide-Modified Poly(β-amino ester) Nanoparticles. *Cardiovasc Eng Technol.* 2021;12(1):114-125. doi:10.1007/s13239-021-00518-x
+
+9. Fornaguera C, Guerra-Rebollo M, Ángel Lázaro M, et al. mRNA Delivery System for Targeting Antigen-Presenting Cells In Vivo. *Adv Healthc Mater.* 2018;7(17). doi:10.1002/adhm.201800335
+
+10. Piperno A, Sciortino MT, Giusto E, Montesi M, Panseri S, Scala A. Recent advances and challenges in gene delivery mediated by polyester-based nanoparticles. *Int J Nanomedicine.* 2021;16:5981-6002. doi:10.2147/IJN.S321329
+
+11. Karlsson J, Rhodes KR, Green JJ, Tzeng SY. Poly(beta-amino ester)s as gene delivery vehicles: challenges and opportunities. *Expert Opin Drug Deliv.* 2020;17:1395-1410. doi:10.1080/17425247.2020.1796628
+12. Harris TJ, Green JJ, Fung PW, Langer R, Anderson DG, Bhatia SN. Tissue-specific gene delivery via nanoparticle coating. *Biomaterials*. 2010;31(5):998-1006. doi:10.1016/j.biomaterials.2009.10.012
+
+13. Mirón-Barroso S, Domènech EB, Trigueros S. Nanotechnology-based strategies to overcome current barriers in gene delivery. *Int J Mol Sci*. 2021;22(16). doi:10.3390/ijms22168537
+
+14. Kaczmarek JC, Kauffman KJ, Fenton OS, et al. Optimization of a Degradable Polymer-Lipid Nanoparticle for Potent Systemic Delivery of mRNA to the Lung Endothelium and Immune Cells. *Nano Lett*. 2018;18(10):6449-6454. doi:10.1021/acs.nanolett.8b02917
+
+15. Sanjoh M, Miyata K, Christie RJ, et al. Dual environment-responsive polyplex carriers for enhanced intracellular delivery of plasmid DNA. *Biomacromolecules*. 2012;13(11):3641-3649. doi:10.1021/bm301095a
+
+16. García-Fernández C, Virgilio T, Latino I, et al. Stealth mRNA nanovaccines to control lymph node trafficking. *Journal of Controlled Release*. 2024;374:325-336. doi:10.1016/j.jconrel.2024.08.018
+
+17. Lucana MC, Lucchi R, Gosselet F, Díaz-Perlas C, Oller-Salvia B. BrainBike peptidomimetic enables efficient transport of proteins across brain endothelium. *RSC Chem Biol*. 2023;5(1):7-11. doi:10.1039/d3cb00194f
+
+18. Navalón-López M, Dols-Perez A, Grijalvo S, Fornaguera C, Borrós S. Unravelling the role of individual components in pBAE/polynucleotide polyplexes in the synthesis of tailored carriers for specific applications: on the road to rational formulations. *Nanoscale Adv*. 2023;5(6):1611-1623. doi:10.1039/d2na00800a
+
+19. Rejman J, Oberle V, Zuhorn IS, Hoekstra D. Size-dependent internalization of particles via the pathways of clathrin-and caveolae-mediated endocytosis. *Biochem J*. 2004;377:159-169. doi:10.1042/bj20031253
+
+20. Panyam J, Labhasetwar V. Biodegradable nanoparticles for drug and gene delivery to cells and tissue. *Adv Drug Deliv Rev*. 2003;55(3):329-347. doi:10.1016/S0169-409X(02)00228-4
+
+21. Bagheri-Josheghani S, Bakhshi B, Najar-Perayeh S. The Influence of Nanoparticle on Vaccine Responses against Bacterial Infection. *J Nanotechnol*. 2022;2022(1):1-15. doi:10.1155/2022/6856982
+22. Ye H, Wang L, Huang R, et al. Superior Antifouling Performance of a Zwitterionic Peptide Compared to an Amphiphilic, Non-Ionic Peptide. *ACS Appl Mater Interfaces*. 2015;7(40):22448-22457. doi:10.1021/acsami.5b06500
+
+23. Li Q, Wen C, Yang J, et al. Zwitterionic Biomaterials. *Chem Rev*. 2022;122(23):17073-17154. doi:10.1021/acs.chemrev.2c00344
+
+24. Yuan Z, Li B, Niu L, et al. Zwitterionic Peptide Cloak Mimics Protein Surfaces for Protein Protection. *Angewandte Chemie - International Edition*. 2020;59(50):22378-22381. doi:10.1002/anie.202004995
+
+25. Liu T, Bao B, Li Y, Lin Q, Zhu L. Photo-responsive polymers based on o-Nitrobenzyl derivatives: from structural design to applications. *Prog Polym Sci*. 2023;146:101741. doi:10.1016/j.progpolymsci.2023.101741
+
+26. Lucchi R, Lucana MC, Escobar-Rosales M, Díaz-Perlas C, Oller-Salvia B. Site-specific antibody masking enables conditional activation with different stimuli. *N Biotechnol*. 2023;78:76-83. doi:10.1016/j.nbt.2023.10.004
+
+27. Lucana MC, Arruga Y, Petrachi E, Roig A, Lucchi R, Oller-Salvia B. Protease-Resistant Peptides for Targeting and Intracellular Delivery of Therapeutics. *Pharmaceutics*. 2021;13(12):2065. doi:10.3390/pharmaceutics13122065
+
+28. Oller-Salvia B, Sánchez-Navarro M, Giralt E, Teixidó M. Blood-brain barrier shuttle peptides: An emerging paradigm for brain delivery. *Chem Soc Rev*. 2016;45(17):4690-4707. doi:10.1039/c6cs00076b
+
+29. Cecchelli R, Aday S, Sevin E, et al. A stable and reproducible human blood-brain barrier model derived from hematopoietic stem cells. *PLoS One*. 2014;9(6). doi:10.1371/journal.pone.0099733
+
+30. Dehouck MP, Tachikawa M, Hoshi Y, et al. Quantitative Targeted Absolute Proteomics for Better Characterization of an In Vitro Human Blood–Brain Barrier Model Derived from Hematopoietic Stem Cells. *Cells*. 2022;11(24). doi:10.3390/cells11243963
+
+31. Tian X, Leite DM, Scarpa E, et al. On the shuttling across the blood-brain barrier via tubule formation: Mechanism and cargo avidity bias. *Sci Adv*. 2020;6:4397-4424. doi:10.1126/sciadv.abc4397
+
+32. Bukchin A, Sanchez-Navarro M, Carrera A, et al. Amphiphilic Polymeric Nanoparticles Modified with a Protease-Resistant Peptide Shuttle for the Delivery of SN-38 in Diffuse
+33. Zhang B, Sun X, Mei H, et al. LDLR-mediated peptide-22-conjugated nanoparticles for dual-targeting therapy of brain glioma. *Biomaterials*. 2013;34(36):9171-9182. doi:10.1016/j.biomaterials.2013.08.039

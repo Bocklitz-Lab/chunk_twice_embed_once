@@ -1,0 +1,271 @@
+Impact of dumpsite-derived compost on heavy metal accumulation in cultivated maize and spinach plants
+
+Mathew Gideon1, Kuzmin Anton2, Mercy O. Boyi3, Basma T. Abd-Elhalim4*
+
+1Department of Environment, Ministry of Environment and Natural Resources, Kaduna State, Nigeria.
+2Department of Agricultural Products Processing, Mordovia State University, Saransk, Russia.
+3Department of Chemistry, Faculty of Science, Nigerian Defence Academy Kaduna State, Nigeria.
+4Department of Agricultural Microbiology, Faculty of Agriculture, Ain Shams University, Hadayek Shubra, Cairo, 11241, Egypt.
+
+*Corresponding author: Basma T. Abd-Elhalim (BA)
+Department of Agricultural Microbiology, Faculty of Agriculture, Ain Shams University, Hadayek Shubra, Cairo, 11241, Egypt.
+Email: basma.talaat@agr.asu.edu.eg
+ORCID: 0000-0002-3009-332X
+Phone: +201007025808
+
+Authors information
+
+1- Mathew Gideon
+Affiliation: Department of Environment, Ministry of Environment and Natural Resources, Kaduna State, Nigeria.
+E-mail: Mathewace8@gmail.com
+ORCID: 0000-0002-9269-9722
+Phone number: +2348138962265
+
+2- Kuzmin Anton
+Affiliation: Department of Agricultural Products Processing, Mordovia State University, Saransk, Russia.
+E-mail: Kuzmin.a.m@yandex.ru
+ORCID: 0000-0002-9371-8702
+Phone number: +7 927 176-59-60
+
+3- Mercy Omawumi Boyi
+Affiliation: Chemistry Department, Faculty of Science, Nigerian Defence Academy Kaduna.
+E-mail: Mercyboi2015@gmail.com
+Phone number: +234 805 322 0651.
+
+4- Basma T. Abd-Elhalim (Corresponding author)
+Affiliation: Department of Agricultural Microbiology, Faculty of Agriculture, Ain Shams University, Shubra El-Khaimah, Cairo 11241, Egypt.
+E-mail: basma.talaat@agr.asu.edu.eg
+ORCID: 0000-0002-3009-332X
+Phone number: +201007025808
+Impact of dumpsite-derived compost on heavy metal accumulation in cultivated maize and spinach plants
+
+Background
+Using compost from big dumpsites as a soil supplement has become common practice in agricultural settings because of the high expense of artificial fertilizers. In certain situations, farmers even level smaller dumpsites and use the area for crop growth. The present investigation examined the levels of heavy metals (Cd, Cr, Cu, Mn, Ni, Fe, Pb, Zn) present in compost from waste sites, cultivation soil, maize plants, and spinach crops. The study's findings showed that the quantities of heavy metals in the various samples examined varied significantly. The compost from dumps showed higher than EU standards for Cd, Cu, Ni, Pb, and Zn. The compost sample had higher amounts of Cd (6.00 mg/kg), Cr (89.00 mg/kg), Cu (21.00 mg/kg), Mn (101.00 mg/kg), Ni (17.12 mg/kg), Fe (1570.02 mg/kg), Pb (29.31 mg/kg), and Zn (315.18 mg/kg). On the other hand, modest amounts of heavy metals were found in the soil used for agriculture; these concentrations were nonetheless higher than EU standards for Cd, Cr, Mn, Ni, and Zn, and for Mn (12.98 mg/kg), Cu (1.72 mg/kg), Mn (12.98 mg/kg), Ni (2.43 mg/kg), Fe (520.11 mg/kg), Pb (0.98 mg/kg), and Zn (67.31 mg/kg). While the quantities of heavy metals in maize plants and spinach crops were typically lower than those in compost from waste sites, they were nevertheless higher than the limits set by the European Union for several metals. Cd > Pb > Cu > Ni > Cr > Zn > Fe > Mn was the sequence in which plants absorbed metals. As a result, this study emphasizes the possible health concerns connected to eating crops produced in compost or soil that has been contaminated with heavy metals, as well as the significance of ongoing monitoring and remediation activities to guarantee food safety and environmental health.
+
+Keywords
+Dumpsite Compost, Environmental pollution, Heavy Metals, Maize, Human and Animal Health, Spinach.
+
+Background
+Environmental degradation brought on by uncontrolled trash disposal in open dumpsites has become a major problem for humanity over time. Lack of competent waste management techniques has led to incorrect trash disposal in inappropriate sites in many metropolitan regions of several African countries, including Nigeria [1, 2, 3, 4]. As a result, these dumped wastes compound and turn into pollutants that have long-lasting negative effects on the environment, especially on soil and groundwater, which act as the main storage areas for pollutants [5, 6]. Metal contamination of soil can come from a variety of sources, such as open garbage disposal, industrial processes, and automobile emissions [7-10]. While certain heavy metals, such as zinc and iron, are nutrition for certain species at certain doses [8], Through the food chain, their presence in soil can become hazardous, endangering human health and the integrity of the ecosystem [12-17]. Furthermore, pollutants like chromium that are indirectly released at low quantities due to human activity might be harmful [10, 18, 19, 20]. Dumpsite soils also include elements that are necessary as nutrients, such as calcium, magnesium, potassium, and salt. Previous studies have evaluated the heavy metal contamination of dumpsite soils in great detail, providing insight into the degree of environmental deterioration and possible consequences [21, 22, 23, 24, 25]. Due to their toxicity at certain concentrations, capacity to move through food chains, and inability to biodegrade, heavy metals have a significant ecological impact on the environment and accumulate in the biosphere [26]. The health of the ecosystem and a high-quality food supply depend on healthy soil [27], gets polluted with heavy metals from household, commercial, or municipal garbage; plants then absorb these metals through their foliar or roots. Certain metals, particularly As, Cd, Hg, and Pb, can build up in different plant components and pose a concern to humans, animals, and plants [28]. Dumpsites are a contributing factor to heavy metal pollution in soil, including As, Cd, Co, Cu, Fe, Hg, Mn, Pb, Ni, and Zn [26]. High concentrations of heavy metals build up in vegetables cultivated in polluted soil, which might be harmful to agricultural goods and the health of consumers [26]. Continuous monitoring of heavy metal pollution is essential due to their harmful impact on the environment, plants, animals, soil, water, and human health. Because heavy metals are toxic and persistent in the environment, they pose serious risks to agricultural yield and soil health. For example, lead (Pb) has a low mobility but a high bioavailability, meaning it stays on the soil surface for long periods of time [29]. In the same way, cadmium (Cd) and its compounds may move through soil, but only to the extent determined by several variables, including the pH and amount of organic matter in the soil, which are impacted by the local environmental circumstances [30]. It is noteworthy because Cd binds securely to organic material, making it stationary in soil yet easily absorbed by plants and moving up the food chain [30].
+
+https://doi.org/10.26434/chemrxiv-2024-3n8wx-v4 ORCID: https://orcid.org/0000-0002-9269-9722 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+Heavy metal pollution of soil, as demonstrated by [31], is associated with higher levels of these metals, lower levels of organic matter and nutrients, a decreased ability to retain water, and a decreased ability to exchange ions. High concentrations of heavy metals in soil negatively impact the soil biota by interfering with important microbial activities and lowering microbial activity and abundance [31]. By changing the microbial population that oversees synthesising enzymes, these metals also have an indirect effect on the activity of soil enzymes [30].
+
+As [32] highlight, pollution causes a reduction in specific cation adsorption, which changes the pH of the soil and inhibits enzymatic activity. This prevents soil organic matter (SOM) from mineralizing and the cycle of nutrients. As per the earlier research by [30], soil enzyme activity did not significantly change at a Cd concentration of 10 μg/g. However, an increase to 50 μg/g led to a decrease in enzyme activity, which was more noticeable in sandy loam soils as opposed to loam or clay loam soils. Additionally, [33] reported that urease activity completely vanished in 2000 μg/g of heavy metals including Zn²⁺ and Cu²⁺.
+
+The persistence of heavy metals in ecosystems and their accumulation in a variety of creatures, including plants, pose a serious global environmental issue. Particularly well-known for their harmful effects, even at low concentrations, are the heavy metals mercury, lead, cadmium, silver, and chromium [34, 35]. Various variables, including temperature, humidity, organic matter content, pH, and nutrient availability, affect the absorption and accumulation of these heavy metals in plant tissues [36]. According to [36], increasing transpiration rates during the summer months in spinach resulted in a higher absorption of metals such as cadmium (Cd), zinc (Zn), chromium (Cr), and manganese (Mn). On the other hand, winter saw a greater accumulation of metals such as copper (Cu), nickel (Ni), and lead (Pb), maybe because of the combination of high outside temperatures and low humidity, which promoted metal absorption. Furthermore, it is anticipated that the faster breakdown of organic matter in the summer would release heavy metals into the soil solution, which will exacerbate plant absorption.
+
+Due to the high expense of inorganic fertilizers, farmers are increasingly employing huge dumpsite composted soil as a soil supplement (Figure 1). Farmers even level smaller dumpsites and use the space for growing crops in certain instances. Because these dumpsites dispose of different kinds of trash, they frequently have increased quantities of trace metals. As a result, in addition to vital nutrients for growth and development, plants cultivated in such soil are probably going to absorb these trace metals. As of right now, there is no published research on plants’ ability to absorb trace metals from Sabon Tasha dumpsite soil in the Kaduna Metropolis. This study is to explore the absorption of trace metals by maize and spinach planted in soil composted from solid waste removed from a big dumpsite, given the prevalence of renal, gastrointestinal, and cancer-related problems in Nigeria. Our goals are to determine the concentration of trace metals in the plants, grow vegetables and maize in the composted waste soil, and measure the amount of trace metals present in the soil.
+
+---
+
+Fig 1. Excavated dumpsite compost bagged for transportation and application on farmlands.
+
+Materials and methods
+
+Description of study area
+The research area, Sabon Tasha Railway Station, is in Kaduna State, Nigeria's Chikun Local Government Area (Figure 2). The northern Nigerian state of Kaduna is known for its sporadic short trees, shrubs, and grasses. Its soils are primarily loamy to sandy, with some clay pockets thrown in. Seven states border Kaduna State geographically: Kano to the northeast, Bauchi and Plateau to the east, Nasarawa and the Abuja Federal Capital Territory to the south, and Niger to the west. Zamfara and Katsina are Kaduna's northern neighbours. Between latitudes 10°38'58" N and 10°25'36" N and longitudes 7°22'14" E and 7°32'00" E are Kaduna State's coordinates [37, 38, 39].
+
+**Fig 2.** Location of study area within the state and the country.
+
+Environmental characteristics
+
+Kaduna State's natural landscape is characterized by a diversity of flora, such as small trees, shrubs, and grasses, which are indicative of the semi-arid to sub-humid climatic conditions that are common in the area. The area's land usage and agricultural activities are impacted by the soil composition, which is primarily loamy to sandy with sporadic areas of clay.
+
+Regional context
+
+Kaduna State borders numerous other states, each of which influences the state's biological and socioeconomic characteristics. Its northern neighbours, Zamfara and Katsina, share similar semi-arid environments and agricultural practices. Given that Kano State is a prominent industrial and commercial centre in Nigeria, the boundary with it to the northeast is noteworthy. There are topographical and vegetational changes along the eastern borders with Bauchi and Plateau States, the latter of which is distinguished by its higher altitudes and milder temperature. The state's closeness to Nigeria's political and administrative hub is reflected in its southern boundary with Nasarawa and the Abuja Federal Capital Territory. Furthermore, there are prospects for interstate trade and cross-cultural interchange along the western border with Niger State.
+
+Sample collection and preparation
+
+To guarantee the acquisition of representative samples for heavy metal analysis from the composted soil, the cultivated garden area, and the dumpsite, the sampling technique was carried out with great care. The steps in the sampling process are as follows: With the use of a rake, all surface trash and debris within the dumpsite were cleaned out of the sample locations. This made the composted soil underneath easier to reach. To acquire full composted soil samples, the earth was dug down with a shovel to a depth of around 1.33 meters. To avoid interfering with the study, non-degraded plastic items were physically removed during excavation. The magnetic metals in the composted soil samples were extracted using a 1 kg bar magnet. After that, manual selection was
+used to exclude any metals that were not magnetic. A specified garden area was then filled with sacks containing the gathered composted soil. Both the garden land and the composted soil were tested in tiny containers before application onto the garden land for a later heavy metal analysis. The sampling containers were carefully cleaned with hot water and soap to reduce contamination, and then they were properly rinsed to get rid of any remaining impurities [40].
+
+**Planting experiment**
+
+The garden plot with the composted soil was planted with maize and spinach. Throughout the cultivation phase until harvest, no further soil amendments or fertilizers were applied to the plants; instead, deionized water was utilized for irrigation. The plants (Figure 3) were ready for harvesting after 40 days of development. Using a knife, each plant was carefully picked, and the different parts were combined. The plant samples were then rinsed in deionized water to get rid of any remaining dirt or dust particles. After being cleaned, the plant samples were put into black plastic bags, secured tightly, and labelled with identification information. The Multi-User Laboratory, Chemistry Department, Ahmadu Bello University, Zaria, received these samples after that to do additional analysis. The plant samples were dehydrated in an oven set to 40°C as soon as they arrived at the lab. The samples were dried, ground into a fine powder, and then placed in previously cleaned plastic bottles to be examined for heavy metals. [40].
+
+![Fig 3. Spinach and maize cultivated using dumpsite composted soil.](image)
+
+**Determination of heavy metals**
+
+The heavy metal analysis was conducted using Microwave Plasma- Atomic Emission Spectroscopy (MP-AES42000, Agilent Technologies, USA). German supplier Riedel-de Haen provided laboratory quality hydrochloric and nitric acids. Agilent Technology USA provided stock standard solutions at 500 mg/L concentrations for the elements’ cadmium, chromium, copper, iron, manganese, nickel, lead, and zinc. The material was prepared for analysis by adhering to a strict pre-treatment methodology [41, 42]. Every glassware that was used during the digestion process was thoroughly cleaned, first immersed in an overnight solution of 5% (v/v) nitric acid, then rinsed with deionized water and dried using a lab drier. The materials were broken down using a 3:1 nitric-hydrochloric acid combination in preparation for the acid digestion procedure. Weighed each sample precisely at 0.5 g using the ED224S Sartorius There was an analytical equilibrium. After adding 7.5 mL of 65% nitric acid and 2.5 mL of 30% hydrochloric acid to the samples, the mixture was heated for 4 hours at 120°C and then allowed to cool. Once digestion was complete, each digested sample was mixed, cleaned, and filtered through Whatman No. 1 Filter paper with the addition of 20 mL of deionized water. To ensure precision and consistency in the analysis that followed, a suitable amount of deionized water was added to bring the final
+volume up to the mark of a 50 mL volumetric flask. The following equation was used to calculate the actual concentration, which was represented in mg/kg:
+
+\[
+\text{Actual Concentration} = \frac{\text{Instrument Reading} \times \text{Dilution Factor}}{\text{Sample Weight}}
+\]  
+
+Statistical analysis
+
+T-statistics were used to analyze three duplicate samples with a 95% confidence level. The findings are displayed as means ± standard deviations, with p < 0.01 denoting statistical significance.
+
+Results
+
+As shown in Table 1 and Figures 4 and 5, the concentration of trace metals (Cd, Cr, Cu, Mn, Ni, Fe, Pb, and Zn) in compost from waste sites, cultivation soil, maize plants, and spinach crops was measured and compared to the limitations of Directive 2014/118/EU. The percent of heavy metals in maize plants and spinach crops growing in the soil varied. Although the amounts of Cd, Cr, Cu, Mn, Ni, Pb, and Zn were higher than those allowed by the EU, they were still comparatively lower than those discovered in compost from waste sites, suggesting that the soil had mitigated some of the effects. All the heavy metals’ computed index values were less than 1, meaning that, on average, the concentrations of these metals in spinach and maize vegetables were lower than those in compost from waste sites and cultivated soil.
+
+Table 1. Concentrations of heavy metal of all samples analysed in mg/kg.
+
+| Concentration (mg/kg)/ Trace metals | Cd    | Cr    | Cu    | Mn    | Ni    | Fe    | Pb    | Zn    |
+|-------------------------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| Dumpsite compost                    | 6.00  | 89.00 | 21.00 | 101.00| 17.12 | 1570.02| 29.31 | 315.18|
+| ±0.02                              | ±0.63 | ±0.32 | ±2.01 | ±0.23 | ±15.21| ±0.31 | ±2.23 |
+| Soil for cultivation               | 0.40  | 21.31 | 1.72  | 12.98 | 2.43  | 520.11| 0.98  | 67.31 |
+| ±0.01                              | ±0.01 | ±0.01 | ±0.15 | ±0.08 | ±5.31 | ±0.01 | ±1.04 |
+| Total in Soil                      | 6.40  | 110.31| 22.72 | 113.98| 19.55 | 2090.13| 30.29 | 382.49|
+| ±0.03                              | ±0.95 | ±0.33 | ±2.16 | ±0.31 | ±20.52| ±0.32 | ±3.27 |
+| Maize plant                        | 5.88  | 47.17 | 17.01 | 41.46 | 11.56 | 832.10| 24.07 | 164.92|
+| ±0.03                              | ±0.51 | ±0.05 | ±0.36 | ±0.11 | ±9.57 | ±0.09 | ±3.06 |
+| Spinach vegetable                  | 5.94  | 54.29 | 18.69 | 50.53 | 12.07 | 910.60| 26.10 | 180.45|
+| ±0.02                              | ±0.40 | ±0.17 | ±0.69 | ±0.09 | ±12.20| ±0.12 | ±1.70 |
+| Absorbed by maize                  | 0.52  | 63.14 | 5.71  | 72.52 | 7.99  | 1258.03| 6.22  | 217.57|
+| ±0.01                              | ±0.44 | ±0.28 | ±1.8  | ±0.2  | ±10.95| ±0.23 | ±0.21 |
+| Absorbed by spinach                | 0.46  | 56.02 | 4.03  | 63.45 | 7.48  | 1179.53| 4.19  | 202.04|
+| (Directive 2014/118/EU) Limit       | ±0.01 | ±0.55 | ±0.16 | ±1.47 | ±0.22 | ±8.32 | ±0.20 | ±1.57 |
+| NL= No Limit. The EU does not typically set a specific limit for iron in agricultural soil as it is considered an essential nutrient. |
+Fig 4. Concentration of Cd, Cu, Ni and Pb present in soil and plant samples.
+
+Fig 5. Concentration of Cr, Mn, Fe and Zn present in soil and plants samples.
+Table (2) presents a detailed summary of the outcomes derived from the t-tests carried out to contrast the uptake of different trace metals by spinach and maize.
+
+### Table 2. The calculated p-values for each Heavy metal absorbed by maize and spinach.
+
+| Concentration (mg/kg) | Trace metals | Cd | Cu | Mn | Ni | Fe | Pb | Zn |
+|----------------------|--------------|----|----|----|----|----|----|----|
+| Absorbed by Maize    |              | 0.52± | 63.14 | 5.71 | 72.52 | 7.99 | 1258.03 | 6.22 | 217.57 |
+|                      |              | 0.01 ±0.44 | ±0.28 | ±1.8 | ±0.2 | ±10.95 | ±0.23 | ±0.21 |
+|                      |              | 0.46 | 56.02 | 4.03 | 63.45 | 7.48 | 1179.53 | 4.19 | 202.04 |
+| Absorbed by Spinach  |              | ±0.01 | ±0.55 | ±0.16 | ±1.47 | ±0.22 | ±8.32 | ±0.20 | ±1.57 |
+| (Directive 2014/118/EU Limit) | | 1.50 | 100.00 | 140.00 | 420.00 | 70.00 | NL | 100.00 | 300.00 |
+| p-Value              |              | 0.003 | <0.001 | <0.001 | 0.002 | 0.038 | <0.001 | <0.001 | <0.001 |
+| Significant Difference | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+
+### Discussions
+
+The current study measured the concentrations of heavy metals (Cd, Cr, Cu, Mn, Ni, Fe, Pb, Zn) in cultivation soil, compost from waste sites, maize plants, and spinach crops. The results of the investigation indicated that there were large differences in the amounts of heavy metals in the different samples that were looked at. The limits outlined in Directive 2014/118/EU were measured and used to compare the quantities of trace metals (Cd, Cr, Cu, Mn, Ni, Fe, Pb, and Zn) in the compost from the dumpsite suggested the possibility of contamination (Directive 2014/118/EU). However, the amounts of Cr, Mn, and Fe in the compost from dumpsites were within permissible limits. All heavy metal concentrations in the farmed soil demonstrated notably lower levels of contamination as compared to compost from a dumpsite. However, higher than permitted limits set by the EU Directive were the amounts of Cd, Cr, Mn, Ni, and Zn in cultivable soil. This increases the risk of contaminated soil, which might be detrimental to crop growth and food safety. The soil-grown spinach and maize plants had different concentrations of heavy metals. There was some mitigation by the soil since, although the concentrations of Cd, Cr, Cu, Mn, Ni, Pb, and Zn were higher than the EU limits, they were still comparatively lower than those reported in compost from trash sites. Nonetheless, it is significant that maize plants' Cd contents were higher than the EU limit, potentially endangering the health of consumers. Trace metal study on soil and soil around a municipal solid waste dumpsite produced similar findings [10, 25, 40, 41, 42, 43]. To guarantee food safety and environmental health, more monitoring and remediation operations are essential, since the index values still point to severe pollution.
+
+The trace metal concentration absorption index value was determined to be in the following order: Cd = 0.92, Pb = 0.83, Cu = 0.79, Ni = 0.60, Cr = 0.46, Zn = 0.45, Fe = 0.42, and Mn = 0.40, in that order. Because cadmium (Cd) tends to form soluble complexes with specific soil components, such as iron and manganese oxides, it is highly soluble in soil, especially in acidic environments [44]. This process increases the solubility of cadmium in acidic soils with lower pH values, which increases its availability for plant absorption [45]. Additionally, compared to neutral or alkaline soils, acidic soils have greater solubility for lead (Pb), which makes it easier for plants to absorb [46]. Studies investigating the effects of pH and organic matter on lead adsorption and desorption in soil have shown that acidic conditions increase the solubility of lead [44]. With respect to pH and organic matter concentration, copper (Cu) has a moderate solubility in soil. Studies show that Cu solubility increases in acidic soils but decreases in alkaline ones, and that complex building with organic matter and soil minerals influences Cu availability [47]. Increased solubility of nickel (Ni) in acidic conditions and the formation of soluble complexes with certain soil minerals and organic matter augment Ni's availability for plant absorption [45].
+
+Soil pH, organic matter concentration, and redox potential all have a minor impact on zinc (Zn) solubility. Research indicates that zinc is more soluble in acidic soils, where it interacts with soil minerals and organic matter to generate complexes that affect the zinc's availability for plant absorption [44]. The solubility of chromium (Cr) in soil is comparatively poor, especially when it comes to its trivalent state, and it gets less the higher the pH. The complex synthesis of soil minerals and organic matter affects the solubility and availability of the material for plant absorption [46]. With pH having a major impact on the dynamics of its solubility, iron (Fe) shows low solubility in soil under aerobic settings but increases in solubility under anaerobic conditions [46]. The solubility of manganese (Mn) is comparatively low in oxidized forms, and pH and redox potential affect its availability for...
+absorption by plants. Research indicates that Mn solubility decreases as pH rises because Mn (II) precipitates at higher pH values [45].
+
+Corn absorbs a greater concentration of cadmium than spinach does, indicating that maize may be able to accumulate cadmium from the soil more effectively. The cadmium (Cd) p-value (0.003) shows a significant difference in cadmium absorption between maize and spinach. The extremely low p-value (<0.001) for chromium (Cr) indicates a significant difference in chromium absorption between spinach and maize. While spinach has a significantly greater chromium uptake than maize, there may be a danger of chromium buildup in maize crops.
+
+When comparing the absorption of copper (Cu) between spinach and maize, the p-value for Cu is less than 0.001.
+
+Compared to spinach, maize absorbs a greater quantity of copper, suggesting that various plant species may have distinct copper bioavailability and absorption methods. The manganese (Mn) p-value (0.002) indicates a significant difference in manganese absorption between spinach and maize. Specifically, maize exhibits a greater manganese uptake than spinach, showing different methods for manganese accumulation in the two crops.
+
+Although at a slightly higher significance level than other metals, the nickel (Ni) p-value (0.038) between maize and spinach indicates a significant difference in nickel absorption. Maize shows a slightly higher uptake of nickel than spinach, suggesting differences in nickel accumulation patterns in different plant species. The Iron (Fe) p-value (<0.001) indicates a substantial variation in iron absorption between spinach and maize. Specifically, maize absorbs more iron than spinach, suggesting possible variations in the two crops’ methods of iron uptake and use.
+
+The remarkably low p-value (<0.001) for lead (Pb) indicates a noteworthy distinction in lead absorption between spinach and maize. Specifically, maize exhibits a significantly greater uptake of lead than spinach, indicating a possible risk of lead buildup in maize crops. The remarkably low p-value (<0.001) for zinc (Zn) shows a substantial variation in zinc absorption between spinach and maize. Maize has a much greater zinc uptake than spinach, suggesting that the two crops have different zinc uptake mechanisms and accumulation strategies.
+
+The findings highlight how crucial it is to comprehend how various plant species absorb trace metals differently since this has consequences for agricultural practices, environmental contamination, and food safety. The results can help develop agricultural management plans that will reduce the build-up of potentially dangerous trace metals in crops and guarantee the safety and security of food.
+
+Two basic foods, spinach and maize, have different capacities to absorb trace metals from polluted soil. According to our research, there are significant variations in the trace metal contents of different crops, with spinach often displaying greater levels of metal accumulation than maize. There are a number of reasons for this variation in metal absorption. Because of its wide leaf shape, spinach has a lot of surface area on which to absorb metal through the roots and leaves. Compared to spinach, maize has a distinct root architecture and a smaller leaf surface area, which may restrict its ability to absorb metals. Variations in the mechanics of metal uptake are also quite important. Spinach's tissues may accumulate more metals because it contains higher affinity transporters or more effective metal uptake systems [47].
+
+Although eating maize may not have as much of an impact on human health as eating spinach, new study by [48] indicates that the stalk of maize absorbs more metal than the leaves and cobs combined, with the grain absorbing the least amount of metal. However, there is a serious risk to these creatures when cattle consume the harvested maize plants. The availability of metals in the soil has a big impact on how well plants absorb them. Different metals are more mobile and bioavailable than others, and soil pH, organic matter concentration, and redox potential can all affect metal availability. Compared to maize, spinach may more readily absorb metals from the soil that are more soluble and bioavailable.
+
+Plant growth stage can have an impact on the dynamics of metal absorption. Known for its quick vegetative development, spinach may absorb metals at this stage faster than maize, which takes longer to mature. As noted by [49], this disparity emphasizes the increased danger that comes with eating spinach as opposed to maize grain.
+
+A further factor affecting the bioavailability and absorption of metals by plants is their chemical speciation in the soil. Research has demonstrated that plants are more able to absorb soluble forms of metals, such lead and mercury, than insoluble forms. [44, 50, 51].
+
+Conclusion
+The investigation highlights the serious heavy metal pollution of agricultural soil and compost from waste sites, which poses threats to crop development and food safety. Important discoveries in compost from waste sites included high quantities of Cd, Cr, Cu, Mn, Ni, Pb, and Zn, all of which were over the limits specified by Directive
+2014/118/EU. Nonetheless, the levels of Cr, Mn, and Fe were within allowable bounds. In contrast, lower quantities of all heavy metals were found in soil intended for agriculture as opposed to compost from a waste. However, amounts of Cd, Cr, Mn, Ni, and Zn exceeded EU standards, although concentrations of Cu and Pb were still within allowable bounds. Maize plants had moderate amounts of Cd, Cr, Cu, Mn, Ni, Pb, and Zn, with Cd concentrations above the EU limit. However, in comparison with compost from waste sites and cultivated soil, other metal concentrations were often lower. Comparable amounts of Cd, Cr, Cu, Mn, Ni, Pb, and Zn to maize plants were also observed in spinach vegetable samples, with Cd concentrations surpassing the EU limit. In average, spinach has greater metal concentrations than maize plants, but lower than compost from trash sites. Even though no sample exceeded the limits for Pb and Ni, the index values nevertheless showed considerable contamination, especially for Pb, Cu, and Ni. The index values showed that the sequence of metal absorption by plants was Cd > Pb > Cu > Ni > Cr > Zn > Fe > Mn. In order to reduce these risks and guarantee sustainable farming practices, it is essential to carry out ongoing monitoring and corrective actions. The long-term consequences of heavy metal buildup in crops and its implications for the ecosystem and human health require more investigation.
+
+Data availability
+All data generated or analysed during this study are included in this published article.
+
+References
+1. Adewumi, J. R., Oladunjoye, M. A., & Ogunjimi, D. A. (2019). Assessment of groundwater quality in a municipal solid waste dumpsite in Abeokuta, southwestern Nigeria. Environmental Monitoring and Assessment, 191(10), 629.
+2. Ajibade, F. O., Adewumi, J. R., & Oyediran, G. O. (2019). Microbial degradation of textile dye effluent using indigenous bacteria isolated from dumpsite soil in Ogbomoso, Nigeria. Environmental Science and Pollution Research, 26(15), 15359–15370.
+3. Ojuri, O. O., Adegbite, K. A., Alagbe, S. A., & Onibokun, E. A. (2018). Social and economic challenges of municipal solid waste management in Nigeria:
+4. Al-Khatib, I. A., Kontogianni, S., Abu Nabaa, H., & Alshami, N. (2015). Sustainable waste management: Waste-to-energy incineration plants as an alternative to landfill. Journal of Environmental Management, 156, 102–113.
+5. Oluwatuyi, O. E., Adewumi, J. R., & Ajibade, F. O. (2019). Geospatial assessment of soil properties and microbial pollution in selected refuse dumpsites in Ogbomoso, Nigeria. Environmental Monitoring and Assessment, 191(3), 139.7 Alsbou, E. M., Al-Adamat, R. A., & Rababah, A. (2018). Heavy metals contamination of soil and water in the vicinity of Al-Mafraq landfill, Jordan. Environmental Earth Sciences, 77(16), 571.
+6. Oluwatuyi, O. E., & Ojuri, O. O. (2017). Effect of dumpsite leachate on groundwater quality in Ogbomoso metropolis, Nigeria. Applied Water Science, 7(8), 4345–4354.
+7. Alsbou, E.M.E., Al-Khashman, O.A., (2018). Heavy metal concentrations in roadside soil and street dust from Petra region, Jordan. Environ. Monit. Assess. 190, 1–13. https://doi.org/10.1007/s10661-017-6409-1.
+8. Akinbile, C.O., Ajibade, F.O., Oluwole, O., (2016a). Soil quality analysis for dumpsite environment in a university community in Nigeria. J. Eng. Eng. Technol. 10, 68–73.
+9. Ojuri, O. O., Ojuri, L. O., Ndambuki, J. M., Adeola, A. J., & Taiwo, A. M. (2016). Heavy metals and hydrocarbon concentrations in soil from automobile workshops in Ibadan, Nigeria: Effects of car washing on the environment. Environmental Earth Sciences, 75(2), 1–10.
+10. Kanmani, S and Gandhimathi, R. (2013). Assessment of heavy metal contamination in soil due to leachate migration from an open dumping site. Appl Water Sci, 3, 193–205. http://doi.10.1007/s13201-012-0072-z.
+11. Akinbile, C.O., Erazua, A.E., Babalola, T.E., Ajibade, F.O., (2016b). Environmental implications of animal wastes pollution on agricultural soil and water quality. Soil Water Res. 11, 172–180. https://doi.org/10.17221/29/2015-SWR.
+12. Cesaro, A., Belgiorno, V., Guida, M., Notarnicola, M., & Pirozzi, F. (2019). Municipal solid waste management and energy recovery in a circular economy perspective. Case study of the Campania Region, Italy. Waste Management, 95, 3–13.
+13. Ya–nez, L. M., Alfaro, J. A., Carreras, N. A., Mitre, G. B. (2019). Arsenic accumulation in lettuce (Lactuca sativa L.) and broad bean (Vicia faba L.) crops and its potential risk for human consumption. Heliyon 5, e01152. https://doi.org/10.1016/j.heliyon.2019.e01152.
+
+14. Aazami, J., & KianiMehr, H. (2018). Health risk assessment of heavy metals via dietary intake of five pistachio (Pistacia vera L.) cultivars collected from different geographical sites of Iran. Food and Chemical Toxicology, 118, 705–712.
+
+15. Ahmed, W., Rashid, M. T., Arif, M., Sattar, A., Mahmood, T., Nafees, M. & Ghani, S. (2018). Heavy metals contamination and their health risk assessment in drinking water from the populated urban areas of Pakistan. Journal of Chemistry, 2018.
+
+16. Welty, C. J., Sousa, M. L., Dunnivant, F. M., Yancey, P. H., (2018). High-density element concentrations in fish from subtidal to hadal zones of the Pacific Ocean. Heliyon 4,e00840. https://doi.org/10.1016/j.heliyon.2018.e00840.
+
+17. Meghea, A., Baciuc, C., Bordean, D. M., Toma, C. & Borcan, F. (2009). Characterization and assessment of heavy metal content of urban soil. Bulletin of University of Agricultural Sciences and Veterinary Medicine Cluj-Napoca. Horticuture, 66(1–2), 310–315.
+
+18. Ilori, M. O., Alabi, A. S., Amund, O. O., & Lajide, L. (2019). Levels of heavy metals and potential human health risk assessment in soils of automobile mechanic waste dumpsites in Ibadan, Nigeria. Environmental Monitoring and Assessment, 191(6), 387.
+
+19. Ugya, A. Y., Samaile, A. S., Musa, J. J., & Maitera, O. N. (2018). Assessment of heavy metals concentration and health risk in soil and plants around Challawa industrial area, Kano-Nigeria. Journal of Applied Sciences and Environmental Management, 22(7),
+
+20. Tiwari, M., Gautam, R. K., & Kumar, P. (2017). Heavy metal contamination in groundwater around an open dumpsite of Jabalpur, India. Pollution Research, 36(1), 178–182.
+
+21. Ihedioha, J. N., Ukoha, P. O., & Ekere, N. R. (2017). Soil contamination with heavy metals: Levels and ecological risk assessment around sand dumps of sand mining activities. Environmental Monitoring and Assessment, 189(11), 581.
+
+22. Ajali, P. O., Owolabi, O. A., & Odedina, G. F. (2015). Assessment of heavy metals concentration in dumpsite soils in Ado-Ekiti metropolis, Nigeria. Pollution, 1(2), 159-166.
+
+23. Azeez, J. O., Adeyemi, A. O., & Bankole, S. A. (2011). Evaluation of soil characteristics and heavy metal content of dumpsites in Abeokuta and Ifo Local Government Areas of Ogun State, Nigeria. African Journal of Environmental Science and Technology, 5(3), 189–198.
+
+24. Zhang, X., Yang, H., Cui, Z., (2018). Evaluation and analysis of soil migration and distribution characteristics of heavy metals in iron tailings. J. Clean. Prod. 172, 475–480. https://doi.org/10.1016/j.jclepro.2017.09.277.
+
+25. Opeyeemi, E. O., Fidelis, O., Temitope, F. A., Bashir, A., Ayodeji, S. O., James, R. A., Christopher, O. A. (2020). Total concentration, contamination status and distribution of elements in a Nigerian State dumpsites soil. Environmental and Sustainability Indicators 5, 100021.
+
+26. Sridevi V, Modi M, Ch MVV, Lakshmi A, and Kesavarao L. (2012). A review on integrated solid waste management. International Journal of Engineering Science and Advanced Technology, 2(5):1491–1499.
+
+27. Gebre, B. G., & Debelie, B. H. (2015). Soil heavy metals contamination and human health risk assessment around Derba Cement Factory, Ethiopia. Journal of Health and Pollution, 5(10), 49–58.
+
+28. Uguru, A. (2004). Leaching characteristics of fly ash. Environ. Geol., 46(6): 890–895.
+
+29. Akanchise T, Boakye S, Borquaye LS, Dodd M, and Darko G. (2020). Distribution of heavy metals in soils from abandoned dump sites in Kumasi, Ghana. Sci. African, 10(2020): e00614. http://doi.10.1016/j.sciaf.2020.e00614.
+
+30. Karaca A, Cetin SC, Turgay OC, and Kizilkaya R. (2010). Effects of heavy metals on soil enzyme activities. In: Soil heavy metals (Sherameti I and Varma A, ed.), pp. 237–262.
+
+31. Singh J and Kalamhdad AS. (2011). Effects of heavy metals on soil, plants, human health and aquatic life. International Journal of Research in Chemistry and Environment, 1(2): 15–21.
+
+32. Bakshi S, Banik C and He Z (2018) The impact of heavy metal contamination on soil health, In: Managing soil health for sustainable agriculture (Reicosky, ed.), 2(8), 1–36.
+
+33. Hemida SK, Omar SA, and Abdel-Mallek AY. (1997). Microbial populations and enzyme activity in soil treated with heavy metals. Water. Air. Soil Pollut., 95(1): 13–22.
+Authors information
+
+Mathew Gideon
+Affiliation: Department of Environment, Ministry of Environment and Natural Resources, Kaduna State, Nigeria.
+E-mail: Mathewace8@gmail.com
+ORCID: 0000-0002-9269-9722
+Phone number: +2348138962265
+
+6- Kuzmin Anton
+Affiliation: Department of Agricultural Products Processing, Mordovia State University, Saransk, Russia.
+E-mail: Kuzmin.a.m@yandex.ru
+ORCID: 0000-0002-9371-8702
+Phone number: +7 927 176-59-60
+
+7- Mercy Omawumi Boyi
+Affiliation: Chemistry Department, Faculty of Science, Nigerian Defence Academy Kaduna.
+E-mail: Mercyboyi2015@gmail.com
+Phone number: +234 805 322 0651.
+
+8- Basma T. Abd-Elhalim (Corresponding author)
+Affiliation: Department of Agricultural Microbiology, Faculty of Agriculture, Ain Shams University, Shubra El-Khaimah, Cairo 11241, Egypt.
+E-mail: basma.talaat@agr.asu.edu.eg
+ORCID: 0000-0002-3009-332X
+Phone number: +201007025808
+
+Corresponding author
+Correspondence to Basma T. Abd-Elhalim.
+
+Authors contribution
+M.G., K.A., and M.B. designed and write the manuscript. M.G., K.A., and M.B. analysed the generated data. B.T. revised the manuscript and made the corrections.
+
+Acknowledgements
+The authors would like to acknowledge Mrs. Linda Asabat Yakubu, the Permanent Secretary Ministry of Environment and Natural Resources Kaduna State for her contributions in monitoring and Logistics.
+
+Conflicts of Interest
+The authors declare no competing financial interest.
+
+Funding
+No funding.

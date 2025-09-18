@@ -1,0 +1,58 @@
+{
+  "dataset_revision": "7fb14716e4106b72f51a16e682e5cd2d67e9bd70",
+  "evaluation_time": 6.062978982925415,
+  "kg_co2_emissions": null,
+  "mteb_version": "1.15.7",
+  "scores": {
+    "test": [
+      {
+        "cosine_accuracy": 0.90380859375,
+        "cosine_accuracy_threshold": 0.7205815315246582,
+        "cosine_ap": 0.30679735237515576,
+        "cosine_f1": 0.4444444444444445,
+        "cosine_f1_threshold": 0.6909903287887573,
+        "cosine_precision": 0.45,
+        "cosine_recall": 0.43902439024390244,
+        "dot_accuracy": 0.90380859375,
+        "dot_accuracy_threshold": 0.7205815315246582,
+        "dot_ap": 0.30679735237515576,
+        "dot_f1": 0.4444444444444445,
+        "dot_f1_threshold": 0.6909903883934021,
+        "dot_precision": 0.45,
+        "dot_recall": 0.43902439024390244,
+        "euclidean_accuracy": 0.90380859375,
+        "euclidean_accuracy_threshold": 0.7475522756576538,
+        "euclidean_ap": 0.30679735237515576,
+        "euclidean_f1": 0.4444444444444445,
+        "euclidean_f1_threshold": 0.786142110824585,
+        "euclidean_precision": 0.45,
+        "euclidean_recall": 0.43902439024390244,
+        "hf_subset": "default",
+        "languages": [
+          "eng-Latn"
+        ],
+        "main_score": 0.4444444444444445,
+        "manhattan_accuracy": 0.90283203125,
+        "manhattan_accuracy_threshold": 15.988805770874023,
+        "manhattan_ap": 0.3043553183813888,
+        "manhattan_f1": 0.44391408114558467,
+        "manhattan_f1_threshold": 17.466604232788086,
+        "manhattan_precision": 0.43457943925233644,
+        "manhattan_recall": 0.45365853658536587,
+        "max_accuracy": 0.90380859375,
+        "max_ap": 0.30679735237515576,
+        "max_f1": 0.4444444444444445,
+        "max_precision": 0.45,
+        "max_recall": 0.45365853658536587,
+        "similarity_accuracy": 0.90380859375,
+        "similarity_accuracy_threshold": 0.7205816507339478,
+        "similarity_ap": 0.30679735237515576,
+        "similarity_f1": 0.4444444444444445,
+        "similarity_f1_threshold": 0.6909904479980469,
+        "similarity_precision": 0.45,
+        "similarity_recall": 0.43902439024390244
+      }
+    ]
+  },
+  "task_name": "PubChemWikiParagraphsPC"
+}

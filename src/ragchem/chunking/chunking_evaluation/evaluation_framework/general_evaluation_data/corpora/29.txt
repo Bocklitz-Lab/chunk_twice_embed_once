@@ -1,0 +1,404 @@
+Full Paper
+
+**Evolution of Shape Anisotropy in Iron Oxides Nanocrystals under Biogenic Ligand Field and Photocatalytic Efficiency under Tropical Sunlight**
+
+**Lahur Mani Verma**$^{a,b}$, **Aejaz Ul Bashir**$^a$, **Pravin P. Ingole**$^a$, $^*$ **Satyawati Sharma**$^b$
+
+$a$ Department of Chemistry, Indian Institute of Technology Delhi, New Delhi (India) 110016  
+$b$ CRDT Indian Institute of Technology Delhi, New Delhi (India) 110016
+
+**Abstract**
+
+The continued interest in one of the ancient, well-known and earth-abundant materials, iron oxide, has been due to its fascinating magnetic, optical and redox properties. This perhaps allowed its intricate connection to the history of life on Earth. The recent spurt of interest in the properties of sustainable materials with reduced dimensions has put iron oxides again into intensive exploration for its catalytic, redox, and photoelectrochemical applications. However, the origin of the shape anisotropy in iron oxide nanocrystals and its functional link with the geochemical and photocatalytic processes remain unaddressed. We, in this work, attempted to understand their shape anisotropy induced by naturally relevant organic ligands from sugar press mud (PM) under the framework of non-classical crystallisation theory (NCCT). We further followed its emergent but dramatic behaviour during photocatalysis using an electro-analytical approach. We found in our experiment that the evolution of shape anisotropy (spheres to sheets and rods) in iron oxide nanocrystals (~24–44 nm) remains explainable using NCCT, even in the case of the PM ligands as an additive to the reaction solution. However, the differences in their photocatalytic abilities (rate constants ‘$k$’; 0.14–0.34 min$^{-1}$) could be better explained using the concept of electrochemical work function ($\Phi_{ad}^0$), and electrochemically active surface area (ESCA) than merely relying on band gap ($E_g$) and charge ($e^-/h^+$) carrier dynamics. Moreover, the findings of this work may inform the understanding of the fundamental mineralisation process in nature as well as the rationale design of a sustainable photo-catalyst.
+1.0 Introduction
+
+Iron oxides, among the many other earth-abundant mineral oxides, have been closely involved in the origin and evolution of life on Earth.\(^1\) Naturally, they occur as polymorphic mineral oxides and can show a rich structural anisotropy.\(^2\) This inherently enables them to demonstrate a wide range of physical and chemical properties. Also, their interaction with broad-spectrum sunlight is of significance to various geochemical and industrial processes. Recently, the hematite (\(\alpha\)-Fe\(_2\)O\(_3\)) and magnetite (Fe\(_3\)O\(_4\)) are being considered again as a potential catalyst for industrial photocatalysis. However, beyond the initial success of the hematite (\(\alpha\)-Fe\(_2\)O\(_3\)) in water splitting and photocatalysis, this importance is primarily attached to their abundance, chemical stability, and non-toxicity.\(^3\) Nonetheless, their inherent and often dramatic polymorphism and anisotropy can be hampering as well as a guiding factor for their photocatalytic behaviour. Furthermore, the origin of this polymorphism and anisotropy during their laboratory synthesis have hardly been fully understood and controlled.\(^4\) Also, how this mineral-substrate based interfacial structure, of industrial and geochemical importance, is fundamentally related to their electronic structure, band gap, \((E_g)\), light absorption coefficient \((\alpha)\), charge dynamics \((e^-/h^+)\), and electron \((e^-)\) transfer is also not yet fully understood.\(^5\) The foundational theoretical formulation related to this is constantly evolving.\(^6\) Thus, much remains unknown on such aspects of these oxides. Nonetheless, a few recent studies have shown that the different shapes (shape anisotropy) of the same nanoscale materials can exhibit different catalytic efficiency, but lack an appropriate justification and theoretical support vis-à-vis light-matter interaction and the interfacial dynamics.\(^7,8\) In the case of iron as a mineral, the understanding of the origin and evolution of shape anisotropy and its relation to photocatalytic behaviour can inform both the geochemical processes and sustainable photocatalyst design.\(^9\) Interestingly, we reported a similar anisotropy-dependent photocatalytic behaviour in our previous study of zinc and germanium oxide nanoparticles.\(^7,8\) Moreover, beyond the claims of Kleber et al.
+toward the role of nano-scale mineral-organic interfaces in nature, our findings indicate that an efficient industrial catalyst design must include an aspect of shape anisotropy.\textsuperscript{7} However, finding a sustainable as well as efficient laboratory methods for shape and surface-controlled synthesis is still a challenge. A few reports on nature-inspired biomimetic approaches for inorganic chemicals could be encouraging—as nature has long been known to make chemicals with ultimate control and precision.\textsuperscript{11,12} However, the understanding of the relevant natural processes controlling the shape and size of inorganic oxides appears inadequate, let alone the simulation of the natural (biological or environmental) conditions in the laboratory.\textsuperscript{13} Nevertheless, the simpler natural processes like mineralisation in geological and soil environments have also been discussed off and on for such control.\textsuperscript{14} Interestingly, some recent reports on mineralisation and crystallisation in the natural environment have discussed natural crystallisation in a synthetic context.\textsuperscript{15} It has been said that crystallisation in the natural environment is assisted by organic ligands present in soil and geological environments. This leads to precisely controlled shape and size of nanocrystals, which bear similarities to the enzymes and acid-controlled biomimetic approaches used in a laboratory setup.\textsuperscript{11} It has also been highlighted that such crystallisation generally proceeds through the non-classical crystallisation pathway (Fig.10). Nonetheless, much research effort has to be put in this direction.\textsuperscript{11,12}
+
+This work investigates the origin and evolution of shape anisotropy in iron oxide nanocrystals using biogenic (PM) as well as fine chemical-based ligands in aqueous sol-gel process under the framework of non-classical crystallisation theory. Also, beyond the traditionally known interface and material-centric approach, we utilize a less common approach\textsuperscript{16} to explain and understand the observed differences in photocatalytic behaviour of the nano-sized iron oxide-based photocatalysts with different sizes and shapes. Thus, this work offers a fresh insight into biogenic ligand-based
+anisotropic control over mineral oxides and a mechanistic understanding of structure-activity-correlation using the concept of the potential of zero charges ($E_{PZC}$), electrochemical work function ($\phi_{ad}^0$) and electrochemically active surface-active area (ESCA).
+
+2.0 Materials and Methods
+
+2.1 Materials
+
+All the chemicals were of analytical grade and were used as obtained. Analytical grade NaOH, iron salt FeSO$_4$.5H$_2$O, rhodamine 6G dye, and the surfactants methylcellulose (MC) and cetyltrimethylammonium bromide (CTAB) were obtained from Sigma Chemicals (USA). Solutions were prepared in double distilled water, and the glass wares used in the experimental work were properly cleaned and dried in a hot air oven at 110°C for 2 h before use. Sugar press mud generated via the sulphation process was procured from TR Solvents (Faridabad, Haryana, India) Pvt. Ltd.
+
+2.2 Preparations and characterization of PM extract
+
+An aqueous extract, PM, of dry sugar press mud (lignocellulosic waste material) was prepared and characterized following the methods described by Verma et al. (2023)$^7$. This extract was used in the synthesis as a capping agent in comparison with other commercially available surfactants.
+
+2.3 Synthesis of Iron Oxide Nanoparticles
+
+The Iron oxide (Fe$_x$O$_y$), nanoparticles were synthesized using the sol-gel method alternatively by acid and base hydrolysis following the process as described by Verma et al. 2023$^7$ with slight modification. The steps involved are described in Scheme 1 below.
+Scheme 1 Formation of iron oxide (Fe₂O₃) nanoparticles in an aqueous sol-gel acid (H₂SO₄) base (NaOH) hydrolysis process and the evolution of the state through reaction stages. (light blue circle indicates hydrated iron, the red circle the water molecule; head-tail entity the additive/ligand in solution; yellow circle sulfate ion, dark blue oxygen atom; (γ) surface energy of nuclei, |s| = (C/Cₑq)ₜ the supersaturation level.
+
+Briefly, a 100 mL pale green color dilute (0.5 M) aqueous solution (250 mL glass beaker) of Iron (Fe) sulphate salt was prepared in double distilled water. Slowly, the freshly prepared (15.0 mL) aqueous extract of press mud, and surfactants (CTAB; 9.0 g/ and MC; 6.0 g/) were added in three separate synthetic schemes. Followed by the slow addition of freshly prepared 6.0 M (15 mL) NaOH for base hydrolysis, and 15 mL (1:1) acid (H₂SO₄) and water were added (for acid hydrolysis) alternatively to this solution, which allowed its colour change from pale green to light green (in case of acid hydrolysis) and pale green to faint blue (in case of base hydrolysis). After a few minutes of constant stirring at 550 rpm and 32°C temperature, the solution becomes turbid, indicating the completion of hydrolysis and sol formation due to precipitation. After the next 6.0 hrs. stirring to a thick gel formation, this was dried to xerogel in a vacuum drier at 80°C and then sintered in a muffle furnace at 500°C resulting in red-brown (acid hydrolysis), dark brown (base hydrolysis) coloured iron oxide powder. This has been collected and characterized further. Other
+than the case of simple acid and base hydrolysis, the syntheses with ligands were uniformly base hydrolysis reactions.
+
+2.4 Characterizations of Iron oxide nanoparticles
+
+The sintered samples of the synthesized nanomaterial were characterized using techniques and protocol described by Verma et al. 2023. Briefly, the X-ray diffraction (XRD); Instrument: XRD X’Pert Pro (PANalytical Netherlands), microscopy; Instruments: SEM-EDX (Oxford-EDX system IE 250 X Max 80, Netherlands) and TEM (JEOL JEM-1400), vibrational modes, Instrument: FTIR spectrophotometer (Perkin-Elmer1600) in transmittance mode and UV-Vis absorption Epoch 2 microplate reader (Biotek instruments). DLS Zetasizer Ver. 7.11 (Malvern Instruments) were used for hydrodynamic diameter and zeta (ζ) potential. The summary of synthesis conditions is given in table 4.9. Further, the characterization study of the synthesized nanoparticles was performed following the protocol described by the phase and crystal structure of synthesized iron oxides nanomaterial were determined by X-ray diffraction (XRD) in the scanning angle range (2θ) of 20-80° using XRD X’Pert Pro (PANalytical Netherlands) diffractometer with Cu-Kα X-ray source (λ = 1.5406 Å). The average crystallite size was calculated using the Debye Scherrer Equation
+
+\[
+(D) = \frac{k(\lambda)}{\beta \cos \theta}
+\]
+
+Where \((D)\) is average crystallite size, \(\lambda\) is the wavelength for Cu Kα radiation 1.5406 Å, \(\beta\) is the full width at half maximum (radian) taken corresponding to the given common plane. According to Bragg’s law
+
+\[
+n\lambda = 2d(hkl) \sin \theta
+\]
+
+(where \(n = \) diffraction order \(n = 1\), \(\lambda = \) wavelength of X-ray; \(d = \) interplanar spacing) only first-order diffraction peaks were used in the analysis. The relationship between the lattice constants (a,
+b, and c) and the interplanar spacing (d) corresponding to the given planes, Miller indices (hkl) have been deducted using the following relation.
+
+\[
+\left( \frac{1}{d_{hkl}} \right)^2 = \left( \frac{2 \sin(\theta_{hkl}/2)}{\lambda} \right)^2
+\]
+
+(3)
+
+SEM-EDX (Scanning Electron Microscope with Oxford-EDX system IE 250 X Max 80, Netherlands) and TEM (JEOL JEM-1400) at an accelerating voltage of 100 kV and HR-TEM (Tecnai G2 20) were used for morphology analysis. NPs surface was analyzed using an FTIR spectrophotometer (Perkin-Elmer1600) in the spectral range of 4000–500 cm\(^{-1}\).
+
+UV-Vis absorption study was done using Epoch 2 microplate reader (scanning range 300-700nm) (Biotek instruments). Dynamic light scattering (DLS) Zetasizer Ver. 7.11 (Malvern Instruments) was used to estimate the hydrodynamic diameter (HDD) and zeta (\(\zeta\)) potential of the synthesized iron oxide NPs.\(^7\) Nanoparticle tracking analysis (NTA) for the size distribution of the NPs has been done using Nanosight 300 (Malvern panalytical) equipment. The 1:100 times diluted iron oxide NPs suspension was applied for the NTA analysis. For a schematic diagram of the green synthesis, the steps involved refer to Scheme 1. Diffuse reflectance mode UV absorption using (Lambda 1050, PerkinElmer) with UV vis resolution 0.05nm followed by Tauc analysis (equation no.4) gives the band gap of the material.
+
+\[
+(\alpha h\nu)^\gamma = a(h\nu - E_g)
+\]
+
+(4)
+
+2.5 Photocatalytic study under tropical sunlight
+
+The synthesized five iron oxide nanoparticles having different shapes, sizes, and surfaces were subjected to photocatalytic activity with dye rhodamine 6G under direct sunlight (tropical summer) of varying intensity (morning 8:30 a.m. to evening 5:00 p.m. at IIT Delhi, New Delhi, coordinates, 28.5457° N, 77.1928° E India, June 20, average relative humidity 27%, average day temp. 31 °C).
+Briefly, the 100 ml solution of Rhoda mine 6G of \((0.0596 \times 10^{-3} \text{ M})\) conc. were prepared separately in a 250 ml beaker using double distilled water. Accurately weighed 5.0 mg iron oxide nanoparticles (100mg/L) were added to the dye solutions (50 ml in part); and were sonicated for 10 min to reach adsorption-desorption equilibrium in dark condition and then, 1.0 ml of solution was withdrawn for initial measurement of absorption before exposing the solution to sunlight. After this, solutions were placed in direct sunlight, and the absorption of Rhodamine 6G (\(\lambda_{\text{max}} = 540 \text{ nm}\)) was recorded after the interval of 30 min using a UV–Visible spectrophotometer (BioTek Epoch2) resolution (1.0 nm).\(^7\)
+
+### 2.6 Kinetic measurements
+
+The photocatalytic activity is calculated using the following equation:
+
+\[
+\text{Photocatalytic activity, (PA) (\%) = } \left(1 - \frac{C_t}{C_0}\right) \times 100
+\]
+
+where \(C_t\) and \(C_0\) are the Rhodamine 6G (R6G) absorbance at 540 nm at the time \((t) = 0\) and any time ‘t’. The apparent rate constant \((k)\) of the reaction is calculated using the first-order kinetic model to describe the photocatalytic degradation of R6G is given by
+
+\[
+\ln \left(\frac{C_t}{C_0}\right) = -kt
+\]
+
+The same kinetic model equation was used for all the photochemical experiments in this work.\(^7\)
+
+### 2.7 Electrochemical investigations
+
+All the ex-situ electrochemical characterizations were performed using an electrochemical workstation (Metrohm Autolab 302) in a custom-designed two-chamber three-electrode setup, with one half-cell having a glassy carbon disc (Area= 0.0314 cm\(^2\)) as working electrode, Ag/AgCl, sat. KCl as a reference electrode (\(E^0 = 0.197 \text{ V vs RHE}\)). The other half cell contains Pt-mesh as a
+counter electrode. The two half-cells were connected through a proton exchange membrane (Nafion 111). About 2.0 mg of catalyst was dispersed in 150 μL isopropyl alcohol and 10 μL 5% Nafion (as a binder), and then about 10 μL of this prepared ink was drop-casted on the glassy carbon (GC) disc. The electrochemical investigation was carried out in an aqueous 0.1 M KCl solution. All the potentials are reported against the reversible hydrogen electrode (RHE)\textsuperscript{18} using Eqn. 7.
+
+\[
+E_{RHE} = E_{Ag/AgCl,Cl} + 0.197 + 0.059(pH)
+\] (7)
+
+To investigate the impedance response and double layer structure, vis-à-vis double layer capacitance (C\textsubscript{dl}), solution resistance (R\textsubscript{s}), and resistance to the charge transfer (R\textsubscript{ct}) across the interface of these investigated samples, cyclic voltammetry (CV) in the capacitive region and electrochemical impedance spectroscopy (EIS) at open circuit potentials (OCP) within a frequency range of 10 kHz to 0.1 Hz with a small AC perturbation of 0.005 amplitude was performed. The below-discussed equations were used to calculate the C\textsubscript{dl}, (ECSA), and roughness (R) of the electrode surfaces.\textsuperscript{7}
+
+\[
+\frac{1}{A} \left( \frac{dq}{dt} \right) = C_{dl} \left( \frac{dE}{dt} \right)
+\] (8)
+
+\[
+j_{cap} = C_{dl} \theta
+\] (9)
+
+Where A represents the geometric area of the electrode used (0.0314 cm\textsuperscript{2}), \( \frac{dq}{dt} \) (mA) is the capacitive current (\( i_{cap} \)), \( j_{cap} \) is the capacitance current density (mA cm\textsuperscript{-2}), \( C_{dl} \) is the area normalized double-layer capacitance (F cm\textsuperscript{-2}), and \( \theta = \frac{dE}{dt} \) is the scan rate (mV s\textsuperscript{-1}), and \( C_s \) is the specific capacitance.
+
+\[
+ECSA = \frac{C_{dl}}{C_s}
+\] (10)
+
+\[
+R = \frac{ECSA}{\text{geometric area}}
+\] (11)
+To investigate the current-potential response and redox-active behaviour of the samples, cyclic voltammetry (CV) was performed in the potential range of 0.3 V to 2.5 V vs RHE at a scan rate of 100 mVs⁻¹ (Fig. S4). To further gain insights into the FeX-KCl interface (X= AH, BH, CT, PM, and MC), the potential of zero charge (Eₚzc) was estimated from the differential capacitance plots (Fig.16 (a-d)).
+
+3.0 Result and Discussion
+
+3.1 Synthesis and characterization of iron oxide nanoparticles
+
+The five iron oxide samples and their crystalline forms (α, ε, γ), characterized as Fe₂O₃ and Fe₃O₄ NPs, have been synthesized by acid (Fe-AH), and base (Fe-BH) hydrolysis without any external capping agent in the first attempt. We then followed the acid hydrolysis protocol, varying the additives, namely the methylcellulose (MC), cetyltrimethylammonium bromide (CTAB), and sugar press mud extract (PM).
+
+![Synthesized iron oxide nanoparticles (powder)](image)
+
+Fig.1 Synthesized iron oxide nanoparticles (powder), with and without external ligands (additives). The apparent colour and texture of the powder, from blackish-red to brownish-red, reflect their varying forms, i.e. polymorphs (α, ε, γ) of Fe₂O₃ (hematite) and Fe₃O₄ (magnetite). FeBH is dominated by Fe₃O₄ and other samples from FeAH to FePM is dominated by α-Fe₂O₃ with impurities of ‘γ’ and ‘ε’ due to incomplete phase transition. (Fe-AH: simple acid hydrolysis; Fe-BH: simple base hydrolysis; Fe-CT: cetyltrimethylammonium bromide (CTAB); Fe-MC: Methylcellulose; Fe-PM: Press mud water extract). All the samples have been synthesized using the same precursor (Fe₂SO₄.7H₂O) but different ligands/additives under the same conditions in a sol-gel scheme.
+The process was aqueous sol-gel at room temperature (35°), with precursor (FeSO₄·7H₂O) salt, and all other reaction conditions being the same as in Scheme 1 and Table 1. The choice of analytical grade surfactants along with biogenic extract (PM) was designed to investigate the effect of ligand-based perturbation on the overall synthetic outcome of the reaction in general and the shape anisotropy of the resulting nanoparticles in particular.
+
+**Fig. 2(a&b) (a):** X-ray diffractograms (indexed with reference JCPDS cards), (b); Raman spectrum of various iron oxide nanoparticle samples from Fe-AH, to Fe-PM), showing phase and polymorphic variations (peaks not indexed in fig.(a) show impurities in the samples); the (*) at XRD peaks corresponds to α-Fe₂O₃; (**) corresponds to Fe₃O₄; (***) corresponds to γ-Fe₂O₃; and (****) corresponds to ε-Fe₂O₃, the unindexed peaks belongs to other additional peaks.
+
+The use of biogenic extract of a lignocellulosic waste (PM), along with chemically pure surfactants like CTAB and MC, was to understand the possible role of humic substances during the evolution of crystalline stages (fig. 10) of minerals in natural scenarios with reference to laboratory scale well-defined systems. For instance, secondary mineral formation occurs in geological and soil environments in the presence of degraded organic substances from vegetable sources. In addition to this, two separate schemes of simple base hydrolysis (Fe-BH) and acid hydrolysis (Fe-AH), without any ligand, were also taken to assess the exclusive role of the capping ligands (natural and synthetic) on the evolution of crystalline phases and pathways. The overall synthetic part of the
+experiment is designed to understand the evolution of the shape and forms of iron oxides (Fe₂O₃) in the presence of external ligands as solution phase additives under a sol-gel synthesis scheme. This is followed by the study of their photocatalytic behaviour under tropical sunlight.
+
+3.1.1 X-ray diffraction, Raman, FTIR, and Microscopy
+
+3.1.1.1 Crystal lattice, morphology, surface, and size
+
+Without any external ligands as additives, the observation revealed that the simple acid hydrolysis resulted in predominantly hematite formation, i.e., α-Fe₂O₃ (red-brown solid), while base hydrolysis resulted in the magnetite (Fe₃O₄) formation, i.e., a blackish-red solid (fig.1.0). This is also much more facile than base hydrolysis due to the presence of excess H⁺ ions in the solution. However, perturbation of the same system by changing the ligands, i.e. pure chemical surfactants as well as biogenic extract, significantly affected the nanocrystal’s shape along with the polymorphic forms. Moreover, polymorphism in iron oxides is reported to be a temperature-dependent phase transition under laboratory conditions. However, base hydrolysis, on the other hand, involves relative difficulty in sol formation. This is primarily due to excess OH⁻ ions, favoring the formation of various complexes that allow the partial dissolution of the seeds, delaying the precipitation process. This, in turn, affects the whole seeding and nucleation processes. Interestingly, the resultant oxide, in the case of base hydrolysis, is predominantly magnetite (Fe₃O₄), i.e., a blackish-red solid (fig.1.0). Thus, the simple base hydrolysis remained an ineffective process with poor recovery of an impure and different oxide (Fe₃O₄), as shown in diffractogram (fig. 2.0 and 2.1).
+Fig. 2.1 (a-d) (a) Magnified range (20; 60-80) for clarity in relative intensity variation of the relevant peaks; (b) magnified range (20; 20-30); (c) magnified range (20; 30-50) of X-ray diffractograms of various iron oxide nanoparticle samples; (d) Raman stretching frequencies for the same. The (*) at XRD and Raman peaks shows correlation in XRD and Raman spectra and corresponds as (*) to α-Fe₂O₃; (**) corresponds to Fe₃O₄; (*** corresponds to γ-Fe₂O₃; and (****) corresponds to ε-Fe₂O₃, the unindexed peaks belongs to other additional peaks.
+
+Thus, for methodological purposes, unless required otherwise, it can be inferred that unlike the synthesis of zinc oxide and, many other metal oxides, the base hydrolysis for Fe₂O₃ synthesis using the sol-gel process is an undesirable choice. Nevertheless, this observation underlines the role of solution pH in the laboratory synthesis of iron oxide and its probable importance during mineral (iron) precipitation in natural environments. Moreover, beyond the differences in solution phase evolutionary pathways, the sintering of all the samples at a fixed temperature (500 °C) in a muffle furnace retains the relative effect of the ligands.
+Table 1 Summary result of synthesis (sol-gel) experiments at 35°C and stirring 750 (rpm)
+
+| Sr. No | Precursor/salt | Additives/ligands | Form/lattice | Average size (nm) | Shape | Surface charge (ζ) (mv) |
+|-------|----------------|------------------|--------------|-------------------|-------|------------------------|
+| 1.    | FeSO₄·7H₂O     | No (BH)          | Fe₃O₄ Cubic, face-centred and γ-Fe₂O₃ | ~44 | Aggregate | -4.3 |
+| 2.    | ,,             | No (AH)          | α-Fe₂O₃ Rhombohedral (hexagonal) and ε-Fe₂O₃ | ~38 | Aggregate | -10.5 |
+| 3.    | ,,             | CTAB             | α-Fe₂O₃ Rhombohedral (hexagonal), orthorhombic and γ-Fe₂O₃ | ~24 | Rod-like | -17.8 |
+| 4.    | ,,             | MC               | α-Fe₂O₃ Rhombohedral, hexagonal and γ-Fe₂O₃ | ~27 | Sheet-like | -18.1 |
+| 5.    | ,,             | PM               | α-Fe₂O₃ Rhombohedral, hexagonal and γ-Fe₂O₃ | ~31 | Sheet-like | -28.7 |
+
+In summary, the XRD (fig. 2.0, 2.1 & Table S1) confirms that except for unperturbed base hydrolysis (Fe-BH), the samples resulted in predominantly hematite (Fe₂O₃) nanoparticles with varying size, morphology, and even polymorphic forms.²⁰,²¹ Further, based on the size calculated using the Debye-Scherrer Equation (1), the differential effect of the ligands on the size of the nanocrystals is apparent. For instance, the average crystallite size (Table 1) varied in the range of ~20.0 nm to ~55.0 nm, with Fe-CT being the smallest, followed by Fe-MC and then Fe-PM with respect to Fe-BH. This indicates that the Fe-PM remains the third in controlling the size of the iron oxide (Fe₂O₃) nanoparticle. Further, indexing of the XRD (fig.2.0) peaks (2θ = 10-70 degrees) and the Raman shift modes (280-620 cm⁻¹) in (fig.2.0b & Table S3) differentiated that, unlike the other four cases, FeBH a mixture of γ-Fe₂O₃ (maghemite) and (magnetite) (Fe₃O₄).²¹–²³ Interestingly, except in the case of base hydrolysis (Fe-BH), the indexing of diffraction pattern with the reference JCPDS card indicated the predominance α-Fe₂O₃ form along with the impurities of other forms (γ, and ε) of iron oxides.²¹ Also, the relative intensity ratio of the most intense XRD peaks corresponding to different miller indices (h k l) values (fig.2.0&2.1), indicated the morphological
+differences in the iron oxide nanoparticles.\textsuperscript{24–26} Further, the lattice constants (table S1) for Rhombohedral (hexagonal) \{a = 5.051 - 5.06 Å, c = 13.81 - 13.87 Å\} and inverse cubic \{a = 8.46 Å\} and interplanar spacing \(d_{(104)} = 2.75 - 2.76\) Å and \(d_{(311)} = 2.56\) Å, respectively, showed changes in lattices of the samples.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{fig3}
+\caption{	extbf{Fig. 3(a&b)} Fourier transforms Infrared spectroscopy (FTIR) spectrum for various iron oxide nanoparticle samples from Fe-AH to Fe-PM, including additive biogenic extract Ln-PM, showing characteristic variation in stretching frequencies for metal oxide bond, ligand residues, \(\text{(b)}\); magnified region (1500-500 \text{cm}^{-1}) for characteristic metal oxide stretching frequencies and shape anisotropy i.e. aspect ratio \((a/b \geq 1)\).}
+\end{figure}
+
+Similarly, the asymmetric FTIR peaks (fig.3) for FeCT, Fe-MC, and FePM around 600-400 cm\textsuperscript{-1} indicate the varying degrees of the axial ratios \((a/b \neq 1)\) of nano-oscillators, suggesting the morphological differences and the evolution of shape anisotropy in iron oxide nanoparticles under varying ligand field.\textsuperscript{25} The previously reported studies have demonstrated similar results but with chemically pure surfactants and different methods.\textsuperscript{2,21,27–29} Also, the SEM images (fig.4, (a-f)) indicate similar variations in the morphology of these micro aggregates of the samples. Further, the high-resolution TEM images (fig.5, (a-j)) clearly indicate the change of morphology from more regular shapes (axial ratios \(a/b \sim 1\)) with irregular matrix for FeAH and FeBH to more irregular
+shapes (axial ratios $a/b \neq 1$) with regular matrix for FeCT, FeMC and FePM samples.$^{2,21}$ The shape of Fe-AH (fig.5a-c) and Fe-BH (Fig.5 e-g) nanoparticles is symmetrical with fuzzy and irregular matrices. However, the samples with capping ligands like Fe-MC (i-k) and Fe-PM (q-s) show the emergence of sheet-like nanoparticles with regular matrices. Likewise, the Fe-CT (m-o) shows the evolution of rod-like nanoparticles.$^{21,30-32}$
+
+**Fig. 4(a-e)** Field effect scanning electron microscopy (FESEM, magnification x50,000, 10.0 Kv LED) images (with its aspect ratio ($a/b \geq 1$), for various iron oxide nanoparticle samples Fe-AH, e: Fe-BH, a: Fe-CT, c: Fe-MC, and d: Fe-PM) showing shape anisotropy ($a/b \geq 1$).
+
+This collectively shows that experiments without external ligands in solution (FeAH and FeBH) yielded nanoparticles with a random matrix of sphere-like nanoparticles. However, the experiments with external ligands as additives in the solution (FeCT, FeMC, and FePM) have shown diffusion-controlled differential growth rates of specific crystallite faces and have resulted in a specific shape of the nanoparticles.$^{30,33,34}$ In addition, the SAED pattern of the samples shows a slight shift from the polycrystalline (fig.5d&h)) to monocrystalline (fig.5l,p&t) nature of the material when capping ligands are introduced as additives in the solution. This shows the relative control of the additives over material growth, with FeCT being the most effective. Further, a closer
+analysis (fig.2.1) of Raman spectra of the samples along with the resolved region of the XRD pattern shows the samples to be anisotropic in composition while containing a mixture of different polymorphic forms of hematite (Fe$_2$O$_3$).\textsuperscript{22,23}
+Fig. 5(a-t) Transmission electron microscopy (TEM, direct magnification 10,000x-80,000x 120.0 Kv) images and corresponding SAED-pattern (with its aspect ratio (a/b≥ 1), for various iron oxide nanoparticle samples (a-d: Fe-AH, e-h: Fe-BH, i-l: Fe-CT, m-p: Fe-MC, and q-t: Fe-PM) showing shape anisotropy ratio (a/b≥ 1) and SAED pattern.
+
+Furthermore, the surface analysis of the samples using FTIR spectra (fig.3) shows that along with surface hydroxyl (Fe—O-H) group (~3500 cm⁻¹ broad) due to moisture, the traces of carbonyl and carboxylic functionalities (1600-1400 cm⁻¹ symmetric and asymmetric stretching modes of —C=O) attached to hydrocarbon residues (1400-1200 cm⁻¹ bending modes of —C-H) from ligands are present on the surface of nanoparticles. Nonetheless, their intensities reflect their residual presence on the surface. The peaks around 450-550 cm⁻¹ and 570-590 cm⁻¹ belong to hematite (Fe³⁺—O) and magnetite (Fe³⁺/²—O), respectively, and their asymmetries essentially reflect the polymorphic and anisotropic variation in the samples.
+
+3.1.2 EPR, Zeta Potential (ζ) and DRS-UV Diffuse Reflectance Spectroscopy
+
+3.1.2.1 Electronic Symmetry, Surface Charge and Band Gap
+
+The lattice defects, shape anisotropy, and polymorphic variation are also visible in the room temperature (27°C) EPR spectrum of the samples. The two bands in the EPR spectrum (fig.7) around 2000-2500 mT and 3200-4000 mT indicate a mixture of hematite and magnetite impurities. Also, the FeBH sample has a distinct broad signal indicating its mixed (Fe²⁺/Fe³⁺) valence in the
+inverse spinel cubic structure of magnetite. The sharp signal of FeAH may be due to the more regular structure of hematite.
+
+**Fig. 7 (a&b)** (a); Electron paramagnetic resonance (EPR) spectra, (b); extended view for various iron oxide nanoparticle samples (Fe-AH, Fe-BH, Fe-CT, Fe-MC, and Fe-PM), which illustrates the difference in the electronic environment of the iron centres Fe$^{2+}$/Fe$^{3+}$ present in these different samples of metal oxides of the iron.
+
+However, other than these two cases without capping ligands, i.e., (FeAH) and (FeBH), the peak distortion in other samples having ligands indicates defects in the electronic environment around the F$^{2+}$/Fe$^{3+}$ center.$^{35,36}$ The zeta potential measurement shows the negative surface charge (fig.S2 & table1) in the range of (-4.03-28.07 mV) in ethanol dispersion. Ethanol, a lower dielectric solvent than water, minimizes the effect of pH on zeta potential ($\zeta$); thus, the measured zeta potential fairly reflects the charge on the surface. From a low and negative, in the case of no capping ligands (Fe BH -4.03 mV), the zeta potential rises to a high negative in the case of capping ligands (FePM -28.7 mV). However, the negative zeta potential ($\zeta$) in all cases demonstrates the effect of anionic capping ligands modifying the surface charges of the nanoparticles. Nonetheless, along with the residual presence of surface ligand, such a large variation of zeta potential ($\zeta$) may also be on account of the polymorphic and anisotropic variation of nanoparticles. Noticeably, this
+The zeta potential also shows a correlation with the observed potential of zero charges (fig 16 & table 3). The diffuse reflectance UV absorption spectra with the absorption edge at 565 nm to 515 nm (fig.8a) along with Tauc analysis (fig.8b) equation (5) shows that the $E_g$ of the samples lies in the range of 0.4 to 2.1 eV. These iron oxide samples show a slight shift to a higher band gap due to quantum confinement. Moreover, due to the impurity of different polymorphic forms and anisotropy in the sample, there is a noise in the spectrum. Due to the relatively high impurity in the (Fe-PM) sample, as indicated by the XRD (fig.2.0&2.1) and an SEM/EDX analysis (fig.6& table S2), the indexing of the significant peaks is a little complex.
+
+3.1.3 EDX and Nanoparticle Tracking Analysis
+
+3.1.2.1 Sample purity, size evolution, and distribution
+
+The SEM/EDX analysis, i.e., micrographs (fig.S1, i-iii, inset), spectra (fig.S1.i-iii), and colourmaps (fig.6 a-j) of the various regions of all the five iron oxide NPs samples (Fe-AH, Fe-BH, Fe-CT, Fe-MC, and Fe-PM), represented the nearly uniform distribution of metals with varying degree of impurity in respective samples. The samples from analytical grade commercial capping agents like CTAB and MC, along with the case of simple base hydrolysis (Fe-BH), have shown the least impurity (table S2) level (generally the sulfur from the precursor side), i.e., in the range of (0.5-7 %) w/w (Table S2). As expected, the Fe-PM sample showed the largest impurity due to the waste extract (PM). However, in some places, the exposed carbon tape (encircled area with arrow) has contributed to the ‘C’ as an impurity, but that has been omitted. Following a method reported by Foreman-Ortiz et al. (2022), a low concentration (1:1000) ethanol-based dispersion (viscosity; ethanol 12.0 milli poise) of the samples (Fe-AH, Fe-BH, Fe-CT, Fe-MC, and Fe-PM), when studied using NTA probe (fig.S3.0 to S3.9 and (a-l)), revealed the crucial information (fig.9) on system evolution, settling and pathways by the various distribution curves.
+Fig. 6(a-j) Colour map energy dispersive X-ray (EDAX) analysis, intensity variations of the various iron oxide nanoparticle samples (b: Fe-AH, e: Fe-BH, a: Fe-CT, c: Fe-MC, and d: Fe-PM). The arrow in the circle points to the area exposing the sample holding carbon films.
+
+This includes, namely, the particle concentration (particle/ml) vs diameter (nm), surface area concentration (nm2/ml) vs diameter, volume concentration (nm3/ml) vs diameter of nanoparticles, and the intensity distribution solid curve of diameter. These curves shed light on the reaction outcome as well as the probable evolutionary pathways of the nanoparticles. Conclusively, the comparative mean particle diameter (nm) distribution (fig.9) for the various iron oxide nanoparticle samples synthesized using varying ligand fields leads to a distinct picture of the variation in the diameter distribution of the nanoparticles. This is due to the different behaviour of the additives in the solution during system evolution i.e. seed formation, crystal growth and Ostwald ripening stage of the nanoparticle.
+Fig. 9 Comparative mean particle diameter (nm) distribution obtained using nanoparticle tracking analyzer (NTA analysis) for various iron oxide nanoparticle samples; the variation in diameter distribution of the nanoparticle is due to the perturbation in the evolutionary stages/pathways. (D<sub>90</sub>: distribution pattern of 90% of the nanoparticles in each sample; Mean: mean distribution of NPs; Mode: modal distribution of NPs, D<sub>10</sub>: distribution pattern of 10% of nanoparticle in each sample. This can be understood in light of the fact (fig.9) that in iron oxide synthesis D<sub>90</sub>, the distribution pattern of 90% of the nanoparticles in each sample shows the highest particle diameter for Fe-BH and the lowest particle diameter for Fe-MC. This is much expected because of the absence of a capping agent which allows unrestrained crystal growth (fig.10) in the case of Fe-AH and Fe-BH, whereas effective capping ability taped this growth by minimizing the surface free energy (ΔG) in the case of surfactants. Nevertheless, the overall control over particle size diameter remains similar for Fe-CT, Fe-MC and Fe-PM as indicated by the mean distribution of NPs (fig.9) red curve line. Thus, it shows the competitive capping ability of PM-based ligands. The modal distribution of NPs, D<sub>10</sub> distribution pattern of 10% of nanoparticle in each sample) can be ascribed to the mixing error or handling error.
+3.4 Shape Anisotropy and Non-classical Nucleation
+
+The current discussion on solution phase classical vs non-classical nucleation and growth (Ostwald ripening) suggests that additive-controlled processes generally follow the non-classical path.\textsuperscript{12,13} However, most of such studies are concerned with completely defined cases, involving fine chemical surfactants as additives. Nevertheless, among the reported biogenic ligands-based approaches, the use of the extract of lignocellulosic waste (PM) presents a novel case of size and morphology control. Due to the plant origin of PM, this may also shed light on the role of humic substances in natural environment-based crystallisation processes.\textsuperscript{11,32} However, during this study, it remained difficult to conclude the exact role of the PM extract in shaping and controlling the crystallisation process. This is primarily due to the complexity of the degraded lignocellulosic substance (PM) based dilute aqueous extract. Thus, this invites more specific inquiries in greater detail.\textsuperscript{11} Moreover, to some degree, this study using non-classical crystallisation theory (fig.10) alludes to the possible role of degraded humic substances affecting mineralisation in geological and soil environments.\textsuperscript{11} For instance, the acid and base hydrolysis pathways of iron sulphate salt resulted in two different iron oxides, whereas the change in solution additives, i.e. capping ligands, tweaked its crystallisation process. This led to the same iron oxides but with different shapes (shape anisotropy) and crystalline forms (polymorphism).\textsuperscript{12,40} Based on the previous studies, this could be ascribed to the alteration of prenucleation cluster formation and crystal growth dynamics due to the specific electrostatic interaction of the ligands with the early-stage crystallite faces.\textsuperscript{13,15,41} As observed, the morphologies of the iron oxide NPs (fig.59 (a-t)) in the absence of any additives-based external perturbation in solution remain inclined to the random distribution of regular shapes. This is indicated by the axial ratios of the nanoparticle’s dimensions (a/b\sim1) for Fe-AH and Fe-BH close to unity.\textsuperscript{12} This shows that in the absence of external perturbation, crystal growth
+remains random due to thermal energy. The diffusion-controlled growth of the nuclei gives rise to the random distribution of fairly regular shape particles.
+
+**Fig. 10** Schematic diagram involving distinct stages and pathways available to systems under crystallisation (Ostwald ripening) as a classical crystallisation pathway, and prenuclear cluster (PNC) led non-classical pathways; this explains the origin and growth of shape anisotropy in iron oxide nanocrystals during system evolution and phase separation process under a sol-gel scheme.
+
+Thus, irrespective of the pathways (acid or base hydrolysis), no significant shape resolution occurs (fig.5 a-i) in the case of the processes where there is no external ligand present (Fe-AH and FeBH) in the system. This is due to the absence of guiding interactions during the crystallisation process, resulting in random growth in all directions. However, on the contrary, in the case of additives (fig.5(j-t)) present in solution (FeCT, FeMC, FePM), the preferential electrostatic interaction of the additives with given faces of seed crystallites might have affected the crystal growth kinetics (described elsewhere) of specific crystallite faces, resulting in directed shapes. This could also have affected the prenucleation cluster formation (PNC) in the metastable region of the binodal...
+curve. However, in both cases, more pronounced shape resolution, as reflected in axial ratios 
+(a/b≠1) diverging significantly from unity, can emerge.\textsuperscript{29} Moreover, the overall crystal growth 
+dynamics of nanoparticles coupled with phase separation remain under the tussle of free energy 
+(\(\Delta G\)) and surface energy (E). Considering the role of poorly defined biogenic ligands toward the 
+pathways of crystallisation under different conditions, it appears closer to the so-called non-
+classical crystallisation process, often led by analytical grade surfactants.\textsuperscript{13,15} A similar case of 
+shape anisotropy in zinc oxide nanoparticles due to the preferential interaction of capping ligands 
+with specific crystallite faces by overcoming the screening effect of precursor anion has also been 
+observed in our previous study (LM Verma et al. 2024).\textsuperscript{7} Moreover, the polymorphic variation of 
+hematite (Fe\textsubscript{2}O\textsubscript{3}) as \(\alpha, \epsilon, \) and \(\gamma\) phases, along with the formation of magnetite (Fe\textsubscript{3}O\textsubscript{4}) phase in the 
+process, is often intertwined with their corresponding natural crystal habit and, thus, is not 
+straightforward.\textsuperscript{2,29} In fact, such phase transition of iron oxides and shape anisotropy is governed 
+by other thermodynamic and kinetic factors and may or may not involve the direct role of ligands 
+at all. For instance, even in non-classical crystallisation pathways, many energy pathways could 
+be available to the system, having distinct outcomes in terms of shape and form.\textsuperscript{11} Nonetheless, in 
+this present case, the rationalization of variation in shape using the framework of non-classical 
+crystallisation theory appears fairly independent of the phasic variation of hematite (Fe\textsubscript{2}O\textsubscript{3}) (\(\alpha, \epsilon, \gamma\)) 
+forms. However, given its relevance to the mineralisation processes in natural environments and 
+the complexity of iron oxide polymorphism (fig.2.0&2.1), this needs to be further investigated on 
+a case basis and in far greater detail under more suitable conditions.\textsuperscript{11,40}
+
+3.5 Photocatalytic activity under tropical sunlight
+
+3.5.1 Variation of photocatalytic rate constant (k)
+The photocatalytic activity (fig.11 a-d) of morphologically different iron oxides (Fe-AH, Fe-BH, Fe-CT, Fe-MC, FePM) nanoparticles was investigated to understand the role of structural (size, shape, and surface) differences. The setup facilitated the interaction of broad-spectrum tropical sunlight with the rhodamine dye in an aqueous solution.\(^7,8\) Thus, the overall experiment involves the nanoscale metal oxide-based dye degradation. Noticeably, metal oxide-based photocatalysis and its mechanisms have been studied extensively during the past few decades.\(^{42,43}\) However, there has been greater emphasis on selected materials like TiO\(_2\), RuO\(_2\), and ZnO.\(^{43}\) On the part of mechanisms, aspects like light absorption, charge dynamics, surface states, and quantum efficiency have received much attention.\(^{42}\)
+Fig. 11(a-f) UV-visible absorption spectrum with decreasing absorption coefficient ($\varepsilon$) at the $\lambda_{\text{max}}$ (540 nm), of the rhodamine dye in a suspension system under direct tropical sunlight exposure. (a) control experiment (dye-catalyst system in the dark); (b) Fe-BH catalyst system; (c) to Fe-AH; (d) to Fe-PM system. (e) Fe-MC catalyst system; (f) Fe-CT catalyst system. (the measurements have been taken at the time interval of 0.5 hr. over the period of 4.0 hrs.)
+However, we, in this study, have attempted to understand the interfacial charge transfer at the iron oxide-dye interface using an electrochemical approach. Considering this, the dye concentration was kept low, i.e., $0.596 \times 10^{-3}$ with a moderate catalyst load of (0.1g/L). This low concentration of dye was intended to decrease the possibility of multilayer adsorption of the dye on the catalyst surface after the adsorption-desorption equilibrium.
+
+Fig. 12 The different degrees of degradation of the dye in aqueous solution by the FeX (X= AH, BH, CT, MC, PM) catalyst systems after the exposure of 4.0 hours (sunlight and dark). (the picture has been taken after the completion of the experiment)
+
+This, in summary, will allow the weakening of the non-linearities in the photocatalytic activity of the catalyst due to the concentration effect. Also, the set-up with this configuration may shed light on the real cases in nature where mineral oxide, humic substances, and pollutants interact under sunlight. The progress of photocatalytic degradation was monitored (fig.11,a-d) using the absorption coefficient ($\varepsilon$) corresponding to $\lambda_{max}$ 540 nm. Further, using equation (6), the decrease in ‘$\varepsilon$’ (fig.11a-d) over time was utilized to find the variation in the rate constant (k) of photocatalytic degradation. After completion of 4.0 hours, the total degradation of the dye under the same condition but with different photocatalysts was found to be clearly different. This showed from equation (5) only 14.6 % degradation of the dye under dark conditions by Fe-PM catalyst.
+Under light conditions, the highest degradation was 86.1% by Fe-AH, followed by 76.9% by Fe-PM catalyst. However, the lowest of 29.3 by the Fe-BH catalyst was also observed (fig.12). Moreover, the 14.6% degradation of the dye with the FePM catalyst under dark conditions, along with 10.2% without any catalyst under the same condition could be ascribed to the residual absorption of light during the whole experiment. Further, the 16.9% degradation without any catalyst under light conditions shows the fundamental role of light in such processes. Moreover, the curve fitting (fig.12 & 13) of dye concentration (lnC/C0) vs time suggested \( R^2 = 0.95-0.98 \) first-order rate constant ‘k’(min\(^{-1}\)) with its value in the range of 0.0139 to 0.0338 min\(^{-1}\). Due to this variation in (k), a large difference in the degradation percentage by different catalysts was observed at the completion of 4.0 hours.
+
+**Fig. 13 (a&b)** Concentration (C/C0) vs time plot Fig. (a) shows a differential decrease in dye concentration with time for different catalyst systems. (b): plot (ln C/C0) vs time shows pseudo-first-order kinetics with a slope in the range of (m= -0.0139 to -0.0379). With the R\(^2\) values in the range of 0.95 to 0.98. However, this difference may stem from the various sequential stages in photocatalysis. These are namely the efficiency of light absorption, generation of charge carriers (e-/h\(^+\)) and their lifetime (\( \tau \)), migration of the charge (diffusion length L\(_D\)) to the surface or catalyst active sites, and then
+finally, the efficiency of the charge transfer at the catalyst-dye interface.\textsuperscript{6} However, in most cases, the interfacial charge transfer step is a rate-determining step (k) in this process. Interestingly, in this experiment, the (k) appears to be intricately related to the morphology and interface structure of the catalyst systems.\textsuperscript{7,8} Here, it has been observed that the morphologically similar sheet-like structures of the \( \alpha \)-Fe\(_2\)O\(_3\) nanoparticles catalysts (Fe-MC & Fe-PM) have better catalytic efficiency than the other set of morphologically similar sphere-like structures (Fe-AH, and Fe-BH) of \( \alpha \)-Fe\(_2\)O\(_3\) and Fe\(_3\)O\(_4\) nanoparticles. However, on the contrary, the sphere-like FeAH, being \( \alpha \)-Fe\(_2\)O\(_3\) form, tops the list in terms of photocatalytic activity and thus underlines the inevitable role of the interface structure beyond the morphology.\textsuperscript{7,32} Thus, the highest activity by Fe-AH cannot be explained due to the possible effect of shape anisotropy alone.\textsuperscript{6} This may, however, involve the interfacial parameters like the total available ESCA per unit mass, the no. of active sites, (\( \varnothing \)), and the (R\(_{ct}\)) across the dye catalyst.\textsuperscript{31,44,45} Also, the observed first-order rate constant in this process suggests a heterogeneous catalysis regime, which generally has an interfacial charge transfer step as the rate-determining step. Nevertheless, the interplay of several factors in deciding photocatalytic activity makes its rate elusive to many degrees. However, rather than emphasizing the role of shape anisotropy and the electronic parameters, this study attempts to highlight the role of the collective effects of the various parameters involved in deciding photocatalytic efficiency.\textsuperscript{6}
+
+Given the small differences in size (14-45nm) and forms of the (Fe\(_2\)O\(_3\)) catalyst, we try to understand this variation of rate constant (k) using interface structure derived from electrochemical parameters.
+
+3.6 Electrochemical Investigation
+
+3.6.1 Cyclic voltammetry, Electrochemical Impedance spectroscopy, and Potential of zero charge
+The correlation of photocatalytic rate constant (k) with various electrochemical parameters was attempted previously by various authors, but it was generally limited to TiO$_2$ systems.$^{16,46,47}$ For instance, Baram et al. (2010)$^{46}$ studied mesoporous TiO$_2$ for photocatalytic degradation of methylene blue using EIS-based impedance along with capacitance. They showed, using Mott-Schottky analysis and linear sweep voltammetry, that a high surface area of tubular TiO$_2$ does not translate into good photocatalytic activity. A similar result we have also reported in our previous study for ZnO sheets and Rhodamine dye.$^7$ Likewise, Baumanis et al. (2008)$^{16}$ studied TiO$_2$ thin film electrodes using Mott-Schottky measurements for photocatalytic reduction and oxidation of methyl viologen and methylene blue respectively.
+
+**Fig. 14(a-f)** The different cyclic voltammograms with varying scan rates over the constant potential window (0.0-9.0 mv) are due to the difference in the interface structure of the different samples (a-e); corresponding $j$ vs scan rate plot representing electrochemically active surface area (ECSA) for the samples, The difference in the ECSA is due to the difference in interface structures. They reported a correlation of photocatalytic activity with flat donor density and flat band potential.$^{16}$ However, in this study, we investigated the interfacial charge transfer dynamics of the
+morphologically distinct iron oxide (hematite) and rhodamine dye, by examining the multiple electrochemical parameters. The surface redox potentials ($E^0$), differential capacitance ($C_{dl}$), and charge transfer resistance ($R_{ct}$) were analyzed to understand their role in the system. Also, the electrochemically active surface area (ESCA), vis-à-vis electrochemical work function ($\phi_{ad}$), were analyzed to understand their role in the system (fig.17).
+
+Fig.15 (a&b) Nyquist (a) and Bode plots (b) obtained at OCP for all the samples; (a): the differences in resistance to charge transfer is due to the differences in the interface structure on account of structural variation of the iron oxide samples; (b): the changes in the phase angle ($\phi$) over different frequency range (region-I/II/III: low, medium and high) are due to the variation in the dominance of the charge transfer and its kinetics.
+
+Furthermore, we also studied the potential of zero charge ($E_{pzc}$) at the catalyst surface for its correlation with observed photocatalytic rate constants ($k$). For instance, in the anodic (0.3 to 2.5 vs RHE) scans (fig.S4) of all the interface systems, two redox peaks were observed at ca. 0.45 V and 0.9 V vs RHE, is attributed to Fe$^+/Fe^{2+}$ and Fe$^{2+}/Fe^{3+}$ redox species. Interestingly, the peak current ($i_{p,a}$) to Fe$^{2+}/Fe^{3+}$ transformation for the FeAH system is higher than the other samples.
+
+**Table 2** Interfacial parameters calculated from cyclic voltammetry measurements.
+
+| Catalyst | $C_{dl}$ ($\mu$F cm$^{-2}$) | ECSA | $R_{f}$ (cm$^{-2}$) | Rate constant ($k$) |
+|----------|-----------------------------|------|---------------------|---------------------|
+
+Page 32 of 41
+However, the redox peaks in FeCT (fig.S4c) are absent in this potential window, probably due to surface modification. Besides that, the reduction peak corresponding to Fe$^{3+}$/Fe$^{2+}$ is much more dominant in the FeAH sample (fig.S4a). This showed the clear electronic and surface modification of the catalyst systems due to synthetic conditions altering the energy barrier for the redox processes at the interface. The highest peak current in the FeAH system (Fe$_2$O$_3$) correlates with its highest (k). Likewise, a similar correlation is observed in other cases (Fe$_2$O$_3$) also, excluding the FeBH due to its structural (Fe$_3$O$_4$) variation in the form. Also, an examination of the capacitive region (0.0 to 0.9 vs RHE) of the catalyst systems (FeBH, FeMC, and FePM) shows almost similar CV response and current densities, which are much higher than the rest of the samples (fig.S4 b-e)). Further, using the slope $j_{cap}$ vs. $\theta$, $C_{dl}$, the corresponding ECSA values were found to be in the order of FeBH > FeAH > FeMC > FePM > FeCT as shown in Fig.14 (a-f) and mentioned in Table 2. Also, the ESCA values of the FeAH, FeMC, FePM, and FeCT catalyst systems are in close agreement with the order of the (k).$^7$
+
+| Catalyst | Peak Current | Scan Rate | Reduction Current | Reduction Peak Potential |
+|----------|--------------|-----------|-------------------|--------------------------|
+| Fe-BH    | 374.3        | 9.6       | 300               | 0.0139 min$^{-1}$        |
+| Fe-AH    | 248.4        | 6.2       | 197               | 0.0379 min$^{-1}$        |
+| Fe-CT    | 45.8         | 1.2       | 38                | 0.0211 min$^{-1}$        |
+| Fe-MC    | 91.6         | 2.1       | 73                | 0.0245 min$^{-1}$        |
+| Fe-PM    | 73.1         | 1.8       | 57                | 0.0338 min$^{-1}$        |
+Fig. 16(a-e) Differential capacitance plots and (f) $\Phi_{ad}^0$ vs $E_{PZC}$ plots of the different interfaces of iron oxide nanoparticle samples; Fig. 16 the difference in potential of zero charge ($E_{PZC}$) vs Electrochemical work function ($\Phi_{ad}^0$) is due to the different behaviour of the interfaces toward the charge transfer.
+
+This highlights the role of ESCA over the total area for surface adsorption. A similar observation was also reported in our previous study of ZnO sheets. However, the higher current density and higher ECSA value for FeBH have not shown agreement with its observed (k). This disagreement in the case of FeBH highlights the parallel role of other electronic and material characteristics. Also, from the Nyquist plots (Fig. 15a), a general observation suggests that the lower $R_{ct}$ values are associated with a (k), reflecting the ease of charge (e-) transfer with the low ($R_{ct}$). However, the significant deviation from this in the case of FeBH can be ascribed to its structural differences from other catalysts. Further, from fig. 15(b), representing the Bode-plot, it can be observed that all the samples other than FeBH at a high-frequency region, behave almost similarly with phase angle ($\phi$) in the range of 80-90 degrees. This indicates a similar lifetime ($\tau=1/2\pi f_c$) of charge carriers and dynamics. However, FeBH shows that it acts as a resistor (phase angle zero) and
+involves only charge transfer in the high-frequency domain, which is very much in agreement with its observed (k). Moreover, in a low-frequency region, the phase angle is minimum for the FeAH interface, explaining its higher (k).
+
+**Fig. 17** Proposed mechanistic view of shape anisotropy of the nanoparticles (a/b≠1): surface charge (-ve), band gap (Eg), standard reduction potential (E^0), charge recombination (τ), catalyst-dye interface, electrochemical work function (Φ^0_{ad}), for charge transfer efficiency during photocatalysis
+
+This antagonism due to different forms in FeAH (Fe₂O₃) and FeBH (Fe₃O₄) is also clear in Bode’s plot as they represent an inverse relationship. To further gain insights into the FeX interface (X=AH, BH, CT, PM, and MC), the potential of zero charge was estimated from the differential capacitance plots (fig.16 (a-d)).
+
+**Table 3** The electrochemical work function Φ_{ad}^0 (V) and potential of zero charges (E_{PZC}) estimated from differential capacitive plots (Fig. 4 (a-f)).
+| Sample  | $E_{PZC}$ | $\Delta G$ | $t_{1/2}$ |
+|---------|-----------|-----------|-----------|
+| FeBH    | 0.71      | 4.15      | 0.0139 min$^{-1}$ |
+| FeAH    | 1.00      | 4.44      | 0.0379 min$^{-1}$ |
+| Fe-CT   | 1.34      | 4.78      | 0.0211 min$^{-1}$ |
+| FeMC    | 1.03      | 4.47      | 0.0245 min$^{-1}$ |
+| FePM    | 1.16      | 4.60      | 0.0338 min$^{-1}$ |
+
+The potential of zero charge ($E_{PZC}$) is the applied potential at which net charge on the surface is almost zero and double-layer capacitance is minimum$^{49}$. Thus, it helps to understand the catalyst and adsorbate interaction in the solution. Also, $E_{PZC}$ plays a central role in catalytic performance, as it defines the degree of polarizability and electrochemical work function ($\Phi_{ad}^0$) of a system. This is the solvent-modified work function that quantifies the energy penalty for electron shuttling across the catalyst surface-dye interface. Systems with low $E_{PZC}$ are more susceptible to anodic polarization, while lower electrochemical work functions favour more feasible electron transfer across the interface.$^{49}$ From fig. 16 (a-e), all the samples show positive $E_{PZC}$, indicating that surfaces are negatively charged, as inferred by the zeta potential measurements as well, and the $E_{PZC}$ values follow the order FeCT>FePM>>FeMC>FeAH>FeBH. The correlation between the $E_{PZC}$ and $\Phi_{ad}^0$ is given by the Eqn.12 and Eqn.13.$^{50,51}$
+
+$$E_{PZC} = \Phi_{ad}^0 + E_{Reference}$$  \hspace{1cm} (12)
+
+$$\Phi_{ad}^0 = E_{PZC} + 3.44$$ \hspace{1cm} (13)
+
+Where $\Phi_{ad}^0$ represents electrochemical work function, $E_{PZC}$ is the potential of zero charge and $E_{Reference}$ is the potential at the reference electrode, which is assumed to be -3.44 V vs RHE.$^{52}$ The electrochemical work function was calculated from Eqn.13 (table 3), and it was found that FeAH shows the second lowest ($\Phi_{ad}^0$) after FeBH, indicating high solution-state polarizability of
+the catalyst. This has been translated into a higher \( (k) \) for the FeAH system. However, this lowering of \( (\Phi_{ad}^0) \) could be attributed to the influence of the ligands on the Fe surface. Moreover, in general, it can be concluded from the electrochemical investigations that the FeAH system, a sheet-like \( \alpha \)-Fe\(_2\)O\(_3\) structure with a higher (ESCA), shows a low \( (R_{ct}) \). Also, its low \( (\Phi_{ad}^0) \) and better charge dynamics \( (LD & \tau) \) show the best charge transfer and, hence, enhanced charge transfer kinetics. This all correlates with its observed \( (k) \). However, it can be fairly assumed that the poor kinetics in the FeBH system underlines the role of other electronic and optical parameters of a photocatalyst, which in this case is controlled by the different form of iron oxide, i.e, magnetite \( (\text{Fe}_3\text{O}_4) \). This is also in agreement with its known poor photocatalytic properties, primarily due to its unfavourable electronic and optical properties.
+
+**Conclusion**
+
+In summary, the biogenic additive, i.e. sugar press mud extract, showed a similar control to that of the analytical grade surfactants on the shape and size of iron oxide nanocrystallites in a sol-gel process. It remained effective in controlling the size of nanocrystallite \( (30-35 \text{ nm}) \) similar to that of analytical grade surfactants \( (20-30 \text{ nm}) \) viz. CTAB and methylcellulose (MC). Also, probably due to the structural similarity of the ligands present in sugar press mud extract with that of methylcellulose, it yielded a similar sheet-like morphology of the hematite nanoparticles in both cases, i.e. FeMC and FePM. The overall synthetic outcome and experimental observation suggest that the crystal growth processes remain explainable using the PNC-led non-classical crystal growth approach. However, given the complexities of the iron oxides on account of their polymorphism and shape anisotropy, there is a need for inquiries in much greater detail. Furthermore, the variations in the photocatalytic rate constants of these nanoscale iron oxide-based catalytic systems appear to be significantly correlated with the shape and interfacial properties of
+the hematite (α-Fe₂O₃) nanoparticles. However, beyond the traditional parameters like electronic optimum (Eg) and better (α), poor e-/h+recombination rate for an efficient photocatalyst, there are some additional interfacial refinements. These are namely the total no. of electrochemically active surface area (ESCA), low resistance to interfacial charge transfer (Rct), low electrochemical work function (Φ₀) coupled with better charge dynamics (L_D & τ) over a suitable frequency range. These parameters collectively determine the photocatalytic activity of the photocatalyst. Thus, it underlines the important role of interfacial charge transfer as a rate-determining step in the dye degradation process.
+
+Nonetheless, this study provides a fresh account of the evolution of shape anisotropy in iron oxide nanocrystals under the additive-controlled sol-gel process. It also attempts to correlate the variations in photocatalytic rate constants (k) with the shape and the interfacial electrochemical parameters of the catalyst. However, this study invites further inquiries into the origin and evolution of shape anisotropy of natural minerals and its relevance to the rational design of nanoscale materials. It also opens a fresh discussion on mineral anisotropy-driven interfacial processes of photo-redox nature that may have geochemical relevance. This also calls for the use of the electro-analytical approach for the geochemical processes and photocatalysis research.
+
+**Author’s contributions**
+
+All the work, including ideation, experimentation, analysis, and writing, was done by author Dr. Lahur Mani Verma. Aejaz Ul Basir helped during electrochemical experiments and analysis, and Prof.Pravin P. Ingloe and Prof. Satyawati Sharma supervised the work.
+
+**Conflict of Intrest**
+
+There are no conflicts to declare.
+
+**Acknowledgements**
+The authors are thankful to the University Grant Commission (UGC) and the Indian Institute of Technology Delhi for supporting this research. The author is also thankful to Professor Jai Deo Singh Department of Chemistry IIT Delhi for his constant and sincere motivation.
+
+References
+1. J. Wade, D. J. Byrne, C. J. Ballentine, H. Drakesmith, E. E. by Donald Canfield, A. contributions, H. designed research, H. performed research and D. analyzed data, 2021, 118, 21098-21118.
+2. L. MacHala, J. Tuček and R. Zbořil, American Chemical Society, 2011, preprint, DOI: 10.1021/cm200397g.
+3. C. Moon, G. Jung, J. Min and B. Shin, American Chemical Society, 2024, preprint, DOI: 10.1021/acsmaterialslett.4c00636.
+4. S. Polarz, Adv Funct Mater, 2011, 21, 3214–3230.
+5. C. Jiang, S. J. A. Moniz, A. Wang, T. Zhang and J. Tang, Royal Society of Chemistry, 2017, preprint, DOI: 10.1039/c6cs00306k.
+6. R. Yanagi, T. Zhao, D. Solanki, Z. Pan and S. Hu, American Chemical Society, 2022, preprint, DOI: 10.1021/acsenergylett.1c02516.
+7. L. M. Verma, A. Kumar, A. U. Bashir, U. Gangwar, P. Ingole and S. Sharma, Nanoscale Adv, DOI: 10.1039/d3na00596h.
+8. L. M. Verma, U. Singh, H. Arora, A. Kumar, V. Dhayal, P. P. Ingole, S. Sharma and A. R. Sanwaria, Mater Chem Phys, 2023, 306, 128050.
+9. L. M. Verma, A. Kumar, A. Kumar, G. Singh, U. Singh, S. Chaudhary, S. Kumar, A. R. Sanwaria, P. P. Ingole and S. Sharma, Sci Rep, DOI: 10.1038/s41598-024-53682-0.
+10. M. Kleber, I. C. Bourg, E. K. Coward, C. M. Hansel, S. C. B. Myneni and N. Nunan, Springer Nature, 2021, preprint, DOI: 10.1038/s43017-021-00162-y.
+11. J. J. De Yoreo, P. U. P. A. Gilbert, N. A. J. M. Sommerdijk, R. L. Penn, S. Whitelam, D. Joester, H. Zhang, J. D. Rimer, A. Navrotsky, J. F. Banfield, A. F. Wallace, F. M. Michel, F. C. Meldrum, H. Cölfen and P. M. Dove, American Association for the Advancement of Science, 2015, preprint, DOI: 10.1126/science.aaa6760.
+12. D. Gebauer, MDPI AG, 2018, preprint, DOI: 10.3390/min8050179.
+13. D. Gebauer, P. Raiteri, J. D. Gale and H. Cölfen, Am J Sci, 2018, 318, 969–988.
+14. C. N. J. Wagner, T. B. Light, N. C. Halde R, W. E. Lukens, J. Bendersky, L. A. Ridder, D. J. L. Robertson, S. C. Moss and K. G. Kreider, 7. Christian, J. W. The Theory of Transformations in Metals and Alloys 2nd edn, 1968, vol. 39.
+15 D. Gebauer, M. Kellermeier, J. D. Gale, L. Bergström and H. Cölfen, *Royal Society of Chemistry*, 2014, preprint, DOI: 10.1039/c3cs60451a.
+
+16 C. Baumanis and D. W. Bahnemann, *Journal of Physical Chemistry C*, 2008, **112**, 19097–19101.
+
+17 A. McLaren, T. Valdes-Solis, G. Li and S. C. Tsang, *J Am Chem Soc*, 2009, **131**, 12540–12541.
+
+18 A. Y. Bhat, P. Jain, M. A. Bhat and P. P. Ingole, *Physical Chemistry Chemical Physics*, 2023, **26**, 1777–1791.
+
+19 M. H. Jung and M. J. Chu, *J Mater Chem C Mater*, 2014, **2**, 6675–6682.
+
+20 L. MacHala, J. Tuček and R. Zbořil, *American Chemical Society*, 2011, preprint, DOI: 10.1021/cm200397g.
+
+21 F. N. Sayed and V. Polsheettiwar, *Sci Rep*, DOI:10.1038/srep09733.
+
+22 J. López-Sánchez, A. Serrano, A. Del Campo, M. Abuín, O. Rodríguez De La Fuente and N. Carmona, *Chemistry of Materials*, 2016, **28**, 511–518.
+
+23 F. S. Yen, W. C. Chen, J. M. Yang and C. T. Hong, *Nano Lett*, 2002, **2**, 245–252.
+
+24 M. Andres, A. Mifsud and C. J. Serna, *Formation of Rod-like Zinc Oxide Microcrystals in Homogeneous Solutions*, 1990, vol. 86.
+
+25 M. Andrius-Verges and C. J. Serna, *Morphological characterization of ZnO powders by X-ray and IR spectroscopy*, 1988.
+
+26 C. F. Holder and R. E. Schaak, *American Chemical Society*, 2019, preprint, DOI: 10.1021/acs.nano.9b05157.
+
+27 J. Scheck, B. Wu, M. Drechsler, R. Rosenberg, A. E. S. Van Driessche, T. M. Stawski and D. Gebauer, *Journal of Physical Chemistry Letters*, 2016, **7**, 3123–3130.
+
+28 Z. Zhou, X. Zhu, D. Wu, Q. Chen, D. Huang, C. Sun, J. Xin, K. Ni and J. Gao, *Chemistry of Materials*, 2015, **27**, 3505–3515.
+
+29 D. Maiti, U. Manju, S. Velaga and P. S. Devi, *Cryst Growth Des*, 2013, **13**, 3637–3644.
+
+30 J. Cheon, N. J. Kang, S. M. Lee, J. H. Lee, J. H. Yoon and S. J. Oh, *J Am Chem Soc*, 2004, **126**, 1950–1951.
+
+31 M. Alagiri and S. B. A. Hamid, *J Solgel Sci Technol*, 2015, **74**, 783–789.
+
+32 S. Meneceur, H. Hennami, A. Bouafia, S. E. Laouini, M. L. Tedjani, D. Berra and M. S. Mahboub, *Biomass Convers Biorefin*, DOI:10.1007/s13399-022-02734-4.
+
+33 C. Cheng, F. Xu and H. Gu, *New Journal of Chemistry*, 2011, **35**, 1072–1079.
+
+34 P. K. Narnaware and C. Ravikumar, *Journal of Physical Chemistry C*, 2020, **124**, 25010–25027.
+
+35 K. Dyrek and M. Che, *EPR as a Tool To Investigate the Transition Metal Chemistry on Oxide Surfaces*, .
+36 M. P. Herring, L. Khachatryan and B. Dellinger, *Speciation of Iron (III) Oxide Nanoparticles and Other Paramagnetic Intermediates during High-Temperature Oxidative Pyrolysis of 1-Methylnaphthalene*,.
+
+37 A. Rajendran, M. Alsawalha and T. Alomayri, *Journal of Saudi Chemical Society*, 2021, **25**, 101307.
+
+38 I. U. Foreman-Ortiz, T. Fung Ma, B. M. Hoover, M. Wu, C. J. Murphy, R. M. Murphy and J. A. Pedersen, *J Colloid Interface Sci*, 2022, **615**, 50–58.
+
+39 J. Pal and T. Pal, *Royal Society of Chemistry*, 2015, preprint, DOI: 10.1039/c5nr03395k.
+
+40 D. Gebauer, J. D. Gale and H. Cölfen, *John Wiley and Sons Inc*, 2022, preprint, DOI: 10.1002/smll.202107735.
+
+41 R. Demichelis, P. Raiteri, J. D. Gale, D. Quigley and D. Gebauer, *Nat Commun*, DOI:10.1038/ncomms1604.
+
+42 H. L. Tan, F. F. Abdi and Y. H. Ng, *Royal Society of Chemistry*, 2019, preprint, DOI: 10.1039/c8cs00882e.
+
+43 S. T. Kochuveedu, Y. H. Jang and D. H. Kim, *Chem Soc Rev*, 2013, **42**, 8467–8493.
+
+44 B. Ahmad, K. Leonard, M. Shariful Islam, J. Kurawaki, M. Murugarandham, T. Ohkubo and Y. Kuroda, *Advanced Powder Technology*, 2013, **24**, 160–167.
+
+45 G. Kasivelu, T. Selvaraj, K. Malaiachamy, D. Kathickeyan, D. Shkolnik and S. Chaturvedi, *New Journal of Chemistry*, 2020, **44**, 11373–11383.
+
+46 N. Baram and Y. Ein-Eli, *Journal of Physical Chemistry C*, 2010, **114**, 9781–9790.
+
+47 W. H. Leng, Z. Zhang, J. Q. Zhang and C. N. Cao, *Journal of Physical Chemistry B*, 2005, **109**, 15008–15023.
+
+48 A. S. Shatla, M. Landstorfer and H. Baltruschat, *ChemElectroChem*, 2021, **8**, 1817–1835.
+
+49 T. Li, S. Ciampi and N. Darwish, *ChemElectroChem*, DOI:10.1002/celc.202200255.
+
+50 A. N. Frumkin, *Journal of Electroanalytical Chemistry*, 1965, **9**, 173–183.
+
+51 S. Trasatti, *Journal of Electroanalytical Chemistry*, 1971, **33**, 351–378.
+
+52 R. Kant, J. Kaur and G. K. Mishra, *Journal of Physical Chemistry C*, 2020, **124**, 2273–2288.

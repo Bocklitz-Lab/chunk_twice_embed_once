@@ -1,0 +1,567 @@
+\[^{17}\text{O} \text{ NMR spectroscopy reveals } \text{CO}_2 \text{ speciation and dynamics in hydroxide-based carbon capture materials.} \]
+
+Benjamin J. Rhodes\(^1\), Lars L. Schaaf\(^2\), Mary E. Zick\(^3\), Suzi M. Pugh\(^1\), Jordon S. Hilliard\(^4\), Shivani Sharma\(^1,5\), Casey R. Wade\(^4\), Phillip J. Milner\(^3\), Gábor Csányi\(^2\), and Alexander C. Forse\(^1\)*
+
+\(^1\)University of Cambridge, Yusuf Hamied Department of Chemistry, Cambridge, UK
+\(^2\)University of Cambridge, Engineering Laboratory, Cambridge, UK
+\(^3\)Cornell University, Chemistry and Chemical Biology, Ithaca, New York, USA
+\(^4\)Department of Chemistry and Biochemistry, The Ohio State University, 100 West 18th Ave, Columbus, OH 43210, USA
+\(^5\)Department of Chemical and Biomolecular Engineering and Department of Chemistry, University of California Berkeley, California 94720, USA
+
+*Address correspondence to: acf50@cam.ac.uk
+
+July 24, 2024
+
+Abstract
+
+Carbon dioxide capture technologies are set to play a vital role in mitigating the current climate crisis. Solid-state \[^{17}\text{O} \text{ NMR spectroscopy can provide key mechanistic insights that are crucial to effective sorbent design and development. In this work, we present the fundamental aspects and complexities for the study of hydroxide-based CO}_2 \text{ capture systems by } \[^{17}\text{O} \text{ NMR spectroscopy. We perform static DFT NMR calculations to assign peaks for general hydroxide CO}_2 \text{ capture products, finding that } \[^{17}\text{O} \text{ NMR can readily distinguish between bicarbonate, carbonate and water species. However, in application to CO}_2 \text{ binding in two test case hydroxide-functionalised metal-organic frameworks – MFU-4l and KHCO}_3\text{-CD-MOF, we find that a dynamic treatment is necessary to obtain agreement between computational and experimental spectra. We therefore introduce a workflow that leverages machine-learning force fields to capture dynamic effects across multiple chemical exchange regimes, providing a significant improvement on static DFT predictions. In MFU-4l, we parameterise, in a pre-determined fashion, a two-component dynamic motion of the bicarbonate motif involving a rapid carbonyl seesaw motion and intermediate hydroxyl proton hopping. For KHCO}_3\text{-CD-MOF, we combined experimental and modelling approaches to propose a new mixed carbonate-bicarbonate binding mechanism and thus, we open new avenues for the study and modelling of hydroxide-based CO}_2 \text{ capture materials by } \[^{17}\text{O} \text{ NMR spectroscopy.} \]
+1 Introduction
+
+In the context of the global climate crisis, the development of efficient carbon capture materials is gaining urgency. Anthropogenic CO$_2$ emissions are the main contributor to increasing atmospheric greenhouse gas concentrations, directly resulting in threatening global temperature rises.$^1$ In order to limit global warming to 1.5°C both vast emissions reductions and negative emission technologies are now required.$^2$ Carbon capture and storage is positioned to play a central roll in both transitioning to zero-carbon energy sources and as a direct carbon dioxide removal technology to counterbalance residual greenhouse gas emissions. The development of new materials, particularly for direct air capture (DAC), is one of the key areas of research required for achieving economical technological scale-up. Traditional amine-based sorbents, used in point-source capture,$^3$ suffer from both oxidative degradation and low efficiency regeneration in solvent based systems.$^4$–$^6$ Hydroxide-based solid sorbents, however, are an emerging class of alternative materials, particularly for DAC.$^7$–$^8$ The solid-state hydroxide chemistries are more robust to oxidative degradation and avoid the corrosion problems associated with solvent-based amine capture.$^6$–$^9$ A growing body of work is focusing on hydroxide-based materials for DAC,$^8$–$^{10}$ however, detailed mechanistic information can often be challenging to obtain, hindering further materials optimisation and development.
+
+Metal-organic frameworks (MOFs) are a well developed and studied class of material for carbon capture applications;$^{11}$–$^{16}$ in particular, hydroxide-based MOFs have been demonstrated to achieve high capacities$^{17}$–$^{18}$ and high stabilities.$^{11}$–$^{15}$, $^{16}$–$^{19}$ In most cases a metal-bound hydroxide will react with CO$_2$ to from a chemisorbed metal-bicarbonate species (equation 1). However, in systems with unreacted adjacent and/or labile hydroxide anions, successive capture (eq. 2) and deprotonation (eq. 3) steps may occur to from free bicarbonate/carbonate chemisorbed species. The interplay of bicarbonate and carbonate species in hydroxide capture is well discussed in the context of humidity-swing sorbents.$^{20}$–$^{22}$ Most notably - for all hydroxide-based sorbents - there is the fundamental stoichiometric difference between bicarbonate (eq. 2) and carbonate (eq. 3) mechanisms, with a bicarbonate product mechanism capturing twice the number of CO$_2$ molecules per hydroxide molecule, compared to a carbonate product process. In addition, carbonate mechanisms would likely be subject to slower kinetics due to the multi-step reaction and the requirement for water dissociation for regeneration.
+
+$$\text{CO}_2 + \text{M-OH}^- \rightarrow \text{M-HCO}_3^- \quad (1)$$
+
+$$\text{CO}_2 + \text{OH}^- \rightarrow \text{HCO}_3^- \quad (2)$$
+
+$$\text{CO}_2 + 2 \text{OH}^- \rightarrow \text{CO}_3^{2-} + \text{H}_2\text{O} \quad (3)$$
+
+An interesting case study in this regard are γ-cyclodextrin metal-organic frameworks (CD-MOFs).$^{16}$,$^{23}$,$^{24}$ These CD-MOFs have recently been demonstrated to leverage labile hydroxide-based chemistry to achieve promising CO$_2$ capture performance under flue gas conditions.$^{16}$ The best performing MOF in this family, KHCO$_3$-CD, demonstrated thermal, oxidative and cycling stabilities along with reasonable capacities for post-combustion CO$_2$ capture (1.43 mmol g$^{-1}$ @ 15% CO$_2$/85% N$_2$, 30°C and approx. 0.06 mmol g$^{-1}$ @ 0.4 mbar CO$_2$, 25°C). A bicarbonate capture
+mechanism involving non-metal bound hydroxide counter ions within the framework pores (eq. 2) was proposed.\textsuperscript{16} The free nature of the hydroxide results from the dissociation of the K-OH bond due to significant hydrogen bonding from the cyclodextrin sugar framework.\textsuperscript{24} However, ambiguity remains in the adsorption mechanism with IR, $^{13}$C NMR and heats of adsorption data unable to fully discard the possibility of carbonate formation (eq. 3). Thus, distinguishing between these two mechanisms is vital for understanding and improving not only CD-MOF capture materials, but also hydroxide-based CO$_2$ capture systems more generally.
+
+NMR spectroscopy is an established tool for exploring the mechanisms of CO$_2$ capture in a large variety of materials.\textsuperscript{25–27} Most NMR studies focus on $^{13}$C NMR measurements, with $^{15}$N NMR also utilised in amine-based systems.\textsuperscript{12,28} In hydroxide systems, however, such $^{13}$C NMR data can be ambiguous due to the similar chemical shifts of certain products (e.g. bicarbonate and carbonate) or require further NMR measurements which can introduce their own ambiguity.\textsuperscript{21,22} Recently, Berge and Pugh et al. demonstrated $^{17}$O NMR spectroscopy as a novel and effective tool for deconvoluting CO$_2$ capture mechanisms in amine-functionalised metal-organic frameworks.\textsuperscript{29} At a cost of enrichment of about £50-75 per sample (20% atom 17-oxygen CO$_2$), these methods offer great potential for resolving mechanistic ambiguity, giving new insights alongside $^{13}$C NMR. Particularly, with the quadrupolar nature of $^{17}$O ($I = 5/2$), additional site-specific information is accessible from the quadrupolar parameters ($C_Q$ and $\eta_Q$) derived from the observed NMR quadrupolar lineshapes: $C_Q$, characterising the magnitude of the quadrupolar interaction (expressed in the linewidth), and $\eta_Q$, the asymmetry of the interaction (expressed as lineshape geometry) - see section 4.5 for full definitions.
+
+Due to the relative scarcity of literature and the uniqueness of individual systems, making assignments of $^{17}$O NMR spectra for hydroxide-based systems can be challenging. As such, computational methods, in particular density functional theory (DFT), provide valuable tools in aiding assignments of the observed spectra.\textsuperscript{30–32} In this study, we first demonstrated static DFT results to establish the expected $^{17}$O NMR parameters for hydroxide-based CO$_2$ capture. However, the utility of these results is shown to be limited in this context and we thus stress the importance of including dynamic effects in computational NMR modelling for these systems. By training a machine learning force field (MLFF)\textsuperscript{33–36} on DFT data, we are able to run molecular dynamics at ab-initio accuracy with reduced computational cost for NMR parameter prediction.\textsuperscript{37–39} Fast dynamics on the time scale of nanoseconds are well described by molecular dynamics (MD) trajectories, however, slower motions have previously been required to be assessed by further NMR measurements or be parameterised by fitting of spectral data to infer dynamic processes.\textsuperscript{40–43} Notably, this often leads to continuum motions, e.g. molecular wobbling, being approximated by discrete hop models.\textsuperscript{40,43} In this work, we overcome this problem by directly combining MLFF-MD and stochastic intermediate exchange methods.\textsuperscript{44,45} We thus propose a novel approach for including dynamic NMR effects in fast, intermediate and combined regimes in a pre-determined - rather than empirically derived - fashion. This completes a universal approach for utilising machine-learning force fields for computational NMR prediction, across a range of chemical exchange regimes.
+
+We demonstrate this combined computational and $^{17}$O NMR approach on the well-studied MFU-4l MOF.\textsuperscript{15,19} The established metal-binding mechanism (eq. 1) in MFU-4l is refined to provide
+precise insights into the dynamics of the bound bicarbonate species. Then, through application to KHCO₃ and K₂CO₃·1.5 H₂O solid powders and using additional MLFF molecular dynamics,⁴⁶ we are able to elucidate an improved, mixed bicarbonate-carbonate (eq. 2/3) capture mechanism for KHCO₃-CD-MOF using ¹⁷O NMR spectroscopy.
+
+2 Results and Discussion
+
+2.1 ¹⁷O NMR parameters of CO₂ species captured by hydroxide
+
+Figure 1: Representative DFT calculations resolve speciation differences through ¹⁷O NMR parameters. Calculated parameters for hydrated bicarbonate anion clusters (A-C) and carbonate anion clusters (D-F) with varying degrees of hydration from 0 to 5 water molecules (0-5w). Calculated quadrupolar NMR parameters C_Q (B, E) and η_Q (C, F) are plotted against isotropic chemical shift. Blue dash lines act as guidelines to show the divisions of the different environments. Equivalent C_Q vs η_Q comparisons are plotted in Figs. S3-S4. MOF parameters of KHCO₃-CD-MOF (black star, B, C) and two binding modes of MFU-4l (red: mode A - star, mode B - hexagon) are also included (structures see Fig. S10 and S11).
+
+Investigating CO₂ capture by hydroxides through ¹⁷O NMR spectroscopy requires the establishment of the expected range of quadrupolar NMR parameters for the predicted products of capture, i.e. bicarbonate and carbonate. Representative hydrated anion clusters of bicarbonate (Fig. 1A-C) and carbonate (Fig. 1D-F) were generated using static DFT calculations in line with those previously reported in the literature (see Figs. S1-S2 for full structure list).⁴⁷-⁵⁰ These structures were
+identified as the most general candidate structures with their diversity of hydrogen-bonded oxygen environments hypothesised to represent the likely environments found in the binding sites of solid-state CO$_2$ sorbents. For comparative purposes, calculated NMR parameters for periodic boundary condition structures of bound CO$_2$ in KHCO$_3$ CD-MOF (Fig. S11) and two modes proposed for MFU-4l (Fig. S10) are also included in Fig. 1.
+
+For the bicarbonate clusters, carbonyl oxygens are clearly distinguished at high $\delta_{\text{iso}} = 174-209$ ppm, above that of hydroxyl oxygens at $\delta_{\text{iso}} = 125-145$ ppm and water $\delta_{\text{iso}} = -4$ to -34 ppm (Fig. 1B-C). Additionally, the $C_Q$ values of hydroxyl oxygens are found to be higher, $C_Q = 9-9.6$ MHz, than for carbonyls, $C_Q = 7-8.1$ MHz. Comparison to the MOF structures also corroborates these trends with the hydroxyl matching in all three NMR parameters. The carbonyl's are more spread for MFU-4l with respect to $\delta_{\text{iso}}$, though $C_Q$ remains in agreement. This is due to polarisation induced by the Zn-metal centre, whereas the CD-MOF remains in agreement with the clusters in both $\delta_{\text{iso}}$ and $C_Q$ as no metal-bicarbonate bond is present.
+
+Notably, the hydroxyl environments in bicarbonates are thus predicted to be readily distinguished in an experimental spectrum (and additionally from any H$_2$O oxygens present), allowing for bicarbonate and carbonate products to be distinguished. The $\eta_Q$ values for all environments are in the range $\approx 0.3 - 1$, making any inferences for assignments from these relatively broad distributions challenging.
+
+Comparing carbonate and bicarbonate anions, the chemical shift range for carbonate carbonyl oxygens is $\delta_{\text{iso}} = 174-193$ ppm (Fig. 1E-F). This is overlapping with the carbonyl range of bicarbonate anions, although is skewed to the lower ppm values of the distribution (see Figs. S5-S6). Likewise, the carbonate $C_Q$ values are found at the higher end of the bicarbonate range, $C_Q = 7.6-8$ MHz, though there remains significant overlap (see Figs. S5b-S6b). This result from static DFT that bicarbonate and carbonate carbonyl environments are indistinguishable with respect simply to their $^{17}$O NMR parameters is a somewhat unsurprising result given their chemical similarity. However, the clear separation of hydroxyl groups gives strong potential for assigning speciation of CO$_2$ capture products. The NMR parameters of the structures used in Fig. 1 were also calculated using the 6-311+G(d,p) basis-set of the same level of theory (triple $\zeta$-level), no significant changes in parameter values were observed (see Fig. S5-S9).
+
+### 2.2 $^{17}$O NMR spectroscopy - functional group assignment
+
+With the expected theoretical parameters established, the application of $^{17}$O NMR spectroscopy to hydroxide-based CO$_2$ capture materials was initially assessed using the well-known MFU-4l (Zn$_5$(OH)$_4$(btdd)$_3$) MOF, Fig. 2. MFU-4l has well defined, isolated monodentate Zn-hydroxide sites situated within cubic pores (Fig. 2A-B). These hydroxide sites are thought to react in a 1:1 ratio with CO$_2$ to form individual bicarbonate type structures via an insertion mechanism. The $^{17}$O NMR spectrum of a C$^{17}$O$_2$ dosed sample of the MOF showed 4 clear resonances (Fig. 2C). Physisorbed CO$_2$ at 68 ppm is readily assigned from previous literature. Both the carbonyl, 175-178 ppm, and hydroxyl, 90-110 ppm, environments are assigned initially in comparison to the predicted shifts for bicarbonate clusters in Fig. 1. Finally, the peak at -50 to -70 ppm is assigned to
+unreacted Zn-hydroxide site, in agreement with literature. The clear identification of carbonyl and hydroxyl functional groups (at an approximate 2:1 ratio, see S12) is in agreement with the accepted bicarbonate binding structure in MFU-4l and gives promise to \textsuperscript{17}O NMR as a technique for making speciation assignments.
+
+It is noted that for this final assignment, although some Zn-OH sites remain apparently unsaturated at 0.8 bar CO\textsubscript{2}, the appearance of signal (given the low natural abundance of \textsuperscript{17}O) must be a result of reaction and exchange with the \textsuperscript{17}O isotope labels in the dosed CO\textsubscript{2}. This indicates that there is enrichment through dynamic bond forming and breaking at some Zn-OH sites that do not strongly bind CO\textsubscript{2}. This supports previous observations that binding of sequential equivalents of CO\textsubscript{2} leads to weaker binding energies.
+
+Although the chemical shift of the carbonyl peak agrees well with the cluster DFT calculations in Fig. 1, comparison to the calculated MFU-4l values is poor. The asymmetric Zn-oxygen bonds (Fig. 2A) predicted by DFT, and resulting asymmetric polarisation, leads to two calculated C=O peaks separated by 90-120 ppm (Fig. 1B-C), with Zn-binding leading to lower chemical shifts. Additionally, the narrowness of the observed peak indicates that the full quadrupolar lineshape is not being expressed. A quadrupolar lineshape fitting for the C=O peak returns a \(C_Q = 2.7\) MHz, much lower than the static DFT predictions (Fig. 1B). Similarly, although a quadrupolar lineshape
+is expressed for the hydroxyl peak, the fitted $C_Q = 5.5$ MHz is lower than the DFT predictions of 9.0-9.1 MHz.
+
+These phenomena are most likely explained by some degree of dynamic motion (e.g. Fig. 2A) partially averaging some of the quadrupolar interaction, and providing chemical equivalence of the two carbonyl environments. In order to investigate this further and produce a quantitative model for the NMR spectrum, detailed molecular dynamics simulations with a machine-learning forcefield were performed.
+
+Figure 3: Capturing dynamic effects from fast to slow chemical exchange regimes using ML force fields. The experimental $^{17}$O NMR spectrum (right, black) of MFU-4l (23.5 T, 20 kHz MAS, 10.8 h, hahnecho) dosed with $^{17}$O$_2$ modelled in four different exchange regimes. Simulated peak environments are denoted as red - hydroxyl, green - proximal carbonyl, blue - distal carbonyl, and purple - averaged carbonyls with proton hop. Schematics of the exchange regimes and workflows utilising ML force-fields are displayed (left). Panel D demonstrates the most accurate model combining both fast and intermediate exchange modelling.
+2.3 Machine-learning force fields for dynamic $^{17}$O NMR peak prediction
+
+Ab-initio molecular dynamics is a well established approach for capturing dynamic effects in NMR spectra simulations,$^{54–69}$ including in the context of CO$_2$ diffusion and physisorption materials.$^{40,41,43}$ MD has been used to gain qualitative insights and to sample relevant 3D configurations which can be used to compute an ensemble of NMR parameters for each nucleus. However, the computational cost of direct ab-initio MD severely limits this approach in terms of simulation time and system size. The cost can be circumvented through the use of machine learning force fields (MLFFs), which are trained on a set of ab-initio reference calculations, such as DFT, and then used to predict energies and forces on unseen configurations at near ab-initio accuracy.$^{33–36,70–73}$
+
+Even with the computational speedup that MLFFs offer, these approaches only capture fast NMR regime dynamic processes at around nano-second time-scales.$^{37–39}$ However, NMR shifts can be effected by changes to the chemical environment at much longer. Indeed, the effect of a dynamic process on the observed NMR spectrum depends significantly on the relationship of the exchange rate, $k$, and the absolute resonant frequency difference, $\Delta\nu$, between the initial and final states. This separates chemical exchange into three regimes: slow exchange ($k \ll \Delta\nu$), where each environment is well resolved in the NMR spectrum; fast exchange ($k \gg \Delta\nu$), where rapid dynamics lead to a complete averaging of individual NMR environments; or intermediate exchange ($k \approx \Delta\nu$) when NMR environment coalescence is observed but averaging is only partial. (At 23.5 T for $^{17}$O, 1 ppm = $\Delta\nu = 136$ Hz). In the case of CO$_2$ binding in MFU-4l, it is clear from static DFT models, Fig. 3A (NMR parameters from Fig. 1, red star values are taken), that a slow exchange or static regime is inaccurate.
+
+Therefore, we propose a comprehensive approach that is able to capture dynamic effects across multiple chemical exchange regimes (Fig. 3). By sampling rare events with both MD and transition state searching we obtain effective isotropic and anisotropic $^{17}$O NMR tensors and lineshape simulations. To facilitate accurate sampling and the calculation of transitions states we train a ML force field to near ab-initio accuracy. The MLFF training follows the active learning approach detailed in Reference [74]. These methods allows us to deconvolute the multi-layered dynamics in the example case of MFU-4l MOF:
+
+**Fast regime.** We use direct MLFF molecular dynamics to capture fast processes. The final spectrum, Fig. 3C, is obtained by point wise averaging of the individual DFT shielding tensors across 18 samples of the trajectory. For the MFU-4l MOF we sample along a 2 ns trajectory, thus any motion observed is in the fast exchange regime ($k \geq 500$ MHz). The MD reveals a well defined asymmetric carbonyl ‘seesaw’ motion (Fig. 2A, step 2). Notably, the hydroxyl proton was not seen to move significantly leading to two chemically distinct carbonyl sites, one proximal to the proton (Fig. 2A - red) and one distal to the proton (Fig. 2A - blue). This ‘seesaw’ motion was found to be asymmetric at a ratio of 83 : 17 in favour of the distal carbonyl being bound to the Zn (Fig. S13-S14). This is hypothesised to be due to a weak interaction between the proximal carbonyl and the hydroxyl proton, with the resulting polarisation leading to a reduction in relative binding strength to the Zn. Compared to the slow regime, there is marked narrowing of all three environments.
+as would be expected from the partial motional averaging of the quadrupolar interaction. The hydroxyl peak (Fig. 3C - red) now matches well in shape to the experimental spectrum with only a $\Delta \delta_{\text{obs}} \approx 5$ ppm discrepancy compared to experiment. However, the distinct proximal and distal carbonyl environments are still well resolved and require further consideration.
+
+**Intermediate regime.** To capture longer timescale events we do an extensive local minima energy structure search using minima hopping. We find the exchange rates connecting minima using a transition state search with the MLFF. For MFU-4l, a rotational flip of the hydroxyl group of the bicarbonate (Fig. 2A) is found which leads to the two carbonyls becoming chemically equivalent (see S15). We use the nudged elastic band method and find an energy barrier of 0.49 eV, which corresponds to a rate of $2.4 \times 10^5$ Hz under the harmonic approximation at room temperature (see S16). Using the calculated rate constant along with the static DFT carbonyl values (see Fig. 1A-C) as inputs to the stochastic hopping package EXPRESS, the two distinct carbonyl peaks coalesce, Fig. 3B. Variable temperature NMR (Fig. S17) identifies significant broadening at lower temperature supporting this proposed hydroxyl proton flip is at the fast exchange edge of the intermediate regime ($k \approx \Delta \nu$). This intermediate exchange model gives a clear improvement to the carbonyl lineshape with a single coalesced peak differing in $\Delta \delta_{\text{obs}} \approx 13$ ppm to experiment, however, an excessive peak width remains ($C_Q = 6.2$ MHz, c.f. experimental $C_Q = 2.7$ MHz).
+
+**Fast + Intermediate regime.** To combine the effects of fast and intermediate exchange processes, we use EXPRESS to model a stochastic hopping on the fast regime MD averaged tensors from Fig. 3C. Modelling both the effects of the ‘seesaw’ and proton hop motions results in good agreement with experiment, Fig. 3D. This novel combination of dense sampling MD averaging and discrete site hops provides the most accurate model for both the carbonyl, with only a $\Delta \delta_{\text{obs}} \approx 6$ ppm discrepancy and a peak width more accurately described by a $C_Q = 4.2$ MHz, and hydroxyl peaks, modelled analogously to Fig. 3C. In the intermediate regime observed for the carbonyl, there is a degree of sensitivity of the simulated peak shape to the precise value of the calculated rate constant (see Fig. S18). Such sensitivity explains the discrepancy in the final carbonyl model, however, overall, the success of this modelling supports a specific two-component motion of carbonyl ‘seesaw’ and proton hopping in the CO$_2$ binding mode in MFU-4l (Fig. 2A). This reveals not only the detailed nature of CO$_2$ binding in MFU-4l but also provides insight that can be transferred to other similar metal-binding systems. The MLFF is highlighted as critical in keeping the computational cost affordable when modelling dynamics effects across all exchange regimes. Without the use of MLFF-MD, the nature of dynamics and exchange regime would be unknown; rate constant information would have to be assumed for stochastic hop modelling, and no refinement of the non-explicitly exchanging environments (e.g. hydroxyl peak) would be possible. Notably, this contrasts significantly to the $^{17}$O NMR modelling of amine-based carbon capture materials, where static DFT modelling is sufficient. Thus, we demonstrate that the modelling of dynamics by MLFF methods is a key component for the assessment of hydroxide-based CO$_2$ capture materials.
+2.4 New insight into the CO\textsubscript{2} capture mechanism of KHCO\textsubscript{3} CD-MOF
+
+The successful modelling of CO\textsubscript{2} binding in MFU-4l by a combination of \textsuperscript{17}O NMR and MLFF-MD averaging methods establishes a clear set of methodologies for studying hydroxide-based CO\textsubscript{2} capture. KHCO\textsubscript{3} CD-MOF is a promising CO\textsubscript{2} capture sorbent,\textsuperscript{16} however, mechanistic uncertainty between bicarbonate and/or carbonate chemisorption product(s) remains which \textsuperscript{17}O NMR methods are well placed to resolve.
+
+Initial \textsuperscript{13}C NMR experiments were performed on the \textsuperscript{13}CO\textsubscript{2} dosed CD-MOF, Fig. 4A, to give context to the further \textsuperscript{17}O NMR experiments. Results in the chemisorbed CO\textsubscript{2} region revealed two peaks clearly identifiable at 159 and 163 ppm. These are in agreement with the previously reported value of 159.6 ppm - only a single environment was previously assigned despite the apparent asymmetry of the chemisorbed CO\textsubscript{2} peak.\textsuperscript{16} Consistent chemisorbed CO\textsubscript{2} environments were reproduced for a range of samples (Figure S19). These values fall in the expected range for bicarbonate and carbonate anions (161-168 ppm in solution,\textsuperscript{76} and 160-169 ppm\textsuperscript{77} in solid-potassium crystals), but it is hard to make conclusive assignments with any confidence.
+
+Figure 4: The NMR spectra and assignments of CO\textsubscript{2} dosed KHCO\textsubscript{3} CD-MOF. NMR spectra of KHCO\textsubscript{3} CD-MOF dosed with \approx 1 bar enriched CO\textsubscript{2}: (A) \textsuperscript{13}C (9.4 T, 12.5 kHz MAS, 1.7 h, CPMAS) and (B) \{\textsuperscript{1}H\}\textsuperscript{17}O NMR spectra (23.5 T, 20 kHz MAS, 16.2 h, one-pulse) of KHCO\textsubscript{3}-CD-MOF dosed with \textsuperscript{13}CO\textsubscript{2} and C\textsuperscript{17}O\textsubscript{2}, respectively. (C) Representative fit of the \{\textsuperscript{1}H\}\textsuperscript{17}O spectra (23.5 T, 20 kHz MAS, 1.2 h, one-pulse) of the dosed KHCO\textsubscript{3}-CD-MOF with peak shapes generated from the DFT calculated values, taken from Fig. 1, with apparent absence of hydroxyl environment (the right-hand experimental peak is physisorbed CO\textsubscript{2}). (D) Comparison of the same \{\textsuperscript{1}H\}\textsuperscript{17}O spectra to KHCO\textsubscript{3}/K\textsubscript{2}CO\textsubscript{3} · 1.5 H\textsubscript{2}O solid powders, natural abundance, (23.5 T, 20 kHz MAS, hahnecoh. KHCO\textsubscript{3} · 34.0 h, K\textsubscript{2}CO\textsubscript{3} · 1.5 H\textsubscript{2}O · 42.1 h). See Figs. S40-S41 for PXRD patterns of solid crystal samples.
+The identification of two chemisorbed CO\textsubscript{2} environments suggests either a mixed bicarbonate-carbonate mechanism or a two-site (bi)carbonate mechanism is likely occurring. Heats of adsorption data supports this with an ambiguous crossover between mechanisms (Fig. S20). Cross-polarisation (CP) MAS kinetic experiments were initially trialled, but remained inconclusive (Fig. S21) and thus, we propose \textsuperscript{17}O NMR spectroscopy as having the potential to improve clarity of mechanistic assignments - particularly motivated by the direct impact the mechanistic difference between carbonate and bicarbonate has on material CO\textsubscript{2} capacity.
+
+The \textsuperscript{17}O NMR spectrum of the CD-MOF dosed with C\textsubscript{17}O\textsubscript{2} (Fig. 4B), shows three peaks clearly resolved at $\delta_{obs} = -12$, 68 and 140-180 ppm. Physisorbed CO\textsubscript{2} and chemisorbed CO\textsubscript{2} are readily assignable at 68 and 140-180 ppm, respectively, in line with MFU-4l and with previous work.\textsuperscript{29} The peak at negative ppm bares similarity to the Zn-OH peak in MFU-4l and is in a similar region to minor peaks previously assigned as framework defects in amine-based MOFs.\textsuperscript{29} However, here we assign the peak as partially desolvated H\textsubscript{2}O within the MOF pore. This species will likely be in equilibrium with hydroxide, (bi)carbonate and CO\textsubscript{2} (see equ (2-3)) explaining both the \textsuperscript{17}O enrichment and the similarities (negative $\delta_{obs}$) to the Zn-OH peak in MFU-4l.
+
+Further support for this H\textsubscript{2}O species assignment is found when comparing to the similarly partially solvated H\textsubscript{2}O in the DFT calculations in Fig. 1, which place $\delta(H\textsuperscript{17}O) = -4$ to $-34$ ppm. Additionally, as the pore environment is nominally ‘dry’ after MOF activation, any water present is expected to be in low concentration, and thus with a reduced hydrogen bonding network. Therefore, the observed peak position between that of fully solvated liquid water (0 ppm) and that of isolated gaseous water ($-36.1$ ppm),\textsuperscript{78} is consistent with that of a partially solvated species. Thirdly, the high hydrophilicity of cyclodextrin ligand\textsuperscript{79} and the suggestion of previous binding energy calculations that the presence of H\textsubscript{2}O plays a key role in stabilising CO\textsubscript{2} binding\textsuperscript{16} further supports the mechanistic involvement of H\textsubscript{2}O species.
+
+To assign the chemisorbed CO\textsubscript{2} environment a first comparison to the simple static DFT calculation was performed (Fig. 4C), i.e. a slow exchange regime was assumed (see Fig. 3A). This immediately gave the clear result that no static hydroxyl group is present in the CO\textsubscript{2} binding mode in CD-MOF. The calculated carbonyl environments are in broad agreement with the experimental spectrum giving two mechanistic possibilities: i) only carbonate species are present - i.e. no hydroxyl groups; ii) bicarbonate/hydroxyl groups are present but chemical exchange alters the spectrum.
+
+The first of these possibilities is probed experimentally with comparison to solid powders of KHCO\textsubscript{3} and K\textsubscript{2}CO\textsubscript{3}.1.5H\textsubscript{2}O, Fig. 4D. The very good agreement found between the solid compounds and the CO\textsubscript{2} dosed CD-MOF indicates the presence of bicarbonate is still likely and, additionally, supports the possibility of a mixed carbonate-bicarbonate mechanism. However, the absence of the hydroxyl environment in both the CD-MOF and KHCO\textsubscript{3}(s) spectra indicate proton dynamics are significantly at play in both materials.
+
+### 2.4.1 Dynamic \textsuperscript{17}O NMR modelling in KHCO\textsubscript{3} and KHCO\textsubscript{3}+-CD-MOF
+
+KHCO\textsubscript{3}(s) was investigated first through the modelling methods described in section 2.3. The bicarbonate dimer motif within the crystal structure, Fig 5A - right,\textsuperscript{80} is known to facilitate a rapid
+Figure 5: Fast regime dynamic modelling of KHCO$_3$(s). Comparison of computational static (A) and dynamic (B) $^{17}$O NMR models compared to experimental spectra of KHCO$_3$(s) (23.5 T, 20 kHz MAS, 33.0 h, hahneco). To the side, illustrations of the crystal structure of KHCO$_3$(s) show the unique oxygen (red) environments, as well as samples of the hydrogen (white) positions in the dynamic case (grey = carbon, purple = potassium). (C) A plot of $^{17}$O isotropic shift of all the now equivalent (under exchange) dynamic oxygen environments against the projection (onto the oxygen-oxygen axis) of oxygen-proton distance of all the MD samples, the mean $\delta_{\text{iso}}$ is marked (further illustrations of the same data are shown in Figs. S22-S23).
+
+proton hop between the hydroxyl-carbonyl pairs.$^{31,81–84}$ Using a purpose trained MLFF to perform a transition state search we determine a proton hop frequency of 140 GHz (see Fig. S24). This corresponds to the fast chemical exchange regime in NMR experiments (see Fig. 3C).
+
+MLFF-MD simulations with NMR DFT sampling, Fig. 5B-C, demonstrate clearly that rapid chemical exchange between the carbonyl oxygen - B, and hydroxyl oxygen - C, pairs gives a much improved two-environment simulation (red) of the experimental spectrum (black). The symmetric proton hopping (Fig. 5C) produces a fast exchange average value of $\delta_{\text{iso}} = 161$ ppm, and, through electric field gradient (EFG) tensor averaging, a $C_Q = 7.0$ MHz and $\eta_Q = 0.2$ for this new ‘dynamic hydroxyl’ peak (see Table 1). (For clarity, the nomenclature of a ‘dynamic hydroxyl’ refers to an
+oxygen environment that is in fast exchange between a hydroxyl and carbonyl site). Small motions of the non-exchanging carbonyl environment, A, leads to minor changes in parameters (see Table 2).
+
+Table 1: Comparison of NMR parameters of the dynamic hydroxyl region of the experimental fits of the CO₂ dosed CD-MOF (see Fig. 6A) and KHCO₃(s) (Fig. S25) and the MLFF-MD calculated values for KHCO₃(s) through cartesian tensor averaging.
+
+|                      | Expt. CD-MOF fit | Expt. KHCO₃(s) fit | KHCO₃(s) MD averaged DFT |
+|----------------------|------------------|--------------------|---------------------|
+| δiso / ppm           | 163              | 163                | 161                 |
+| CQ / MHz             | 6.4              | 6.1                | 7.0                 |
+| ηQ                   | 0.6              | 0.6                | 0.2                 |
+
+Table 2: Comparison of NMR parameters of the carbonyl environments of the experimental fit of the CO₂ dosed CD-MOF (Fig. 6A) and of the calculated carbonyl values of static DFT (cluster and CD-MOF values, Fig. 1) and of KHCO₃(s)/K₂CO₃·1.5 H₂O(s), both static and dynamic averaged (*KHCO₃ is case C, fast exchange, K₂CO₃·1.5 H₂O is case B, intermediate regime, see Fig. 3).
+
+|                      | Expt. CD-MOF fit | Cluster calculations | Static DFT | Dynamic average* |
+|----------------------|------------------|----------------------|------------|------------------|
+|                      | 1 - Blue         | 2 - Purple           | HCO₃⁻      | K₂CO₃(s)         |
+| δiso / ppm           | 192              | 174-209              | 174-193    | 188              |
+| CQ / MHz             | 6.5              | 7.0-8.1              | 7.6-8.0    | 7.7              |
+| ηQ                   | 0.8              | 0.6-1                | 0.75       | 0.7              |
+
+In a similar fashion, a refined fit for K₂CO₃(s) may be estimated through dynamic modelling. The three distinct carbonyl environments within the K₂CO₃·1.5 H₂O structure are defined as having 0, 1 and 2 adjacent hydrogen bonds, respectively. Assuming an intermediate exchange regime (Fig. 3B), δiso and ηQ values produced with stochastic hop modelling using EXPRESS (see Fig. S27) are found to match reasonably to the experimental fit values (Tables 2 and S3), though the CQ is slightly higher in the simulation.
+
+The computational expense of DFT training and extensive DFT NMR calculations on the CD-MOF system (> 1000 atom unit cell) meant a combination of additional NMR experiments (Fig. 6A), direct inference from the quantitative modelling of KHCO₃ and K₂CO₃ (Tables 1-2), and qualitative MD simulations (Fig. 6B) were utilised for mechanistic conclusions to be achieved. Experimentally, insight into the constituent environments of the chemisorbed CO₂ peak was resolved via an MQMAS spectrum, supported by multi-field fitting of ¹⁷O NMR spectra obtained at 20.0 and 23.5 T (see SI section 5.2 and Figs. S29-S33 for further details). This identified three environments (Fig. 6A) assigned as carbonyls and hydroxyls all with a large degree of broadening, symptomatic of dynamics being at play.
+
+First, the lowest shift peak at δiso = 163 ppm is assigned as a ‘dynamic hydroxyl’ environment due to very good agreement to both the experimental and MLFF-MD simulated values for KHCO₃(s) (Table 1). Both the δiso and CQ values agree well, and ηQ discrepancies are explained through broad lineshapes giving poorly defined line shape features for fitting. Additionally, both DFS and MQMAS experiments qualitatively support this assignment of a dynamic environment with limited NMR signal enhancement at the corresponding shift region seen in the DFS spectrum (Fig. S28) and MQMAS signal being particularly challenging to obtain for the same lower shift region (Fig. S29).
+The two higher shift peaks at $\delta_{\text{iso}} = 181, 192$ ppm are more challenging to assign precisely, although both clearly fall in the carbonyl region from comparison to both calculated (Table 2) and experimental and literature results (Table S3).\textsuperscript{30,85,86} From $^{13}$C NMR (Fig. 4A), two carbon species are expected - at a ratio of $\approx 1 : 1.6$ (Fig. S34). Thus, the three oxygen environments assigned must correspond to two (bi)carbonate species of the same ratio. From the multi-field data (Fig. S33), the ratio of the 181 ppm peak to the combined total of the 163 and 192 ppm peaks remains constant at around 1:1.8-1.9. Given the broadness of the $^{17}$O NMR peaks, these ratios are in reasonable agreement with the $^{13}$C NMR. Thus, the 163 and 192 ppm $^{17}$O peaks can be tentatively assigned as belonging with the 159 ppm $^{13}$C peak as bicarbonate ‘dynamic hydroxyl’ and carbonyl environments, respectively. The 181 ppm $^{17}$O peak can thus be assigned with the higher shift $^{13}$C environment at 163 ppm as a carbonyl of a carbonate species. This is supported by the generally lower $^{17}$O $\delta_{\text{iso}}$ values calculated for carbonate carboxyls compared to in bicarbonate (Fig. S6b, Table 2) - as well as generally higher $^{13}$C NMR shifts for carbonates (see Table S2).\textsuperscript{76,77}
+
+The final piece of validation for the assignments in Fig. 6 comes from MD simulations using the MACE-MP-0 pre-trained ML force-field.\textsuperscript{46} Recently introduced, MACE-MP-0 is widely applicable to a large variety of materials, in particular MOFs, without the need for additional and, in this case, expensive DFT training.\textsuperscript{46} Molecular dynamic simulations reveal the existence of extensive hydrogen bond network surrounding the active sites (see Fig. S35). We investigate the plausibility of proton hops between hydroxyl, carbonyl, hydroxide and framework alcohol sites by assessing the...
+thermodynamic stability of various hydrogen networks. We find that a carbonyl-hydroxyl proton transfer can be facilitated by a proton hop along the hydrogen network (Figs. 6B and S35), providing a plausible mechanism for a dynamic hydroxyl group within the bicarbonate.
+
+These assignments give the new mechanistic result that KHCO$_3$-CD-MOF has a mixed carbonate-bicarbonate chemisorption mechanism at an approximate 1:1.6-1.9 ratio (at 0.8 - 1.1 bar CO$_2$). This explains the ambiguous heats of adsorption data$^{16}$ (Fig. S20) which sees a chemisorption-physisorption switch matching well to hydroxide saturation at a suggested 1:1.6 - 2.4 ratio of carbonate: bicarbonate.
+
+In order to improve clarity of assignments and provide a more complete picture of dynamic behaviour, variable temperature NMR experiments were attempted. However, the complex system within the NMR rotor for CO$_2$ capture materials - including chemisorbed, physisorbed and free head-space gaseous CO$_2$ - presents a multi-component equilibrium system that is itself affected by temperature changes. This resulted (Fig. S36) in alterations of the NMR spectrum that are not simply due to dynamic effects but also driven by shifts in equilibrium position with temperature (e.g. increased CO$_2$(g) adsorption with decreasing temperature). This experimental limitation further justified MLFF-MD modelling as a crucial tool for providing insight into the effects of dynamics in the NMR spectroscopy of CO$_2$ capture systems.
+
+3 Conclusions
+
+This work has demonstrated the significant power and considerations required for applying $^{17}$O NMR spectroscopy to the study of hydroxide-based CO$_2$ capture materials. Initial static DFT results suggested $^{17}$O NMR should provide clear diagnostic assignments of hydroxyl, carbonyl and water environments with respect to their $\delta_{iso}$ and $C_Q$ values. Experimental results on MFU-4l and KHCO$_3$-CD-MOF corroborated these results to an extent, with chemisorbed and physisorbed CO$_2$ and water/hydroxide readily assignable from 1D $^{17}$O NMR spectra. However, more sophisticated MLFF-MD simulations were demonstrated as efficient and effective models for the influences of both carbonyl and hydroxyl dynamics in the spectra of the two MOFs.
+
+For MFU-4l, our results supported a previously proposed bicarbonate capture mode, and a two aspect fast-intermediate exchange regime was identified involving carbonyl ‘seesaw’ and proton swivelling motions. KHCO$_3$-CD-MOF required a multi-faceted analysis approach, including: experimental $^{17}$O NMR comparison to model solid compounds KHCO$_3$ and K$_2$CO$_3$.1.5H$_2$O with quantitative MLFF-MD modelling, 2D MQMAS and multi-field data, and qualitative MLFF simulations. These combined to give a newly proposed mixed carbonate-bicarbonate mechanism, 1:1.6 - 1.9 ratio, for KHCO$_3$-CD-MOF. Overall, this work shows the potential of $^{17}$O NMR spectroscopy to reveal carbon dioxide speciation and dynamics, and thereby to act as a guide for the design and development of improved hydroxide-based CO$_2$ capture materials.
+
+https://doi.org/10.26434/chemrxiv-2024-c0vmg ORCID: https://orcid.org/0000-0002-6133-6531 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+4 Materials and Methods
+
+4.1 Materials
+
+All of the chemicals used in this project were purchased from commercial suppliers and were used without further purification. $^{13}$C-enriched CO$_2$ gas was purchased from Sigma-Aldrich with 99.0 atom % $^{13}$C, $^{17}$O-enriched CO$_2$ gas was purchased from ICON/Berry & Associates Inc., with $\sim$20 atom % $^{17}$O.
+
+4.1.1 KHCO$_3$(s) & K$_2$CO$_3$(s)
+
+The samples of KHCO$_3$ and K$_2$CO$_3$ were both obtained from ThermoFischer Scientific Inc.. K$_2$CO$_3$ was quoted as anhydrous, 99+% purity. PXRD patterns of the same chemical batch as used for NMR spectroscopy are shown in Figs. S40-S41. These revealed that the K$_2$CO$_3$ was in fact in the 1.5 H$_2$O hydrated form, likely as a result of prolonged air exposure.
+
+4.1.2 MFU-4l MOF
+
+MFU-4l MOF was synthesised following the TBAOH exchange method as described in Reference [19]. The MOF was characterised by PXRD (Fig. S42) and N$_2$ and CO$_2$ isotherms (Fig. S43). The PXRD were performed on the CO$_2$ loaded form of the MOF and for the isotherm and all NMR measurements the MOF sample was pre-activated at 100°C, vacuum for at least 12 h. MOF samples were handled in a N$_2$ glovebox (incl. for NMR rotor packing) to avoid moisture and atmospheric CO$_2$ exposure.
+
+4.1.3 KHCO$_3$-CD-MOF
+
+KHCO$_3$-CD-MOF synthesis was performed as previously reported in the literature. $\gamma$-cyclodextrin (324 mg, 0.25 mmol, 1.00 eq.), potassium bicarbonate (200 mg, 2.00 mmol, 8.00 eq.), methanol (8 ml), and deionized water (2 ml) were combined in a 25 ml Teflon autoclave. The mixture was sonicated and stirred at room temperature for 1 h. The autoclave was sealed and heated in an oven ($140$ °C, 4 days). The reaction was slowly cooled to room temperature in the oven following heating. The brown crystals were transferred and soaked in solvent ($3 \times 3$ ml methanol then $3 \times 3$ ml dichloromethane), each soak was for 24 h before decanting and replacement with fresh solvent. The crystalline product was filtered and activated under flowing N$_2$ (RT, 24 h) then under vacuum (RT, 24 h). Activated KHCO$_3$ CD-MOF was obtained as orange-brown crystals.
+
+Some challenges were found in reproducing material quality as assessed by characterisation via PXRD (see Fig S44) and gas sorption N$_2$ and CO$_2$ isotherms (see Figs. S45-S46). Despite this material variability, NMR results proved consistent between different samples synthesised by different researchers (Fig. S19 and S47. See Table S4 for specific sample information). The highest quality sample (sample 3) was utilised for obtaining the MQMAS and high-resolution 23.5 T NMR data. MOF samples were handled either in a N$_2$ glovebox/glovebag (incl. for NMR rotor packing) to minimise moisture and atmospheric CO$_2$ exposure.
+4.2 PXRD and gas sorption
+
+Power X-ray diffraction (PXRD) data were obtained using a Malvern Panalytical Empyrean and Xpert instrument with non-monochromated CuKα radiation (λ = 1.5406, 1.5444 Å) and an X'celerator Scientific detector. Measurements were performed at room temperature on 5 mm or 10 mm sample area glass disks. Divergence and anti-scatter slits of 1/8" and 1/4", respectively, were used to achieve 2θ ranges of 3-50° or 5-40° with step size = 0.017°.
+
+All gas adsorption isotherms, apart from Fig. S43, for CO₂ and N₂ were taken on an Anton Parr Autosorb iQ-XR analyser. Samples were activated on the attached vacuum degassing stations (KHCO₃ CD-MOF room temperature = 303 or 308 K, 24 h). N₂ isotherms were obtained at 77 K (liquid N₂ bath), and CO₂ isotherms were taken at either 298 K or 303 K (water bath). All analysis was performed in AsiQwin 5.21 software, where multipoint BET was applied to N₂ isotherms for surface area determination.
+
+Fig. S43 was taken on a different adsorption instrument using a Micromeritics 3Flex Surface Characterization Analyzer. These measurements were performed using ultra-high-purity-grade gases (99.999%) purchased from Praxair (N₂, NI 5.0UH-K; CO₂, CD 5.0LS-K). Prior to analysis, samples (100–200 mg) were transferred to oven-dried and tared sample tubes equipped with TranSeals (Micrometrics) and heated to 100 (1 °C min⁻¹) under vacuum until the outgas rate was less than 0.0033 mbar min⁻¹. The N₂ isotherm was collected first at 77 K, followed by a degassing step at 100 °C for 6 h to remove any physisorbed N₂ prior to CO₂ adsorption analysis at 300 K. A Micrometrics thermocouple-controlled heating mantle was used to maintain the sample temperature.
+
+4.3 Static DFT methods
+
+The hydration cluster calculations were performed using Gaussian16 using the B3LYP functional and the aug-pcseg-2⁵¹ and 6-311+G(d,p) basis sets. Starting structures were generated in Avogadro⁸⁸ in line with clusters previously presented in the literature.⁴⁷–⁵⁰ Structures were initially optimised with the 6-311+G(d,p) basis set and NMR parameters calculated. The optimised structures were then reoptimised in the more computationally expensive (and more accurate with respect to NMR chemical shielding) aug-pcseg-2 basis set.⁵¹ Structures that were below 2.6 kJmol⁻¹ (= kT at T = 308 K, as chosen to be representative of room temperature plus an approximated 10°C of MAS frictional heating) in energy relative to the ground-state (in either basis-set) were included in NMR parameter maps (Fig. 1). A full list of the cluster structures considered with their respective energies are included in Figs. S1-S2.
+
+The ¹⁷O chemical shielding reference value for these cluster calculations was taken from a linear fit (δ iso = σ iso – σ ref) of a range of experimental ¹⁷O δ iso values with fixed gradient -1. The experimental values were taken from CO₂, CO, H₂O, N₂O, OCS, OF₂, H₂O₂, H₂O₃ and Et₂O giving σ ref = 280 for aug-pcseg-2 and σ ref = 284 for 6-311+G(d,p) (see Fig. S39).⁸⁹,⁹⁰
+
+Periodic plane-wave DFT calculations were performed in CASTEP⁹¹ using the default on-the-fly pseudopotentials and Perdew-Burke-Ernzerhol (PBE) functional with a G06 van der Waals correction. The magnetic shielding tensors and electric field gradient tensors were computed in CASTEP, which uses density functional perturbation theory and the GIPAW method.⁹²–⁹⁴
+The periodic MFU-4l structure was generated from the crystal structure of MFU-4l-Cl from Denysenko et al. This unit cell was reduced to a rhombohedral unit cell \((a = 21.961 \text{ Å}, \alpha = 60^\circ)\) of 162 atoms. The chlorine atoms were replaced by -OH groups followed by geometry optimisation. Subsequently, a singular -OH group was replaced by varied -HCO\(_3\) starting binding configurations from which the two mode-A and mode-B (Fig. S10) structures where derived through further geometry optimisation, in agreement with previous literature cluster calculations. Geometry optimisation tolerances used were: force tolerance = 0.05 and 0.075 eV Å\(^{-1}\), displacement tolerance = 0.002 and 0.003 Å for the -OH and -HCO\(_3\) modes, respectively, and an energy tolerance = \(2 \times 10^{-5}\) eV atom\(^{-1}\) was used for both.
+
+For the four crystal structures considered: MFU-4l, KHCO\(_3\)(s), \(K_2CO_3\cdot1.5\) H\(_2\)O(s)\(^96\) and KHCO\(_3\)-CD-MOF,\(^16\) individual convergence for NMR parameter calculations of cut-off energy \((E_{cut})\) and Monkhorst-Pack k-point grid spacing were performed. For MFU-4l (both CO\(_2\) binding modes used the same parameters), an \(E_{cut} = 650\) eV and k-point spacing = 0.04 Å\(^{-1}\) (grid = 2 2 2) were used giving convergence within \(\sigma_{iso} = 0.5\) ppm, \(C_Q = 0.01\) MHz and \(\eta_Q = 0.002\) (the values given are root-mean-squared average parameter difference, across all oxygen atoms, between the chosen \(E_{cut}/k\)-point spacing and the subsequent higher accuracy cut-off/spacing of the convergence test. The largest average deviation of the the two control variables is quoted). For the MLFF molecular dynamics NMR sampling of MFU-4l was performed without dispersion correction. For KHCO\(_3\)(s) an \(E_{cut} = 1400\) eV and k-point spacing = 0.02 Å\(^{-1}\) (grid = 14 9 4) gave convergence within \(\sigma_{iso} = 0.03\) ppm, \(C_Q = 0.001\) MHz and \(\eta_Q = 0.00\). \(K_2CO_3\cdot1.5\) H\(_2\)O(s) had an \(E_{cut} = 1100\) eV and k-point spacing = 0.04 Å\(^{-1}\) (grid = 3 2 5) with convergence within \(\sigma_{iso} = 0.01\) ppm, \(C_Q = 0.001\) MHz and \(\eta_Q = 0.00\). KHCO\(_3\)-CD-MOF was found more computationally expensive to converge due to its large unit cell size of 1050 atoms, however, convergence was found at \(E_{cut} = 1769\) eV and k-point grid = 1 1 1, with convergence within \(\sigma_{iso} = 0.02\) ppm, \(C_Q = 0.003\) MHz and \(\eta_Q = 0.00\).
+
+Atomic positions were reoptimised with the converged \(E_{cut}\) and k-point grid values and the NMR parameters subsequently calculated. A \(^{17}\)O \(\sigma_{ref}\) value was obtained from a linear fit from experimental values of tyrosine and valine\(^97\) and calculated values. For each amino-acid a (converged) k-point spacing of 0.04 Å\(^{-1}\) was used along with the respective \(E_{cut}\) for each crystal considered. All \(E_{cut}\) values with dispersion correction gave \(\sigma_{ref}\) value = 247 ppm and without dispersion correction = 250 ppm to 3 significant figures.
+
+### 4.4 Modelling dynamics with machine learning force fields
+
+We use MACE,\(^34\) a many-body equivariant graph neural network, that obtains state of the art performance on established benchmark datasets and extrapolation tasks.\(^98\) The training set was curated using an active learning protocol outlined in Reference [74].\(^74\) New configurations are sampled from MD simulations, when the predicted relative force uncertainty of any atom, obtained from the discrepancy among five committee models, exceeds 50%. In this manner new configurations are iteratively added to the training set. The MLFF for KHCO\(_3\) is trained from scratch, while the MFU-4l MLFF is fine-tuned from the MACE-MP-0 foundation model.\(^46\) During fine-tuning all weights in the model are allowed to change.
+For the MFU-4l dynamics model, the NMR parameters are obtained by performing 18 NMR-DFT calculations on samples taken at 100 ps intervals from a 2 ns MD simulation, following a 200ps warmup, run with 0.5 fs time steps. For the KHCO$_3$(s) model, the NMR parameters are obtained by performing 120 NMR-DFT calculations on samples from a 900 ps MD simulation, run with 0.5 fs time steps.
+
+When predicting rates for the intermediate regime, we use the climbing-image nudged elastic band method to find the transition states. Again using active learning as in Reference [74] to improve the MLFF. We then do a frequency analysis to obtain reaction rates under the harmonic transition state theory. All simulations of the CD-MOF were done directly with the MACE-MP-0 foundation model, without further finetuning. The simulation analysed included 1 ns of MD simulation at 0.5 fs time steps.
+
+Intermediate exchange rates were modelled using EXPRESS. Input NMR parameters were taken from DFT/MD results. The relative chemical shift anisotropy (CSA) and EFG Euler angles were obtained using MagresView, where one angle set was arbitrarily defined as $[0 0 0]$ with powder averaging providing iteration over all orientations. For the ‘fast-intermediate’ case, the MD averaged tensor was used as an input in MagresView. The rate constants used for each EXPRESS simulation were: MFU-4l - $2.4 \times 10^5$ Hz, KHCO$_3$(s) $1.4 \times 10^{14}$ Hz and K$_2$CO$_3$.1.5H$_2$O(s) $1 \times 10^4$ Hz.
+
+4.5 NMR Spectroscopy
+
+Three NMR spectrometers were used to collect the data in this report. The $^{13}$C NMR data were collected on a 9.4 T wide bore magnet with a Bruker Avance NEO spectrometer using a 4 mm double resonance probe. $^{17}$O NMR experiments were recorded at the UK High-Field Solid-State NMR Facility on a 20.0 T Bruker Avance NEO spectrometer with a low-$\gamma$ 4 mm double resonance probe or on a 23.5 T Bruker Avance NEO, narrow bore, with a CP MAS double resonance DVT 3.2 mm probe. 4 mm rotors were spun at 12.5 kHz MAS (at both high and low field) and 3.2 mm rotors were spun at 20 kHz. Chemical shift references of $^{13}$C - adamantane = 29.5 ppm (−CH, right-hand peak) and $^{17}$O - liquid H$_2$O = 0 ppm were used.
+
+For each experiment, pulse lengths were individually optimised on a reference material ($^{13}$C - adamantane, $^{17}$O - H$_2$O(l)). For the $^{17}$O quadrupolar $\pi/2$-pulse on the solid samples themselves, the low RF limit ($\omega_Q > \omega_{rf}$)$^{100}$ was invoked such that the $\pi/2$-pulse utilised was derived from $3 \times \omega_{rf}$ measured on liquid H$_2$O. Full experimental parameters for all spectra in this work are listed in Table S1.
+
+For the MQMAS experiment (Fig. S29), the z-filter pulse sequence was used to acquire the spectrum. The experimental parameters used were as follows: recycle delay (d1) = 0.02 s, 121,752 transients, 44 h, 3Q-conversion pulses $\omega_1 = 66.7$ kHz, z-filter $\omega_2 = 20.8$ kHz. 32 rows were collected in the F2 dimension. Shearing was performed using the TopSpin xfshear function.$^{101}$ NMR analysis was performed in Topspin v4.1.4 and spectral fitting was performed in dmFit$^{102}$ and ssNake.$^{103}$ The quadrupolar parameter definitions used throughout this work are as follows (where the convention for PAS components utilised is $|V_{zz}| > |V_{yy}| > |V_{xx}|$):
+
+\[ V_{zz} = \frac{1}{2}(V_{xx} - V_{yy}), \quad V_{yy} = \frac{1}{2}(V_{xx} + V_{yy} - 2V_{zz}), \quad V_{xx} = V_{yy} - \frac{1}{2}(V_{xx} - V_{yy}), \]
+
+\[ \chi_{||} = \frac{1}{2} \left( \frac{V_{xx} + V_{yy}}{V_{zz}} \right)^{1/2}, \quad \chi_{\perp} = \frac{1}{2} \left( \frac{V_{xx} - V_{yy}}{V_{zz}} \right)^{1/2}, \quad \gamma_Q^\text{app} = \frac{2}{3} \left( \frac{V_{xx} + V_{yy} - 2V_{zz}}{2V_{zz}} \right)^{1/2}. \]
+\[ C_Q = \frac{eQV_{zz}}{\hbar}, \quad (4) \]
+\[ \eta_Q = \frac{V_{xx} - V_{yy}}{V_{zz}}. \quad (5) \]
+
+\( e \) is the fundamental electron charge and \( Q \) is the nuclear electric quadrupolar moment.
+
+It is noted that for the MD averaging, the EFG tensor of each individual MD frames are averaged in the same fixed Cartesian frame before subsequent diagonalisation to obtain the averaged PAS components (and thus quadrupolar parameters)\(^{65-69}\).
+
+### 4.6 Dosing of enriched \(^{13}\)CO\(_2/^{17}\)O\(_2\) gas
+
+The dosing of enriched CO\(_2\) on MFU-4l and CD-MOF samples was performed using the same procedure and setup for ex-situ rotor dosing previously described, using 3.2 mm or 4 mm MAS rotors\(^{26,29}\).
+
+In the procedure, the MAS rotor is packed and then placed onto a custom-built vacuum/dosing line with the rotor cap resting (but not inserted) at the mouth of the rotor. The sample and gas line were evacuated for 10-15 mins, then enriched CO\(_2\) gas is released into the evacuated line to dose the sample. Sample dosing pressures were between 0.7-1.3 bar with dosing performed for 10-30 mins to allow for gas adsorption equilibration, i.e. until no further pressure drop was observed. A plunger is then used to secure the cap and seal the rotor under the pure CO\(_2\) environment, before removing to perform NMR measurements.
+
+### References
+
+1. V. Masson-Delmotte, P. Zhai, A. Pirani, S. Connors, C. Péan, S. Berger, N. Caud, Y. Chen, L. Goldfarb, M. Gomis, M. Huang, K. Leitzell, E. Lonnoy, J. Matthews, T. Maycock, T. Waterfield, O. Yelekçi, R. Yu, and B. Zhou, “IPCC, 2021: Summary for policymakers. in: Climate change 2021: The physical science basis. contribution of working group i to the sixth assessment report of the intergovernmental panel on climate change,” *Cambridge University Press, Cambridge, UK and New York, NY, USA*, 2022.
+
+2. S. P. R., J. Skea, R. Slade, A. Al Khourdajie, R. van Diemen, D. McCollum, M. Pathak, S. Some, P. Vyas, R. Fradera, A. Belkacemi, A. Hasija, G. Lisboa, S. Luz, and J. Malley, “IPCC, 2022: Summary for policymakers. in: Climate change 2022: Mitigation of climate change. contribution of working group iii to the sixth assessment report of the intergovernmental panel on climate change,” *Cambridge University Press, Cambridge, UK and New York, NY, USA*, 2022.
+
+3. G. T. Rochelle, *Conventional amine scrubbing for CO2 capture*, pp. 35–67. Woodhead Publishing, 2016.
+[4] C.-J. Yoo, S. J. Park, and C. W. Jones, “CO$_2$ adsorption and oxidative degradation of silica-supported branched and linear aminosilanes,” *Industrial & Engineering Chemistry Research*, vol. 59, no. 15, pp. 7061–7071, 2020.
+
+[5] F. Vega, A. Sanna, B. Navarrete, M. M. Maroto-Valer, and V. J. Cortés, “Degradation of amine-based solvents in CO$_2$ capture process by chemical absorption,” *Greenhouse Gases: Science and Technology*, vol. 4, no. 6, pp. 707–733, 2014.
+
+[6] X. Shi, H. Xiao, H. Azarabadi, J. Song, X. Wu, X. Chen, and K. S. Lackner, “Sorbents for the direct capture of CO$_2$ from ambient air,” *Angewandte Chemie International Edition*, vol. 59, no. 18, pp. 6984–7006, 2020.
+
+[7] A. C. Forse and P. J. Milner, “New chemistry for enhanced carbon capture: beyond ammonium carbamates,” *Chemical Science*, vol. 12, no. 2, pp. 508–516, 2021.
+
+[8] Y. Abdullatif, A. Sodiq, N. Mir, Y. Bicer, T. Al-Ansari, M. H. El-Naas, and A. I. Amhamed, “Emerging trends in direct air capture of CO$_2$: a review of technology options targeting net-zero emissions,” *RSC Adv.*, vol. 13, pp. 5687–5722, 2023.
+
+[9] L. Nie, Y. Mu, J. Jin, J. Chen, and J. Mi, “Recent developments and consideration issues in solid adsorbents for CO$_2$ capture from flue gas,” *Chinese Journal of Chemical Engineering*, vol. 26, no. 11, pp. 2303–2317, 2018.
+
+[10] J. Wang, R. Fu, S. Wen, P. Ning, M. H. Helal, M. A. Salem, B. B. Xu, Z. M. El-Bahy, M. Huang, Z. Guo, L. Huang, and Q. Wang, “Progress and current challenges for CO$_2$ capture materials from ambient air,” *Advanced Composites and Hybrid Materials*, vol. 5, no. 4, pp. 2721–2759, 2022.
+
+[11] P.-Q. Liao, H. Chen, D.-D. Zhou, S.-Y. Liu, C.-T. He, Z. Rui, H. Ji, J.-P. Zhang, and X.-M. Chen, “Monodentate hydroxide as a super strong yet reversible active site for CO$_2$ capture from high-humidity flue gas,” *Energy & Environmental Science*, vol. 8, no. 3, pp. 1011–1016, 2015.
+
+[12] A. C. Forse, P. J. Milner, J.-H. Lee, H. N. Redfearn, J. Oktawiec, R. L. Siegelman, J. D. Martell, B. Dinakar, L. B. Porter-Zasada, M. I. Gonzalez, J. B. Neaton, J. R. Long, and J. A. Reimer, “Elucidating CO$_2$ chemisorption in diamine-appended metal–organic frameworks,” *Journal of the American Chemical Society*, vol. 140, no. 51, pp. 18016–18031, 2018.
+
+[13] R. Aniruddha, I. Sreedhar, and B. M. Reddy, “MOFs in carbon capture—past, present and future,” *Journal of CO$_2$ Utilization*, vol. 42, p. 101297, 2020.
+
+[14] J.-B. Lin, T. T. T. Nguyen, R. Vaidhyanathan, J. Burner, J. M. Taylor, H. Durekova, F. Akhtar, R. K. Mah, O. Ghaffari-Nik, S. Marx, N. Fylstra, S. S. Iremonger, K. W. Dawson, P. Sarkar, P. Hovington, A. Rajendran, T. K. Woo, and G. K. H. Shimizu, “A scalable metal-organic framework as a durable physisorbent for carbon dioxide capture,” *Science*, vol. 374, no. 6574, pp. 1464–1469, 2021. Svante CCS material.
+[15] A. M. Wright, Z. Wu, G. Zhang, J. L. Mancuso, R. J. Comito, R. W. Day, C. H. Hendon, J. T. Miller, and M. Dincă, “A structural mimic of carbonic anhydrase in a metal-organic framework,” Chem, vol. 4, no. 12, pp. 2894–2901, 2018.
+
+[16] M. E. Zick, S. M. Pugh, J.-H. Lee, A. C. Forse, and P. J. Milner, “Carbon dioxide capture at nucleophilic hydroxide sites in oxidation-resistant cyclodextrin-based metal–organic frameworks,” Angewandte Chemie International Edition, vol. 61, no. 30, p. e202206718, 2022.
+
+[17] C. E. Bien, K. K. Chen, S.-C. Chien, B. R. Reiner, L.-C. Lin, C. R. Wade, and W. S. W. Ho, “Bioinspired metal–organic framework for trace CO2 capture,” Journal of the American Chemical Society, vol. 140, no. 40, pp. 12662–12666, 2018.
+
+[18] C. E. Bien, Q. Liu, and C. R. Wade, “Assessing the role of metal identity on CO2 adsorption in mofs containing m–oh functional groups,” Chemistry of Materials, vol. 32, no. 1, pp. 489–497, 2020.
+
+[19] Z. Cai, C. E. Bien, Q. Liu, and C. R. Wade, “Insights into CO2 adsorption in m–oh functionalized mofs,” Chemistry of Materials, vol. 32, no. 10, pp. 4257–4264, 2020.
+
+[20] X. Shi, H. Xiao, K. S. Lackner, and X. Chen, “Capture CO2 from ambient air using nanofluidified ion hydration,” Angewandte Chemie International Edition, vol. 55, no. 12, pp. 4026–4029, 2016.
+
+[21] H. Yang, M. Singh, and J. Schaefer, “Humidity-swing mechanism for CO2 capture from ambient air,” Chemical Communications, vol. 54, no. 39, pp. 4915–4918, 2018.
+
+[22] X. Shi, H. Xiao, K. Kanamori, A. Yonezu, K. S. Lackner, and X. Chen, “Moisture-driven CO2 sorbents,” Joule, vol. 4, no. 8, pp. 1823–1837, 2020.
+
+[23] R. A. Smaldone, R. S. Forgan, H. Furukawa, J. J. Gassensmith, A. M. Z. Slawin, O. M. Yaghi, and J. F. Stoddart, “Metal–organic frameworks from edible natural products,” Angewandte Chemie International Edition, vol. 49, no. 46, pp. 8630–8634, 2010.
+
+[24] H. D. M. Pham and R. Z. Khalilullin, “Unraveling the origins of strong and reversible chemisorption of carbon dioxide in a green metal–organic framework,” The Journal of Physical Chemistry C, vol. 125, no. 44, pp. 24719–24727, 2021. doi: 10.1021/acs.jpcc.1c07610.
+
+[25] X. E. Hu, Q. Yu, F. Barzagli, C. Li, M. Fan, K. A. M. Gasem, X. Zhang, E. Shiko, M. Tian, X. Luo, Z. Zeng, Y. Liu, and R. Zhang, “NMR techniques and prediction models for the analysis of species formed in CO2 capture processes with amine-based sorbents: A critical review,” ACS Sustainable Chemistry & Engineering, vol. 8, no. 16, pp. 6173–6193, 2020. doi: 10.1021/acssuschemeng.9b07823.
+
+[26] S. M. Pugh and A. C. Forse, “Nuclear magnetic resonance studies of carbon dioxide capture,” Journal of Magnetic Resonance, vol. 346, p. 107343, 2023.
+[27] D. Pereira, R. Fonseca, I. Marin-Montesinos, M. Sardo, and L. Mafra, “Understanding CO$_2$ adsorption mechanisms in porous adsorbents: a solid-state NMR survey,” Current Opinion in Colloid & Interface Science, p. 101690, 2023.
+
+[28] D. Shimon, C.-H. Chen, J. J. Lee, S. A. Didas, C. Sievers, C. W. Jones, and S. E. Hayes, “$^{15}$N solid state nmr spectroscopic study of surface amine groups for carbon capture: 3-aminopropylsilyl grafted to sba-15 mesoporous silica,” Environmental Science & Technology, vol. 52, no. 3, pp. 1488–1495, 2018. doi: 10.1021/acs.est.7b04555.
+
+[29] A. H. Berge, S. M. Pugh, M. I. M. Short, C. Kaur, Z. Lu, J.-H. Lee, C. J. Pickard, A. Sayari, and A. C. Forse, “Revealing carbon capture chemistry with 17-oxygen NMR spectroscopy,” Nature Communications, vol. 13, no. 1, p. 7763, 2022.
+
+[30] M. T. Dunstan, J. M. Griffin, F. Blanc, M. Leskes, and C. P. Grey, “Ion dynamics in Li$_2$CO$_3$ studied by solid-state NMR and first-principles calculations,” The Journal of Physical Chemistry C, vol. 119, no. 43, pp. 24255–24264, 2015. doi: 10.1021/jp5106647.
+
+[31] C.-H. Chen, I. Goldberga, P. Gaveau, S. Mittelette, J. Špačková, C. Mullen, I. Petit, T.-X. Métro, B. Alonso, C. Gervais, and D. Laurencin, “Looking into the dynamics of molecular crystals of ibuprofen and terephthalic acid using $^{17}$O and $^2$H nuclear magnetic resonance analyses,” Magnetic Resonance in Chemistry, vol. 59, no. 9-10, pp. 975–990, 2021. https://doi.org/10.1002/mrc.5141.
+
+[32] J.-H. Du, L. Chen, B. Zhang, K. Chen, M. Wang, Y. Wang, I. Hung, Z. Gan, X.-P. Wu, X.-Q. Gong, and L. Peng, “Identification of CO$_2$ adsorption sites on mgo nanosheets by solid-state nuclear magnetic resonance spectroscopy,” Nature Communications, vol. 13, no. 1, p. 707, 2022.
+
+[33] J. Behler and M. Parrinello, “Generalized Neural-Network Representation of High-Dimensional Potential-Energy Surfaces,” Phys. Rev. Lett., vol. 98, p. 146401, Apr. 2007.
+
+[34] I. Batatia, D. P. Kovacs, G. Simm, C. Ortner, and G. Csányi, “MACE: Higher Order Equivariant Message Passing Neural Networks for Fast and Accurate Force Fields,” Advances in Neural Information Processing Systems, vol. 35, pp. 11423–11436, Dec. 2022.
+
+[35] W. C. Witt, C. van der Oord, E. Gelžinytė, T. Järvinen, A. Ross, J. P. Darby, C. H. Ho, W. J. Baldwin, M. Sachs, J. Kermod, N. Bernstein, G. Csányi, and C. Ortner, “ACEpotentials.jl: A Julia Implementation of the Atomic Cluster Expansion,” J. Chem. Phys., vol. 159, Sept. 2023.
+
+[36] S. Batzner, A. Musaelian, L. Sun, M. Geiger, J. P. Mailoa, M. Kornbluth, N. Molinari, T. E. Smidt, and B. Kozinsky, “E(3)-equivariant graph neural networks for data-efficient and accurate interatomic potentials,” Nat Commun, vol. 13, p. 2453, May 2022.
+
+[37] K. Fykouras, J. Lahnsteiner, N. Leupold, P. Tinnemans, R. Moos, F. Panzer, G. A. de Wijs, M. Bokdam, H. Grüninger, and A. P. M. Kentgens, “Disorder to order: how halide mixing in
+
+https://doi.org/10.26434/chemrxiv-2024-c0vmg ORCID: https://orcid.org/0000-0002-6133-6531 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+MAPbI$_{3-x}$Br$_x$ perovskites restricts MA dynamics,” *J. Mater. Chem. A*, vol. 11, pp. 4587–4597, 2023.
+
+[38] M. Tsitsvero, J. Pirillo, Y. Hijikata, and T. Komatsuzaki, “NMR spectrum prediction for dynamic molecules by machine learning: A case study of trefoil knot molecule,” *The Journal of Chemical Physics*, vol. 158, p. 194108, May 2023.
+
+[39] E. A. Engel, V. Kapil, and M. Ceriotti, “Importance of Nuclear Quantum Effects for NMR Crystallography,” *J. Phys. Chem. Lett.*, vol. 12, pp. 7701–7707, Aug. 2021.
+
+[40] Y. Lu, B. E. G. Lucier, Y. Zhang, P. Ren, A. Zheng, and Y. Huang, “Sizable dynamics in small pores: Co2 location and motion in the α-mg formate metal–organic framework,” *Physical Chemistry Chemical Physics*, vol. 19, no. 8, pp. 6130–6141, 2017.
+
+[41] G. Xing, I. Bassanetti, S. Bracco, M. Negroni, C. Bezuinenhout, T. Ben, P. Sozzani, and A. Comotti, “A double helix of opposite charges to form channels with unique co2 selectivity and dynamics,” *Chemical Science*, vol. 10, no. 3, pp. 730–736, 2019.
+
+[42] A. De Nicola, A. Correa, S. Bracco, J. Perego, P. Sozzani, A. Comotti, and G. Milano, “Collective dynamics of molecular rotors in periodic mesoporous organosilica: a combined solid-state 2h-nmr and molecular dynamics simulation study,” *Physical Chemistry Chemical Physics*, vol. 24, no. 2, pp. 666–673, 2022.
+
+[43] F. Nardelli, F. Nerli, E. Della Latta, F. Martini, M. Geppi, M. Taddei, and L. Calucci, “Unveiling co2 dynamics in perfluorinated cerium-based metal–organic frameworks with uio-66 and mil-140 topologies by solid state nmr,” *The Journal of Physical Chemistry C*, vol. 128, no. 16, pp. 6887–6896, 2024. doi: 10.1021/acs.jpcc.4c00483.
+
+[44] R. L. Vold and G. L. Hoatson, “Effects of jump dynamics on solid state nuclear magnetic resonance line shapes and spin relaxation times,” *Journal of Magnetic Resonance*, vol. 198, no. 1, pp. 57–72, 2009.
+
+[45] Perras, A. Frederic, “Dynamic quad lineshape simulator.” https://github.com/fperras/Dynamic_Quad_lineshape/tree/main, 2023. Accessed: 2023-07-31.
+
+[46] I. Batatia, P. Benner, Y. Chiang, A. M. Elena, D. P. Kovács, J. Riebesell, X. R. Advincula, M. Asta, M. Avaylon, W. J. Baldwin, F. Berger, N. Bernstein, A. Bhownik, S. M. Blau, V. Cä rare, J. P. Darby, S. De, F. D. Pia, V. L. Deringer, R. Elijošius, Z. El-Machachi, F. Facioni, E. Fako, A. C. Ferrari, A. Geneith-Schriever, J. George, R. E. A. Goodall, C. P. Grey, P. Grigorev, S. Han, W. Handley, H. H. Heenen, K. Hermansson, C. Holm, J. Jaafar, S. Hofmann, K. S. Jakob, H. Jung, V. Kapil, A. D. Kaplan, N. Karimitari, J. R. Kermode, N. Kroupa, J. Kullgren, M. C. Kuner, D. Kuryla, G. Liepuoniute, J. T. Margraf, I.-B. Magdäu, A. Michaelides, J. H. Moore, A. A. Naik, S. P. Niblett, S. W. Norwood, N. O’Neill, C. Ortner, K. A. Persson, K. Reuter, A. S. Rosen, L. L. Schaaf, C. Schran, B. X. Shi, E. Sivonxay,
+[47] W. W. Rudolph, D. Fischer, and G. Irmer, “Vibrational spectroscopic studies and density functional theory calculations of speciation in the CO$_2$—water system,” *Applied Spectroscopy*, vol. 60, no. 2, pp. 130–144, 2006.
+
+[48] E. Garand, T. Wende, D. J. Goebbert, R. Bergmann, G. Meijer, D. M. Neumark, and K. R. Amis, “Infrared spectroscopy of hydrated bicarbonate anion clusters: HCO$_3^-$ (H$_2$O)$_{1–10}$.” *Journal of the American Chemical Society*, vol. 132, no. 2, pp. 849–856, 2010.
+
+[49] M. A. Moreno, B. Maté, Y. Rodríguez-Lazcano, O. Gálvez, P. C. Gómez, V. J. Herrero, and R. Escríbano, “The structure and spectroscopy of cyanate and bicarbonate ions. astrophysical implications,” *The Journal of Physical Chemistry A*, vol. 117, no. 39, pp. 9564–9573, 2013.
+
+[50] A. Stefánsson, K. H. Lemke, P. Bénézeth, and J. Schott, “Magnesium bicarbonate and carbonate interactions in aqueous solutions: An infrared spectroscopic and quantum chemical study,” *Geochimica et Cosmochimica Acta*, vol. 198, pp. 271–284, 2017.
+
+[51] F. Jensen, “Segmented contracted basis sets optimized for nuclear magnetic shielding,” *Journal of Chemical Theory and Computation*, vol. 11, no. 1, pp. 132–138, 2015.
+
+[52] C. Leroy, T.-X. Métro, I. Hung, Z. Gan, C. Gervais, and D. Laurencin, “From operando raman mechanochemistry to “nmr crystallography”: Understanding the structures and interconversion of zn-terephthalate networks using selective 17o-labeling,” *Chemistry of Materials*, vol. 34, no. 5, pp. 2292–2312, 2022. doi: 10.1021/acs.chemmater.1c04132.
+
+[53] B. Song, Y. Li, X.-P. Wu, F. Wang, M. Lin, Y. Sun, A.-P. Jia, X. Ning, L. Jin, X. Ke, Z. Yu, G. Yang, W. Hou, W. Ding, X.-Q. Gong, and L. Peng, “Unveiling the surface structure of zno nanorods and h$_2$ activation mechanisms with $^{17}$o nmr spectroscopy,” *Journal of the American Chemical Society*, vol. 144, no. 51, pp. 23340–23351, 2022.
+
+[54] T. M. Alam, D. Hart, and S. L. B. Rempe, “Computing the 7Li NMR chemical shielding of hydrated Li$^+$ using cluster calculations and time-averaged configurations from ab initio molecular dynamics simulations,” *Phys. Chem. Chem. Phys.*, vol. 13, pp. 13629–13637, July 2011.
+
+[55] P.-c. Chen, M. Hologne, O. Walker, and J. Hennig, “Ab Initio Prediction of NMR Spin Relaxation Parameters from Molecular Dynamics Simulations,” *J. Chem. Theory Comput.*, vol. 14, pp. 1009–1019, Feb. 2018.
+
+[56] C. Foces-Foces, A. Echevarría, N. Jagerovic, I. Alkorta, J. Elguero, U. Langer, O. Klein, M. Minguet-Bonvehí, and H.-H. Limbach, “A Solid-State NMR, X-ray Diffraction, and ab Initio Computational Study of Hydrogen-Bond Structure and Dynamics of Pyrazole-4-Carboxylic Acid Chains,” *J. Am. Chem. Soc.*, vol. 123, pp. 7898–7906, Aug. 2001.
+[57] E. Kleinpeter, S. Klod, and W.-D. Rudorf, “Electronic State of Push-Pull Alkenes: An Experimental Dynamic NMR and Theoretical ab Initio MO Study,” *J. Org. Chem.*, vol. 69, pp. 4317–4329, June 2004.
+
+[58] X. Li, L. Tapmeyer, M. Bolte, and J. van de Streek, “Crystallographic and Dynamic Aspects of Solid-State NMR Calibration Compounds: Towards ab Initio NMR Crystallography,” *ChemPhysChem*, vol. 17, no. 16, pp. 2496–2502, 2016.
+
+[59] F. Mauri, B. G. Pfommer, and S. G. Louie, “Ab Initio Theory of NMR Chemical Shifts in Solids and Liquids,” *Phys. Rev. Lett.*, vol. 77, pp. 5300–5303, Dec. 1996.
+
+[60] A. H. Mazurek, L. Szelesczuk, and D. M. Pisklak, “A Review on Combination of Ab Initio Molecular Dynamics and NMR Parameters Calculations,” *International Journal of Molecular Sciences*, vol. 22, p. 4378, Jan. 2021.
+
+[61] M. Robinson and P. Haynes, “Dynamical Effects in Ab Initio NMR Calculations: Classical Force Fields Fitted to Quantum Forces,” *The Journal of chemical physics*, vol. 133, p. 084109, Aug. 2010.
+
+[62] L. A. Schenberg, L. C. Ducati, and J. Autschbach, “Inquiring 199Hg NMR Parameters by Combining Ab Initio Molecular Dynamics and Relativistic NMR Calculations,” *Inorg. Chem.*, vol. 63, pp. 2082–2089, Jan. 2024.
+
+[63] D. Sebastiani, “Ab-initio calculations of nmr parameters in condensed phases,” *Mod. Phys. Lett. B*, vol. 17, pp. 1301–1319, Oct. 2003.
+
+[64] M. Dračinský, H. M. Möller, and T. E. Exner, “Conformational Sampling by Ab Initio Molecular Dynamics Simulations Improves NMR Chemical Shift Predictions,” *J. Chem. Theory Comput.*, vol. 9, pp. 3806–3815, Aug. 2013.
+
+[65] M. Dračinský and P. Hodgkinson, “A molecular dynamics study of the effects of fast molecular motions on solid-state NMR parameters,” *CrystEngComm*, vol. 15, no. 43, pp. 8705–8712, 2013.
+
+[66] M. Dračinský, P. Bouř, and P. Hodgkinson, “Temperature dependence of NMR parameters calculated from path integral molecular dynamics simulations,” *Journal of Chemical Theory and Computation*, vol. 12, no. 3, pp. 968–973, 2016.
+
+[67] O. Socha, P. Hodgkinson, C. M. Widdifield, J. R. Yates, and M. Dračinský, “Exploring systematic discrepancies in DFT calculations of chlorine nuclear quadrupole couplings,” *The Journal of Physical Chemistry A*, vol. 121, no. 21, pp. 4103–4113, 2017.
+
+[68] R. Bjornsson, H. Früchtli, and M. Bühl, “$^{51}$V NMR parameters of VOCl$_3$: static and dynamic density functional study from the gas phase to the bulk,” *Physical Chemistry Chemical Physics*, vol. 13, no. 2, pp. 619–627, 2011.
+[69] V. Diez-Gómez, P. L. de Andres, and J. Sanz, “Effects of Li confined motion on NMR quadrupolar interactions: A combined $^7$Li NMR and DFT-MD study of LiR$_2$(PO$_4$)$_3$ (r=Ti or Zr) phases,” ChemSusChem, vol. 13, no. 5, pp. 1027–1036, 2020. https://doi.org/10.1002/cssc.201902991.
+
+[70] V. L. Deringer, A. P. Bartók, N. Bernstein, D. M. Wilkins, M. Ceriotti, and G. Csányi, “Gaussian process regression for materials and molecules,” Chemical Reviews, vol. 121, no. 16, pp. 10073–10141, 2021.
+
+[71] V. L. Deringer, M. A. Caro, and G. Csányi, “Machine learning interatomic potentials as emerging tools for materials science,” Advanced Materials, vol. 31, no. 46, p. 1902765, 2019.
+
+[72] C. J. Pickard, “Ephemeral data derived potentials for random structure search,” Physical Review B, vol. 106, no. 1, p. 014102, 2022.
+
+[73] R. Drautz, “Atomic cluster expansion for accurate and transferable interatomic potentials,” Physical Review B, vol. 99, no. 1, p. 014104, 2019.
+
+[74] L. Schaf, E. Fako, S. De, A. Schäfer, and G. Csányi, “Accurate Reaction Barriers for Catalytic Pathways: An Automatic Training Protocol for Machine Learning Force Fields,” Jan. 2023.
+
+[75] S. Goedecker, “Minima hopping: An efficient search method for the global minimum of the potential energy surface of complex molecular systems,” The Journal of Chemical Physics, vol. 120, no. 21, pp. 9911–9917, 2004.
+
+[76] F. Mani, M. Peruzzini, and P. Stoppioni, “CO$_2$ absorption by aqueous NH$_3$ solutions: speciation of ammonium carbamate, bicarbonate and carbonate by a $^{13}$C NMR study,” Green Chemistry, vol. 8, no. 11, pp. 995–1000, 2006.
+
+[77] D. Stueber, A. M. Orendt, J. C. Facelli, R. W. Parry, and D. M. Grant, “Carbonates, thiocarbonates, and the corresponding monoalkyl derivatives: III. the $^{13}$C chemical shift tensors in potassium carbonate, bicarbonate and related monomethyl derivatives,” Solid State Nuclear Magnetic Resonance, vol. 22, no. 1, pp. 29–49, 2002.
+
+[78] R. E. Wasylischen, S. Mooibroek, and J. B. Macdonald, “A more reliable oxygen-17 absolute chemical shielding scale,” The Journal of Chemical Physics, vol. 81, no. 3, pp. 1057–1059, 1984.
+
+[79] S. Kohata, K. Jyodoi, and A. Ohyoshi, “Thermal decomposition of cyclodextrins (α-, β-, γ-, and modified β-cyd) and of metal—(β-cyd) complexes in the solid phase,” Thermochimica Acta, vol. 217, pp. 187–198, 1993.
+
+[80] D. R. Allan, W. G. Marshall, and C. R. Pulham, “The high-pressure crystal structure of potassium hydrogen carbonate (khco3),” vol. 92, no. 7, pp. 1018–1025, 2007.
+
+[81] P. D. Dopieralski, Z. Latajka, and I. Olovsson, “Proton-transfer dynamics in the (HCO$_3$−)$_2$ dimer of KHCO$_3$ from Car–Parrinello and path-integrals molecular dynamics calculations,” Acta Crystallographica Section B Structural Science, vol. 66, pp. 222–228, Apr. 2010.
+S. Dong, K. Yamada, and G. Wu, “Oxygen-17 nuclear magnetic resonance of organic solids,” vol. 55, no. 1-2, pp. 21–28, 2000.
+
+X. Kong, M. Shan, V. Terskikh, I. Hung, Z. Gan, and G. Wu, “Solid-state $^{17}$O NMR of pharmaceutical compounds: Salicylic acid and aspirin,” The Journal of Physical Chemistry B, vol. 117, no. 33, pp. 9643–9654, 2013.
+
+G. Wu, I. Hung, Z. Gan, V. Terskikh, and X. Kong, “Solid-state $^{17}$O nmr study of carboxylic acid dimers: Simultaneously accessing spectral properties of low- and high-energy tautomers,” The Journal of Physical Chemistry A, vol. 123, no. 38, pp. 8243–8253, 2019.
+
+M. E. Smith, S. Steuernagel, and H. J. Whitfield, “$^{17}$O magic-angle spinning nuclear magnetic resonance of CaCO$_3$,” Solid State Nuclear Magnetic Resonance, vol. 4, no. 5, pp. 313–316, 1995.
+
+M. Leskes, A. J. Moore, G. R. Goward, and C. P. Grey, “Monitoring the electrochemical processes in the lithium–air battery by solid state NMR spectroscopy,” The Journal of Physical Chemistry C, vol. 117, no. 51, pp. 26929–26939, 2013. doi: 10.1021/jp410429k.
+
+M. J. Frisch, G. W. Trucks, H. B. Schlegel, G. E. Scuseria, M. A. Robb, J. R. Cheeseman, G. Scalmani, V. Barone, G. A. Petersson, H. Nakatsuji, X. Li, M. Caricato, A. V. Marenich, J. Bloino, B. G. Janesko, R. Gomperts, B. Mennucci, H. P. Hratchian, J. V. Ortiz, A. F. Izmaylov, J. L. Sonnenberg, Williams, F. Ding, F. Lippard, F. Egidi, J. Goings, B. Peng, A. Petrone, T. Henderson, D. Ranasinghe, V. G. Zakrzewski, J. Gao, N. Rega, G. Zheng, W. Liang, M. Hada, M. Ehara, K. Toyota, R. Fukuda, J. Hasegawa, M. Ishida, T. Nakajima, Y. Honda, O. Kitao, H. Nakai, T. Vreven, K. Throssell, J. A. Montgomery Jr., J. E. Peralta, F. Ogliaro, M. J. Bearpark, J. J. Heyd, E. N. Brothers, K. N. Kudin, V. N. Staroverov, T. A. Keith, R. Kobayashi, J. Normann, K. Raghavachari, A. P. Rendell, J. C. Burant, S. S. Marson, O. Farkas, J. B. Foresman, and D. J. Fox, “Gaussian 16 rev. c01,” 2016.
+
+M. D. Hanwell, D. E. Curtis, D. C. Louie, T. Vandermeersch, E. Zurek, and G. R. Hutchison, “Avogadro: an advanced semantic chemical editor, visualization, and analysis platform,” Journal of Cheminformatics, vol. 4, no. 1, p. 17, 2012.
+
+I. P. Gerohanassis, “Oxygen-17 nmr spectroscopy: Basic principles and applications (part i),” Progress in Nuclear Magnetic Resonance Spectroscopy, vol. 56, no. 2, pp. 95–197, 2010.
+
+A. Wu, D. Cremer, and J. Gauss, “$^{17}$O NMR chemical shifts of polyoxides in gas phase and in solution,” The Journal of Physical Chemistry A, vol. 107, no. 41, pp. 8737–8745, 2003.
+
+S. J. Clark, M. D. Segall, C. J. Pickard, P. J. Hasnip, M. I. J. Probert, K. Refson, and M. C. Payne, “First principles methods using CASTEP,” vol. 220, no. 5-6, pp. 567–570, 2005.
+[92] C. J. Pickard and F. Mauri, “All-electron magnetic response with pseudopotentials: Nmr chemical shifts,” Physical Review B, vol. 63, no. 24, p. 245101, 2001.
+
+[93] J. R. Yates, C. J. Pickard, and F. Mauri, “Calculation of nmr chemical shifts for extended systems using ultrasoft pseudopotentials,” Physical Review B, vol. 76, no. 2, p. 024401, 2007.
+
+[94] C. Bonhomme, C. Gervais, F. Babonneau, C. Coelho, F. Pourpoint, T. Azais, S. E. Ashbrook, J. M. Griffin, J. R. Yates, F. Mauri, et al., “First-principles calculation of nmr parameters using the gauge including projector augmented wave method: a chemist’s point of view,” Chemical Reviews, vol. 112, no. 11, pp. 5733–5779, 2012.
+
+[95] D. Denysenko, M. Grzywa, M. Tonigold, B. Streppel, I. Krkljus, M. Hirscher, E. Mugnaioli, U. Kolb, J. Hanss, and D. Volkmer, “Elucidating gating effects for hydrogen sorption in mfu-4-type triazolate-based metal-organic frameworks featuring different pore sizes,” Chemistry - A European Journal, vol. 17, no. 6, pp. 1837–1848, 2011.
+
+[96] Y. Duan, D. R. Luebke, H. W. Pennline, B. Li, M. J. Janik, and J. W. Halley, “Ab initio thermodynamic study of the CO$_2$ capture properties of potassium carbonate sesquihydrate, K$_2$CO$_3$$\cdot$1.5H$_2$O,” The Journal of Physical Chemistry C, vol. 116, no. 27, pp. 14461–14470, 2012.
+
+[97] K. J. Pike, V. Lemaitre, A. Kukol, T. Anupoldt, A. Samoson, A. P. Howes, A. Watts, M. E. Smith, and R. Dupree, “Solid-state $^{17}$O NMR of amino acids,” The Journal of Physical Chemistry B, vol. 108, no. 26, pp. 9256–9263, 2004. doi: 10.1021/jp049958x.
+
+[98] D. P. Kovacs, I. Batatia, E. S. Arany, and G. Csanyi, “Evaluation of the MACE Force Field Architecture: From Medicinal Chemistry to Materials Science,” July 2023.
+
+[99] S. Sturniolo, T. F. G. Green, R. M. Hanson, M. Zilka, K. Refson, P. Hodgkinson, S. P. Brown, and J. R. Yates, “Visualization and processing of computed solid-state NMR parameters: MagresView and MagresPython,” Solid State Nuclear Magnetic Resonance, vol. 78, pp. 64–70, 2016.
+
+[100] A. P. M. Kentgens, “A practical guide to solid-state NMR of half-integer quadrupolar nuclei with some applications to disordered systems,” Geoderma, vol. 80, no. 3, pp. 271–306, 1997.
+
+[101] J. Struppe, S. Steuernagel, F. Aussenacc, F. Benevelli, P. Gierth, and S. Wegner, Bruker: Solid State NMR - AVANCE Solids User Manual. v3. Bruker, 2016.
+
+[102] D. Massiot, F. Fayon, M. Capron, L. C. King, I., B. S., Alonso, J.-O. Durand, B. Bujoli, Z. Gan, and G. Hoatson, “Modelling one and two dimensional solid state NMR spectra,” Magnetic Resonance in Chemistry, vol. 40, pp. 70–76, 2002.
+
+[103] S. G. J. van Meerten, W. M. J. Franssen, and A. P. M. Kentgens, “ssNake: A cross-platform open-source NMR data processing and fitting application,” Journal of Magnetic Resonance, vol. 301, pp. 56–66, 2019.
+Acknowledgments
+
+BJR, SS and ACF would like to acknowledge the support of the Leverhulme Trust Research Project Grant (RPG-2020-337) that funded this work. Additionally, BJR acknowledges the support of Jesus College, Cambridge. LS acknowledges support from the EPSRC Centre for Doctoral Training.
+in Chemical Synthesis with grant reference EP/S024220/1. This work was also supported by a UKRI Future Leaders Fellowship to ACF (MR/T043024/1, ACF and SMP). This work was supported by the U.S. Department of Energy, Office of Science, Office of Basic Energy Sciences under Award Number DE-SC0021000 (MEZ, PJM). We acknowledge the support of a Camille Dreyfus Teacher-Scholar Award to PJM (TC-23-048). JSH and CRW acknowledge the U.S. National Science Foundation under award No. CHE-2044904 for partial support of this research.
+
+The UK High-Field Solid-State NMR Facility used in this research, for all measurements at 20.0 T and 23.5 T, was funded by EPSRC and BBSRC (EP/T015063/1), as well as the University of Warwick including via part funding through Birmingham Science City Advanced Materials Projects 1 and 2 supported by Advantage West Midlands (AWM) and the European Regional Development Fund (ERDF), as well as, for the 1 GHz (23.5 T) instrument, EP/R029946/1. Collaborative assistance from the Facility Manager Team Dr Dinu Iuga and Dr Trent Franks, University of Warwick is acknowledged.
+
+We are grateful for computational support from the UK national high-performance computing service, ARCHER2, for which access was obtained via the UKCP consortium and funded by EPSRC grant reference EP/P022065/1 and EP/X035891/1. Additionally, this work was performed using resources provided by the Cambridge Service for Data Driven Discovery (CSD3) operated by the University of Cambridge Research Computing Service (www.csd3.cam.ac.uk), using Tier-2 funding from the Engineering and Physical Sciences Research Council (capital grant EP/T022159/1), the University of Cambridge EPSRC Core Equipment Award [EP/X034712/1] and DiRAC funding from the Science and Technology Facilities Council (www.dirac.ac.uk).
+
+The authors are grateful to Dr Chris Truscott for assistance and the recording of PXRD measurements, Dr Danielle Laurencin for discussions and Dr Anouk L’Hermitte for her assistance in editing the manuscript.
+
+Conflicts of Interest
+
+The authors declare there are no conflicting interests.
+
+Data Availability
+
+The NMR spectra, diffraction, computational and structural data generated in this study have been deposited in the Cambridge Research Repository, Apollo, at: https://doi.org/10.17863/CAM.109966.
+5 Supplementary Materials
+
+5.1 NMR acquisition parameters
+
+Table S1: A tabulation of the experimental acquisition parameters for all NMR experiments presented in both the main text and the following supplementary figures. Where further parameters are significant for the more complex sequences, details are provided alongside the spectrum in the figure caption.
+
+| Figure | Number of transients | Recycle delay / s | $\omega_{rf}$ / kHz | Time / hr |
+|--------|----------------------|-------------------|----------------------|-----------|
+| Fig. 2C, 3, S18 | 288,784 | 0.1 | 43.9 | 10.8 |
+| Fig. 4A | 1024 | 6 | - | 1.7 |
+| Fig. 4B | 440,560 | 0.1 | 64.1 | 16.2 |
+| Fig. 4C, 6A, S32, S33a | 32,768 | 0.1 | 66.7 | 1.2 |
+| Fig. 4D, 4B, S25(a) | 237,536 | 0.5 | 52.1 | 34.0 |
+| Fig. 4D, S26(a) | 284,672 | 0.5 | 55.6 | 42.1 |
+| Fig. S12 | 61,440 | 0.1 | 47.1 | 2.6 |
+| Fig. S17 | 2048/102400 | 0.1 | 49.0 | 0.1/4.7 |
+| Fig. S19 | 512-1504 | 6-14 | - | - |
+| Fig. S21 | 1504 | 6 | - | 2.5 |
+| Fig. S29 | 121,752 x 32 | 0.02 | 66.7 and 20.8 | 44.3 |
+| Fig. S33b | 17,408 | 1 | 55.6 | 4.8 |
+| Fig. S34 | 192 | 300 | 43.5 | 16.0 |
+| Fig. S25(b) | 150,000 | 0.5 | 58.2 | 23.3 |
+| Fig. S26(b) | 100,368 | 0.5 | 58.2 | 15.6 |
+| Fig. S36 | 17,408 | 0.1 | 55.6 | 0.8 |
+Figure S1: Structures used for the hydrated bicarbonate anion clusters used to calculate NMR parameters given in Fig. 1. Energies for each cluster are given in kJ mol$^{-1}$ relative to the ground state configuration, as calculated using the 6-311+G(d,p) basis set (aug-pcSseg-2 values are given in brackets). Structures are in agreement with the literature, with variations in energy ordering seen with basis set and functional choice, with relative energy fluctuation to literature of ±2 – 3 kJ/mol.$^{47-50}$
+Figure S2: Structures used for the hydrated bicarbonate anion clusters used to calculate NMR parameters given in Fig. 1. For 5w, energies for each cluster are given in kJ mol\(^{-1}\) relative to the ground state configuration, as calculated using the 6-311+G(d,p) basis set (aug-pcSseg-2 values are given in brackets). For 1-4w, no additional structures were found within 2.6 kJ mol\(^{-1}\) of the ground state. Structures for 1-4w agree with literature\(^{47,50}\), however, for 5w a variety of structures were found to contrast to the ground state published in Reference [50]\(^{50}\) with structure search unable to find the proposed minimum. This discrepancy is attributed to differing calculation methodologies.
+
+![Structural Diagram](image)
+
+Figure S3: Plots of \(\eta_Q\) vs \(C_Q\) for the same cluster calculations presented in Fig. 1 for (a) bicarbonate and (b) carbonate hydrated ion clusters and MOF structures.
+Figure S4: Analogous plots of $\eta_Q$ vs $C_Q$ as Fig. S3 calculated on the same bicarbonate (a) and carbonate (b) clusters with a 6-311+G(d,p) basis set. Plane-wave basis set calculations of MFU-4l and KHCO$_3$-CD-MOF are also included in (a).
+
+Figure S5: Overlays of the bicarbonate and carbonate cluster calculations features in Fig. 1 at B3LYP/aug-cc-pSseg-2 level of theory. (b) shows an enlarged region of (a) in the carbonyl region.
+Figure S6: Overlays of the bicarbonate and carbonate cluster calculations features in Fig. 1 at B3LYP/6-311+G(d,p) level of theory. (b) shows an enlarged region of (a) in the carbonyl region.
+
+Figure S7: Comparison of two basis-sets aug-pcSseg-2 and 6-311+G(d,p) for (a) bicarbonate and (b) carbonate clusters. aug-pcSseg-2 data reproduced from Fig. 1.
+Figure S8: Zoomed section of Fig. S7a for (a) the carbonyl region, (b) the hydroxyl region and (c) the H$_2$O region for comparison of the two basis-sets aug-pcSseg-2 and 6-311+G(d,p) in bicarbonate clusters.
+Figure S9: Zoomed section of Fig. S7b for (a) the carbonyl region and (b) the H2O region for comparison of the two basis-sets aug-pcSseg-2 and 6-311+G(d,p) in carbonate clusters.
+
+Table S2: Average $^{13}$C NMR $\delta_{iso}$ values for the hydrated bicarbonate and carbonate cluster models presented above and in Fig. 1 (0w, non-hydrated structures excluded). $\sigma_{ref}$ values of 182.3 and 179.6 ppm are used for the 6-311+G(d,p) and aug-pcSseg-2 results, respectively, as obtained from reference calculations on a singular tetramethylsilane molecule (experimental value, -1.668 ppm$^{104}$). In brackets, two standard deviations of each dataset across all the structures demonstrate the degree of variance found in the $^{13}$C NMR shifts.
+
+| Species     | Average $^{13}$C $\delta_{iso}$ / ppm |
+|-------------|--------------------------------------|
+|             | 6-311+G(d,p) | aug-pcSseg-2 |
+| Bicarbonate | 162(3)       | 169(2)       |
+| Carbonate   | 179(5)       | 186(5)       |
+Figure S10: Geometry optimised configurations of MFU-4l with one hydroxyl site bound with bicarbonate to simulate CO₂ adsorption. Mode-A has a more symmetric divalent bond, whereas mode-B has an asymmetric monovalent metal-bicarbonate bond. Mode A has a lower energy by 1.7 kJ mol⁻¹ and agrees with the literature minimum energy structure.¹⁸,¹⁹
+
+Figure S11: Depiction of the model crystal file used for the plane-wave basis set bicarbonate calculation for KHCO₃-CD-MOF used in Fig. 1, produced from the .cif file provided in Reference [16].¹⁶ A single hydrating H₂O molecule can be seen hydrogen-bonded to the hydroxyl group of the carbonate group.
+Figure S12: Three quantitative $^{17}$O NMR spectra (23.5 T, 20 kHz MAS, 2.6h, one-pulse) of MFU-4l dosed with C$^{17}$O$_2$. Pulse angles were 2.5, 5 and 10° relative to the H$_2$O(l) optimised 90° pulse reference, ensuring a quantitative regime was reached. The respective carbonyl:hydroxyl peak ratios of the fitted lineshape integrals are 2.3, 2.1 and 2.3.
+
+Figure S13: Processed atomic distance data from the MLFF 2 ns simulation of MFU-4l. (a) Shows the carbonyl to hydroxyl hydrogen distances of the bound bicarbonate motif against atom index. There is clear chemical distinction between the proximal and distal environments on this timescale. (b) The binned distance data between the respective distal and proximal environments and the Zn centre. The ratio between the distal:proximal oxygen being bound to the Zn is found at 83:17.
+Figure S14: The same data as in Fig. S13 plotted as 3D binned count data with respect to zinc-oxygen and carbonyl to hydroxyl proton distances.
+
+Figure S15: Snapshots of the energy barrier pathway for the calculated Fig. S16 ‘proton-hop’ trajectory.
+Figure S16: The energy barrier pathway calculated via a climbing-image nudged elastic band method for hypothesised ‘proton-hop’ motion in MFU-4l (see Fig. S15). The slight asymmetry of the profiles is due to subtle differences in the surrounding framework. The larger barrier height of 0.49 eV gives rise to a rate constant of $2.4 \times 10^5$ Hz under the harmonic transition state approximation ($T = 308$ K), which is utilised in the EXPRESS simulations in the main text.
+
+Figure S17: Variable temperature (VT) NMR results taken for MFU-4l (20.0 T, 12.5 kHz (303K) and 13.5 kHz (273), 0.1 h (303 K) and 4.7 h (273 K), one-pulse). The significant change in lineshape, with a relatively small temperature swing, demonstrates qualitatively that the chemical exchange is at the edge of the intermediate regime. Temperatures are quoted as non-adjusted probe temperatures. A full quantitative experimental determination of rate constant by VT NMR is beyond the scope of this work.
+Figure S18: A full range of EXPRESS simulated rate constants in comparison to a reproduction of the experimental (black) and modelling (red) data of MFU-4l MOF dosed with C^{17}O_2 from Fig. 3D. The dashed red lines illustrate a rate constant range calculated from the same barrier (0.49 eV) as the k = 2.4 x 10^5 Hz but with a ± 5 K temperature difference used as input for the transition state theory.
+
+Figure S19: \(^{13}\)C\(^{1}\)H\(^{1}\) CP MAS spectra (9.4 T, 12.5kHz MAS. Hartmann-Hahn matching was achieved with a 90-100% ramping pulse in the proton channel, contact time = 2.5 ms) in the chemisorbed CO\(_2\) region of 5 different KHCO\(_3\)-CD-MOF samples (scaling is arbitrary for clarity). The two chemisorbed environments in ranges 158.5 - 159.8 ppm and 162.0 - 164.0 ppm are observed in all spectra.
+Figure S20: Heats of adsorption data of KHCO$_3$-CD-MOF derived from CO$_2$ isotherm data taken at three temperatures (303, 313, 323 K). Blue is a dual-site Langmuir fitting and black is a dual-site Freundlich-Langmuir fitting. This figure is reproduced with the author’s permission from Zick et al. 2022 (Figure S53) with a corrected scaling to the x-axis. As there are 2 moles of OH$^-$ per mole of MOF, the respective mechanistic limits are indicated. The observed point of inflection at 1.5 ± 0.05 mol/mol for the chemisorption to physisorption regime switch over would suggest a theoretical carbonate:bicarbonate ratio of ≈ 1 : 1.6 - 2.4.
+
+Figure S21: CP build up curves for the two chemisorbed CO$_2$ environments of KHCO$_3$-CD-MOF taken at (CT = 0.1-10 ms, 9.4 T and 12.5 kHz MAS, 2.5h, under Hartmann-Hahn matching). A ramped matching pulse from 90-100% was used on the proton channel). $T_{HC} = 2.4 ± 0.2$ ms and $2.1 ± 0.1$ ms for the the 159 and 163 ppm peaks, respectively. These cross-polarisation build up rates fit in the expected range of non-directly hydrogen bound carbon environments of $T_{CH} = 0.5 - 3$ ms. The similar $T_{CH}$ values indicate a similar type of hydrogen environment and similar carbon species, however, the possibility of a labile, dynamic hydroxyl group of a bicarbonate species and a strongly hydrogen bonded carbonate species cannot be fully distinguished by CP alone (especially given the large number of protons in the CD system).
+Figure S22: The same data as presented in Fig. 5C with the correlated projection vectors from both oxygen atoms, O$_1$ and O$_2$, plotted against each other. This demonstrates the symmetry of proton movement over the MD trajectory - justifying the simulation length as sufficient.
+
+Figure S23: Data replicated from Fig. 5C with the origin taken at the centre of the oxygen-oxygen vector.
+Figure S24: A plot of the calculated energy profile of the concerted proton hop within the KHCO$_3$ dimer structure. The barrier height gives a derived rate of proton hop of 140 GHz.
+
+Figure S25: $^{17}$O NMR spectra of KHCO$_3$(s) taken at 23.5 T, (a), (20 kHz MAS, 33.0 h, hahnecho) and 20.0 T, (b), (12.5 kHz MAS, 23.3 h, hahnecho). The modelled lineshapes are produced from a multi-field fit of both spectra in ssNake.$^{103}$ Fit parameters were obtained over a range of line broadenings and initial parameters (giving a 2σ error in brackets): $\delta_{iso} = 182.6(3)$ ppm, $C_Q = 7.9(1)$ MHz, $\eta_Q = 0.49(1)$ and 162.6(5) ppm, 6.1(1) MHz, 0.57(3).
+Figure S26: $^{17}$O NMR spectra taken of K$_2$CO$_3$·1.5 H$_2$O(s) at 23.5 T, (a), (20 kHz MAS, 39.5 h, hahnecho) and 20.0 T, (b), (12.5 kHz MAS, 15.6 h, hahnecho). The modelled lineshapes are produced from a multi-field fit of both spectra in ssNake.$^{103}$ Fit parameters were obtained over a range of line broadenings and initial parameters (giving a 2σ error in brackets): $\delta_{iso} = 180(1)$ ppm, $C_Q = 5.4(2)$ MHz, $\eta_Q = 0.78(4)$.
+
+Figure S27: Plots of the EXPRESS simulated lineshape of the oxygen environments in K$_2$CO$_3$·1.5H$_2$O(s) under exchange. (a) a fit (red) of the simulated EXPRESS lineshape (black). Parameters used were generated from the DFT calculation in Table 2 for the three distinct carbonyl environments (1 @ 206 ppm, 2 @ 193 ppm, 3 @ 184 ppm). Euler angles: EFG(1) to crystal field axis (CFA) = [0 0 0], EFG(2) = [-1.47, 59.28, -177.28], EFG(3) = [5.98, 31.85, 175.51], CSA(1) to EFG(1) = [174.91, 89.98, -90.55], CSA(2) to EFG(2) = [176.61, 88.35, -82.78], CSA(3) to EFG(3) = [78.55, 89.15, 178.86]. Rate constant = 1 x 10$^4$ Hz. Comparison to the experimental spectra (b) shows reasonable match, however the linewidth/C$_Q$ is clearly overestimated.
+Figure S28: An overlay of a $^1$H double-frequency sweep (DFS)$^{108,109}$ experiment with a $^1$H$^{17}$O one-pulse experiment of the same number of scans and equivalent pulse parameters (20.0 T, 12.5 kHz MAS, 0.9 h). A frequency sweep of 850-150 kHz at 20 W for 3.2 $\mu$s was used. No enhancement was seen in the mobile H$_2$O peak at negative ppm and the right-hand side of the chemisorbed CO$_2$ peak at $\approx$ 150 ppm shows limited enhancement relative to the rest of the peak. This is suggested to be a result of the more dynamic nature of the hydroxyl environment assigned at this lower ppm, however further work is required to establish the complete relationship between DFS enhancement and dynamics. Spinning sidebands are denoted by *.
+Table S3: Comparison of the experimental fit parameters in the carbonyl region of KHCO$_3$-CD-MOF (Fig. 6A) and the experimental results for other carbonyl environments in a selection of bicarbonate and carbonate solid crystalline species. * denotes results from this work (see Figs. S25-S26).
+
+|        | Expt. CD-MOF fit* | KHCO$_3$*- | K$_2$CO$_3$·1.5 H$_2$O* | CaCO$_3$85 | Li$_2$CO$_3$86 | Li$_2$CO$_3$30 |
+|--------|------------------|------------|-------------------------|------------|----------------|----------------|
+| $\delta_{iso}$ / ppm | 192 181 | 182.6(3) | 180(1) | 204 | 154, 174 | 154.8(5), 171.9(5) |
+| $C_Q$ / MHz | 6.5 6.0 | 7.9(1) | 5.4(2) | 6.97 | 7.40(5), 7.20(5) | 7.22(5), 6.90(5) |
+| $\eta_Q$ | 0.8 0.7 | 0.49(1) | 0.78(4) | $\approx$ 1 | 0.88(5), 0.95(5) | 0.94(5), 1.00(5) |
+
+5.2 MQMAS and multi-field $^{17}$O NMR fits
+
+This section describes the fitting procedure utilised to produce the MQMAS and multi-field fit presented in Fig. 6A of the KHCO$_3$-CD-MOF dosed with $^{17}$O$_2$. MQMAS data is presented in Figs. S29-S30. High resolution was found to be challenging to obtain in the indirect dimension, especially at lower ppm (< 160 ppm). However, weak signal corresponding to the ‘dynamic hydroxyl’ environment are identifiable when compared to the high-resolution 1D projection (Fig. S30).
+
+The two clear isotropic regions identifiable in the F1 dimension were fit in dmFit with a variety of line-broadening parameters and widths of cross-section through the isotopic dimension to give an uncertainty to the fit (Fig. S31).
+
+The two fits obtained from the MQMAS are compared to the high-resolution 1D data (Fig. S32a). There is a clear absence in the lineshape of fitting for the lower ppm of the peak as a result of the poor signal-to-noise achieved in the MQMAS. However, taking these two environments as a starting point, a third environment, E3, is introduced to account for the missing signal. Similar fitting iterating over various starting conditions and line broadening parameters led to a convergence in fitting given in Fig. S32b.
+
+The final stage of fitting involved confirming the established fit with multi-field NMR data at 20.0 T. The fit parameters from Fig. S32b were then varied, from an initial fixed position, sequentially and cumulatively in integral, $\delta_{iso}$, $C_Q$ and $\eta_Q$. This gave the two final fits as used in Fig. 6A and Fig. S33b.
+Figure S29: An MQMAS spectrum of KHCO$_3$-CD-MOF in the chemisorbed CO$_2$ region (23.5 T, 20kHz, 44.3 h, 3Q-conversion pulses $\omega_1 = 66.7$ kHz, z-filter $\omega_2 = 20.8$ kHz).
+
+Figure S30: The same MQMAS spectrum (23.5 T, 20kHz) as Fig. S29 with the F2 axis projection displayed as the high resolution $^{1}$H$^{17}$O NMR spectrum as used in Fig. 6A.
+Figure S31: MQMAS cross-sections fits in the F2 dimension for the two regions of isotropic shift identified in Fig. S29. (a) The high-shift environment 1 (E1) has fit parameters ($\delta_{\text{iso}} = 190.5(8)$ ppm, $C_Q = 6.5(2)$ MHz, $\eta_Q = 0.63(4)$) and (b) the lower shift E2 has parameters ($180.3(8)$, $6.6(4)$, $0.54(2)$). Fitting uncertainties of $2\sigma$ are given in brackets.
+
+Figure S32: (a) MQMAS cross-section fits from Fig. S31 fitted in magnitude to high-resolution 1D MAS (23.5 T, 20kHz, 0.9 h, one-pulse) data. After the addition of E3, (b), a high quality fit of the 1D spectrum is produced with parameters: $\delta_{\text{iso}} = 192(2)$, $180.6(6)$, $162(1)$, $C_Q = 6.6(6)$, $5.6(1)$, $5.6(2)$, $\eta_Q=0.6(1)$, $0.39(4)$, $0.63(1)$ (line broadening uncertainties of $2\sigma$ are given in brackets).
+Figure S33: $^{[1}^H]^{17}O$ NMR spectra of KHCO$_3$-CD-MOF taken at (a) 23.5 T (20 kHz MAS, 0.9 h, one-pulse) and (b) 20.0 T (12.5 kHz MAS, 4.8 h, one-pulse), with a multi-field fit as performed in ssNake. The peak ratios, from left to right, are 1.2 : 1 : 0.7 and 0.6 : 1 : 1.3, for 23.5 T and 20.0 T, respectively (see Figs. S37-S38 for quantitative regime establishment). Although the ratios change across the field strengths, the overall ratio between the assigned carbonate oxygens (purple) and bicarbonate oxygens (blue + green) remains constant across the two field strengths ($\approx 1 : 1.8-1.9$). This is assignable to a smaller absolute frequency difference between the bicarbonate carbonyl (blue) and the ‘dynamic hydroxyl’ (green) at 20.0 T that are hypothesised to be involved in slow dynamic exchange, thus affecting peak intensities.
+Figure S34: A $\{^1\text{H}\}^{13}\text{C}$ NMR spectrum of KHCO$_3$-CD-MOF (9.5 T, 12.5 kHz, 16 h) taken under quantitative experimental conditions ($T_1 = 60$ s, recycle delay = 300 s). The absolute integrals of the fitted peaks at 160 and 164 ppm, respectively, are 434480908.66 and 267300226.05 giving an approximate 1:1.6 ratio (fitted in dmFit with a free parameter Lorentzian/Gaussian fit. G/L ratio parameters were 0.6 and 0.15, respectively).
+Figure S35: Three snapshot frames taken from a MACE-MP-0 foundation model force-field\textsuperscript{46} MD simulation of KHCO\textsubscript{3}-CD-MOF. (a) shows a carbonic acid type moiety where carbonyl-to-hydroxyl type dynamics have been seen. In (b-c) the same frame two possible mechanisms for hydroxyl-to-carbonyl and carbonyl-to-hydroxyl dynamics are envisaged through proton movements along the depicted bonds lengths. Both mechanisms involve a facilitating adjacent hydroxide anion that has migrated from a nearby unsaturated potassium site. All the proposed mechanisms maintain one carbonyl not involved with dynamics. (c) replicates Fig. 6B with the proposed proton motion corroborated from a calculated perturb structure energy minimisation pathway.
+Figure S36: Variable temperature NMR measurements of C\textsuperscript{17}O\textsubscript{2}-dosed KHCO\textsubscript{3}-CD-MOF (12.5 kHz, 20.0 T, 0.8 h, one-pulse). Disappearance of the physisorbed CO\textsubscript{2} peak and corresponding enhancement of the chemisorbed peak is seen, as expected as temperature is lowered. However, this change in equilibrium is challenging to deconvolute from any variation in dynamics and any other contributions that lead to the apparent narrowing of the spectral peak. Additionally, the H\textsubscript{2}O peak is observed to shift to more negative ppm with lower temperature, again with the possibilities of physical effects (state change and dynamics) and chemical equilibrium (H\textsubscript{2}O/OH\textsuperscript{-}) likely contributing. Further work is required to assign these spectral changes fully.
+
+Figure S37: \textsuperscript{17}O NMR nutation curves simulated in SIMPSON\textsuperscript{110} for the experimental parameters (see Tables 1-2) derived from fits of the 23.5 T spectrum of the KHCO\textsubscript{3}-CD-MOF ((b) is a zoomed subsection of (a)). An RF-field of 66.666 kHz was used and the 3 curves represent the 3 environments as defined by the experimental fit parameters given in Fig. 6A and S33b. A 1% deviation in nutation intensity is found at the pulse length of 1.25 \textmu s (dashed line) that was used experimentally.
+Figure S38: $^{17}$O NMR nutation curves simulated in SIMPSON$^{110}$ for the experimental parameters (see Tables 1-2) derived from fits of the 20.0 T spectrum of the KHCO$_3$-CD-MOF ((b) is a zoomed subsection of (a)). An RF-field of 55.556 kHz was used and the 3 curves represent the 3 environments as defined by the experimental fit parameters given in Fig. 6A and S33b. A 1% deviation in nutation intensity is found at the pulse length of 1.5 $\mu$s (dashed line) that was used experimentally.
+
+Figure S39: Plots to determine $\sigma_{ref}$ values for cluster calculations. Calculated chemical shielding values in aug-pcsSeg-2 (a) and 6-311+G(d,p) (b) basis sets are plotted against experimental values (see section 4.3) of the same species to give a y-intercept value of $\sigma_{ref}$ for the fixed-gradient ($-1$) fit line.
+Figure S40: PXRD pattern (black) taken of the same chemical sample of KHCO$_3$(s) as was used in obtaining the $^{17}$O NMR spectra in Fig. S25. Comparison to the simulated powder pattern (red) generated in VESTA$^{111}$ from the crystal structure of Allan et al.$^{80}$
+
+Figure S41: PXRD pattern (black) taken of the same chemical sample of K$_2$CO$_3$(s) as was used in obtaining the $^{17}$O NMR spectra in Fig. S26. Comparison to simulations of the crystal structures of anhydrous K$_2$CO$_3$ (red), Gatehouse and Lloyd,$^{112}$ and K$_2$CO$_3$·1.5 H$_2$O (blue), Skakle et al.,$^{113}$ reveals the experimental sample was in the hydrated form.
+Figure S42: PXRD pattern of the MFU-4l sample (red) used in Figs. 2-3 showing good crystallinity and agreement with literature simulation (black) of the pre-exchanged chloride MOF of the same structure.\textsuperscript{19,95} The simulation is generated in VESTA.\textsuperscript{111}
+
+Figure S43: Carbon dioxide (a) and nitrogen (b) adsorption isotherm data for the MFU-4l sample. The CO\textsubscript{2} isotherm (taken at 300 K) shows characteristic steep uptakes at low pressure and a capacity of 1 bar of 3.5 mmol g\textsuperscript{-1} in agreement with literature 2.8-3.4 mmol g\textsuperscript{-1}.\textsuperscript{15,19} The BET surface area of this sample was 2727 m\textsuperscript{2} g\textsuperscript{-1}, taken at 77 K, also in line with the literature reported values of 2613-2739 m\textsuperscript{2} g\textsuperscript{-1}.\textsuperscript{15,19}
+Figure S44: PXRD patterns of the KHCO$_3$-CD-MOF samples. Comparison to a VESTA$^{111}$ simulation and literature$^{16}$ pattern is shown in Fig. (a). Comparison of the same five KHCO$_3$-CD-MOF samples as shown in Fig. S19 under $^{13}$C NMR is shown in (b). Despite clear variations in sample quality and amorphous character contributions, powder patterns share characteristic features.
+Figure S45: Results of N\textsubscript{2} isotherm data for two of the freshly synthesised KHCO\textsubscript{3}-CD-MOF samples. Filled symbols represent adsorption, blank symbols represent desorption. The raw adsorption isotherms, (a), gave BET areas of 1184(1.4) and 365.7(5) m\textsuperscript{2}g\textsuperscript{-1} for samples 3 and 5, respectively. This compares to the literature value of 1220 m\textsuperscript{2}g\textsuperscript{-1}\textsuperscript{,23} which is a good match for sample 3 despite its apparent amorphous character from the PXRD, Fig. S44b. Pore size distribution plots calculated by the NLDFT method (slit-pore) of the same two isotherms are plotted in (b) and compared to a literature distribution taken from Patel et al.\textsuperscript{,114} The apparent consistency of pore size distribution, despite BET area differences, helps gives validity to mechanistic study of these materials.
+
+Figure S46: CO\textsubscript{2} sorption isotherms of fresh samples 3 and 5. Filled symbols represent adsorption, blank symbols represent desorption. The maximum capacities at 1 bar of 1.8 mmol g\textsuperscript{-1}, sample 3, and 0.3-0.4 mmol g\textsuperscript{-1}, sample 5, demonstrate that despite unexpected amorphous character significant CO\textsubscript{2} uptake is still possible (in the case of sample 3, up to 75\% of the literature value of 2.42 mmol g\textsuperscript{-1})\textsuperscript{,16}.
+Figure S47: Repeated $^{17}$O NMR measurements of C$^{17}$O$_2$-dosed KHCO$_3$-CD-MOF for a range of samples at 23.5 T, (a), (20 kHz MAS, one-pulse{$^1$H}) and 20.0 T, (b), (20 kHz MAS, one-pulse{$^1$H}). The ‘1’-‘3’ labels represent the same sample measure at a chronologically different time: for 3.1 to 3.2 (+1 week) to 3.3 (≈ +3 months); 4.1 to 4.2 (≈ +1 month) to 4.3 (≈ +2 months); and 5.1 to 5.2 (≈ +1 month). It is clear on the 3-month timescale that degradation of sample 4 has occurred leading to loss of resolution in the spectrum. The same is hypothesised to have occurred in sample 3.2 at 20.0 T, thus the multi-field fit in Fig. S33 utilises data from the higher resolution sample 5.
+
+Table S4: Explicit tabulation of which KHCO$_3$-CD-MOF samples were used in each of the NMR spectra present in this work.
+
+| Figure                  | Sample(s) |
+|-------------------------|-----------|
+| Figs. 4A, S34           | 1         |
+| Fig. S21                | 2         |
+| Figs. 4C-D, 6, S29-S33  | 3.1       |
+| Fig. S28                | 4.1       |
+| Fig. 4B                 | 4.2       |
+| Fig. S33, S36           | 5.2       |

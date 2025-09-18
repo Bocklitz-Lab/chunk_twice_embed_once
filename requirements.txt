@@ -1,0 +1,14 @@
+# Core libraries
+mteb==1.36.8
+sentence-transformers==3.0.0
+datasets==2.19.0
+
+# Optional but recommended
+faiss-cpu>=1.7.4      # for retrieval indexing (use faiss-gpu if you have CUDA)
+scikit-learn>=1.3.0   # used in some classification/clustering evaluations
+scipy>=1.11.0         # for STS correlations etc.
+
+# Utilities
+tqdm>=4.66.0
+numpy>=1.24.0
+einops==0.8.1

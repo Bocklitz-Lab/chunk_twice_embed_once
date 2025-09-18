@@ -1,0 +1,288 @@
+Tetracarboxylic aromatic acid-based self-healing metallosupramolecular flexible nano-scaffold: Exploring rheological features, stimuli-responsiveness and anti-bacterial efficiency
+
+Biswajit Dey, Subhajoy Sadhu, Deblina Saha, Sai Jyoti Behera, Anupam Kundu, Ritu Ranjan Kumar, Suresh Kumar Yatirajula, Jnanendra Rath
+
+Department of Chemistry, Visva-Bharati University, Santiniketan-731235, India, E-mail: bdeychem@gmail.com, biswajit.dey@visva-bharati.ac.in (B.D.)
+
+Department of Botany, Visva-Bharati University, Santiniketan-731235, India
+
+Department of Chemical Engineering, Indian Institute of Technology (Indian School of Mines), Dhanbad 826004 Jharkhand, India
+
+Abstract:
+
+Tetracarboxylic acid-directed formation strategy of Zn(II)-metallogel has been achieved through supramolecular interactions among gel-forming Zn(II) acetate dihydrate, pyromellitic acid and N,N'-dimethyl formamide (DMF). Role of pyromellitic acid as low molecular weight gelator in forming stable Zn(II)-metallogel has been established through the work. Mechanical stability of Zn(II)-metallogel has been characterized through several rheological analyses including frequency sweep, strain sweep, time sweep (i.e., thixotropic analysis), and Creep recovery tests. The morphological feature of the xerogel sample of Zn(II)-metallogel gets scrutinized through field emission scanning electron microscopy (FESEM) investigation. The elemental analyses associated to FESEM system has also been performed for getting the role of different metallogel-forming chemical ingredients. The stimuli-responsiveness of the prepared metallogel has been deciphered by applying several influences like mechanical
+shaking, sonication, heating effect, chemical factors like acid, base, UV-light exposure. The metallogel construction pathway has been explored through the employment of FT-IR and ESI-Mass spectral analyses. The biological effectiveness of the metallogel is also explored. Different kinds of bacteria including Gram +/− ve species such as Bacillus cereus (ATCC 13061), Listeria monocytogenes (MTCC 657), and Staphylococcus aureus (MTCC 96), Salmonella typhimurium (MTCC 98) and Escherichia coli (MTCC 1667) are subjected for exploring the bioactivity of synthesized Zn(II)-metallogel.
+
+**Keywords:**
+Pyromellitic acid, Supramolecular Zn(II)-metallogel, Rheo-reversibility, Self-repairing, Microstructures, Antibacterial potency, Gram -ve and gram +ve bacteria.
+
+**Introduction:**
+Archaeologists categorize historical eras based on materials and technologies this eventually suggests the starting of more sustainable practices from polymeric origin to technologically-advanced themes supporting the contemporary demand.[1,2] Progresses in research and development of supramolecular gel surprisingly rely on historical analogies, as gel was used as lubricant for developing wheel.[2] Continual upgradations turn that various gels are the root of demanding scientific researches including several monumental findings like chemical sensors,[3] luminescent features,[4] supramolecular diodes,[5] and optoelectronic devices.[6] Gel has been used in agricultural industry to prepare pheromone-releasing devices for trapping pests,[7] for creating fast-release drug delivery systems,[8] and dynamic reversible and biomimetic mechanisms for tissue engineering,[9] to prevent environmental pollution by treatment of oil spills.[10] Initially, it was believed that the outcome of serendipity via different chemical interaction may offer stable gel material,[11,12] but presently the researchers are preparing target specific gel from a prognostic acuity.[12,13]
+The semi-solid appearance of gel is the result by entrapment of appropriate-liquid as major component in gelator-directed 3D soft matrix with a large surface area.[12] Gels are classified on the basis of driving forces for their molecular aggregation phenomena and this is expressed as the physical gels, comprised by non-covalent interactions, and chemical gels, originated through the involvement of covalent bonding patterns.[14]
+
+Supramolecular gels are dynamic-materials, formed by self-assembled small molecules as gelator which is able to encapsulate considerable amounts of solvent molecules.[15] These gelators are usually low molecular weight gelators i.e. LMWGs, can be considered as the monomeric repetitive-subunit for getting self-assembled fibrillar networks.[16] SAFIN is formed by entanglement of 1D supramolecular strands of LMWG through non-covalent forces such as hydrogen bonding, Van der Waals forces, charge transfer process, π-π stacking and coordination interactions, depicting the transformation of sol state to semi-solid gel phase.[17] This process of self-assembly can be triggered by different means depending upon the chemical structure of LMWGs, several associated triggers like heating and/or cooling effect,[18] changing pH,[18] mechanical action,[19] electro,[20] magnetic field [21] and chemical stimuli.[22] Versatile functional LMWGs such as alkenes,[23] amides,[24] amino acid derivatives,[25] urea,[26] peptides,[27] sugars [28] are useful for having wondrous gelation properties in the presence of different suitable solvent-molecules including polar to non-polar media and protic to aprotic systems.[29] The immobilization of appropriate liquid media i.e., solvent molecules is controlled by a metastable dissolution-crystallization equilibrium with increasing the viscosity of the entire semi-solid gel-medium.[2]
+
+Metallogels are remarkable class of supramolecular self-scaffolds which are formed by the incorporation of metal ions with suitable LMWGs to create a 3D supramolecular metal-based gel-network with versatile features.[30] In recent years, supramolecular gel-scaffolds formed by the participation of transition metal-sources are the cynosure because of their easy
+accessibility and cost effectiveness.[31] Supramolecular metallogels have noteworthy applications in wide range of fields of material science including food industry,[32] cosmetics[33], drug delivery,[34] cell culturing,[35] tissue engineering, catalysis,[36] actuators,[37] magnetic features,[38] chemo sensors, nano science,[39] and nanoelectronics,[40] optoelectronic device, semiconducting diode. Significant metallogels are made with transition metal-source i.e. Co (II),[41,42] Ni (II),[43] Cu (II),[44] Cd (II),[45] Fe (II/III),[46,47] Zn (II),[48] Mn (II) [30] have come to light with various applications.
+
+Influenced by one of the most impressive properties of biological systems which is their potential to regenerate and heal after the infliction of physical damage, scientists are experimenting to originate supramolecular metallogels having self-healing properties.[49] These materials can undergo healing not only by autonomic healing protocol but also the induced healing triggered by specific mechanisms for damage repairing, restoring strength and function.[50] Self-healing property of supramolecular gel is observed because of its easy modulating feature through external stimuli such as heat, light, electricity, magnetic field, mechanical stress, pH, ions, chemicals, and enzymes.[51] Dynamic covalent and non-covalent interactions due to their reversible nature offer possibilities of constructing self-healing materials with capability of repetitive-repairing.[52,53] Self-healing systems based on dynamic covalent chemistry involves different reactions for healing, which is the result of responsiveness of the functional groups to external stimuli such as temperature, chemicals and photo.[54,55] On the other hand, non-covalent interactions including hydrogen bonding, hydrophobic interactions, π-π stacking, ionic interactions, metal-ligand interactions have, electrostatic forces also been used to produce gels with self-healing properties.[56-60] Non-covalent interactions are generally more receptive to external environment when compared to covalent chemistry because these are based on reversible forces and have batter response
+towards external-stimuli, and for this reason non-covalent interaction guided architecture is the smarter choice for future experiments.[50]
+
+Exercising the acquired knowledge we have planned to achieve biologically active metallogel of Zn(II) with an aromatic type tetracarboxylic acid i.e., pyromellitic acid. The role of pyromellitic acid as the low molecular weight gelator is explored through the study. DMF is used as the polar aprotic solvent media for the stabilization of Zn(II)-metallogel. Rheological investigations of Zn(II)-metallogel were performed by doing frequency sweep, strain sweep, time sweep (i.e., thixotropic analysis), and Creep recovery tests. Morphological speciality of the metallogel is explored through FESEM study. Elemental identification was also performed through EDAX analysis. Stimuli-responsiveness of the metallogel has been explored by impact of mechanical shaking, sonication, heating effect, chemical factors UV-light exposure. The metallogel construction pathway has been explored through the employment of FT-IR and ESI-Mass spectral analyses. The biological efficiency of synthesized metallogel is also experimentally studied. Different bacterial strains like Gram positive and negative species including *Bacillus cereus* (ATCC 13061), *Listeria monocytogenes* (MTCC 657), and *Staphylococcus aureus* (MTCC 96), *Salmonella typhimurium* (MTCC 98) and *Escherichia coli* (MTCC 1667) are employed to obtain the bioactivity of Zn(II)-metallogel. Comparative experimental outcome of the anti-bacterial efficiency of Zn(II)-metallogel exhibits the better antimicrobial efficacy against Gram +ve bacteria than that of Gram -ve bacteria.
+
+2. EXPERIMENTAL SECTION
+
+2.1 Materials: Zinc(II) acetate dihydrate, and Pyromellitic acid were collected from Sigma Aldrich Company for the synthesis and elated research work in this study. Different Zn(II)-salts like Zinc(II) chloride, Zinc(II) nitrate hexahydrate, Zinc(II) sulphate heptahydrate were also collected from Sigma Aldrich company and these were utilized for testing the anion-
+directed metallogelation process in polar aprotic solvent media like N,N’-dimethyl formamide (DMF) which is also procured from the same company. Versatile solvent media involving polar to non-polar media such as 1,4-dioxane, petroleum ether, ethanol, acetone, ethyl acetate, THF, acetic acid, acetonitrile, chloroform, methanol, dichloromethane, and water were taken from Merck.
+
+2.2 Characterizations: Rheological experiments were executed by the use of an MCR 102 rheometer made by Anton-Paar. Morphological study was executed in ZEISS (Gemini 2) GeminiSEM 450 field emission scanning electron microscope. EDAX elemental mapping was also performed by ZEISS (Gemini 2) GeminiSEM 450 associated EDAX (AMETEK MODEL: ELEMENT). FT-IR investigations of the xerogel samples were performed by means of making KBr pellet through Perkin Elmer provided FT-IR Spectrometer. Waters QTOF Micro YA263 ESI-Mass spectrometer is employed for the ESI-Mass spectral experiment of metallogel-scaffold.
+
+2.3 Synthetic protocol for LMWG guided Zn(II)-metallogels (Zn-PMA):
+The utilization of pyromellitic acid as an exclusive low molecular weight geltor (LMWG) was successfully accomplished for the generation of Zn(II)-based supramolecular metallogel which was formed by the implementation of Zn(II) acetate dihydrate salt as the source of Zn(II) and a polar aprotic solvent like DMF as the gel-immobilized solvent media. Zn-PMA metallogel was achieved by the direct mixing of metal source and LMWG. Two different DMF solutions like 1 mL DMF solution of Zn(II) acetate dihydrate (0.1755 g, 0.8 mmol), and 1 mL DMF solution of pyromellitic acid (0.2033 g, 0.8 mmol) were separately prepared in two distinct glass vials. Thus, the molar ratio of these two individual solutions of Zn(II) source and LMWG in DMF was maintained as 1:1. The mixing of these DMF solutions immediately directed the formation of white-coloured stable Zn-PMA metallogel. Preliminary the stability test by inverting the gel-containing vial was executed (Scheme 1).
+Scheme 1. Schematic representation of getting stable Zn(II) metallogels with pyromellitic acid in DMF media.
+
+2.4 Exploring minimum critical gelation (MCG) concentration for the stable supramolecular metallogel of Zn(II):
+
+For optimizing the protocol of Zn-PMA metallogel, the experiments regarding the exploration of minimum critical gelation i.e., the MCG concentration level of Zn-PMA metallogel-forming chemical constituents like Zn(II) salt and pyromellitic acid were performed. MCG determination test was conducted by maintaining the fixed stoichiometric ratio of Zn(II) salt and pyromellitic acid as 1:1 with varying concentration levels increasing from 0.6 mM to 0.8 mM amounts of individual chemical-ingredients like Zn(II) source and LMWG. In presence of 0.1755 g for Zn(II) acetate dihydrate and 0.2033 g of LMWG (i.e., pyromellitic acid) in polar aprotic DMF solvent medium the stable gel-state of Zn(II)-metallogel has been obtained (Figure 1).
+
+Figure. 1. Exploration of the minimum critical gelation concentration (MCG) for the synthesis of Zn-PMA metallogel which was formed by the instant mixing of Zn(II) acetate dihydrate and pyromellitic acid in DMF medium with a fixed stoichiometric ratio of 1:1. Here, the concentrations of of the individual chemical constituents for (a), (b), and (c) are 0.6
+(i.e., Zn(II) acetate dihydrate = 0.1316 g, pyromellitic acid = 0.1524 g), 0.7 (i.e., Zn(II) acetate dihydrate = 0.1536 g, pyromellitic acid = 0.1779 g), 0.8 mM (i.e., Zn(II) acetate dihydrate = 0.1755 g, pyromellitic acid = 0.2033 g), respectively.
+
+2.5 Aptitude of different solvents and counter anions of Zn(II) salts in gelation process of Zn(II)-based metallogel:
+
+Following the optimization protocol for getting Zn(II)-based metallogel with pyromellitic acid as the low molecular weight gelator and Zn(II) acetate source, the role of different solvent media including polar to non-polar has been exhaustively studied and the MCG
+
+![Figure 2](https://example.com/figure2.jpg)
+
+**Figure 2.** Testing the ability of Zn-PMA metallogel-formation by the influence of several solvent media ranging from polar to non-polar feature. The MCG protocol-based optimized strategy has been implemented throughout the tests.
+
+protocol in DMF solvent is maintained throughout the entire investigations which were performed in different solvents (Figure 2). For every cases of individual solvent, the metallogel-forming chemical constituents were mixed and then the possibility of gelation from distinct set-up was checked through the inversion vial test. Experimental outcome clarified that stable metallogel has not been formed from any of these runs. Through
+several experiments it was ratified that DMF as the polar aprotic media is the exclusive gel-immobilized system to achieve the utmost stability of Zn-PMA metallogel. Further the role of counter anions of different Zn(II)-salts has been critically analysed (Figure 3). The MCG protocol as adopted for the formation of Zn-PMA metallogel in DMF solvent was separately employed for unveiling the role of diverse Zn(II)-salts with different counter anions like chloride, sulphate in preparing stable metallogel of pyromellitic acid in DMF solvent media. For these three attempts it was found that no metallogel was generated. Interestingly, acetate having resonance structure is the crucial one for achieving stable Zn(II)-metallogel of Zn(II) acetate dihydrate and pyromellitic acid in the polar aprotic solvent media.
+
+![Figure 3](image.png)
+
+**Figure 3.** Influence of different counter anions of Zn(II)-salts in the formation of Zn-PMA metallogel with a polar aprotic solvent media. The MCG protocol-based optimized strategy has been implemented throughout the tests.
+
+2.6 Antimicrobial Assay:
+
+2.6.1. Antimicrobial activity using Agar well diffusion method:
+The agar well diffusion method was performed to check the antimicrobial activity of the test metallogel, i.e., Zn-PMA, as described by [61]. A microbial inoculum was evenly spread over the sterile nutrient agar plates, similar to the disk diffusion method. Using a sterile cork borer, wells with uniform size were created. Five bacterial strains were used; three were Gram-positive: *Bacillus cereus* (ATCC 13061), *Listeria monocytogenes* (MTCC 657), and *Staphylococcus aureus* (MTCC 96). Two Gram-negative strains were used: *Salmonella typhimurium* (MTCC 98) and *Escherichia coli* (MTCC 1667). These strains were grown overnight in nutrient broth until they reached the logarithmic growth phase and were adjusted to an optical density (OD) of 0.5 at 600 nm. Three concentrations of test metallogel (30 mg/ml, 20 mg/ml, and 10 mg/ml) dissolved in DMSO were added to the respective wells (25 μl each) using a micropipette. The plates were sealed with parafilm and incubated at 37°C for 12–16 hours to allow bacterial growth and the formation of inhibition zones [62]. After the incubation period, the inhibition zone diameter around the wells was measured.
+
+### 2.6.2 Determination of Minimum Inhibitory concentration (MIC) value:
+
+The minimum inhibitory concentration (MIC) is the lowest concentration of an antimicrobial agent that, under specific conditions, can effectively stop a microorganism's growth [63]. The MIC of Zn-PMA was determined using a resazurin-based assay modified by Sarker et al [64]. The resazurin-based antimicrobial assay is a colorimetric method used to evaluate bacterial viability and the effectiveness of antimicrobial Zn(II)-metallogel accurately. Resazurin, a blue oxidation-reduction dye, is reduced to pink resorufin by metabolically active cells, indicating bacterial growth, while the persistence of blue colour signifies bacterial inhibition.
+
+In this assay, test substances were diluted to 100, 50, 25 and 12.5 μg/ml concentrations in a 96-well microtiter plate. Each well contained a 0.01% resazurin dye, test metallogel, and bacterial suspensions. Ciprofloxacin (10 μg/ml) served as the positive control, while bacterial cultures in DMSO without any test metallogel act as the negative control. Three replicate
+plates were prepared and incubated at 37°C for 8–10 hours. The minimum inhibitory concentration (MIC) was determined as the lowest concentration that retained the blue colour of resazurin, indicating no bacterial growth [65].
+
+3. RESULT AND DISCUSSION
+
+3.1. Rheological Analysis
+
+Mechanical aptitude of synthesized Zn-PMA metallogel in DMF solvent media was experimentally evaluated with the help of versatile rheological analyses. Several intriguing properties like storage modulus, loss modulus were monitored with varied oscillatory frequencies, applied shear strain and with respect to time following angular frequency sweep, amplitude sweep, and thixotropic studies. Rheoreversible feature of the metallogel was also established through thixotropic measurement. Viscous and elastic parameters of Zn-PMA material was evaluated by the help of frequency sweep based rheological measurement. The changes of elastic feature i.e., the storage modulus ($G'$), and viscous nature i.e., the loss modulus ($G''$) with the applied values of angular frequency ($\omega$) under a continuous application of a fixed shear strain ($\gamma$, 0.01 %) were critically collected and graphically presented via the plots of $G'$, and $G''$ vs angular frequency ($\omega$) (Figure 4a). Patterns observed in the frequency sweep rheological measurement depicted almost linear-disposition and parallel-progression of the values of $G'$, and $G''$ by the application of a fixed shear strain in a certain angular frequency zone where the metallogel shows the supramolecular feature originated through the action of non-covalent interactions among the metallogel-constructing chemical ingredients like Zn(II) acetate dihydrate and pyromellitic acid in polar aprotic solvent media of DMF. Tabulated form of this experimental outcomes shows that the elastic feature i.e., the values of storage modulus ($G'$) are getting predominated over the viscous nature i.e., the values of loss modulus ($G''$) within this experimental area of frequency sweep plots, the elastic modulus is dominated over the viscous modulus. Results of frequency sweep
+measurements and this is expressing the viscoelastic property of the Zn-PMA metallogel. Mechano-elastic property of Zn-PMA metallogel has been explored through the rheological measurements. Amplitude sweep i.e., the strain sweep measurements were also executed for ZN-PMA metallogel. During the strain sweep measurement at a fixed value of imposed angular frequency ($\omega = 10$ rad/s), after the application of shear strain ($\gamma$), the change in values of storage modulus ($G'$) and viscous modulus ($G''$) were recorded. The graphical plots based on experimentally obtained values of storage modulus ($G'$) and viscous modulus ($G''$) with the applied shear strain denote that initially there is a almost parallel movement of storage modulus ($G'$) and viscous modulus ($G''$) satisfying the condition of $G' > G''$ and this is confirming the gel-state. At a certain value of applied shear strain, the progressive-line of $G'$ and $G''$ in the plot (Figure 4b) crossed each other and this also directs the amount of critical strain after which the loss modulus gets predominated over storage modulus and this clearly indicates the transformation of gel state to its sol state supporting the rheological condition of $G' < G''$. This critical point of applied strain from the plot also supports the mechanical efficiency of Zn-PMA metallogel.
+
+Rheoreversible property of the Zn-PMA metallogel has also been studied (Figure 4c). For this reason the thixotropic nature of different metallogels has been critically evaluated. Time sweep based rheological investigation was employed for the synthesized metallogel by following the chronological implementation of diverse shear strain amounts (i.e., $\gamma = 0.01$, and 50 %) under the application of a definite angular frequency (i.e., $\omega = 10$ rad/s). With the progress of the experiments, the values of elastic i.e., storage modulus ($G'$) and the viscous i.e., loss modulus ($G''$) were monitored with the change of time. Time sweep experimental results are expressed in Figure 4c for Zn-PMA metallogels. According to the judicious protocol for the supramolecular metallogel systems, up on the application of 0.01 % shear strain the semi-solid material behaves like a gel-like scaffold having predominant storage
+modulus with respect to loss modulus (i.e., $G'>G''$). After certain time interval, up on the application of 50% shear strain a sol-type property with rheological signature i.e., predominant values of loss modulus over storage modulus of the tested 3D scaffold were obtained. Then, the sol-type nature of Zn-PMA got recovered into its previous gel-feature under the influence of relaxed shear strain (i.e., 0.01%). Such oscillatory outcome of rheological experiments was sustained for up to four cycles by retaining similar kinds of plots. Thorough rheological experiments confirmed the thixotropic property of the metallogel. The experimental outcomes of thixotropic feature is supporting toward the rheoreversible characteristic of Zn-PMA metallogel i.e., continuous gel-sol-gel alterations by the applied deforming-forces.
+
+For exploring the self-healing feature a special rheological investigation like Creep-recovery test of the metallogel sample was executed. The experimental findings of creep-recovery test dictates the strain ($\gamma$) generated in the metallogel systems by introducing distinct amount of shear stress ($\tau$). Under the application of distinct amounts of shear stress having the values of 10, 20, 30, 40, and 50 Pa the rheological experiment was independently performed for a specified-duration, expressing as creep time, of 150 s for individual case. Exhaustive experimental findings of the special rheological investigation i.e., the creep-recovery test were also depicted through the plot of shear strain ($\gamma$) vs time (s) (Figure 4d). Under the influence of applied shear stress ($\tau$), the amounts of measured shear strain ($\gamma$) for Zn-PMA metallogel initially were enhanced up to 150 s. Then, in the absence of applied shear stress, the gained shear strain value returned to the initial condition. The similar trend was carried forward under the presence of different applied-shear stress. Such experimental phenomena indicate the recovery of the gel-state.
+Figure. 4. Rheological measurements of Zn-PMA metallogel: The experimental outcomes of (a) Strain sweep, (b) Angular frequency sweep, (c) Thixotropy, i.e., time sweep, (d) Creep Recovery test.
+
+3.2 Exploring the self-repairing parameters of Zn-PMA metallogel.
+
+Self-healing phenomena of synthesized Zn(II)-metallogel has been explored through the study. Spontaneous re-growing of stable metallogel-structure after getting mechanical influences has been explored (Figure 5). Initially, the considerable stability of metallogel in the inverted-syringe was tested. The good-quality gel-nature of Zn-PMA was also found after the removal of gel-content from the syringe. The metallogel was cut into three individual pieces and then these were connected closely for checking the re-formation of previous structural appearance. After a moment, the deformed-metallogel was regained its original structural view. This experimental observation clearly envisaged the excellent self-repairing property of the metallogel. The load-bearing capacity of the metallogel has also been explored through the work. It was found that the metallogel is capable bearing a considerable amount of load without the deformation. This also supported toward the mechanical strength of the synthesized metallogel.
+3.3 FESEM morphological images and elemental characterizations:
+
+For the inspection of the microstructural pattern of Zn-PMA metallogel the air-dried xerogel-state of supramolecular metallogel of Zn(II) has been employed. Field emission scanning electron microscope (FESEM) microstructural pattern of xerogel obtained from Zn-PMA metallogel was explored (Figure 6). Morphology of Zn-PMA metallogel exhibits the internal network with the highly flexible type fibres having the inter-connected association. This ultimately leads to the three dimensional assembly of semi-solid Zn-PMA gel and this directs the hierarchical structure for getting stable metallogel system. Special nano-ranged size-criteria of Zn-PMA xerogel is the exclusive one for getting scrupulous mechanical flexibility of the metallogel. FESEM-based morphological idea also clearly shows the critical type nano-sized breadth of the nano-fibre collecting to get stable metallogel. Possible supramolecular non-covalent type interactions acting among the gel-constructing agents like Zn(II) acetate dihydrate and pyromellitic acid might be effective for the generation of stable metallogel structure. Verification of the metallogel-forming agents has been executed by the EDAX elemental study connected with FESEM imaging set-up with the help of elemental mapping and EDX spectral analysis. This confirms the presence of C, N, O, and Zn elements.
+Identification of elemental-Zn confirms the participation of Zn(II) acetate salt in forming the metallogel network. Besides, the presence of pyromellitic acid is also confirmed through the finding of elemental C and O. The signature of N is also directing the gel-immobilized solvent like DMF (Figure 7). Thus, the construction strategy of Zn-PMA metallogel has been explored.
+
+Figure 6. FESEM microstructural view of Zn-PMA metallogel in its xerogel-form with nano-ranged fibres.
+Figure 7. (a-d) elemental mapping of Zn-PMA showing the presence of C, N, O, and Zn elements as the constitutions of the stable Zn-PMA metallogel; (e) EDS elemental spectrum of Zn-PMA metallogel.
+
+3.4 Stimuli-responsiveness of Zn-PMA metallogel:
+
+The repercussion of Zn-PMA metallogel under the influence of diverse stimuli has been monitored (Figure 8). Testing the stability of individual metallogel set-up after the employment of different mechanical, chemical and heating effects was experimentally performed. The metallogel was shaken vigorously by the use of vortex, and immediately the stability of the metallogel got lost by transforming it into a sol-like state of Zn-PMA metallogel. Then, the sol-state was allowed to stand for 24 hrs. without applying any external mechanical forces. But, there was no possibility of transforming the sol-state to its gel-state through the aging effect after the mechanical agitation. Further, the metallogel in its gel-state
+was subjected to ultrasonication through water-based bath-sonication technique for 1 hr. It was found that there was not any certain considerable change of the gel-state of the Zn-PMA metallogel. This confirms the least effect of ultrasonication-directed mechanical agitation on the stability of Zn-PMA metallogel. Zn-PMA metallogel was heated upto 90 °C and there was no certain change of gel-state after the heating effect on metallogel. Luminescent feature of metallogel has also been studied and the metallogel was kept under exposure of UV light. There was no change of the metallogel due to the exposure of UV light. Effect of versatile chemicals like basic ingredient ammonia and acidic agent like acetic acid were separately added into the metallogel. Acidic chemical like acetic acid did not show any special impact on the stability of the metallogel. Whereas, the ammonia as a basic ingredient exerted for changing the gel-stability of Zn-PMA and a minute effect with slight changing of gel-structure was recorded after the application of ammonia. This also implied that ammonia might be effective to disrupt the possible non-covalent type supramolecular interactions acting among the metallogel-forming metal salt and low molecular weight gelator like pyromellitic acid in presence of polar aprotic solvent like DMF with resonating structural property.
+Figure 8. Experiment for stimuli-responsiveness of Zn-PMA metallogel under the influence of shake-rest through vortex, ultrasonication, heating effect, checking the luminescent feature of metallogel under UV-light, chemicals like acidic and basic agents.
+
+3.5 Infrared and ESI-Mass spectroscopic Studies:
+
+FT-IR spectroscopic investigation (Figure 9) was done with the xerogel sample of Zn-PMA metallogel for identifying the impact of metallogel-forming chemical ingredients such as Zn(II) acetate dihydrate and pyromellitic acid toward the successful formation of stable
+metallogel of Zn(II) (i.e., Zn-PMA metallogel). FT-IR study (Figure 9) also supports to unveil the role of non-covalent supramolecular interactions responsible to achieve the stable metallogel in polar aprotic solvent media like DMF. Along with the xerogel sample of Zn-PMA metallogel, the FT-IR patterns of Zn(II) acetate dihydrate and pyromellitic acid were also collected for getting the utmost comparative idea (Figure 9). The experimental data revealed significant shifts in stretching frequencies, suggesting supramolecular interactions between the chemical components that play critical role in metallogel-formation. In the spectrum of the xerogel-form of metallogel, relevant peaks observed at 3567-3169 cm\(^{-1}\) for stretching vibration of O-H, 1594 cm\(^{-1}\) for the stretching vibration of C=O, 1550 cm\(^{-1}\) for asymmetric stretching vibration of COO, 1399 cm\(^{-1}\) for symmetric stretching vibration of COO, 1145 cm\(^{-1}\) for stretching vibration of C-H bond, 629 cm\(^{-1}\) for bending vibration of the C=O, and 535 cm\(^{-1}\) for stretching vibration of the Zn-O bond. The peak of FT-IR spectral pattern of xerogel at 1331 cm\(^{-1}\) signifies the possible presence of carboxylic acid group.(1958 ref.) Observed significant FT-IR stretching frequencies of the xerogel sample (Zn-PMA) were significantly shifted to lower wavenumber (cm\(^{-1}\)) with respect to the standard experimental values of metallogel-constructing individual pure-ingredients like pyromellitic acid [3567-3169 cm\(^{-1}\) for \(\nu(\text{OH})\), 1594 cm\(^{-1}\) for \(\nu(\text{CO})\), 1550 cm\(^{-1}\) for \(\nu_a(\text{COO})\), 1399 cm\(^{-1}\) for \(\nu_s(\text{COO})\), 1145 cm\(^{-1}\) for \(\nu(\text{C-H})\), 629 cm\(^{-1}\) for \(\nu_b(\text{CO})\)] and Zn(II) acetate dehydrate (Figure 9). These experimental findings might be effective to support the non-covalent supramolecular interactions acting between these mentioned gel-forming ingredients within the three-dimensional Zn(II)-metallogel networks. The role of different chemicals in the construction of metallogel is explored through identifying such variations of FT-IR peak positions in the xerogel and individual xerogel-constructing agents.
+Figure 9. FT-IR spectral records for air-dried xerogel-sample of Zn-PMA metallogel, and metallogel-forming ingredients like pure pyromellitic acid and pure Zn(II) acetate dihydrate.
+
+Besides, the aspect of Zn(II)-metallogel-creating most possible arrangements of Zn(II) acetate metal salt with pyromellitic acid as the low molecule weight gelator was evolved by performing the ESI-Mass analyses (Please see Figure S1 in Supplementary material). For getting stable Zn-PMA metallogel, the network of 3D soft-scaffold was achieved by employing one unit of Zn(II) acetate metal source connected with two units of pyromellitic acid form either sides with help of non-covalent type supramolecular interactions and this might be considered as the iterating structural-moiety which might be critically accountable for trapping suitable polar aprotic solvent of DMF in the supramolecular Zn-PMA metallogel. Such non-covalently connected motifs might be extended within Zn(II)-metallogel-network having gel-immobilized polar aprotic solvents like DMF.
+3.6 Antimicrobial study:
+
+3.6.1 Antimicrobial activity using the Agar well diffusion method:
+
+The antibacterial activity of Zn-PMA was assessed using the agar well diffusion method at three different concentrations (30 mg/mL, 20 mg/mL, and 10 mg/mL). The results showed a dose-dependent inhibition, with larger inhibition zones observed at higher concentrations (Table 1). At 30 mg/mL, Zn-PMA exhibited the highest antibacterial activity, with inhibition zones ranging from 4.5±1.0 mm (Escherichia coli) to 6.0±1.0 mm (Listeria monocytogenes). At 20 mg/mL, the inhibition zones decreased, ranging from 3.0±0.5 mm (E. coli) to 4.0±0.5 mm (Bacillus cereus). The lowest concentration (10 mg/mL) showed very minimal antibacterial effects, with inhibition zones between 1.5±0.5 mm (Salmonella typhimurium and L. monocytogenes) and 2.0±0.5 mm (E. coli, S. aureus, and B. cereus). These findings indicate that Zn-PMA has good antibacterial activity, with L. monocytogenes being the most susceptible and E. coli showing the least inhibition at higher concentrations (Figure 10).
+
+Table 1. Inhibition zone of antimicrobial activity for Zn-PMA metallogel using the agar well diffusion method.
+
+| Test materials (Zn-PMA) | Zone of Inhibition (mm) (Mean± SD) | Escherichia coli | Staphylococcus aureus | Salmonella typhimurium | Bacillus cereus | Listeria monocytogenes |
+|------------------------|----------------------------------|-----------------|---------------------|-----------------------|----------------|------------------------|
+| 30 mg/mL               | 4.5±1.0                          | 5±1.5           | 5.5±1.5             | 5.5±1.5               | 6.0±1.0        |                        |
+| 20 mg/mL               | 3.0±0.5                          | 3.5±0.5         | 3.5±1.5             | 4.0±0.5               | 3.5±1.5        |                        |
+| 10 mg/mL               | 2.0±0.5                          | 2.0±0.5         | 1.5±0.5             | 2.0±0.5               | 1.5±0.5        |                        |
+Figure 10. Antibacterial screening of Zn-PMA against five bacterial strains (agar-well diffusion method). Different concentrations (in mg/ml) of the test metallogel were used in the respective wells.
+
+3.6.2 Determination of Minimum Inhibitory Concentration (MIC):
+
+The Minimum Inhibitory Concentration (MIC) determines the lowest concentration of an antimicrobial agent needed to inhibit bacterial growth. In this study, resazurin, a redox indicator, was used to assess bacterial metabolic activity, where a persistent blue colouration indicated inhibition, while a colour change to pink or colourless signified bacterial growth. Zn-PMA demonstrated significant antibacterial activity, with MIC values of 12.5 µg/mL for *Listeria monocytogenes*, *Bacillus cereus*, and *Staphylococcus aureus*. At the same time, *Salmonella typhimurium* and *Escherichia coli* exhibited higher MIC values of 25 µg/mL (Table 2). These MIC values, confirmed through triplicate experiments, suggest that Zn-PMA is more effective against Gram-positive bacteria than Gram-negative strains (Figure 11). Zn hydrogels generally have better antibacterial activity against Gram-positive bacteria than Gram-
+negative bacteria. Because of the structural differences in the bacterial cell walls, Gram-positive bacteria have a thicker peptidoglycan layer that is more vulnerable to disruption by zinc ions released from the hydrogel, making it easier for the zinc to penetrate and damage the Gram-positive bacteria's cell membrane [66].
+
+![Figure 11](image)
+
+**Figure 11.** After 14 hours of incubation, micro-titre plates show the test metallogels' antibacterial activity against the five bacterial strains. Pink wells indicate bacterial growth, while blue wells mean inhibition of bacterial growth. The yellow circles denote the MIC value of Zn-PMA. Positive and negative controls are shown by the rectangular boxes below.
+
+Table 2. MIC values of Zn-PMA metallogel against different bacterial strains.
+
+| List of Bacterial strains | Gram-positive/Gram-negative strains | MIC values of Zn-PMA (µg/ml) |
+|---------------------------|------------------------------------|-----------------------------|
+| Bacillus cereus           | Gm +ve                             | 12.5                        |
+| Salmonella typhimurium    | Gm -ve                             | 25                          |
+| Escherichia coli          | Gm -ve                             | 25                          |
+| Staphylococcus aureus     | Gm +ve                             | 12.5                        |
+
+https://doi.org/10.26434/chemrxiv-2025-pqdcv ORCID: https://orcid.org/0000-0002-1662-6249 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+4. Conclusion:
+
+Attempt of forming stable Zn(II)-based supramolecular metallogel has been achieved through the mixing of Zn(II) acetate dihydrate and pyromellitic acid in the presence of gel-immobilized polar aprotic solvent media like DMF. Speciality of DMF being a polar aprotic solvent with resonance stabilizing structure has been critically tested. The role of acetate counter anion with resonating structural motif has also been explored. The optimization of metallogel formation is also executed through the investigation of getting MCG value. The mechanical flexibility of the metallogel has been exhaustively executed through several rheology based experimental attempts including the frequency sweep experiment, strain sweep measurement. The possibility of rheoreversible feature is proved through the time sweep based rheological experiment. Creep recovery test has successfully been performed for the experimental proof of self-healing feature of metallogel. Nano-ranged fibers have been obtained through the FESEM study of xerogel-state of Zn-PMA metallogel. The role distinct gel-forming chemicals have opened through elemental analyses and EDX spectral study. The stimuli-responsiveness of the metallogel has been experimentally explored under the presence of mechanical stress, heating effect, UV-light exposure, chemical factors like acid and base. Robustness of the metallogel has been recorded through the stimuli-sensitive experiments. The metallogel-formation strategy of Zn-PMA metallogel has been established by the exhaustive FT-IR studies of Zn-PMA xerogel and its fundamental chemical stuffs like pure Zn(II) acetate dihydrate, and pyromellitic acid. FT-IR and ESI-Mass spectral analyses unequivocally ratify that low molecular weight gelator-directed metallogel-formation pathway is possibly guided by the non-covalent supramolecular patterns among metallogel-constructing individual chemical ingredients with the gel-immobilized suitable solvent media.
+Biological competence of synthesized Zn(II)-metallogel is experimentally investigated with different bacterial strains like Gram positive and negative species including Bacillus cereus (ATCC 13061), Listeria monocytogenes (MTCC 657), and Staphylococcus aureus (MTCC 96), Salmonella typhimurium (MTCC 98) and Escherichia coli (MTCC 1667). Exhaustive experimental findings shows that Zn(II)-metallogel relatively shows better anti-bacterial performance against Gram +ve bacteria.
+
+Conflicts of interest
+The authors declare no competing financial interest.
+
+Acknowledgements
+B.D. thankfully acknowledges SERB DST (Govt. of India) for the research project (File No.: CRG/2023/002689 dated 20/12/2023) for financial support.
+
+References
+[1] M. Sutton, The birth of the polymer age, Chemistry World, 2020.
+
+[2] D.K. Smith, Supramolecular gels-a panorama of low-molecular-weight gelators from ancient origins to next-generation technologies, Soft Matter, 20 (2024) 10-70.
+
+[3] S. Panja, A. Panja, K. Ghosh, Supramolecular gels in cyanide sensing: a review, Mater. Chem. Front. 5 (2021) 584-602.
+
+[4] P. Rajamalli, E. Prasad, Low molecular weight fluorescent organogel for fluoride ion detection, Org. Lett. 13 (2011) 3714-3717.
+
+[5] B. Pal, S. Majumdar, I. Pal, G. Lepcha, A. Dey, P.P. Ray, B. Dey, Comparative outcomes of the voltage-dependent current density, charge transportation and rectification ratio of electronic devices fabricated using mechanically flexible supramolecular networks, Dalton Trans. 53(2024) 7912-7921.
+[6] A.R. Hist, B. Escuder, J.F. Miravet, D.K. Smith, High-tech applications of self-assembling supramolecular nanostructured gel-phase materials: from regenerative medicine to electronic devices, Angew. Chem. Int. Ed. Engl. 47 (2008) 8002-8018.
+
+[7] P. Sahoo, D.K. Kumar, S.R. Raghavan, P. Dastidar, Supramolecular synthons in designing low molecular mass gelling agents: L-amino acid methyl ester cinnamate salts and their anti-solvent-induced instant gelation, Chem. Asian J. 6 (2010) 1038-1047.
+
+[8] K.J.C.V. Bommel, M.C.A. Stuart, B.L. Feringa, J.V. Esch, Two-stage enzyme mediated drug release from LMWG hydrogels, Org. Biomol. Chem. 3 (2005) 2917-2920.
+
+[9] Y. Zhao, S. Song, X. Ren, J. Zhang, Q. Lin, Y. Zhao, Supramolecular adhesive hydrogels for tissue engineering applications, Chem. Rev. 122(2022) 5604-5640.
+
+[10] S.R. Jadhav, P.K. Vemula, R.Kumar, S.R. Raghavan, J.George, Sugar-derived phase-selective molecular gelators as model solidifiers for oil spills, Angew. Chem. Int. Ed. 49 (2010) 7695-7698.
+
+[11] S.Y. Chan, S.S. Goh, Q. Dou, B.Q.Y. Chan, W.S. Choo, D.J. Young, X.J. Loh, Unprecedented acid-promoted polymerization and gelation of acrylamide: a serendipitous discovery, Chem. Asian J. 13 (2018) 1797-1804.
+
+[12] P. Dastidar, Supramolecular gelling agents: can they be designed?, Chem. Soc. Rev. 37 (2008) 2699-2715
+
+[13] A. Das, S.R. Choudhury, C. Estarellas, B. Dey, A. Frontera, J. Hemming, M. Helliwell, P. Gamez, S. Mukhopadhyay, Supramolecular assemblies involving anion–π and lone pair–π interactions: experimental observation and theoretical analysis, Cryst. Eng. Comm. 13 (2011) 4519-4527
+[14] A. Moreno, G.J. Martinez, T.H. Pérez, N. Batina, M. Mundo, A. McPherson, Physical and chemical properties of gels: application to protein nucleation control in the gel acupuncture technique, J. Cryst. Growth, 205 (1999) 375-381.
+
+[15] J.M. Lehn, From supramolecular chemistry towards constitutional dynamic chemistry and adaptive chemistry, Chem. Soc. Rev. 36 (2007) 151-160.
+
+[16] M. George, R.G. Weiss, Molecular organogels. Soft matter comprised of low-molecular-mass organic gelators and organic liquids, Acc. Chem. Res. 39 (2006) 489-497.
+
+[17] S.C. Zacharias, M. Kamlar, M., H. Sundén, Exploring supramolecular gels in flow-type chemistry—design and preparation of stationary phases, Ind. Eng. Chem. Res. 60 (2021) 10056-10063.
+
+[18] S. Panja, D.J. Adams, Stimuli responsive dynamic transformations in supramolecular gels, Chem. Soc. Rev. 50 (2021) 5165-5200.
+
+[19] K. Ariga, T. Mori, M. Akamatsu, J.P. Hill, Two-dimensional nanofabrication and supramolecular functionality controlled by mechanical stimuli, Thin Solid Films,554 (2014) 32-40.
+
+[20] W. Weng, Z. Li, A. Jamieson, S.J. Rowan, Control of gel morphology and properties of a class of metallo-supramolecular polymers by good/poor solvent environments, Macromolecules, 42 (2009) 236–246.
+
+[21] C.G. Vilchez, L.R. Arco, M.C.M. Torres, L.Á.D. Cienfuegos, M.T.L. Lopez, Self-assembly in magnetic supramolecular hydrogels, Curr. Opin. Colloid Interface Sci. 62 (2022) 101644.
+[22] M.D. Segarra-Maset, V.J. Nebot, J.F. Miravet, B. Escuder, Control of molecular gelation by chemical stimuli, Chem. Soc. Rev. 42 (2013) 7086-7098.
+
+[23] S.J. Wezenberg, C.M. Croisetu, M.C.A. Stuart, B.L. Feringa, Reversible gel-sol photoswitching with an overcrowded alkene-based bis-urea supergelator, Chem. Sci. 7 (2016) 4341-4346.
+
+[24] N. Shi, G. Yin, H. Li, M. Han, Z. Xu, Uncommon hexagonal microtubule-based gel from a simple trimesic amide, New J. Chem. 32 (2008) 2011-2015.
+
+[25] K. Hanabusa, K. Hiratsuka, M. Kimura, H. Shirai., Easy Preparation and useful character of organogel electrolytes based on low molecular weight gelator, Chem. Mater. 11 (1999) 649-655.
+
+[26] J.W. Steed, Anion-tuned supramolecular gels: a natural evolution from urea supramolecular chemistry, Chem. Soc. Rev. 39 (2010) 3686-3699.
+
+[27] C. Tomasini, N. Castellucci, Peptides and peptidomimetics that behave as low molecular weight gelators, Chem. Soc. Rev. 42 (2013) 156-172.
+
+[28] A. Pratap, K.M. Sureshan, Sugar based organogelators for various applications, Langmuir, 35 (2019) 6005-6014.
+
+[29] S. Majumdar, D. Murkhajee, G. Lepcha, K.K. Saha, K.S. Das, I. Pal, N.C. Mandal, B. Dey, Itaconic and citraconic acid directed thixotropic and self-healable supramolecular metallogels of M(II) (M=Co, Cu, Zn, and Cd) for the growth-inhibitory potency against human pathogenic microbes, New J. Chem., 47 (2023) 9643-9653.
+[30] S Dhibar, A Dey, A Dey, S Majumdar, D Ghosh, P.P Ray, B Dey, Development of supramolecular semiconducting Mn (II)-metallogel based active device with substantial carrier diffusion length, ACS Appl. Electron. Mater. 1 (2019) 1899-1908.
+
+[31] I. Pal, S. Majumdar, G. Lepcha, K.T. Ahmed, S.K. Yatirajula, S. Bhattacharya, R. Chakravarti, B. Bhattacharya, S.R. Biswas, B. Dey, Exploration of Variable Solvent Directed Self-Healable Supramolecular M(II)-Metallogels (M = Co, Ni, Zn) of Azelaic Acid: Investigating Temperature-Dependent Ion Conductivity and Antibacterial Efficiency, ACS Appl. Bio Mater. 6 (2023) 5442-5457.
+
+[32] J Chevalley, Rheology of chocolate, J. Texture Stud. 6 (1975) 177-196.
+
+[33] P. Kirilov, C.A.K. Le, H. Rabehi, S. Rum, C.Villa, M. Haftek, F. Pirot, Organogels for cosmeticand dermo-cosmetic applications Classification, preparation and characterization of organogel formulations, Formulations, 10 (2015) 15-19.
+
+[34] W.C. Geng, Z.T. Jiang, S.L. Chen, D.S. Guo, Supramolecular interaction in the action of drug delivery systems, Chem. Sci. 15 (2024) 7811.
+
+[35] W. Wang, H. Wang, C. Ren, J. Wang, M. Tan, J. Shen, Z. Yang, P.G. Wang, L. Wang, A saccharide-based supramolecular hydrogel for cell culture, Carbohydr. Res. 346 (2011) 1013-1017.
+
+[36] W. Fang, Y. Zhang, J. Wu, C. Liu, H. Zhu, T. Tu, Recent advances in supramolecular gels and catalysis, Chem. Asian. J. 13 (2018) 712-729.
+
+[37] B. Xue, M. Qin, T. Wang, J. Wu, D. Luo, Q. Jiang, Y. Li, Y. Cao, W. Wang, Electrically Controllable Actuators Based on Supramolecular Peptide Hydrogels. Adv. Funct. Mater. 26 (2016) 9053-9062.
+[38] W.H. Binder, L. Petraru, T. Roth, P. W. Groh, V. Pálfi, S. Keki, B. Ivan, Magnetic and temperature-sensitive release gels from supramolecular polymers, Adv. Funct. Mater. 17 (2007) 1317-1326.
+
+[39] V.R.R. Kumar, V. Sajini, T.S. Sreeprasad, V.K. Praveen, A. Ajayaghosh, T. Pradeep, Probing the initial stages of molecular organization of Oligo(p-phenylenevinylene) assemblies with monolayer protected gold nanoparticles, Chem. Asian. J. 4 (2009) 840-848.
+
+[40] Y. Yao, L. Zhang, E. Orgiu, P. Samorì, Unconventional Nanofabrication for Supramolecular Electronics, Adv. Mater. 31 (2019) 1900599.
+
+[41] N. Kelly, K. Gloe, T. Doert, F. Hennersdorf, A. Heine, J. Maerz, U. Schwarzenbolz, J. J. Weigand, K. Gloe, Self-assembly of [2+2] Co (II) metallomacrocycles and Ni (II) metallogels with novel bis (pyridylimine) ligands, J. Organomet. Chem. 821 (2016) 182-191.
+
+[42] J.H. Lee, Y.E. Baek, K.Y. Kim, H. Choi, J.H. Jung, Metallogel of bis(tetrazole)-appended pyridine derivative with CoBr2 as a chemoprobe for volatile gases containing chloride atom, Supramol. Chem. 28 (2016) 870-873.
+
+[43] N Akkus, J C. Campbell, J Davidson, D.K. Henderson, H.A. Miller, A. Parkin, S. Parsons, P.G. Plieger, R.M. Swart, P.A. Tasker, L.C West, Exploiting supramolecular chemistry in metal recovery: novel zwitterionic extractants for nickel(ii) salts, Dalton Trans. (2003) 1932-1940.
+
+[44] A. Dey, S. Sil, S. Majumdar, R. Sahu, M. Ghosh, G. Lepcha, P.P. Ray, B. Dey, Exploring the studies of charge transportation of an aromatic acid based Co(II)-Metallogel scaffold fabricated Schottky device. J. Phys. Chem. Solids, 160(2022), 110300.
+[45] S. Dhibar, A. Dey, S. Majumdar, D. Ghosh, A. Mandal, P.P. Ray, B. Dey, A supramolecular Cd (II)-metallogel: an efficient semiconductive electronic device., Dalton Trans. 47 (2018) 17412-17420.
+
+[46] J. Chen, T. Wang, M. Liu, A hydro-metallogel of amphiphillic L-histidine with ferric ions: shear-triggered self-healing and shrinkage, Inorg. Chem. Front. 3 (2016) 1559-1565.
+
+[47] J.L. Zhong, X.J. Jia, H.J. Liu, X.Z. Luo, S.G. Hong, N. Zhang, J.B. Huang, Self-assembled metallogels formed from N, N, N-tris (4-pyridyl) trimesic amide in aqueous solution induced by Fe (II)/Fe (II) ions, Soft Mater 12 (2016) 191-199.
+
+[48] D. Saha, T. Dey, I. Pal, A. Kundu, S. Majumdar, S. Sadhu, S.K. Yatirajula, J. Rath, S.K. Ray, B. Dey, Solvent-Directed Bioactive Supramolecular Zinc (II)–Metallogels: Exploring Semiconducting Aptitudes of Fabricating p–n Junction and Schottky Devices. ACS Appl. Bio Mater. 7 (2024) 5609-5621.
+
+[49] H. Marleen, D. D. Díaz, Supramolecular metallogels with bulk self-healing properties prepared by in situ metal complexation, Chem. Commun. 52 (2016) 13068-13081.
+
+[50] J. Yuan, X. Fang, L. Zhang, G. Hong, Y. Lin, Q. Zheng, Y. Xu, Y. Ruan, W. Weng, H. Xia, G. Chen, Multi-responsive self-healing metallo-supramolecular gels based on “click” ligand, J. Mater. Chem. 22 (2012) 11515-11522.
+
+[51] Z. Liu, X. Zhao, Q. Chu, Y. Feng, Recent Advances in Stimuli-Responsive Metallogels, Molecules, 28 (2023) 2274.
+
+[52] S. J. Rowan, S. J. Cantrill, G. R. L. Cousins, J. K. M. Sanders, J. F. Stoddart, Dynamic covalent chemistry, Angew. Chem. Int. Ed. 41 (2002) 898-952.
+[53] T. F. A. D. Greef, M. M. J. Smulders, M. Wolffs, A. P. H. J. Schenning, R. P. Sijbesma, E. W. Meijer, Supramolecular polymerization, Chem. Rev. 109 (2009) 5687-5754.
+
+[54] B.J. Adzima, C.J. Kloxin, C.N. Bowman, Externally triggered healing of a thermoreversible covalent network via self-limited hysteresis heating, Adv. Mater. 22 (2010) 2784-2787.
+
+[55] C.M. Chung, Y.S. Roh, S.Y. Cho, J.G. Kim, Crack healing in polymeric materials via photochemical [2+2] cycloaddition, Chem. Mater. 16 (2004) 3982-3984.
+
+[56] P. Cordier, F. Tournilhac, C.S. Ziakovic, L. Leibler, Self-healing and thermoreversible rubber from supramolecular assembly, Nature, 451 (2008) 977-980.
+
+[57] I. Onori, G.J.M. Formon, C. Weder, J.A. Berrocal, Toughening healable supramolecular double polymer networks based on hydrogen bonding and metal coordination, Chem. Eur. J. 30 (2024) 1-9.
+
+[58] S. Burattini, B.W. Greenland, D.H. Merino, W. Weng, J. Seppala, H.M. Colquhoun, W. Hayes, M.E. Mackay, I.W. Hamley, S.J. Rowan, A healable supramolecular polymer blend based on aromatic π-π stacking and hydrogen-bonding interactions, J. Am. Chem. Soc. 132 (2010) 12051-12058.
+
+[59] A.B. South, L.A. Lyon, Autonomic self-healing of hydrogel thin films, Angew. Chem. Int. Ed. 49 (2010) 767-771.
+
+[60] W. Weng, Z. Li, A. Jamieson, S.J. Rowan, Control of Gel Morphology and Properties of a Class of Metallo-Supramolecular Polymers by Good/Poor Solvent Environments, Macromolecules, 42 (2009) 236-246.
+[61] I.A. Holder, S.T. Boyce, Agar well diffusion assay testing of bacterial susceptibility to various antimicrobials in concentrations non-toxic for human cells in culture, Burns. 20 (1994) 426–429.
+
+[62] D. Saha, T. Dey, I. Pal, A. Kundu, S. Das, S. K. Yatirajula, J. Rath, S. K. Ray, B. Dey, Self-Healing Supramolecular Flexible Network of Zn(II): Exploring Chemo-Responsiveness, Antimicrobial Efficiency, and Variable Microelectronic Device Performances, Langmuir, 40 (2024) 26517–26531.
+
+[63] P. Hannan, Guidelines and recommendations for antimicrobial minimum inhibitory concentration (MIC) testing against veterinary mycoplasma species, Vet. Res. 31 (2000) 373–395.
+
+[64] S.D. Sarker, L. Nahar, Y. Kumarasamy, Microtitre plate-based antibacterial assay incorporating resazurin as an indicator of cell growth, and its application in the in vitro antibacterial screening of phytochemicals, Methods, 42 (2007) 321–324.
+
+[65] S. Pal, S. Sarkar, A. Mukherjee, A. Kundu, A. Sen, J Rath, S. Santra, G.V. Zyryanov, A. Majee, Metal-free, tert-butyl nitrite promoted C (sp 2)–S coupling reaction: The synthesis of aryl dithiocarbamates and analysis of antimicrobial activity by ‘in silico’and ‘in vitro’methods for drug modification, Green Chem. 25 (2023) 9847–9856.
+
+[66] T. V. Patil, H. Jin, S.D Dutta, R. Aacharya, K. Chen, K. Ganguly, A. Randhawa, K.-T. Lim, Zn@ TA assisted dual cross-linked 3D printable glycol grafted chitosan hydrogels for robust antibiofilm and wound healing. Carbohydr. Polym. 344 (2024) 122522.
+Supplementary Materials
+
+ESI-Mass spectral result of Zn(II)-Metallogel:
+
+**Figure S1.** ESI-Mass spectral result of Zn(II)-Metallogel. The marked peak represents the formation of basic-iterating structural-motif responsible for the construction of stable Zn(II)-metallogel. For ESI-Mass study, the water solution of metallogel sample was employed.

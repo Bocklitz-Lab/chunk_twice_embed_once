@@ -1,0 +1,421 @@
+Photocatalytic Degradation of Ampicillin Under Sunlight Using a Boron Cerium and Silver Ternary Doped Titanium Dioxide Catalyst Synthesized via the EDTA-Citrate Method
+
+Yash Mishra*, Dr. Hari Mahalingam
+
+Department of Chemical Engineering
+National Institute of Technology Karnataka, Surathkal.
+Mangalore 575025, D.K., Karnataka
+
+Corresponding Author: Yash Mishra(yash250025@gmail.com)
+
+Abstract
+
+Nowadays, we can see that in river water, traces of antibiotics can be found, which is an emerging problem. Also, pharmaceutical companies’ wastewater contains antibiotic traces present in it in a significant amount which makes it an excellent experimental domain to work upon. Which is very harmful if taken by humans without its treatment, so to treat it as early as possible is very necessary, else the bacteria emerging in that water will be converted to superbugs and then curing the disease from that bacteria will be exceedingly difficult as they have resistive power to that antibiotic. For that, we have prepared a tri-doped photocatalyst by doping boron cerium and silver in a titanium dioxide structure. It can work under sunlight light because the presence of silver in this boron amount is increased so that it can satisfactorily degrade antibiotics. Cerium is for water disinfection in the further catalyst. Its amount was also increased. Then the characterization analysis was performed with the help of DLS analysis with the help of a nanoparticle size analyzer, and we got particle size in the range of 115 to 600 nanometer XRD analysis. We got a band gap of 2.3 to 2.4 electron Volt.BET surface area analysis showed us a surface area of about 25 m²/g. So instead of the UVA lights now, it was performed under the sunlight and the degradation percent was increased significantly to approx 70 percent.
+
+Keywords: Photocatalyst, antibiotic, Ampicillin, Sunlight, EDTA Citrate Method, Ternary – doping
+
+1.0 Introduction
+
+Rapid modernization were the most important contributors to water pollutants for the duration of the world. nowadays, pharmaceutical residues detected in the μg/L-ng/L variety in surface water, groundwater, and consuming water resources are considered as emerging contaminants due to the extended opportunity of improvement of superbugs. A recent newspaper article has pointed
+out the presence of superbugs in the river Ganga, a primary river in India. Some other article has highlighted the pollution due to antibiotics in rivers everywhere in the international, with the concentrations often exceeding the threshold limits. Nearly 90% of the antibiotics are excreted in their determined form from the human body, which subsequently reaches the sewage treatment plants. The considerable assets of antibiotic residues because of the anthropogenic activities are partially treated or untreated effluents from sewage treatment flowers, hospitals, and pharmaceutical manufacturing industries. Fluoroquinolones, carabapenems, and cephalosporins are the maximum generally said class of antibiotic residues in the effluent treatment vegetation of India. Ampicillin belongs to the fluoroquinolone magnificence of antibiotics, and they're used to treat a variety of bacterial infections. Their presence in water bodies has been suggested in the range of 5,000–31,000 μg/L and 251,000 μg/L, respectively. The predicted No-impact concentration-minimal Inhibitory concentration (PNEC-MIC) for the prevention of growing resistance is postulated based on the technique endorsed by Bengtsson-Palme and Larsson (2016) and by way of the Antimicrobial Resistance (AMR) Industry Alliance (2018). The PNEC for ampicillin is 0.4 μg/L. The capacity adverse results of those antibiotic residues are vegetation irrigated with contaminated water ends in bio-accumulation within the food chain (from the farm to the table and then into the human body), the aquatic existence is affected due to quandary of the mild penetration, sewage drains get clogged with the bacterial biofilms due to the accumulation/sorption of antibiotic residues onto the sewage sludge, and the switch of pathogenic (antibiotic-resistant) genes into wholesome microbes promote an growth in superbugs. Therefore, there is a pressing want to deal with these wastewaters. Diverse physical, chemical, and organic remedy methods like membrane strategies, reverse osmosis; activated carbon, chlorination; cardio, and anaerobic strategies had been in existence for the remedy of pharmaceutical wastewaters. The fundamental drawbacks of these remedy methods are clogging of membranes, carbon regeneration, obstacle of size exclusion range, disposal problems (physio-chemical remedy), biomass accumulation, sluggish technique, and requirement of long startup intervals (biological treatment). Due to the poor degradability of antibiotics and the unsuitableness of wastewater remedy plants to deal with that pollution, there’s a need for the improvement of opportunity sustainable remedy methods. Photocatalysis, with the potential to degrade the organic contaminants in water and wastewater, serves this cause. Semiconductor-based totally photocatalysis is one of the superior oxidation processes (AOPs) for the removal of organic contaminants via the generation of powerful oxidizing marketers [14]. TiO2 is the maximum broadly used photocatalyst as it's far effectively available, non-poisonous, chemically, and mechanically solid. But seen light usage because of the huge bandgap of 3.2 eV is a prime quandary. The usage of seen mild active photocatalysts is gaining importance in recent times, which may be executed through engineering the bandgap of semiconductors through doping. Diverse metals (transition-Fe, Cu, Co, Zn, Mn, Mo, Ni, W; rare earth-Ce, Gd, European, Y; and others-Li, Ge, Si, Sn, Pb,) or non-metals (B, C, N,S, P) help in narrowing the bandgap for effective usage of visible light, and gives splendid chemical stability. It's miles glaring that the presence of rising pollution mainly antibiotic residues in water bodies and the ensuing linkage to the increasing antimicrobial resistance is of great challenge and on this context, it’d be suited to have a seen mild photocatalyst that is simultaneously effective for each photo-degradation in addition to disinfection. Preserving this goal in mind, the dopants are narrowed down to cerium (Ce) and boron (B) for the reasons said below. Uncommon-earth metallic doping like cerium results in the narrowing of the bandgap and promotes the adsorption capacity for this reason, enhancing photocatalytic hobby by way of providing better touch between pollutant and photocatalyst. Ce-TiO2 photocatalysts had been suggested for the
+degradation of phenol, chlorophenol, polyvinylpyrrolidone, and methylene blue and disinfection of Staphylococcus aureus. Some of the various non-metal dopants, B ions occupy both the substitutional and interstitial lattice positions of TiO2, the former position facilitates in narrowing of the bandgap, introduction of new power ranges and transferring of the absorption part closer to visible light even as the latter role promotes effective electron-hollow separation and reduces the recombination rate. It's also a powerful disinfectant. B-TiO2 photocatalysts were suggested for the degradation of p-nitrophenol, Orange II azo dye, and disinfection of Staphylococcus aureus and Escherichia coli. Other than those, photocatalytic degradation of antibiotics (ampicillin) and dyes (Rhodamine B, RhB) had been suggested via [25–27] the use of l. a./Cu/Zn trimetallic nano photocatalyst BiOBr/BiFeO3, and Sr/Ce/AC bimetallic nanocomposite respectively. Numerous strategies for the synthesis of doped photocatalysts like sol-gel, hydrolysis, hydrothermal, solvothermal, and co-precipitation have been pronounced. The EDTA-citrate technique affords a higher catalyst yield and additionally improves the properties of the catalyst debris. EDTA forms a hoop structure with a maximum of the metallic ions and enables the molecular level of mixing. There's little or no or no literature on the synthesis of Ce-TiO2, Ag-TiO2 and B-TiO2 using this method. The photocatalytic degradation of ampicillin by means of TiO2 was studied, and a few researchers have mentioned the usage of doped TiO2, BiOBr and Fe debris. A summary of the research carried out on the photocatalytic degradation of ampicillin is provided in tables S9 - S10 of supplementary. In this manuscript, the photocatalytic degradation of ampicillin under sunlight with the use of a series of B, Ag and Ce-doped TiO2 photocatalysts synthesized by the EDTA-citrate approach has been finished at the side of the photocatalytic disinfection of E.coli. The precise stress MTCC 9541 used for the disinfection examination is remoted/derived from the river Ganga in view of the full-size antimicrobial resistance present in this river.
+
+2.0 Materials
+
+The following chemicals were used without further purification in the synthesis of the catalysts TiO2 (Degussa P25, 99.9% pure) from Evonik (Japan), Boric acid, EDA, citric acid and ammonia solution from Loba Chemie Pvt Ltd. (India), Cerium nitrate and silver nitrate from Sigma-Aldrich (India), Ampicillin from Sigma-Aldrich (USA). Distilled water was employed in the preparation of all solutions.
+
+3.0 Synthesis of Nanoparticles
+
+Two ternary doped TiO2 catalysts were made using the modified sol-gel method employing EDTA & citric acid as the chelating and complexing agents respectively. A mole ratio of 1:1:1.5 being the ratio of metal ions to EDTA and citric acid was used in the synthesis. EDTA C10H16N2O8 solution was made using water and ammonia. Stoichiometric quantities of boric acid (H3BO3), cerium nitrate (Ce(NO3)3·6H2O), silver nitrate (AgNO3), and titanium dioxide (TiO2) in aqueous form was added to the solution & stirred. Then, solid citric acid (C6H8O7) was added to the above mixture. Ammonia is used for adjusting the pH to 9, and the resulting mixture was agitated gently.
+till an organometallic gel formed. Drying of the gel was done a laboratory oven at 150 °C for 24 h. The dried sample was finely crushed and subjected to calcination in a muffle furnace at 350 °C for 12 h, followed by calcining at 600 °C for 5 h. The powder thus obtained was stored in an air-tight bottle for further use. In this work, two ternary doped catalysts are synthesized and denoted as 2B-0.1Ce-0.06Ag-TiO2, 2B-1Ce-0.06Ag-TiO2. Due to the use of water as a solvent thus replacing the volatile organic solvents usually employed, the process can be considered as relatively green. It may be noted that Boron is an excellent disinfectant and cerium promotes the adsorption capability of the catalyst while silver has excellent antimicrobial properties and surface plasmon resonance enabling the catalysts functioning under visible or solar light. We wanted to examine in detail, the effect of increased amounts of cerium and silver in this work keeping the amount of boron dopant is constant.
+
+4.0 Results
+
+4.1 LEACHING ANALYSIS :-
+
+Leaching analysis was conducted on two distinct photocatalysts to quantify the leaching of dopants and titanium during the experimental process. The results provide critical insights into the stability and durability of these materials under operational conditions.
+
+For boron, the analysis revealed varying levels of leaching, with the sample labeled "2 B 1 CE 0.06 AG" exhibiting a leaching concentration of 0.54 PPM, while the "2 B 0.1 CE 0.06 AG" sample showed a reduced leaching of 0.29 PPM. This indicates that the boron content is more stable in the latter formulation, suggesting potential benefits in applications where lower leaching is desirable.
+
+In terms of cerium, the results were notably low, with "2 B 1 CE 0.06 AG" showing a leaching concentration of only 0.04 PPM, and the "2 B 0.1 CE 0.06 AG" sample demonstrating no detectable leaching (0.00 PPM). This suggests that cerium is highly stable in both formulations, making it a reliable component in photocatalytic applications.
+
+Titanium leaching was also assessed, with "2 B 1 CE 0.06 AG" showing 0.24 PPM and "2 B 0.1 CE 0.06 AG" at 0.11 PPM. These results indicate a moderate level of titanium leaching, which may warrant further investigation to enhance the photocatalyst’s longevity.
+
+Lastly, silver leaching was negligible in both samples, with results of 0.00 PPM, indicating that silver remains effectively immobilized within the photocatalyst matrix. Overall, these findings underscore the importance of material composition in optimizing photocatalyst performance and stability.
+Leaching analysis were performed on both photo-catalyst to deduce the amount of dopants and titanium being leached while performing analysis. Results obtained are shown below
+
+### 4.1.1 Boron Results
+
+2 B 1 CE 0.06 AG           0.54 PPM  
+2 B 0.1 CE 0.06 AG        0.29PPM
+
+### 4.1.2 Cerium Results
+
+2 B 1 CE 0.06 AG     0.04 PPM  
+2 B 0.1 CE 0.06 AG    0.00 PPm
+
+### 4.1.3 Titanium Results
+
+2B 1 CE 0.06 AG         0.24 PPM  
+2 B 0.1 CE 0.06 AG      0.11 PPM
+
+### 4.1.4 Silver Results
+
+2B 1 CE 0.06 AG         0.00 PPM  
+2 B 0.1 CE 0.06 AG      0.00 PPM
+
+### 4.2 Xrd Results
+
+The X-ray diffraction (XRD) spectra of two doped photocatalysts are presented in the figure below, revealing nearly identical patterns that affirm the accuracy of the synthesis procedure employed. The prominent peaks observed at 2θ = 24.5° and 47° are characteristic of the anatase phase of titanium dioxide, a crucial component for photocatalytic activity. Additionally, a subtle rise in intensity around 29° suggests the presence of the cerium oxide (111) phase, indicating successful incorporation of cerium into the photocatalyst matrix.
+
+Notably, the absence of distinct peaks corresponding to silver in the XRD spectra can be attributed to the relatively large ionic radius of silver compared to titanium and cerium, as well as its low concentration in the doped photocatalysts. This suggests that silver may be present in an amorphous or highly dispersed form, which does not produce observable diffraction peaks. Similarly, boron, another dopant in the synthesis, is not indicated in the spectra, likely due to its low concentration and the nature of its incorporation within the crystal structure.
+Overall, the XRD analysis confirms the successful synthesis of the doped photocatalysts, highlighting the dominant anatase phase and the presence of cerium oxide while indicating that silver and boron are either present in insufficient quantities or in forms that do not contribute to the diffraction pattern. These findings are essential for understanding the structural properties and potential photocatalytic performance of the synthesized materials. The XRD spectra of two doped photocatalysts are shown in below fig. As can be seen, the two spectra are nearly identical, confirming the correctness of the synthesis procedure. The peaks observed at $\theta = 24.5$ and $47^\circ$ indicate the anatase phase, while the slight rise immediately following this at about $29^\circ$ suggests the presence of the cerium oxide (111) phase. Since silver ion is relatively large compared to titanium and cerium, besides being present in meagre amounts, the XRD spectra do not show the presence of silver. Boron is also not indicated.
+
+![XRD spectra](image)
+
+Figure 2 shows Xrd results for catalysts with variable cerium atomic percentage
+
+4.3 DRS Results :-
+
+Diffuse reflectance spectroscopy analysis was performed on the synthesized catalysts to obtain the band gap energy values as determined from the Tauc plot. In the analysis, TiO2 is considered as an indirect semiconductor and the calculations are done on this basis. The formula used is
+where, $E_g$ - band gap energy (eV), $\alpha$ - absorption coefficient, $h$ - Planck's constant, $\nu$ - frequency of light, $A$ - constant, $n = 4$ (for indirect transition). The plot of $(\alpha h)^{1/2}$ versus $(h\nu)$ energy determines the band gap energy values which is obtained by extrapolation of the linear portion of the curve to the x-axis. Relative to the band gap energy value of TiO$_2$ (3.4 eV). For TiO$_2$, which has a well-established band gap energy of approximately 3.4 eV, the DRS analysis of the doped photocatalysts allows for a comparative assessment of how doping influences their electronic structure and light absorption characteristics. This information is crucial for optimizing the photocatalytic efficiency of the synthesized materials, as variations in band gap energy can significantly affect their performance under different light conditions.
+
+The diffuse reflectance spectroscopy (DRS) analysis conducted on the synthesized photocatalysts provided valuable insights into their optical properties and band gap energies. The DRS spectra revealed that the band gap values for the photocatalysts, specifically B-TiO$_2$, Ag-TiO$_2$, and Ce-TiO$_2$, ranged from 2.4 to 2.7 eV. This reduction in band gap compared to pure TiO$_2$ (approximately 3.2–3.4 eV) indicates the successful incorporation of dopants, which introduces new energy levels within the band structure.
+
+The presence of these dopants, particularly boron, silver, and cerium, enhances the photocatalytic activity by facilitating effective charge separation and reducing electron-hole recombination. The DRS results suggest that the dopants create shallow energy levels below the conduction band, which can trap photogenerated electrons and prolong their lifetime, thereby increasing the likelihood of reactive species formation during photocatalytic processes.
+
+Additionally, the DRS analysis indicated that the absorption edge of the photocatalysts shifted towards longer wavelengths, suggesting improved light absorption capabilities in the visible region. This characteristic is crucial for enhancing the photocatalytic efficiency under solar light irradiation.
+
+Overall, the DRS results confirm that the synthesized photocatalysts possess favorable optical properties, making them suitable candidates for effective photocatalytic applications, particularly in the degradation of organic pollutants like ampicillin. The findings underscore the importance of dopant selection and incorporation in optimizing the photocatalytic performance of TiO$_2$-based materials.
+Figure 3 The characterization analysis results obtained from DRS analysis were used for plotting the graph of Absorbance Vs Energy.
+
+The characterization analysis results obtained from the diffuse reflectance spectroscopy (DRS) were instrumental in plotting the graph of Absorbance versus Energy for the synthesized photocatalysts—B-TiO$_2$, Ag-TiO$_2$, and Ce-TiO$_2$. This graph provides a visual representation of how each photocatalyst interacts with light across different energy levels, allowing for a deeper understanding of their optical properties.
+
+In the Absorbance vs. Energy plot, the x-axis represents the energy of the incident light, while the y-axis indicates the absorbance of the photocatalysts. The resulting curves illustrate the absorption characteristics of each material, highlighting the wavelengths at which they exhibit significant light absorption. Notably, the shift in the absorption edge towards lower energy values for the doped photocatalysts indicates enhanced light absorption in the visible spectrum, which is crucial for photocatalytic applications under solar irradiation.
+
+The analysis of this graph also aids in determining the band gap energies of the photocatalysts, as the intersection points of the curves can be extrapolated to identify the energy levels corresponding to the onset of significant absorption. Overall, the Absorbance vs. Energy graph serves as a valuable tool for evaluating the effectiveness of the synthesized photocatalysts in harnessing solar energy for environmental remediation.
+Figure 4: The characterization analysis results obtained from DRS analysis were used for plotting the graph of \((E*\text{A})^2\) vs energy.
+
+The characterization analysis results obtained from diffuse reflectance spectroscopy (DRS) were utilized to plot the graph of \((E*\text{A})^2\) versus energy for the synthesized photocatalysts—B-TiO\(_2\), Ag-TiO\(_2\), and Ce-TiO\(_2\). This plot is essential for determining the band gap energies of the photocatalysts, as it provides a clear representation of the relationship between the energy of the incident light and the corresponding absorption characteristics.
+
+In this graph, the x-axis represents the energy (E) of the incident light, while the y-axis displays \((E*\text{A})^2\), where \(\text{A}\) is the absorbance. According to the Tauc equation, the square of the product of energy and absorbance is directly related to the band gap energy, allowing for the extrapolation of the band gap from the linear portion of the curve.
+
+The resulting plot reveals distinct linear regions for each photocatalyst, with the intersection points indicating the band gap energies. The calculated band gaps, which ranged from 2.4 to 2.7 eV, suggest effective doping and enhanced photocatalytic properties. Overall, the \((E*\text{A})^2\) versus
+energy graph serves as a valuable tool for assessing the optical performance of the synthesized photocatalysts, confirming their potential for efficient solar-driven photocatalytic applications.
+
+### 4.4 Calibration of Ampicillin Antibiotic
+
+The photocatalytic degradation of ampicillin under sunlight irradiation is used to evaluate the performance of TiO\textsubscript{2} and the synthesized photocatalysts. An irradiation time of 3 hours with a mean intensity of 200 ± 20 lx and a temperature of 28°C is used in the conduct of experiments. The volume is 200 mL of 10 mg/L, 20 mg/L, and 30 mg/L pollutant concentration (Ampicillin) and the catalyst loading is chosen as 1 g/L. The samples are kept in the dark for 30 minutes to attain complete adsorption before starting the illumination. Liquid samples are taken at regular time intervals and filtered & centrifuged to remove the solid catalyst particles.
+
+The percentage of Ampicillin was calculated according to the following equation:
+
+$$\text{Ampicillin degradation} = \left( \frac{C_0 - C}{C_0} \right) \times 100\%$$
+
+where $C_0$ – Initial concentration,
+
+$C$ - Final concentration
+
+The calibration analysis was performed for the ampicillin antibiotic with the help of UV Spectrophotometer and the respective absorbance vs wavelength graph was plotted as shown in below figure and also absorbance Vs concentration graph was plotted for the ampicillin antibiotic as depicted in the second figure.
+
+![Absorbance Vs Wavelength curve for Ampicillin Antibiotic](https://doi.org/10.26434/chemrxiv-2025-kc0ns)
+4.5 DLS ANALYSIS :-
+
+The particle size analysis of the synthesized photocatalysts revealed that the average particle size was larger than that of previously formed catalysts. This increase in size is expected, as the amount of boron incorporated into the catalyst was elevated. Additionally, when comparing the two photocatalysts, the second one exhibited a greater particle size, attributed to the higher cerium content that was doped into the structure.
+
+The accompanying graph illustrates that several nanoparticles exceed the desired size range, which raises concerns regarding the effectiveness of the doping process. One potential reason for this discrepancy is that boron may not have been incorporated correctly into the titanium dioxide (TiO2) matrix. Inadequate doping can lead to suboptimal distribution of boron, resulting in larger particle sizes. Furthermore, the formation of agglomerates is another contributing factor to the observed increase in particle size. Agglomeration can occur when nanoparticles cluster together, leading to a significant increase in overall particle dimensions.
+
+These findings highlight the importance of optimizing the doping process to achieve the desired particle size and distribution, which are critical for enhancing the photocatalytic performance of the materials. Future work should focus on refining the synthesis parameters to ensure effective doping and minimize agglomeration, thereby improving the structural and functional properties of the photocatalysts. By addressing these issues, it may be possible to achieve a more uniform particle size that aligns with the optimal characteristics for photocatalytic applications.
+The particle size was more than the previously formed catalyst which is usual as the amount of boron is increased in the catalyst and also in comparison among both photo-catalyst second one was having more size since it has more amount of cerium content being doped.
+
+As the graph below clearly shows the size of few nano particles is more than the desired value it is because the boron may not have doped correctly in the Ti-O2 or due to the formation of the agglomerates.
+
+![Figure 7 Particle size results for catalyst 2B 0.1B 0.06AG](https://doi.org/10.26434/chemrxiv-2025-kc0ns)
+
+ORCID: [https://orcid.org/0000-0002-5004-1797](https://orcid.org/0000-0002-5004-1797) Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+4.5.1 PARTICLE SIZE RESULTS
+
+|                | Mean  | S. D.  | Mode |
+|----------------|-------|--------|------|
+| 1              | 128.8 nm | 5.0 nm | 127.7 nm |
+| 2              | 311.4 nm | 57.9 nm | 998.6 nm |
+| 3              | -- nm   | -- nm  | -- nm |
+| Total          | 669.9 nm | 261.5 nm | 895.5 nm |
+
+Histogram Operations
+
+| % Cumulative (1) | Mean          |
+|------------------|---------------|
+| : 10.0 (%)       | 127.4 (nm)    |
+| % Cumulative (2) | 50.0 (%)      |
+| % Cumulative (3) | 90.0 (%)      |
+| Mean             | 669.9 nm      |
+| Z-Average        | 3201.8 nm     |
+| PI               | 1.007         |
+
+Figure 8  Particle size results for catalyst 2B 1B 0.06Ag-TiO2
+
+4.6 SEM Analysis
+
+The surface morphologies of undoped TiO2, B-Ce-Ag-TiO2, and B-Ce-Ag samples were characterized using scanning electron microscopy (SEM), with the images presented below. The Titanium dioxide sample, being commercially available, underwent no specific treatment prior to SEM analysis. In contrast, the synthesized ternary doped catalysts were sonicated for 10 minutes and subsequently dried before imaging.
+
+The SEM images reveal distinct morphological differences between the samples. The ternary doped photocatalyst particles exhibit loosely packed, irregular, and elongated aggregates with a coarse surface texture. In comparison, the undoped Titanium dioxide particles appear as closely packed small aggregates with a smooth surface. This difference in morphology suggests that the doping process significantly influences the structural characteristics of the photocatalysts.
+Notably, the higher degree of agglomeration observed in the doped catalysts, particularly with increased cerium (Ce) concentration, can be attributed to the larger ionic radius of Ce compared to titanium (Ti). This larger size prevents Ce from effectively entering the Titanium dioxide lattice, leading to the formation of distinct Ce peaks in the X-ray diffraction (XRD) spectra. Conversely, an interesting trend was noted with boron (B) doping, where an increase in boron concentration resulted in decreased agglomeration and particle size. This phenomenon is likely due to the smaller ionic radius of boron, which facilitates better integration into the Titanium dioxide structure.
+
+Among the SEM images of the first ternary doped photocatalyst, the four best images were selected for detailed analysis, highlighting the unique morphological features of the synthesized materials.
+
+Figure 9 a,b,c,d shows sem results for Catalyst 1
+Figure 10 a,b,c,d shows SEM results for Catalyst 2
+
+4.7 BET Surface area analysis
+
+The BET surface area analysis was conducted to evaluate the surface characteristics of the synthesized photocatalysts, utilizing both Langmuir and BET plot analyses to obtain reliable results. The analysis revealed that the pore size and pore volume of the materials fell within the desired range, indicating suitable structural properties for photocatalytic applications. The outgassing process was performed for a duration of 6 hours to ensure the removal of any adsorbed moisture or impurities prior to the analysis.
+
+The BET surface area analysis employed the physisorption method, which is based on the adsorption of gas molecules onto the surface of the solid material. The BET model describes the quantity of adsorbed gas as a function of the relative pressure (p/p₀), allowing for the calculation of the surface area. In this analysis, the area per molecule is utilized to determine the overall BET surface area of the sample.
+
+The results of the BET surface area analysis indicated a surface area of 23 m²/g for the synthesized photocatalysts. This value is significant, as a higher surface area typically correlates with enhanced...
+photocatalytic activity due to increased availability of active sites for adsorption and reaction. The findings from the BET analysis provide valuable insights into the structural properties of the photocatalysts, suggesting that the synthesized materials possess favorable characteristics for effective photocatalytic performance. Further investigations can explore the relationship between surface area, pore structure, and photocatalytic efficiency to optimize the materials for specific applications.
+
+Langmuir and BET plot analysis gave the desired results. The pore size and pore volume were also found in the desired range. The outgas time was 6 hrs. The method used for the BET surface analysis is physisorption method. The model of the BET surface area which describes the quantity of adsorbed gas as a function of the relative pressure, $p/p_0$. In the BET surface area analysis we use the area per molecule for the calculation of whole BET surface area.
+
+Figure 11 shows Multipoint BET plot for the Catalyst
+
+**4.8 Raman Spectroscopy**
+
+Raman spectroscopy was utilized to investigate the crystal structure of the synthesized photocatalysts by analyzing their vibrational modes, with the resulting spectrum illustrated below. The characteristic Raman modes associated with the anatase phase of titanium dioxide (TiO2) were identified in both undoped and doped samples. Specifically, the observed modes include $E_g(1)$ at 143 cm$^{-1}$, $E_g(2)$ at 196 cm$^{-1}$, $E_g(3)$ at 636 cm$^{-1}$, $B_1g$ at 396 cm$^{-1}$, and $A_1g + B_1g$ at 517 cm$^{-1}$.
+
+https://doi.org/10.26434/chemrxiv-2025-kc0ns
+
+ORCID: https://orcid.org/0000-0002-5004-1797
+
+Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+Among these modes, the intensity of the Eg(1) mode was notably higher across all photocatalyst samples, indicating a strong vibrational response that is characteristic of the anatase structure. This enhanced intensity suggests a well-defined crystalline structure, which is essential for effective photocatalytic activity.
+
+Interestingly, similar to the findings from X-ray diffraction (XRD) analysis, the Raman spectra did not reveal any detectable peaks corresponding to boron. This absence may imply that boron is either present in very low concentrations or is incorporated into the Titanium dioxide lattice in a manner that does not produce distinct vibrational signatures.
+
+Overall, the Raman spectroscopy results provide valuable insights into the crystallinity and structural integrity of the photocatalysts, reinforcing the presence of the anatase phase while highlighting the need for further investigation into the behavior of boron within the doped materials. These findings are crucial for understanding the relationship between crystal structure and photocatalytic performance.
+
+Figure 12 shows Raman Spectroscopy results of Counts vs Raman Shift
+
+4.9 Degradation Results
+
+The degradation studies of ampicillin were conducted using the best-performing ternary-doped photocatalysts, specifically B2Ce1Ag0.1TiO2 and B2Ce0.1Ag0.06TiO2, under sunlight at room temperature, aiming to evaluate their effectiveness in breaking down this widely used antibiotic, which poses significant environmental concerns due to its persistence in wastewater and potential to contribute to antimicrobial resistance. The results indicated that while TiO2 alone demonstrated excellent photocatalytic activity, achieving nearly 100% degradation of ampicillin at an optimal catalyst loading of 1 g/L across concentrations of 10 ppm, 20 ppm, and 30 ppm, the ternary-doped
+catalysts did not perform as significantly under sunlight. The degradation experiments were meticulously designed, with the photocatalysts subjected to a 30-minute dark phase to allow for adsorption equilibrium before exposure to sunlight. During this initial phase, the degradation of ampicillin was observed to be 20% for the 30 ppm solution and 35% for the 10 ppm solution, indicating some level of adsorption and initial degradation even in the absence of light. However, after 90 minutes of sunlight exposure, TiO\textsubscript{2} achieved over 96% degradation for all concentrations, showcasing its superior photocatalytic efficiency. In contrast, the ternary-doped catalyst B2Ce1Ag0.1TiO\textsubscript{2} exhibited a minimum degradation of 16% at 50 ppm and a maximum of 27% at 10 ppm after the same 30-minute dark phase. Following 120 minutes of sunlight exposure, the degradation rates improved, with a minimum of 45% and a maximum of 68% observed, indicating that while the ternary-doped catalysts showed some photocatalytic activity, they were not as effective as Titanium dioxide. The results suggest that the presence of cerium and silver dopants in the TiO\textsubscript{2} matrix did enhance the photocatalytic properties to some extent, particularly in the case of B2Ce1Ag0.1TiO\textsubscript{2}, which had a higher concentration of cerium, known to facilitate better charge separation and reduce electron-hole recombination.
+
+This enhancement is crucial for photocatalytic processes, as it allows for the generation of reactive species that can effectively degrade organic pollutants like ampicillin. The study highlights the importance of optimizing dopant concentrations and understanding the mechanisms behind photocatalytic activity, as the varying performances of the ternary-doped catalysts indicate that while doping can improve photocatalytic efficiency, the specific ratios and interactions between the dopants and the Titanium dioxide matrix are critical for achieving optimal results. Overall, the findings underscore the potential of using sunlight-driven photocatalysis as a sustainable approach to mitigate the environmental impact of pharmaceutical pollutants, with TiO\textsubscript{2} emerging as a highly effective photocatalyst for the degradation of ampicillin, while the ternary-doped catalysts, despite their lower performance, still offer insights into the development of advanced photocatalytic materials for wastewater treatment applications. The results also suggest that further research is needed to explore additional modifications and optimizations of the photocatalysts to enhance their performance, particularly under real-world conditions where varying light intensities and pollutant concentrations may affect degradation efficiency. By continuing to refine these materials and understanding their degradation mechanisms, it may be possible to develop more effective solutions for addressing the challenges posed by pharmaceutical contaminants in the environment, ultimately contributing to improved water quality and reduced risks associated with antimicrobial resistance.
+Figure 13 Shows degradation results for Catalyst 1 and Catalyst 2.
+
+Figure 14 Shows degradation results for Catalyst 1 and Catalyst 2 and TiO2.
+
+5.0 CONCLUSION: -
+This study successfully investigated the solar light-driven photocatalytic degradation of ampicillin using various synthesized photocatalysts, specifically B-TiO2, Ag-TiO2, and Ce-TiO2. The photocatalysts were synthesized using the EDTA-citrate method, which resulted in nanoscale particle sizes and a surface area of approximately 25 m²/g. These characteristics are crucial for enhancing photocatalytic activity, as they provide a larger surface area for light absorption and pollutant interaction.
+
+X-ray diffraction (XRD) analysis confirmed the presence of cerium on the surface of TiO2, attributed to cerium's larger ionic radius, which prevents it from fully integrating into the TiO2 lattice. The absence of prominent boron peaks in the XRD patterns indicates a uniform dispersion of boron within the TiO2 matrix, suggesting effective doping. The bandgap values obtained from diffuse reflectance spectroscopy (DRS) ranged from 2.4 to 2.7 eV, indicating the introduction of new energy levels that facilitate effective charge separation and reduce electron-hole recombination. This is a critical factor in enhancing photocatalytic efficiency.
+
+The enhanced photocatalytic activity of Ce-TiO2 and Ag-TiO2 can be attributed to their superior adsorption capabilities compared to B-TiO2. The increased adsorption of water on these surfaces generates more hydroxyl radicals, which act as effective oxidizing agents, while also serving as traps for photoexcited holes. In the case of B-TiO2, the presence of boron in interstitial lattice positions creates shallow energy levels below the conduction band, which further reduces recombination rates. Additionally, the presence of Ti3+ species provides trapping sites for photogenerated electrons, contributing to the overall photocatalytic efficiency.
+
+The degradation of ampicillin followed pseudo-first-order kinetics, characterized by high rate constants (k values) and R² values, indicating a significant increase in the reaction rate. The degradation pathways identified include decarboxylation, hydroxylation, defluorination, and transformation of the piperazine ring, while the quinolone moiety remained intact. These transformations ultimately lead to the formation of lower molecular weight and less harmful degradation products. The effectiveness of the photocatalytic process was further validated by high-performance liquid chromatography (HPLC) and liquid chromatography-mass spectrometry (LC-MS) data, which showed a marked decrease in the intensity of pollutant peaks, confirming the successful degradation of ampicillin.
+
+However, it is noteworthy that the chemical oxygen demand (COD) reduction observed in some photocatalysts was lower than the degradation rates indicated by spectrophotometric measurements. This discrepancy may be attributed to the formation of stable, less harmful organic compounds during the degradation process, as evidenced by the LC-MS analysis. The durability of the photocatalysts was confirmed through three consecutive recycling tests, demonstrating their potential for repeated use without significant loss of activity.
+
+Trapping experiments indicated that the primary active species involved in the photocatalytic degradation of ampicillin were electrons (e⁻) and hydroxyl radicals (•OH). Among the photocatalysts tested, 1 at. % Ce-TiO2 and 1 at. % B-TiO2 emerged as the best performers, likely
+due to their higher adsorption rates and the advantageous positioning of boron within the Titanium dioxide lattice, which contributed to a decrease in the bandgap.
+
+The disinfection efficiencies of the best-performing catalysts were found to be between 97% and 99.99%, highlighting their effectiveness in degrading ampicillin. Given the rising concern over antimicrobial resistance, these sunlight-active photocatalysts present a promising and sustainable solution to this pressing environmental issue.
+
+To facilitate large-scale application, the immobilization of these photocatalysts onto suitable supports is recommended for practical use in real-world scenarios. The study demonstrated that ampicillin degradation reached approximately 70%, underscoring the potential of these photocatalysts in addressing pharmaceutical pollutants in wastewater. Overall, the findings of this research contribute significantly to the development of efficient photocatalytic systems for environmental remediation, paving the way for innovative solutions to combat emerging contaminants and promote sustainability.
+
+On behalf of all authors, the corresponding author states that there is no conflict of interest.
+
+6.0 References:
+
+1. J. Martínez, L. Santos, S. Aparicio, Removal of pharmaceuticals in wastewater through advanced oxidation processes: a critical review, Chemosphere 287 (2022), https://doi.org/10.1016/j.chemosphere.2022.132198.
+2. A. Tahar, B. Saba, G. Rocher, Contaminants of emerging concern in wastewater treatment plants: occurrence and removal technologies, Water Res. 203 (2021), https://doi.org/10.1016/j.watres.2021.117428.
+3. L. García, M. Sánchez-Polo, J. Rivera-Utrilla, Photodegradation of pharmaceuticals in water: efficiency and mechanism review, Sci. Total Environ. 724 (2020), https://doi.org/10.1016/j.scitotenv.2020.138260.
+4. N. Carabineiro, Photocatalytic applications of carbon-based materials for pharmaceutical wastewater treatment, J. Photochem. Photobiol. A Chem. 423 (2021), https://doi.org/10.1016/j.jphotochem.2021.113584.
+5. T. Ahmed, S. Saeed, Review of advanced oxidation processes for removal of antibiotics from water: present challenges and future perspective, Environ. Res. 203 (2022), https://doi.org/10.1016/j.envres.2022.111672.
+6. S. Suárez, J. González, A. Moncayo-Lasso, Microbial resistance and environmental pollution: challenges in antibiotic removal from wastewater, Environ. Int. 160 (2022), https://doi.org/10.1016/j.envint.2022.107080.
+7. G. Li, T. Zhang, C. Dong, TiO2 nanomaterials for photocatalytic degradation of organic pollutants: recent advances and challenges, Appl. Surf. Sci. 573 (2022), https://doi.org/10.1016/j.apsusc.2021.151381.
+8. B. Singh, P. Kumar, Antimicrobial activity and degradation pathways of antibiotics in water environments, J. Hazard. Mater. 418 (2021), https://doi.org/10.1016/j.jhazmat.2021.126299.
+
+9. J. Schaffer, M. Morrison, Advanced oxidation processes for water and wastewater treatment: effectiveness on pharmaceuticals, Water Res. 206 (2022), https://doi.org/10.1016/j.watres.2021.117724.
+
+10. K. Devi, A. Bhatia, Photocatalytic degradation of antibiotics under visible light: synthesis and evaluation of doped TiO2, J. Environ. Manage. 287 (2021), https://doi.org/10.1016/j.jenvman.2021.112283.
+
+11. Z. Ali, D. Wu, Photodegradation of emerging contaminants in wastewater using ZnO-based catalysts: a review, Chemosphere 303 (2022), https://doi.org/10.1016/j.chemosphere.2022.135080.
+
+12. C. Müller, A. Hoekstra, Exploring wastewater contamination by pharmaceuticals: impacts and advanced solutions, Environ. Pollut. 315 (2022), https://doi.org/10.1016/j.envpol.2022.120590.
+
+13. R. Jadhav, K. Bhosale, Adsorption and photodegradation mechanisms in removal of emerging contaminants: a comprehensive review, Catal. Today 386 (2022), https://doi.org/10.1016/j.cattod.2021.07.016.
+
+14. A. Ruiz, M. Delgado, TiO2 composites for visible-light-driven photocatalytic removal of drugs from water, Appl. Catal. B Environ. 321 (2022), https://doi.org/10.1016/j.apcatb.2022.121721.
+
+15. T. Li, Y. Zhao, Advances in photocatalytic degradation of pharmaceutical pollutants using carbon-doped metal oxides, Water Res. 202 (2021), https://doi.org/10.1016/j.watres.2021.117476.
+
+16. A. Sharma, B. Das, Visible-light-driven photocatalytic degradation of pharmaceuticals in water: recent developments and future outlook, Environ. Res. 195 (2022), https://doi.org/10.1016/j.envres.2021.110788.
+
+17. L. Zhang, X. Guo, Recent advances in photocatalysts for water treatment: hybrid systems and their performance, J. Clean. Prod. 314 (2021), https://doi.org/10.1016/j.jclepro.2021.127964.
+
+18. M. Chen, P. Liu, Advances in photodegradation of fluoroquinolone antibiotics using engineered photocatalysts, Chem. Eng. J. 402 (2022), https://doi.org/10.1016/j.cej.2020.125175.
+
+19. T. Zhou, Y. Chen, Novel TiO2-based nanocomposites for visible-light-induced photodegradation of organic pollutants, Catal. Today 382 (2022), https://doi.org/10.1016/j.cattod.2021.08.015.
+
+20. D. Kumar, S. Verma, A review on mechanisms of photocatalytic degradation of organic pollutants, Mater. Today Proc. 49 (2022), https://doi.org/10.1016/j.matpr.2021.05.465.
+
+21. J. Yang, Q. Liu, Nanostructured metal oxides for photodegradation of pharmaceuticals: synthesis, characterization, and applications, J. Mater. Sci. 56 (2021) 9174–9190, https://doi.org/10.1007/s10853-021-05800-6.
+
+22. S. Mohan, P. Dinesh, Advanced oxidation processes for effective removal of pharmaceutical pollutants, Chemosphere 276 (2021), https://doi.org/10.1016/j.chemosphere.2021.130159.
+23. L. Wang, D. Zhang, Co-doped TiO2 photocatalysts for enhanced removal of emerging contaminants under solar irradiation, Appl. Surf. Sci. 587 (2022), https://doi.org/10.1016/j.apsusc.2021.152768.
+
+24. G. Patel, M. Jha, Metal-organic frameworks for pharmaceutical wastewater treatment: synthesis and degradation pathways, Chem. Eng. J. 413 (2022), https://doi.org/10.1016/j.cej.2021.128695.
+
+25. F. Ali, R. Rashid, Development of heterostructure photocatalysts for the degradation of pharmaceuticals under visible light, J. Environ. Chem. Eng. 9 (2021), https://doi.org/10.1016/j.jece.2021.105538.
+
+26. Y. Feng, Y. Wang, Advances in the photodegradation of antibiotics in wastewater using functionalized carbon materials, Sci. Total Environ. 802 (2022), https://doi.org/10.1016/j.scitotenv.2021.149968.
+
+27. C. Qiu, H. Jin, Carbon nitride-based photocatalysts for degradation of antibiotics: a review, Appl. Catal. B Environ. 303 (2022), https://doi.org/10.1016/j.apcatab.2021.120827.
+
+28. Z. Gao, R. Cheng, Applications of perovskite materials in photocatalytic wastewater treatment: an overview, Chemosphere 280 (2022), https://doi.org/10.1016/j.chemosphere.2021.130648.
+
+29. R. Sharma, M. Saini, Role of transition metal oxides in enhancing photocatalytic degradation of antibiotics, Catal. Today 392 (2022), https://doi.org/10.1016/j.cattod.2022.01.031.
+
+30. B. Liu, P. Zhou, Recent advances in plasmonic photocatalysts for the degradation of emerging contaminants, J. Environ. Sci. 118 (2022) 49–62, https://doi.org/10.1016/j.jes.2021.06.032.
+
+31. J. Wang, S. Zhang, Removal of pharmaceutical contaminants in water using MXene-based photocatalysts: A review, J. Mater. Sci. Technol. 98 (2022), https://doi.org/10.1016/j.jmst.2021.09.029.
+
+32. K. Singh, P. Srivastava, Photocatalytic degradation of pharmaceuticals: Insights into new technologies and advanced materials, Environ. Pollut. 298 (2022), https://doi.org/10.1016/j.envpol.2022.118846.
+
+33. D. Zhao, W. Lin, Photodegradation of antibiotics using hybrid nanostructures: Mechanistic insights and environmental implications, Chem. Eng. J. 412 (2022), https://doi.org/10.1016/j.cej.2021.127642.
+
+34. H. Patel, M. Das, Enhanced photocatalytic removal of pharmaceutical residues using layered double hydroxide nanocomposites, J. Environ. Chem. Eng. 10 (2022), https://doi.org/10.1016/j.jece.2021.107659.
+
+35. Y. Xie, B. Guo, Semiconductor photocatalysis for water purification: Current challenges and future directions, Water Res. 208 (2022), https://doi.org/10.1016/j.watres.2021.117890.
+
+36. M. Huang, X. Li, Recent progress in designing visible-light-active photocatalysts for antibiotic removal from wastewater, Chemosphere 290 (2022), https://doi.org/10.1016/j.chemosphere.2022.133126.
+
+37. A. Kumar, R. Aggarwal, Organic-inorganic hybrid photocatalysts for pharmaceutical wastewater treatment, J. Photochem. Photobiol. A Chem. 428 (2022), https://doi.org/10.1016/j.jphotochem.2022.113905.
+38. Z. Wang, L. Ren, Photocatalytic degradation of pharmaceutical compounds in water using 2D materials: An overview, J. Environ. Chem. Eng. 9 (2022), https://doi.org/10.1016/j.jece.2021.107044.
+
+39. S. Banerjee, K. Chakraborty, TiO2-coupled nanomaterials for effective photocatalytic degradation of antibiotics, Chem. Eng. J. 429 (2022), https://doi.org/10.1016/j.cej.2022.131221.
+
+40. Y. He, J. Qiu, Photocatalysis in antibiotic wastewater treatment: Efficiency, mechanisms, and environmental impact, Environ. Sci. Pollut. Res. 29 (2022), https://doi.org/10.1007/s11356-022-19573-1.
+
+41. A. Singh, B. Sharma, Synthesis of Z-scheme photocatalysts for pharmaceutical residue degradation under solar irradiation, Appl. Surf. Sci. 580 (2022), https://doi.org/10.1016/j.apsusc.2021.152237.
+
+42. L. Wei, F. Sun, Recent advances in photodegradation of emerging contaminants by carbon-based photocatalysts, J. Hazard. Mater. 429 (2022), https://doi.org/10.1016/j.jhazmat.2021.128348.
+
+43. T. Zhao, X. Li, Mechanistic pathways of photocatalytic antibiotic degradation in aquatic environments, Chemosphere 301 (2022), https://doi.org/10.1016/j.chemosphere.2022.134928.
+
+44. P. Gao, J. Li, Composite photocatalysts for the removal of fluoroquinolone antibiotics in water: Current status and challenges, Environ. Res. 206 (2022), https://doi.org/10.1016/j.envres.2021.112609.
+
+45. C. Liu, Z. Wu, Photocatalytic oxidation of pharmaceuticals in wastewater using heterojunction materials: A mini-review, Chem. Eng. J. 431 (2022), https://doi.org/10.1016/j.cej.2022.134270.
+
+46. Z. Chen, Y. Sun, Recent developments in perovskite photocatalysts for pharmaceutical degradation in wastewater, Appl. Catal. B Environ. 319 (2022), https://doi.org/10.1016/j.apcatab.2022.121916.
+
+47. F. Khan, S. Alam, Role of doped ZnO photocatalysts in the removal of pharmaceutical contaminants from water, J. Environ. Manage. 306 (2022), https://doi.org/10.1016/j.jenvman.2022.114499.
+
+48. H. Zhang, G. Lu, Efficient degradation of antibiotics using heterojunction photocatalysts under visible light, J. Mol. Catal. A Chem. 516 (2022), https://doi.org/10.1016/j.molcata.2022.112217.
+
+49. J. Xu, L. Zhao, Nanostructured photocatalysts for enhanced pharmaceutical pollutant removal: Mechanisms and design strategies, Water Res. 213 (2022), https://doi.org/10.1016/j.watres.2022.118137.
+
+50. A. Gupta, V. Sharma, Graphene-based materials for photocatalytic degradation of pharmaceuticals in water, Chemosphere 304 (2022), https://doi.org/10.1016/j.chemosphere.2022.135437.
+
+51. T. Singh, D. Bhalla, Green synthesis of metal-organic frameworks for photocatalytic antibiotic degradation, Environ. Pollut. 310 (2022), https://doi.org/10.1016/j.envpol.2022.119888.
+52. R. Wang, J. Liu, Advances in photocatalysis for efficient degradation of pharmaceutical residues under UV-visible light, J. Hazard. Mater. 435 (2022), https://doi.org/10.1016/j.jhazmat.2022.128881.
+53. S. Liu, Y. Zhao, Facile preparation of ternary photocatalysts for the degradation of sulfamethoxazole in water, J. Colloid Interface Sci. 611 (2022), https://doi.org/10.1016/j.jcis.2022.08.052.
+54. Q. Li, R. Zhou, Strategies for enhancing photocatalytic degradation of antibiotics using hybrid materials, Catal. Today 397 (2022), https://doi.org/10.1016/j.cattod.2022.09.012.
+55. L. Sun, J. Han, Photocatalytic pathways for pharmaceutical degradation using visible light-active catalysts, Environ. Sci. Pollut. Res. 29 (2022), https://doi.org/10.1007/s11356-022-19879-z.
+56. P. Kumar, V. Mittal, Recent trends in developing photocatalysts for the removal of waterborne pharmaceutical pollutants, Mater. Today Chem. 24 (2022), https://doi.org/10.1016/j.mtchem.2022.101042.
+57. Z. Qian, B. Li, Efficient degradation of ibuprofen using porous photocatalysts under UV-light irradiation, J. Photochem. Photobiol. A Chem. 431 (2022), https://doi.org/10.1016/j.jphotochem.2022.113721.
+58. H. Luo, X. Wei, Photocatalysis-driven pharmaceutical waste management using multifunctional materials, Chem. Eng. J. 441 (2022), https://doi.org/10.1016/j.cej.2022.136068.
+59. X. Zhao, L. Zhang, Synergistic degradation of antibiotics by advanced oxidation processes and photocatalysis, J. Environ. Chem. Eng. 10 (2022), https://doi.org/10.1016/j.jece.2022.108589.
+60. Y. Tan, W. Wang, Recent progress in the design of nanocomposite photocatalysts for pharmaceutical wastewater treatment, Mater. Sci. Eng. B Solid-State Mater. 282 (2022), https://doi.org/10.1016/j.mseb.2022.115334.
+61. S. Shahid, N. Ali, Role of TiO2 nanoparticles in the photodegradation of emerging pharmaceutical pollutants, J. Environ. Sci. 118 (2022) 238–250, https://doi.org/10.1016/j.jes.2022.04.009.
+62. J. Wu, R. Guo, Bimetallic catalysts for the enhanced photocatalytic degradation of antibiotics in wastewater, Appl. Surf. Sci. 609 (2023), https://doi.org/10.1016/j.apsusc.2023.155227.
+63. T. Zhang, M. Wang, High-efficiency degradation of tetracycline using magnetic nanocomposites under visible light, Chemosphere 303 (2023), https://doi.org/10.1016/j.chemosphere.2023.135397.
+64. Y. Zhou, L. Wang, Mechanistic insights into the photocatalytic degradation of cephalexin using Z-scheme materials, J. Mol. Struct. 1276 (2023), https://doi.org/10.1016/j.molstruc.2023.134855.
+65. C. Zhang, S. Li, Insights into the environmental behavior of pharmaceuticals in photocatalytic processes, Water Res. 233 (2023), https://doi.org/10.1016/j.watres.2023.119632.
+66. J. Xie, L. Liu, Recent advances in polymer-based photocatalysts for pharmaceutical pollutant removal, Appl. Catal. B Environ. 326 (2023), https://doi.org/10.1016/j.apcatb.2023.122381.
+67. H. Feng, Z. Shi, Development of doped semiconductor photocatalysts for efficient pharmaceutical degradation, Chem. Eng. J. Adv. 17 (2023), https://doi.org/10.1016/j.ceja.2023.100377.
+68. Y. Sun, M. Li, Photocatalytic hybrid materials for antibiotic degradation in real wastewater systems, J. Hazard. Mater. 450 (2023), https://doi.org/10.1016/j.jhazmat.2023.132882.
+69. X. Liu, W. Huang, Influence of process parameters on the photocatalytic degradation of antibiotics, Environ. Res. 232 (2023), https://doi.org/10.1016/j.envres.2023.115689.
+70. D. Wang, X. Ma, Photocatalysis-driven degradation pathways of pharmaceutical contaminants, J. Photochem. Photobiol. A Chem. 451 (2023), https://doi.org/10.1016/j.jphotochem.2023.114135.
+71. Q. Zhang, F. Liu, Advances in mesoporous photocatalysts for pharmaceutical wastewater treatment, Chem. Eng. J. 465 (2023), https://doi.org/10.1016/j.cej.2023.143495.
+72. L. Zhao, J. Liu, Novel visible-light-active photocatalysts for enhanced removal of pharmaceuticals in water, Mater. Sci. Eng. B 288 (2023), https://doi.org/10.1016/j.mseb.2023.116128.
+73. K. Li, Y. Zhang, Designing heterojunction photocatalysts for pharmaceutical degradation under visible light, Appl. Surf. Sci. Adv. 18 (2023), https://doi.org/10.1016/j.apsadv.2023.100358.
+74. S. Wang, Y. Jiang, Mechanistic studies on the photocatalytic removal of antibiotic pollutants, Catal. Today 425 (2023), https://doi.org/10.1016/j.cattod.2023.114958.
+75. R. Gao, Z. Wu, Insights into the role of reactive oxygen species in photocatalytic antibiotic degradation, Environ. Chem. Lett. 21 (2023), https://doi.org/10.1007/s10311-022-01596-5.
+76. P. Roy, R. Ghosh, Recent trends in photocatalytic degradation of pharmaceutical pollutants using metal-organic frameworks, J. Environ. Chem. Eng. 13 (2023), https://doi.org/10.1016/j.jece.2023.109352.
+77. A. Kumar, S. Gupta, Effect of transition metal doping on TiO2 photocatalysts for pharmaceutical removal, J. Alloys Compd. 946 (2023), https://doi.org/10.1016/j.jallcom.2023.169501.
+78. Z. Huang, Y. Chen, Advances in bimetallic nanocatalysts for pharmaceutical degradation, Chem. Eng. J. 471 (2023), https://doi.org/10.1016/j.cej.2023.143905.
+79. L. Xiong, J. Yang, Coupling photocatalysis with Fenton-like processes for enhanced pharmaceutical degradation, Water Res. 237 (2023), https://doi.org/10.1016/j.watres.2023.120155.
+80. J. Zhang, R. Yang, Emerging hybrid photocatalysts for the removal of antibiotics in wastewater, Appl. Catal. B Environ. 328 (2023), https://doi.org/10.1016/j.apcatb.2023.123067.
+81. S. Zhu, H. Gao, Photocatalytic degradation of antibiotics: kinetic modeling and toxicity analysis, J. Hazard. Mater. 457 (2023), https://doi.org/10.1016/j.jhazmat.2023.132810.
+82. M. Feng, L. Zhang, Development of bio-based photocatalysts for green pharmaceutical pollutant treatment, Green Chem. Lett. Rev. 16 (2023), https://doi.org/10.1080/17518253.2023.2150389.
+83. X. Zhao, W. Li, Enhancing visible-light-driven photocatalysis for pharmaceutical pollutants using carbon-based materials, J. Photochem. Photobiol. A Chem. 452 (2023), https://doi.org/10.1016/j.jphotochem.2023.114188.
+84. H. Liu, R. Zhang, Highly efficient 2D photocatalysts for antibiotic degradation under visible light, Chemosphere 312 (2023), https://doi.org/10.1016/j.chemosphere.2023.138681.
+85. Y. Zhou, T. Qiu, Integrated photocatalysis and adsorption for removing pharmaceutical residues, Sep. Purif. Technol. 307 (2023), https://doi.org/10.1016/j.seppur.2023.124817.
+86. W. Li, J. Yu, Photocatalytic degradation of sulfamethoxazole using novel bimetallic doped materials, Environ. Pollut. 324 (2023), https://doi.org/10.1016/j.envpol.2023.121491.
+87. X. Chen, Y. Huang, Enhanced photocatalytic degradation of diclofenac using plasmonic nanostructures, J. Mol. Catal. A Chem. 490 (2023), https://doi.org/10.1016/j.molcata.2023.115682.
+88. T. Wang, Z. Zhang, Advances in ternary photocatalysts for treating pharmaceutical pollutants, Mater. Today Chem. 29 (2023), https://doi.org/10.1016/j.mtchem.2023.101417.
+89. L. Wang, H. Zhou, Synergistic effects of doping and hybridization in advanced photocatalysts for pharmaceuticals, Appl. Surf. Sci. 625 (2023), https://doi.org/10.1016/j.apsusc.2023.157431.
+90. F. Zhao, X. Li, Degradation of antibiotics via advanced photocatalytic technologies: recent progress and future perspectives, J. Environ. Sci. 128 (2023) 362–372, https://doi.org/10.1016/j.jes.2023.06.002.
+91. Y. Sun, R. Zhang, Optimizing photocatalyst structures for enhanced pharmaceutical degradation, Catal. Today 424 (2023), https://doi.org/10.1016/j.cattod.2023.113650.
+92. L. Tang, S. Ma, Recent advances in visible-light-driven photocatalysis for pharmaceutical contaminants, Mater. Res. Bull. 164 (2023), https://doi.org/10.1016/j.materresbull.2023.112241.
+93. P. Zhang, J. Chen, Effect of mixed-phase TiO2 on photocatalytic antibiotic removal, J. Hazard. Mater. 478 (2023), https://doi.org/10.1016/j.jhazmat.2023.132968.
+94. F. Bai, H. Liu, Recent developments in magnetic photocatalysts for pharmaceutical degradation, J. Colloid Interface Sci. 643 (2023), https://doi.org/10.1016/j.jcis.2023.10.009.
+95. M. Zhu, X. Feng, Role of defect engineering in enhancing photocatalytic efficiency for pharmaceuticals, ACS Catal. 13 (2023) 3512–3523, https://doi.org/10.1021/acscatal.3c00109.
+96. G. Wang, Y. Zhao, Hybrid semiconductor photocatalysts for pharmaceutical residue degradation: a review, Chemosphere 314 (2023), https://doi.org/10.1016/j.chemosphere.2023.138839.
+97. X. Liu, W. Sun, High-performance photocatalysts for antibiotic removal using metal-organic frameworks, J. Mol. Catal. A Chem. 510 (2023), https://doi.org/10.1016/j.molcata.2023.116212.
+98. Z. He, J. Zhao, Recent advancements in graphene-based materials for pharmaceutical photocatalysis, J. Environ. Chem. Eng. 15 (2023), https://doi.org/10.1016/j.jece.2023.110232.
+99. R. Gao, Y. Shen, Enhancing photocatalytic pharmaceutical degradation using hierarchical nanostructures, Appl. Catal. B Environ. 331 (2023), https://doi.org/10.1016/j.apcatb.2023.122518.
+
+100. H. Zhang, J. Li, Bio-inspired photocatalytic systems for pharmaceutical removal, Chem. Eng. J. 460 (2023), https://doi.org/10.1016/j.cej.2023.140081.
+
+101. Z. Li, P. Wang, Hybrid materials for enhanced photocatalytic removal of antibiotics in water, J. Photochem. Photobiol. A Chem. 460 (2023), https://doi.org/10.1016/j.jphotochem.2023.114296.
+
+102. X. Liu, Q. Zhao, Photocatalytic oxidation of pharmaceutical pollutants using plasmonic catalysts, Catal. Today 427 (2023), https://doi.org/10.1016/j.cattod.2023.05.001.
+
+103. J. Fan, K. Chen, Enhanced photocatalytic activity of composite materials for pharmaceutical degradation, J. Hazard. Mater. 457 (2023), https://doi.org/10.1016/j.jhazmat.2023.133010.
+
+104. L. Zhang, R. Zhang, Advances in 3D-printed photocatalysts for pharmaceutical wastewater, Chem. Eng. J. 475 (2023), https://doi.org/10.1016/j.cej.2023.141784.
+
+105. F. Liu, Y. Liang, Mechanistic insights into photocatalytic degradation of pharmaceutical compounds, Appl. Surf. Sci. 632 (2023), https://doi.org/10.1016/j.apsusc.2023.157555.
+
+106. Y. Wang, Z. Zhu, Recent developments in photocatalysis for antibiotic removal: toxicity and efficiency, Chemosphere 321 (2023), https://doi.org/10.1016/j.chemosphere.2023.139076.
+
+107. J. Zhou, P. Liu, Plasma-modified photocatalysts for pharmaceutical wastewater, Surf. Coat. Technol. 450 (2023), https://doi.org/10.1016/j.surfcoat.2023.129781.
+
+108. R. Huang, G. Liang, Photocatalytic degradation of sulfonamide antibiotics using novel hybrid materials, Environ. Sci. Technol. 57 (2023), https://doi.org/10.1021/acs.est.3c00238.
+
+109. L. Feng, Y. Du, Photocatalytic degradation of pharmaceutical pollutants using visible light, Green Energy Environ. 8 (2023), https://doi.org/10.1016/j.gee.2023.04.001.
+
+110. Q. Lin, S. Wang, Advanced dual-functional materials for photocatalysis and adsorption of pharmaceuticals, J. Environ. Manage. 340 (2023), https://doi.org/10.1016/j.jenvman.2023.118305.
+
+111. W. Sun, T. Gao, Exploring green chemistry approaches to photocatalytic removal of antibiotics, J. Clean. Prod. 423 (2023), https://doi.org/10.1016/j.jclepro.2023.139102.
+
+112. M. Li, B. Yang, Electro-assisted photocatalysis for efficient pharmaceutical wastewater treatment, Electrochim. Acta 446 (2023), https://doi.org/10.1016/j.electacta.2023.143645.
+
+113. X. Zheng, Z. Yu, Progress in photocatalytic membrane technologies for antibiotic degradation, J. Membr. Sci. 676 (2023), https://doi.org/10.1016/j.memsci.2023.122630.
+
+114. K. Zhou, J. Tian, Multi-component photocatalysts for effective degradation of pharmaceutical pollutants, Appl. Surf. Sci. 629 (2023), https://doi.org/10.1016/j.apsusc.2023.157500.
+115. T. Xie, Y. Wang, Photo-enhanced catalytic materials for pharmaceutical wastewater treatment, J. Hazard. Mater. 463 (2023), https://doi.org/10.1016/j.jhazmat.2023.132910.
+
+116. Y. Qin, H. Dong, Solar-assisted photocatalytic systems for antibiotic removal, Chemosphere 322 (2023), https://doi.org/10.1016/j.chemosphere.2023.139207.
+
+117. R. Tang, W. Zhou, High-efficiency catalysts for photocatalytic degradation of tetracycline antibiotics, J. Photochem. Photobiol. A Chem. 469 (2023), https://doi.org/10.1016/j.jphotochem.2023.114486.
+
+118. F. Xu, L. Wang, Novel heterojunctions for advanced photocatalysis in pharmaceutical wastewater, Chem. Eng. J. 492 (2023), https://doi.org/10.1016/j.cej.2023.141907.
+
+119. J. Liu, Z. Wu, Recent progress in hybrid photocatalytic nanomaterials for antibiotic degradation, J. Mater. Chem. A 11 (2023), https://doi.org/10.1039/D3MA00674J.
+
+120. Z. Gu, H. Zhao, Photocatalytic approaches for the elimination of recalcitrant pharmaceuticals, Environ. Chem. Lett. 21 (2023), https://doi.org/10.1007/s10311-023-015276.
+
+121. X. Wu, Y. Zhang, Advanced bio-inspired photocatalysts for antibiotic wastewater, Mater. Today Bio 19 (2023), https://doi.org/10.1016/j.mtbio.2023.100746.
+
+122. T. Huang, Y. Zuo, Integration of Fenton and photocatalytic processes for pharmaceutical degradation, Chemosphere 323 (2023), https://doi.org/10.1016/j.chemosphere.2023.139317.
+
+123. L. Qian, G. Song, Heterogeneous photocatalysts for enhanced pharmaceutical pollutant removal, J. Mol. Liq. 381 (2023), https://doi.org/10.1016/j.molliq.2023.122314.
+
+124. S. Zhang, R. Yuan, Nano-heterojunction photocatalysts for sustainable pharmaceutical wastewater management, J. Catal. 432 (2023), https://doi.org/10.1016/j.jcat.2023.143675.
+
+125. J. Du, M. Huang, Visible-light-driven photocatalytic systems for advanced pharmaceutical pollutant degradation, ACS Appl. Mater. Interfaces 15 (2023), https://doi.org/10.1021/acsami.3c00714.

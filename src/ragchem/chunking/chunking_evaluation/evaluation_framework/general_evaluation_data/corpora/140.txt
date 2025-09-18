@@ -1,0 +1,398 @@
+Project Title: Reducing the Toxicity of Heavy Metals
+
+Student Name: ABDUL BASIT
+
+Mentor: Muhammad Yasin
+
+PUNJAB DAANISH SCHOOL BOYS MIANWALI
+| S. NO. | CONTENT                  | PAGE NO. |
+|--------|--------------------------|----------|
+| 1.     | INTRODUCTION             | 3        |
+| 2.     | LITERATURE REVIEW        | 4        |
+| 3.     | AIMS AND OBJECTIVES      | 5        |
+| 4.     | MATERIALS AND METHODS    | 5        |
+| 5.     | RESULTS AND DISCUSSION   | 6        |
+| 6.     | CONCLUSION               | 24       |
+| 7.     | RECOMMENDATIONS          | 24       |
+| 8.     | REFERENCES               | 24       |
+| 9.     | ANNEXURE                 | 26       |
+**Introduction**
+
+Water covers about 70% of the earth’s surface and is essential for life (Wang et al., 2020), out of which only 3% is fresh and only 0.5% drinkable. Water is single largest component of human body and comprises nearly 60% of it. (Zhou & Chen, 2018). Its excessive and ever increasing use in all fields of life has made Fresh water shortage a global threat. Only 33% of the world’s total population has access to standard-quality freshwater.
+
+Water is being polluted from a variety of sources, from domestic to industrial level. Contaminants in this polluted water involve heavy metals as well that leads to serious adverse effects on the lives to which the water is being served (Obinna & Ebere, 2019).
+
+Considerable fraction of this polluted water is being used as untreated in irrigation (Sarwar et al., 2020). This contaminated water has high concentration of Nitrogen and Phosphorus, and that’s why its use in irrigation is increasing gradually (Zhang & Shen, 2019). As this waste water is contaminated with heavy metals including; Arsenic (As), Cadmium (Cd), Nickel (Ni), Mercury (Hg), Chromium (Cr), Zinc (Zn), and Lead (Pb) and has become a serious health issue for men, plants and animals. (Rehman et al., 2018).
+
+These heavy metals present in waste water are not only toxic but are non-biodegradable which make their presence even worse. When this heavy metals containing water is used for irrigation, they enter into the plants and vegetables, where they do not have any significant biological role but causes various adverse effects to them (Chaoua et al., 2019). Their bioaccumulation in plants has reported to inhibit the growth of the plants (Kamran et al., 2020)
+
+Bioaccumulation of various heavy metals such as arsenic, mercury, lead and chromium will tear down the metabolic processes involved in the human body.
+
+These fruit based absorbents act as precursor of activated carbon and contain other functional groups that helps to adsorb the heavy metals from water. These functional groups (- COOH, -OH, - NH2) present in bio absorbents make a thin film of heavy metals on them (Mallampati et al., 2015) 2011).
+
+In this study, peels of different plants i.e Bitter Apple, Cucumber, Persimmon, unripe orange and activated carbon from used dry cell were used. Organic functional groups present in them adsorb the heavy metals and reduces their concentration. Moreover, Activated Carbon which has proved to be a versatile adsorbent and a potential candidate in treatment of waste water was also used. Results from all above materials were separately obtained and comparatively analyzed which was very helpful in explaining their efficiency.
+Literature Review
+
+Requirement of fresh water is increasing gradually due to its excessive use in domestic, industrial and agricultural purposes. (Qadir et al., 2008). The used water from above mentioned sector becomes polluted. Owing to this excessive use, we have to face water shortage problems (Adilov, Sarikulov et al. 2021). The waste are produced by industries, human and animals but there is no proper way to deposit them, so they also contribute to pollute the drinkable water.
+
+This polluted water is not only one of the prime global challenges for various ailments and casualties, but it is also contributing to the incessant shortage of the available freshwater worldwide (Bolisetty et al., 2019). Purification of this polluted water has become very necessary (Chaturvedi & Dave, 2019) and exists as a major problem in many under developed parts of the world (Kausley et al., 2018).
+
+This polluted water contain many heavy metals in it, namely; Arsenic(As), Cadmium (Cd), Nickel (Ni), Mercury (Hg), Chromium (Cr), Zinc (Zn), and Lead (Pb) and has become a serious health issue for men of 21st century(Rehman et al., 2018). The mechanism in toxicity induced by heavy metal is found to be the generation of highly reactive oxygen species that cause oxidative damage that leads to above mentioned disorders. Their non-biodegradable nature makes them more difficult to deal for purification of water (Varghese et al., 2019).
+
+This polluted water seeps down and affect the fresh ground water, and presence of these heavy metals results in damage of aquatic life (Griebler et al., 2019). Official data tells that about 4.36 billion m³ (BCM) wastewater is produced annually, which consist of 1.30 BCM industrial wastewater and 3.06 BCM domestic water (National Agricultural Research Centre). A huge fraction of this waste water is being used untreated in irrigation in Pakistan (ur Rehman et al., 2019). There is quite essential need to treat wastewater to alleviate the pollutant content, before we dispose it the agricultural lands or natural ecosystem. Wastewater is being treated through a variety of methods using biological, physical, chemical and thermal means, involving stages like primary, secondary and tertiary treatments (Meruvu, 2021). Cost has always been the problem in most of the methods being applied to treat the polluted water, as they are very expensive and cumbersome. (Sarode et al., 2019). Peels of various fruits has been used as source of bio sorbents and proved highly efficient in up taking the toxic heavy metals (Akpomie & Conradi, 2020).
+Aims and Objectives
+
+- Removal of heavy metal by low cost and cheapest
+- Method Utilization of non-biological waste to adsorb
+- Heavy metal Utilization of waste of fruits in a productive way.
+- To control water pollution
+- Explain the severity of toxicity of heavy metals
+
+Materials and Method
+
+Different Biological and Non-Biological substances were used for the treatment of heavy metals present in sewage water. Peels of Bitter Apple, Cucumber, Unripe orange, Persimmon and Activated carbon from dry cell were used.
+
+Preparation of bio sorbent/Activated Carbon
+
+For preparing the Bio-sorbent, peels of Bitter apple, Cucumber, Persimmon and unripe orange were used in the Chemistry Laboratory of Punjab Daanish School Boys Mianwali for analysis. After sun drying them, electrical furnace was used at 1000°c for half an hour to dry the peels completely. These completely dried substances were further ground to make a fine powder of the peels. Activated Carbon from dry cell source was also used for absorption of heavy metals present in sewage water.
+
+Accumulation of waste water (Samples)
+
+Sewage water was obtained from two major drains of the city at district-Mianwali which had been utilized by farmers for irrigation purposes. This sewage water was analyzed by using Atomic Absorption spectroscopy (AAS). Different values of heavy metals (Chromium, Lead etc) in parts per million were obtained.
+
+Treatment of sewage water for removing heavy metals
+
+Sewage water from both Drains was treated with already prepared fine powder of Bitter apple, Persimmon and Cucumber and Unripe Orange peels with three different doses; 1g, 2g and 3g to make the effect of concentration in count as well. Other samples were treated with Activated Carbon obtained from non-biomass sources. To check the effect of time factor for their actions and samples were analyzed after different time spans; 24 hours and 48 hours.
+Same time period was given to samples being treated with the other Activated Carbon sources.
+
+**Analyzing the treated water**
+
+Treated water from both materials was analyzed again with the help of different analyzing techniques.
+
+**Different graphs are made for data handling so that we can easily compare the data.**
+
+![Graph showing treatment of lead in sewerage water of Harnouli with different amount of cucumber for 24 & 48 Hr](https://doi.org/10.26434/chemrxiv-2024-04wxj-v2)
+
+**Fig-2: Effect of treatment of lead in sewerage water by different amount of cucumber peels**
+It is (Fig-3) the result of treatment of Harnouli sewage water having heavy metal (Chromium) treated with 1g, 2g and 3g doses of Cucumber extract respectively. It can be seen that 3g dose of Cucumber extract has removed a considerable amount of heavy metal (Chromium) from water sample treated for 24 hours.
+
+Comparing the results
+
+Data obtained from all the samples was compared according to different concentration and time given. Moreover results from both materials were inter-compared. Results and compared data was elaborated with the help of graphs as well.
+
+Crude sewage water was taken from two different areas of Mianwali to find out the concentration of three heavy metals Cadmium, Lead and Chromium. It was observed from the data that cadmium was not present in the sewage water samples. However atomic absorption spectroscopy results indicated that both lead and chromium are present in the samples in reasonably high concentrations.
+
+Results and Discussion
+
+Fig-1: Detection of Lead (Pb) & Chromium (Cr) in Sewage Water from Harnouli (Mianwali) & Piplan (Mianwali)
+Data further depicted that concentration of lead is low at Harnouli while it is high at Piplan. Similarly, concentration of chromium is high at Harnouli and considerably low at Piplan.
+
+Concentration of these heavy metals in sewage water is quite alarming. Sewage water is drained in river water so it may damage aquatic life and ultimately may damage human health. When this contaminated water is used for irrigation, due to the presence of heavy metals in this type of water growth of plants retard.
+We planned to treat sewage water with three different types of peals. i.e.
+
+i. Bitter Apple Peels
+
+ii. Persimmon Peels
+
+iii. Cucumber Peels
+
+Unripe orange peels and activated carbon powder have treated with sewage water samples and sent for analysis (AAS) at Gujranwala in laboratory. Results are in pending stage and will receive soon.
+
+The results of analysis have shown that all peels Bitter apple, Cucumber and persimmon natural products have tremendous effects in treatment of these heavy metals. These natural products adsorbed the heavy metals. Here are the results.
+
+It is (Fig-2) the result of treatment of Harnouli sewage water having heavy metal (Lead) treated with 1g, 2g and 3g doses of Cucumber extract respectively. It can be seen that 3g dose of Cucumber extract has removed a considerable amount of heavy metal(Lead) fromwater sample treated for 24 hours.
+
+We have classified our water samples according to concentration used (Biological/non Biological Biosorbents) and time factor i.e 24 Hours and 48 Hours. Samples sent to Pesticide Residue Laboratory Kala Shah Kaku for Atomic Absorption Spectroscopy. Samples are labeled and each sample has unique sample ID and Customer ID. Report attached as an Annexure A.
+
+HEAVY METALS ANALYSIS PERCENTAGE WISE
+
+We have taken water samples from two different localities of district Mianwali i.e Harnouli and Piplan. Biosorbents of different plants are used for purification of water from heavy metals. Different quantities of Biosorbents i.e 1g/L,2g/L,3g/L with the time factor of 24Hours and 48 Hours are used for heavy metals analysis.
+
+Results obtained from “OFFICE OF THE AGRICULTURE CHEMIST PESTICIDE RESIDUE LABORATORY KALA SHAH KAKU” are in comparison form to see the affectivity of the Biosorbents. Table 1.1,1.2,1.3.
+POWDER OF BITTER APPLE PLANT (USING 1 LITRE OF WATER SAMPLES)
+
+| Sr. No | Quantity of Biosorbent used | Sample Taken | Heavy Metal | Time | Treated Value in ppm | Untreated Value in ppm | %age dropped |
+|--------|-----------------------------|--------------|-------------|------|----------------------|------------------------|--------------|
+| 1.     | 1gm                         | Harnouli     | Lead(Pb)   | 24hrs | 0.23                 | 0.37                   | 62.16216    |
+| 2.     | 1gm                         | Harnouli     | Lead(Pb)   | 48hrs | 0.2                  | 0.37                   | 54.05405    |
+| 3.     | 2gms                        | Harnouli     | Lead(Pb)   | 24hrs | 0.13                 | 0.37                   | 35.13514    |
+| 4.     | 2gms                        | Harnouli     | Lead(Pb)   | 48hrs | 0.11                 | 0.37                   | 29.72973    |
+| 5.     | 3gms                        | Harnouli     | Lead(Pb)   | 24hrs | 0.09                 | 0.37                   | 24.32432    |
+| 6.     | 3gms                        | Harnouli     | Lead(Pb)   | 48hrs | 0.05                 | 0.37                   | 13.51351    |
+| 7.     | 1gm                         | Piplan       | Lead(Pb)   | 24hrs | 0.47                 | 0.64                   | 73.4375     |
+| 8.     | 1gm                         | Piplan       | Lead(Pb)   | 48hrs | 0.41                 | 0.64                   | 64.0625     |
+| 9.     | 2gms                        | Piplan       | Lead(Pb)   | 24hrs | 0.36                 | 0.64                   | 56.25       |
+| 10.    | 2gms                        | Piplan       | Lead(Pb)   | 48hrs | 0.29                 | 0.64                   | 45.3125     |
+| 11.    | 3gms                        | Piplan       | Lead(Pb)   | 24hrs | 0.22                 | 0.64                   | 34.375      |
+| 12.    | 3gms                        | Piplan       | Lead(Pb)   | 48hrs | 0.14                 | 0.64                   | 21.875      |
+| 13.    | 1gm                         | Harnouli     | Chromium (Cr) | 24hrs | 0.43                 | 0.72                   | 59.72222    |
+| 14.    | 1gm                         | Harnouli     | Chromium (Cr) | 48hrs | 0.37                 | 0.72                   | 51.38889    |
+| 15.    | 2gms                        | Harnouli     | Chromium (Cr) | 24hrs | 0.25                 | 0.72                   | 34.72222    |
+| 16.    | 2gms                        | Harnouli     | Chromium (Cr) | 48hrs | 0.2                  | 0.72                   | 27.77778    |
+| 17.    | 3gms                        | Harnouli     | Chromium (Cr) | 24hrs | 0.14                 | 0.72                   | 19.44444    |
+| 18.    | 3gms                        | Harnouli     | Chromium (Cr) | 48hrs | 0.11                 | 0.72                   | 15.27778    |
+| 19.    | 1gm                         | Piplan       | Chromium (Cr) | 24hrs | 0.28                 | 0.41                   | 68.29268    |
+| 20.    | 1gm                         | Piplan       | Chromium (Cr) | 48hrs | 0.23                 | 0.41                   | 56.09756    |
+| 21.    | 2gms                        | Piplan       | Chromium (Cr) | 24hrs | 0.18                 | 0.41                   | 43.90244    |
+| 22.    | 2gms                        | Piplan       | Chromium (Cr) | 48hrs | 0.14                 | 0.41                   | 34.14634    |
+| 23.    | 3gms                        | Piplan       | Chromium (Cr) | 24hrs | 0.13                 | 0.41                   | 31.70732    |
+| 24.    | 3gms                        | Piplan       | Chromium (Cr) | 48hrs | 0.1                  | 0.41                   | 24.39024    |
+
+Table 1.1
+
+
+POWDER OF CUCUMBER PLANT (USING 1 LITRE OF WATER SAMPLE)
+
+| Sr. No | Quantity of Biosorbent used | Sample Taken | Heavy Metal | Time | Treated Value in ppm | Untreated Value in ppm | %age droppe d |
+|--------|-----------------------------|--------------|-------------|------|----------------------|-----------------------|---------------|
+| 1.     | 1gm                         | Harnouli     | Lead(Pb)    | 24hrs| 0.32                 | 0.37                  | 86.48649     |
+| 2.     | 1gm                         | Harnouli     | Lead(Pb)    | 48hrs| 0.34                 | 0.37                  | 91.89189     |
+| 3.     | 2gms                        | Harnouli     | Lead(Pb)    | 24hrs| 0.27                 | 0.37                  | 72.97297     |
+| 4.     | 2gms                        | Harnouli     | Lead(Pb)    | 48hrs| 0.3                   | 0.37                  | 81.08108     |
+| 5.     | 3gms                        | Harnouli     | Lead(Pb)    | 24hrs| 0.23                 | 0.37                  | 62.16216     |
+| 6.     | 3gms                        | Harnouli     | Lead(Pb)    | 48hrs| 0.25                 | 0.37                  | 67.56757     |
+| 7.     | 1gm                         | Piplan       | Lead(Pb)    | 24hrs| 0.57                 | 0.64                  | 89.0625      |
+| 8.     | 1gm                         | Piplan       | Lead(Pb)    | 48hrs| 0.62                 | 0.64                  | 96.875       |
+| 9.     | 2gms                        | Piplan       | Lead(Pb)    | 24hrs| 0.49                 | 0.64                  | 76.5625      |
+| 10.    | 2gms                        | Piplan       | Lead(Pb)    | 48hrs| 0.53                 | 0.64                  | 82.8125      |
+| 11.    | 3gms                        | Piplan       | Lead(Pb)    | 24hrs| 0.43                 | 0.64                  | 67.1875      |
+| 12.    | 3gms                        | Piplan       | Lead(Pb)    | 48hrs| 0.48                 | 0.64                  | 75           |
+| 13.    | 1gm                         | Harnouli     | Chromium (Cr)| 24hrs| 0.61                 | 0.72                  | 84.72222     |
+| 14.    | 1gm                         | Harnouli     | Chromium (Cr)| 48hrs| 0.65                 | 0.72                  | 90.27778     |
+| 15.    | 2gms                        | Harnouli     | Chromium (Cr)| 24hrs| 0.54                 | 0.72                  | 75           |
+| 16.    | 2gms                        | Harnouli     | Chromium (Cr)| 48hrs| 0.58                 | 0.72                  | 80.55556     |
+| 17.    | 3gms                        | Harnouli     | Chromium (Cr)| 24hrs| 0.47                 | 0.72                  | 65.27778     |
+| 18.    | 3gms                        | Harnouli     | Chromium (Cr)| 48hrs| 0.5                  | 0.72                  | 69.44444     |
+| 19.    | 1gm                         | Piplan       | Chromium (Cr)| 24hrs| 0.35                 | 0.41                  | 85.36585     |
+| 20.    | 1gm                         | Piplan       | Chromium (Cr)| 48hrs| 0.38                 | 0.41                  | 92.68293     |
+| 21.    | 2gms                        | Piplan       | Chromium (Cr)| 24hrs| 0.3                  | 0.41                  | 73.17073     |
+| 22.    | 2gms                        | Piplan       | Chromium (Cr)| 48hrs| 0.33                 | 0.41                  | 80.4878      |
+| 23.    | 3gms                        | Piplan       | Chromium (Cr)| 24hrs| 0.27                 | 0.41                  | 65.85366     |
+| 24.    | 3gms                        | Piplan       | Chromium (Cr)| 48hrs| 0.29                 | 0.41                  | 70.73171     |
+
+Table 1.2
+POWDER OF PERSIMMON PLANT (USING 1 LITRE OF WATER)
+
+| Sr. No | Quantity of Biosorbent used | Sample Taken | Heavy Metal | Time | Treated Value in ppm | Untreated Value in ppm | %age droppe d |
+|--------|-----------------------------|--------------|-------------|------|-----------------------|------------------------|---------------|
+| 1.     | 1gm                         | Harnouli     | Lead(Pb)    | 24hrs| 0.27                  | 0.37                   | 72.97297      |
+| 2.     | 1gm                         | Harnouli     | Lead(Pb)    | 48hrs| 0.24                  | 0.37                   | 64.86486      |
+| 3.     | 2gms                        | Harnouli     | Lead(Pb)    | 24hrs| 0.19                  | 0.37                   | 51.35135      |
+| 4.     | 2gms                        | Harnouli     | Lead(Pb)    | 48hrs| 0.17                  | 0.37                   | 45.94595      |
+| 5.     | 3gms                        | Harnouli     | Lead(Pb)    | 24hrs| 0.15                  | 0.37                   | 40.54054      |
+| 6.     | 3gms                        | Harnouli     | Lead(Pb)    | 48hrs| 0.12                  | 0.37                   | 32.43243      |
+| 7.     | 1gm                         | Piplan       | Lead(Pb)    | 24hrs| 0.54                  | 0.64                   | 84.375        |
+| 8.     | 1gm                         | Piplan       | Lead(Pb)    | 48hrs| 0.5                   | 0.64                   | 78.125        |
+| 9.     | 2gms                        | Piplan       | Lead(Pb)    | 24hrs| 0.41                  | 0.64                   | 64.0625       |
+| 10.    | 2gms                        | Piplan       | Lead(Pb)    | 48hrs| 0.37                  | 0.64                   | 57.8125       |
+| 11.    | 3gms                        | Piplan       | Lead(Pb)    | 24hrs| 0.29                  | 0.64                   | 45.3125       |
+| 12.    | 3gms                        | Piplan       | Lead(Pb)    | 48hrs| 0.24                  | 0.64                   | 37.5          |
+| 13.    | 1gm                         | Harnouli     | Chromium(Cr)| 24hrs| 0.58                  | 0.72                   | 80.55556      |
+| 14.    | 1gm                         | Harnouli     | Chromium(Cr)| 48hrs| 0.54                  | 0.72                   | 75            |
+| 15.    | 2gms                        | Harnouli     | Chromium(Cr)| 24hrs| 0.42                  | 0.72                   | 58.33333      |
+| 16.    | 2gms                        | Harnouli     | Chromium(Cr)| 48hrs| 0.36                  | 0.72                   | 50            |
+| 17.    | 3gms                        | Harnouli     | Chromium(Cr)| 24hrs| 0.34                  | 0.72                   | 47.22222      |
+| 18.    | 3gms                        | Harnouli     | Chromium(Cr)| 48hrs| 0.29                  | 0.72                   | 40.27778      |
+| 19.    | 1gm                         | Piplan       | Chromium(Cr)| 24hrs| 0.34                  | 0.41                   | 82.92683      |
+| 20.    | 1gm                         | Piplan       | Chromium(Cr)| 48hrs| 0.29                  | 0.41                   | 70.73171      |
+| 21.    | 2gms                        | Piplan       | Chromium(Cr)| 24hrs| 0.28                  | 0.41                   | 68.29268      |
+| 22.    | 2gms                        | Piplan       | Chromium(Cr)| 48hrs| 0.25                  | 0.41                   | 60.97561      |
+| 23.    | 3gms                        | Piplan       | Chromium(Cr)| 24hrs| 0.19                  | 0.41                   | 46.34146      |
+| 24.    | 3gms                        | Piplan       | Chromium(Cr)| 48hrs| 0.16                  | 0.41                   | 39.02439      |
+
+Table 1.3
+Treated samples of unripened orange peels and activated carbon have been sent for analysis by Atomic Absorption Spectroscopy (AAS), but results are not arrived yet and will be provided soon.
+
+**Fig-3: Effect of treatment of Chromium in sewage water by different amount of cucumber peels.**
+
+It is (Fig-4) the result of treatment of Piplan sewage water having heavy metal (Lead) treated with 1g, 2g and 3g doses of Cucumber extract respectively. It can be seen that 3g dose of Cucumber extract has removed a considerable amount of heavy metal (Lead) from water sample treated for 24 hours.
+
+**Fig-4: Effect of treatment of Lead in sewage water by different amount of cucumber peels**
+It is (Fig-5) the result of treatment of Piplan sewage water having heavy metal (Chromium) treated with 1g, 2g and 3g doses of Cucumber extract respectively. It can be seen that 3g dose of Cucumber extract has removed a considerable amount of heavy metal (Chromium) from water sample treated for 24 hours.
+
+Fig-5: Effect of treatment of Chromium in sewage water by different amount of cucumber peels
+
+It is (Fig-6) the result of treatment of Harnouli sewage water having heavy metal (Lead) treated with 1g, 2g and 3g doses of Persimmon extract respectively. It can be seen that 3g dose of Persimmon extract has removed a considerable amount of heavy metal (Lead) from water sample treated for 48 hours.
+
+Fig-6: Effect of treatment of Lead in sewage water by different amount of cucumber peels
+It is (Fig-7) the result of treatment of Harnouli sewage water having heavy metal (Chromium) treated with 1g, 2g and 3g doses of Persimmon extract respectively. It can be seen that 3g dose of Persimmon extract has removed a considerable amount of heavy metal (Chromium) from water sample treated for 48 hours.
+
+![Treatment of Chromium in sewerage water of Harnouli with different amounts of Persimmon extract](image)
+
+**Fig-7: Effect of treatment of Chromium in sewage water by different amount of cucumber peels**
+
+It is (Fig-8) the result of treatment of Piplan sewage water having heavy metal (Lead) treated with 1g, 2g and 3g doses of Persimmon extract respectively. It can be seen that 3g dose of Persimmon extract has removed a considerable amount of heavy metal (Lead) from water sample treated for 48 hours.
+
+![Treatment of Lead in sewerage water of Piplan](image)
+
+**Fig-8: Effect of treatment of Lead in sewage water by different amount of cucumber peels**
+It is (Fig-9) the result of treatment of Piplan sewage water having heavy metal (Chromium) treated with 1g, 2g and 3g doses of Persimmon extract respectively. It can be seen that 3g dose of Persimmon extract has removed a considerable amount of heavy metal (Chromium) from water sample treated for 48 hours.
+
+**Fig-9: Effect of treatment of Chromium in sewage water by different amount of cucumber peels**
+
+It is (Fig-10) the result of treatment of Harnouli sewage water having heavy metal (Lead) treated with 1g, 2g and 3g doses of Bitter apple extract respectively. It can be seen that 3g dose of Bitter apple extract has removed a considerable amount of heavy metal (Lead) from water sample treated for 48 hours.
+
+**Fig-10: Effect of treatment of Lead in sewage water by different amount of cucumber peels**
+It is (Fig-11) the result of treatment of Harnouli sewage water having heavy metal (Chromium) treated with 1g, 2g and 3g doses of Bitter apple extract respectively. It can be seen that 3g dose of Bitter apple extract has removed a considerable amount of heavy metal (Chromium) from water sample treated for 48 hours.
+
+**Fig-11: Effect of treatment of Chromium in sewage water by different amount of cucumber peels**
+
+It is (Fig-12) the result of treatment of Piplan sewage water having heavy metal (Lead) treated with 1g, 2g and 3g doses of Bitter apple extract respectively. It can be seen that 3g dose of Bitter apple extract has removed a considerable amount of heavy metal (Lead) from water sample treated for 48 hours.
+
+**Fig-12: Effect of treatment of Lead in sewage water by different amount of cucumber peels**
+It is (Fig-13) the result of treatment of Piplan sewage water having heavy metal (Chromium) treated with 1g, 2g and 3g doses of Bitter apple extract respectively. It can be seen that 3g dose of Bitter apple extract has removed a considerable amount of heavy metal (Chromium) from water sample treated for 48 hours.
+
+Fig-13: Effect of treatment of Chromium in sewage water by different amount of cucumber peels
+Comparison of all bio-sorbents in all samples
+
+Comparison of Treatment of Lead with all Natural Products at Harnouli for 1g/L
+
+Comparison of Treatment of Chromium with all
+Comparison of Treatment of Chromium with all
+
+Sample Cocu 24hr Cocu 48hr Pris 24hr Pris 48hr B.Ap 24hr B.Ap
+
+0.7 0.6 0.65 0.58 0.54 0.43 0.37
+
+Comparison of Treatment of Chromium with all
+
+Sample Cocu 24hr Cocu 48hr Pris 24hr Pris 48hr B.Ap 24hr B.Ap
+
+0.4 0.3 0.3 0.3 0.2 0.28 0.23
+
+https://doi.org/10.26434/chemrxiv-2024-04wxi-v2 ORCID: https://orcid.org/0009-0001-8386-4976 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+Comparison of Treatment of Chromium with all Natural Products at Harnouli for 1g/L
+
+Comparison of Treatment of Lead with all Natural Products
+Some glimpses from experimental work in laboratory of Punjab Daanish School Boys Mianwali
+Mechanism of Bio sorbent with Sample
+Actually binding mechanism of Bio sorbent is based upon Bio sorption mechanism which is a complex process. Metal ions and natural product substance may occur through bio sorption i.e physical interaction and Vander Waals forces or any other type of association may occur. There are many functional groups present in these Biosorbents which are effective for adsorption phenomena for heavy metals.
+
+FLOW SHEET DIAGRAM
+- COLLECTION OF PLANTS TO MAKE EFFECTIVE BIOSORBENT
+- DRIED PEELS TO MAKE THEIR POWDER
+- COLLECTION OF SEWAGE WATER SAMPLES
+- UNTREATED WATER SAMPLES SENT TO LABORATORY FOR ATOMIC ABSORPTION SPECTROSCOPY (AAS)
+- CLASSIFICATION OF WATER SAMPLES ACCORDING TO BIOSORBENT CONCENTRATION USED AND TIME
+- ADDITION OF BIOSORBENT TO WATER SAMPLES
+- FILTERATION
+- TREATED SAMPLES SENT TO LABORATORY FOR ATOMIC ABSORPTION SPECTROSCOPY (AAS)
+- HANDLING AND ANALYSIS OF DATA
+- GRAPHICAL ANALYSIS
+- CONCLUSION
+- RECOMMENDATIONS AND APPLICATIONS
+Conclusion
+
+As we have discussed that our extract consists of three Bio-sorbents i.e Peels of Bitter apple, Persimmon and Cucumber. Through these experimental results, we conclude that by increasing amount of Bio-sorbents (1g,2g,3g), heavy metals are reduced effectively in given samples. Bitter apple shown too much positive and effective results as compared to Persimmon and Cucumber. Cucumber is the least effective material as compared to others.
+
+48 hours treated sewage water samples of Bitter apple are most effective to reduce/remove heavy metals than 24hours. Persimmon also showed positive results to remove/reduce heavy metals from sewage water (as explained above in table and graph).
+
+Cucumber has shown strange property to remove/reduce heavy metals from sewage water. Results show that powder of peel of cucumber has reduced heavy metals more in short time period. It means by increasing the time duration of cucumber powder with sewage water, less absorption of heavy metals take place.
+
+Recommendation
+
+From the results of experiments, we conclude that if we want to remove heavy metals from sewage water or any type of water. We can use powder of peels of Bitter apple, Persimmon and Cucumber. Actually this is a low cost method to purify water from toxic heavy metals. So, it is recommended that large amount of these bio-sorbents should be used to remove more heavy metals from water at large scale to safe the aquatic life or to make waste water safe for irrigation.
+
+References
+
+Akpomie, K. G., & Conradie, J. (2020). Banana peel as a biosorbent for the decontamination of water pollutants. A review. *Environmental Chemistry Letters*, 18(4), 1085-1112.
+
+Alam, M., Khan, M., Khan, A., Zeb, S., Khan, M. A., ul Amin, N., Sajid, M., & Khattak, A. M. (2018). Concentrations, dietary exposure, and human health risk assessment of heavy metals in market vegetables of Peshawar, Pakistan. *Environmental monitoring and assessment*, 190(9), 1-15.
+
+Bolisetty, S., Peydayesh, M., & Mezzenga, R. (2019). Sustainable technologies for water purification from heavy metals: review and analysis. *Chemical Society Reviews*, 48(2), 463-487.
+
+Chaoua, S., Boussaa, S., El Gharmali, A., & Boumezzough, A. (2019). Impact of irrigation with wastewater on accumulation of heavy metals in soil and crops in the region of Marrakech in Morocco. *Journal of the Saudi Society of Agricultural Sciences*, 18(4), 429-436.
+
+Chaturvedi, S., & Dave, P. N. (2019). Water purification using nanotechnology an emerging opportunities. *Chemical Methodologies*, 3(1), 115-144.
+
+Chowdhary, P., Yadav, A., Singh, R., Chandra, R., Singh, D., Raj, A., & Bharagava, R. N. (2018). Stress response of Triticum aestivum L. and Brassica juncea L. against heavy metals growing at distillery and tannery wastewater
+contaminated site. Chemosphere, 206, 122-131.
+
+Fu, Z., & Xi, S. (2020). The effects of heavy metals on human metabolism. Toxicology mechanisms and methods, 30(3), 167-176.
+
+Griebler, C., Avramov, M., & Hose, G. (2019). Groundwater ecosystems and their services: current status and potential risks. In Atlas of ecosystem services (pp. 197-203). Springer.
+
+Gutierrez, I. R., Tovar, A. K., & Godínez, L. A. (2018). Sustainable Sorbent Materials Obtained from Orange Peel as an Alternative for Water Treatment. Wastewater and Water Quality, 201.
+
+Kamran, M., Malik, Z., Parveen, A., Huang, L., Riaz, M., Bashir, S., Mustafa, A., Abbasi, G. H., Xue, B., & Ali, U. (2020). Ameliorative effects of biochar on rapeseed (Brassica napus L.) growth and heavy metal immobilization in soil irrigated with untreated wastewater. Journal of Plant Growth Regulation, 39(1), 266-281.
+
+Kausley, S. B., Dastane, G. G., Kumar, J. K., Desai, K. S., Doltade, S. B., & Pandit, A. B. (2018). Clean Water for developing countries: feasibility of different treatment solutions. Encyclopedia of Environmental Health.
+
+Mallampati, R., Xuanjun, L., Adin, A., & Valiyaveetil, S. (2015). Fruit peels as efficient renewable adsorbents for removal of dissolved heavy metals and dyes from water. ACS Sustainable Chemistry & Engineering, 3(6), 1117-1124.
+
+Manzoor, J., Sharma, M., & Wani, K. A. (2018). Heavy metals in vegetables and their impact on the nutrient quality of vegetables: A review. Journal of plant Nutrition, 41(13), 1744-1763.
+
+Massoud, R., Hadiani, M. R., Hamzehlou, P., & Khosravi-Darani, K. (2019). Bioremediation of heavy metals in food industry: Application of Saccharomyces cerevisiae. Electronic Journal of Biotechnology, 37, 56-60.
+
+Meruvu, H. (2021). Introduction to Industrial Wastewater and Allied Treatment Technologies. In Biological Treatment of Industrial Wastewater (pp. 74-86).
+
+Obinna, I. B., & Ebere, E. C. (2019). A review: Water pollution by heavy metal and organic pollutants: Brief review of sources, effects and progress on remediation with aquatic plants. Analytical Methods in Environmental Chemistry Journal, 2(03), 5-38.
+
+Qadir, M., Tubeileh, A., Akhtar, J., Larbi, A., Minhas, P., & Khan, M. (2008). Productivity enhancement of salt-affected environments through crop diversification. Land degradation & development, 19(4), 429-453. 603-609. https://doi.org/10.3881/j.issn.1000-503x.10661
+Report received from Laboratory is attached as an ANNEXURE A.
+
+ANNEXURE A
+
+**HEAVY METALS ANALYSIS REPORT**
+
+Name of Customer: Muhammad Yasin (Science Teacher at Danish School)
+
+Commodity: Water Samples
+
+Receiving Date: 20-11-2019
+
+| Sample ID | Customer ID | Sample History | Result | Lead (Pb) ppm | Cadmium (Cd) ppm | Chromium (ppm) |
+|-----------|-------------|----------------|--------|---------------|------------------|----------------|
+| 1054      | Pipian      | Unknown History|        | 0.64          | ND               | 0.41           |
+| 1055      | Harnouli    | Unknown History|        | 0.37          | ND               | 0.72           |
+| 1056      | BP*1a       | Unknown History|        | 0.47          | ND               | 0.28           |
+| 1057      | BP*1b       | Unknown History|        | 0.41          | ND               | 0.23           |
+| 1058      | BP*2a       | Unknown History|        | 0.36          | ND               | 0.18           |
+| 1059      | BP*2b       | Unknown History|        | 0.29          | ND               | 0.14           |
+|          | BP*3a  | Unknown History | 0.22 | NIJ | 0.13 |
+|----------|--------|----------------|------|-----|------|
+| foaf     | BP*3b  | Unknown History | 0.14 | NIJ | 0.10 |
+|          | H2a    | Unknown History | 0.27 | ND  | 0.58 |
+| 1062     |        |                |      |     |      |
+| 1063     | In*e*n Ilisiog | 0.24 | NIJ | 0.54 |
+| 10G4     | PH2a   | Unknown History | 0.19 | ND  | 0.42 |
+| 065      | PH2b   | Unknown History | 0.17 | ND  | 0.36 |
+|          | PH3a   | Unknown history | g1$  | ND  | 0.34 |
+| i0G6     |        |                |      |     |      |
+| 1067     | PH3b   | Unknown History | a.12 | ND  | 0.29 |
+|          | PP*3a  | Unknown HiSIO  | 0.54 | ND  | 0.34 |
+| 069      | r*ib   | Unknown History | 0.50 | ND  | 0.29 |
+| No. | Dated | PP*2a | Unknown History | 0.41 | N15 | 0.28 |
+|-----|-------|-------|----------------|------|-----|------|
+| 1071 |       | "**"  | **Unown /Isten | 0.37 | ND  | 0.25 |
+| 1072 |       | "**"  | Unknown History | 0.37 | ND  | 0.19 |
+| 1073 |       | "3b   | Unknown HistoY | 0.24 |     | 0.16 |
+| 1074 |       | CH1a  | Unknown History | 0.32 | NU  | 0.61 |
+| 1075 |       | CH1h  | Unknown History | g yg | NU  | 0.65 |
+| 1076 |       | CH2a  | Unknown I-tStor\ | 0.27 | ND  | 0.54 |
+| 1077 |       | CH2b  | Unknown History | 0.30 | ND  | 0.58 |
+|      |       | CH3a  | Unknown History | 0.25 | ND  | 0.47 |
+|      |       | CH3b  | Unknown History | 0.25 | ND  | 0.50 |
+|     |                | 0.57 |   | 0.35 |
+|-----|----------------|------|---|------|
+| **CP**\(^1\)\(_a\) | Unknown History |      | ND |      |
+| **CP**\(^1\)\(_b\) | Unknown History | 0.62 | ND | 0.38 |
+|     | **CP**\(^2\)\(_a\) | Unknown History | 0.49 | ND | 0.30 |
+| 1083 | **CP**\(^2\)\(_b\) | Unknown History | 0.53 | ND | 0.33 |
+|     | **CP**\(^3\)\(_a\) | Unknown History | 0.43 | ND | 0.27 |
+| 1085 | **Cl**\(^3\)\(_b\) | Unknow History | p.kg | MD |      |
+|     | **BH**\(_a\) | Unknown History | a.23 | ND | 0.43 |
+|     | **8H**\(_1\)\(_b\) | Unknown History | 0.20 | ND | 0.37 |
+|     | **BH**\(_2\)\(_a\) | Unknown History | 0.13 | ND | 0.25 |
+|     | **BH**\(_2\)\(_b\) | UnkOOWD History | 0.11 | WD | 0.20 |
+Sample Prepared By: ____________________ Sample Analyzed By: ____________________
+
+Agricultural officer                             Agricultural Officer
+Pesticide Residue Laboratory                  Pesticide Residue Laboratory
+Kala Shah Kaku                              Kala Shah Kaku
+
+Report Reviewed By: ____________________ Report Issued By: ____________________
+
+Agricultural officer                             Agricultural Officer
+Pesticide Residue Laboratory                  Pesticide Residue laboratory
+Kala Shah Kaku                              Kala Shah Kaku

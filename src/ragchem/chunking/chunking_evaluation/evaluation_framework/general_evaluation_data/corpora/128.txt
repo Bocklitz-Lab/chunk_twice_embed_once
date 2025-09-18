@@ -1,0 +1,308 @@
+Information dense and industry scalable accelerated formation
+
+Leon Merker 1,2,3,4, Markus Blessing 5, Bojing Zhang 3,4, Helge Sören Stein 3,4
+
+1: Helmholtz Institute Ulm, Helmholtzstr. 11, 89081 Ulm, Germany
+2: Karlsruhe Institute of Technology, 76021 Karlsruhe, Germany
+3: Technical University of Munich, Germany, Lichtenbergstr. 4, 85748 Garching; TUM School of Natural Sciences, Department of Chemistry, Chair of Digital Catalysis; Munich Institute of Robotics and Machine Intelligence (MIRMI); Munich Data Science Institute (MDSI), Munich Institute of Integrated Materials, Energy and Process Engineering (MEP)
+4: Munich Center for Machine Learning (MCML), Oettingenstraße 67, 80538 München, Germany
+5: Zentrum für Sonnenenergie- und Wasserstoff-Forschung Baden-Württemberg Ulm, Ulm, Germany
+
+*Correspondence should be addressed to: leon.merker@tum.de, helge.stein@tum.de
+
+Abstract
+Bespoke formation of Batteries offers improved lifetime and performance but is generally associated with long processing times, high cost, and large floorspace. Facile strategies like heating or increasing the formation current, as well as current alterations during formation have their limits in speed up and efficiency. We present pulsed formation on graphitic anode full cells as an accelerated formation strategy and investigate its influence on various quality parameters. Optimized pulsed charging is demonstrated herein to reduce the formation time by more than 50% whilst maintaining or improving all other cell quality parameters including discharge capacity. The newly discovered protocol is scaled up to 25Ah prismatic cells in the PHEV1 format that confirm the accelerated and improved pulsed formation strategy. We attribute the accelerated and improved formation to an apt balance of surface and bulk diffusion which results in thinner, more homogenous SEI. Dynamics of pulsed formation also allow for the extraction of new quality markers while formation is happening.
+
+Introduction
+At scale production of secondary batteries intersects multiple disciplines ranging from high level economics, mechanical engineering, physical modelling and electrochemistry - to name a few. A key aspect in improving the overall productivity of a production line for any format cells is to identify and improve production bottlenecks [1]. Whilst electrode coating, stacking and assembly are rather fast, the final production step of formation and aging may take up to 24 hours or longer [2–5].This is
+due to very low charge rates (C-rates) over multiple consecutive cycles, i.e. 18 – 30 hours of total formation time to form a “good” Solid Electrolyte Interphase (SEI). These ultra slow charging rates upon formation, are less than a choice rather than a necessity as formation is known to be a prime failure point resulting in 5-10% rejection rates [6–8]. The obvious strategy of simply charging cells faster during formation does however not work as higher formation currents lead to lower efficiencies as the SEI becomes less uniform and thicker [9]. Even worse, cells may catastrophically fail due to the build-up of “dead Lithium” through plating or dendrites [10,11]. Increased temperatures during formation are thus often used to access a more favourable mobility and diffusion regime of Li into vs. onto graphite [5,12]. Recently optimization papers have shown that they can build SEIs through tuning the temperature and charge current to increase cycle life at the cost of capacity [5,12]. This, again, shows that an increase of current leads to “thicker” and thus less reactive SEIs. Claims of up to 50% longer lifetime through formation tested by constant current constant voltage (CCCV) cycling will however need to be amended with calendaric aging and drive cycle testing [13]. The inevitably higher SEI resistance caused by increased thickness would also limit maximum (dis)charge rates and it remains doubtful that extending the already long cycle life of automotive batteries would counteract lowered EV-range. Recent literature cautions on making claims about cell lifetimes based on coin cells can be misleading [14–16]. This is why herein we demonstrate our formation protocol on 25Ah prismatic cells to demonstrate the applicability on realistic cell formats.
+
+Another great benefit of pulsed vs. constant current (CC) charging is the added dynamics that offer a wealth of information for quality diagnostics and even live adjustments during formation [17], as described in a recently filed patent by some of the authors of this study (WO2024170596 [18], also see Conflicts of interest section). A facile quality parameter to be extracted is for instance the internal resistance (iR), measured as the voltage drop when a current is applied or upon release. Naturally fast pulses will crosstalk but measured iR drops may give a model free indication for the current state of health (SOH) of the cell during formation. The same can be applied, within limits, for a calculation of the diffusion coefficient. The so obtained live cell parameters could then also be applied to adjust pulse parameters to perform formation for every cell optimally and individually. Though such parameter extraction requires some human validation [19], this wealth of data would be impossible to obtain from CCCV or even smoothly varied currents. Extraction of such quality parameters and live feedback is however left for a follow-up publication.
+
+On an economic scale the speedup of formation by a factor of 50% could lower production cost in existing plants by up to 10% per cell and capital expenditure (CAPEX) at even greater scale using a quick back of the envelope calculation using BatPaC [20].
+
+Methods
+All electrodes used in this paper were manufactured at Zentrum für Sonnenenergie- und Wasserstoff-Forschung Baden-Württemberg (ZSW) and used for the assembly of coin cells at Helmholtz Institute Ulm (HIU) as well as for the assembly of prismatic cells in the Plug-in Hybrid Electric Vehicle 1 (PHEV1) format at ZSW. For the cell chemistry used, an NMP-based NMC-622 cathode with 95.5% active material content and a loading density of 14.5 mg/cm² was produced to achieve an areal capacity of 2.40 mAh/cm². On the anode side, a water-based graphite anode was manufactured with an active material content of 94% and a surface loading of 8.6 mg/cm² and an area capacity of 2.70 mAh/cm² per coating side, resulting in N/P ratio of 1.125.
+
+Assembly of coin cells
+Coin cells (CR2032) were automatically assembled by the in-house developed robotic AutoBASS-system [21–23] in a nitrogen-filled glovebox with H₂O and O₂ levels below 0.1ppm [17]. The coin cell parts were washed with isopropanol in an ultrasonic bath and dried in an oven at 80°C overnight before the assembly. The NMC (622) cathodes were cut in 14 mm discs, graphite anodes in 15 mm discs and Celgard® 2325 separator(25 µm microporous trilayer Membrane (Polypropylene / Polyethylene/ Polypropylene) in 16 mm discs. 35 µL of 1M LiPF₆ in EC:EMC (3:7 wt:wt) from manufacturer E-Lyte was used as electrolyte. The nominal capacity C_nom for all cells was calculated to be 3.28 mAh based on the areal cathode discharge capacity of 2.14 mAh/cm² at 1C discharge given by the supplier ZSW. All cells went through a 24 h wetting at a controlled temperature of 20°C before starting tests with the anode facing down. Tests were performed on an Arbin battery cycler (LBT21084-5).
+
+Assembly prismatic cells
+The large-scale prismatic hardcase cells in the PHEV1 format (L: 173 x W: 21 x H: 86 mm excl. terminals) were assembled at the automated and industrially relevant research production line (FPL) at ZSW in a controlled dry room atmosphere with a dew point temperature of -45°C. For a reliable comparison, identical electrodes and separator were combined into a flatwound jelly roll with an active cathode surface of 11.120 cm². For the prismatic hardcase cells, 110 g of 1M LiPF₆ in EC:EMC (3:7 wt:wt) +2% VC was filled in nitrogen atmosphere and in accordance with the coin cells, a wetting time of 24 hours at 20 °C was carried out. The formation and cycle procedures were performed with a format-specific battery tester from thyssenkrupp Automation Engineering GmbH.
+
+Test protocol
+In this work CC or current pulses were used for the formation of cells. Formation is here defined as the first charge and discharge after assembly and wetting including constant voltage (CV) steps until a specified current cut-off value is reached.
+For the charge step using CC, a defined current $I_{CC}$ was applied until an upper voltage limit $V_{\text{limit}}$ of 4.2 V was reached.
+
+Within the charge process using pulses, a current $I_{\text{pulse}}$ was applied for a defined time $t_{\text{on}}$ followed by a rest step lasting $t_{\text{off}}$ summing up to the pulse length $t_{\text{pulse}}$. This pulse sequence was repeated until reaching the upper $V_{\text{limit}}$. All cells were discharged at 1C to 2.9 V followed by a CV step at 2.9 V until the current reached a threshold value of 3.5 days, a C/20 cutoff value was used in the calculations to maintain comparability of the results.
+
+All CC C-rates $C_{CC}$ are calculated as applied current $I_{CC}$ in ampere relative to the nominal capacity $c_{\text{nom}}$ in Ampere hours.
+
+$$C_{CC} = \frac{I_{CC}}{c_{\text{nom}}} \quad \text{Eq. 1}$$
+
+For pulses, the effective C-rate $C_{\text{eff}}$ based on the applied pulse C-rate $C_{\text{pulse}}$ can be calculated as follows:
+
+$$C_{\text{eff}} = C_{\text{pulse}} \cdot \frac{t_{\text{on}}}{t_{\text{pulse}}} \quad \text{Eq. 2}$$
+
+C-rates are given in 1/h, whereas times like $t_{\text{on}}$ are given in seconds. To give an overview of all pulse strategies used, Figure 1 shows the exemplary voltage course during formation, with a detailed view of the voltage transient and charge current to for an emblematic pulse shape.
+
+The CC C/20 formation (red curve) was used as a reference formation. Two subsets (blue and green curves) of accelerated protocols were investigated. The effective C-rates are rounded and strategies plotted in green were considered as one subset, although there is a negligible difference in effective C-rates of the mixed C/5.7+C/20 formation.
+Figure 1. presents exemplary charging curves associated with the formation of the solid electrolyte interphase (SEI) in a nickel manganese cobalt (NMC) (622) graphite coin cell. The red curve, which represents a common constant current (CC) charging method at a rate of C/20, serves as reference. The first subset of accelerated formation times is illustrated by the blue plots, which exhibit an effective C-rate of 8.2. Within this subset, CC charging at C/8.2 has been selected for direct comparison. Conversely, the cells employ a pulsed charging approach at C/5.7 (with a duration of $t_{\text{on}} = 3$ s, $t_{\text{off}} = 1.33$ s, and current $i = C/5.7$). Furthermore, the analysis includes a pulsed strategy characterized by double the duration ($t_{\text{on}} = 6$ s, $t_{\text{off}} = 2.66$ s, $i = C/5.7$) to evaluate its effective C-rate and explore the potential influence of the $t_{\text{on}}/t_{\text{off}}$ ratio. The second subset, characterized by the greenish plots, corresponds to even shorter formation times and achieves effective C-rates of approximately C/7.2. In this subset, the formation current is increased using a pulsed C/5 ($t_{\text{on}} = 3$ s, $t_{\text{off}} = 1.33$ s, $i = C/5$), alongside a mixed strategy that combines C/5.7 and C/20 ($t_{\text{on}} = 3$ s, $i_{\text{on}} = C/5.7$, $t_{\text{CC20}} = 1.33$ s, $i_{\text{off}} = C/20$) as well as an increased $t_{\text{on}}$ pulsed duration of 5 s ($t_{\text{on}} = 5$ s, $t_{\text{off}} = 1.33$ s, $i = C/5.7$). Detailed analysis, including zoomed-in plots of voltage and current profiles, clarifies the distinctions among these charging strategies.
+
+The first subset has an effective C-rate of C/8.2, including a C/5.7 current and a 4.33 s pulse ($t_{\text{on}} = 3$ s, $t_{\text{off}} = 1.33$ s), a CC C/8.2 formation for direct comparison and a doubled pulse length with C/5.7 current and a 8.66 s pulse ($t_{\text{on}} = 6$ s, $t_{\text{off}} = 2.66$ s) to maintain the effective C-rate and investigate the possible influence of the ratio of $t_{\text{on}}$ and $t_{\text{off}}$. 
+Values for the time composition of the pulse and current originate from an empirical model for pulsed charging and tried to mitigate the capacity loss whilst maintaining a high charge speed below 10 hours.
+
+As first results of formation and long-term cycling of the C/5.7 pulsed cells showed promising results, a second subset with even faster formation times was investigated. This subset includes a current increase to C/5 while keeping the split and length of pulse \( t_{\text{pulse}} = 4.33 \) s constant, as well as an increased time \( t_{\text{on}} \) to 5 s, while maintaining \( t_{\text{off}} \) and current.
+
+Additionally, a pulsed strategy having C/5.7 current during the \( t_{\text{on}} \) and C/20 current during off-time \( t_{\text{off}} \) was examined.
+
+For this strategy the effective C-rate \( C_{\text{eff-mixed}} \) can be calculated via:
+
+\[
+C_{\text{eff-mixed}} = C_{\text{pulse}} \cdot \frac{t_{\text{on}}}{t_{\text{pulse}}} + C_{CC} \cdot \frac{t_{\text{off}}}{t_{\text{pulse}}} \quad \text{Eq.3}
+\]
+
+After the formation all cells undergo an End-of-Line test, including different that includes determination of quality parameters.
+
+The EOL test starts with a first capacity check (CC1) (C/2 charge and discharge) to determine a set of baseline parameters after formation.
+
+The following determination of the iR \( R_{\text{internal}} \) and later calculated Area specific impedance (ASI) value was performed using the Hybrid Pulse Power Characterization (HPPC) method including a 3C discharge pulse of 30s after discharging the cell to 4 V which is assumed to be equal to 75% state of charge (SOC). The SOC was defined based on the used voltage window (2.9 - 4.2 V).
+
+For the calculation Ohm’s law was used including the value of the 3 C-rate discharge current \( i_{3C} \) as denominator and the voltage difference between the voltage after discharging to 3 V and the last voltage of the 3C discharge pulse \( V_{3C-pulse} \) as numerator i.e.:
+
+\[
+R_{\text{internal}} = \frac{(3\, V - V_{3C-pulse})}{i_{3C}} \quad \text{Eq.4}
+\]
+
+The smaller cathode dimensions as a limiting factor were chosen for calculating the area of 1.54 cm\(^2\) for the ASI values.
+
+The voltage decay value was determined from the following self-discharge part where the cells were charged at 1C-rate CCCV (current cut-off value of C/20), resting the cells for 5 days measuring the potential and discharge of the batteries at 1C-rate afterwards.
+
+Two more capacity checks (CC2 and CC3) with C/2 charge and discharge were performed to investigate changes in comparison to the first check. Additionally, a slow cycle using C/10 for charge and discharge was performed as well as charging to a storage voltage of 3.7 V.
+
+In between these steps the cells had a rest time of 5 min.
+
+For all cells long term stability tests were performed after EOL test using 1C CCCV until C/20 was reached in the CV step for charging and 1C CC discharge for 300 cycles. The voltage transient during the whole test is exemplary shown in Figure S1.
+Results and Discussion
+
+The following results and plots are based on 5 cells per parameter set to account for cell to cell variation. Only averages and resulting variations are reported.
+
+Formation
+
+Within this work box-plots are used to present the results and indicate some statistical parameters. For all box-plots, the green horizontal line within the boxes indicates the median. The box represents the range of the middle 50% of the data. The whiskers reveal the minimum and maximum up to 1.5 times of the box range. Circles outside the whiskers are considered as outliers, as they lie outside of the 75% percentile range. Asymmetric boxes w.r.t. the median or length differences of the whiskers represent non-normal distribution. The coulombic efficiency was determined by calculation of the ratio of the discharge capacity including the CV part to the charge capacity.
+
+![Box-plots](image)
+
+**Figure 2.a)** Box-plots of charge (colored) and discharge (transparent) formation capacities of reference CC C/20 and the accelerated subsets ordered by their mean wall time for formation charge. Each box represents the middle 50% of 5 cells data, whereas the whiskers cover 75% of data and circles are considered outliers. The green line within the boxes represents the median. The median capacities of the CC C/8.2 formation is lower than the reference but also lower than the pulsed cells of the subset. In the C/7.2 subset larger box sizes can be observed.
+but median values remain in the same range as the other subset. Box-plots in b) of the
+coulombic efficiencies of the formation arising from charge and discharge capacities in a). The
+errorbars indicate the maxima and minima wall time measured in the data of the respective
+strategy. The median efficiency for the reference has the highest value around 84%. All pulsed
+median values are slightly higher than the C/8.2 efficiency with larger box sizes towards lower
+numbers for all green plots.
+
+Figure 2 a) present colored box-plots of the absolute charge capacities and
+transparent one for the discharge capacities of the formation step ordered by their
+mean wall time of the formation charge.
+
+Comparing box-plots of CC formed cells (reference C/20 and C/8.2) reveal slightly
+lower median values for charge and discharge capacity of the accelerated C/8.2
+formation, likely due the negative impact of higher currents on the SEI.
+
+Median values of the pulsed formation in the C/8.2 subset appear to be in the same
+range but tend towards higher values. Despite the even higher effective C-rate the
+green C/7.2 subset capacities present similar median values but larger variance.
+The mixed pulsed C/5.7+C/20 cells show the lowest median values for charge and
+discharge of all cells.
+
+In the box-plots of Figure 2 b) the coulombic efficiencies of the formation is plotted and
+also sorted by their charge wall time. Errorbars of the box-plots indicate the maximum
+and minimum wall time of the respective data. The highest median coulombic
+efficiency of around 84% can be calculated for the reference.
+
+As the formation of the SEI consumes lithium ions to form the protective decomposition
+products the coulomb efficiency is expected to be lower than in regular cycles, where
+the expected efficiency would be ideally slightly less than one.
+
+The blue plots with an effective current of C/8.2, show comparable variance and
+median efficiencies of 81.5% for the CC cells, whereas both pulsed plots show higher
+median efficiencies around 83%.
+
+For the green plots larger and pulled down boxes can be observed, indicating towards
+lower values. The medians of all green strategies have similar values to the blue
+pulsed formations around 83%.
+
+Efficiencies around 83% for comparable cells can be found in literature [24,25].
+Assessing the calculated mean wall time of the charging of the formation for the CC
+formations reveals an additional wall time of 4 h for the C/20 cells and 1 h for the C/8.2
+cells.
+
+For additional 1.5 h and 1.2 h for the pulsed C/5.7 and the double length pulsed and
+the CC cells can be determined.
+
+For the C/5 formed cells 1.2 hours, for the mixed C/5.7+C/20 cell 1 h and for the pulsed
+5s cell 50 min of additional time is measured.
+
+Taking maxima and minima wall time indicated by the errorbars into account, the
+formation time within the subsets can be proposed to be in the same range.
+The non-matching mean charging formation time in comparison to the estimated time
+by the C-rate of the respective formation strategies could originate in mismatches of
+theoretical and actual capacities, as well as additionally needed time for reactions of
+the formation.
+Reasons as to why higher charge and discharge capacities can be observed for the pulsed formation remain to be fully understood and will be discussed in a follow-up publication.
+
+**Area specific impedance & self-discharge**
+
+Potential influences of the pulsed formation on quality parameters like the ASI and self-discharge are investigated in the following. Figure 3 shows the determined ASI results using the HPPC method for the tested formation strategies after the first capacity check. Conspicuously a larger cell-to-cell variation for the reference cells can be observed with a median ASI value of 24±4 Ohm cm$^{-2}$. For the blueish effective C/8.2 cells the CC cells show significantly higher median values around 27 Ohm cm$^{-2}$ and two outliers in both directions, whereas the pulsed C/5.7 cells present median values around 20 and the cells with doubled pulse length values around 16 Ohm cm$^{-2}$.
+
+Figure 3. presents the box-plots of the ASI values for the reference and both blue and green accelerated formation subsets sorted by their mean charge formation time. The red reference shows a conspicuously large box size and additionally both CC formed cells have significantly higher ASI values than the pulsed formed cells except for the C/5 formation. The outlying high median value for the C/5 cells in the green subset could indicate towards lithium plating and more side reactions during formation due to the higher current applied.
+The green box-plots of pulsed C/5.7 5s and the mixed C/5.7 + C/20 show similar median ASI values around 16 Ohm cm$^{-2}$, whereas the mixed cells show larger box size up to 23 Ohm cm$^{-2}$. The C/5 cells show the highest median value of all pulsed cells of 25 Ohm cm$^{-2}$. As a consequence of an assumed thinner SEI from pulsed formation, in agreement with Wang et al. [26], we observe lower ASI values for pulsed formation compared to CC formed cells. The higher ASI values for the C/5 cell could indicate towards lithium plating or a thicker SEI due to more side reactions. Despite differences in the test protocol similar values can be found in literature for CC formed cells using the HPPC method [31][32], or electrochemical impedance spectroscopy (EIS) [27].
+
+Besides, the ASI pulsed and CC formation are also analysed regarding their self-discharge using the capacity loss method [28,29].
+
+Figure 4 exemplary shows the transient of voltage of one cell for each strategy. The strong over-potential decay in the beginning, originating from the fast declining ohmic and charge transfer resistances as well as following slow diffusion [28,30–32], can be observed for all cells.
+
+Figure 4. presents the exemplary course of the voltage for one cell of each strategy resting for 5 days. The initial potential drop caused by fast declining ohmic and charge transfer resistances is higher for both CC formed cells as well as for C/5 cells in comparison to all other batteries but in agreement with the ASI measurement of the resistances. The voltage decay value of the self-discharge is determined by the slope of the linear fit of the voltage over square root of time. The voltage values of the first 24h are declined for comparison reasons.
+impressions of a steeper course of voltage decay are supported by higher voltage decay values between -3 to -4.5 mV \( \sqrt{\text{h}} \) in comparison to -2.5 to -3.5 mV \( \sqrt{\text{h}} \) for the CC formed cells. The initial potential drop is lower for the pulsed cells except for the C/5 cells in comparison to CC formed cells in agreement with the ASI values.
+
+For the sake of comparison, the system is assumed to relax within the first 24 h and Figure S6 shows that the decay in voltage is proportional to the square root of time, suggesting mostly diffusion based processes also in agreement with other reports [28,30]. The voltage decay value for the diffusion phase was calculated to be the slope of the linear fit of voltage over the square root of time and the values for all cells are plotted in Figure S7. For the CC formed cells values between -2.5 and -3.5 mV \( \sqrt{\text{h}} \), whereas the values for the pulsed cells are slightly higher between -3 and -4.5 mV \( \sqrt{\text{h}} \). The voltage loss is assumed to be in direct connection with self-discharge capacity. The effect of SEI growth [33–35] due to cracks and anode overhang [28,36–38] are mainly assumed to be responsible for these losses. During the rest phase at high voltages of the self-discharge these reactions also consume lithium of the anode and reduce its capacity and voltage. The effects of anode overhang originate in the mismatch in size of the electrodes and the electrode potential change due to slow lithium diffusion during the rest phase between active and overhang material. This results in an unexpectedly high discharge capacity and coulomb efficiencies greater than unity [39,40] visible in Figures S4 and S5 of the following cycles of CC2 and CC3.
+
+Scale-up and Long-term cycling
+
+In cooperation with ZSW the pulsed formation protocol was scaled up to application orientated cell format of prismatic 25Ah PHEV1 format cells. For these tests the pulse configuration with C/5.7 was used as it shows low variance and good results before.
+
+Figure 4 presents the voltage over the area specific capacity of CC and pulsed formation for 5 cells of coin cells in a) and PHEV1 cells in b)
+Figure 4. Voltage course plotted over area specific charge capacity of 5 CC C/20 and 5 pulsed C/5.7 (t_on = 3 s, t_off = 1.33 s, i = C/5.7) formed cells for a) coin cells and b) PHEV1 cells. The course of pulsed formed coin cells in a is shifted up to 100 mV compared to CC cells between 3.55 V and 3.9 V. Both formation strategies charge up to around 2.5 mAh/cm² and discharge followed by a CV part down to around 0.23 mAh/cm². This value is interpreted as lithium loss during formation. The PHEV1 cells in b) also charge up to around 2.5 mAh/cm² with a similar shift to higher voltages of the pulsed course in the range of 3.55 V to 3.75 V. The discharge and following CV part ends at values around 0.2 mAh/cm² but with a shorter CV part compared to the coin cells.
+
+For coin cells presented in Figure 4 a) the areal capacity rises around 2.5 mAh/cm² with smaller differences between pulsed and CC formation despite the higher pulse current.
+
+For the CC C/20 coin cells show low variance in course and shoulders can be observed around 3.55 V and 3.65 V. For the pulsed formed coin cells, a similar but 100 mV shifted course between 3.55 V to 3.9 V can be calculated.
+
+Certain SEI products could benefit from this higher hysteresis and be preferably formed during the formation, also hinting towards potential differences in the SEI.
+
+The charge part of both reference and pulsed formation of PHEV1 cells in figure 4 b) also reaches up to 2.5 mAh/cm² while showing low course variance for both formation strategies. Apart from a small dip in the reference cells referring to the sealing of the cells after initial degassing, the courses of reference and pulsed is similar to the coin cells including the same shoulders and the shift to higher voltages of the pulsed cells but only in the range of 3.55 V to 3.75 V.
+
+The discharge curve is nearly matching for CC and pulsed PHEV1 cells as well as the following vertical CV-part of the discharge but with a shorter CV part compared to the coin cells.
+The gap to zero of the vertical CV part can be interpreted as the lithium loss caused by the SEI formation processes. The lithium inventory loss is quantified by the coulombic efficiency, which is slightly higher for PHEV1 cells of around 89% but in the same range for CC and pulsed formation. The determined mean ASI value for pulsed formed PHEV1 cells is $1.0 \times 10^{-8}$ Ohm/cm$^2$ and the voltage decay value is between -1.7 and 2.9 mV $\sqrt{\text{h}}$. The determined mean ASI value for the reference formed PHEV1 cells is $1.3 \times 10^{-8}$ Ohm/cm$^2$ and the voltage decay value is between -1.5 and -1.7 mV $\sqrt{\text{h}}$.
+
+Recently published literature comparing coin cells and pouch cells [15,16] supports the high difference in ASI values.
+
+![Figure 5](https://doi.org/10.26434/chemrxiv-2025-9zf4v)
+
+**Figure 5.** Course of the mean discharge capacity of 300 cycles of 5 pulsed and 5 CC formed cells for coin (blue) and PHEV1 (purple) cells. Capacities were scaled to the first mean discharge cycle measured. Errorbars indicate the standard deviation of the mean values. Zoom-in on the PHEV1 course on cycle 150 to 200 reveal higher but nearly negligible standard deviation of pulsed formed cells in comparison to CC formed cells.
+
+Figure 5 presents the course of the mean discharge capacity of 300 cycles of 5 pulsed and 5 CC formed cells for both cell formats. All capacities were scaled to the first mean discharge cycle recorded. The PHEV1 data includes checkup-cycles every 50 cycles.
+with charge and discharge at a lower C-rate of C/2. Additionally, a zoom-in on the PHEV1 cells between cycle 150 and 200 is plotted. For all plots errorbars equal to the standard deviation of the mean values are added. For the coin cells data of CC C/8.2 and pulsed C/5.7 is plotted indicate the positive effect of pulsed charging within the same effective C-rate, whereas for PHEV1 cells CC C/20 and pulsed C/5.7 data is shown to point out the acceleration of up to 50% regarding formation time.
+
+The PHEV1 cells show low degradation of the discharge capacity and a remaining capacity after 300 cycles of around 94.9±0.1% for the CC C/20 cells and 95.1±0.2% of the pulsed formation.
+
+For most of the coin cells one can observe a larger decrease of discharge capacity within the first 60 cycles and afterwards a rather constant degradation.
+
+A large variance of the CC C/8.2 coin cells partly visible in the previous formation section is leading to a large range of remaining mean capacity of 78.8±4.4% after 300 cycles. For the pulsed cells lower variance and slightly higher remaining mean capacity of 79.8±0.4% is determined.
+
+For the one remarkable outlier of the coin cell CC C/8.2 at cycle 83 with low standard deviation no explanation could be found.
+
+Note that the electrolyte in the PHEV1 cells containing 2wt% of VC are reported to have slightly improved SEI stability and cycle performance [41,42].
+
+Results of all long-term tests for each strategy can be found in Figure S8 in the supplementary information.
+
+A recent publication of Cui et al. [5] using data-driven analysis of the formation parameter found that high formation charge currents and temperature in fact increases cycle life by shifting the electrode-specific utilisation range.
+
+This work supports their results as we apply a comparable high formation charge current during the pulsing but and observe better cycle life for the pulsed cells.
+
+We did neglect the influence of the temperature in this work but are confident in assuming even greater acceleration and optimization taking more parameters into account. However, we point out that our work focuses on a new strategy for the formation, enabling new materials and SEI design and not optimisation. In the future a combination could lead to an acceleration while maintaining or even improved quality and increased possibilities.
+
+**Summary and Conclusion**
+
+Pulsed formation is used to accelerate the charging of the formation process, which is otherwise a time-consuming production step and is demonstrated to not highly affect cell quality. This was first shown on automatically assembled NMC (622) |graphite CR2032 coin cells. The results hint towards a difference in composition of pulsed and CC SEIs and a thinner SEI for pulsed formation, in agreement with literature [26]. Quality estimation and comparison was done using determined values of ASI from
+HPPC tests, voltage decay values of self-discharge measurements as well as aging tests following the formation.
+Scaling-up the results to prismatic PHEV1 cells shows comparable results and quality in aging tests, using pulsed formation but bisect formation time.
+Detailed impact of the pulses on the formation remains to be fully understood but will be discussed in future publications.
+
+Acknowledgments
+The authors acknowledge Gauthier Studer for fruitful discussions regarding content and structure of this work.
+This project received funding from BMBF in the framework of the BMBF-Kompetenzcluster InZePro for the projects DataBatt No 03XP0323D and InForm No 03XP0363A. This work contributes to the research performed at CELEST (Center for Electrochemical Energy Storage Ulm-Karlsruhe) and was funded by the German Research Foundation (DFG) under Project ID 390874152 (POLIS Cluster of Excellence). This project received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No 957189. H.S.S. acknowledges funding from DFG EXC 2089/1-390776260 (e-conversion).
+
+Conflicts of Interest
+Among others, LM, BZ, and HSS are named inventors on a related patent application published under WO2024170596 with the title “METHOD AND DEVICE FOR FORMING AN ELECTROCHEMICAL DEVICE” [18] and may benefit through Arbeitnehmerfindergesetz ArbnErfG, specifically §40. Patenting rights are owned by Karlsruher Institut für Technologie.
+
+References
+[1] P. Gartner, A. Jacob, H. Akay, J. Löffler, J. Gammack, G. Lanza, S.-G. Kim, Manufacturing Genome: A Foundation for Symbiotic, Highly Iterative Product and Production Adaptations, in: A.-L. Andersen, R. Andersen, T.D. Brunoe, M.S.S. Larsen, K. Nielsen, A. Napoleone, S. Kjeldgaard (Eds.), Towards Sustainable Customization: Bridging Smart Products and Manufacturing Systems, Springer International Publishing, Cham, 2022, pp. 35–46.
+[2] D.L. Wood, J. Li, S.J. An, Formation Challenges of Lithium-Ion Battery Manufacturing, Joule 3 (2019) 2884–2888.
+https://doi.org/10.1016/j.joule.2019.11.002.
+[3] H.H. Heimes, A. Kampker, C. Liennemann, M. Locke, C. Offermanns, S. Michaelis, E. Rahimzei, Lithium-ion battery cell production process, PEM der RWTH Aachen University; DVMA, Aachen, Frankfurt am Main, 2018.
+[4] H.H. Heimes, C. Offermanns, A. Mohsseni, H. Laufen, U. Westerhoff, L. Hoffmann, P. Niehoff, M. Kurrat, M. Winter, A. Kampker, 2020. The Effects of
+Mechanical and Thermal Loads during Lithium-Ion Pouch Cell Formation and Their Impacts on Process Time. Energy Tech 8, 1900118. https://doi.org/10.1002/ente.201900118.
+
+[5] X. Cui, S.D. Kang, S. Wang, J.A. Rose, H. Lian, A. Geslin, S.B. Torrisi, M.Z. Bazant, S. Sun, W.C. Chueh, Data-driven analysis of battery formation reveals the role of electrode utilization in extending cycle life, Joule 8 (2024) 3072–3087. https://doi.org/10.1016/j.joule.2024.07.024.
+
+[6] A. Kwade, W. Haselrieder, R. Leithoff, A. Modlinger, F. Dietrich, K. Droeder, Current status and challenges for automotive battery production technologies, Nat Energy 3 (2018) 290–300. https://doi.org/10.1038/s41560-018-0130-3.
+
+[7] R.E. Ciez, J.F. Whitacre, Comparison between cylindrical and prismatic lithium-ion cell costs using a process based cost model, Journal of Power Sources 340 (2017) 273–281. https://doi.org/10.1016/j.jpowsour.2016.11.054.
+
+[8] A. Hakimian, S. Kamarthi, S. Erbis, K.M. Abraham, T.P. Cullinane, J.A. Isaacs, Economic analysis of CNT lithium-ion battery manufacturing, Environ. Sci.: Nano 2 (2015) 463–476. https://doi.org/10.1039/C5EN00078E.
+
+[9] S. Bhattacharya, A.T. Alpas, Micromechanisms of solid electrolyte interphase formation on electrochemically cycled graphite electrodes in lithium-ion cells, Carbon 50 (2012) 5359–5371. https://doi.org/10.1016/j.carbon.2012.07.009.
+
+[10] L. Xia, H. Miao, C. Zhang, G.Z. Chen, J. Yuan, Review—recent advances in non-aqueous liquid electrolytes containing fluorinated compounds for high energy density lithium-ion batteries, Energy Storage Materials 38 (2021) 542–570. https://doi.org/10.1016/j.ensm.2021.03.032.
+
+[11] B. Li, Y. Chao, M. Li, Y. Xiao, R. Li, K. Yang, X. Cui, G. Xu, L. Li, C. Yang, Y. Yu, D.P. Wilkinson, J. Zhang, A Review of Solid Electrolyte Interphase (SEI) and Dendrite Formation in Lithium Batteries, Electrochem. Energy Rev. 6 (2023). https://doi.org/10.1007/s41918-022-00147-5.
+
+[12] S.J. An, J. Li, Z. Du, C. Daniel, D.L. Wood, Fast formation cycling for lithium ion batteries, Journal of Power Sources 342 (2017) 846–852. https://doi.org/10.1016/j.jpowsour.2017.01.011.
+
+[13] A. Smith, P. Stüble, L. Leuthner, A. Hofmann, F. Jeschull, L. Mereacre, 2023. Potential and Limitations of Research Battery Cell Types for Electrochemical Data Acquisition. Batteries & Supercaps 6, e202300080. https://doi.org/10.1002/batt.202300080.
+
+[14] G. Bridgewater, M.J. Capener, J. Brandon, M.J. Lain, M. Copley, E. Kendrick, A Comparison of Lithium-Ion Cell Performance across Three Different Cell Formats, Batteries 7 (2021) 38. https://doi.org/10.3390/batteries7020038.
+
+[15] Y. Son, H. Cha, T. Lee, Y. Kim, A. Boies, J. Cho, M. de Volder, 2024. Analysis of Differences in Electrochemical Performance Between Coin and Pouch Cells for Lithium-Ion Battery Applications. Energy & Environ Materials 7, e12615. https://doi.org/10.1002/eem2.12615.
+
+[16] K.N. Shitaw, M.A. Weret, Y. Nikodimos, T.M. Tekaligne, S.-K. Jiang, C.-J. Huang, B.-H. Lin, S.-H. Wu, W.-N. Su, B.J. Hwang, Fundamental phenomena in anode-free coin cells and pouch cells configured with imide salt-based ether electrolytes,
+[17] H.S. Stein, A. Sanin, F. Rahmanian, B. Zhang, M. Vogler, J.K. Flowers, L. Fischer, S. Fuchs, N. Choudhary, L. Schroeder, From materials discovery to system optimization by integrating combinatorial electrochemistry and data science, Current Opinion in Electrochemistry 35 (2022) 101053. https://doi.org/10.1016/j.coelec.2022.101053.
+
+[18] H.S. Stein, L. Merker, B. Zhang, K. Cicvaric (KARLSRUHER INSTITUT FÜR TECHNOLOGIE) WO/2024/170596, 2024.
+
+[19] H.S. Stein, S. Jiao, A. Ludwig, Expediting Combinatorial Data Set Analysis by Combining Human and Algorithmic Analysis, ACS Comb. Sci. 19 (2017) 1–8. https://doi.org/10.1021/acscombsci.6b00151.
+
+[20] Argonne National Laboratory. (n.d.), BatPaC: Battery manufacturing cost estimation., 2022. https://www.anl.gov/tcp/batpac-battery-manufacturing-cost-estimation.
+
+[21] M. Vogler, J. Busk, H. Hajiyani, P.B. Jørgensen, N. Safaei, I.E. Castelli, F.F. Ramirez, J. Carlsson, G. Pizz, S. Clark, F. Hanke, A. Bhowmik, H.S. Stein, Brokering between tenants for an international materials acceleration platform, Matter 6 (2023) 2647–2665. https://doi.org/10.1016/j.matt.2023.07.016.
+
+[22] B. Zhang, L. Merker, A. Sanin, H.S. Stein, Robotic cell assembly to accelerate battery research, Digital Discovery 1 (2022) 755–762. https://doi.org/10.1039/D2DD00046F.
+
+[23] B. Zhang, L. Merker, M. Vogler, F. Rahmanian, H.S. Stein, Apples to apples: shift from mass ratio to additive molecules per electrode area to optimize Li-ion batteries, Digital Discovery 3 (2024) 1342–1349. https://doi.org/10.1039/D4DD00002A.
+
+[24] M. Longhini, F. Gebert, F. Conti, A.J. Naylor, Enabling a non-flammable methyl(2,2,2-trifluoroethyl) carbonate electrolyte in NMC622–graphite Li-ion cells by electrode pre-passivation, Energy Adv. 3 (2024) 1087–1091. https://doi.org/10.1039/D4YA00052H.
+
+[25] R. Jung, F. Linsenmann, R. Thomas, J. Wandt, S. Solchenbach, F. Maglia, C. Stinner, M. Tromp, H.A. Gasteiger, Nickel, Manganese, and Cobalt Dissolution from Ni-Rich NMC and Their Effects on NMC622-Graphite Cells, J. Electrochem. Soc. 166 (2019) A378-A389. https://doi.org/10.1149/2.1151902jes.
+
+[26] F.-M. Wang, H.-Y. Wang, M.-H. Yu, Y.-J. Hsiao, Y. Tsai, Differential pulse effects of solid electrolyte interface formation for improving performance on high-power lithium ion battery, Journal of Power Sources 196 (2011) 10395–10400. https://doi.org/10.1016/j.jpowsour.2011.08.045.
+
+[27] C. Mao, S.J. An, H.M. Meyer, J. Li, M. Wood, R.E. Ruther, D.L. Wood, Balancing formation time and electrochemical performance of high energy lithium-ion batteries, Journal of Power Sources 402 (2018) 107–115. https://doi.org/10.1016/j.jpowsour.2018.09.019.
+[28] T. Roth, L. Streck, A. Graule, P. Niehoff, A. Jossen, Relaxation Effects in Self-Discharge Measurements of Lithium-Ion Batteries, J. Electrochem. Soc. 170 (2023) 20502. https://doi.org/10.1149/1945-7111/acb669.
+
+[29] A.H. Zimmerman, Self-discharge losses in lithium-ion cells, IEEE Aerosp. Electron. Syst. Mag. 19 (2004) 19–24. https://doi.org/10.1109/MAES.2004.1269687.
+
+[30] H. Shan, H. Cao, X. Xu, T. Xiao, G. Hou, H. Cao, Y. Tang, G. Zheng, Investigation of self-discharge properties and a new concept of open-circuit voltage drop rate in lithium-ion batteries, J Solid State Electrochem 26 (2022) 163–170. https://doi.org/10.1007/s10008-021-05049-y.
+
+[31] A. Nyman, T.G. Zavalis, R. Elger, M. Behm, G. Lindbergh, Analysis of the Polarization in a Li-Ion Battery Cell by Numerical Simulations, J. Electrochem. Soc. 157 (2010) A1236. https://doi.org/10.1149/1.3486161.
+
+[32] A. Barai, G.H. Chouchelamane, Y. Guo, A. McGordon, P. Jennings, A study on the impact of lithium-ion cell relaxation on electrochemical impedance spectroscopy, Journal of Power Sources 280 (2015) 74–80. https://doi.org/10.1016/j.jpowsour.2015.01.097.
+
+[33] P. Keil, S.F. Schuster, J. Wilhelm, J. Travi, A. Hauser, R.C. Karl, A. Jossen, Calendar Aging of Lithium-Ion Batteries, J. Electrochem. Soc. 163 (2016) A1872-A1880. https://doi.org/10.1149/2.0411609jes.
+
+[34] B. Balagopal, C.S. Huang, M.-Y. Chow, Effect of calendar ageing on SEI growth and its impact on electrical circuit model parameters in Lithium ion batteries, in: 2018 IEEE International Conference on Industrial Electronics for Sustainable Energy Systems (IESES), Hamilton, IEEE, 2018, pp. 32–37.
+
+[35] T. Joshi, K. Eom, G. Yushin, T.F. Fuller, Effects of Dissolved Transition Metals on the Electrochemical Performance and SEI Growth in Lithium-Ion Batteries, J. Electrochem. Soc. 161 (2014) A1915-A1921. https://doi.org/10.1149/2.0861412jes.
+
+[36] M. Lewerenz, J. Münnix, J. Schmalstieg, S. Käbitz, M. Knips, D.U. Sauer, Systematic aging of commercial LiFePO 4 |Graphite cylindrical cells including a theory explaining rise of capacity during aging, Journal of Power Sources 345 (2017) 254–263. https://doi.org/10.1016/j.jpowsour.2017.01.133.
+
+[37] M. Lewerenz, G. Fuchs, L. Becker, D.U. Sauer, Irreversible calendar aging and quantification of the reversible capacity loss caused by anode overhang, Journal of Energy Storage 18 (2018) 149–159. https://doi.org/10.1016/j.est.2018.04.029.
+
+[38] T. Hüfner, M. Oldenburger, B. Bedürftig, A. Gruhle, Lithium flow between active area and overhang of graphite anodes as a function of temperature and overhang geometry, Journal of Energy Storage 24 (2019) 100790. https://doi.org/10.1016/j.est.2019.100790.
+
+[39] A.J. Smith, J.C. Burns, S. Trussler, J.R. Dahn, Precision Measurements of the Coulombic Efficiency of Lithium-Ion Batteries and of Electrode Materials for Lithium-Ion Batteries, J. Electrochem. Soc. 157 (2010) A196. https://doi.org/10.1149/1.3268129.
+[40] B. Gyenes, D.A. Stevens, V.L. Chevrier, J.R. Dahn, Understanding Anomalous Behavior in Coulombic Efficiency Measurements on Li-Ion Batteries, J. Electrochem. Soc. 162 (2015) A278-A283. https://doi.org/10.1149/2.0191503jes.
+
+[41] R.D. Deshpande, P. Ridgway, Y. Fu, W. Zhang, J. Cai, V. Battaglia, The Limited Effect of VC in Graphite/NMC Cells, J. Electrochem. Soc. 162 (2015) A330-A338. https://doi.org/10.1149/2.0221503jes.
+
+[42] S.S. Zhang, A review on electrolyte additives for lithium-ion batteries, Journal of Power Sources 162 (2006) 1379–1394. https://doi.org/10.1016/j.jpowsour.2006.07.074.

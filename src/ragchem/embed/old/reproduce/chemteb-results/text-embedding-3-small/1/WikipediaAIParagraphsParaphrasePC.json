@@ -1,0 +1,58 @@
+{
+  "dataset_revision": "7694661b6e28000d9b2c2376a1bbd49417d279ea",
+  "evaluation_time": 45.16343092918396,
+  "kg_co2_emissions": null,
+  "mteb_version": "1.15.7",
+  "scores": {
+    "test": [
+      {
+        "cosine_accuracy": 0.9652366863905325,
+        "cosine_accuracy_threshold": 0.8420910298862705,
+        "cosine_ap": 0.9941720432041088,
+        "cosine_f1": 0.9654157468727004,
+        "cosine_f1_threshold": 0.8420910298862705,
+        "cosine_precision": 0.9604685212298683,
+        "cosine_recall": 0.9704142011834319,
+        "dot_accuracy": 0.9652366863905325,
+        "dot_accuracy_threshold": 0.84209099898464,
+        "dot_ap": 0.9941720432041088,
+        "dot_f1": 0.9654157468727004,
+        "dot_f1_threshold": 0.84209099898464,
+        "dot_precision": 0.9604685212298683,
+        "dot_recall": 0.9704142011834319,
+        "euclidean_accuracy": 0.9652366863905325,
+        "euclidean_accuracy_threshold": 0.5619764136312704,
+        "euclidean_ap": 0.9941720432041088,
+        "euclidean_f1": 0.9654157468727004,
+        "euclidean_f1_threshold": 0.5619764136312704,
+        "euclidean_precision": 0.9604685212298683,
+        "euclidean_recall": 0.9704142011834319,
+        "hf_subset": "default",
+        "languages": [
+          "eng-Latn"
+        ],
+        "main_score": 0.9654157468727004,
+        "manhattan_accuracy": 0.9652366863905325,
+        "manhattan_accuracy_threshold": 17.319372322885002,
+        "manhattan_ap": 0.9941159134411444,
+        "manhattan_f1": 0.9653902798232695,
+        "manhattan_f1_threshold": 17.363989872029002,
+        "manhattan_precision": 0.9611436950146628,
+        "manhattan_recall": 0.9696745562130178,
+        "max_accuracy": 0.9652366863905325,
+        "max_ap": 0.9941720432041088,
+        "max_f1": 0.9654157468727004,
+        "max_precision": 0.9611436950146628,
+        "max_recall": 0.9704142011834319,
+        "similarity_accuracy": 0.9652366863905325,
+        "similarity_accuracy_threshold": 0.8420910298862705,
+        "similarity_ap": 0.9941720432041088,
+        "similarity_f1": 0.9654157468727004,
+        "similarity_f1_threshold": 0.8420910298862705,
+        "similarity_precision": 0.9604685212298683,
+        "similarity_recall": 0.9704142011834319
+      }
+    ]
+  },
+  "task_name": "WikipediaAIParagraphsParaphrasePC"
+}

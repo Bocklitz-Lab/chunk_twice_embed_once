@@ -1,0 +1,252 @@
+Circularly Polarized Stimulated Emission from a Chiral Cavity Based on Apparent Circular Dichroism Organic Thin-Films
+
+Li-Zhi Lin,† Ling-Qi Huang,† Shi-Wei You,† Yi-Jan Huang,† Francesco Zinna,‡ Andrew Salij,¶∥ Lorenzo Di Bari,‡ Randall H. Goldsmith,§ Roel Tempelaar,¶ Chia-Yen Huang,† and Tzu-Ling Chen*,†
+
+†Department of Photonics, College of Electrical and Computer Engineering, National Yang Ming Chiao Tung University, Hsinchu, Taiwan
+‡Dipartimento di Chimica e Chimica Industriale, Università di Pisa, Via Giuseppe Moruzzi, 13, Pisa, PI, 56124, Italy
+¶Department of Chemistry, Northwestern University, 2145 Sheridan Rd, Evanston, IL, 60208, USA
+§Department of Chemistry, University of Wisconsin-Madison, 1101 University Ave, Madison, WI, 53706, USA
+∥current address: Los Alamos National Laboratory
+
+E-mail: tlc@nycu.edu.tw
+
+Abstract
+
+The lack of intrinsic mirror symmetry in cavity mirrors poses a significant challenge for most organic chiral materials in generating circularly polarized (CP) lasers. However, nonreciprocal chiroptical materials, such as the recently developed organic thin films exhibiting Apparent Circular Dichroism (ACD), provide a promising approach to...
+CP light generation. In this work, we integrate an ACD-based thin film into a free-space dye laser cavity, achieving direct CP laser emission with a degree of circular polarization (DOCP) up to 0.6, corresponding to a dissymmetry factor \((g_{\text{lum}})\) of 1.2, a new record for organic chiral lasers. The degree of polarization (DOP) is close to 0.8, and the observed ellipticity in the emitted light originates from the ACD effect in the thin film, leading to asymmetric cavity losses for right- and left-circularly polarized light. This breakthrough demonstrates the potential of ACD-based materials to overcome the limitations of conventional chiral laser systems, marking a significant advancement in the field and paving the way for next-generation chiral photonic devices.
+
+**Introduction**
+
+Circularly polarized (CP) light has garnered significant attention due to its extensive applications across fields such as optoelectronic devices, spintronics, optical communication of spin information, and optical sensing and imaging.\(^1\)\(^-\)\(^5\) The ability to generate and control CP light is essential, as the handedness—left- (LCP) or right-circularly polarized (RCP)—plays a distinct role in modulating light-matter interactions. Organic materials structured at the micro- or nanoscale and capable of direct CP light generation within laser systems offer substantial potential,\(^6\)\(^,\)\(^7\) not only in device applications but also as powerful platforms for exploring chiral light-matter interactions.\(^8\)\(^-\)\(^10\)
+
+Organic compounds composed of chiral molecules exhibit intrinsic photophysical properties such as circular dichroism (CD) and circularly polarized luminescence (CPL), which are the differential absorption and emission of left- and right-handed light.\(^11\) Despite their potential for generating CP light, most small molecules exhibit weak CD, leading to low dissymmetry factors \((g_{\text{lum}} < 10^{-3})\) in the visible range.\(^12\) While larger dissymmetry factors (greater than 0.2) can be achieved through advanced fabrication methods,\(^10\)\(^,\)\(^13\)\(^,\)\(^14\) these systems very rarely produce a coherent and highly polarized luminescence which would be necessary for stimulated CP-emission. The prospect of coherent CP laser light, which can
+reach intensities over $10^8$ times greater than fluorescence, remains particularly compelling.
+
+Systems utilizing chiral nematic liquid crystals\textsuperscript{15,16} or optical retardation techniques\textsuperscript{17} have been extensively studied for CP laser generation. Achieving organic CP lasers generally requires a laser gain medium combined with a chiral environment. However, typical optical cavities do not enhance chiroptical activity due to the lack of intrinsic mirror symmetry\textsuperscript{18} and the reciprocal optical properties of most chiral materials, which do not vary with sample orientation.\textsuperscript{19} Attempts at direct CP lasing, such as using chiral BODIPY-type laser dyes\textsuperscript{20} or chiral biomolecules\textsuperscript{21} have yielded dissymmetry factors up to 0.29. Nonetheless, these limitations highlight the need for further advancements in CP laser technology.
+
+Our work introduces a novel approach to generating CP light by incorporating a unique chiral organic thin film with nonreciprocal CD properties.\textsuperscript{22,23} This nonreciprocal behavior, known as apparent circular dichroism (ACD), originates from the material’s 2D chirality of oriented molecules,\textsuperscript{24,25} which results in directional-dependent CD. The film displays nearly opposite CD responses when illuminated from its front and back surfaces, leading to an accumulated asymmetry in the absorption of RCP and LCP light over multiple passes within the cavity.\textsuperscript{26} This induced asymmetry in cavity loss has the potential to significantly enhance the degree of circular polarization (DOCP) in the laser output.
+
+To address this, we designed a free-space dye laser system with one of the cavity mirrors coated with a thin film made of phenylene bis-thiophenylpropynone (PTPO, see Fig. 2). PTPO thin films have shown efficient nonreciprocal CP properties both in absorption and emission.\textsuperscript{27} The aim was to investigate whether the film’s enhanced asymmetric absorption of RCP and LCP light could lead to the generation of CP laser emission. In our experiments, we achieved a DOCP of up to 0.6—substantially higher than previously reported for organic CP lasers. This result not only demonstrates the ability of self-assembled chiral films to overcome the limitations of traditional chiral media but also provides a novel approach for generating strong CP emission through cavity engineering. Our findings open new avenues for advanced photonic devices and offer deeper insights into chiral light-matter interactions.
+in stimulated emission processes.
+
+**Experimental Setup**
+
+**ACD Organic Thin Film**
+
+The ACD organic thin film is obtained through the self-assembly of organic \(\pi\)-conjugated dyes into chiral aggregated supramolecular structures, enhancing the intrinsic 2D chirality and exhibiting nonreciprocal chiroptical properties due to the ACD effect.\(^{25,28}\) The total CD of this material is described by:
+
+\[
+CD_{abs} = CD_{iso} + \frac{LD' \cdot LB - LD \cdot LB'}{2} \quad (1)
+\]
+
+The first term represents the intrinsic isotropic component, corresponding to reciprocal light-matter interactions. The second term, referred to as apparent circular dichroism (ACD),\(^{24,29}\) accounts for the interference between linear dichroism (LD) and linear birefringence (LB), with LD' and LB' referring to the 45-degree orientations relative to a chosen axis of LD and LB, respectively, and for this reason it is also referred to as LDLB effect.\(^{22}\) This nonreciprocal term arises from the preferential orientation of mesoscopic domains and is influenced by the material’s directional anisotropy and how the material is processed.\(^{23}\)
+
+The material used in this work is based on a chiral phenylene bisthiophenylpropynone (PTPO) derivative, whose films, spin-coated from CH\(_2\)Cl\(_2\) solutions and thermally annealed,\(^{27}\) displayed nearly mirror-image CD spectra when illuminated from the front or back, as shown in the Fig.1(a), where the CD ranges from 0.02 to 0.06 (\(\Delta A\)) across the laser emission regime, corresponding to a dissymmetry g-factor \((g_{abs} = CD/Absorbance)\) of around 0.07 to 0.2. The thin films have a thickness of approximately 300 nm.
+
+Earlier research has shown that these chiral films can enhance CD effects in passive optical cavities,\(^{26}\) significantly influencing the balance of cavity transmission between RCP
+Figure 1: (a) CD spectrum of the PTPO organic thin film (thickness 300 nm), exhibiting its nonreciprocal chiroptical behavior. The nearly mirror-image CD spectra upon flipping the sample highlight the directional dependence of the film’s CD properties. (b) Schematic representation of the nonreciprocal chiroptical effect of the PTPO thin film within the laser cavity (excluding the laser gain medium, which initially generates linearly polarized light, resulting in equal photon number of RCP and LCP). The scheme illustrates how the PTPO thin film differentially absorbs RCP and LCP light throughout a complete cavity round trip, highlighting the asymmetric absorption behavior. This differential absorption leads to asymmetric cavity losses, effectively enhancing the CD and inducing a preferential CP state in the emitted laser light.
+
+and LCP light. However, these works have not explored whether such films can actively generate CP light when coupled with a laser gain medium. The concept of a 2D chiral cavity incorporating a nonreciprocal 2D chiral material is illustrated in Fig. 1(b). In this configuration, the cavity is formed by a flat mirror coated with a PTPO thin film and a concave standard mirror, which together provide the optical feedback required for lasing. Assuming the initial light is linearly polarized (comprising equal intensities of RCP and LCP light), it encounters the 2D chiral film where the CD is negative, causing greater absorption loss for RCP compared to LCP. In step 2, when this CP light reflects off a standard mirror at normal incidence, the handedness reverses—RCP becomes LCP, and vice versa. Upon re-entering the chiral film from the opposite side in step 3, where the CD is positive, LCP now experiences more absorption loss than RCP. In step 4, the mirror again reverses the handedness. Thus, within each round trip, the chiral film’s directional dependence causes alternating asymmetrical losses for RCP and LCP, shifting the balance between them and
+creating a cumulative asymmetry in cavity losses.
+
+Laser design and configuration
+
+Figure 2: (a) Conceptual illustration of the laser cavity and pump laser configuration, showing the PTPO thin film-coated mirror and the resulting laser emission, along with its polarization ellipse. The inset displays the chemical structure of the PTPO derivative used to fabricate the thin film. (b) Experimental setup for characterizing both the laser emission spectrum and the polarization state. The 355 nm pump pulsed laser source, and the output from the dye laser cavity are monitored by photodetectors (PD1 and PD2, respectively) and a Stokes vector polarimetry system. The pump laser polarization is controlled using a half-wave plate (HWP), and the laser cavity contains a lens, a filter and liquid dye, Stilbene 420, as the gain medium. Data acquisition is performed using an FPGA-based Qscope board.
+
+The pump source for the dye laser is a third harmonic generation from a pulsed optical parametric oscillator (OPO) laser (Amplitude-Laser, Surelite Ex), driven by a pulsed Nd:YAG laser. The pump laser operates at 355 nm with a pulse width of 3-5 ns, a repetition rate of 10 Hz, and a polarization extinction ratio exceeding $10^{-3}$. A half-wave plate (HWP), positioned after the attenuator, is used to control the polarization direction of the pump laser, enabling precise tuning between transverse electric (TE) and transverse magnetic (TM) polarization modes during dye excitation.
+
+The optical cavity features a plano-concave design, with the concave mirror reflection of 99%, and the planar mirror, coated with a high-reflectivity (HR) coating ($R = 95\%$, 420-650 nm), as well as the chiral PTPO thin film. The cylindrical lens focuses the pump beam into a narrow line with a beam size about 0.1 mm x 10 mm to maximize the overlap between...
+the pump and dye laser cavity resonant modes. We used a 0.22 g/L solution of Stilbene 420 dye in an ethanol-water mixture (2:1 ratio). The dye cell is circulated to mitigate heat accumulation, where the dye solution is pumped through a cuvette (1×1×10 mm³) with polished sides.
+
+Due to substantial peak-to-peak fluctuations (greater than 30%) in the pump laser pulse energy, two photodetectors (PD1 and PD2) were used to simultaneously record the pulse energies of both the pump laser and the dye laser. PD1 monitored the pump pulse energy to enable normalization of the dye pulse energy, which was measured by PD2. Data acquisition was conducted using a Field Programmable Gate Array (FPGA)-based Qscope board operating at 250 MS/s.
+
+Characterization of Laser Polarization States
+
+Given that the polarization of the dye laser in the chiral cavity configuration is expected to exhibit partial polarization and ellipticity rather than perfect circular polarization, we employ the global polarization state description using Stokes parameters, which can provide the degree of polarization, the orientation, and ellipticity of the polarization ellipse.
+
+Most commercial polarimeters are not suitable for low repetition frequency light sources, so we employed a rotating quarter-wave plate (QWP) measurement system as our home-built polarimeter. This setup includes a rotating QWP and a linear polarizer, as depicted in Fig. 2(a), to measure the Stokes vector of the output dye laser emission. The discrete intensities of the optical beam measured at different rotating angles of the QWP are given by:
+
+\[ I(\theta_n) = \frac{1}{2} (A + B \sin 2\theta_n + C \cos 4\theta_n + D \sin 4\theta_n) \]  \hspace{1cm} (2)
+
+where \( \theta_n \) denotes the angle of the QWP, and A, B, C, and D are constants that describe the polarization state. According to Nyquist’s sampling theorem, the maximum frequency corresponds to 4\( \theta \), so determining A, B, C, and D requires a minimum of 8 measurements of
+different angles.
+
+The parameters A, B, C, and D are calculated from the intensity measurements at different angles using the following expressions:
+
+\[
+A = \frac{2}{N} \sum_{n=1}^{N} I_n, \quad B = \frac{4}{N} \sum_{n=1}^{N} I_n \sin 2\theta_n,
+\]
+\[
+C = \frac{4}{N} \sum_{n=1}^{N} I_n \cos 4\theta_n, \quad D = \frac{4}{N} \sum_{n=1}^{N} I_n \sin 4\theta_n.
+\]  
+
+(3)
+
+where \( N \) denotes the total number of measured angles. In this work, the angles used are 0°, 22.5°, 45°, 67.5°, 90°, 112.5°, 135°, and 157.5°, with an additional 180° to verify the consistency when the QWP returns to the 0° position.
+
+The Stokes parameters \( S_0, S_1, S_2 \) and \( S_3 \), are then determined as:
+
+\[
+S_0 = A - C, \quad S_1 = 2C, \quad S_2 = 2D, \quad S_3 = B.
+\]  
+
+(4)
+
+which can be represented on the Poincaré sphere, providing a visual representation of the polarization state. Additionally, the degree of polarization (DOP), the degree of circular polarization (DOCP), the degree of linear polarization (DOLP), and the orientation and ellipticity angles, \( 2\psi \) and \( 2\chi \), respectively, can be used to characterize the extent and nature of polarization:
+
+\[
+DOP = \frac{\sqrt{S_1^2 + S_2^2 + S_3^2}}{S_0},
+\]
+\[
+DOLP = \frac{\sqrt{S_1^2 + S_2^2}}{S_0}, \quad DOCP = \frac{S_3}{S_0},
+\]
+
+(5)
+
+\[
+2\psi = \tan^{-1}\left(\frac{S_2}{S_1}\right), \quad 2\chi = \tan^{-1}\left(\frac{S_3}{\sqrt{S_1^2 + S_2^2}}\right).
+\]
+
+These quantities provide a comprehensive description of the polarization state of the light beam. To accurately compute the final Stokes vector, the data in Fig.3(b) taken at 8 discrete angles of QWP were binned to minimize noise and enhance accuracy.
+Results
+
+Luminescence and laser measurements
+
+Figure 3: (a) Emission spectrum captured from the side view of the liquid dye cuvette, with a clear reduction in FWHM as the averaging pump energy exceeds 2 mJ, indicating the transition from spontaneous emission to stimulated emission. The insets show two distinct beam profiles observed at the laser mirror output for different pump energies. (b) The relationship between the pump energy and the output laser energy, as detected by PD1 and PD2, which reflects the lasing threshold.
+
+Figure 3(a) presents the emission spectra of the dye laser at different optical pump energy levels. Figure 3(b) shows the relationship between the output laser energy and the pump energy, as measured by photodetectors PD1 and PD2, with the later calibrated with an energy meter. Below the lasing threshold (approximately 1.2 mJ), the system exhibits primarily spontaneous emission. Once the threshold is exceeded, a rapid transition to stimulated emission occurs, characterized by a sharp increase in output power and a marked reduction in linewidth to around 7 nm. The laser power output from the plane mirror is about five times higher than that from the concave mirror, as expected, based on the ratio of mirror reflectivities.
+Polarization states characterization
+
+The polarimetric analysis, shown in Fig.4, presents key polarimetric parameters plotted as a function of pump energy. The total intensity, represented by \( S_0 \), is directly proportional to the pump energy and exhibits a trend similar to that shown in Fig. 3(b). In both figures, the lasing threshold is clearly identifiable.
+
+To validate the system performance, we first measured the dye laser emission in a normal mirror cavity configuration with both TE- and TM-polarized pump light. A TE-polarized pump results in a high degree of linear polarization, as shown in Fig. 4(c), while a TM-polarized pump leads to an unpolarized output. This behavior can be attributed to the alignment of the pump polarization with the cavity feedback direction. For TE-polarized light, the electric field aligns with the cavity polarization mode, enhancing interaction with the dye molecules and promoting efficient lasing. In contrast, for TM-polarized light, the electric field is misaligned with the cavity mode, reducing lasing efficiency and producing an unpolarized output. This phenomenon is consistent with previous observations in other solid-state organic and achiral dye laser systems.32–34
+
+Figure 4(a) and (b) show the dependence of output polarization on the pump laser polarization for a normal mirror cavity and a 2D chiral mirror cavity, respectively, with the pump being TE-polarized in both cases. For the normal cavity, the DOP increases steadily with pump energy, even below the lasing threshold, eventually reaching near-perfect linear polarization (DOP > 0.9), while the DOCP remains negligible. This indicates that the laser emission is predominantly linearly polarized along the vertical axis. The DOP shows a rapid increase near the lasing threshold, a trend similar to observations in other solid-state laser systems.2 In contrast, cavities equipped with PTPO coated chiral mirrors demonstrated significantly different behavior. A significant enhancement in the DOCP up to -0.6 (\( g_{\text{num}} = -2 \times \text{DOCP} \sim 1.2 \)), representative of a 60% global ellipticity, is observed near the lasing threshold. This DOCP peaked before gradually decreasing at higher pump energies.
+
+Figure 4(c) shows the measured Stokes vectors for both normal and chiral cavity con-
+Figure 4: Influence of pump energy and polarization on the dye laser’s polarization state. Panels (a) and (b) display the laser emission parameters, including orientation angle ($\psi$) and ellipticity angle ($\chi$), as functions of pump energy for a normal mirror cavity and a 2D chiral mirror cavity, respectively. The 2D chiral mirror comprises a high-reflectivity (HR) coverslip mirror coated with a 300 nm PTPO thin film. The comparison reveals the impact of the 2D chiral film on the polarization state, particularly the enhancement of circular polarization, as indicated by changes in $\chi$. Panel (c) shows measurements from both the normal and 2D chiral mirror cavities, with measurements taken from two different lasing spots on the 2D chiral mirror. Panel (d) illustrates the elliptically polarized states of the emitted light between the normal mirror and the 2D chiral mirror cavities.
+figurations, visualized on the Poincaré sphere, with the corresponding elliptically polarized states presented in Figure 4(d). The color bar represents the DOP, with variations in color corresponding to different polarization states. In the normal cavity, under both TM and TE pump configurations, the Stokes vectors cluster near the equator, indicating predominantly linear polarization with minimal circular polarization. In contrast, the chiral cavity exhibits a broader spread along the axis, particularly with the TE pump, where several points show negative values, reflecting significant circular polarization. These results demonstrate the ability of using 2D chiral PTPO to generate CP light at varying levels of DOP and DOCP, with the strongest DOCP observed in the chiral cavity.
+
+Discussion
+
+To explain the trends of DOCP in the Fig. 4 and the influence of pump energy on the polarization state, we explore the fundamental mechanism behind the generation of the DOCP during the pulse evolution process under stimulated emission in our chiral laser system. Under vertically polarized pump light, the achiral dye laser medium primarily emits linearly polarized light (as experimentally confirmed in the normal cavity configuration), which can be treated as having equal photon populations for RCP and LCP light. The DOCP in the simulation is given by:
+
+\[
+\text{DOCP}(t) = \frac{n_{RCP}(t) - n_{LCP}(t)}{n_{RCP}(t) + n_{LCP}(t) + n_{sp}} = -\frac{g_{lum}}{2}
+\]
+
+where \(n_{RCP}(t)\) and \(n_{LCP}(t)\) are the time-dependent photon populations for RCP and LCP states, respectively, and \(n_{sp}\) represents the background photon population, mainly contributed by spontaneous emission. In the stimulated emission regime, the lasing photon population is much greater than \(n_{sp}\). These populations are determined by the population inversion \(N(t)\) and cavity losses, with the former driven by the pump pulse energy, which we assume follows a Gaussian profile (with a pulse width 5 ns) in the time domain. The rate
+The equations satisfy:
+
+\[
+\frac{dN(t)}{dt} = R_p(t) - \frac{N(t)}{\tau} - \beta \cdot c \cdot n(t) \cdot N(t),
+\]
+
+\[
+\frac{dn(t)}{dt} = \beta \cdot c \cdot n(t) \cdot N(t) - \frac{n(t)}{\tau_c},
+\]
+
+Equation (7) presents the rate equations for the time evolution of photon number density \(n(t)\) and population inversion \(N(t)\) in a laser system, including the pump rate \(R_p\), the upper state lifetime constant \(\tau\), the stimulated emission cross-section \(\beta\). The terms \(N(t)/\tau\) and \(\beta \cdot c \cdot n(t) \cdot N(t)\), where \(c\) is the speed of light, represent the spontaneous and stimulated emission terms, respectively. They describe the interaction between photon density and population inversion during the stimulated emission process.
+
+Cavity losses, represented by the cavity lifetime \(\tau_c\), is given by:
+
+\[
+\tau_c = -\frac{2L}{c} \ln \left[ R_1 R_2 (1 - (1 - e^{-A} + \delta))^2 \right],
+\]
+
+where \(L\) is the cavity length, \(\delta\) is other losses (such as scattering, additional absorption, etc.), \(R_1\) and \(R_2\) are the mirror reflectivities. The term \(1 - e^{-A} + \delta\) represents the total internal loss, where \(1 - e^{-A}\) accounts for the absorption of RCP or LCP light induced by the PTPO thin film. The difference of \(A\) between RCP and LCP stems from the ACD of the film, leading to differing losses for RCP and LCP light in both lasing directions.
+
+Figure 5 left panel depicts the simulated DOCP and total photon number (proportional to \(S_0\)) as functions of pump rate. Center and right panels show the variation of the peak pump rate \(R_p\) and the population inversion \(N(t)\) (upper panel) and photon population of LCP and RCP (lower panel) during the gain switching process under different pump energy. When excited by the pump laser, the population inversion \(N(t)\) increases rapidly. This behavior is typical in processes such as gain switching, where the pump rate \(R_p\) is higher than in steady-state lasing. We assume that in an achiral dye gain medium, which lacks intrinsic chirality, the medium itself does not preferentially interact with CP light. Therefore, the gain for both LCP and RCP light is generally the same. While the gain and standard losses...
+remain identical for both RCP and LCP, the nonreciprocal nature of the ACD in the PTPO thin film causes an asymmetry in the absorption between these polarization states. Unlike reciprocal effects, this nonreciprocal absorption persists over successive round trips within the cavity, creating an imbalance between RCP and LCP that manifests as the observed DOCP in the emitted laser light. A similar decreasing trend in DOCP has been observed in chiral emission from biological microlasers.21
+
+Figure 5: (a) Simulated degree of circular polarization (DOCP) and total photon number as functions of pump rate (proportional to energy). (b) depicts the pulse behalves under different pump energy condition, where the dashed lines indicate the lasing threshold, determined by cavity losses. Near the threshold (b), population inversion and photon emission for LCP and RCP are nearly symmetric due to similar gain; however, differential cavity losses induced by the 2D chiral thin film introduce asymmetry, resulting in a higher DOCP. Beyond the threshold (c), increased gain reduces the influence of differential losses, leading to a decrease in DOCP. Simulation parameters: $\tau = 1.32$ ns, $\beta = 6 \times 10^{-16} \text{ cm}^{-2}$, $\tau_c = 1.62$ ns (RCP) and 1.545 ns (LCP), corresponding to an absorption $A = 0.35$ and absorption difference $\Delta A = 0.06$, with additional internal losses $\delta = 0.14$.
+
+Figure 6 presents a comparison between the simulated results (purple/blue curves) and the experimental data (black points) for the normalized DOCP and normalized DOCP/$S_0$, showing excellent agreement. The fitted pump rate of $6.0 \times 10^{23}/s$ corresponds to a pump energy of 1.6 mJ, which closely matches the measured value. In the simulation, the DOCP is derived assuming a perfect DOP of 1. For the experimental data, since the DOP is not
+ideal, the DOCP is normalized by the DOP for direct comparison with the simulation. Near the lasing threshold (pump energy around 1.2 mJ), this differential loss is significant, but as the pump energy continues to increase, the gain surpasses the influence of the differential loss. Consequently, the asymmetry in loss becomes less significant, causing the DOCP to decrease from its peak at higher pump energies. When DOCP is normalized by the total pulse energy and DOP (right panel), an exponential decay is observed, revealing a gradual decrease in DOCP as pump energy increases. This suggests that the effect of differential losses between RCP and LCP photons, caused by the nonreciprocal PTPO thin film, becomes less significant at higher pump rates where gain exceeds differential absorption.
+
+Figure 6: Influence of pump rate on the polarization state of the dye laser emission. The simulation and experimental data show the evolution of DOCP (Left panel) and DOCP/S0 (Right panel) as a function of the pump rate, where DOCP peaks near the lasing threshold and declines at higher pump rates due to the overwhelming gain, making the asymmetric cavity loss less impactful. Simulation parameters: $\tau = 0.82 \text{ ns}$, $\beta = 3 \times 10^{-16} \text{ cm}^{-2}$, $\tau_c = 3.24 \text{ ns}$ (RCP) and 3.09 ns (LCP)
+
+These results highlight that the final DOCP is primarily influenced by two factors: the total number of linearly polarized photons, mainly originating from laser-induced stimulated emission in the achiral dye gain medium pumped by a linearly polarized laser, and the
+disparity in photon populations between RCP and LCP light. This DOCP value is consistent with the expectation based on the results of the sum of single-pass front and back \( g_{\text{abs}} \) (∼-0.17 at wavelength of 420 nm) and the cavity enhancement factor (Finesse/\( \pi \) ∼6).
+
+It is worth noting that this differential absorption effect persists even below the lasing threshold (i.e., in the spontaneous emission regime), meaning the stimulated emission within the gain medium itself could not directly contribute to DOCP. Instead, the DOCP is predominantly induced by the thin film’s asymmetric absorption. The primary role of the stimulated emission in the gain medium is to generate linearly polarized light (with equal RCP and LCP photon numbers), while DOCP is influenced by the DOP provided by the linearly polarized pump laser.
+
+**Conclusions**
+
+To explore the potential of using ACD from 2D chiral organic thin films for generating CP light, we developed a free-space dye laser system with a chiral cavity incorporating such thin film. Our experimental results demonstrate the successful generation of CP laser light, achieving a DOCP as high as 0.6, along with a DOP approaching 0.8, indicating superior control over the polarization state. The ellipticity of the emitted light is attributed to the ACD effect of the 2D chiral thin film, which induces asymmetric cavity losses between LCP and RCP light. We observed dynamic changes in the CP characteristics as a function of pump energy, with DOCP increasing initially and then decreasing as pump power rises. This behavior is explained using a simple laser pulse evolution model, shedding light on the mechanism behind the asymmetric loss contributions.
+
+This work demonstrates the potential of integrating 2D chiral thin films into laser systems to directly generate CP light, paving the way for the development of organic, chiral light-emitting devices. Our results demonstrate that, with precise control of the pump power in a continuous-wave laser, it is possible to selectively suppress one CP light while enabling the
+other to reach the lasing threshold. This suggests that the DOCP could potentially approach unity under optimized conditions. While we implemented the thin film in a free-space laser system, its application is not limited to this setup and could extend to miniaturized or chip-scale systems. These findings underscore the versatility of ACD-based thin films for both fundamental research in chiral photonics and practical applications requiring controlled polarization states, opening new pathways for advancing chiral photonic technologies.
+
+Acknowledgement
+
+The authors thank Yi-Wei Liu, Jow-Tsong Shy, and You-Chia Chang for valuable discussions and Li-Yin Chen, Jun-Ying Feng, Yuan-Pern Lee for their assistance in the initial stages of this work. This work was supported by grants NSTC111-2628-M-A49-009, NSTC112-2628-M-A49-002, NSTC113-2628-M-A49-002, as well as by the Ministry of Education in Taiwan under the Yushan Young Scholar Program. AS, RT, RHG acknowledge support from the Center for Molecular Quantum Transduction, an Energy Frontier Research Center funded by U.S. Department of Energy (DOE), Office of Science, Basic Energy Sciences (BES), under Award DE-SC0021314.
+
+References
+
+(1) Aiello, C. D.; Abendroth, J. M.; Abbas, M.; Afanasev, A.; Agarwal, S.; Banerjee, A. S.; Beratan, D. N.; Belling, J. N.; Berche, B.; Botana, A.; others A chirality-based quantum leap. ACS nano 2022, 16, 4989–5035.
+
+(2) Zhang, X.; Liu, Y.; Han, J.; Kivshar, Y.; Song, Q. Chiral emission from resonant metasurfaces. Science 2022, 377, 1215–1218.
+
+(3) Warning, L. A.; Miandashti, A. R.; McCarthy, L. A.; Zhang, Q.; Landes, C. F.; Link, S. Nanophotonic approaches for chirality sensing. ACS nano 2021, 15, 15538–15566.
+(4) Yang, Y.; Da Costa, R. C.; Fuchter, M. J.; Campbell, A. J. Circularly polarized light detection by a chiral organic semiconductor transistor. *Nature Photonics* **2013**, *7*, 634–638.
+
+(5) Farshchi, R.; Ramsteiner, M.; Herfort, J.; Tahraoui, A.; Grahn, H. Optical communication of spin information between light emitting diodes. *Applied Physics Letters* **2011**, *98*.
+
+(6) Furlan, F.; Moreno-Naranjo, J. M.; Gasparini, N.; Feldmann, S.; Wade, J.; Fuchter, M. J. Chiral materials and mechanisms for circularly polarized light-emitting diodes. *Nature Photonics* **2024**, 1–11.
+
+(7) Deng, Y.; Wang, M.; Zhuang, Y.; Liu, S.; Huang, W.; Zhao, Q. Circularly polarized luminescence from organic micro-/nano-structures. *Light: Science & Applications* **2021**, *10*, 76.
+
+(8) Greenfield, J. L.; Wade, J.; Brandt, J. R.; Shi, X.; Penfold, T. J.; Fuchter, M. J. Pathways to increase the dissymmetry in the interaction of chiral light and chiral molecules. *Chemical Science* **2021**, *12*, 8589–8602.
+
+(9) Gong, Z.-L.; Zhu, X.; Zhou, Z.; Zhang, S.-W.; Yang, D.; Zhao, B.; Zhang, Y.-P.; Deng, J.; Cheng, Y.; Zheng, Y.-X.; others Frontiers in circularly polarized luminescence: molecular design, self-assembly, nanomaterials, and applications. *Science China Chemistry* **2021**, 1–45.
+
+(10) Zhang, Y.; Yu, S.; Han, B.; Zhou, Y.; Zhang, X.; Gao, X.; Tang, Z. Circularly polarized luminescence in chiral materials. *Matter* **2022**, *5*, 837–875.
+
+(11) Andrews, S. S.; Tretton, J. Physical principles of circular dichroism. *Journal of Chemical Education* **2020**, *97*, 4370–4376.
+(12) Tang, Y.; Cohen, A. E. Optical chirality and its interaction with matter. *Physical review letters* **2010**, *104*, 163901.
+
+(13) Sang, Y.; Han, J.; Zhao, T.; Duan, P.; Liu, M. Circularly polarized luminescence in nanoassemblies: generation, amplification, and application. *Advanced Materials* **2020**, *32*, 1900110.
+
+(14) Han, J.; Guo, S.; Lu, H.; Liu, S.; Zhao, Q.; Huang, W. Recent progress on circularly polarized luminescent materials for organic optoelectronic devices. *Advanced Optical Materials* **2018**, *6*, 1800538.
+
+(15) Coles, H.; Morris, S. Liquid-crystal lasers. *Nature Photonics* **2010**, *4*, 676–685.
+
+(16) Yuan, C.-l.; Huang, W.; Zheng, Z.-g.; Liu, B.; Bisoyi, H. K.; Li, Y.; Shen, D.; Lu, Y.; Li, Q. Stimulated transformation of soft helix among helicoidal, heliconical, and their inverse helices. *Science Advances* **2019**, *5*, eaax9501.
+
+(17) Chen, F.; Gindre, D.; Nunzi, J.-M. Tunable circularly polarized lasing emission in reflection distributed feedback dye lasers. *Opt. Express* **2008**, *16*, 16746–16753.
+
+(18) Plum, E.; Zheludev, N. I. Chiral mirrors. *Applied Physics Letters* **2015**, *106*.
+
+(19) Armitage, N. Constraints on Jones transmission matrices from time-reversal invariance and discrete spatial symmetries. *Physical Review B* **2014**, *90*, 035135.
+
+(20) Jimenez, J.; Cerdan, L.; Moreno, F.; Maroto, B. L.; García-Moreno, I.; Lunkley, J. L.; Muller, G.; de la Moya, S. Chiral organic dyes endowed with circularly polarized laser emission. *The Journal of Physical Chemistry C* **2017**, *121*, 5287–5292.
+
+(21) Yuan, Z.; Zhou, Y.; Qiao, Z.; Eng Aik, C.; Tu, W.-C.; Wu, X.; Chen, Y.-C. Stimulated chiral light–matter interactions in biological microlasers. *ACS nano* **2021**, *15*, 8965–8975.
+(22) Albano, G.; Pescitelli, G.; Di Bari, L. Reciprocal and non-reciprocal chiroptical features in thin films of organic dyes. *ChemNanoMat* **2022**, *8*, e202200219.
+
+(23) Wolffs, M.; George, S. J.; Tomović, Ž.; Meskers, S. C.; Schenning, A. P.; Meijer, E. e. Macroscopic origin of circular dichroism effects by alignment of self-assembled fibers in solution. *Angewandte Chemie International Edition* **2007**, *46*, 8203–8205.
+
+(24) Schellman, J.; Jensen, H. P. Optical spectroscopy of oriented molecules. *Chemical Reviews* **1987**, *87*, 1359–1399.
+
+(25) Albano, G.; Pescitelli, G.; Di Bari, L. Chiroptical properties in thin films of π-conjugated systems. *Chemical reviews* **2020**, *120*, 10145–10243.
+
+(26) Chen, T.-L.; Salij, A.; Parrish, K. A.; Rasch, J. K.; Zinna, F.; Brown, P. J.; Pescitelli, G.; Urraci, F.; Aronica, L. A.; Dhavamani, A.; others A 2D chiral microcavity based on apparent circular dichroism. *Nature Communications* **2024**, *15*, 3072.
+
+(27) Zinna, F.; Albano, G.; Taddeucci, A.; Colli, T.; Aronica, L. A.; Pescitelli, G.; Di Bari, L. Emergent nonreciprocal circularly polarized emission from an organic thin film. *Advanced Materials* **2020**, *32*, 2002575.
+
+(28) Yan, L.; Xie, Y.; Mitzi, D. B.; Sercel, P. C.; Phillips, A. J.; Blackburn, J. L.; You, W. Giant Apparent Optical Circular Dichroism in Thin Films of Bismuth-Based Hybrid Organic–Inorganic Metal Halide Semiconductor Through Preferred Orientation. *Advanced Optical Materials* **2024**, *12*, 2302766.
+
+(29) Salij, A.; Goldsmith, R. H.; Tempelaar, R. Theory of apparent circular dichroism reveals the origin of inverted and noninverted chiroptical response under sample flipping. *Journal of the American Chemical Society* **2021**, *143*, 21519–21531.
+
+(30) Pavlopoulos, T. G.; Golich, D. J. Triplet extinction coefficients of some laser dyes I. *Journal of applied physics* **1988**, *64*, 521–527.
+(31) Schaefer, B.; Collett, E.; Smyth, R.; Barrett, D.; Fraher, B. Measuring the Stokes polarization parameters. *American Journal of Physics* 2007, 75, 163–168.
+
+(32) Cerdán, L.; García-Moreno, S.; Costela, A.; García-Moreno, I.; de La Moya, S. Circularly polarized laser emission induced in isotropic and achiral dye systems. *Scientific Reports* 2016, 6, 28740.
+
+(33) Gozhyk, I.; Clavier, G.; Méallet-Renault, R.; Dvorko, M.; Pansu, R.; Audibert, J.-F.; Brosseau, A.; Lafargue, C.; Tsvirkun, V.; Lozenko, S.; Forget, S.; Chénais, S.; Ulysse, C.; Zyss, J.; Lebental, M. Polarization properties of solid-state organic lasers. *Phys. Rev. A* 2012, 86, 043817.
+
+(34) Kuznetsova, R.; Shaposhnikov, A.; Filinov, D.; Kopylova, T.; Tel’minov, E. Polarization characteristics of stimulated emission of organic molecules when excited by intense XeCl laser radiation. *Optics and Spectroscopy* 2003, 95, 447–454.
+
+(35) Svelto, O. *Principles of Lasers*, 5th ed.; Springer, 2010.
+Some journals require a graphical entry for the Table of Contents. This should be laid out “print ready” so that the sizing of the text is correct. Inside the `tocentry` environment, the font used is Helvetica 8 pt, as required by *Journal of the American Chemical Society*. The surrounding frame is 9 cm by 3.5 cm, which is the maximum permitted for *Journal of the American Chemical Society* graphical table of content entries. The box will not resize if the content is too big; instead it will overflow the edge of the box. This box and the associated title will always be printed on a separate page at the end of the document.

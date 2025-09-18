@@ -1,0 +1,330 @@
+CACHE Challenge #2: Targeting the RNA Site of the SARS-CoV-2 Helicase Nsp13
+
+Oleskandra Herasymenko, Madhushika Silva, Abd Al-Aziz A. Abu-Saleh, Ayaz Ahmad, Jesus Alvarado-Huayhuaz, Oscar E. A. Arce, Roly J. Armstrong, Cheryl Arrowsmith, Kelly E. Bachta, Hartmut Beck, Denes Berta, Mateusz K. Bieniek, Vincent Blay, Albina Bolotkova, Philip E. Bourne, Marco Breznik, Peter J. Brown, Aaron D. G. Campbell, Emanuele Carosati, Irene Chau, Daniel J. Cole, Ben Cree, Wim Dehaen, Katrin Denzinger, Karina dos Santos Machado, Ian Dunn, Prasannavenkatesh Durai, Kristina Edfeldt, Aled Edwards, Darren Fayne, Kallie Friston, Pegah Ghiabi, Elisa Gibson, Judith Guenther, Anders Gunnarsson, Alexander Hillisch, Douglas R. Houston, Jan Halborg Jensen, Rachel J. Harding, Jamie Harris, Laurent Hoffer, Anders Hogner, Joshua T. Horton, Scott Houliston, Judd F. Hultquist, Ashley Hutchinson, John J. Irwin, Marko Jukić, Shubhangi Kandwal, Andrea Karlova, Vittorio L. Katis, Ryan P. Kich, Dmitri Kireev, David Koes, Nicole L. Inniss, Uta Lessel, Sijie Liu, Peter Loppnau, Wei Lu, Sam Martine, Miles McGibbon, Jens Meiler, Akhila Metti, Sam Money-Kyrle, Rocco Moretti, Yurii S. Moroz, Charuvaka Muova, Joseph A. Newman, Leon Obendorf, Brooks Paige, Amit Pandit, Keunwan Park, Sumera Perveen, Rachael Pirie, Gennady Poda, Mykola Protopopov, Vera Pütter, Federico Ricci, Natalie J. Roper, Edina Rosta, Margarita Rzhetskaya, Yogesh Sabnis, Karla J. F. Satchell, Frederico Schmitt Kremer, Thomas Scott, Almagul Seitova, Casper Steinmann, Valerij Talagayev, Olga O. Tarkhanova, Natalie J. Tatum, Dakota Treleaven, Adriano VelasqueWerhli, W. Patrick Walters, Xiaowen Wang, Jude Wells, Geoffrey Wells, Yvonne Westermaier, Gerhard Wolber, Lars Wortmann, Jixian Zhang, Zheng Zhao, Shuangjia Zheng, and Matthieu Schapira
+
+1Structural Genomics Consortium, University of Toronto, Toronto, Ontario M5G 1L7, Canada
+2School of Natural and Environmental Sciences, Newcastle University, Newcastle Upon Tyne, United Kingdom
+3Center for Computational Sciences, Universidade Federal do Rio Grande - FURG, Rio Grande, Brazil.
+4Department of Medical Biophysics, University of Toronto, Toronto, Ontario M5G 1L7, Canada
+5Princess Margaret Cancer Centre, University Health Network, Toronto, Ontario M5G 2C4, Canada
+6Division of Infectious Diseases, Department of Medicine, Northwestern University Feinberg School of Medicine, Chicago, IL 60611, USA.
+7Bayer AG, Drug Discovery Sciences, 42096 Wuppertal, Germany.
+8University College London, Department of Physics and Astronomy, London WC1E 6BS
+9Department of Microbiology and Environmental Toxicology, University of California Santa Cruz, USA
+10School of Data Science, University of Virginia, Charlottesville, United States of America.
+11Computational Molecular Design, Institute of Pharmacy, Freie Universität Berlin, Königin-Luisestr. 2 + 4, 14195 Berlin, Germany
+12UNC Eshelman School of Pharmacy, University of North Carolina at Chapel Hill, North Carolina, United States of America.
+13Department of Chemistry and Pharmaceutical Sciences, University of Trieste, Italy
+14Department of Organic Chemistry, Faculty of Chemical Technology, University of Chemistry and Technology Prague, Technická 5, 16 628 Prague 6, Czech Republic;
+15Department of Informatics and Chemistry, Faculty of Chemical Technology, University of Chemistry and Technology Prague, Technická 5, 16 628 Prague 6, Czech Republic.
+16Department of Computational and Systems Biology, University of Pittsburgh, Pittsburgh, Pennsylvania 15261, United States of America.
+17Korea Institute of Science and Technology, Republic of Korea
+18Structural Genomics Consortium, Department of Medicine, Karolinska University Hospital and Karolinska Institutet, Stockholm, Sweden.
+19Molecular Design Group, School of Biochemistry and Immunology, Trinity Biomedical Sciences Institute, Trinity College Dublin, 152-160 Pearse St, Dublin 2, D02 R590, Ireland
+20DCU Life Sciences Institute, Dublin City University, Dublin, Ireland
+21Bayer AG, Drug Discovery Sciences, 13353 Berlin, Germany.
+22Structure and Biophysics, Discovery Sciences, BioPharmaceuticals R&D, AstraZeneca, 431 50 Gothenburg, Sweden Papparedsleden 1, Mölndal 431 50, Sweden.
+23UCB, 40789 Monheim am Rhein, Germany.
+24University of Biological Sciences, University of Edinburgh, Old College, South Bridge, Edinburgh, EH9 3BF EH8 9YL, United Kingdom
+25Department of Chemistry, University of Copenhagen, Universitetsparken 5, 2100 Copenhagen, Denmark.
+26Department of Pharmacology & Toxicology, University of Toronto, Toronto, Ontario, M5S 1A8, Canada
+27Leslie Dan Faculty of Pharmacy, University of Toronto, Toronto, Ontario M5S 3M2, Canada
+28Drug Discovery Program, Ontario Institute for Cancer Research, Toronto, Ontario M5G 0A3, Canada.
+29Medicinal Chemistry, Research and Early Development, Cardiovascular, Renal and Metabolism (CVRM), BioPharmaceuticals R&D, AstraZeneca, 431 50 Gothenburg, Sweden.
+30Center for Pathogen Genomics and Microbial Evolution, Northwestern University Havey Institute for Global Health, Chicago, IL 60611, United States of America.
+31UCSF Pharmaceutical Chemistry, 1700 4th St, San Francisco CA 94523
+32University of Maribor, Slovenia Laboratory of Physical Chemistry and Chemical Thermodynamics, Faculty of Chemistry and Chemical Engineering, University of Maribor, Smetanova ulica 17, SI-2000 Maribor, Slovenia; Faculty of Mathematics,
+Natural Sciences and Information Technologies, University of Primorska, Glagoljaška ulica 8, SI-6000 Koper, Slovenia.
+
+33Molecular Design Group, School of Chemical Sciences, Dublin City University, Glasnevin, Ireland.
+
+34Department of Computer Science, University College London, United Kingdom.
+
+35Centre for Medicines Discovery, NDM Research Building, University of Oxford, Old Road Campus Research Building, Roosevelt Drive, Oxford, OX3 7DQ, United Kingdom.
+
+36Department of Chemistry, University of Missouri, Columbia, Missouri 65211-7600, United States of America.
+
+37Department of Microbiology-Immunology, Northwestern University Feinberg School of Medicine, Chicago, IL 60611 United States of America.
+
+38Boehringer Ingelheim Pharma GmbH & Co. KG, Birkendorfer Str. 65,88397 Biberach an der Riss, Germany.
+
+39Free University of Berlin Institute of Pharmacy, Computational Molecular Design, Berlin, Berlin, DE 14195.
+
+40Galixir Technologies, 200100 Shanghai, China.
+
+41Vanderbilt University, Center for Structural Biology, South Nashville, TN, United States of America.
+
+42Vanderbilt University, Department of Chemistry, Nashville, TN 37240, United States of America.
+
+43Chemspace, Kyiv, Ukraine.
+
+44University of Oxford, Centre for Medicines Discovery, Department of Biochemistry, south parks rd, Oxford, Oxfordshire, UK OX1 3QU.
+
+45Taras Shevchenko National University of Kyiv, Kyiv, Ukraine.
+
+46Nuvisan ICB GmbH,13353 Berlin 89231 Neu-Ulm, Germany.
+
+47University of Messina, Messina, Italy.
+
+48UCB, Braine-L'Alleud, Belgium.
+
+49OmixLab, Universidade Federal de Pelotas, Capão do Leão, Brazil.
+
+50Department of Chemistry and Bioscience, Aalborg University, Fredrik Bajers Vej 7H, 9220, Aalborg, Denmark.
+
+51Newcastle University Centre for Cancer, Translational and Clinical Research Institute, Newcastle University, Paul O’Gorman Building, Framlington Place, Newcastle upon Tyne NE2 4HH, UK.
+
+52Conscience Medicines Network, Toronto, Ontario M5G 1L7 Canada.
+
+53Relay Therapeutics, Cambridge, Massachusetts 02141, United States of America.
+
+54Department of Pharmaceutical and Biological Chemistry. University College London, United Kingdom.
+
+55Boehringer Ingelheim RCV, Dr. Boehringer-Gasse 5-11, 1121 Vienna, Austria.
+
+56Shanghai Jiao Tong University, Shanghai, China.
+
+57Department of Pharmacology and Toxicology, University of Toronto, Canada.
+ABSTRACT
+
+A critical assessment of computational hit finding experiments (CACHE) challenge was conducted to predict ligands for the SARS-CoV-2 Nsp13 helicase RNA binding site, a highly conserved COVID-19 target. Twenty-three participating teams comprised of computational chemists and data scientists used protein structure and data from fragment-screening paired with advanced computational and machine learning methods to each predict up to 100 inhibitory ligands. Across all teams, 1957 compounds were predicted and were subsequently procured from commercial catalogs for biophysical assays. Of these compounds, 0.7% were confirmed to bind to Nsp13 in a surface plasmon resonance assay. The six best performing computational workflows used fragment growing, active learning, or conventional virtual screening with and without complementary deep-learning scoring functions. Follow-up functional assays resulted in identification of two compound scaffolds that bound Nsp13 with a $K_d$ below 10 µM and inhibited in vitro helicase activity. Overall, the CACHE #2 was successful in identifying hit compound scaffolds targeting Nsp13, a central component of the coronavirus replication-transcription complex. Computational design strategies recurrently successful across the first two CACHE challenges include linking or growing docked or crystallized fragments and docking small and diverse libraries to train ultra-fast machine-learning models. The CACHE#2 competition reveals how crowd-sourcing ligand prediction efforts using a distinct array of approaches followed with critical biophysical assays can result in novel lead compounds to advance drug discovery efforts.
+
+INTRODUCTION
+
+The Critical Assessment of Computational Hit Finding (CACHE) challenges are prospective benchmarking exercises modeled after CASP\(^1\) where computational chemists and data scientists use their methods to predict small-molecule ligands for a pre-defined protein target\(^2\). But unlike CASP, CACHE challenges are prospective: predicted molecules are tested experimentally and all data shared publicly. The goal of CACHE is to delineate the state-of-the-art in computational hit discovery, an area poised for breakthroughs driven by advances in artificial intelligence (AI). The first CACHE challenge (CACHE #1), focused on the WDR domain of LRRK2, a Parkinson’s disease target. An apo structure of the targeted domain was available in the protein data bank (PDB), but no ligand had been reported at the time. CACHE #1 reflected a highly dynamic and explorative field; a few weakly active molecules were discovered, indicating that significant progress remains to be seen\(^3,4\).
+In CACHE #2, computational teams were challenged to find drug-like ligands targeting the RNA-binding site of the SARS-CoV-2 helicase Nsp13, a site with bound fragments in the PDB (PDB codes 5RLH, 5RLZ, 5RML, and 5RMM)\textsuperscript{5} (Figure 1). The reported fragments had no measurable binding affinity but highlighted putative interaction hotspots in the RNA binding site of Nsp13, which is one of the two most conserved sites in the coronavirus proteome and represents an attractive target for novel antivirals\textsuperscript{6}. Nucleic acid binding sites are typically highly polar and poorly druggable, but low micromolar ligands targeting the RNA sites of SNRNP200\textsuperscript{7} and HCV NS3\textsuperscript{8} (PDB 5URM and 4OKS, respectively) have been reported, supporting the idea that these sites can successfully be targeted by small molecules in some cases. Helicases are a clinically validated target class\textsuperscript{9} but are often recalcitrant to medicinal chemistry efforts due to the transient nature of their conformational states\textsuperscript{10}. As such, well-characterized small molecule ligands for Nsp13 would represent valuable chemical starting points for drug discovery.
+
+\textbf{Figure 1: Fragments occupy the SARS-CoV-2 Nsp13 RNA-binding channel.} Composite image formed by superimposing experimental structures of Nsp13 in complex with four fragments and in complex with RNA and ADP (blue and orange respectively; PDB code 7RDY\textsuperscript{11}). CACHE #2 participants were asked to find ligands targeting the RNA-binding site occupied by fragments. Electrostatic potential coloring of the binding site, revealing the overall polar area, and bound fragments are depicted in the inset.
+Here, we review the computational workflows and associated hit rates of the 23 teams who participated in CACHE #2. In an initial “hit identification” round (Round 1), each team selected up to 100 compounds from the Enamine catalog resulting in 1957 molecules that were procured and tested using Surface Plasmon Resonance (SPR), a direct biophysical binding assay. Each computational group was provided with experimental data on their respective compounds and asked to select up to 50 commercial analogs of their experimentally confirmed compounds of interest. The goal of this “hit expansion” round (Round 2) was to establish chemical series with multiple compounds experimentally confirmed to further build confidence in determining successful computational workflows. In parallel, all teams were asked to predict active molecules from the library composed of all Round 1 compounds collectively selected by all participants, a complementary evaluation mechanism where participants predict from the same library.
+
+As in CACHE #1, the participating teams used a diverse array of workflows. Overall, hit rates were low compared with virtual screening results typically reported in the literature, with no clear benefit of using methods supplemented by machine-learning over purely physics-based methods. Nevertheless, 13 experimentally validated Nsp13-targeting chemical series (binding affinities ranging from 1 to 90 μM) were identified by 11 different teams, representing starting points for the development of chemical probes to explore the antiviral effect of Nsp13 inhibition.
+
+RESULTS
+
+The CACHE #2 competition targeting SARS-CoV-2 Nsp13 was initiated with applications due in September 2022. As specified in the CACHE roadmap², an independent applications review committee (Table S1) selected 25 participants for CACHE #2, based on the results of a double-blind peer review process where each applicant evaluates and rates five randomly selected applications. Twenty three out of the 25 selected teams submitted their computational predictions within the specified two-month timeframe.
+
+Computational workflows were diverse
+
+The computational workflows represented diverse design strategies, techniques and tools (Figure 2). Out of 23 teams, ten used neural networks to generate or evaluate compounds, eight used crystallized fragments in the PDB to guide their design, seven used molecular dynamics simulations to account for protein flexibility, four used free energy calculation and two quantum mechanics to refine their prediction.
+
+For example, the Poda-Hoffer team (workflow 1448 - WF1448), adopted a conservative, purely physics-based but well-established screening pipeline where Glide (Schrodinger, New York, Inc.) was used to screen a large and diverse library, with pharmacophoric constraints, against a conformational ensemble extracted from fragment-bound Nsp13
+crystal structures in the PDB, along with a few conformationally refined snapshots from quick molecular dynamics simulations. The output was refined with another scoring function (HYDE, BioSolveIT) after considering crystallographic water molecules from the system. Both computational and medicinal chemists visually inspected the top-scoring molecules to finalize the selection.
+
+The Moretti-Meiler team (WF1414) implemented the challenge on Drug-it within the Fold-it platform\(^\text{12}\), where citizen scientists use an online gaming interface to grow fragments bound to Nsp13 available in the PDB. After multiple rounds of chemical modification, the closest commercial analogs were re-docked with RosettaLigand\(^\text{13}\) and ranked based on neural network-predicted absolute binding free energies\(^\text{14}\). Interestingly, these widely divergent workflows ended-up producing the two best Nsp13 binders.
+Compounds were drug-like and chemically diverse
+
+In Round 1, each team was asked to select up to 100 in-stock or make-on-demand compounds from the Enamine catalog, leading to a collection of 1957 compounds quite evenly distributed between participants (61 to 97 compounds each, Figure 3a). Participants were also encouraged to use badapple (https://datascience.unm.edu/badapple/) to filter out promiscuous compounds\textsuperscript{15}, though doing so was not mandatory. Overall, compounds displayed drug-like properties, as reflected by the distribution of their Lipinski descriptors\textsuperscript{16} (Figure 3b). While three of the four fragments crystallized in the RNA site of Nsp13 included a carboxylic acid attached to a ring, compounds were diverse, as illustrated by a pairwise distance matrix of Tanimoto distances based on ECFP4 Morgan fingerprints calculated with RDKit (Figure 3c). Chemical diversity was also observed within selections from each team, with rare exceptions, outlined by darker squares along the diagonal of the distance matrix.
+
+Only 20 compound pairs selected from different participants had a Tanimoto distance of 0.3 or lower, based on ECFP4 fingerprints. Not surprisingly, all closest analogs selected by different participants (Figure 3d) were also close analogs of the crystallized fragments found in the PDB (Figure 1), however none of these were ultimately confirmed experimentally. Indeed, in the previously reported fragment screen by crystallography, Nsp13 crystals were soaked in 50 mM fragments solutions\textsuperscript{5}, which can lead to the capture of fragments that are too weak to be detected by SPR (maximum concentration of 200 \(\mu\)M). Yet, crystallographically captured fragments were successfully grown into 20-40 \(\mu\)M hits, as detailed below.
+Figure 3: Drug-likeness and chemical diversity of 1957 Round 1 compounds. (a) Number of compounds tested in Round 1 and advanced to Round 2 for each participant. (b) Chemical descriptors distribution of Round 1 compounds. (c) Pairwise Tanimoto distance matrix, using ECFP4 Morgan fingerprints from RDKit (compounds are ordered based on the selected teams). (d) closest analogs selected by different participants. MW: molecular weight; PSA: polar surface area; HBD: hydrogen-bond donors; HBA: hydrogen-bond acceptors; ROTB: rotatable bonds; TD: Tanimoto Distance.
+
+Experimental testing of Round 1 compounds
+
+Helicases are complex and structurally dynamic enzymes that couple ATP (or other nucleotides) hydrolysis at one site with RNA or DNA duplex unwinding at another. Given that the fragments in the targeted Nsp13 structure (PDB codes 5RLH, 5RLZ, 5RML, and 5RMM) bound to full-length Nsp13 in the absence of ATP or RNA\textsuperscript{5}, a similar form of the...
+protein was used in a surface plasmon resonance (SPR) assay to measure the direct binding of the 1957 Round 1 compounds to the full-length protein (Table S2). Nsp13 is a core component of the replication-transcription complex that also includes the viral RNA-dependent RNA polymerase (RdRp)\(^\text{10}\), but the isolated protein was used in the assay for two reasons: first, fragments in the PDB were bound to the isolated monomer, and second, binding to RdRp would have obscured the results. All compounds were also tested in an ATPase assay (Table S2), but we saw no correlation between SPR and ATPase assays and decided to rely on direct binding (SPR) to advance compounds to Round 2. Indeed, false positives in the ATPase assay that may bind to other assay-specific molecular components should be true negative in SPR, while true positives binding the RNA site in the SPR assay may not inhibit the ATPase activity. We also cannot discount the possibility that SPR hits may bind at unexpected andfunctionally neutral sites.
+
+All compounds were tested at 50 µM in both assays. 300 compounds had acceptable SPR sensogram profiles with a binding signal above 50% of the expected signal (based on the amount of protein captured on the SPR streptavidin chip), and were advanced to dose-response by SPR. Another 54 compounds that inhibited the ATPase activity by 40% or more at 50 µM were selected for SPR dose-response. Dose response measurements were conducted on the resulting 354 compounds by SPR, as well as on 96 compounds in the ATPase assay. Binding to WDR5, an unrelated protein, was also measured by SPR for selected hits to flag non-specific binders. Compounds of interest with signs of poor solubility or aggregation (<80% detected laser power at 100 µM) as measured by dynamic light scattering (DLS) were also flagged but were not dismissed to avoid false negatives (Table S2). Indeed, unlike a typical drug discovery program, no active compound should be left behind in CACHE, as this would defeat the purpose of evaluating the efficiency of computational predictions. In the end, 46 compounds selected by 18 teams had a \(K_D < 150 \text{ µM}\), a binding signal between 30% and 150% of the expected signal, and were advanced to Round 2 (Figure 4, Table S2). While most hit rates were between 0 and 3%, workflows WF1454, WF1418 and WF1456 had significantly higher hit rates (9%, 8% and 7% respectively). The overall Round 1 hit rate was 2.3%.
+
+![Diagram](https://example.com/diagram.png)
+Selection and Experimental Testing of Round 2 Compounds
+
+The goal of the second round was to build confidence in advanced hits by experimentally verifying that their chemical analogs were also binding to the target. Compounds associated with experimental orange flags, such as signs of aggregation or poor solubility, were advanced to Round 2 to avoid false negatives and unfairly discounting computational methods. Seventeen teams selected up to 50 analogs of their Round 1 compounds of interest (compounds showing a binding signal by SPR), leading to 618 Round 2 molecules that were screened at 50 µM in an SPR binding assay, followed by dose-response and measurements of aggregation and solubility, as in Round 1 (Tables S3, S4). Compounds were also tested in an ATPase assay (Tables S5 and S6 respectively), and no correlation was observed with SPR data, as in Round 1. $^{19}$F-NMR was used as an orthogonal binding assay for fluorinated molecules.
+
+Multiple chemical series emerged from this exercise (Table 1, Figure 5, and Supplementary material).
+PARENT MOLECULE: CACHE_1419_42
+
+K_D = 14 μM – 54% binding
+Selective vs WDRS - 16% binding
+Passes solubility, no aggregation up to 100 μM
+
+4 out of 48 analogs showed a dose dependent binding response by SPR.
+
+PARENT MOLECULE: CACHE_1438_39
+
+K_D = 9 μM – 84% binding
+Selective vs WDRS - Yes
+Passes solubility, no aggregation up to 200 μM
+
+3 out of 45 analogs showed a dose dependent binding response by SPR.
+
+PARENT MOLECULE: CACHE_1448_70
+
+K_D = 51 μM – 76% binding
+Selective vs WDRS - Yes
+Passes solubility, no aggregation up to 200 μM
+
+2 out of 44 analogs showed a dose dependent binding response by SPR.
+Figure 5: Top six chemical series identified in Round 2. Activity of the parent molecules and experimental data from Round 2 analogs are shown, including SPR sensorgrams and $^{19}$F-NMR spectra. Computational workflow IDs are encoded into compound names.
+
+Thirteen of the high ranked compounds as well as compound derivatives that scored lower but exhibited high binding affinity by SPR were further assayed for inhibition of double-stranded RNA unwinding activity in a FRET-based assay. Two compounds were found to potently inhibit Nsp13 helicase activity (CACHE2-HO_1431_6: $K_D$ 770 nM ± 180, unwinding IC$_{50}$ 8.6 µM ± 1.7; CACHE2-HO_1454_15: $K_D$ 31 µM ± 0.7, unwinding IC$_{50}$ 57 µM ± 2). Inhibition of dsRNA unwinding by CACHE2-HO_1431_6 was also confirmed in a gel-based unwinding assay with CACHE2-HO_1454_15 partially inhibitory, consistent with CACHE2-HO_1431_6 having a more potent unwinding activity and stronger binding affinity and lower IC$_{50}$ value. (Figure 6). Note that many compounds in this series have an ester group linker that is likely to be hydrolyzed in cells and represents a serious medicinal chemistry liability, which penalized the final score of this chemical series. However, modifying the ester linker to a more stable group could easily address this liability while conserving potency. But this medicinal chemistry work is beyond the scope of the CACHE study.
+Figure 6: Two compounds inhibited RNA duplex unwinding. Out of the 13 most potent compounds in the SPR assay (Table S7), CACHE2-HO-1431_6 and CACHE2-HO_1454_15 had measurable IC\textsubscript{50} values in a FRET-based RNA unwinding assay (a), and had a detectable inhibitory effect in a gel-based RNA unwinding assay when added at 1 mM (b).
+
+Evaluation of experimental data and computational workflows
+
+The biophysical data and structure-activity relationship (SAR) of Round 1 hits and their Round 2 analogs were evaluated by an independent Hit Evaluation Committee composed of industry experts in biophysics, medicinal chemistry and computational chemistry (Table S1), leading to a final score assigned to each Round 1 hit (Table S8). Overall, 13 compounds had a score greater than 10 (Table 1), reflecting robust experimental confirmation, which corresponds to a hit rate of 0.7%.
+Table 1: 13 Compounds with a score greater than 10
+
+| Round 1 hit | Score | Most potent analog | Structure | KD [µM] |
+|-------------|-------|--------------------|-----------|---------|
+| CACHE_1413_19 | 12.5  | CACHE2-HO_1413_3 | ![Structure](image1.png) | 20      |
+| CACHE_1434_40  | 20.2  | CACHE2-HO_1434_29 | ![Structure](image2.png) | 27      |
+| CACHE_1419_42  | 17.3  | CACHE2-HO_1419_25 | ![Structure](image3.png) | 17      |
+| CACHE_1421_21  | 13.3  | CACHE2-HO_1421_16 | ![Structure](image4.png) | 30      |
+| CACHE_1421_62  | 12.7  | CACHE2-HO_1421_29 | ![Structure](image5.png) | 18      |
+| CACHE_1427_15  | 10.6  | CACHE2-HO_1427_39 | ![Structure](image6.png) | 19      |
+| CACHE_1430_25  | 14.2  | CACHE2-HO_1430_39 | ![Structure](image7.png) | 36      |
+
+The computational workflows of CACHE #2 participants were then evaluated based on the aggregated score of Round 1 compounds, and based on the best scoring Round 1 molecule (Figure 7a,b, Table S9). In a separate evaluation scheme, all participants were asked to predict Nsp13 ligands from the merged collection of 1957 Round 1 compounds before the experimental data were generated. The aggregated score of predicted hits, normalized based on the number of hits predicted, was used to rate the computational workflows (Figure 7c). This scheme is complementary as here, all teams predicted hits from the same library, while in Rounds 1 and 2, participants screened compound collections from the Enamine catalog that may vary widely in size to best align with their computational methods and resources.
+Figure 7: Scores of CACHE2 participants. For each team, the aggregated score of all Round 1 hits (a) or the score of the best Round 1 hit (b) selected from the Enamine Real library is plotted. (c) Normalized score when predicting active molecules from the 1957 Round 1 compounds (calculated as the aggregated score of all compounds predicted active divided by the number of compounds predicted active). The score of each molecule was assigned by the CACHE Hit Evaluation Committee (Table S1).
+
+While these combined metrics provide a complete evaluation of computational workflows used in CACHE #2, a list of six well-performing workflows was compiled for further analysis, including WF1454 and WF1456, which had the best two aggregated scores, WF1414, WF1448, and WF1419 which predicted the three best scoring chemical series, and WF1438 that did best in predicting hits out of the 1957 Round 1 compounds (Figure 8). Importantly, absence from this selection focused on top-performing computational pipelines does not imply that a workflow failed.
+
+Figure 8: Best performing workflows. (a) Group, workflow ID, and associated ranks in three evaluation schemes. (b) Schematics of the computational workflows.
+Trends and strategies from the best performing computational workflows
+
+Most of the best scoring compounds were docked to the RNA binding groove, at the site occupied by fragments found in PDB structures 5RMM, 5RLZ and 5RLH, the target site defined for this CACHE challenge (Figure 9). An exception is CACHE_1454_98, which is predicted to occupy an unrelated binding pocket. In this workflow (WF1454), compounds were docked onto a receptor grid spanning most of the target protein. Six of the eight Round 1 compounds from WF1454 that advanced to Round 2 occupied the RNA-binding groove, one the ATP site and one (CACHE_1454_98) an unrelated site. While top hits from other workflows occupy the expected site, they do not share pharmacophoric features or conserved interactions. CACHE_1414_40 was obtained from growing the crystallized fragment found in the PDB structure 5RMM (Figure 1) and is predicted to loosely overlap with the bound fragment.
+
+**Figure 9: Docked poses of top compounds.** The docked poses of some of the best scoring CACHE #2 hits (right) compared with the crystal structure of fragments found in the PDB (left). RNA from a superimposed cryo-EM structure shown in blue (PDB code: 7RDY). CACHE_1454_98 was docked to an alternate site.
+
+The six best-performing workflows (Figure 8a) can be divided into three groups (Figure 10). WF1414 and WF1438 both adopted strategies where fragments from the PDB were gradually grown and commercial analogs identified along multiple iterative cycles but their implementations were drastically divergent: WF1414 relied on citizen scientists and the gaming interface provided by Foldit to grow fragments, followed by RosettaLigand\(^\text{13}\), a physics-based docking tool, and BCL-AffinityNet, a feed-forward deep neural network,
+for final scoring\textsuperscript{14}; WF1438 used FEgrow\textsuperscript{17} to enumerate fragments in the binding pocket based on a hybrid machine learning (ML) / molecular mechanics energy function leveraging the ANI neural network potential\textsuperscript{18} for ligand energetics, and final evaluation with the convolutional neural network scoring function GNINA\textsuperscript{19}.
+
+Another selection strategy adopted in workflows WF1456 and WF1454 was to dock a small and diverse library with GNINA\textsuperscript{19} or Vina\textsuperscript{20}, respectively, to initiate iterative active learning cycles where a ML model is trained on a small set of docking scores to predict ML-scores for billions of commercial compounds, and where ML-scores are used to select the next small subset for docking and refinement of the ML model. In WF1454, the selection was further refined with a round of consensus scoring.
+
+Finally, WF1448 and WF1419 implemented a more direct approach where a large and diverse library was docked with pharmacophore constraints followed by orthogonal re-scoring. WF1448 used purely physics-based approaches for docking (Glide) and Scoring (HYDE), followed by visual inspection and selection of top compounds by both computational and medicinal chemists. WF1419 used the popular open-source software Vina\textsuperscript{20} for docking combined with ML/deep learning scoring functions RF-Score-VS\textsuperscript{21} and SCORCHs\textsuperscript{22}.
+
+Overall, five of the top six performing workflows combined physics-based and ML techniques. All five workflows used ML to score docked poses, and two (WF1454 and WF1456) used ML to accelerate screening within active learning cycles. A more conventional, purely physics-based approach (WF1448) also proved successful, demonstrating that well-established physics-based virtual screening techniques remain competitive when deployed by experienced computational chemists. While only 22% of the workflows (five out of 23) used in Round 1 explicitly accounted for protein flexibility using conformational ensembles (WF1419, WF1422, WF1447, WF1448) or flexible docking (WF1414) (Figure 2), they represented 50% of the most successful workflows (three out of six) (Figure 10). Considering the well-known conformational dynamics of helicases\textsuperscript{23}, including Nsp13\textsuperscript{5}, accounting for receptor flexibility may indeed have increased chances of success.
+**Figure 10:** Classification of most successful workflows. Computational workflows are classified based on hit-prediction strategies. Computational steps using machine-learning are highlighted in blue. Software names are shown in italic.
+
+**DISCUSSION**
+
+In CACHE #2, computational teams were asked to find molecules that target a pocket occupied by fragments in the PDB, a common challenge successfully met by the COVID moonshot initiative that targeted the SARS-CoV-2 protease\(^{24}\), which could also be undertaken for other targets. In our challenge, the crystallized fragments were weak and had no measurable binding affinity by SPR (data not shown). Only eight out of 23 computational teams explicitly used the bound fragments in their selection strategy, and two of these were among the most successful workflows (Figures 8b and 10). This shows that rationally optimizing crystallized fragments remains a challenging exercise that requires further developments before it can be reliably applied. Considering the multitude of targets with bound fragments in the PDB, including those taken to fragment screening by crystallography\(^{25}\), technological development in this area of computational design could be impactful.
+
+A main goal of CACHE is to highlight computational strategies that repeatedly perform well within a challenge or across multiple targets. Interestingly, using physics-based docking data on a relatively small library to train a ML model that can then be used to efficiently navigate a much larger chemistry space was a winning strategy both in CACHE #1 (WF1193 and WF1209)\(^3\) and CACHE #2 (WF1454 and WF1456) (Figure 10).
+Among the dozens of commercial and open-source computational tools used by CACHE participants, the convolutional network scoring function implemented in GNINA\textsuperscript{18} was found in one winning workflow in CACHE #1 (WF1181) and in two in CACHE #2 (WF1438 and WF1456), strongly suggesting that this software is robust across two targets absent from training sets (no ligand with measurable binding affinity was previously known for either CACHE target). Fragment-based techniques linking docked fragments in CACHE #1 (WF1183 and WF1202) or growing crystallized fragments in CACHE #2 (WF1414, WF1421, and WF1438) also define a recurrently successful approach to computational ligand design. Workflow WF1414 is a distinct variation on this theme in that it relies on the design of citizen scientists who use a gaming interface to grow fragments in a binding pocket after which designs are evaluated with RosettaLigand. Combining human creativity with tools such as RosettaLigand may indeed be a recipe for success.
+
+Only one of the CACHE participants explicitly included the visual inspection and subjective judgment of medicinal chemists as a final step in their selection strategy (WF1448). This step is common practice in virtual screening and should be better tracked in the future. Indeed, in its current set-up, CACHE evaluates not only computational methods but also the intuition and expertise of humans running these tools. The most seasoned computational chemist will be hard pressed to subjectively select hits out of a failed computational workflow. We would therefore argue that experimentally confirmed hits can only reflect successful computational workflows. Nevertheless, there would be some merit in requesting a more detailed description of human intervention from CACHE participants, including asking them to provide “computer-only” selections in addition to their final, human-selected sets (if any), at the risk of spending resources on testing compounds that do not pass the subjective evaluation of experts.
+
+We observed a significant improvement in binding affinity for only one chemical series where two analogs (CACHE2-HO\_1421\_29 and CACHE2-HO\_1421\_27) showed a 3-fold increase in binding affinity compared with the Round 1 hit (CACHE\_1421\_62). The other exception is CACHE2-HO\_1431\_6 but it is a very distant analog of the parent molecule. The limited improvement seen in Round 2 may reflect a limitation in the commercial availability of analogs. Indeed, dedicated chemistry is typically preferred for the design of highly customized molecules. A mechanism to mitigate this effect could be to focus Round 1 screening on compounds richly derivatized in commercial catalogs. We expect that such an approach will become more attractive in the future, as commercial libraries keep growing.
+
+**CONCLUSION**
+
+Retrospective benchmarking exercises are critical to compare predictive computational methods\textsuperscript{1,26–28} and carefully assembled datasets play a central role for example to
+evaluate docking, virtual screening or free energy perturbation methodologies.\textsuperscript{29–35} While the value of these resources is generally well appreciated among computational chemists and data scientists, one may be surprised to see new ML-driven virtual screening tools being published every month that perform better than “all others” when tested for example on the PoseBusters dataset.\textsuperscript{29} Skeptical data scientists may wonder whether data leaked between training, test and validation sets while seasoned drug-hunters and experimentalists may refer to the old Danish proverb saying that “It is difficult to make predictions, especially about the future”.
+
+In CACHE #2, 23 computational teams were challenged to prospectively predict ligands for the RNA binding site of SARS-CoV-2 Nsp13, a binding pocket with no known drug-like ligand. Testing the predicted compounds experimentally yielded a low hit rate of 0.7 \%, indicating that a breakthrough in computational hit finding where bioactive molecules are reliably designed \textit{in silico} remains to be seen. Strikingly, the highest scoring prediction in CACHE #2 was a compound manually designed by citizen scientists using the Fold-it online interface and further prioritized by physics and ML-based computational tools (WF1414), emphasizing the value of human intervention in the design process. Computational hit finding strategies and tools recurrently successful across the first two CACHE challenges define emerging trends that may inform the community when constructing hit-finding computational pipelines. To the best of our knowledge, the thirteen compounds confirmed experimentally are the first with a measurable binding affinity expected to engage the RNA binding site of Nsp13. Considering the exceptionally high conservation of this site\textsuperscript{6} and its central role in the essential replication-transcription complex\textsuperscript{10}, molecules discovered in CACHE #2 provide valuable chemical starting points for future medicinal chemistry exploration.
+
+\textbf{METHODS}
+
+\textbf{Computational workflows}
+
+Computational methods are available from https://cache-challenge.org/results-cache-challenge-2
+
+\textbf{Protein expression and purification}
+
+DNA fragments encoding SARS-CoV-2 Nsp13 residues A5325-G5925 were amplified via PCR and sub-cloned into the pFBD-BirA expression vector. The insert was positioned downstream of the AviTag for \textit{in vivo} biotinylation and upstream of a HisTag. The resulting plasmid was transformed into DH10Bac\textsuperscript{TM} competent E. coli (Invitrogen) and a recombinant viral bacmid DNA was purified and followed by a recombinant baculovirus generation for baculovirus mediated protein production in SF9 insect cells. Biotin was added to the medium at a final concentration of 10 \(\mu\)g/mL. Cells were harvested by centrifugation at low speed (2500 rpm for 10 minutes at 4 \(^\circ\)C in a Beckman Coulter centrifuge) when cell viability dropped to 70-80\%. The cells were resuspended in extraction buffer (20 mM Tris-HCl, pH 7.2, 500 mM NaCl, 5\% glycerol, 5 mM Imidazole + 1 ml PI cocktail (Aprotinin, Leupeptin, Pepstatin A, and E-64) and lysed
+chemically by adding NP40 (final concentration of 0.5%) and 5 µl/L Benzonase Nuclease (in-house) followed by sonication at the frequency of 7.0 kHz (5” on/17” off) for 3 min (Sonicator 3000, Misoni). The crude extract was then clarified by high-speed centrifugation (60 min at 36,000 ×g at 4 °C) in a Beckman Coulter centrifuge to remove the cellular debris. The clarified lysate was first sent through a Ni-NTA resin column followed by passage through Gel filtration HiLoadTM 26/600 Superdex (Cytiva) with 50 mM Tris, pH 7.2, 200 mM NaCl, 5% glycerol, 0.5 mM TCEP to enrich nsp13_SARS2 to 95% purity. Following the identification of the protein eluting fraction and purity using SDS-PAGE gels, and mass confirmation, the fractions were pooled, concentrated, snap-frozen, and stored at -80 °C until use. Protein mass was confirmed by LC-MS.
+
+**Surface Plasmon Resonance (SPR)**
+The assay was conducted using a Biacore™ 8K (Cytiva) at 20 °C. Biotinylated Nsp13_SARS2, with approximately 4900-5100 response units (RU), was immobilized onto the flow cell two of a streptavidin-conjugated streptavidin chip following the manufacturer’s protocol. The flow cell one served as a reference for subtraction for each channel. Compounds were initially dissolved in 100% DMSO to create 10 mM stock solutions, which were subsequently serially diluted (factor: 0.5) to obtain six concentration points in 100% DMSO. For the SPR run, these serially titrated compound stocks were diluted at the ratio 1:50 in HBS buffer, containing Mg2+ (10 mM HEPES pH 7.4, 150 mM NaCl, 5 mM MgCl2, 0.03% (v/v) Tween 20) to achieve a final DMSO concentration 2%. Binding experiments used multi-cycle kinetics with a contact time of 60 seconds and a dissociation time of 180 seconds at a flow rate of 40 μL/min at 20 °C. The dissociation constant (KD) values were determined using steady-state affinity 1:1 binding with the Biacore™ Insight Evaluation software (Cytiva).
+
+**Dynamic Light Scattering**
+The solubility of compounds was estimated by DLS that directly measures compound aggregates and laser power in solution. Compounds were serially diluted directly from DMSO stocks, then diluted 50x into filtered 10 mM Hepes pH7.4, 150 mM NaCl, 5 mM MgCl2, 0.03% Tween20 (2% DMSO final). The resulting samples were then distributed into 384-well plates (black with a clear bottom, Corning 3540), with 20 μL in each well. The sample plate was centrifuged at 3500 rpm for 5 min before loading into DynaPro DLS Plate Reader III (Wyatt Technology).
+
+**ATPase activity**
+The level of ATP consumed by Nsp13 was quantified by measuring the amount of remaining ATP using a luciferase-based assay as previously described. The inhibitory effects of compounds were assessed in 384-well format (14 μL final volume) using reactions composed of 50 mM HEPES, pH 7.5, 5% Glycerol, 5 mM magnesium acetate, 5 mM DTT, 0.01% Triton X-100, 0.01% BSA, 0.1 nM Nsp13, 3.5 nM 30b PolyT ssDNA, 2.5 μM ATP, and 2% DMSO. Samples containing DMSO only (no compounds) were used as a control. Reactions were started by the addition of substrate and incubated for 60 min at room temperature. Then, 10 μL of the reactions were transferred into 384-well white plates containing 10 μL luciferase reagent (Cat# V6712; Promega, Madison, WI)
+USA) and incubated for another 20 min at room temperature. Compounds that were followed up for dose-response experiments were tested using the same luciferase reagent, and the data were analyzed using GraphPad Prism 9.
+
+\(^{19}\text{F-NMR Spectroscopy}\)
+
+The binding of fluorinated compounds was assayed by assessing the broadening and/or perturbation of \(^{19}\text{F}\) resonances upon addition of Nsp13 (at protein to compound ratios of 2:1 to 3:1) in PBS buffer (pH 7.4, 137 mM NaCl, 2.7 mM KCl, 10 mM Na2HPO4, 1.8 mM KH2PO4, and with 5% D2O). 1D-\(^{19}\text{F}\) spectra were collected at 298 K on a Bruker AvanceIII spectrometer, operating at 600 MHz, and equipped with a QCI probe. Two to four thousand transients were collected with an acquisition period of 0.2 s, over a sweep width of 150 ppm, a relaxation delay of 1.5 s, and using 90° pulses centered at -120 ppm. The concentration of the compounds in both reference and protein-compound mixtures was 10 μM. TFA (20 μM) was added as an internal standard for referencing. Prior to Fourier transformation, an exponential window function was applied (\(l_b = 1\) to \(3\)) to the FID. All processing was performed at the workstation using the software Topspin 3.5.
+
+\textbf{Unwinding assays}
+
+The FRET-based dsRNA unwinding assay using recombinant nsp13 purified from \textit{E. coli} and gel-based dsRNA unwinding assay using mammalian cell expressed proteins were conducted as previously described using custom dsRNA templates obtained from International DNA Technologies\textsuperscript{37}.
+
+\textbf{Disclosures}
+
+The authors declare the following competing financial interest(s): U.L, Y.W and L.W are full-time employees of Boehringer Ingelheim, Y.S and A.H are full time employees of UCB and may also be stockholders.
+
+\textbf{Acknowledgements}
+
+Experimental testing was supported by an Open Science Drug Discovery grant from Canada’s Strategic Innovation Fund (SIF Stream 5) administered by Conscience as well as by NIH grant 1U19AI171292-01 (READDI-AViDD Center), and was conducted at the Structural Genomics Consortium, a registered charity (no: 1097737) that receives funds from Bayer AG, Boehringer Ingelheim, Bristol Myers Squibb, Genentech, Genome Canada through Ontario Genomics Institute [OGI-196], Janssen, Merck KGaA (aka EMD in Canada and the US), Pfizer, and Takeda. This project has received funding from the Innovative Medicines Initiative 2 Joint Undertaking (JU) under grant agreement No 875510. The JU receives support from the European Union’s Horizon 2020 research and innovation programme the European Federation of Pharmaceutical Industries and Associations (EFPIA), theOntario Institute for Cancer Research, the Royal Institution for the Advancement of Learning McGill University, Kungliga Tekniska Hoegskolan, and
+Diamond Light Source Limited. This communication reflects the views of the authors and the JU is not liable for any use that may be made of the information contained herein. Work at Northwestern University was supported by a development award from NIAID QCRG-AviDD grant 1U19AI171110-01 (to K.S. and K.B.) WD was supported by the Ministry of Education, Youth and Sports of the Czech Republic – National Infrastructure for Chemical Biology (CZ-OPENSSCREEN, LM2023052) and the project “New Technologies for Translational Research in Pharmaceutical Sciences/NETPHARM”, project ID CZ.02.01.01/00/22_008/0004607, co-funded by the European Union. KP was supported by the National Research Foundation of Korea(NRF) grant funded by the Korea government(MSIT) (No. RS-2024-00440975) and KIST intramural grant. OEAA, JHA, FSK, AVW and KSM acknowledge the financial support given by CAPES Financial Code 001, FAPERGS processes 22/2551-0000385-0 and 22/2551-0000390-7 and CNPq grant 440363/2022-5. SK and DF were supported by the Irish Research Council under grant number GOIPG/2021/954. SK and DF thank the software vendors Chemical Computing Group (CCG), Biovia and OpenEye Scientific. The support and provisions of Dell Ireland, and the Irish Centre for High-End Computing (ICHEC) are also gratefully acknowledged. Work at Newcastle University was funded by a UKRI Future Leaders Fellowship (MR/T019654/1), the EPSRC Centre for Doctoral Training in Molecular Sciences for Medicine (EP/S022791/1), a Newcastle/Monash University Academic Track (NUMAcT) Fellowship funded by Research England (ref.131911), the EPSRC (EP/S022791/1), and the Bill and Milica Beck PhD Endowment Fund. Work at Vanderbilt University (JM, RM & TS) was supported by a grant from Boehringer Ingelheim.
+
+REFERENCES
+
+(1) Kryshtafovych, A.; Schwede, T.; Topf, M.; Fidelis, K.; Moult, J. Critical Assessment of Methods of Protein Structure Prediction (CASP)-Round XV. *Proteins* 2023, 91 (12), 1539–1549. https://doi.org/10.1002/prot.26617.
+
+(2) Ackloo, S.; Al-Awar, R.; Amaro, R. E.; Arrowsmith, C. H.; Azevedo, H.; Batey, R. A.; Bengio, Y.; Betz, U. A. K.; Bologna, C. G.; Chodera, J. D.; Cornell, W. D.; Dunham, I.; Ecker, G. F.; Edfeldt, K.; Edwards, A. M.; Gilson, M. K.; Gordijo, C. R.; Hessler, G.; Hillisch, A.; Hogner, A.; Irwin, J. J.; Jansen, J. M.; Kuhn, D.; Leach, A. R.; Lee, A. A.; Lessel, U.; Morgan, M. R.; Moult, J.; Muegge, I.; Oprea, T. I.; Perry, B. G.; Riley, P.; Rousseaux, S. A. L.; Saikatendu, K. S.; Santhakumar, V.; Schapira, M.; Scholten, C.; Todd, M. H.; Vedadi, M.; Volkamer, A.; Willson, T. M. CACHE (Critical Assessment of Computational Hit-Finding Experiments): A Public-Private Partnership Benchmarking Initiative to Enable the Development of Computational Methods for Hit-Finding. *Nat Rev Chem* 2022, 6 (4), 287–295. https://doi.org/10.1038/s41570-022-00363-z.
+
+(3) Li, F.; Ackloo, S.; Arrowsmith, C. H.; Ban, F.; Barden, C. J.; Beck, H.; Beránek, J.; Berenger, F.; Bolotokova, A.; Bret, G.; Breznik, M.; Carosati, E.; Chau, I.; Chen, Y.; Cherkasov, A.; Corte, D. D.; Denzinger, K.; Dong, A.; Draga, S.; Dunn, I.; Edfeldt, K.; Edwards, A.; Eguida, M.; Eisenhuth, P.; Friedrich, L.; Fuerll, A.; Gardiner, S. S.; Gentile, F.; Ghiabi, P.; Gibson, E.; Glavatskikh, M.; Gorgulla, C.; Guenther, J.;
+Inhibition.
+
+Selvaratnam, S.; Shadrick, W.; LaPlante, S.; Iwatani-Yoshihara, A.; Yazdani, O.; Newman, J.; Hoffer, L.; Hogner, A.; Houliston, S.; Irwin, J. J.; Isayev, O.; Ivanova, A.; Jacquemard, C.; Jarrett, A. J.; Jensen, J. H.; Kireev, D.; Kleber, J.; Koby, S. B.; Koes, D.; Kumar, A.; Kurnikova, M. G.; Kutlushina, A.; Lessel, U.; Liessmann, F.; Liu, S.; Lu, W.; Meiler, J.; Mettu, A.; Minibaeva, G.; Moretti, R.; Morris, C. J.; Narangoda, C.; Noonan, T.; Obendorf, L.; Pach, S.; Pandit, A.; Perveen, S.; Poda, G.; Polishchuk, P.; Puls, K.; Pütter, V.; Rognan, D.; Roskams-Edris, D.; Schindler, C.; Sindt, F.; Spiwok, V.; Steinmann, C.; Stevens, R. L.; Talagayev, V.; Tingej, D.; Vu, O.; Walters, W. P.; Wang, X.; Wang, Z.; Wolber, G.; Wolf, C. A.; Wortmann, L.; Zeng, H.; Zepeda, C. A.; Zhang, K. Y. J.; Zhang, J.; Zheng, S.; Schapira, M. CACHE Challenge #1: Targeting the WDR Domain of LRRK2, A Parkinson’s Disease Associated Protein. *J Chem Inf Model* **2024**, *64* (22), 8521–8536. https://doi.org/10.1021/acs.jcim.4c01267.
+
+(4) Mullard, A. When Can AI Deliver the Drug Discovery Hits? *Nat Rev Drug Discov* **2024**, *23* (3), 159–161. https://doi.org/10.1038/s41573-024-00036-0.
+
+(5) Newman, J. A.; Douangamath, A.; Yazdani, S.; Yosaatmadja, Y.; Aimon, A.; Brandão-Neto, J.; Dunnett, L.; Gorrie-Stone, T.; Skyner, R.; Fearon, D.; Schapira, M.; von Delft, F.; Gileadi, O. Structure, Mechanism and Crystallographic Fragment Screening of the SARS-CoV-2 NSP13 Helicase. *Nat Commun* **2021**, *12* (1), 4848. https://doi.org/10.1038/s41467-021-25166-6.
+
+(6) Yazdani, S.; De Maio, N.; Ding, Y.; Shahani, V.; Goldman, N.; Schapira, M. Genetic Variability of the SARS-CoV-2 Pocketome. *J Proteome Res* **2021**, *20* (8), 4212–4215. https://doi.org/10.1021/acs.jproteome.1c00206.
+
+(7) Iwatani-Yoshihara, M.; Ito, M.; Klein, M. G.; Yamamoto, T.; Yonemori, K.; Tanaka, T.; Miwa, M.; Morishita, D.; Endo, S.; Tjhen, R.; Qin, L.; Nakanishi, A.; Maezaki, H.; Kawamoto, T. Discovery of Allosteric Inhibitors Targeting the Spliceosomal RNA Helicase Brr2. *J Med Chem* **2017**, *60* (13), 5759–5771. https://doi.org/10.1021/acs.jmedchem.7b00461.
+
+(8) LaPlante, S. R.; Padyana, A. K.; Abeywardane, A.; Bonneau, P.; Cartier, M.; Coulombe, R.; Jakalian, A.; Wildeson-Jones, J.; Li, X.; Liang, S.; McKercher, G.; White, P.; Zhang, Q.; Taylor, S. J. Integrated Strategies for Identifying Leads That Target the NS3 Helicase of the Hepatitis C Virus. *J Med Chem* **2014**, *57* (5), 2074–2090. https://doi.org/10.1021/jm401432c.
+
+(9) Shadrick, W. R.; Ndjomou, J.; Kolli, R.; Mukherjee, S.; Hanson, A. M.; Frick, D. N. Discovering New Medicines Targeting Helicases: Challenges and Recent Progress. *J Biomol Screen* **2013**, *18* (7), 761–781. https://doi.org/10.1177/1087057113482586.
+
+(10) Selvaratnam, L.; Willson, T. M.; Schapira, M. Structural Chemistry of Helicase Inhibition. J Med Chem January 11, 2025. https://doi.org/10.1021/acs.jmedchem.4c01909
+
+(11) Chen, J.; Malone, B.; Llewellyn, E.; Grasso, M.; Shelton, P. M. M.; Olinares, P. D. B.; Maruthi, K.; Eng, E. T.; Vatandaslar, H.; Chait, B. T.; Kapoor, T. M.; Darst, S. A.; Campbell, E. A. Structural Basis for Helicase-Polymerase Coupling in the SARS-CoV-2 Replication-Transcription Complex. *Cell* **2020**, *182* (6), 1560-1573.e13. https://doi.org/10.1016/j.cell.2020.07.033.
+(12) Scott, T.; Smethurst, C. A. P.; Westermaier, Y.; Mayer, M.; Greb, P.; Kousek, R.; Biberger, T.; Bader, G.; Jandova, Z.; Schmalhorst, P. S.; Fuchs, J. E.; Magarkar, A.; Hoenke, C.; Gerstberger, T.; Combs, S. A.; Pape, R.; Phul, S.; Kothiwale, S.; Bergner, A.; Watson, A. G.; Players, F.; Weinstabl, H.; McConnell, D. B.; Böttcher, J.; Meiler, J.; Moretti, R. Drugit: Crowd-Sourcing Molecular Design of Non-Peptidic VHL Binders. May 11, 2023. https://doi.org/10.26434/chemrxiv-2023-lczzd.
+
+(13) DeLuca, S.; Khar, K.; Meiler, J. Fully Flexible Docking of Medium Sized Ligand Libraries with RosettaLigand. PLoS One 2015, 10 (7), e0132508. https://doi.org/10.1371/journal.pone.0132508.
+
+(14) Brown, B. P.; Mendenhall, J.; Geanes, A. R.; Meiler, J. General Purpose Structure-Based Drug Discovery Neural Network Score Functions with Human-Interpretable Pharmacophore Maps. J Chem Inf Model 2021, 61 (2), 603–620. https://doi.org/10.1021/acs.jcim.0c01001.
+
+(15) Yang, J. J.; Ursu, O.; Lipinski, C. A.; Sklar, L. A.; Oprea, T. I.; Bologa, C. G. Badapple: Promiscuity Patterns from Noisy Evidence. J Cheminform 2016, 8, 29. https://doi.org/10.1186/s13321-016-0137-3.
+
+(16) Lipinski, C. A.; Lombardo, F.; Dominy, B. W.; Feeney, P. J. Experimental and Computational Approaches to Estimate Solubility and Permeability in Drug Discovery and Development Settings. Adv Drug Deliv Rev 2001, 46 (1–3), 3–26. https://doi.org/10.1016/s0169-409x(00)00129-0.
+
+(17) Bieniek, M. K.; Cree, B.; Pirie, R.; Horton, J. T.; Tatum, N. J.; Cole, D. J. An Open-Source Molecular Builder and Free Energy Preparation Workflow. Commun Chem 2022, 5 (1), 136. https://doi.org/10.1038/s42004-022-00754-9.
+
+(18) Devereux, C.; Smith, J. S.; Huddleston, K. K.; Barros, K.; Zubitsyk, R.; Isayev, O.; Roitberg, A. E. Extending the Applicability of the ANI Deep Learning Molecular Potential to Sulfur and Halogens. J Chem Theory Comput 2020, 16 (7), 4192–4202. https://doi.org/10.1021/acs.jctc.0c00121.
+
+(19) McNutt, A. T.; Francoeur, P.; Aggarwal, R.; Masuda, T.; Meli, R.; Ragoza, M.; Sunseri, J.; Koes, D. R. GNINA 1.0: Molecular Docking with Deep Learning. J Cheminform 2021, 13 (1), 43. https://doi.org/10.1186/s13321-021-00522-2.
+
+(20) Eberhardt, J.; Santos-Martins, D.; Tillack, A. F.; Forli, S. AutoDock Vina 1.2.0: New Docking Methods, Expanded Force Field, and Python Bindings. J Chem Inf Model 2021, 61 (8), 3891–3898. https://doi.org/10.1021/acs.jcim.1c00203.
+
+(21) Wójcikowski, M.; Ballester, P. J.; Siedlecki, P. Performance of Machine-Learning Scoring Functions in Structure-Based Virtual Screening. Sci Rep 2017, 7, 46710. https://doi.org/10.1038/srep46710.
+
+(22) McGibbon, M.; Money-Kyrle, S.; Blay, V.; Houston, D. R. SCORCH: Improving Structure-Based Virtual Screening with Machine Learning Classifiers, Data Augmentation, and Uncertainty Estimation. Journal of Advanced Research 2023, 46, 135–147. https://doi.org/10.1016/j.jare.2022.07.001.
+
+(23) Singleton, M. R.; Dillingham, M. S.; Wigley, D. B. Structure and Mechanism of Helicases and Nucleic Acid Translocases. Annu Rev Biochem 2007, 76, 23–50. https://doi.org/10.1146/annurev.biochem.76.052305.115300.
+
+https://doi.org/10.26434/chemrxiv-2025-8f0rq-v3 ORCID: https://orcid.org/0009-0006-6458-0042 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+(24) Boby, M. L.; Fearon, D.; Ferla, M.; Filep, M.; Koekemoer, L.; Robinson, M. C.; COVID Moonshot Consortium‡; Chodera, J. D.; Lee, A. A.; London, N.; von Delft, A.; von Delft, F.; Achdout, H.; Aimon, A.; Alonzi, D. S.; Arbon, R.; Aschenbrenner, J. C.; Balcomb, B. H.; Bar-David, E.; Barr, H.; Ben-Shmuel, A.; Bennett, J.; Bilenko, V. A.; Borden, B.; Boulet, P.; Bowman, G. R.; Brewitz, L.; Brun, J.; Bynbs, S.; Calmiano, M.; Carbery, A.; Carney, D. W.; Cattermole, E.; Chang, E.; Chernyshenko, E.; Clyde, A.; Coffland, J. E.; Cohen, G.; Cole, J. C.; Contini, A.; Cox, L.; Croll, T. I.; Cvitkovic, M.; De Jonghe, S.; Dias, A.; Donckers, K.; Dotson, D. L.; Douangamath, A.; Duberstein, S.; Dudgeon, T.; Dunnett, L. E.; Eastman, P.; Erez, N.; Eyermann, C. J.; Fairhead, M.; Fate, G.; Fedorov, O.; Fernandes, R. S.; Ferrins, L.; Foster, R.; Foster, H.; Fraisse, L.; Gabizon, R.; García-Sastre, A.; Gawriluk, V. O.; Gehrtz, P.; Gileadi, C.; Giroud, C.; Glass, W. G.; Glen, R. C.; Glinert, I.; Godoy, A. S.; Goricko, M.; Gorrie-Stone, T.; Griffen, E. J.; Haneef, A.; Hassell Hart, S.; Heer, J.; Henry, M.; Hill, M.; Horrell, S.; Huang, Q. Y. J.; Huliak, V. D.; Hurley, M. F. D.; Israely, T.; Jajack, A.; Jansen, J.; Jnoff, E.; Jochmans, D.; John, T.; Kaminow, B.; Kang, L.; Kantsadi, A. L.; Kenny, P. W.; Kiappes, J. L.; Kinakh, S. O.; Kovar, B.; Krojer, T.; La, V. N. T.; Laghnnimi-Hahn, S.; Lefker, B. A.; Levy, H.; Lithgo, R. M.; Logvinenko, I. G.; Lukacik, P.; Macdonald, H. B.; MacLean, E. M.; Makower, L. L.; Marples, P. G.; Matviuk, T.; McCorkindale, W.; McGovern, B. L.; Melamed, S.; Melnykov, K. P.; Michurin, O.; Miesen, P.; Mikolajek, H.; Milne, B. F.; Minh, D.; Morris, A.; Morris, G. M.; Morwitzer, M. J.; Moustakas, D.; Mowbray, C. E.; Nakamura, A. M.; Neto, J. B.; Neyts, J.; Nguyen, L.; Noske, G. D.; Oleinikovas, V.; Oliva, G.; Overheul, G. J.; Owen, C. D.; Pai, R.; Pan, J.; Paran, N.; Payne, A. M.; Perry, B.; Pingle, M.; Pinjari, J.; Politi, B.; Powell, A.; Pšenák, V.; Pulido, I.; PunI, R.; Rangel, V. L.; Reddi, R. N.; Rees, P.; Reid, S. P.; Reid, L.; Resnick, E.; Ripka, E. G.; Robinson, R. P.; Rodriguez-Guerra, J.; Rosales, R.; Rufa, D. A.; Saar, K.; Saikatendu, K. S.; Salah, E.; Schaller, D.; Scheen, J.; Schiffer, C. A.; Schofield, C. J.; Shafeev, M.; Shaikh, A.; Shaqra, A. M.; Shi, J.; Shurrush, K.; Singh, S.; Sittner, A.; Sjö, P.; Skynr, R.; Smalley, A.; Smeets, B.; Smilova, M. D.; Solmesky, L. J.; Spencer, J.; Strain-Damerell, C.; Swamy, V.; Tamir, H.; Taylor, J. C.; Tennant, R. E.; Thompson, W.; Thompson, A.; Tomášio, S.; Tomlinson, C. W. E.; Tsurupa, I. S.; Tumber, A.; Vakonakis, I.; van Rij, R. P.; Vangeel, L.; Varghese, F. S.; Vashchetto, M.; Vitner, E. B.; Voelz, V.; Volkamer, A.; Walsh, M. A.; Ward, W.; Weatherall, C.; Weiss, S.; White, K. M.; Wild, C. F.; Witt, K. D.; Wittmann, M.; Wright, N.; Yahalom-Ronen, Y.; Yilmaz, N. K.; Zaidmann, D.; Zhang, I.; Zidane, H.; Zitzmann, N.; Zvornicanin, S. N. Open Science Discovery of Potent Noncovalent SARS-CoV-2 Main Protease Inhibitors. Science 2023, 382 (6671), eabo7201. https://doi.org/10.1126/science.abo7201.
+
+(25) Douangamath, A.; Powell, A.; Fearon, D.; Collins, P. M.; Talon, R.; Krojer, T.; Skyner, R.; Brandao-Neto, J.; Dunnett, L.; Dias, A.; Aimon, A.; Pearce, N. M.; Wild, C.; Gorrie-Stone, T.; von Delft, F. Achieving Efficient Fragment Screening at XChem Facility at Diamond Light Source. J Vis Exp 2021, No. 171. https://doi.org/10.3791/62414.
+(26) Amezgua, M.; Setiadi, J.; Ge, Y.; Mobley, D. L. An Overview of the SAMPL8 Host-Guest Binding Challenge. *J Comput Aided Mol Des* **2022**, *36* (10), 707–734. https://doi.org/10.1007/s10822-022-00462-5.
+
+(27) Gathiaka, S.; Liu, S.; Chiou, M.; Yang, H.; Stuckey, J. A.; Kang, Y. N.; Delproposto, J.; Kubish, G.; Dunbar, J. B.; Carlson, H. A.; Burley, S. K.; Walters, W. P.; Amaro, R. E.; Feher, V. A.; Gilson, M. K. D3R Grand Challenge 2015: Evaluation of Protein-Ligand Pose and Affinity Predictions. *J Comput Aided Mol Des* **2016**, *30* (9), 651–668. https://doi.org/10.1007/s10822-016-9946-8.
+
+(28) Wagner, J. R.; Churas, C. P.; Liu, S.; Swift, R. V.; Chiou, M.; Shao, C.; Feher, V. A.; Burley, S. K.; Gilson, M. K.; Amaro, R. E. Continuous Evaluation of Ligand Protein Predictions: A Weekly Community Challenge for Drug Docking. *Structure* **2019**, *27* (8), 1326-1335.e4. https://doi.org/10.1016/j.str.2019.05.012.
+
+(29) Liu, T.; Hwang, L.; Burley, S. K.; Nitsche, C. I.; Southan, C.; Walters, W. P.; Gilson, M. K. BindingDB in 2024: A FAIR Knowledgebase of Protein-Small Molecule Binding Data. *Nucleic Acids Res* **2024**, gkae1075. https://doi.org/10.1093/nar/gkae1075.
+
+(30) Buttenschoen, M.; Morris, G. M.; Deane, C. M. PoseBusters: AI-Based Docking Methods Fail to Generate Physically Valid Poses or Generalise to Novel Sequences. *Chem Sci* **2024**, *15* (9), 3130–3139. https://doi.org/10.1039/d3sc04185a.
+
+(31) Stein, R. M.; Yang, Y.; Ballis, T. E.; O’Meara, M. J.; Lyu, J.; Young, J.; Tang, K.; Shoichet, B. K.; Irwin, J. J. Property-Unmatched Decoys in Docking Benchmarks. *J Chem Inf Model* **2021**, *61* (2), 699–714. https://doi.org/10.1021/acs.jcim.0c00598.
+
+(32) Schindler, C. E. M.; Baumann, H.; Blum, A.; Böse, D.; Buchstaller, H.-P.; Burgdorf, L.; Cappel, D.; Chekler, E.; Czodrowski, P.; Dorsch, D.; Eguida, M. K. I.; Follows, B.; Fuchß, T.; Grädler, U.; Gunera, J.; Johnson, T.; Jorand Lebrun, C.; Karra, S.; Klein, M.; Knehans, T.; Koetzner, L.; Krier, M.; Leiendecker, M.; Leuthner, B.; Li, L.; Mochalkin, I.; Musil, D.; Neagu, C.; Rippmann, F.; Schiemann, K.; Schulz, R.; Steinbrecher, T.; Tanzer, E.-M.; Unzue Lopez, A.; Viacava Follis, A.; Wegener, A.; Kuhn, D. Large-Scale Assessment of Binding Free Energy Calculations in Active Drug Discovery Projects. *J Chem Inf Model* **2020**, *60* (11), 5457–5474. https://doi.org/10.1021/acs.jcim.0c00900.
+
+(33) Liu, Z.; Su, M.; Han, L.; Liu, J.; Yang, Q.; Li, Y.; Wang, R. Forging the Basis for Developing Protein-Ligand Interaction Scoring Functions. *Acc. Chem. Res.* **2017**, *50* (2), 302–309. https://doi.org/10.1021/acs.accounts.6b00491.
+
+(34) Wang, L.; Wu, Y.; Deng, Y.; Kim, B.; Pierce, L.; Krilov, G.; Lupyan, D.; Robinson, S.; Dahlgren, M. K.; Greenwood, J.; Romero, D. L.; Masse, C.; Knight, J. L.; Steinbrecher, T.; Beuming, T.; Damr, W.; Harder, E.; Sherman, W.; Brewer, M.; Wester, R.; Murcko, M.; Frye, L.; Farid, R.; Lin, T.; Mobley, D. L.; Jorgensen, W. L.; Berne, B. J.; Friesner, R. A.; Abel, R. Accurate and Reliable Prediction of Relative Ligand Binding Potency in Prospective Drug Discovery by Way of a Modern Free-Energy Calculation Protocol and Force Field. *J. Am. Chem. Soc.* **2015**, *137* (7), 2695–2703. https://doi.org/10.1021/ja512751q.
+(35) Wellnitz, J.; Ahmad, S.; Begale, N.; Joseph, J.; Zeng, H.; Bolotokova, A.; Dong, A.; Reza, S.; Ghiabi, P.; Elisa, G.; Cheng, X.; Tu, G.; Li, X.; Liu, J.; Dou, D.; Li, J.; J. Harding, R.; M. Edwards, A.; Haibe-Kains, B.; Halabelian, L.; Tropsha, A.; Couñago, R. Enabling Open Machine Learning of DNA Encoded Library Selections to Accelerate the Discovery of Small Molecule Protein Binders. October 18, 2024. https://doi.org/10.26434/chemrxiv-2024-xd385.
+
+(36) Yazdi, A. K.; Pakarian, P.; Perveen, S.; Hajian, T.; Santhakumar, V.; Bolotokova, A.; Li, F.; Vedadi, M. Kinetic Characterization of SARS-CoV-2 Nsp13 ATPase Activity and Discovery of Small-Molecule Inhibitors. ACS Infect Dis 2022, 8 (8), 1533–1542. https://doi.org/10.1021/acsinfecdis.2c00165.
+
+(37) Inniss, N. L.; Rzhetskaya, M.; Ling-Hu, T.; Lorenzo-Redondo, R.; Bachta, K. E.; Satchell, K. J. F.; Hultquist, J. F. Activity and Inhibition of the SARS-CoV-2 Omicron Nsp13 R392C Variant Using RNA Duplex Unwinding Assays. SLAS Discov 2024, 29 (3), 100145. https://doi.org/10.1016/j.slasd.2024.01.006.

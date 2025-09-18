@@ -1,0 +1,356 @@
+A New Perspective on Aqueous Electrolyte Solutions
+
+Gerhard Schwaab\textsuperscript{1,*} and Simone Pezzotti\textsuperscript{1,2,*}
+
+\textsuperscript{1}Department of Physical Chemistry II, Ruhr-University Bochum, Bochum, Germany
+\textsuperscript{2}Laboratoire CPCV, Département de Chimie, École Normale Supérieure, PSL University, Sorbonne University, CNRS, 75005 Paris, France
+
+*Corresponding authors; E-mail: gerhard.schwaab@rub.de; simone.pezzotti@ens.psl.eu
+
+February 24, 2025
+Abstract
+
+Aqueous electrolyte solutions are central to many natural phenomena and industrial applications leading to continuous development of increasingly complex analytical models. These are based on an atomistic description of ion-ion electrostatic interactions combined with mean-field approaches for the dielectric response of water. Despite many achievements, these concepts fail to quantitatively describe situations where ion-ion correlation and specific solvation become relevant, such as for concentrated electrolyte solutions. Here, we propose a change of perspective, by introducing a statistical, coarse-grained view to describe the average thermodynamic properties of aqueous electrolyte solutions. This approach bypasses the need to define ion-pairs or ion-complexes and does not require any prior knowledge on specific solvation. We base our concept on separating the solution into a spherical observation droplet whose size and average composition are uniquely determined by the solution parameters, and its environment consisting of the remaining solution. This allows us to express the droplet-environment interaction in terms of a generalized multipole expansion, i.e. in a convenient, additive way. We applied this approach to 135 electrolytes including some notoriously complex electrolytes, such as LiCl or ZnCl$_2$ over the full solubility range. This paves the road toward understanding super-saturated and water-in-salt solutions and electrolyte nucleation.
+
+keywords: Aqueous Electrolyte Solutions, Activity Coefficient, Osmotic Coefficient, Water Activity
+1 Introduction
+
+A variety of technological challenges such as the understanding of water in salt electrolytes (WISE),[1, 2] the development of advanced battery and energy storage technologies,[3, 4, 5, 6] the recycling of desalination brines[7] and a safe operation of deep sea boreholes[8] require a thorough microscopic understanding of concentrated electrolyte solutions. However, existing heuristic descriptions of their average excess thermodynamic properties have been derived by extrapolating from the diluted regime, leaving a gap of knowledge for concentrated solutions.[9]
+
+From a physico-chemical perspective, the osmotic and average activity coefficients of electrolytes $\phi$ and $\ln \gamma_{\pm}$, respectively, determine the excess thermodynamic functions of the corresponding aqueous and non-aqueous solutions.[10, 11] Debye and Hückel were the first to describe electrolyte and water properties in dilute electrolyte solutions as a function of ion concentration and electrolyte composition.[12] The theory has later been extended to higher concentrations by Bjerrum, Glueckauf and McMillan and Meyer (see review by Vaslov.[13]). Friedman, Pitzer and coworkers extended the description to more complex electrolyte mixtures such as seawater.[14] A special issue of the Journal of Fluid Phase Equilibria[15] celebrates the 100th anniversary of the findings by Debye and Hückel and provides a summary of recent developments on the topic. In that issue Simonin and Bernard[16] compare several simple activity models including Debye-Hückel, the mean spherical approximation and the Pitzer approach. Earlier, Khan et al.[17] compared four physical descriptions of $\ln \gamma_{\pm}$. While the Pitzer and Bromley approaches describe the activity coefficients of the 1:1 electrolytes well, the methods fail for several important 1:2 electrolytes such as $\text{CaCl}_2$ and $\text{MgCl}_2$. A recent review by Held[9] provides a critical comparison of the different excess Gibbs energy parametrizations up to high electrolyte concentrations.
+
+Common to all these descriptions is a series expansion of $\ln \gamma_{\pm}$ in the molality or, more precisely, ionic strength framework starting from the limit of infinite dilution. In most cases the dilute limit is described by a Debye-Hückel term. Each series expansion takes into account individual ion-ion interactions over the full volume in the configuration integral. The behavior at high molalities is in general derived by assuming ion specific (hydrated) ion radii which are fitted to reproduce the experimental activity coefficients.[14, 16] The ability of ions to form different types of ion pairs or, more general, ion complexes makes an evaluation at high concentration difficult.
+
+Recently, a combined x-ray and simulation approach[18, 19, 20] showed that at high concentrations, beyond the so-called Kirkwood-transition, ion-ion-correlations increase due to clustering, and the Debye length is no longer the characteristic length-scale. The critical concentration for the Kirkwood transition depends strongly on the electrolyte composition.
+In spite of these complexities, it is very surprising that many experimental observables of aqueous electrolyte solutions, such as the effective molar extinction coefficients\[21\] or the average apparent molar volume, show a nearly linear mol fraction dependency.\[22\] This simple behavior suggests that, on a macroscopic level, most of the water-mediated ion-ion interactions partially compensate and lead to average interactions that can be described by simple analytical functions.
+
+In the following, we focus on two-component solutions composed of a single electrolyte and water. We demonstrate that the separation of the solution into a well-chosen, uniquely defined, probe volume and its environment leads to a generalized multipole description of the excess interaction energy of electrolyte solutions. The number of required expansion orders is small: even for complex electrolytes such as ZnCl$_2$ and LiCl three components are sufficient to describe the experimental data. When integrated, the resulting equation yields an analytical form of the osmotic coefficient $\phi$ and, thus, the water activity $a_w$. The set of equations is applied to a total number of 135 electrolytes. The dependency of the fit parameters on electrolyte composition is discussed.
+
+## 2 Introducing the Statistical Approach
+
+The mean activity coefficient expresses the excess chemical potential of the electrolyte in units of $RT$. Activity coefficients, $\gamma_\pm$, as function of molality, $m_B$, are reported for a large number of salts in two books by Lobo.\[23\] To describe $\gamma_\pm$ based on a microscopic picture, our idea is to split the total electrolyte system into a spherical "observation" droplet ($d$) with radius, $R_d$, and the remaining environment ($e$). The excess chemical potential is hence a function of the interaction free energy, $U_{de}$, between the two (see Figure 1). We choose the observation volume to contain exactly one electrolyte unit ($\nu_+ cations$ and $\nu_- anions$) and the stoichiometric amount of water ($n_w = x_w/x_B$) where $x_B$ and $x_w$ are the electrolyte and water mol fractions, respectively. This definition is uniquely determined by the molality of the solution and its density. The spherical shape is adopted due to the isotropic nature of bulk electrolyte solutions. It is important to note that our observation droplet is a purely statistical entity, defined to be charge neutral and containing on average the smallest possible, stoichiometric number of water and ions. Hence, its size, charge and average composition is totally unrelated to the microscopic ion configurations that can be observed e.g. from simulations or diffraction experiments. The heterogeneity in the distribution of such configurations contributes, in our approach, to the instantaneous charge distribution inside the observation droplet, due to both, ions and water. It can be complex depending on the electrolyte composition and concentration, for example for solutions of strongly interacting ions where long-range ion-ion correlations and ion-clustering
+Figure 1: Schematics of the coarse grained approach used to determine the interaction energy in aqueous electrolyte solutions: The solution is separated into a uniquely defined central "observation volume" with radius, $R_d$ (black line) and its environment. All distances $R = n_d R_h$ are measured in units of the hydrated electrolyte radius, $R_h$ (dashed circle at the center) so that $n_d = R_d / R_h$ identifies the droplet radius in this coordinate system. In a hypothetical solution without ion-ion interactions, the charge distribution inside and outside the droplet is uniform. When switching on ion-ion interactions, the solution averaged charge distribution inside the central droplet produces an electrostatic potential outside the droplet which attracts charges of the opposite sign. At high electrolyte concentration $R_d$ decreases, ion-ion interactions become more complex and the interaction energy increases.
+become important.
+
+The resulting charge distribution generates an electrostatic potential in the environment of our observation droplet. The average interaction of this potential with the charge distributions outside the droplet, averaged over all possible configurations explored by the system, determines the interaction energy \( U_{de} \). We choose to describe such an electrostatic potential at a distance, \( R \), outside the droplet as multipole expansion in spherical coordinates. We express this distance, \( R = n_R R_h \), in units of the hydration radius, \( R_h \), of the electrolyte. It is determined by the composition of the solution, its density, and an effective number \( n_r \) of hydration water that depends on the electrolyte and the expansion order (see Appendix for details). This choice allows us to conveniently express the interactions in terms of a dimensionless distance unit, \( n_R \), removing the dependence on concentration and molar volume.
+
+In a second step, we express the angular dependency of the effective charge at a distance \( R > R_d \) in terms of spherical harmonics. Thus, for each multipole term of order \( l \), the integration over the angles leads to a contribution \( U_{de,l}(n_R) = U_l w_l(n_R) \) where \( U_l \) is the \( l^{th} \) order interaction energy. The weighting function, \( w_l(n_R) \), describes the radius dependency of the interaction strength. The total interaction energy of the droplet with its environment is given by
+
+\[
+U_{de} = \sum_l U_l \int_{n_d}^\infty w_l(n_R)dn_R. \tag{1}
+\]
+
+Please note, that the integration starts at the droplet boundary \( (n_d = R_d/R_h) \) which is solely determined by the composition of the solution and the hydration shell size of the electrolyte.
+
+We found that a weighting function of the form
+
+\[
+w_l(n_R) = \frac{3 \lambda_l n_R^{-3\lambda_l}}{n_R} \left(1 + \ln \left[n_R^{-3\lambda_l}\right]\right) \tag{2}
+\]
+
+represents well the measured activity coefficient data for 135 electrolytes. By adopting this, the integration yields
+
+\[
+\ln \gamma_\pm(x_B) = \frac{N_A U_{de}}{2RT} = \sum_l D_l \left(\frac{x_B}{x_h}\right)^{\lambda_l} \ln \left[\left(\frac{x_B}{x_h}\right)^{\lambda_l}\right] \tag{3}
+\]
+
+where we have converted the microscopic interaction energy \( U_{de} \) to molar quantities and normalized by the thermal energy \( RT \). In addition, we have made use of the fact that \( n_d^3 = (R_d/R_h)^3 = x_h/x_B \) is inversely proportional to the volume ratio of the central droplet and the hydrated electrolyte and, thus, to their mol fraction.
+ratios (see Appendix for details). $D_l$ is the depth of the $l^{th}$ order interaction energy profile. The fitting parameter $x^l_h$ describes the cross-over from the dilute to concentrated solutions. For $x_B > x^l_h$ the $l^{th}$ order contribution becomes positive indicating unfavorable (endothermic) interaction. We found in our analysis (see Figures below) that solely the dipolar ($l = 1$) contribution requires in some cases $x^1_h < 1$. In all fits where quadrupole and octupole contributions become relevant $x^l_h > 1$ leads to a satisfying description of the experimental data.
+
+Figure 2: Example fits of $\ln \gamma \pm$ for different electrolytes using the model description from Equation 3. The insets show the fit residuals.
+
+Figure 2 shows example fits of individual electrolytes. For CsBr which does not display strong cation-anion interactions, the dipole expansion represents the activity coefficient sufficiently well over the full data range. When increasing the cation-anion interaction strength, such as for the cases of LiCl and ZnCl$_2$, complex ion-ion correlations occur in the solution. This increases the importance of higher order contributions to the concentration dependent behavior of the activity coefficient. The quadrupole and octupole terms of our statistical model capture the more complex behavior of LiCl and ZnCl$_2$ solutions over the whole mole fraction range. The number of contributing multipole components provides a quantification of the impact of (multi-body) ion-ion correlations: complex ion-ion correlations require stronger contributions from an increased number of higher order multipole expansion terms.
+3 Discussion
+
+Summarizing the results above, we have demonstrated that \( \ln \gamma_{\pm} \) can be represented by a multipole expansion of the interaction between the central observation droplet and the surrounding solution (see Equ. 3). Each expansion exponent, \( \lambda_l \), reflects the combination of the thermally averaged interaction between the multipole inside the observation droplet and the charge distribution in its environment. The interaction spatially decays as \( 1/n^{3\lambda_l + 1} \). The dipole-dipole interaction term \( (l = 1 \text{ in Equ. 3}) \) compares well with the simplest form of the Debye-Hückel law \( (\ln \gamma_{\pm} \propto m_B^{1/2}) \) for dilute solutions where \( x \propto m_B \) when choosing \( \lambda_{\text{Dipole}} = 0.5 \) (see Fig. 3C).
+
+Figure 3 shows the results of the dipolar contribution for 135 electrolytes. (The fit parameters are shown in Tables 1 and 2 in the Appendix. The investigated electrolytes are given in Table 3.) In panel A we show the dipolar contribution to \( \ln \gamma_{\pm} \) for four electrolytes with increasing interaction strength from CsI to LiCl. The cross-over point \( x_{\text{Dipole}} \) (dashed vertical line) marks a boundary: dipole-dipole interaction becomes unfavorable for higher concentrations and complex (i.e. quadrupole and octupole) interactions become more important. The droplet size of the observation volume where this happens is determined by \( 1/x_{\text{Dipole}} \). With increasing ion-ion and ion-water interactions, the cross-over shifts toward lower concentrations. This is in qualitative agreement with findings from a combined SAXS and simulation study (Fig. 3 in [19]) showing that a cross-over from Debye-Hückel to more complex behavior occurs at lower concentrations for more strongly interacting ions.
+
+Panel B shows the depth of the dipolar contribution to \( \ln \gamma_{\pm} \) versus its exponent for the different 1:1 to 3:2 electrolytes. We display electrolytes with \( x_{\text{Dipole}} = 1 \), i.e where no cross-over is observed, with open markers. This class contains both, electrolytes that are well-described by the dipolar term, only, as well as special cases such as many guanidinium and sulfate salts for which quadrupolar contributions are important despite no cross-over can be observed in the dipolar term. The vertical line at \( \lambda_{\text{Dipole}} = 0.5 \) marks the value corresponding to the Debye-Hückel (DH) law. Electrolytes with large \( D_{\text{Dipole}} \) show in general exponents close to the DH-value. A comparison to panels A and C shows that \( D_{\text{Dipole}} \) is determined by both, the strength of the electrolyte and the limiting concentration where higher order terms become more important. A larger exponent indicates an increased importance of thermal averaging effects (remember that thermal averaging changes the \( 1/R^3 \)-interaction of close dipoles to a \( 1/R^6 \)-dependency, when the effective interaction strength is much smaller than \( kT \)).
+
+Panel C supports this picture. Here, we observe that a) electrolytes with smaller \( 1/x_{\text{Dipole}} \) and b) electrolytes with higher charge show exponents closer to the DH value. Electrolytes where higher order contributions dominate at low con-
+Figure 3: Comparison of different electrolyte solutions. A: Examples of the dipolar part of \( \ln \gamma_{\pm} \) for different electrolytes. The cross-over from negative to positive values marks the transition from dipole-dipole to more complex interaction forms. \( 1/x_h \) corresponds to the size of the probe volume. B: Depth of the dipolar part of the potential versus exponent. Electrolytes with \( x_h^{\text{Dipole}} = 1 \) are shown with open markers. C: Exponent \( \lambda_{\text{Dipole}} \) versus \( 1/x_h^{\text{Dipole}} \) of the hydrated electrolyte. The dashed line represents the coefficient expected for the equivalent Debye-Hückel limiting law. D: Amplitude \( D_{\text{Dipole}} \) for electrolytes with \( x_h^{\text{Dipole}} < 1 \). The data were fitted with a power law of the form \( D_{\text{Dipole}} = D_0 \sum_i \nu_i q_i^2 (1/x_h^{\text{Dipole}})^{-\kappa} \) with \( D_0 = 2.81(8) \) and \( \kappa = 0.42(1) \). The lines display the power law for 1:1 (blue) and 2:1 and 1:2 (yellow) electrolytes. A few electrolytes with exceptional properties are labeled separately.
+centrations (i.e. $x_h^{\text{Dipole}}$ is small) or which only weakly interact with each other and with water (e.g. 1:1, blue, vs. 2:1 and 1:2, yellow) tend to have larger exponents.
+
+Panel D in Fig. 3 shows the interaction strength, $D_{\text{Dipole}}$, as function of $1/x_h$ for 97 electrolytes. We observe a power law of the form $D_{\text{Dipole}} = D_0 I_m \left(1/x_h^{\text{Dipole}}\right)^{-\kappa}$ with $D_0 = 2.81(8)$ and $\kappa = 0.42(1)$, where $I_m = \sum_i \nu_i q_i^2$ is the ionic strength of the electrolyte in our molecular frame. The proportionality of the interaction strength to $I_m$ is in agreement with the ionic strength dependency of the interaction energy as described by Debye and Hückel. We noticed a few exceptional cases that are, however, beyond the scope of our discussion.
+
+Another interesting property of Equ. 2 resulting from our model is that the weighting function (Eq. 2) is directly related to the microscopic radius dependent partition function, $Z_l$. The weighting function originates from the effective imbalance in the charge distribution, $\Delta q$, generated by the potential of the central droplet at the given position. According to Van’t Hoff’s equation, this is proportional to a microscopic osmotic pressure $\Pi_l(n_R)$
+
+$$\Delta q_l(n_R) \propto \Pi_l(n_R) = \left(\frac{\partial \ln Z_l}{\partial n_R}\right)_T. \tag{4}$$
+
+Since the angular dependency of the charge difference is described by spherical harmonics, this radius dependency describes the changes along the major axes (e.g. along the dipole axis, for dipole-dipole interaction). Integration of Equ. 2 including the pre-factor $U_l$ yields
+
+$$Z_l(n_R) = U_l^{3\lambda_l} n_R^{-3\lambda_l}, \tag{5}$$
+
+so that $\lambda_l$ and $U_l$ determine the general shape and the sharpness of the partition function, respectively.
+
+Figure 4A shows the contributions to the partition function for LiCl using $U_l = 1$ for better comparability. The long-range interaction shows a gradual transition when hitting the cross-over (dashed blue) where dipole-dipole interaction is replaced by higher order, more complex interactions. In contrast, the quadrupole (yellow) and octupole (green) terms show a sharp decay at $n_R = 1$.
+
+The corresponding osmotic pressures are shown in Figure 4B. The dipole contribution is weak and only attractive (i.e. negative) at long distance. In contrast, the quadrupole and octupole terms are short-range and still attractive at the highest possible concentrations.
+
+In addition, the description of $\ln \gamma_\pm$ in Equ. 3 allows us to derive an analytical form of the osmotic coefficient. The Gibbs-Duhem equation[24] allows to convert $\ln \gamma_\pm$ to the osmotic coefficient
+
+$$\phi = 1 + \frac{1}{m_B} \int_0^{m_B} m \, d \ln \gamma_\pm, \tag{6}$$
+
+10
+Figure 4: Microscopic insights from our new description: Radius dependency of the contributions to A: The partition function and B: The osmotic pressure for LiCl. For clarity, we used the potential depth $U_l = 1$. The long range dipole interaction shows a cross-over from positive to negative values at $n_R^{Dipole} = 7.3$ (Dashed blue) where $n_R^{Dipole} = \left( \frac{1}{x_h^{Dipole}} \right)^{1/3}$. Purple: $n_R$ values for 1 m and 0.1 m solutions. C and D: Example global fits of the osmotic and and activity coefficients for LiCl and ZnCl$_2$ using Equs. 3 and 6. The insets show the fit residuals.
+which is closely related to the water activity
+
+\[
+\ln a_w = -\nu \frac{m_B}{n_0} \phi
+\]  
+
+(7)
+
+with \( n_0 \) as amount of water in 1 kg of solvent. When we describe molality as
+
+\[
+m_B = n_0 x_B / (1 - x_B)
+\]
+
+and use Equ. 3 to integrate Equ. 6 we obtain
+
+\[
+\phi_l = D_l \frac{\lambda_l}{x_h} \frac{1 - x_B}{x_B} \left[ \left( 1 + \lambda_l \ln \frac{x_B}{x_h} \right) B_{x_B} \left( 1 + \lambda_l, 0 \right) - \lambda_l x_B^{1+\lambda_l} \Phi(x_B, 2, 1 + \lambda_l) \right]
+\]
+
+(8)
+
+for the \( l \)th order contribution to the osmotic coefficient. Here, \( B_{x_B}(1 + \lambda_l, 0) \) is the incomplete Euler Beta function and \( \Phi(x_B, 2, 1 + \lambda_l) \) is the Lerch transcendent.[25]
+
+These analytical descriptions (Equis. 3 and 6) allow a direct global fit of experimental values of electrolyte activity, osmotic coefficient and water activity and, therefore, simplify the retrieval of excess thermodynamic properties using different measurement techniques. Figures 4C and D show example fits for LiCl and ZnCl\(_2\) together with their fit residuals (insets). Please note, that the oscillatory behavior in the residuals is an artifact, since the published data have been fitted by a combination of Debye-Hückel, Pitzer and polynomial terms. In case of ZnCl\(_2\) Goldberg[26] required 13 and 8 coefficients to reproduce \( \ln \gamma_{\pm} \) and the osmotic coefficient, respectively, while we require a total of seven identical fit parameters with a clear physical meaning (\( \sigma_{\ln \gamma_{\pm}} = 0.00983 \) and \( \sigma_{\phi} = 0.00589 \) vs. \( \sigma_{\ln \gamma_{\pm}} = 0.00747 \) and \( \sigma_{\phi} = 0.00684 \) in the work by Goldberg) for both physical properties. We have published the data sets used for the fit as well as the fit parameters and predicted values for \( \ln \gamma_{\pm}, \phi, \) and \( a_w \) separately in machine readable form[27]
+
+4 Conclusions
+
+We have demonstrated above a novel statistical approach to model and understand the excess thermodynamic functions i.e. (\( \ln \gamma_{\pm}, \) osmotic coefficient, \( \phi, \) and water activity, \( a_w \)) of 135 electrolytes. The basis of our coarse-grained approach is a generalized multipole expansion which describes the interaction of the charges outside a purely statistical, stoichiometrically defined observation volume with the potential originating from the charge distribution inside. Even for the most complex studied electrolyte solutions, the 3rd order expansion, including dipole, quadrupole and octupole contributions, is found sufficient to describe the full set of thermodynamic properties in the whole solubility range. This is a substantial simplification compared to existing heuristic descriptions.
+
+In addition, as summarized in Fig. 5, our statistical perspective allows to collapse the effect of the complex structural heterogeneity found in experimental data.
+Figure 5: Our simplifying statistical approach efficiently describes the thermodynamic properties of complex electrolyte solutions: A: Weakly interacting ions or dilute solutions (e.g. CsBr, see Fig. 2) show a more homogeneous charge distribution (anions in red, cations in blue). Top: illustration of typical instantaneous charge distributions within the observation droplet. Center: Qualitative probability distribution of the instantaneous droplet net charge. Regardless of the distribution the average droplet charge is zero by construction. Bottom: Illustration of instantaneous ion distributions inside and outside a selection of observation droplets (yellow spheres). The dipole term in our model is sufficient to describe the thermodynamics of these cases. B: Same set of illustrations for complex electrolytes at high concentrations where ion clustering starts to become important (e.g. LiCl, ZnCl₂, see Fig. 2). Even for these cases the effect of the increasing structural heterogeneity on the thermodynamics is fully captured by the quadrupole and octupole terms in our model.
+and simulations, for strongly interacting ions and concentrated solutions, into the quadrupolar and octupolar terms of our thermodynamic functions. For example, recent studies suggest that a Kirkwood transition, i.e. the concentration where the Debye-length is no longer the characteristic length scale in an electrolyte solution, happens at lower concentrations for strongly interacting electrolytes due to ion clustering.[19, 20] This is in qualitative agreement with our findings in Fig. 3A, where the transition from dipole-dipole to more complex interactions happens at lower concentrations for strongly interacting electrolytes.
+
+Our universal approach is by no means restricted to binary electrolyte solutions, but can be generalized to electrolyte mixtures and solutions in general. This requires an additional summation over all possible (neutral) solute combinations in the observation droplet and their interaction with the solute mixture in the environment. The proposed change of perspective offers new insights into the average thermodynamic properties of electrolyte solutions and the connection to local structural heterogeneity and ion complexes characterized by state of the art spectroscopic and simulation techniques. We hope these findings will contribute to the understanding of concentrated electrolyte solutions, which are of relevance in many biological and electrochemical applications in nowadays society.
+
+Acknowledgments
+
+We thank Christoph Held for providing activity coefficients in an electronically readable form and Martina Havenith for her longtime support of the project. We appreciate helpful discussions with Mohammadhasan Dinpajooh (Hadi) concerning the heterogeneity of complex electrolyte solutions.
+
+Funding: This work was supported by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) under Germany’s Excellence Strategy EXC-2033 390677874 RESOLV.
+
+SP acknowledges funding by the European Research Council (ERC, ELECTROPHOBIC, Grant Agreement No. 101077129)
+
+Appendix
+
+4.1 Definitions of Distances
+
+We have introduced the hydrated electrolyte radius, \( R_h \), in the main text without giving further specifications. This radius can be obtained from density measure-
+ments and the composition of the solution as
+
+\[ R_h = \left( \frac{3}{4\pi} \frac{(1 + n_h) \phi_{\text{sol}}}{N_A} \right)^{\frac{1}{3}} \]  
+
+(9)
+
+where \( n_h \) is the hydration shell size where the solvated ion complexes start to repel each other and \( N_A \) is Avogadro’s constant. In general, \( n_h \) will be different for different orders of the multipole expansion. Heuristically, we found that electrolyte activities can be well represented when allowing \( n_{h,\text{Dipole}} \geq 0 \) (this corresponds to \( x_{h,\text{Dipole}} \leq 1 \)) while keeping \( n_h = 0 \) (i.e. \( x_h = 1 \)) for the quadrupole and octupole contributions. The average apparent molar volume in the solution is given by
+
+\[ \phi_{\text{sol}} = \frac{M_{\text{sol}}}{\rho_{\text{sol}}} \]
+
+where
+
+\[ M_{\text{sol}} = x M_B + (1 - x) M_w \]
+
+and \( \rho_{\text{sol}} \) are the average molar mass and the density of the solution, respectively.
+
+In a similar manner, the radius of the ”observation volume” is defined by
+
+\[ R_d = \left( \frac{3}{4\pi} \frac{(1 + n_w) \phi_{\text{sol}}}{N_A} \right)^{\frac{1}{3}} \]  
+
+(10)
+
+where \( n_w = x_w / x_B \) is the number of water molecules per electrolyte unit.
+
+### 4.2 The Debye-Hückel Term: Dipole-Dipole Interaction
+
+In the following we investigate in detail the long-range dipole-dipole interaction leading to the equivalent of the Debye-Hückel term in the classical theory of electrolyte solutions. We expect that the minimum hydration shell radius \( R_h \) as defined in Equ. 9 defines a minimum dipole moment \( \mu_0 = q_{\text{eff}} R_h \) inside the droplet. \( q_{\text{eff}} \) will be determined by the composition of the electrolyte and is expected to be unity for 1:1 electrolytes.
+
+In the dilute case, we expect that the average distance between anions and cations will be much larger than \( R_h \). Therefore, we estimate the average distance between anion and cation along the z-direction for a given dipole orientation leading to a positive dipole moment along the z-direction of \( \mu_z = q(z_+ - z_-) = q\Delta z \) with \( z_+ - z_- > 0 \). To simplify this discussion, we assume a 1:1 electrolyte. Anion and cation can take any position within the droplet so that \( \Delta z \) ranges from 0 to 2 \( R_d \). However, the number of ways to realize a dipole with a certain strength depends strongly on \( \Delta z \). For example, there is just a single configuration with \( \Delta z = 2R_d \) while there are many ways to realize configurations with \( \Delta z \ll R_d \). A detailed analysis of the resulting probability distribution shows that the effective distance \( \Delta z_{\text{eff}} = 0.5 R_d \) yielding \( \mu_{\text{eff}} = 0.5 q R_d = 0.5 \mu_0 R_d / R_h \). E.g. we expect this equation to hold true for other electrolytes (e.g. 1:2, 2:1, 2:2) when replacing \( q \) by an effective charge \( q_{\text{eff}} \). For symmetry reasons this dipole must be located at
+the droplet center. Without an external field along the \( z \)-direction both orientations show the same likelihood leading to a vanishing net dipole moment inside the droplet. When an external field \( E_z \) along the \( z \)-axis is applied, the probabilities \( P_p \) and \( P_a \) for an orientation parallel and antiparallel to the electric field, respectively are different and can be described by Boltzmann’s equation. It follows that
+
+\[
+P_p - P_a = \frac{\mu_{\text{eff}} E_z}{kT}.
+\]
+
+We explore next the dipole induced effect on an ion with charge \( q \) along the \( z \)-axis outside the droplet. The interaction energy \( U \) of the ion at a position \( |z| > R_d \) outside the droplet with \( \mu_{\text{eff}} \) at the center of the droplet and oriented along the \( z \)-axis is given by
+
+\[
+U(z) = \frac{q z \mu_{\text{eff}}}{4\pi\varepsilon_0\varepsilon_r |z|^3}.
+\]  
+
+For a positive charge \( U(z) \) is positive above the plane \( z = 0 \) and negative below. According to Boltzmann statistics, this leads to a depletion of positive charges above the plane and an enrichment below the plane. The expected charge difference between the upper and lower half-plane at the same \( z \) is given by \( \Delta q = q \left( E_U(z)/kT - E_U(-z)/kT \right) \). Integration along the positive \( z \)-direction assuming \( |U(z)| \ll kT \) yields \( \Delta q \propto q^2 \mu_{\text{eff}}/R_d \). Since \( \mu_{\text{eff}} \propto R_d \) and the electric field at the droplet center \( E_z \propto \Delta q/R_d \), it follows that the interaction energy \( U_{\mu, E_z} \) between the dipole inside the droplet and the electric field generated by the displacement from a single ion in the environment is inversely proportional to the droplet radius. Negative charges will be enriched above the plane and depleted below the plane. The resulting electric fields are additive. The total effect of \( \nu^+ \) cations and \( \nu^- \) anions will therefore be proportional to
+
+\[
+U_{\mu, E_z} \propto \frac{\mu_0}{R_d} \sum_i \nu_i q_i^2.
+\]  
+
+To relate our description to standard Debye-Hückel theory, we introduce the molecular level ionic strength where \( I_{\text{mol}} := \sum_i \nu_i q_i^2 \) and assume that \( q_{\text{eff}} = \sqrt{I_{\text{mol}}} \) and
+
+\[
+\mu_0 = \sqrt{I_{\text{mol}}} R_h.
+\]
+
+This finding is not restricted to 1:1 electrolytes anymore.
+
+Up to now we have investigated the interaction of of our central droplet with a single dipole along the \( z \)-axis. To come to a more realistic scenario, we use a second coarse graining step: We assume that the environment outside the central droplet consists of dipoles with average dipole moment \( \mu_0 \) as defined in Equ. 13. The central dipole \( \mu_c \) interacts with the surrounding dipoles \( \mu_{s,i} \) via dipole-dipole interaction. While perfectly aligned dipoles at a distance \( R \) close to each other show an interaction energy that scales like
+
+\[
+U_{d-d}(\mu_1, \mu_2, R) = -\frac{2\mu_0^2}{4\pi\varepsilon_0\varepsilon_r R^3} = -\frac{2I_{\text{mol}} R_h^2}{4\pi\varepsilon_0\varepsilon_r R^3},
+\]
+
+16
+the thermally averaged dipole dipole interaction energy scales like $1/R^6$. In general, the number of interaction partners will grow as $4\pi R^2 dR$ with increasing distance $R$ from the central dipole.
+
+If we express the distance $R = n_R R_h$ between the dipoles in units of $R_h$ (see Equ. 9) with proportionality constant $n_R$, and normalize the interaction energy by $kT$, we obtain
+
+$$\frac{U_{d-d}(n_R)}{kT} = -\frac{2N_A}{3kT (1 + n_h) M_{sol} \epsilon_r} \frac{I_{mol} R_h^2}{\epsilon_0 n_R^3}$$
+
+where we have introduced the characteristic length
+
+$$\lambda_c = \sqrt{\frac{kT \epsilon_0}{N_A \sum_i \nu_i q_i^2 \rho_{sol}}}$$
+
+with the reference and where $R_h$ is defined by Equ. 9. The characteristic length and the Debye length $\lambda_D$ are related to each other by $\lambda_D = \lambda_c / \sqrt{m_B / m_0}$. $m_0=1$ mol/kg is introduced formally to yield the proper dimension. It corresponds to a hypothetical 1-molal electrolyte solution with no ion-ion interaction.
+
+4.3 Concentration Dependency of the Pre-Factor
+
+Both, $\lambda_c$ and $R_h$, depend on a parameter combination, that is concentration dependent. In the following, we will show, that for most typical electrolytes the concentration dependency is small. We will first focus on the factor $\rho_{sol} / M_{sol}$. We approximate the dielectric constant as ideal combination of the real parts of the molar susceptibilities, $\chi_s$ and $\chi_w$ of the solute and water, respectively, in the solution:
+
+$$\epsilon_r \approx 1 + \frac{V_0}{\rho} (c_s \chi_s + c_w \chi_w)$$
+
+where $c_s$ and $c_w$ are the concentrations of solute and water in the solution, respectively and $V_0 = 1$ L is the reference volume for concentration measurements. If we further use the average molar volume in the solution
+
+$$\overline{\phi}_s = \phi_w + x (\phi_V - \phi_w)$$
+
+where $\phi_w$ and $\phi_V$ are the apparent molar volumes of water and electrolyte, respectively, we obtain
+
+$$\frac{\rho_{sol}}{M_{sol} \epsilon_r} = \frac{1}{V_0 \chi_w \left( 1 + \frac{\phi_w}{\overline{\phi}_x} \right) + x \left( \frac{\Delta \chi}{\chi_w} + \frac{\Delta \phi}{\chi_w} \right)} \approx \frac{1}{V_0 \chi_w}$$
+
+17
+where $\Delta \chi = \chi_s - \chi_w$ is the difference in the real part molar susceptibilities of the electrolyte and water and $\Delta \phi_V = \phi_V - \phi_w$ the difference in their apparent molar volumes. At room temperature, the dielectric constant of water $\epsilon_w$ and its density $\rho$ are approximately 80 and 1000 g/L. This yields $\chi_w \approx 1.4$ so that $\frac{\rho_{\text{sol}}}{M_{\text{sol}} \epsilon_r} \approx \frac{1}{1400 \text{cm}^3/\text{mol}}$. In cases where the term linear in $x$ in the denominator becomes noticeable, we can use a Taylor expansion of Equ. 18. If the linear term becomes important before the higher order interactions prevail, we would expect an additional contribution in $\ln \gamma_\pm$ which scales like $x \times x^\delta \ln(x) = x^{1+\delta} \ln(x)$ which is a member of this family of functions with a different exponent. A similar argument holds for the concentration dependency of $R^2_h$. In conclusion, in our electrolyte picture the vivid discussion on how much the change in dielectric constant determines the change in $\ln \gamma_\pm$ is meaningless, since a change in dielectric constant and a higher order expansion are fully equivalent in our description.
+References
+
+[1] John Brown and Alexis Grimaud. With only a grain of salt. Nature Energy, 7(2):126–127, February 2022.
+
+[2] Meiqi Zhou, Zheng Bo, and Kostya (Ken) Ostrikov. Challenges and prospects of high-voltage aqueous electrolytes for energy storage applications. Phys. Chem. Chem. Phys., 24:20674–20688, 2022.
+
+[3] Oleg Borodin, Julian Self, Kristin A. Persson, Chunsheng Wang, and Kang Xu. Uncharted waters: Super-concentrated electrolytes. Joule, 4(1):69–100, 2020.
+
+[4] Matthew Li, Chunsheng Wang, Zhongwei Chen, Kang Xu, and Jun Lu. New concepts in electrolytes. Chemical Reviews, 120(14):6783–6819, 2020. PMID: 32022546.
+
+[5] Y. Shirley Meng, Venkat Srinivasan, and Kang Xu. Designing better electrolytes. Science, 378(6624):eabq3750, 2022.
+
+[6] Rudramani Tiwari, Devendra Kumar, Dipendra Kumar Verma, Km Parwati, Pushpesh Ranjan, Rajshree Rai, S. Krishnamoorthi, and Raju Khan. Fundamental chemical and physical properties of electrolytes in energy storage devices: A review. Journal of Energy Storage, 81:110361, 2024.
+
+[7] Chenlin Zhang, Yusuf Shi, Le Shi, Hongxia Li, Renyuan Li, Seunghyun Hong, Sifei Zhuo, Tiejun Zhang, and Peng Wang. Designing a next generation solar crystallizer for real seawater brine treatment with zero liquid discharge. Nature Communications, 12(1):998, 2021.
+
+[8] Foroozan Keshavarzi, Ali Rasoolzadeh, and Khashayar Nasrifar. A precise thermodynamic approach for calculating activity of water in the presence of aqueous alcohol + salt solutions and its application to gas hydrate dissociation modeling. Industrial & Engineering Chemistry Research, 63(8):3780–3796, 2024.
+
+[9] Christoph Held. Thermodynamic ge models and equations of state for electrolytes in a water-poor medium: A review. Journal of Chemical & Engineering Data, 65(11):5073–5082, 2020.
+
+[10] Walter J. Hamer and Yung-Chi Wu. Osmotic Coefficients and Mean Activity Coefficients of Uni-univalent Electrolytes in Water at 25°C. Journal of Physical and Chemical Reference Data, 1(4):1047–1100, 10 1972.
+[11] Kenneth S Pitzer. Activity Coefficients in Electrolyte Solutions. CRC Press, 2018.
+
+[12] Peter Debye and Erich Hückel. Zur theorie der elektrolyte. i. gefrierpunkterniedrigung und verwandte erscheinungen. Physikalische Zeitschrift, 24(185):305, 1923.
+
+[13] F Vaslow. Thermodynamics of solutions of electrolytes, 1972.
+
+[14] Kenneth S Pitzer and John M Simonson. Thermodynamics of multicomponent, miscible, ionic systems: theory and equations. The journal of physical chemistry, 90(13):3005–3009, 1986.
+
+[15] Christoph Held and Xiaodong Liang. 100 years from the debye-hückel theory and beyond. Fluid Phase Equilibria, 575:113931, 2023.
+
+[16] Jean-Pierre Simonin and Olivier Bernard. Insight into the ionic atmosphere effect: Comparison of theories for electrolytes at the primitive level. Fluid Phase Equilibria, 571:113805, 2023.
+
+[17] Muhammad N. Khan, Pramod Warrier, Cornelis J. Peters, and Carolyn A. Koh. Mean activity coefficient of electrolytes: A critical evaluation of four physical models. Journal of Natural Gas Science and Engineering, 35:1355–1361, 2016. Gas Hydrates and Applications.
+
+[18] Diwash Dhakal, Darren M. Driscoll, Niranjan Govind, Andrew G. Stack, Nikhil Rampal, Gregory Schenter, Christopher J. Mundy, Timothy T. Fister, John L. Fulton, Mahalingam Balasubramanian, and Gerald T. Seidler. The evolution of solvation symmetry and composition in zn halide aqueous solutions from dilute to extreme concentrations. Phys. Chem. Chem. Phys., 25:22650–22661, 2023.
+
+[19] Mohammadhasan Dinpajooh, Elisa Biasin, Emily T. Nienhuis, Sebastian T. Mergelsberg, Chris J. Benmore, Gregory K. Schenter, John L. Fulton, Shawn M. Kathmann, and Christopher J. Mundy. Detecting underscreening and generalized kirkwood transitions in aqueous electrolytes. The Journal of Chemical Physics, 161(15):151102, 10 2024.
+
+[20] Mohammadhasan Dinpajooh, Nadia N. Intan, Timothy T. Duignan, Elisa Biasin, John L. Fulton, Shawn M. Kathmann, Gregory K. Schenter, and Christopher J. Mundy. Beyond the debye–hückel limit: Toward a general theory for concentrated electrolytes. The Journal of Chemical Physics, 161(23):230901, 12 2024.
+[21] Gerhard Schwaab, Federico Sebastiani, and Martina Havenith. Ion hydration and ion pairing as probed by thz spectroscopy. Angewandte Chemie International Edition, 58(10):3000–3013, 2019.
+
+[22] Frank J Millero. Molal volumes of electrolytes. Chemical Reviews, 71(2):147–176, 1971.
+
+[23] VMM Lobo and JL Quaresma. Handbook of electrolyte solutions (physical sciences data, vol. 41): Elsevier, amsterdam, 1989 (isbn 0-444-988847-5). xii+1168 pp.(part a), xii+1186 pp.(part b). price dfl. 1400.00, 1990.
+
+[24] RH Stokes. Thermodynamics of solutions. In Activity coefficients in electrolyte solutions, pages 1–28. CRC Press, 2018.
+
+[25] Wolfram Research. Lerchphi. https://reference.wolfram.com/language/ref/LerchPhi.html, 2023.
+
+[26] Robert N Goldberg. Evaluated activity and osmotic coefficients for aqueous solutions: Bi-univalent compounds of zinc, cadmium, and ethylene bis(trimethylammonium) chloride and iodide. Journal of Physical and Chemical Reference Data, 10(1):1–56, 1981.
+
+[27] Christoph Held and Gerhard Schwaab. Experimental data on mean ionic activity coefficients and fit model represenation for: A New Perspective on Aqueous Electrolyte Solutions. pages https://doi.org/10.17877/RESOLV-2024-M4WGMZTG, 2025.
+Table 1: Fit parameters for ln $\gamma$, part 1.
+
+| Salt       | $\gamma_{\text{Dipole}}$ | $\gamma_{\text{Quadrupole}}$ | $\gamma_{\text{Octupole}}$ |
+|------------|---------------------------|-------------------------------|----------------------------|
+| NH4Cl      | 1.07 (1)                  | 0.96 (1)                      | -                          |
+| NH4Br      | 1.07 (1)                  | 0.96 (1)                      | -                          |
+| NH4BF4     | 1.07 (1)                  | 0.96 (1)                      | -                          |
+| NH4SCN     | 1.07 (1)                  | 0.96 (1)                      | -                          |
+| BaBr2      | 1.07 (1)                  | 0.96 (1)                      | -                          |
+| BaCl2      | 1.07 (1)                  | 0.96 (1)                      | -                          |
+| BaI2       | 1.07 (1)                  | 0.96 (1)                      | -                          |
+| MgI2       | 1.07 (1)                  | 0.96 (1)                      | -                          |
+| CuI2       | 1.07 (1)                  | 0.96 (1)                      | -                          |
+| ZnI2       | 1.07 (1)                  | 0.96 (1)                      | -                          |
+| CdI2       | 1.07 (1)                  | 0.96 (1)                      | -                          |
+| HgI2       | 1.07 (1)                  | 0.96 (1)                      | -                          |
+| AgI4       | 1.07 (1)                  | 0.96 (1)                      | -                          |
+| InI4       | 1.07 (1)                  | 0.96 (1)                      | -                          |
+| PbI4       | 1.07 (1)                  | 0.96 (1)                      | -                          |
+| AuI4       | 1.07 (1)                  | 0.96 (1)                      | -                          |
+| PtI4       | 1.07 (1)                  | 0.96 (1)                      | -                          |
+
+ORCID: https://orcid.org/0000-0003-2136-907X
+
+Content not peer-reviewed by ChemRxiv.
+
+License: CC BY 4.0
+Table 2: Fit parameters for $\ln \gamma$, part 2.
+
+| Salt     | $x_{\text{Dipole}}$ | $\lambda_{\text{Dipole}}$ | $D_{\text{Quadrupole}}$ | $\lambda_{\text{Quadrupole}}$ | $D_{\text{Octupole}}$ | $\lambda_{\text{Octupole}}$ |
+|----------|---------------------|-----------------------------|--------------------------|-------------------------------|-----------------------|-----------------------------|
+| KC Sc    | 0.0435(1)           | -                           | -                        | -                             | -                     | -                           |
+| KBrO3    | 0.788(2)            | -                           | 0.590(2)                 | -                             | -                     | -                           |
+| KBr      | 1.429(2)            | 0.551(2)                    | 1.1(2)                   | -                             | -                     | -                           |
+| KCIO3    | 1.37(1)             | 0.621(1)                    | 1.1(2)                   | -                             | -                     | -                           |
+| KCl      | 1.530(1)            | 0.556(2)                    | 1.3(1)                   | -                             | -                     | -                           |
+| KF       | 0.642(2)            | 15.1                        | 1.2(1)                   | -                             | -                     | -                           |
+| K2HP04   | 0.51(1)             | 4.8(1)                      | 0.521(1)                 | -                             | -                     | -                           |
+| K2HP04   | 4.6(1)              | 0.661(1)                    | -                        | -                             | -                     | -                           |
+| KOH      | 0.95(2)             | 0.751(1)                    | -                        | -                             | -                     | -                           |
+| KI       | 1.233(2)            | 0.542(2)                    | -                        | -                             | -                     | -                           |
+| KNO3     | 2.9(1)              | 0.56(0)                     | 5.3(2)                   | 1.3(3)                        | -                     | -                           |
+| K2SO4    | 0.3(1)              | 0.581(3)                    | -                        | -                             | -                     | -                           |
+| KAc      | 1.81(0)             | 0.545(3)                    | -                        | -                             | -                     | -                           |
+| KBr      | 0.440(1)            | 0.243(3)                    | 1.429(2)                 | -                             | -                     | -                           |
+| KClO3    | 3.40(1)             | 0.551(3)                    | -                        | -                             | -                     | -                           |
+| K2SO4    | 1.2(1)              | 0.545(3)                    | -                        | -                             | -                     | -                           |
+| K2SO4    | 3.2(2)              | 1.3(3)                      | -                        | -                             | -                     | -                           |
+| K2SO4    | 1.3(1)              | 0.551(3)                    | -                        | -                             | -                     | -                           |
+| K2SO4    | 0.3(1)              | 0.545(3)                    | -                        | -                             | -                     | -                           |
+| K2SO4    | 1.3(1)              | 0.551(3)                    | -                        | -                             | -                     | -                           |
+| K2SO4    | 0.3(1)              | 0.545(3)                    | -                        | -                             | -                     | -                           |
+| K2SO4    | 1.3(1)              | 0.551(3)                    | -                        | -                             | -                     | -                           |
+| K2SO4    | 0.3(1)              | 0.545(3)                    | -                        | -                             | -                     | -                           |
+
+https://doi.org/10.26434/chemrxiv-2025-mwspf-v2 ORCID: https://orcid.org/0000-0003-2136-967X Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+Table 3: Electrolytes classified according to Figure 3
+
+| Electrolyte class | Members |
+|-------------------|---------|
+| 1:1, $x_h < 1$    | ChBr, ChCl, CsAc, CsBr, CsCl, CsF, CsOH, HBr, HClO$_4$, HF, HI, HNO$_3$, KAc, KBr, KCl, KF, Kl, KOH, KSCN, LiAc, LiBr, LiCl, LiClO$_3$, LiClO$_4$, LiI, LiNO$_3$, LiOH, NaAc, NaBr, NaCl, NaClO$_4$, NaF, NaFo, NaI, NaNO$_3$, NaOH, NaSCN, NH$_4$Br, NH$_4$Cl, RbAc, RbBr, RbCl, RbF, RbI |
+| 1:1, $x_h = 1$    | AgNO$_3$, CsBrO$_3$, CsClO$_3$, CsClO$_4$, CsF, CsNO$_3$, GdnBr, GdnCl, GdnClO$_4$, GdnI, GdnNO$_3$, HCl, KBrO$_3$, KClO$_3$, KClO$_4$, KH$_2$PO$_4$, KNO$_3$, LiF, NaBrO$_3$, NaClO$_3$, NaH$_2$PO$_4$, NaHCO$_3$, NH$_4$Cl, NH$_4$NO$_3$, NH$_4$SCN, RbBrO$_3$, RbClO$_3$, RbClO$_4$, RbNO$_3$ |
+| 2:1 and 1:2, $x_h < 1$ | BaBr$_2$, BaCl$_2$, BaOH$_2$, Ba$_2$, Ba(ClO$_4$)$_2$, CdBr$_2$, CdCl$_2$, CdI$_2$, Cd(NO$_3$)$_2$, Cd(ClO$_4$)$_2$, CaBr$_2$, CaCl$_2$, CaI$_2$, Ca(NO$_3$)$_2$, Ca(ClO$_4$)$_2$, CoBr$_2$, CoCl$_2$, CoI$_2$, Co(NO$_3$)$_2$, Co(ClO$_4$)$_2$, CuBr$_2$, CuCl$_2$, Cu(NO$_3$)$_2$, Cu(ClO$_4$)$_2$, FeCl$_2$, K$_2$HPO$_4$, MgBr$_2$, MgCl$_2$, MgI$_2$, Mg(NO$_3$)$_2$, Mg(ClO$_4$)$_2$, SrBr$_2$, SrCl$_2$, SrI$_2$, Sr(NO$_3$)$_2$, Sr(ClO$_4$)$_2$, ZnBr$_2$, ZnCl$_2$, ZnF$_2$, ZnI$_2$, Zn(NO$_3$)$_2$, Zn(ClO$_4$)$_2$ |
+| 2:1 and 1:2, $x_h = 1$ | Ba(NO$_3$)$_2$, Gdn$_2$CO$_3$, K$_2$SO$_4$, Na$_2$HPO$_4$, Na$_2$SO$_4$, (NH$_4$)$_2$HPO$_4$, (NH$_4$)$_2$SO$_4$, Rb$_2$SO$_4$ |
+| 2:2, $x_h < 1$    | CdSO$_4$, CuSO$_4$, MgSO$_4$, ZnSO$_4$ |
+| 2:2, $x_h = 1$    | CoSO$_4$ |
+| 3:1, $x_h < 1$    | CrCl$_3$, Cr(NO$_3$)$_3$ |
+| 3:2, $x_h < 1$    | Cr$_2$(SO$_4$)$_3$ |

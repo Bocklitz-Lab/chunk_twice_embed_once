@@ -1,0 +1,357 @@
+Stepwise Spin-State Switching with Symmetry Breaking and ON/OFF Photo-switching in Iron(II) Complex
+
+Sakshi Mehta†, Sujit Kamilya†, Sounak Ghosh,‡ Debopam Sarkar,‡ Yanling Li,‡ Rodrigue Lescouëzec,§ Mathieu Rouzières,§ Jiří Pechoušek,§ Pradip Kumar Mondal,*§§ Irshad Kariyattuparamb Abbas,§§ Bobby Joseph,§§ Subrata Ghosh,*† and Abhishake Mondal*†
+
+† Solid State and Structural Chemistry Unit, Indian Institute of Science, Sir C V Raman Road, Bangalore 560012, India.
+
+‡ Sorbonne Université, Institut Parisien de Chimie Moléculaire, UMR CNRS 8232, 4 place Jussieu, Paris 75005, France.
+
+§ Univ. Bordeaux, CNRS, Centre de Recherche Paul Pascal, UMR 5031, 33600 Pessac, France.
+
+# Department of Experimental Physics, Faculty of Science, Palacký University Olomouc, 17. Listopadu 12, 77146 Olomouc, Czech Republic.
+
+§§ Elettra – Sincrotrone Trieste S.C. p. A., S.S. 14, Km 163.5 in Area Science Park, 34149 Basovizza, Italy
+
+δ These authors contributed equally.
+ABSTRACT
+
+In recent world advancement and the quest for smart multi-functional material, stimuli-responsive molecular bistable systems offer unique opportunities to explore their applicability in molecular switches, data storage, and sensing technologies. Multi-stimuli responsive stepwise Spin Crossover (SCO) systems stand tall in this area. While the effects of external stimuli, particularly thermal variations and photoirradiation on the magneto-structural properties of SCO systems have been extensively studied, the area of pressure-modulated stepwise spin crossover and its associated magneto-structural changes remains lesser explored. Herein, we report a mononuclear iron(II) complex containing tetradeinate macrorcyclic ligand with $\beta$-diamine-based bidentate coligand, $[\text{Fe(L)(bik*)}](\text{BPh}_4)_2$ (1) ($\text{L} = N,N'$-di-iso-propyl-2,11-diaza[3,3](2,6)pyridinophane and $\text{bik*} = \text{bis}(1$-ethyl-$1H$-imidazol-2-yl)ketone) undergoing a reversible stepwise thermo-induced spin-state switching with the presence of three spin-states HS, LS, and an ordered HS-LS with the exciting re-entrant symmetry breaking during the spin-state switching process. The influence of external pressure on the structure and magnetic response is thoroughly studied, where the pressure-induced modification in the intermolecular interactions leads to enhanced cooperativity and a hysteretic stepwise spin state switching. The versatility of the systems is further explored where 1 displays a reversible ON/OFF photo-switching between a photo-induced paramagnetic metastable HS and diamagnetic LS states under light irradiations at low temperatures along with light-induced excited spin state trapping (LIESST).
+
+INTRODUCTION
+
+The class of stimuli-responsive molecular bistable materials$^1$ featuring spin crossover (SCO),$^2$-6 single-molecule magnets (SMMs),$^7$-12 single-chain magnets (SCMs),$^{13}$-15 and metal-to-metal electron transfer (MMET) properties$^{16}$-18 via spin manipulations in molecular systems show...
+tremendous potential in diverse areas of quantum technologies.\textsuperscript{19} These materials show noticeable bistability in magnetic, photo, and electric switchable properties.\textsuperscript{20} Among these, SCO materials have been considered the most important and exciting candidates,\textsuperscript{21} since they represent an easy and substantial pathway to realize various aspects of modern-day technological applications, which includes molecular and spintronic devices, sensors, switches, data recording, and storage materials.\textsuperscript{22-25} Minute alteration of external perturbations \textit{e.g.}, temperature, pressure, light irradiation, magnetic field, \textit{etc.} can easily switch the spin-state of these materials in a controlled and reversible manner with notable modifications in inherent properties \textit{e.g.}, chromic, magnetic, conductive, optical, \textit{etc.}\textsuperscript{26,27}
+
+Based on the temperature dependence of magnetic susceptibility, the SCO phenomenon can be demonstrated as gradual, abrupt together with or without hysteresis, stepwise, and incomplete within the measurement frame. This nature of the SCO phenomenon is affected by the absence or presence, nature, and strength of cooperativity within the system.\textsuperscript{28} In this aspect, stepwise SCO with two or more steps has gathered great attention as it generates a characteristic ordered intermediate phase allowing an access to additional spin states, which provides a good platform to explore multifunctional materials with new and improved potential applications in information storage.\textsuperscript{29,30} Such stepwise SCO systems may lead to a possible observation of lesser explored bidirectional LIESST effect, where the intermediate state can switch to metastable light-induced HS or a LS state (one different from inherent ground state) leading to a possibility of observing tristability in the system.
+
+Generally, stepwise SCO occurs when non-equivalent SCO metal centers in a molecule exhibit spin state switching at different temperatures. While symmetry breaking in molecular structure generates two or more independent SCO centers in the ordered intermediate phase and displays
+stepwise SCO. Significant effort has been devoted over the last few years by numerous research groups to explore and realize the correlation between SCO and symmetry breaking.\textsuperscript{31-35} Regardless of the critical development, symmetry-breaking SCO remains a rare and fascinating method to realize the fundamental and application features of SCO materials.
+
+In comparison to other transition metals with $d^{4-7}$ electronic configuration in an octahedral geometry,\textsuperscript{36-41} iron(II) complexes are well explored, where the spin state switching occurs between the low-spin (LS) ($t^{6}_{2g} e^{0}_{g}$, $S = 0$, $^{1}A_{1}$), and the high-spin (HS) ($t^{4}_{2g} e^{2}_{g}$, $S = 2$, $^{5}T_{2}$) states.\textsuperscript{42} In the past few decades, significant efforts have been given to switching the spin-state of iron(II) by modulation of numerous parameters, including ligand modification, counter anions, crystallizing solvents, matrix of the system, cooperativity, molecular dimensionality, \textit{etc}.\textsuperscript{43-48} Apart from those tremendous efforts, iron(II) complexes exhibit two or more step SCO with symmetry breaking are less in number,\textsuperscript{29, 32, 33, 49-51} while similar phenomena have also been reported with iron(III), cobalt(II), and manganese(III) complexes.\textsuperscript{52-56} Accordingly, exploring such interesting features in iron(II) through magneto-structural relationships remains challenging.
+
+Over the last few years, pyridinophane-based tetradentate ligands have been used to explore a broad area of research, including valence tautomerism and spin crossover in cobalt systems,\textsuperscript{57-60} activation of CO$_2$ and O$_2$ molecules based on nickel complexes,\textsuperscript{61-63} stabilization and reactivity of high valent nickel and palladium complexes,\textsuperscript{64-69} catalytic cleavage of catechol,\textsuperscript{70, 71} catalysis,\textsuperscript{72-74} photoluminescence\textsuperscript{75}, \textit{etc.}, while spin-state switching in iron(II) system have not been explored yet.\textsuperscript{76, 77} Recently, we have reported a series of SCO cobalt(II) complexes coordinated by pyridinophane-based tetradentate ligands with linear and non-linear pseudohalides as coligands.\textsuperscript{78-80} Additionally, various bidentate nitrogen donor coligand \textit{e.g.}, 2,2'-bipyridine (bpy), 1,10-phenanthroline (phen), and their derivatives which belong to the category of $\alpha$-diimine-based
+ligands have been intensively applied to investigate SCO in iron(II) center. In contrast, \( \beta \)-diimine-based bidentate ligands like bik-R (bik = bis(1-alkyl-1H-imidazol-2-yl)ketone) (R = Et, Me, etc.) (Scheme 1) have not been explored yet, where more flexible \( \beta \)-diimine-based ligands forms a six-membered chelating ring with the metal center in comparison to less flexible \( \alpha \)-diimine-based ligands which form five-membered chelating rings. We have recently reported reversible switching of photophysical properties of SCO, MMET under the application of temperature and light in cyanide-bridged molecular systems using bik-R as capping ligands, where we have shown that chelating and flexible nature along with the electronic effect of these bik-R ligands can significantly affect the switching behavior and associated photophysical properties of these materials.
+
+Herein, we are interested in studying the effect of \( \beta \)-diimine-based bidentate coligand along with pyridinophane-based tetradentate ligand in iron(II) complex (Scheme 1), which would lead to a significant modification of the spin-transition nature of the iron(II) center. Here, we explore synthesis, crystal structure, magnetic, photomagnetic, spectroscopic, and electrochemical properties of a mononuclear iron(II) complex \([\text{Fe}(L)(\text{bik}^*)](\text{BPh}_4)_2\) (\( L = N,N'-\text{di-iso-propyl-2,11-diaza}[3,3](2,6)\text{pyridinophane}, \text{bik}^* = \text{bis}(1-ethyl-1H-imidazol-2-yl)ketone\)).
+
+**Scheme 1.** Schematic presentation of tetradentate (L) and bidentate (bik*) ligands.
+
+**RESULTS AND DISCUSSION**
+Synthesis and characterization
+
+The reaction of anhydrous iron(II) chloride and the tetradentate ligand L was carried out in dry methanol under an argon atmosphere. It was followed by the sequential addition of bidentate ligand bik* and sodium tetraphenyl borate, which formed an immediate precipitate. After filtration, the precipitate was dissolved in acetonitrile, and diethyl ether was diffused into the solution to obtain the analytically pure crystalline product of 1 in good yield (Scheme 2 and Figure 1).
+
+Scheme 2. Synthesis of Complex 1.
+
+\[ \text{FeCl}_2 + \text{L} \xrightarrow{1. \text{MeOH}} \text{MeOH} \xrightarrow{2. \text{NaBPh}_4 / \text{MeOH}} \xrightarrow{3. \text{MeCN} / \text{Et}_2\text{O}} \text{1} \]
+
+Figure 1. Optical Microscope images of crystals for complex 1.
+
+The purity of complex 1 in bulk was confirmed by elemental analysis studies and powder X-ray diffraction measurements (Figure S1). The thermal stability of 1 was determined by thermogravimetry analysis (TGA) from 303 K to 473 K with a scan rate of 10 K min\(^{-1}\) under nitrogen atmosphere (Figure S2). The TGA curve shows that complex 1 is stable up to 425 K, indicating the absence of interstitial solvent molecules, which is consistent with the single-crystal
+X-ray structure studies (*vide infra*). The remarkable thermal stability of 1 might come from the strong coordinating effect of both ligands. It is important to mention that the absence of interstitial solvent molecules offers us an opportunity to explore the impact of ligand-modification on the magneto-structural relationship of the SCO behavior of 1 without any interference coming from the interstitial solvent molecules, which is rarely observed in SCO studies. Also, such rock crystallinity and stability allow to explore the impact of slightly harsh perturbation such as applied external pressure on the observed SCO profile.
+
+Complex 1 was fully characterized by solid-state IR spectroscopy ranging from 400 K to 200 K (Figures 2, left and S3 – S5). IR spectroscopy has been applied as an important technique to characterize the oxidation state and spin-state of metal centers, particularly for those metal-coordinated ligands containing N≡C and C=O units.\(^{101-103}\) The stretching frequency of these units is affected by the electronic and spin-state of the metal center. IR spectrum of 1 at room temperature shows a strong and a very weak absorption peak at around 1650 and 1634 cm\(^{-1}\) respectively, suggesting the characteristic stretching vibration of \(\nu(\text{C}=\text{O})\) of metal coordinated bik* ligand (Figure S3). Iron(II) complexes containing bik* ligand are less in number, while most of them belong in LS state at room temperature, showing the \(\nu(\text{C}=\text{O})\) at around 1635 cm\(^{-1}\).\(^9\) In complex 1, the strong bands at about 1650 cm\(^{-1}\) suggests the presence of HS state of the complex while the latter bands at around 1635 cm\(^{-1}\) are consistent with LS state of iron(II) center at room temperature. Overall, these peaks suggest the presence of an almost HS state of 1 at room temperature with partial LS contribution. Further, the IR spectrum of 1 at room temperature shows strong bands at 730 and 705 cm\(^{-1}\), suggesting the presence of \(\text{BPh}_4^–\) anion (Figure S3). Additionally, the IR spectrum also displays typical absorption of the coordinated tetradentate ligand L and bidentate ligand bik*.
+Temperature-dependent IR studies were carried out on complex 1 in KBr in the temperature range of 400–200 K in both heating and cooling modes (Figures 2, left, S4, and S5). An expected alteration observed is the magnificent decrease or increase in the intensity of the $\nu$(C=O) band coming from the coordinated bik* ligand in complex 1 in the heating or cooling cycle. The selected region of IR spectra showing characteristic $\nu$(C=O) for 1 is displayed in Figure 2. Upon cooling, the intensity of the $\nu$(C=O) peak at around 1650 cm$^{-1}$ decreased, which is the characteristic stretching vibration for HS iron(II) state, while the intensity of the $\nu$(C=O) peak at around 1635 cm$^{-1}$ increased which is the characteristic stretching vibration for LS iron(II) state. These results indicate a thermal conversion of the HS state to the LS state in 1. It is essential to mention that these changes are reversible upon heating, indicating a reversible thermal spin-state switching in 1 (Figures S4 and S5).
+
+UV-vis-NIR spectroscopic studies were carried out on complex 1 in solid-state and in solution at room temperature (Figures S6 and S7). The UV-vis-NIR spectrum of complex 1 in acetonitrile exhibits one broad band centered at around 1150 nm corresponding to the $d$-$d$ transition ($^5T_{2g} \rightarrow ^5E$) for HS iron(II) ion in a distorted octahedral system (Figure S6). The spectrum of 1 also exhibits bands at around 585, 410, 340, and 290 nm, which are described as metal-to-ligand transitions (MLCT) and or ligand-to-metal charge transfer (LMCT) transition, and intra-ligand charge transfer (ILCT) transition, respectively. The solid-state spectrum (Figure S7) of complex 1 also exhibits similar absorption bands as the solution-state, suggesting complex 1 has preserved its identity in upon dissolution.
+
+Further, temperature-dependent UV-vis-NIR studies were carried out on complex 1 in KBr in the 300–200 K temperature range in both heating and cooling modes (Figures 2, right, and S8). The spectra showed a prominent increase in the intensity of the charge transfer transition bands.
+centered around 410 and 585 nm upon lowering the temperature. The changes were restored upon warming the sample back to 300 K (Figure S8).
+
+![Figure 2](https://doi.org/10.26434/chemrxiv-2025-67h0z)
+
+**Figure 2.** Selected region (νC=O) temperature-dependent IR spectra of 1 in cooling mode in the temperature range of 300 – 200 K (left). Selected region temperature-dependent UV/vis/NIR spectra of 1 in cooling mode in the temperature range of 300 – 200 K (right). Arrows indicate a change in intensities.
+
+**Structure analyses**
+
+Temperature-dependent X-ray diffraction studies were carried out on a single crystal of 1 at 280, 170, and 110 K to establish a magneto-structural correlation in 1 (vide infra) using a laboratory-based X-ray diffractometer. Crystallographic data and structural parameters are provided in Table S1. Selected bond distances and angles are given in Tables 1 and S2.
+
+**Table 1.** Fe–N bond distances (Å) in 1.
+
+| Complex | 280       | 170       | 110       |
+|---------|-----------|-----------|-----------|
+| T/ K    |           |           |           |
+| Fe(1)–N_{am} | 2.324(2) | 2.2959(16) | 2.204(2) |
+|         | 2.313(2) | 2.2977(15) | 2.2087(19) |
+### Table 1
+
+| Bond                  | Length 1 (Å) | Length 2 (Å) | Length 3 (Å) |
+|-----------------------|--------------|--------------|--------------|
+| Fe(1)–N<sub>Py</sub> | 2.081(2)     | 2.0497(15)   | 1.9481(19)   |
+|                       | 2.109(2)     | 2.0917(16)   | 1.977(2)     |
+| Fe(1)–N<sub>bik*</sub> | 2.092(2)    | 2.087(2)     | 2.020(2)     |
+|                       | 2.124(2)     | 2.1119(17)   | 1.974(3)     |
+| <Fe(1)–N>             | 2.174        | 2.019        | 2.032        |
+| Fe(2)–N<sub>am</sub> |              | 2.1687(15)   |              |
+|                       |              | 2.1608(15)   |              |
+| Fe(2)–N<sub>Py</sub> | 1.9218(15)   |              | 1.9141(14)   |
+|                       |              |              |              |
+| Fe(2)–N<sub>bik*</sub> | 1.9801(14)  |              | 1.9652(15)   |
+| <Fe(2)–N>             |              |              | 2.154        |
+
+Complex 1 crystallizes in monoclinic space group $P2_1/c$ ($Z = 4$) at 280 K. Its crystal structure consists of a mononuclear dicaticonic [Fe(L)(bik*)]^{2+} unit and two disordered BPh<sub>4</sub>⁻ counter anions (Figures 3, S9 and S10). It is worth mentioning that no solvent molecules are observed in the crystal lattice for complex 1, which follows the TGA study (Figure S2, *vide supra*). In complex 1 at 280 K, the average Fe–N<sub>am</sub> and Fe–N<sub>Py</sub> bond distances are 2.318 Å and 2.094 Å, respectively, whereas the average bond distance for Fe–N<sub>bik*</sub> is 2.108 Å (Table 1 and Figure 4). The average Fe–N bond distance is 2.174 Å, which lies in the range expected for HS iron(II) Å. The significant deviation from linearity in N<sub>am</sub>–Fe–N<sub>am</sub> angle was observed from 180° to 147.99(7)°, while a slight deviation from 90° to 79.91(7)° and 85.84(8)° was observed for N<sub>Py</sub>–Fe–N<sub>Py</sub> and N<sub>bik*</sub>–Fe–N<sub>bik*</sub> angles in equatorial plane respectively (Tables S2).
+
+The coordination geometry around the iron center in complex 1 is a distorted octahedron, which is calculated using the continuous shape measures (CShM) program (Table S3), where the iron
+center is in a FeN₆ environment surrounded by the four nitrogen donor atoms of the tetradeutate macrocyclic ligand L and two nitrogen donor atoms coming from the bidentate coligand bik*. Similar to the previously reported pyridinophane ligands, the tetradeutate ligand L coordinates to the iron center in a twisted manner along the Nₐm−Nₐm axis and produces two cis positions vacant for other monodentate or bidentate ligands in an octahedral geometry. For complex 1 in this geometry, the two axial positions are occupied by the amine nitrogen atoms of the ligand L, and the four equatorial positions are occupied by the two pyridine nitrogen atoms of the ligand L and two nitrogen atoms of bik* coligand.
+
+**Figure 3.** Perspective view of complex cation in 1 at 280 K. Hydrogen atoms and counter anions are omitted for clarity (Fe, green; C, gray; N, blue; O, red).
+Figure 4. FeN₆ coordination sphere of 1 showing changes in Fe–N bond distances at 280, 170, and 110 K (right to left).
+
+Upon lowering the temperature to 170 K, complex 1 shows an interesting symmetry-breaking structural phase transition. At 170 K, the crystal symmetry changes to triclinic $P\bar{1}$ ($Z = 2$), where the asymmetric unit contains two crystallographically non-equivalent $[\text{Fe}(\text{L})(\text{bik}^*)]^2^+ \text{ cation sites and four BPh}_4^- \text{ counter anions (Figures 5, S11 and S12). In one } [\text{Fe}(\text{L})(\text{bik}^*)]^2^+ \text{ site, the average Fe(2)–N_am, Fe(2)–N_py and Fe(2)–N_bik^* bonds distances are 2.297, 2.069, and 2.098 Å respectively with an average Fe(2)-N bond distance of 2.154 Å (Table 1 and Figure 4). The Fe(2)–N bond distances are slightly lower than those observed at 280 K (vide supra) and lie in the range expected for HS iron(II),\textsuperscript{43,103}; however significantly higher than those obtained at 110 K (vide infra). For other $[\text{Fe}(\text{L})(\text{bik}^*)]^2^+ \text{ site, the average Fe(1)–N_am, Fe(1)–N_py and Fe(1)–N_bik^* bond distances are 2.166, 1.918, and 1.974 Å respectively with an average Fe(1)-N bond distance of 2.019 Å (Table 1 and Figure 4), where average Fe(1)–N bond distance is significantly lower than the one observed at 280 K and lies in the range expected for LS iron(II) ion in a distorted octahedral geometry with FeN₆ surrounding,\textsuperscript{43,103} but slightly higher than the values obtained at 110 K (vide infra). In addition, significant changes were observed in axial and equatorial N–Fe–N angles upon lowering the temperature. For Fe(2) center, N_am–Fe–N_am, N_py–Fe–N_py and N_bik^*–Fe–N_bik^* angles are 149.43(7)°, 80.23(7)° and 86.08(8)° respectively (Table S2), which are slightly higher than the
+value observed at 280 K, while for Fe(1) center, N\textsubscript{am}−Fe−N\textsubscript{am}, N\textsubscript{py}−Fe−N\textsubscript{py} and N\textsubscript{bik*}−Fe−N\textsubscript{bik*} angles are 159.27(6)°, 83.51(7)° and 89.63(7)° respectively (Table S2), which are significantly higher than the value observed at 280 K and slightly lower than that observed at 110 K (vide infra). These results indicate the coexistence of HS iron(II) (Fe(2)) and LS iron(II) (Fe(1)) centers in 1 at 170 K.
+
+**Figure 5.** Perspective view of the unit cell packing present in 1 at 280, 170, and 110 K (right to left). Counter anions and hydrogen atoms are omitted for clarity (Fe(HS) site: red and Fe(LS) site: blue).
+
+Upon further lowering the temperature to 110 K, the crystal system of 1 transforms to monoclinic space group $P2_1/c$ ($Z = 4$), indicating a re-entrant nature. The overall structural motif of 1 is isostructural to the one observed at 280 K, exhibiting one crystallographically non-equivalent [Fe(L)(bik*)]\textsuperscript{2+} cation site and two BPh\textsubscript{4}\textsuperscript{-} counter anions in the asymmetric unit (Figures 5, S13 and S14). However, significant differences were observed in the iron(II) coordination surroundings. In [Fe(L)(bik*)]\textsuperscript{2+} site, the average Fe−N\textsubscript{am}, Fe−N\textsubscript{py} and Fe−N\textsubscript{bik*} bonds distances decreased significantly to 2.184, 1.942, and 1.980 Å respectively with an average Fe−N of 2.032 Å (Table 1 and Figure 4) which lies in the expected range for the LS iron(II) in an octahedral geometry with FeN\textsubscript{6} surrounding.\textsuperscript{43, 103} Further, obvious changes in axial and equatorial N−Fe−N
+angles was noticed upon lowering the temperature to 110 K, where $N_{am}$−$Fe$−$N_{am}$, $N_{Py}$−$Fe$−$N_{Py}$ and $N_{bik*}$−$Fe$−$N_{bik*}$ angles are 158.15(12)$^\circ$, 82.44(13)$^\circ$ and 89.86(13)$^\circ$ respectively (Table S2). These $N$−$Fe$−$N$ angles are significantly larger than that observed at 280 K. The average Fe-N bond distance difference between HS (280 K) and LS state (110 K) in 1 is 0.142 Å, which accords with the expected trend in iron(II) SCO complexes.
+
+During spin-state switching in SCO complexes, a significant distortion from ideal octahedral geometry in the SCO metal center was observed, where the LS state represents a more regular structure than the HS state. Several octahedral distortion parameters ($\Sigma$, $\Theta$, $\zeta$) can be used to determine the extent of such distortions around the iron(II) center (Table 2). For complex 1 at 280 K, distortion parameters $\Sigma$, $\Theta$ and $\zeta$ are 125.0°, 334.2° and 0.578 Å, respectively, which lie in the expected range observed for the HS iron(II) complex. Upon lowering the temperature to 110 K, these values decrease significantly to 78.1°, 201.3° and 0.565 Å, respectively, which are expected to lie in the range of the distortion parameters for the LS iron(II) complex. The structural distortion of the iron(II) center was also evaluated using CShM using the SHAPE program (Tables 2 and S3), where a zero value of the shape factor implies an ideal octahedral geometry. The outcome from the CShM analyses is consistent with the above-stated observations.
+
+Table 2. Octahedral distortion parameters and shape factor in 1.
+
+| Complex | 1 |
+|---------|---|
+| T/ K    | 280 | 170 | 110 |
+| $\Sigma_{Fe(1)}$ / $^\circ$ | 125.07 | 74.18 | 79.19 |
+| $\Theta_{Fe(1)}$ / $^\circ$ | 334.21 | 201.31 | 213.88 |
+| $\zeta_{Fe(1)}$ / Å | 0.578 | 0.586 | 0.605 |
+| CShM$_{Fe(1)}$ | 2.681 | 1.219 | 1.351 |
+\[
+\begin{align*}
+\sum_{\text{Fe}(2)} / ^\circ & \quad 119.29 \\
+\Theta_{\text{Fe}(2)} / ^\circ & \quad 319.87 \\
+\zeta_{\text{Fe}(2)} / \text{Å} & \quad 0.567 \\
+\text{CShM}_{\text{Fe}(2)} & \quad 2.565
+\end{align*}
+\]
+
+It is well observed that for SCO complexes, non-covalent intermolecular interactions between the SCO unit and associated counter anion play a significant role in determining the spin-state switching behavior. There are significant CH–π interactions among the isopropyl CH- and the phenyl ring of BPh₄⁻ counter anion, π–π interactions present between the pyridine ring from the macrocyclic ligand and the phenyl ring of BPh₄⁻ counter anion present in the system (Figure S15).
+
+The temperature-dependent single-crystal XRD was performed using synchrotron X-ray radiation to obtain high-resolution diffractograms to further investigate the metastable states involved in the stepwise SCO. Crystallographic data and structural parameters are provided in Tables S4 and S5. Selected bond distances and angles are given in Table S6. The crystal was directly installed at 90 K to thermally quench the HS state at low temperature (this state is referred to as \textbf{1\_Q} for the following discussion). \textbf{1\_Q} crystallizes in monoclinic space group \textit{P}2\textit{1}/\textit{c} (\textit{Z} = 4) at 90 K. Its crystal structure is very similar to the one observed at 280 K which consists of a mononuclear dicationic [Fe(L)(bik*)]²⁺ unit and two disordered BPh₄⁻ counter anions (Figures 3, S9 and S10). In \textbf{1\_Q} at 90 K, the average Fe–N_{am} and Fe–N_{py} bond distances are 2.179 Å and 1.934 Å, respectively, whereas the average bond distance for Fe–N_{bik⁺} is 1.981 Å. The average Fe–N bond distance is 2.03 Å. The observed N_{am}–Fe–N_{am} angle was 158.38(6)°, N_{py}–Fe–N_{py} angle was 82.98(6)° and N_{bik⁺}–Fe–N_{bik⁺} angle was 89.31(6)°. Upon increasing the temperature to 125 K, the \textbf{1\_Q} crystallizes in monoclinic space group \textit{P}2\textit{1}/\textit{c} (\textit{Z} = 4) with a structure similar to
+In _1_Q at 90 K, the average Fe–N<sub>am</sub> and Fe–N<sub>py</sub> bond distances are 2.184 Å and 1.945 Å, respectively, whereas the average bond distance for Fe–N<sub>bik+</sub> is 1.985 Å. The average Fe–N bond distance is 2.038 Å. The observed N<sub>am</sub>–Fe–N<sub>am</sub> angle was 157.59(9)<sup>°</sup>, N<sub>py</sub>–Fe–N<sub>py</sub> angle was 82.85(9)<sup>°</sup> and N<sub>bik+</sub>–Fe–N<sub>bik+</sub> angle was 89.32(9)<sup>°</sup>. At 200 K, _1_Q undergoes a change in the space group, and the observed space group is monoclinic P2<sub>1</sub> (Z = 2) where two dicationic [Fe(L)(bik*)]<sup>2+</sup> unit and four BPh<sub>4</sub><sup>−</sup> counter anions are present in the crystal structure. The average Fe1–N<sub>am</sub> and Fe1–N<sub>py</sub> bond distances are 2.22 Å and 1.955 Å, respectively, whereas the average bond distance for Fe1–N<sub>bik+</sub> is 2.04 Å and average Fe2–N<sub>am</sub> and Fe2–N<sub>py</sub> bond distances are 2.225 Å and 2.025 Å, respectively, whereas the average bond distance for Fe2–N<sub>bik+</sub> is 1.985 Å. The average Fe1–N and Fe2–N bond distance is 2.072 and 2.082 Å respectively. The observed N<sub>am</sub>–Fe1–N<sub>am</sub> and N<sub>am</sub>–Fe2–N<sub>am</sub> angles were 157.4(8)<sup>°</sup> and 151.0 (7) respectively, N<sub>py</sub>–Fe1–N<sub>py</sub> and N<sub>py</sub>–Fe2–N<sub>py</sub> angle was 82.3(7)<sup>°</sup> and 81.5 (8)<sup>°</sup> respectively, N<sub>bik+</sub>–Fe1–N<sub>bik+</sub> and N<sub>bik+</sub>–Fe2–N<sub>bik+</sub> angle was 81.5(8)<sup>°</sup> and 90.0(7)<sup>°</sup>. Increasing the temperature to 289 K, _1_Q crystallizes in monoclinic space group P2<sub>1</sub>/c (Z = 4), something very similar to the motif observed at 90 and 125 K. The average Fe–N<sub>am</sub> and Fe–N<sub>py</sub> bond distances are 2.324 Å and 2.103 Å, respectively, whereas the average bond distance for Fe–N<sub>bik+</sub> is 2.113. The average Fe–N bond distance is 2.18 Å. The observed N<sub>am</sub>–Fe–N<sub>am</sub> angle was 147.56(5)<sup>°</sup>, N<sub>py</sub>–Fe–N<sub>py</sub> angle was 79.84(5)<sup>°</sup> and N<sub>bik+</sub>–Fe–N<sub>bik+</sub> angle was 85.89(5)<sup>°</sup>. The temperature-dependent structural studies for _1_Q show ΔV = 3.77 % from 90 K to 289 K.
+
+**Electrochemical studies**
+
+Electrochemical studies for complex _1_ were carried out by cyclic voltammetry and square wave voltammetry in acetonitrile solution containing _1_ (~1 mM) with 0.2 M (nBu<sub>4</sub>)NPF<sub>6</sub> as electrolyte
+(Figures S20 and S21). Cyclic voltammograms of 1 exhibit irreversible oxidation of iron(II) centers at around +0.52 V vs Fc/Fc\(^+\) (\(E_{pc}\)), which is superimposed by the irreversible oxidation processes of BPh\(^4\)\(^-\) anion at around 0.55 V vs Fc/Fc\(^+\).\(^{106}\) Apart from oxidation, cyclic voltammograms of 1 also show a ligand-based reduction process for the bidentate and tetradeutate ligands at around -1.26 and -1.62 V vs Fc/Fc\(^+\) (\(E_{pa}\)), respectively.
+
+**Differential scanning calorimetry**
+
+Differential scanning calorimetry (DSC) measurement was performed in the temperature range between 300 K and 150 K (sweep-rate: 5 K min\(^{-1}\)) for complex 1 (Figure S22). For complex 1, a reversible endothermic/exothermic peak was observed upon cooling/heating at around 225 K, indicating a reversible first-order transition due to spin-state switching in 1, which is consistent with the single-crystal X-ray diffraction studies (vide supra) and the magnetic measurements (vide infra). The thermodynamic parameters related to the spin-state switching process have been calculated and are observed as enthalpy (\(\Delta H\)) = 0.40 kJ mol\(^{-1}\) and entropy (\(\Delta S\)) = 1.78 J K\(^{-1}\) mol\(^{-1}\), which is significantly lower than the expected value for spin-state switching in iron(II) complexes, which might be due to incomplete HS to HS: LS transition in the temperature range of 300 – 150 K.
+
+**Magnetic studies**
+
+Magnetic susceptibility measurements were carried out on polycrystalline samples of 1 at 1000 Oe from 2 – 350 K (Figures 6, S23 – S26). The measured \(\chi T\) value is 3.50 cm\(^3\) mol\(^{-1}\) K at 350 K, which is significantly higher than the spin-only value for HS Fe(II) ion (\(S = 2, g = 2.0; \chi T = 3\) cm\(^3\) mol\(^{-1}\) K), indicating the presence of magnetic anisotropy in iron(II) center.\(^{33,103}\) Upon lowering the temperature, the \(\chi T\) value decreases slowly to 254 K and then decreases gradually to reach a plateau in the temperature range of 196 – 158 K with a value of 1.71 – 1.31 cm\(^3\) mol\(^{-1}\) K, indicating
+the intermediate phase with HS:LS ratio close to 1:1 ($S = 2, g = 2.0; \chi T = 3 \text{ cm}^3 \text{ mol}^{-1} \text{ K}$ and $S = 0, g = 2.0; \chi T = 0.00 \text{ cm}^3 \text{ mol}^{-1} \text{ K}$). Upon further lowering the temperature, $\chi T$ value decreases abruptly to a value of 0.52 cm$^3$ mol$^{-1}$ K at 110 K and then decreases slowly to 0.11 at 50 K, which is slightly higher than the expected value for LS Fe(II) state ($S = 0, g = 2.0; \chi T = 0.00 \text{ cm}^3 \text{ mol}^{-1} \text{ K}$). Upon further lowering, the measured $\chi T$ value remains almost constant until 10 K. These values indicate a complete two-step SCO from HS to LS state of complex 1. Accordingly, the $\chi T$ value at 10 K corresponds to less than 4% of the residual HS iron(II) center. The slight decrease of the $\chi T$ values below 10 K might be due to the anisotropy coming from the residual HS iron(II) (Figure S24). The field dependence of magnetization studies was performed from 0 – 5 T at 2 K (Figures S25). At 5 T and 2 K, the magnetization value is 0.06 $\mu_B$ confirming the presence of residual HS iron(II) center at 2 K.
+Figure 6. Temperature dependence of $\chi T$ product for 1 (cooling: blue curve; heating: red curve) at 1000 Oe.
+
+The $d(\chi T)/dT$ vs. $T$ plot for complex 1 in cooling mode (Figure 7, blue curve) exhibits two broad maxima centered at around 223 and 135 K (Figure S26). These maxima represent the $T_{1/2}$ temperature for spin-state switching between HS state to HS:LS intermediate phase and finally to LS state, respectively. In heating mode from 2 – 350 K, the $\chi T$ vs. $T$ curve is identical to the cooling curve, indicating a reversible spin-state switching feature in 1 at the measured sweep rate. Overall, magnetic studies confirm a reversible two-step spin-state switching in 1.
+
+Pressure
+
+Pressure-dependent magnetic susceptibility measurements were carried out on the polycrystalline sample of 1 using the HMD High Pressure Cell. $\chi T$ vs $T$ measurement under ambient pressure showed a stepwise spin crossover (Figure 7). As the external pressure increases,
+the low spin state of I stabilizes, leading to a shift in the T$_{1/2}$ value to a higher temperature for both transitions occurring at ambient pressure conditions. With an applied external pressure of 0.18 GPa, the observed $\chi T$ value is 0.02 cm$^3$ mol$^{-1}$ K at 20 K, which suggests the presence of Fe(II) LS at these experimental conditions. With an increase in the temperature at 0.18 GPa, the $\chi T$ value undergoes a stepwise increase in the heating as well as cooling run with T$_{1/2}$ heating at 189 K and 282 K, and T$_{1/2}$ cooling at 154 K and 288. Unlike under ambient pressure conditions, the $\chi T$ value recorded as a function of temperature under 0.18 GPa pressure showed thermal hysteresis in both steps of the spin transition. As the externally applied pressure is increased to 0.47 GPa, a further shift in the T$_{1/2}$ value is observed in both steps, and the thermal hysteresis is preserved. A further increase in the pressure to 0.65 and 0.85 GPa follows the trend of T$_{1/2}$ shifting to a higher temperature, but only one step of the transition falls in the experimental measurement window. The shift in the T$_{1/2}$ to a higher temperature, along with a more gradual profile of $\chi T$ vs T as a function of applied pressure, follows the Clausius–Clapeyron law. The probable reason for the hysteretic spin state switching with an increase in pressure could be the combined effect of reducing the interelectronic repulsion brought about by the compact packing of molecules upon increasing the pressure, which can lead to enhanced cooperativity in the system.
+Mössbauer studies
+
+The $^{57}$Fe Mössbauer experiments were performed on the polycrystalline sample of 1 at 14, 30, 100, 170, and 300 K to confirm the presence of LS and HS states, and consistently the spin state switching and symmetry breaking in 1. Figure 8 and Table 3 show the Mössbauer spectra and spectral parameters, respectively. At 14 K, the spectrum shows two doublets, one doublet with the value of the isomer shift ($\delta$) and smaller quadrupole splitting ($\Delta E_Q$) lying in the range expected for LS Fe(II), and another less intense doublet with the value of $\delta$ and larger $\Delta E_Q$ lying in the range expected for HS Fe(II). The spectral area of the LS and HS Fe(II) doublet are 96% and 4% respectively, which is consistent with the magnetic measurement (Table S10). Upon increasing the temperature proportion of the HS Fe(II) state increases with deceasing proportion of the LS.
+Fe(II) state which is reflected in the spectral area (Table 3). At 170 K, the spectral area of the LS and HS Fe(II) doublet becomes 65% and 35% respectively, consistent with the magnetic and structural analyses, and confirms the presence of an intermediate HS:LS Fe(II) state. Upon further increasing the temperature to 300 K, the spectrum shows only one doublet for the HS Fe(II) state, which is consistent with the magnetic and crystal structure analysis data.
+
+Figure 8. $^{57}$Fe Mössbauer spectra of I at 300 K (top), 170 K (middle) and 10 K (Bottom).
+Table 3. The $^{57}$Fe Mössbauer spectral parameters for 1.
+
+| T (K) | $\delta$ (mm s$^{-1}$) | $\Delta E_Q$ (mm s$^{-1}$) | $\Gamma$ (mm s$^{-1}$) | Area (%) | Assignment   |
+|-------|------------------------|-----------------------------|------------------------|----------|--------------|
+| 14    | 0.51                   | 1.27                        | 0.26                   | 96       | LS Fe(II)   |
+|       | 0.99                   | 2.44                        | 0.24                   | 4        | HS Fe(II)   |
+| 30    | 0.51                   | 1.27                        | 0.26                   | 96       | LS Fe(II)   |
+|       | 1.02                   | 2.48                        | 0.24                   | 4        | HS Fe(II)   |
+| 100   | 0.50                   | 1.26                        | 0.24                   | 90       | LS Fe(II)   |
+|       | 0.98                   | 2.39                        | 0.24                   | 10       | HS Fe(II)   |
+| 170   | 0.47                   | 1.26                        | 0.23                   | 65       | LS Fe(II)   |
+|       | 1.00                   | 2.24                        | 0.27                   | 35       | HS Fe(II)   |
+| 300   | 0.86                   | 2.01                        | 0.35                   | 100      | HS Fe(II)   |
+
+$^a\delta$, $\Delta E_Q$, and $\Gamma$ are the isomer shift, quadrupole splitting, and line width respectively.
+
+Optical Reflectivity studies
+
+The variable temperature optical reflectivity studies between 350 -10 K in cooling and heating modes show significant and reversible changes in the spectra with temperature (Figure S27). The change was observed when the thermal variation of reflectivity was displayed by plotting the absolute reflectivity value at 650 nm as a function of temperature (Figure S27), where a stable regime at low temperature (below 200 K) and a second regime at higher temperature was observed, suggesting a spin-state switching between two stable states (HS to LS).
+
+To explore the photo-sensitivity of 1, the sample was irradiated with white light (WL) (power: 0.5 mWcm$^{-2}$) for ca. 180 min at 10 K. The resultant spectrum significantly differs from the spectra obtained in the dark at both 10 K and 350 K suggesting the possibility of the formation of photo-induced metastable HS Fe(II) state from the LS state of 1 at 10 K. The evolution of absolute-reflectivity vs. time exhibits an increase in the absolute-reflectivity value, attaining a saturation
+after 15 min of WL irradiation. This value is lower than the value obtained at 350 K, which indicates an incomplete photo-induced SCO of 1 from LS state to photo-induced metastable HS at 10 K under white light irradiation. After irradiation over 180 min, the thermal stability of the photo-induced metastable HS state was also investigated by heating the sample in the dark (sweep-rate: 0.4 K min\(^{-1}\)), which shows a decrease in the absolute-reflectivity due to the relaxation of the photo-induced HS state to diamagnetic LS ground-state where a complete relaxation was observed at around 60 K (\(T_{LIESST}\)). The absence of a clear plateau suggests that the photo-excited state is unstable because of fast relaxation. After this temperature, the absolute-reflectivity values show similar features as observed in the dark. Additional photo-excitation at 10 K with 14 LED (1050 to 365 nm) showed that all LEDs were able to populate the paramagnetic HS state in agreement with the efficiency of WL,\(^{20, 108, 109}\) where maximum efficiency was observed at 625 nm. Accordingly, further photo-excitation studies were carried out with 625 nm LED irradiation at 10 K. The evolution of absolute-reflectivity vs. time exhibits a faster increase in the absolute-reflectivity value in compared to the white-light irradiation and attaining a saturation value after 3 min with a power of 16 mW/cm\(^2\). In contrast to the white light, the saturation value matches well with one obtained at 350 K, which indicates a complete photoconversion to the photo-induced metastable HS state and thus suggests a complete photo-induced SCO of 1 state at 10 K under 625 nm light irradiation. After irradiation over 30 min, a fast isothermal relaxation of the metastable HS state at 10 K was noticed where the residual photo-excited part of the sample was only around 20% after 3 min and only around 4% after 30 min. The thermal relaxation is complete at 60 K. This confirms that even at 10 K the relaxation time of the photo-excited state is fast. Further, the effect of the irradiation power was also studied for the most efficient LED \(i.e.\) 625 nm and when
+the power is decreased, the saturation value is slightly decreased and is reached relatively lower rate, which can be ascribed to a better light penetration at high power at the surface of the sample.
+
+Figure 9 Surface reflectivity vs wavelength plots of 1 as a function of temperature recorded in dark in cooling mode from 350 K – 10 K (left) and Thermal evolution of absolute reflectivity signal of 1 plotted at 650 nm in cooling mode in dark (300 - 10 K, at 4 K min⁻¹, red), and heating mode (10 – 300 K, at 4 K min⁻¹, blue), during white light irradiation (0.5 mWcm⁻², at 10 K, green line) and in heating mode after light irradiation (10 – 300 K, at 0.5 K min⁻¹, green circles).
+
+Further optical-reflectivity studies with the LED lights were carried out at 10 K by cycling a photo-excitation at 625 nm (30 min, power 16 mWcm⁻²) and second irradiation with other LEDs to explore the possibilities of photo-reversibility of 1. The most significant changes in the spectra were observed with 1050 nm LED. Accordingly, further de-excitation studies were carried out with 1050 nm LED light irradiation at 10 K, where a slightly faster drop of the absolute reflectivity data was observed. However, because of the fast relaxation time of the photo-excited state, it is difficult to totally exclude the associated thermal effect (heating due to irradiation).
+
+**Photomagnetic studies**
+
+To corroborate the findings from the photo-induced surface reflectivity study and investigate the photo-induced spin-state switching of the iron center, the photo-sensitive behavior of complex 1 was examined by measuring the magnetic susceptibility under light irradiation by applying various
+diode laser sources (405, 532, 635, and 808 nm; power: 5 - 12 mW cm$^{-2}$; sources available in our setup) at 15 K and an external dc magnetic field of 10000 Oe. A significant enhancement in the $\chi T$ value was noticed upon irradiation with all light sources, which confirms the existence of the photomagnetic effect in 1, while the maximum effect was observed for 635 nm light. The $\chi T$ value increases to a saturation value of 3.40 cm$^3$ mol$^{-1}$ K upon irradiation for 25 min using 650 nm light, indicating a complete photo-switching between the LS and photo-excited HS states at the measured temperature.$^{92,110}$
+
+**Figure 10.** Temperature dependence of $\chi T$ product for 1 in cooling mode (black line) and after irradiation with 635 nm laser light at 10000 Oe field (Sweep rate 0.4 K min$^{-1}$) (green line).
+
+To explore thermal stability and relaxation of the photo-excited HS state, $\chi T$ vs T was measured in the dark after $\chi T$ value gained saturation (ca. 25 min at 635 nm; Figure 10) with a sweep rate of 0.4 K min$^{-1}$. The $\chi T$ value shows an increase to attain a maximum with 3.40 cm$^3$ mol$^{-1}$ K in between 15 and 2 K, confirming a complete photo-switching from the LS state to the photo-excited HS state. Upon further increasing temperature, the photo-excited HS state relaxes back to the LS ground state at 56 K ($T_{LIESST} = 56$ K) which is in close range to the relaxation temperature obtained
+from the surface reflectivity measurements ($T_{LIESST} = 60$ K). The absence of a clear plateau suggests fast relaxation of the photoinduced excited state to LS ground state, which is consistent with the optical reflectivity studies. With increasing temperature, $\chi T$ vs T curves follow the same curves as obtained before light irradiation confirming the complete relaxation to the ground LS state upon heating.
+
+**Conclusion**
+
+We have reported a mononuclear iron(II) complex based on a macrocyclic tetradeinate ligand along with a bidentate coligand and explored the spin-state switching in the prepared iron(II) complex by temperature-dependent single crystal analyses, magnetic, photomagnetic, and spectroscopic studies. Complex 1 displays reversible thermo-induced two-step spin-state switching with two well-separated and gradual transitions at 223 and 137 K. Temperature-dependent X-ray structure analyses confirm the presence of three spin-states HS, LS, and an ordered HS-LS (1:1) intermediate phase in 1 during spin-state switching behavior. An interesting symmetry breaking has been observed with a single iron(II) site in the HS state to two crystallographically different iron(II) sites in an ordered HS-LS state, which shows a re-entrant structural phase-transition process at LS state. Further, Complex 1 exhibits ON/OFF photo-switching between LS state and photo-induced metastable HS state under light irradiation at low temperature. These results highlight that the judiciously chosen ligand and coligand played a significant role in attaining multistability in the SCO system, where greater flexibility allows the control of various stable spin-states with symmetry breaking. The impact of ligand substituents on spin-state switching in analogous iron(II) complexes with the crystallographic characterization of the photo-induced excited state is currently underway in our research group.
+
+**Experimental Section**
+Detailed experimental methods with materials, various physical methods, single-crystal X-ray structure determinations, and magnetic studies are reported in the supporting information.
+
+**Synthesis of complex**
+
+$[\text{Fe}(\text{L})(\text{bik}^*)(\text{BPh}_4)_{2}]$ (1). Under an argon environment, to a solution of iron(II) chloride (12.6 mg, 0.1 mmol) and L (32.5 mg, 0.1 mmol) in methanol (10 mL) was added a methanolic solution of bik* (22 mg, 0.1 mmol). After stirring for another 10 min, a solution of sodium tetraphenylborate (70 mg, 0.2 mmol) in methanol (5 mL) was added to obtain a green precipitate. After filtration, the precipitate was dissolved in acetonitrile (5 mL), and diethyl ether was diffused into the solution to obtain analytically pure block shape crystals of 1 in 76% yield. The formula for 1: C$_{79}$H$_{82}$B$_2$FeN$_8$O (MW. 1237.05 g mol$^{-1}$): Anal. calcd. C 76.70, H 6.68, N 9.06; found C 76.85, H 6.43, N 9.19; ATR-IR (only intensive bands): $\nu$ (cm$^{-1}$) = 2985, 1650, 1604, 1579, 1476, 1415, 1300, 1256, 1167, 1094, 1032, 894, 793, 747, 732, 707, 611, and 468.
+
+**ASSOCIATED CONTENT**
+
+**Supporting Information.** The Supporting Information is available free of charge on the ACS Publications website at DOI:
+
+PXRD, TGA, infrared and electronic spectra, crystal packing, magnetic and CV data, crystallographic tables. (PDF).
+
+**Accession Codes.**
+
+CCDC xxxxxx contain supplementary crystallographic data for this paper. These data can be obtained free of charge via www.ccdc.cam.ac.uk/data_request/cif, or by emailing data_request@ccdc.cam.ac.uk, or by contacting The Cambridge Crystallographic Data Centre, 12 Union Road, Cambridge CB2 1EZ, UK; fax: +44 1223 336033.
+AUTHOR INFORMATION
+
+Corresponding Authors
+
+*Email: subratagchem@gmail.com; pradip.mondal@elettra.eu, mondal@iisc.ac.in
+
+ORCID
+
+Sakshi Mehta: 0000-0002-1232-4489
+Sujit Kamilya: 0000-0003-4881-0638
+Sounak Ghosh: 0000-0002-8697-7183
+Subrata Ghosh: 0000-0003-4539-4413
+Abhishake Mondal: 0000-0002-5061-2326
+
+Notes
+
+The authors declare no competing financial interest.
+
+ACKNOWLEDGEMENT
+
+This research work is supported by the Indian Institute of Science (IISc), Bangalore, India, and the Indo-French Centre for the Promotion of Advanced Research (Centre Franco-Indien pour la Promotion de la Recherche Avancée-CEFIPRA, CSRP Project 70T07-2). We are thankful to IISc & Ministry of Human Resource Development (MHRD), Govt. of India, for funding the Start-up Research Grant. S.M. and S. G. thank IISc for the fellowship, S.G. and S.K. thank the Council of Scientific and Industrial Research (CSIR), Govt. of India. We thank XPRESS, XRD1 beamlines (Elettra-Sincrotrone Trieste, Italy) for providing us the beamtime for carrying out the structural studies. We thank the IISc-Elettra POC and DST for travel support to run the measurements at the Elettra-Sincrotrone Trieste, Italy.
+
+REFERENCES
+
+1. P. Perlepe, I. Oyarzabal, A. Mailman, M. Yquel, M. Platunov, I. Dovgaliuk, M. Rouzières, P. Négrier, D. Mondieig, A. Suturina Elizaveta, M.-A. Dourges, S. Bonhommeau, A. Musgrave Rebecca, S. Pedersen Kasper, D. Chernyshov, F. Wilhelm, A. Rogalev, C. Mathonière and R. Clérac, *Science*, 2020, **370**, 587-592.
+2. G. Molnár, S. Rat, L. Salmon, W. Nicolazzi and A. Bousseksou, *Adv. Mater.*, 2018, **30**, 1703862.
+3. K. Senthil Kumar and M. Ruben, *Coord. Chem. Rev.*, 2017, **346**, 176-205.
+4. M. M. Khusniyarov, *Chem. - Eur. J.*, 2016, **22**, 15178-15191.
+5. G. Aromi and J. A. Real, *Journal*, 2016, 2.
+6. M. Wang, Z.-Y. Li, R. Ishikawa and M. Yamashita, *Coord. Chem. Rev.*, 2021, **435**, 213819.
+7. R. Marin, G. Brunet and M. Murugesu, *Angew. Chem. Int. Ed.*, 2021, **60**, 1728-1746.
+8. M. A. Sørensen, U. B. Hansen, M. Perfetti, K. S. Pedersen, E. Bartolomé, G. G. Simeoni, H. Mutka, S. Rols, M. Jeong, I. Zivkovic, M. Retuerto, A. Arauzo, J. Bartolomé, S. Piligkos, H. Weihe, L. H. Doerrcr, J. van Slageren, H. M. Rønnow, K. Lefmann and J. Bendix, *Nat. Commun.*, 2018, **9**, 1292.
+9. M. Feng and M.-L. Tong, *Chem. - Eur. J.*, 2018, **24**, 7574-7594.
+10. C. A. P. Goodwin, F. Ortu, D. Retal, N. F. Chilton and D. P. Mills, *Nature*, 2017, **548**, 439-442.
+11. D. N. Woodruff, R. E. P. Winpenny and R. A. Layfield, *Chem. Rev.*, 2013, **113**, 5110-5148.
+12. R. Sessoli, D. Gatteschi, A. Caneschi and M. A. Novak, *Nature*, 1993, **365**, 141-143.
+13. F. Houard, Q. Evrard, G. Calvez, Y. Suffren, C. Daiguebonne, O. Guillou, F. Gendron, B. Le Guennic, T. Guizouarn, V. Dorcet, M. Mannini and K. Bernot, *Angew. Chem. Int. Ed.*, 2020, **59**, 780-784.
+14. C. Coulon, H. Miyasaka and R. Clérac, *Single-Chain Magnets: Theoretical Approach and Experimental Systems*, Springer Berlin Heidelberg, Berlin, Heidelberg, 2006.
+15. T. Sohier, M. Calandra and F. Mauri, *Physical Review B*, 2017, **96**, 075448.
+16. A. Mondal, Y. Li, M. Seuleiman, M. Julve, L. Toupet, M. Buron-Le Cointe and R. Lescouëzec, *J. Am. Chem. Soc.*, 2013, **135**, 1653-1656.
+17. S. Kamila, S. Ghosh, Y. Li, P. Dechambenoit, M. Rouzières, R. Lescouëzec, S. Mehta and A. Mondal, *Inorg. Chem.*, 2020, **59**, 11879-11888.
+18. S. Kamila, S. Ghosh, S. Mehta and A. Mondal, *J. Phys. Chem. A*, 2021, **125**, 4775-4783.
+19. E. Coronado, *Nature Reviews Materials*, 2020, **5**, 87-104.
+20. D. Aguilà, Y. Prado, E. S. Koumousi, C. Mathonière and R. Clérac, *Chem. Soc. Rev.*, 2016, **45**, 203-224.
+21. M. Estrader, J. Salinas Uber, L. A. Barrios, J. Garcia, P. Lloyd-Williams, O. Roubau, S. J. Teat and G. Aromi, *Angew. Chem., Int. Ed.*, 2017, **56**, 15622-15627.
+22. S. Sanvito, *Chem. Soc. Rev.*, 2011, **40**, 3336-3355.
+23. J. A. Real, A. B. Gaspar and M. C. Muñoz, *Dalton Trans.*, 2005, DOI: 10.1039/B501491C, 2062-2079.
+24. O. Kahn and C. J. Martinez, *Science*, 1998, **279**, 44-48.
+25. M. Urdampilleta, C. Ayela, P.-H. Ducrot, D. Rosario-Amorin, A. Mondal, M. Rouzieres, P. Dechambeñoto, C. Mathoniere, F. Mathieu, I. Dufour and R. Clerac, *Sci. Rep.*, 2018, **8**, 1-6.
+26. M. A. Halcrow, *Spin-crossover materials properties and applications*, J. Wiley and Sons, Inc., Chichester, 2013.
+27. P. Gütlich, A. Hauser and H. Spiering, *Angew. Chem. Int. Ed.*, 1994, **33**, 2024-2054.
+28. S. Vela and H. Paulsen, *Inorg. Chem.*, 2018, **57**, 9478-9488.
+29. N. Ortega-Villar, M. C. Muñoz and J. A. Real, *Magnetochemistry*, 2016, **2**, 1 - 22.
+30. M. Shatruk, H. Phan, B. A. Chrisostomo and A. Suleimenova, *Coord. Chem. Rev.*, 2015, **289-290**, 62-73.
+31. A. Kashiro, K. Some, Y. Kobayashi and T. Ishida, *Inorg. Chem.*, 2019, **58**, 7672-7676.
+32. V. García-López, M. Palacios-Corella, S. Cardona-Serra, M. Clemente-León and E. Coronado, *Chem. Commun.*, 2019, **55**, 12227-12230.
+33. W. Phonsri, C. G. Davies, G. N. L. Jameson, B. Moubaraki, J. S. Ward, P. E. Kruger, G. Chastanet and K. S. Murray, *Chem. Commun.*, 2017, **53**, 1374-1377.
+34. E. Trzop, D. Zhang, L. Piñeiro-Lopez, F. J. Valverde-Muñoz, M. Carmen Muñoz, L. Palatínus, L. Guerin, H. Cailleau, J. A. Real and E. Collet, *Angew. Chem., Int. Ed.*, 2016, **55**, 8675-8679.
+35. Z.-Y. Li, H. Ohtsu, T. Kojima, J.-W. Dai, T. Yoshida, B. K. Breedlove, W.-X. Zhang, H. Iguchi, O. Sato, M. Kawano and M. Yamashita, *Angew. Chem., Int. Ed.*, 2016, **55**, 5184-5189.
+36. J. Olguín, *Coord. Chem. Rev.*, 2020, **407**, 213148-213177.
+37. O. Drath and C. Boskovic, *Coord. Chem. Rev.*, 2018, **375**, 256-266.
+38. S. Hayami, Y. Komatsu, T. Shimizu, H. Kamihata and Y. H. Lee, *Coord. Chem. Rev.*, 2011, **255**, 1981-1990.
+39. S. Ghosh, S. Bagchi, S. Kamilya and A. Mondal, *Dalton Trans.*, 2021, **50**, 4634-4642.
+40. D. J. Harding, P. Harding and W. Phonsri, *Coord. Chem. Rev.*, 2016, **313**, 38-61.
+41. M. Nihei, T. Shiga, Y. Maeda and H. Oshio, *Coord. Chem. Rev.*, 2007, **251**, 2606-2621.
+42. P. Gütlich and H. A. Goodwin, *Spin Crossover in Transition Metal Compounds III*, Springer, New York, 2006.
+43. H. S. Scott, R. W. Staniland and P. E. Kruger, *Coord. Chem. Rev.*, 2018, **362**, 24-43.
+44. R. W. Hogue, S. Singh and S. Brooker, *Chem. Soc. Rev.*, 2018, **47**, 7303-7338.
+45. J. R. Galán Mascarós, G. Aromi and M. Darawsheh, *C. R. Chim.*, 2018, **21**, 1209-1229.
+46. Z.-P. Ni, J.-L. Liu, M. N. Hoque, W. Liu, J.-Y. Li, Y.-C. Chen and M.-L. Tong, *Coord. Chem. Rev.*, 2017, **335**, 28-43.
+47. H. L. C. Feltham, A. S. Barltrop and S. Brooker, *Coord. Chem. Rev.*, 2017, **344**, 26-53.
+48. N. F. Sciortino and S. M. Neville, *Aust. J. Chem.*, 2014, **67**, 1553-1562.
+49. A. Benchorra, Y. Li, L.-M. Chamoreau, B. Baptiste, E. Elkaïm, N. Guillou, D. Kreher and R. Lescouëzec, *Angew. Chem., Int. Ed.*, 2021, **60**, 8803-8807.
+50. I. Capel Berdiell, R. Kulmaczewski, O. Cespedes and M. A. Halcrow, *Chem. - Eur. J.*, 2018, **24**, 5055-5059.
+51. R. Kulmaczewski, O. Cespedes and M. A. Halcrow, *Inorg. Chem.*, 2017, **56**, 3144-3148.
+52. D. J. Harding, W. Phonsri, P. Harding, K. S. Murray, B. Moubaraki and G. N. L. Jameson, *Dalton Trans.*, 2015, **44**, 15079-15082.
+53. B. J. C. Vieira, J. T. Coutinho, I. C. Santos, L. C. J. Pereira, J. C. Waerenborgh and V. da Gama, *Inorg. Chem.*, 2013, **52**, 3845-3850.
+54. K. Bhar, S. Khan, J. S. Costa, J. Ribas, O. Roubeau, P. Mitra and B. K. Ghosh, *Angew. Chem., Int. Ed.*, 2012, **51**, 2142-2145.
+55. R. G. Miller, S. Narayanaswamy, J. L. Tallon and S. Brooker, *New J. Chem.*, 2014, **38**, 1932-1941.
+56. A. J. Fitzpatrick, E. Trzop, H. Müller-Bunz, M. M. Dîrtu, Y. Garcia, E. Collet and G. G. Morgan, *Chem. Commun.*, 2015, **51**, 17540-17543.
+57. T. Tezgerewska, E. Rousset, R. W. Gable, G. N. L. Jameson, E. C. Sañudo, A. Starıkova and C. Boskovic, *Dalton Trans.*, 2019, **48**, 11674-11689.
+58. A. Madadi, M. Itazaki, R. W. Gable, B. Moubaraki, K. S. Murray and C. Boskovic, *Eur. J. Inorg. Chem.*, 2015, **2015**, 4991-4995.
+59. J. R. Khusnutdinova, J. Luo, N. P. Rath and L. M. Mirica, *Inorg. Chem.*, 2013, **52**, 3920-3932.
+60. M. Graf, G. Wolmershäuser, H. Kelm, S. Demescho, F. Meyer and H.-J. Krüger, *Angew. Chem., Int. Ed.*, 2010, **49**, 950-953.
+61. F. S. Menges, S. M. Craig, N. Tötsch, A. Bloomfield, S. Ghosh, H.-J. Krüger and M. A. Johnson, *Angew. Chem., Int. Ed.*, 2016, **55**, 1282-1285.
+62. H. Noh, D. Jeong, T. Ohta, T. Ogura, J. S. Valentine and J. Cho, *J. Am. Chem. Soc.*, 2017, **139**, 10960-10963.
+63. J. Kim, B. Shin, H. Kim, J. Kang, S. Yanagisawa, T. Ogura, H. Masuda, T. Ozawa and J. Cho, *Inorg. Chem.*, 2015, **54**, 6176-6183.
+64. J. W. Schultz, N. P. Rath and L. M. Mirica, *Inorg. Chem.*, 2020, **59**, 11782-11792.
+65. F. Tang, S. V. Park, N. P. Rath and L. M. Mirica, *Dalton Trans.*, 2018, **47**, 1151-1158.
+66. B. Zheng, F. Tang, J. Luo, J. W. Schultz, N. P. Rath and L. M. Mirica, *J. Am. Chem. Soc.*, 2014, **136**, 6499-6504.
+67. J. R. Khusnutdinova, N. P. Rath and L. M. Mirica, *Inorg. Chem.*, 2014, **53**, 13112-13129.
+68. J. R. Khusnutdinova, N. P. Rath and L. M. Mirica, *J. Am. Chem. Soc.*, 2012, **134**, 2414-2422.
+69. J. R. Khusnutdinova, N. P. Rath and L. M. Mirica, *J. Am. Chem. Soc.*, 2010, **132**, 7303-7305.
+70. S. Stepanović, D. Angelone, M. Gruden and M. Swart, *Org. Biomol. Chem.*, 2017, **15**, 7860-7868.
+71. N. Raffard, R. Carina, A. J. Simaan, J. Sainton, E. Rivière, L. Tchertanov, S. Bourcier, G. Bouchoux, M. Delfoisse, F. Banse and J.-J. Girerd, *Eur. J. Inorg. Chem.*, 2001, **2001**, 2249-2254.
+72. H. M. Johnston, K. Pota, M. M. Barnett, O. Kinsinger, P. Braden, T. M. Schwartz, E. Hoffer, N. Sadagopan, N. Nguyen, Y. Yu, P. Gonzalez, G. Tiresò, H. Wu, G. Akkaraju, M. J. Chumley and K. N. Green, *Inorg. Chem.*, 2019, **58**, 16771-16784.
+73. D. Jeong, T. Ohta and J. Cho, *J. Am. Chem. Soc.*, 2018, **140**, 16037-16041.
+74. W.-T. Lee, S. B. Muñoz Iii, D. A. Dickie and J. M. Smith, *Angew. Chem., Int. Ed.*, 2014, **53**, 9856-9859.
+75. G. A. Filonenko, R. R. Fayzullin and J. R. Khusnutdinova, *J. Mater. Chem. C*, 2017, **5**, 1638-1645.
+76. H.-J. Krüger, *Coord. Chem. Rev.*, 2009, **253**, 2450-2459.
+77. M. Schmitz, M. Seibel, H. Kelm, S. Demeshko, F. Meyer and H.-J. Krüger, *Angew. Chem. Int. Ed.*, 2014, **53**, 5988-5992.
+78. S. Ghosh, S. Selvamani, S. Mehta and A. Mondal, *Dalton Trans.*, 2020, **49**, 9208-9212.
+79. S. Ghosh, S. Selvamani, S. Kamilya, S. Mehta and A. Mondal, *Dalton Trans.*, 2020, DOI: 10.1039/d0dt02546a.
+80. S. Ghosh, S. Kamilya, M. Rouzieres, R. Herchel, S. Mehta and A. Mondal, *Inorg. Chem.*, 2020, **59**, 17638-17649.
+81. S. Xue, Y. Guo, A. Rotaru, H. Müller-Bunz, G. G. Morgan, E. Trzop, E. Collet, J. Oláh and Y. Garcia, *Inorg. Chem.*, 2018, **57**, 9880-9891.
+82. H. Phan, J. J. Hrudka, D. Igimbayeava, L. M. Lawson Daku and M. Shatruk, *J. Am. Chem. Soc.*, 2017, **139**, 6437-6447.
+83. M. Mörtel, A. Witt, F. W. Heinemann, S. Bochmann, J. Bachmann and M. M. Khusniyarov, Inorg. Chem., 2017, 56, 13174-13186.
+84. B. Rösner, M. Milek, A. Witt, B. Gobaut, P. Torelli, R. H. Fink and M. M. Khusniyarov, Angew. Chem. Int. Ed., 2015, 54, 12976-12980.
+85. R. Kulmaczewski, H. J. Shepherd, O. Cespedes and M. A. Halcrow, Inorg. Chem., 2014, 53, 9809-9817.
+86. M. Milek, F. W. Heinemann and M. M. Khusniyarov, Inorg. Chem., 2013, 52, 11585-11592.
+87. A. L. Thompson, A. E. Goeta, J. A. Real, A. Galet and M. Carmen Muñoz, Chem. Commun., 2004, DOI: 10.1039/B403179B, 1390-1391.
+88. N. Moliner, L. Salmon, L. Capes, M. C. Muñoz, J.-F. Létard, A. Bousseksou, J.-P. Tuchagues, J. J. McGarvey, A. C. Dennis, M. Castro, R. Burriel and J. A. Real, J. Phys. Chem. B, 2002, 106, 4276-4283.
+89. J. A. Real, M. C. Muñoz, J. Faus and X. Solans, Inorg. Chem., 1997, 36, 3008-3013.
+90. M. Konno and M. Mikami-Kido, Bull. Chem. Soc. Jpn., 1991, 64, 339-345.
+91. S. De, S. Tewary, D. Garnier, Y. Li, G. Gontard, L. Lisnard, A. Flambard, F. Breher, M.-L. Boillot, G. Rajaraman and R. Lescouëzec, Eur. J. Inorg. Chem., 2018, 2018, 414-428.
+92. S. De, L.-M. Chamoreau, H. El Said, Y. Li, A. Flambard, M.-L. Boillot, S. Tewary, G. Rajaraman and R. Lescouëzec, Front. Chem., 2018, 6, 326.
+93. K. Kaushik, S. Ghosh, S. Kamilya, M. Rouzières, S. Mehta and A. Mondal, Inorg. Chem., 2021, 60, 7545-7552.
+94. D. Garnier, A. Mondal, Y. Li, P. Herson, L.-M. Chamoreau, L. Toupet, M. Buron Le Cointe, E. M. B. Moos, F. Breher and R. Lescouëzec, C. R. Chin., 2019, 22, 516-524.
+95. A. Mondal, Y. Li, P. Herson, M. Seuleiman, M.-L. Boillot, E. Rivière, M. Julve, L. Rechignat, A. Bousseksou and R. Lescouëzec, Chem. Commun., 2012, 48, 5653-5655.
+96. S. Kamilya, S. Ghosh, S. Mehta and A. Mondal, J. Phys. Chem. A, 2021, DOI: 10.1021/acs.jpca.1c02032.
+97. S. Kamilya, S. Ghosh, Y. Li, P. Dechambenoit, M. Rouzières, R. Lescouëzec, S. Mehta and A. Mondal, Inorg. Chem., 2020, 59, 11879-11888.
+98. A. Mondal, Y. Li, L.-M. Chamoreau, M. Seuleiman, L. Rechignat, A. Bousseksou, M.-L. Boillot and R. Lescouëzec, Chem. Commun., 2014, 50, 2893-2895.
+99. A. Mondal, Y. Li, M. Seuleiman, M. Julve, L. Toupet, M. Buron-Le Cointe and R. Lescouëzec, J. Am. Chem. Soc., 2013, 135, 1653-1656.
+100. A. Mondal, L.-M. Chamoreau, Y. Li, Y. Journaux, M. Seuleiman and R. Lescouëzec, Chem. - Eur. J., 2013, 19, 7682-7685.
+101. S. Ghosh, S. Kamilya, M. Das, S. Mehta, M. E. Boulou, I. Nemec, M. Rouzières, R. Herchel and A. Mondal, Inorg. Chem., 2020, 59, 7067-7081.
+102. S. Ghosh, S. Kamilya, T. Pramanik, M. Rouzières, R. Herchel, S. Mehta and A. Mondal, Inorg. Chem., 2020, 59, 13009-13013.
+103. P. Gütlich, A. B. Gaspar and Y. Garcia, Beilstein J. Org. Chem., 2013, 9, 342-391.
+104. D. Casanova, M. Llunell, P. Alemany and S. Alvarez, Chem. - Eur. J., 2005, 11, 1479-1494.
+105. R. Ketkaew, Y. Tantirungrotechai, P. Harding, G. Chastanet, P. Guionneau, M. Marchivie and D. J. Harding, Dalton Trans., 2021, 50, 1086-1096.
+106. S. Ghosh, S. Bagchi, M. Das, S. Kamilya and A. Mondal, Dalton Trans., 2020, 49, 14776-14780.
+107. E. B. Philipp Gütlich, Alfred X. Trautwein, *Mössbauer Spectroscopy and Transition Metal Chemistry: Fundamentals and Applications*, Springer Berlin, Heidelberg, 1 edn., 2011.
+
+108. R. Ababei, C. Pichon, O. Roubeau, Y.-G. Li, N. Bréfuel, L. Buisson, P. Guionneau, C. Mathonière and R. Clérac, *J. Am. Chem. Soc.*, 2013, **135**, 14840-14853.
+
+109. S. Kamilya, S. Ghosh, Y. Li, P. Dechambenoit, M. Rouzières, R. Lescouëzec, S. Mehta and A. Mondal, *Inorg. Chem.*, 2020, DOI: 10.1021/acs.inorgchem.0c02053.
+
+110. Y. S. Ye, X. Q. Chen, Y. De Cai, B. Fei, P. Dechambenoit, M. Rouzières, C. Mathonière, R. Clérac and X. Bao, *Angew. Chem., Int. Ed.*, 2019, **58**, 18888-18891.
+For Table of Contents Only
+
+This work reports a reversible thermo-induced two-step spin-state switching with re-entrant symmetry breaking in an iron(II) complex containing macrocyclic tetradentate ligand and β-dimine-based bidentate coligand. The complex also exhibits reversible ON/OFF photo-switching under light irradiations at low temperature and light-induced thermal hysteresis.

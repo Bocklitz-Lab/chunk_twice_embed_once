@@ -1,0 +1,207 @@
+Addressing Standardization and Semantics in an Electronic Lab Notebook for Multidisciplinary Use: LabIMotion
+
+Chia-Lin Lin\textsuperscript{a}, Pei-Chi Huang\textsuperscript{a}, Christof Wöll\textsuperscript{b}, Patrick Théato\textsuperscript{c,d}, Christian Kübel\textsuperscript{e,f}, Nicole Jung\textsuperscript{a,f}, Stefan Bräse\textsuperscript{a,g}
+
+Email: nicole.jung@kit.edu; stefan.braese@kit.edu
+
+\textsuperscript{a}Institute of Biological and Chemical Systems, Functional Molecular Systems (IBCS), Karlsruhe Institute of Technology, Kaiserstraße 12, 76131 Karlsruhe, Germany; \textsuperscript{b}Institute of Functional Interfaces (IFG), Kaiserstraße 12, 76131 Karlsruhe, Germany; \textsuperscript{c}Institute for Chemical Technology and Polymer Chemistry (ITCP), Karlsruhe Institute of Technology, Kaiserstraße 12, 76131 Karlsruhe, Germany; \textsuperscript{d}Soft Matter Synthesis Laboratory, Institute for Biological Interfaces III (IBG3), Kaiserstraße 12, 76131 Karlsruhe, Germany; \textsuperscript{e}Institute of Nanotechnology (INT), Karlsruhe Institute of Technology, Kaiserstraße 12, 76131 Karlsruhe, Germany; \textsuperscript{f}Karlsruhe Nano Micro Facility (KNMFi), Kaiserstraße 12, 76131 Karlsruhe, Germany; \textsuperscript{g}Institute of Organic Chemistry, Karlsruhe Institute of Technology, Kaiserstraße 12, 76131 Karlsruhe, Germany.
+ABSTRACT
+
+This work presents the LabIMotion extension for the Chemotion Electronic Lab Notebook (ELN), expanding its capabilities from organic chemistry to support interdisciplinary research and enabling the description of workflows. LabIMotion enhances documentation by introducing customizable components structured across three levels—Elements, Segments, and Datasets—enabling flexible, hierarchical organization and reuse of data. Through the integration of links to ontologies, the extension ensures precise, machine-readable data, promoting interoperability and adherence to FAIR principles. The extension features a user-friendly interface that allows users to generate new ELN content by the application of generic methods, ensuring that the platform can be quickly adapted to meet specific research needs. The LabIMotion Hub plays a crucial role in distributing and updating components, fostering standardization, and enabling collaborative development within scientific communities. These advancements significantly improve the ELN's adaptability, usability, and relevance across various research disciplines.
+
+Keywords: electronic lab notebook, FAIR data, data transfer, digitalization, chemistry
+BACKGROUND
+
+Electronic Lab Notebooks (ELNs) play a pivotal role in digitalizing laboratory procedures, supporting the improvement of experiment reproducibility and fostering transparent, traceable scientific practices with ease.\(^1\) ELNs can support the generation of FAIR (Findable, Accessible, Interoperable, Re-usable) data\(^2\) which offers key benefits in comparison to the manual tracking and documentation of research processes.\(^3,4\) Also, more and more communities become aware of the limited number of well-structured data being available for the development of AI methods - which hinders efficient data analysis in order to accelerate the scientific development in experimental sciences.\(^5\) Therefore, ELNs have evolved into essential tools for contemporary research facilities, streamlining data management, fostering collaboration, and documenting scientific endeavors. Notably, ELNs are endorsed by numerous funding bodies and communities for their sustainability and reproducibility benefits,\(^6,7\) leading to a growing uptake within academic circles.\(^1,8,9\) There are different types of ELNs in use. Generic or multidisciplinary ELNs typically support a discipline-agnostic approach, providing researchers with significant freedom in data storage methods and process documentation.\(^10,11\) While generic ELNs can be used across various scientific domains, they are often limited in providing well-annotated, structured and standardized data. Depending on the requirements of a specific discipline, limitations may arise, impacting the efficiency of scientific processes, the searchability and the reusability of results due to less-structured data. Furthermore, there is a multitude of Electronic Lab Notebooks (ELNs) with specialized tools and a data structure well adapted to each respective discipline.\(^12,13\) The standards and processes prescribed by these discipline-specific ELNs are defined to effectively support and accelerate scientific work, and discipline specific ELNs prepare data storage in a suitable manner.
+to ensure FAIR data. This translates to good direct reusability of the data and potentially prepares the data for long-term reusability and comparability with other data sources.
+
+Unfortunately, those ELNs that offer very good structuring and adaptation to requirements from a discipline-specific perspective are usually not universally applicable and therefore not suitable for all applications. As a consequence, this means that interdisciplinary work cannot usually be well supported by discipline-specific ELNs which is hindering the description of e.g. workflows that are an important part of the work in multidisciplinary research teams. These ELNs also find less acceptance in the wider community, as larger infrastructures such as university computer centers are usually unable to provide discipline-specific support in research data management, making it difficult to host various specialized ELNs via central facilities. An overview of currently frequently used ELNs can, for example, be obtained through the service ELNFinder.14
+
+**RESULTS**
+
+In this work, we present a way to extend a previously organic chemistry-focused ELN, Chemotion ELN, so that it can also be used for interdisciplinary work and in disciplines beyond the originally supported field. Chemotion12 is an open-source ELN developed within the National Research Data Infrastructure of Chemistry (NFDI4Chem),15,16 providing features to facilitate data management, experiment documentation, and the analysis of measurements and analytical data.17 It further includes a variety of options to connect devices and to manage data transfer and data storage.18 Chemotion offers tools for recording experimental data, for drawing and processing chemical structures,19,20 for transforming proprietary files into open file formats, for the management of a chemical inventory, and for the organization of research workflows. It can be used to seamlessly transfer data into the research data repository Chemotion21 to publish research data.
+With LabIMotion, an extension to Chemotion, we pursue four main goals referring to a multidisciplinary use of the ELN in the future:
+
+(1) **Documentation of research work on a broad scale:** We aim to bridge the gap that currently exists between the use of either specifically tailored and discipline-agnostic ELNs. In particular, we intend to provide a documentation tool that supports all research aspects and disciplines related to chemistry. While a wide range of applications will be supported, those with a connection to chemistry will particularly benefit from the existing functions designed for chemical research.
+
+(2) **Standardization, comparability, reproducibility:** The proposed implementation aims to enable a high level of standardization across all areas of documentation, allowing scientists working in the same research fields to make equivalent entries in their documentation tools. Wherever possible, the comparability of these entries should be supported, thereby also achieving a high level of reproducibility in the research.
+
+(3) **Machine-readable and interpretable data:** The ELN extension aims to enable highly detailed and structured data entries, supported by defined vocabularies and ontologies in various sections as a basis for a later reuse independently of human interpretation.
+
+(4) **FAIR data:** The implementation is designed to technically support the creation of FAIR data, as much as possible within the established processes and definitions of scientific work.
+
+Achieving these goals requires the development of components to technically extend the Chemotion ELN. Additionally, both short-term and long-term engagement of various scientific communities are necessary. These communities will define the content of the documentation areas, establish relevant links to existing modules, and enable continuous improvement of the workspaces through extensions and adjustments.
+
+**Basic concepts enable the definition of different levels and their combination**
+The ELN extension offers various methods for structuring information, distinguishing between three levels: processes, workflows and entities (hereafter referred to as *Elements*), detailed descriptions of entities (hereafter referred to as *Segments*), and measurement data descriptions (hereafter referred to as *Datasets*). For a flexible organization of ELN content and effective reuse of descriptions, the following principles apply:
+
+A. **Independent definition of levels:** The levels can each be defined independently, allowing for iterative expansion in various design processes. The independent development of level components is a key requirement for the generalized use of individual components and the ability to combine them in a flexible manner.
+
+B. **Use of levels in a hierarchical structure:** The levels are organized hierarchically. Processes and single entities are described as *Elements* in the form of basic information. More detailed descriptions, which may apply to different sub-types of processes or entities, are categorized as *Segments* and associated with the respective *Elements*. *Datasets* are described as measurement data records related to *Elements* (Figure 1).
+
+C. **Referencing of components:** Further structuring of ELN content can be achieved through referencing. For example, *Elements* such as processes or workflows can be further described by the referencing and linking of other *Elements* (for additional examples, see SI).
+
+D. **Flexible combination of individual components:** The design described above allows for diverse combinations of components. For instance, (a) an *Element* can be associated with any other *Element* or *Segment*, (b) one or more *Segments* can be used to describe one or more *Elements*. (c) *Datasets*, as part of measurement data, can be combined with all types of *Elements* and can be assigned to stages within *Segments* and *Elements*. If workflows are designed, the combination of
+different *Elements* within a workflow can result in a whole collection of referenced and structured *Elements*.
+
+Figure 1. Main structural components available for the components that can be designed with the LabIMotion extension: **a.** three different components types can be designed independent of each other and combined in a flexible manner. **b.** An example implementation for the use of *Elements* (e.g. research process, material, device), *Segments* (e.g. detail 1 to detail 4), and *Datasets*.
+
+**Development and implementation of methods**
+
+An important aspect of expanding the ELN is providing methods that allow users without programming knowledge to integrate their documentation needs into the ELN. This approach requires more programming effort from the developers compared to coding a specific use case and necessitates excellent coordination with potential ELN users. Specific requirements must be translated into generally applicable methods that can be used in a wide range of applications, and then these methods must be provided. However, once these requirements have been implemented, the resulting generic methods can be broadly used by all users and enable the provision of a wide range of functions, field types, and UI customizations. The methods are generally developed for all levels of ELN expansion but must be adapted to specific requirements and dependencies.
+GUI-supported use of the methods
+
+The methods provided by the LabIMotion extensions are made easily understandable and accessible to users through a Graphical User Interface (GUI) (Figure 2). The GUI was developed using JavaScript, CSS, and HTML programming languages and technically uses three modules for its functionality: a UI builder to craft the user interface, a workflow builder for the definition and management of workflows, and a message builder for the creation and management of system messages (Figure 3). The GUI distinguishes between the different levels for the hierarchical structure of the ELN, which include the three component types: Elements, Segments, and Datasets. For each of these three types, the GUI offers distinct design areas. Each area contains a management section, a workspace, and a preview designer (Figure 2). The management area gives an overview of the components that have already been started or established. It allows insight into all components that are available to the user and provides special functions to organize them, including the editing of metadata, the activation and deactivation in the productive ELN environment, and the download for sharing (example for Elements: Figure 2a). The work area provides the main functionality to structure the components, to assign the desired functionality and to design the UI (example for Segments: Figure 2b). The changes can be saved as different versions, allowing a clear development strategy including the rebase to previous versions if required. In parallel to the development of the components in the work area, a preview area can be accessed, showing the current layout as a result of the work area. The preview area supports checking the basic functionality to ensure the proper implementation of the desired functions and dependencies (example for Segments: Figure 2c).
+Figure 2. a. Screenshot of the management areas of an Element designer, listing the started and finished Elements and offering diverse functions for their use, further editing and versioning; b. screenshot covering a selection of options in the work area for the definition of Segments with the offered generic methods; c. screenshot of the preview area of the Segment designer, showing how the implemented methods are implemented in the final Segment.
+
+Backend Process and Storage
+
+In the whole Chemotion software, including the LabIMotion extension, the front-end interacts with the back-end, which subsequently interacts with the Data Storage. The back-end represents the server-side of the system and is developed in Ruby. For enabling the LabIMotion extension, the backend includes five main components: (1) The Parsing Engine is responsible for breaking down
+and interpreting raw data into structured information, handling the initial processing of the data and converting it into a format that can be further processed. (2) The **Element Connector** can be tasked with linking different system elements. It establishes and maintains relationships between various entities to ensure that proper associations are created. (3) The **Version Manager** tracks and manages different versions of data over time. LabIMotion keeps a history of changes made to the data and creates and saves new versions based on user actions. A key feature is the ability to revert to a specific version. (4) The **API Processor** is responsible for managing interactions between different parts of the system through the API (Application Programming Interface). It handles the request process, response handling, and data exchange, providing a centralized way to handle the logic associated with API requests and responses between clients and servers, as well as consistent error handling. (5) Finally, the **Metadata Mapper** ensures that metadata is mapped between different data structures and formats and handles the necessary conversions. The data storage layer uses PostgreSQL, an advanced open source relational database that can accommodate both standard structured data and JSON-based data. Structured data is organized using normalization principles to reduce redundancy and ensure data integrity and to maintain structured data relationships. JSON-based data is used to enforce the storage of differently structured data and to handle complex data structures such as nested objects and arrays. With this dual strategy, LabIMotion can take advantage of the strengths of each type to handle a wide variety of data scenarios, and PostgreSQL adheres to the ACID (Atomicity, Consistency, Isolation, Durability) principle to ensure reliable transactions. This means that operations on both structured and JSON-based data maintain consistency and integrity.
+Figure 3. The diagram delineates the architectural structure of LabIMotion. The extension possesses its own distinct components which can be dissected into a front-end, a backend and a database layer. Front-end and back-end combine different modules to ensure the desired functionality.
+
+Methods and design options in detail
+
+The contents of individual components can be structured independently of the chosen level of the component by fields and layers (allowing for the repetition of content consisting of multiple fields). Additionally, for the Elements level, there is the option to define workflows.
+
+Methods and options for layers: Layers represent the highest organizational unit within a component, grouping together various input fields (Figure 4a). They provide a framework for a collection of information that is visually unified, can have a title, and are collectively subject to dependencies. Layers can be timestamped, repeated as a unit, and assigned to datasets to clearly associate measurement data with different stages in a scientific process.
+
+Methods and options for fields in layers: Fields offer a wide range of possibilities regarding their visual integration into the UI and the implemented functionality. In the current stage of LabIMotion development, a total of 16 field types are available (see SI), each with its own UI design. Additionally, the creator of the components can define their positioning within the UI.
+Alongside functionally, simple field types like text fields, select boxes, and fields that combine values and units, more complex field types are also supported. These include tables, form fields, drag-and-drop fields, and selected combinations of these fields (Figure 4b). To all fields, different dependencies can be assigned, very similar to the options for layers. This allows the implementation of a complex behavior of the UI depending on the required information type, detail level and complexity, making the ELNs content adaptable to the scientific setting by the ELN user.
+
+While the overall design of components can already be predefined through layers, a detailed assignment of the position and size of individual input fields is also possible. This is particularly important for fields that, due to either a complex design (e.g., tables) or the anticipated volume of information, should not fall below a certain size. Fields can be defined with a proportional width or can be applied across the full width of the interface.
+
+**Figure 4.** a. Schematic view describing the combination of field and layers as structural and design parts of all *Elements, Segments* and *Datasets*; b. exemplarily chosen application of dependencies
+that allow the definition of complex scenarios; e. representation of a table in a LabIMotion component allowing the summary of manifold items with the same types of information in a condensed manner. Single fields and tables can include drag and drop options to link data across different ELN content areas.
+
+Methods and options for workflows: The design of workflows is supported at varying levels of detail. Different options for strict or flexible guidance through the workflows can be combined. Content-wise, workflows are defined using the same methods available through layers and fields. Within workflows, the creator of a component can also define the sequence of various processes, thereby suggesting to the user a sequence of actions and their options. These sequences can, but do not have to, be defined through tree structures. The workflow options allow the repetition of layers and, if needed, the design of workflows that are not based on predefined scenarios, but allow the self-defined selection of a certain number of layers defined for the workflow. This concept enables the flexible design including the combination of predefined sub-units in the form of facultatively applicable layers.
+
+![Workflow diagrams](https://doi.org/10.26434/chemrxiv-2024-d8ssv ORCID: https://orcid.org/0000-0001-9513-2468 Content not peer-reviewed by ChemRxiv. License: CC BY 4.0)
+Figure 5. Example for the design of a workflow scheme in LabIMotion. a. The overview panel of the workflow shows the overall available steps - each consisting of a layer - with the already used layers with added information given with a green mark; b. Detailed view of the input fields and options available within the selected layers of the workflow. Symbols within the layers represent the drag and drop areas (e.g. for samples or instruments) that need the link of a related item from other ELN environments.
+
+Implementation of terminologies and ontologies
+
+To ensure the precise description of new ELN areas implemented through methods and to enhance the reusability of the data outside the ELN environment, individual input fields and component areas can be completed with terminologies from ontologies (Figure 6). Two principal approaches have been implemented: **On the Datasets Level:** The developed components must be defined using terms from an appropriate methods ontology. This allows for a clear description of the implemented procedures and provides a systematic delivery of the correct metadata forms based on the analytical measurement methods performed within the ELN environment. **For All Levels (Datasets, Segments, and Elements):** The assignment of an unlimited number of terms from any vocabularies and ontologies available through the TIB’s terminology service is supported. Since the application areas and thus the required terms can vary widely, the system does not impose restrictions on the choice of terms. When a term is present in multiple terminologies, the creator of an ELN component is responsible for selecting the appropriate description.
+Figure 6. Example for an input field (here: “Type of sample preparation”) in a dataset component for which the assignment of an ontology term is shown. **a.** Generation of a new field (a, left) and definition of its name in the LabIMotion GUI as well as query of TIB’s ontology service (directly available from the ELN’s interface) to identify a suitable term for the new input field (a, right). **b.** After the assignment of a term, the input field combines information on the meaning of the field type with the select options for the “type of sample preparation” (b, left). If information on the meaning is required, the direct link to the ontology service gives more details and a clear definition (b, right).
+
+Application of new ELN components
+
+The creation of new components (design) is generally possible for all users, provided they have been granted the necessary permissions by the system administrator. The newly generated
+components can be applied in an ELN environment either by the creator of the components or by
+the admin, who can make the new components available to all users. Within an ELN instance, this
+is done through the management function of the respective levels by changing the component's
+status from deactivated to activated. Once activated, Elements and Segments are optionally made
+available to users on the ELN interface and can be used in combination with the core modules of
+the Chemotion ELN. Datasets become automatically available when measurement data is created
+and the corresponding ontology terms are selected. If definitions for data extraction are present, the
+metadata of the measurement data is extracted from the data files and assigned to the fields of
+the datasets, meaning that the forms are automatically populated using the measurement data as
+the source of information. Sharing the created components beyond one's own instance is facilitated
+through download and upload options available for all components. Additionally, components can
+be proposed for central distribution via the LabIMotion Hub (see the following chapter).
+
+Strategy for standardized components and sustainability
+
+The approach to creating new components for an ELN, as outlined in this publication, focuses on
+the technical possibilities and their implementation within the ELN areas. These capabilities allow
+even an individual user to design and activate new components for personal use, thereby creating
+an optimal working and documentation environment tailored to their specific needs. While this
+can be a useful solution in certain cases to quickly adapt the ELN to individual requirements, the
+technology should, whenever possible, be used by one or more groups of scientists who
+collaboratively discuss, agree on, and implement the needs of their communities. Ideally, at least
+one person from the ELN development team should be involved in an advisory capacity during
+the design process. This ensures that the systematic structure of existing ELN components, along
+with their relationships and dependencies, is understood and can be taken into account when
+planning new components. To facilitate the use and distribution of components created through the consensus of a larger group of scientists, the LabIMotion Hub (see also SI) was established\textsuperscript{24}. The Hub enables the provision of newly generated components to other users and ensures that the latest version of both existing and updated components is available. New and updated versions of designed ELN components can be obtained through the Hub and directly updated and used within the user's own ELN environment. The Hub plays a crucial role in the central distribution of available components, regardless of the creators' group. It serves as a means to promote standardization in the description of information across various scientific groups and ELN instances, as well as to systematically track and evaluate ongoing expansions.
+
+**CONCLUSION**
+
+In this work, we present an approach for extending the Chemotion Electronic Lab Notebook, originally specialized in organic chemistry, to support interdisciplinary research across various scientific fields including complex workflow settings. The LabIMotion extension aims to create a versatile and user-friendly documentation tool that not only addresses the specific needs of chemical research but also benefits a broader range of scientific disciplines. Our objectives include facilitating comprehensive research documentation, promoting standardization, comparability, and reproducibility, and ensuring that data is machine-readable and adheres to FAIR principles. To achieve these goals, we have developed a flexible system of components that allows users to structure information across three levels: *Elements*, *Segments*, and *Datasets*. The design of these components is highly customizable, offering a hierarchical structure and the ability to reference other components, thus enhancing the flexibility and reusability of the ELN content. Through the integration of terms linked to ontologies and vocabularies, components are enriched with precise terminology, improving data interoperability and reuse beyond the ELN environment. The creation
+and implementation of new components can be carried out by any user with the necessary permissions, allowing for rapid adaptation to individual needs. However, we emphasize the importance of collaborative component development within scientific communities to ensure that the tools meet broader community requirements. The LabIMotion Hub plays a vital role in this process, serving as a central platform for the distribution and updating of components, thereby promoting standardization and continuous improvement across different ELN instances.
+
+**ABBREVIATIONS**
+
+ELN, Electronic Lab Notebook; DB, database; API, Application Programming Interface; FAIR, Findable, Accessible, Interoperable, Reusable; NFDI4Chem, National Research Data Infrastructure of Chemistry; GUI, Graphical User Interface; UI, User Interface; ACID, Atomicity, Consistency, Isolation, Durability.
+
+**Declarations**
+
+*Ethics approval and consent to participate*
+
+Not applicable
+
+*Consent for publication*
+
+Not applicable
+
+*Availability of data and material*
+
+**Availability of source code and software:** The software component LabIMotion described in this work is available under an open source license from GitHub and Zenodo ([https://github.com/LabIMotion/labimotion](https://github.com/LabIMotion/labimotion), [https://doi.org/10.5281/zenodo.8305411](https://doi.org/10.5281/zenodo.8305411) and
+Official releases of LabIMotion begin with version 1.0.0, from which the full functionality outlined in the documentation (https://www.chemotion.net/docs/labimotion) has been fully integrated into Chemotion ELN version 1.8 and higher.
+
+**Documentation and Installation:** The requirements to install the Chemotion ELN are described in detail in the documentation of Chemotion ELN (https://www.chemotion.net/docs/eln/install_configure). For the work described here, a comprehensive documentation is available. The documentation covers information about the possible design of the components at different levels and summarizes the implemented methods and options for fields, layers and workflows (https://chemotion.net/docs/labimotion).
+
+**Description of most important open source components used for this work:**
+React (https://react.dev/): The core library that is used for building the user interfaces (UIs). It is known for efficiently managing the presentation of components and supporting the development of interactive, state-driven web applications.
+React-Bootstrap (https://react-bootstrap.netlify.app/): A front-end framework that serves as a UI foundation for building consistent and responsive user interfaces.
+Ruby (https://www.ruby-lang.org/en/): A core language for back-end development. It is an open source, dynamic, object-oriented programming language that powers web frameworks such as Rails.
+React Flow (https://reactflow.dev/): A library for building interactive graphs and visual workflows.
+Competing interests
+not applicable
+
+Funding
+The results of this project could be achieved due to the support of the German Research Foundation (Deutsche Forschungsgemeinschaft, DFG) for the project NFDI4Chem (project number: 441958208) and the Clusters for Future Project ELN ElCh (03ZU1205OA). Initial funding was gained by the Ministry of Science, Research and the Arts of Baden-Württemberg (MWK Baden-Württemberg, project MoMaF) for the Science Data Center MoMaF (Molekulare Materialforschung).
+
+Authors’ contributions
+CLL and PCH contributed equally by designing LabIMotion, developing the software, and writing the manuscript. NJ and SB contributed to the conceptual work of this project and contributed by writing the manuscript. CW, CK, PT contributed with use cases that allowed the design of LabIMotion. All authors edited the manuscript.
+
+Acknowledgements
+We thank the research group of Christof Wöll (KIT, Institute of Functional Interfaces) for providing information to generate the first generic element dealig with SURMOF properties, the group of Prof Patrick Théato (KIT, Institute for Chemical Technology and Polymer Chemistry) for the design and testing of the first generic Segment “polymer details” and the group of Prof. Christian Kübel (KIT, Institute of Nanotechnology) for supporting the first workflow in the design phase of LabIMotion. Further, we thank the groups of Schirin Hanf (KIT) and Manuel Tsotsalas
+for further input and feedback. We thank TIB Terminology Service Team, led by Oliver Koepler (TIB - Leibniz Information Centre for Science and Technology) for introducing the API of the ontology service. We further acknowledge the support of the Helmholtz research field information for the JointLab VirtMat (Projects P10 and P14) and the Karlsruhe Nano Micro Facility, which support the maintenance of the software Chemotion ELN. We acknowledge support by Deutsche Forschungsgemeinschaft and Open Access Publishing Fund of Karlsruhe Institute of Technology.
+
+**REFERENCES**
+
+1. Higgins, S. G., Nogiwa-Valdez, A. A. & Stevens, M. M. Considerations for implementing electronic laboratory notebooks in an academic research environment. *Nat. Protoc.* **17**, 179–189 (2022).
+
+2. Wilkinson, M. D. *et al.* The FAIR Guiding Principles for scientific data management and stewardship. *Sci Data* **3**, 160018 (2016).
+
+3. Vandendorpe, J., Adam, B., Wilbrandt, J., Lindstädt, B. & Förstner, K. U. Ten simple rules for implementing electronic lab notebooks (ELNs). *PLoS Comput. Biol.* **20**, e1012170 (2024).
+
+4. Solle, D. Be FAIR to your data. *Anal. Bioanal. Chem.* **412**, 3961–3965 (2020).
+
+5. Scheffler, M. *et al.* FAIR data enabling new horizons for materials research. *Nature* **604**, 635–642 (2022).
+
+6. *Electronic Laboratory Notebooks (ELNs) as Key Enablers of Open Science: Open Science Monitor Case Study*. (Publications Office of the European Union, 2019).
+
+7. Fachspezifische Empfehlungen zum Umgang mit Forschungsdaten.
+8. Kanza, S. et al. Digital research environments: a requirements analysis. *Digital Discovery* 2, 602–617 (2023).
+
+9. Kanza, S. et al. Electronic lab notebooks: can they replace paper? *J. Cheminform.* 9, 31 (2017).
+
+10. CARPi, N., Minges, A. & Piel, M. eLabFTW: An open source laboratory notebook for research labs. *J. Open Source Softw.* 2, 146 (2017).
+
+11. RSpace - open source research data management. https://www.researchspace.com/.
+
+12. Tremouilhac, P. et al. Chemotion ELN: an Open Source electronic lab notebook for chemists in academia. *J. Cheminform.* 9, 54 (2017).
+
+13. Boobier, S., Davies, J. C., Derbenev, I. N., Handley, C. M. & Hirst, J. D. AI4Green: An Open-Source ELN for Green and Sustainable Chemistry. *J. Chem. Inf. Model.* 63, 2895–2901 (2023).
+
+14. Jagusch, G. The ‘ELN Finder’ - a new service around Electronic Lab Notebooks. Preprint at https://doi.org/10.5281/ZENODO.8413670 (2023).
+
+15. Steinbeck, C. et al. NFDI4Chem - Towards a National Research Data Infrastructure for Chemistry in Germany. *Rio Grande Odontol.* 6, e55852 (2020).
+
+16. Steinbeck, C. et al. NFDI4Chem—A research data network for international chemistry. *Chem. Int.* 45, 8–13 (2023).
+
+17. Huang, Y.-C., Tremouilhac, P., Nguyen, A., Jung, N. & Bräse, S. ChemSpectra: a web-based spectra editor for analytical data. *J. Cheminform.* 13, 8 (2021).
+
+18. Potthoff, J. et al. Procedures for systematic capture and management of analytical data in
+19. Karulin, B. & Kozhevnikov, M. Ketcher: web-based chemical structure editor. *J. Cheminform.* 3, P3 (2011).
+
+20. Kotov, S., Tremouilhac, P., Jung, N. & Bräse, S. Chemotion-ELN part 2: adaption of an embedded Ketcher editor to advanced research applications. *J. Cheminform.* 10, 38 (2018).
+
+21. Tremouilhac, P. *et al.* The Repository Chemotion: Infrastructure for Sustainable Research in Chemistry*. *Angew. Chem. Int. Ed Engl.* 59, 22771–22778 (2020).
+
+22. [No title]. https://terminology.tib.eu/ts/.
+
+23. Herrmann, D. *et al.* Enhancing FAIRdata by providing digital workflows from data generation to the publication of data: an open source approach described for cyclic voltammetry. *ChemRxiv* (2023) doi:10.26434/chemrxiv-2023-95s19.
+
+24. Chemotion Repository. https://www.chemotion-repository.net/home/genericHub.

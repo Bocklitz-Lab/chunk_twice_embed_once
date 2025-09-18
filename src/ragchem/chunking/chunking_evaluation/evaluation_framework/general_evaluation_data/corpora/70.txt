@@ -1,0 +1,499 @@
+Delving Into the Design and Implementation of Specifications Grading Systems in Higher Education: A Systematic Review
+
+William J. Howitz¹, Kate J. McKnelly² and Renée D. Link³*
+
+¹Department of Chemistry, University of Minnesota, Minneapolis, Minnesota 55455, United States; whowitz@umn.edu
+²Department of Chemistry, Emory University, Atlanta, Georgia 30322, United States; kate.joy.mcknelly@emory.edu
+³Department of Chemistry, University of California—Irvine, Irvine, California 92691, United States; rlink@uci.edu
+
+*Correspondence: rlink@uci.edu
+
+Abstract
+
+Specifications grading is an alternative grading system that has been used with increasing frequency in higher education. Since first introduced by Linda Nilson in 2014, more than 91 publications on the design and implementation of specifications grading systems have been published. This work presents a systematic review of the current literature to analyze the variety of ways specifications grading systems are executed, including the diverse design and implementation considerations, as well as to present and discuss emergent themes. We analyzed 91 publications and present their relevant findings in the results. The following databases were last searched on October 5, 2024, for publications: IEEE Xplore, ACS Publications, ASEE PEER, PER, Scopus, ERIC, ACM, ScienceDirect, and Web of Science. All peer-reviewed journal articles, conference proceedings, and book chapters that implemented at least two structural features of specifications grading in an undergraduate or graduate course were included in this review. Theses, dissertations, conference abstracts, posters, workshops, blogs, opinion pieces, social media exchanges, and content provided on websites were not included. Additionally, reports of specifications grading systems in K-12 courses or those that only presented the design and/or implementation of less than two structural features of the grading system were similarly excluded. Our findings from the literature reveal that the following themes emerge from educators who use specifications grading: time investment, academic performance, and student reactions. This review provides a resource for those interested in exploring this alternative grading system, and the emergent themes indicate that there are ripe opportunities for future study.
+INTRODUCTION
+
+What is a course grade meant to represent? In U.S. higher education, course letter grades are determined frequently by the number of overall points a student accumulates throughout a term culminating with a final letter grade assigned on an A-F scale. The importance of letter grades to earn degrees, maintain scholarships, and gain access to graduate and professional programs incentivizes students to focus on accumulating points (an extrinsic motivation) rather than focus on learning (an intrinsic motivation) [1]. Furthermore, when we assign points and partial credit to student work and sum the points, there is often no direct connection between the grade students earn and what course learning outcomes (LOs) they have achieved [2,3]. Grades become a ranking of students against each other rather than an indication of achievement of the LOs by each individual student [3]. This ranking issue is exacerbated in courses that employ curves to determine how many points correspond to a letter grade [4,5].
+
+The problematic use of points to assign grades causes further challenges. The focus on accumulating points sets up an antagonistic relationship between the instructor and students, instills competition between students, and amplifies student and faculty stress, anxiety, and mental health issues [2,6,7]. A feature of points-based grading systems is the inclusion of partial credit allotment. This inclusion increases the time-consuming faculty activity of meeting with students who argue for partial credit. Another feature of points-based grading systems is often including high-stakes assignments with no opportunities for showing proficiency or competency with feedback and opportunities to try again. This feature benefits students who come from more privileged backgrounds and penalizes students from minoritized groups [8].
+
+Alternative grading practices, including mastery grading, standards-based grading, specifications grading, and ungrading, have been developed to address these challenges with traditional, points-based grading systems [9]. Specifications grading was first reported by Nilson in 2014 [2]. Leslie and Lundblom provide the following summary of the principles underlying specifications grading [10].
+The core principles of specifications grading are that:
+
+- Course assignments are aligned with course learning objectives.
+- Expectations ("specifications") are clear.
+- Students decide what grade they aim for (self-imposing learning demands consistent with the grade).
+- Feedback relates expectations to performance.
+- Defined (and limited) options are provided for revisions.
+- Assignments are completed at a clearly defined level of performance (e.g., corresponding to a grade of B or C) to demonstrate competency.
+- Advanced learning options in breadth and/or depth are offered for self-motivated students.
+
+While the principles delineated above describe the underpinnings of specifications grading, these principles must be operationalized. In practice, the following structural components comprise specifications grading systems:
+
+- At the course level, students are provided defined grade bundles that clearly delineate what assignments they need to complete and at what level to earn their chosen letter grade.
+- At the assignment level, where assignments encompass all work submitted by a student including homework, quizzes, papers, exams, etc., students are provided clear rubrics that contain the specifications required for the assignments and the set threshold they must achieve to demonstrate competency. Partial credit is not available.
+- Students are provided with one or more mechanisms by which they are able to revise work that does not meet the required specifications.
+- Optionally, a token system that can be used to limit opportunities for revisions and provide flexibility to students in how they navigate the course is provided.
+
+Numerous examples of specifications grading systems have been published in the primary teaching and education literature of many individual disciplines. A recent scoping review by Hackerson et al. highlights alternative grading systems in STEM courses [11]. Harrington et al. examined the body of literature on contract grading and specifications grading in computer science courses [12]. However, reviews of existing literature focused solely on describing implementations of specifications grading across all disciplines do not exist. Here we provide a review of publications describing the design and implementation of specifications grading systems in all disciplines across higher education. Our aims in this review are 1) to provide a resource for instructors designing their own specifications grading systems and 2) to build a roadmap for education researchers to facilitate collaboration with practitioners to study outcomes and impacts of specifications grading in higher education based on emergent themes in the current literature.
+METHODS
+
+Research Questions
+
+Our research was guided by the following questions regarding specifications grading systems described in the literature:
+
+1. What is the current landscape of peer-reviewed literature describing implementations of specifications grading in higher education?
+2. What are the structures of the specifications grading system implementations currently described in literature?
+3. What themes have emerged in the literature on specifications grading that have not yet been studied systematically?
+
+Article Selection and Analysis
+
+We conducted a literature search following the PRISMA guidelines using the keywords “specifications grading,” “specs grading,” “specifications-based grading,” and “alternative grading” to find relevant publications ranging from October 2014 through September 2024 (Figure 1). October 2014 was chosen as the start date because it was when Linda Nilson’s book on the subject was published. The databases that were searched included: Web of Science, Scopus, the Education Resources Information Center (ERIC), Institute of Electrical and Electronics Engineers (IEEE) Xplore, ScienceDirect, the American Chemical Society (ACS) Publications, the Association for Computing Machinery (ACM) Digital Library, the American Society for Engineering Education (ASEE) Papers on Engineering Education Repository (PEER) and Physics Education Research (PER) Central. The number of publications identified using the search terms from each database is specified in Table 1. Several publications were identified through more than one database. Citation searching was used to locate any publications not found through the aforementioned databases. A total of 22 additional publications that met the inclusion criteria described below were found by this method.
+Figure 1. Diagram of the study corpus selection process generated with the PRISMA flow diagram Shiny app [13].
+
+Table 1. Total number of publications found and included in this review, separated by the search database in which the publications were found. The total number of included publications below is greater than the number of publications in the corpus because multiple publications were found in more than one database.
+
+| Database        | Publications Identified Using Search Terms After Removing Duplicates | Publications Included in Review Corpus After Applying Inclusion and Exclusion Criteria |
+|-----------------|-------------------------------------------------|-------------------------------------------------------------------------------------|
+| IEEE Xplore     | 1                                               | 1                                                                                    |
+| ACS Publications| 67                                              | 17                                                                                  |
+| ASEE PEER       | 123                                             | 17                                                                                  |
+| PER             | 2                                               | 0                                                                                    |
+| Scopus          | 96                                              | 56                                                                                  |
+| ERIC            | 22                                              | 14                                                                                  |
+| ACM             | 18                                              | 3                                                                                    |
+Because this review was intended to characterize the landscape of empirical research on specifications grading in the higher education (undergraduate- or graduate-level) setting, we focused on peer-reviewed publications (Table 2). Theses, dissertations, and informal means of communication such as blogs, opinion pieces, social media exchanges, and websites were excluded from the corpus as they are not peer-reviewed. We limited the scope of this review to publications that describe the design and implementation of specifications grading systems. Publications that discussed the design of a specifications grading system, but did not implement it or that referenced the implementation of specifications grading without additional detail or expansion were excluded from analysis. Specifically, each publication was only included if commentary on the implementation of at least two of the four structural features of specifications grading – grade bundles, rubrics with specifications and defined passing thresholds, opportunities to revise and resubmit work, a token system – was included. As such, journal articles, conference papers, and book chapters were included, but conference abstracts, posters, and workshops were excluded as they lacked sufficient detail to meet the inclusion criteria. The total number of publications included in the corpus was 91.
+
+Table 2. Inclusion and exclusion criteria used in the analysis conducted for this review.
+
+| Inclusion Criteria                                                                 | Exclusion Criteria                                                                 |
+|-----------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| Peer-reviewed empirical research including journal articles, conference proceedings, and book chapters | Theses, dissertations, conference abstracts, posters, workshops, blogs, opinion pieces, social media exchanges, websites |
+| Implementation of at least two structural features of specification grading        | Design only or implementation of less than two structural features of specifications grading |
+| Undergraduate and graduate populations                                             | K-12 populations                                                                    |
+
+Two reviewers screened each publication for inclusion independently. Data from each publication was extracted by one reviewer and verified by a second reviewer. Because most publications included in the review were descriptive studies conducted by instructors on their own courses, risk of bias in individual studies was not assessed. Characteristics of courses were taken directly from the descriptions included in the publications, and disciplines were assigned based on the name or description of the course(s).
+
+Results: Publication Trends
+
+Following Nilson’s book in 2014, the first publications on the design and implementation of specifications grading appeared in 2016. In every year after 2016 there have been at least...
+five publications, with 2023 as the year with the most publications at 22 (Figure 2). From January to September 30, 2024, a total of 13 publications have been released.
+
+Figure 2. Number of peer-reviewed publications describing specifications grading systems published annually, January 2016-September 2024. There were no publications in 2014 or 2015 aside from Nilson's book.
+
+STEM disciplines are most represented in publications describing specifications grading systems (Figure 3). Chemistry represents the greatest number of publications with 20, followed by engineering with 19, computer science with 10, and mathematics with 8. All other disciplines have four or fewer publications, and disciplines within the humanities are least represented. The type of publications also varies by discipline. While journal articles are most common amongst nearly all disciplines, conference papers are the only type of publication from engineering. Book chapters are almost exclusive to chemistry with the only exceptions being one publication from information literacy, one from French studies, and one from computer science. These discrepancies in types of dissemination are tied to disciplinary norms. In engineering and computer science peer-reviewed conference papers are more common than journal articles, and the American Chemical Society specifically publishes peer-reviewed books as an alternative form of dissemination.
+Figure 3. Peer-reviewed publications describing specifications grading systems, organized by discipline and type of dissemination.
+
+Descriptions of course sizes vary from publication to publication. Some include descriptions of a single course or multiple courses with no information about size, a single course with information about size, or multiple courses with information about size. Course sizes were extracted from the descriptions provided in the publications and were grouped into five categories: 35 or fewer, 36-60, 61-100, 101-999, and 1,000 or greater. Of the courses described that include information about course size, 62% (56 courses) are small courses with total enrollments of 35 or fewer students (Figure 4). The commonality of this course size is unsurprising as the majority of these publications describe courses taught at smaller colleges and universities. The majority of published implementations of specifications grading in courses with enrollments of 100 students or greater describe introductory level courses, mostly at large, four-year institutions. Although most published examples of specifications grading describe courses at the undergraduate level, including independent study or capstone courses [14–18], a small number of graduate and professional courses do appear [19–32]. Of the 91 publications included in the review corpus, 20 publications describe implementations of specifications grading in online or hybrid modality courses [20,21,25,31–47].
+Results: Structures Of Specifications Grading Systems
+
+The four structural components of specifications grading — grade bundles, rubrics with specifications and defined passing thresholds, opportunities to revise and resubmit work, and a token system — are incorporated into courses in a variety of ways and to different degrees. In this section we discuss three of the four structural components independently, giving context for how they have been implemented. The extent to which retakes and revisions are allowed varies, depending on how the other structural components were designed. As such, a conversation about this component will be threaded throughout the next three subsections.
+
+Grade Bundles
+
+A core principle of specifications grading systems is to align assignments with course LOs, and a key structure of these systems is bundling these assignments together to determine course letter grades [2]. Four main methods to bundling, which we call configurations, emerged in the analysis of peer-reviewed descriptions of specifications grading. Tsoi et al. originally described three main configurations (called “implementations”) in the context of lecture courses: core and additional LOs, all equal LOs, and modules [48]. A fourth configuration best described
+as all equal LOs with repetition and/or complexity (ELORC), arose in the context of laboratory and writing courses.
+
+In the core and additional LOs configuration, all course LOs are sorted into “core” and “additional” categories. “Core” LOs are those deemed by the instructor to be essential for earning a grade of C or above. All other LOs are categorized as “additional,” and meeting a larger subset of these LOs is required for earning B or A grades. Frequently this configuration is used in introductory lecture courses that serve as prerequisites, where having fundamental knowledge and skills is essential for success in subsequent courses. While the terms “core” and “additional” arose from Tsoi et al., a number of publications use different terminology, such as core and advanced LOs or essential and general LOs, to refer to this same configuration [49,50]. An example of a course with the core and additional LOs configuration is Carlisle’s discrete and combinatorial algebra course, in which each of six major subject areas is divided into a core topic and an advanced topic [49]. To earn at least a C grade, students must pass all six core topics and one advanced topic. If a student wishes to earn a B grade, they need to pass an additional two advanced topics, and if a student wishes to earn an A grade, they need to pass an additional four advanced topics. Similarly, LOs in Biers’s first-year French course are classified as basic or advanced and are grouped into three main categories: proficiency, cultural knowledge, and metalinguistic awareness [51]. To earn at least a C grade, students must pass all of the basic LOs in all three categories. If a student wishes to earn a B grade, they also need to pass advanced LOs from one of the three categories (or two of the categories if they wish to earn an A).
+
+In an all equal LOs configuration, all course LOs are given equal priority. Students earn their letter grade based on the total number of LOs met. Frequently this configuration is used in advanced or elective courses. For example, in Carlisle’s differential equations course, the content is split into 20 “problem topics.” Students must pass 14 of the topics to earn a C, 17 to earn a B, and all 20 to earn an A [49]. Similarly, in Mendez’s sophomore-level thermodynamics course, there are 15 LOs and each is assessed by one quiz [33]. Students must pass 11 quizzes to earn a C, 13 for a B, and all 15 for an A.
+
+In the modules configuration, thematically related course LOs are binned together into modules. To pass a module, students must meet a predetermined number of the LOs in that module. According to Tsoi et al, the modules configuration is used when the “...skills and knowledge central to the course...[cannot]...be distilled into discrete objective statements without negatively impacting the student learning in the course [48].” While Tsoi et al. list modules as a third, standalone configuration, the modules configuration could be considered a subcategory of either the “core and additional LOs” or the “all equal LOs” configurations, depending on how the instructor chooses to bundle the module for letter grades. Tsoi et al. indicate that modules may be classified as “essential” (consistent with the core and additional LOs configuration) while in other cases modules may be ranked equally (consistent with the all equal LOs configuration).
+The three configurations described by Tsoi et al. all emerged in the context of lecture courses, whereas the fourth ELORC configuration emerged in the context of laboratory and writing courses. Lecture courses generally have a large number of LOs to cover all of the content knowledge students must learn, especially at the introductory level. In contrast to lecture courses, laboratory and writing courses tend to be more focused on practical application of knowledge and development of technical skills. In these types of courses, there are often fewer course LOs, and they are often bundled in ways that require students to meet the same LO(s) multiple times and potentially at varying levels of complexity to earn higher grades. In the context of a laboratory course, LOs align with students both applying knowledge they have learned and developing practical technical skills to obtain and analyze data. In the context of a writing course, LOs focus on students practicing the processes of brainstorming, outlining, drafting, editing, and polishing various pieces of writing. An example of a course with this configuration is McKnelly et al.’s Writing for Chemists course [52]. In this course, there are four large writing assignments that all assess the following same course LO, “Students will be able to create professional papers, proposals, reports, and other forms of scientific writing.” These four assignments also assess different amounts of additional LOs. Students must earn a low pass on three of the assignments to earn a C, a low pass on all four assignments to earn a B, and a high pass on three and a low pass on one to earn an A. (Passing threshold levels will be discussed in the next section.)
+
+Although Nilson’s original introduction of specifications grading specifically called for designing assignments and grade bundles that are aligned with course LOs, this alignment is not always clearly demonstrated in publications describing specifications grading systems. Some instructors described grade bundles (and thus implied configurations) based on assignments but did not clearly describe how these assignments were aligned with course LOs. Tsoi et al. proposed the configurations with the assumption that individual assignments are mapped to individual course LOs. However, in some of the courses described in the specifications grading literature, one assignment may correspond to one LO, one assignment may correspond to multiple LOs, or multiple assignments correspond to the same LO. These discrepancies are reflected in Yik et al.’s analysis of specifications grading in chemistry courses in which the grade bundles observed for some courses reflect a focus on specific assignments rather than specific LOs [53]. Without clear descriptions of alignment between assignment and LOs in some publications included in our review, it was not always possible to determine what type of LO-focused configuration was being employed.
+
+Rubrics with Specifications and Passing Thresholds
+
+Within a specifications grading system, the specifications are embedded as the rubric criteria for assignments. In general, student work is evaluated against each rubric criterion, or specification, and then the assignment outcome is determined by performance across all of the specifications set for the assignment. The most common way to determine if students have met a specification is using a binary system, which in practice generally appears as a student earning credit for a rubric criterion (specification) or not. In contrast, a student’s overall assignment may be evaluated using a 2-level, 3-level, or 4-level system. Other variations for both specification and assignment evaluations exist, but these are more complex.
+[17,38,42,54–59]. It is not uncommon for different assignments in a course to have different evaluation outcome types as needed. Descriptions and examples of binary specifications rubrics with 2-level, 3-level, and 4-level assignment outcomes follow.
+
+The majority of publications included in this review use assignments with binary specifications and 2-level assignment outcomes. In this approach, a student's work either does or does not meet an individual specification. The instructor sets a threshold, i.e. a number of specifications that must be met for the overall assignment to earn credit. Instructors may also set some specifications as “required” so that the assignment does not earn credit if those “required” specifications are not met, regardless of how many others are met. Wording for the assignment outcomes varies, but some of the common phrases that have been used are pass/fail, satisfactory/unsatisfactory, satisfactory/needs revision, meets specifications/does not meet specifications, accept/revise, or complete/incomplete [19,24,32,60–62].
+
+A closely related, but less common approach is to use binary specifications with 3-level assignment outcomes, in which two different thresholds are set. Depending on how the instructor sets up their specifications grading system, students may only earn credit for an assignment if they meet the higher of the two thresholds [63], or they may earn credit as long as they meet at least one of the two thresholds [52]. McKnelly et al.’s Writing for Chemists course, described previously, provides an example of the latter case. Grades are bundled based not only on the number of times a student is able to pass a large writing assignment, but also at what passing threshold (a high pass, low pass, or needs revision). For example, students must pass all four writing assignments to earn an A or a B, but for the B grade, students must earn low passes or better on all four assignments, whereas for the A grade students need to earn at least three high passes and may earn only one low pass.
+
+Binary specifications rubrics may also be combined with 4-level assignment outcomes based on the EMRF rubric that allows for two levels of passing work (E: excellent, M: meets expectations) and two levels of work that does not pass (R: Needs revision, F: Fragmentary) [64]. An advantage of this 4-level system is the ability to differentiate the quality of student work within the passing and not passing categories. In most cases, the F designation has been replaced with N (not assessable) to overcome students’ association of the F with failing, resulting in the more frequently used acronym, EMRN [65]. In Mendez’s sophomore-level thermodynamics course, described previously, each quiz is assessed using the EMRN rubric [33]. While students need to pass 11 quizzes to earn a C, 13 for a B, and 15 for an A, the threshold at which students pass the quiz also matters. For example, to earn a C, none of the quizzes need to be assessed as excellent (E), but to earn a B, 7 of the 13 quizzes need to be assessed as excellent (E) and to earn an A, 11 of the 15 quizzes must be assessed as excellent (E).
+
+**Token Systems**
+
+Of the 91 publications selected for this review, 46 specifically commented on the inclusion of a token system and three commented specifically on choosing not to include a token system. The remaining forty-two publications do not include any specific information about
+token systems. Instructors chose to provide tokens in their specifications grading systems by providing a set number of tokens to each student at the beginning of the course (seven examples) [18,28,43,62,66–68], by providing opportunities for students to earn tokens throughout the term of a course (fourteen examples) [27,41,61,69–79], or by combining both aforementioned approaches (seventeen examples) [18,20,31,44,45,47–49,52,57,60,63,80–84]. In the earn-only or combination approaches, students were given opportunities to earn tokens by a variety of means such as completing metacognitive reflection assignments or completing low-stakes course activities such as readings and homework.
+
+In all token systems described, students were given the option to use tokens for additional attempts at assignments (either through revision or attempting a new version of an assignment such as a quiz), for flexibility on assignment deadlines, or both. In six examples, students could also use tokens to earn back credit on a low-stakes assignment that they missed originally or to replace attendance credit lost for missing class when attendance was required [20,52,66,74,83,85]. In all cases, the choice of how to use tokens was left with the students, although instructors did provide encouragement to use tokens as needed and reminders of how to do so.
+
+Few authors provided details on how many tokens they chose to make available, the rates at which students used tokens, or the specific methods by which instructors tracked tokens. However, the few examples provided do give useful guidance for instructors considering implementing a token system in their course. Hunter et al. suggest determining the number of tokens to provide by counting the number of high stakes assignments and adding one [69]. Vitale and Concepción suggest a similar approach — providing tokens that correspond to the number of high stakes assignments plus or minus one [66].
+
+Based on the limited examples provided, students do not appear to run out of tokens. In a first-year engineering course, 69% of students used at least one token in the course, and a grand total of 41% of available tokens in the course were used by the end [18]. On any given assignment in this engineering course, at least one student chose to use a token, and the number of students who used a token on an assignment increased as the term progressed. Kelz, et al. found that only four of ninety-nine students used all of their tokens [75]. Dennen and Bagdy indicated that few students used all of the provided tokens, and those who did chose specifically to do so [20]. With one exception in which students can trade tokens for candy [63], authors did not report rewarding students for tokens left over at the end of a course. Despite this lack of reward, two publications reported that students display token hoarding behaviors [48,72]. One instance of “gaming the system” was described, in which a team of students working on a group project opted to submit work that did not display a good-faith effort at completion and then replace the missing credit for that work with a token [18]. The authors stated that this “gaming the system” was done to gain more time to work on another aspect of the course.
+
+Current learning management system (LMS) options are not designed to support specifications grading and do not provide tools to support a token system. However, a placeholder assignment [72] or ungraded quizzes in the course LMS [20] can be used to track
+students’ tokens. Alternatively, token usage can be tracked using an online form with a spreadsheet alone [18,60,75] or in combination with an LMS placeholder assignment [61,74].
+
+Results: Themes And Opportunities
+
+Many publications on the design and implementation of specifications grading discuss outcomes, impacts, and lessons learned. A review of the current literature reveals there are common themes that emerge from these discussions. These themes include instructor time investment, comparisons of academic performance, and student reactions to the grading scheme.
+
+Instructor Time Investment
+
+One concern about adopting specifications grading is instructor time commitment. While some publications do indicate an increase in the time spent grading [23,27,45,50,56,68,69,72,76,79,85,86], the majority of adopters of specifications grading reported that they spent about the same amount of time [14,31,35,44,49,52,60,62,66,74,87,88], or less time [24,26,29,54,55,61,63,75,81,84,89–96] grading under the new system than they spent using a traditional points-based grading system (Table 3). The most common reason cited for saving time was the removal of partial credit [14,18,26,43,54,63,76,84,88,89,96]. Without partial credit, the cognitive load associated with choosing the appropriate allocation of points is reduced. Instructors who did not experience time savings noted that the time they spent on grading was allocated differently; they could spend more time providing feedback because they spent less time deciding how much partial credit to award. Aside from removing partial credit, reducing the number of LOs being assessed [33,54] and removing assignments from the course that did not map to the LOs [24] were cited as contributing to the time saved when grading. Although not explicitly stated, it can be inferred that time may have also been saved from students choosing to not submit work for assignments that were not required for their target letter grade [24,60].
+
+| Reported Time Commitments for Designing and Implementing Specifications Grading | Number of References |
+|-----------------------------------------------------------------------------|----------------------|
+| Increased time grading                                                      | 12                   |
+| No change in time grading                                                   | 12                   |
+| Decreased time grading                                                      | 18                   |
+| Removing partial credit saved time when grading regardless of changes in overall time spent grading | 11                   |
+
+Table 3. Number of publications that reported the time commitment required to design and implement a specifications grading system in a course.
+| Significant time investment to design specifications grading system         | 20 |  
+| Significant time investment to generate multiple versions of quizzes or exams | 11 |
+
+Although most publications on specifications grading indicate no change in, or a reduction in, grading time, several comment on the time investment required to design and build the system. The consensus is that the time investment associated with designing the specifications grading system is substantial [14,19,24,27,29,31,35,37,56,60,66,74,76,83,84,93–95,97,98]. Time-consuming aspects of designing a specifications grading system that were mentioned include developing quiz questions and building question banks [44,56,76,84,85,87,89,94,95,98,99], constructing new rubrics and assignment guidelines [14,29,35], and crafting grade bundles in which assignments are appropriately mapped to final letter grades [29,35,76,98].
+
+Additionally, some publications indicated that extra time was required for the specifications grading implementation that did not involve grading student work. One report of additional time focused on the need to meet with students outside of class because time for additional assignment attempts was not built into the course schedule [87]. It was also reported that additional time was required to address student concerns around the removal of partial credit, to normalize the experience of needing to try again, and to achieve student buy-in for an unfamiliar grading system [97]. While the majority of publications do not describe the time commitment required to implement a token system, only two described the time commitment as onerous [23,72] and five describe it as minimal [38,52,61,75,84]. Management of the token system through the course LMS was cited as a way to keep the workload manageable [84].
+
+Impacts on Academic Performance
+
+One of the ways improvement in student learning is evaluated following the implementation of novel pedagogy is to examine whether the distribution of final letter grades in the course changed or not. For the majority of those who have published their implementations of specifications grading, the distribution of final letter grades either shifts in the direction of a larger percentage of collective A and B grades [23,24,31,34,41,49,54,61,62,66,71,74–76,83,85–87,94,98,100,101] or remains the same [14,20,45,60,84,88,102] (Table 4). The reported impacts on course drop, fail, withdrawal (DFW) rates are mixed. Some adopters of specifications grading report a decrease in their overall DFW rate [31,41,54,74,85,98] while others report no change [14,41,86,101] or an increase [17,62,94,98]. Noell et al. observed an increase in the DFW rate, noting that the Ds and Fs decreased, but the Ws increased [94]. The increase in withdrawals was attributed to the transparency of the specifications grading system allowing students to know if they would be able to pass the course before the withdrawal deadline.
+Table 4. Number of publications that reference how implementing a specifications grading system impacted course letter grades and DFW Rates.
+
+| Specifications Grading Impact on Course Letter Grades and DFW Rates | Number of References |
+|---------------------------------------------------------------|----------------------|
+| Larger percentage of collective A and B grades               | 22                   |
+| No change in course letter grade distribution                | 7                    |
+| Course GPA decreased                                        | 4                    |
+| DFW rate increased                                          | 4                    |
+| DFW rate decreased                                          | 6                    |
+| No change in DFW rate                                       | 4                    |
+
+Only four publications did not report a positive shift in the final letter grade distribution [17,24,40,42]. One of these publications specifically reported that more students chose to complete the assignments associated with a B grade than with an A grade, which likely accounted for the decrease in the course GPA [24]. No commentary was provided in the other three publications to explain what may account for the decrease in the final letter grade distribution [17,40,42].
+
+It is reasonable to expect that the positive shift in final letter grade distributions observed by many adopters of specifications grading could be the result of an improvement in the quality of student work. However, the majority of publications only address comparisons of student work anecdotally between versions of the course taught using a points-based grading system and the version taught using a specifications grading system. In these cases, the perception reported was that the quality of student work submitted under the specifications grading system was similar [25,26,58,60,94] or better [14,18,20,24,28,40,52,57,75,81,90,91] than work submitted in points-based systems.
+
+Five publications included a quantitative comparison of the quality of work between the two grading systems. Two of these publications compared final exams between the points-based and specifications grading versions of their courses. Ring compared student work by grading final exams from their previous points-based version of their course with the same rubric as the specifications grading course (i.e. without partial credit) and found that the students from the specifications grading version of the course passed questions at a higher rate [50]. However, Ring did not comment on whether there was a change in the final letter grade distribution between the two courses. In Martin’s courses, the same final exam composed of 60 multiple-choice questions was used for both a points-based and a specifications grading version of their general chemistry course [72]. The average score in four previous course iterations that used points-based grading ranged between 30-38 (50-63%), whereas in the three terms following the adoption of a specifications grading system, the averages ranged between 38-42.
+(63-70%). Changes to the final letter grade distribution by adopting specifications grading were not discussed.
+
+In addition to the two studies analyzing student performance on final exams, three other publications reported quantitative comparisons of the quality of work unrelated to final exams in different grading versions of the courses. Helmke set the passing threshold for assignments and exams in their specifications grading course to a B (85%) and compared the number of students in the specifications grading course that met the threshold to the number of students that earned at least an 85% on assignments and exams in the points-based course [71]. Helmke found that fewer students from the specifications grading course passed on the first attempts of both the homework assignments and unit exams; however more students passed on the final attempts for homework assignments, and a similar number passed on the final attempts for the unit exams. Under Helmke’s specifications grading system, the percentage of students earning As remained the same, but the percentage of Bs increased and the percentage of Cs decreased. Katzman took a different approach by administering an end of semester survey to students who completed a version of their course under a points-based grading system and to students that completed a version of the course under a specifications grading system [100]. Students who completed the course using a specifications grading system earned higher median and maximum scores on the content assignment questions in the survey than those who completed the course using a points-based grading system. Katzman observed no difference in the percentage of students who did pass and who did not pass the course between the two grading systems. However, amongst the passing students, the percentage of As increased and the percentage of Bs and Cs decreased. Amongst the non-passing students, the percentage of Ds and Ws increased, but the percentage of Fs decreased. Finally, McKnelly et al. compared student performance on a laboratory report [74]. They graded the same number of reports for a single assignment from the points-based grading and specifications grading versions of the course using the original points-based rubric and found no statistically significant difference in the average scores on the reports. Despite the similar scores, McKnelly et al. found an increase in the percentage of students earning A and B grades, but a decrease in students earning C and D grades. One explanation they offer for the discrepancy is the limited sample size and comparison of quality on a single assignment. They propose that assignment quality may have increased for some assignments and not others.
+
+One publication did not directly compare the quality of work between the two grading systems, but did compare the impact of taking a course graded using a points-based system versus a specifications grading system on the passing rate in that course and the one following it. In both a general and an organic chemistry course sequence, Anzovino et al. found no statistically significant difference amongst students continuing to the second course in the sequence regardless of whether they took the first course in each sequence under a points-based system or a specifications grading system [98]. Additionally, they found no statistically significant differences in the passing rates (C or better) in the second course in each sequence, regardless of whether students took the first course in each sequence graded using a points-based system or a specifications grading system. This may suggest that the quality of
+work submitted by students under a specifications grading system is not any lower than that submitted by students under a points-based grading system.
+
+Finally, one publication directly addresses potential grade inflation in specifications grading — a common concern. In a specifications grading graduate-level organic chemistry course using a modules configuration (6 essential and 7 general), Moster and Zingales observed higher final letter grades than in the prior points-based iteration [31]. Students earned more As and fewer Bs and Cs, with 10% more students passing the course overall. Students who earned As earned higher average scores on a 50-question final exam, than students that earned Bs. Moster and Zingales connect this higher exam performance to the fact that students who earned A grades were required to complete an additional essential module and four general modules as compared to students who earned B grades. Because students had to complete 54% of the course content (7 weekly modules; 5 essential and 2 general) before taking the final exam, and the passing threshold on each module was set to 80%, it follows that students passing the course should be scoring at least 43% (0.54 x 0.80 = 0.43) on the final exam. Because 90% of the students met this criterion, with many earning scores far greater than 43%, Moster and Zingales argue that the final exam outcomes indicate that students have met the course SLOs — and retained the knowledge — at levels that are clearly commensurate with the letter grades they earned.
+
+Student Reactions to Specifications Grading
+
+Within the theme of student reactions to specifications grading, three primary subthemes emerged: focus on learning, the transparency of the grading system, and stress and anxiety. These subthemes are derived from 1) anecdotal data from instructor observations, conversations with students, and quotes pulled from final evaluations and 2) solicited feedback from students through surveys that were not validated instruments. These subthemes are tied to goals of specifications grading according to Nilson: to shift student focus from points to learning, to provide a transparent grading scheme, and to reduce student stress and anxiety.
+
+Focus on Learning
+
+Many educators who have implemented specifications grading observed a shift from students focusing on accumulating points to focusing on learning the course material [27,32,40,44,47,55,61,62,67–71,74,75,79,83,84,99]. For example, Hunter et al. state, “Students clearly grasp why their assignment earned the grade that it did, and I no longer field questions about point allocation. Instead, student questions after an exam focus on concepts and improvement, and the process of revision absolutely improves the students’ understanding of the material [69].” Similarly Henriksen et al. and Lovell observed that students took greater advantage of office hours to ask questions about concepts covered earlier in the course because the incentive for students to seek and apply feedback was greater under the specifications grading system where revision is encouraged [56,87]. Part of the reduction in students’ focus on points, aside from revision opportunities, was attributed to the greater
+transparency and clarity of the specifications grading system, specifically the expectations detailed in assignment rubrics [18,66,92].
+
+Despite increased student focus on learning, some students opposed the removal of partial credit. In four publications, authors noted that students in their specifications grading courses felt the passing thresholds were set too high [39,46,52,74]. Kinnear et al., McKnelly et al., and Williams observed student frustration when they just missed meeting the passing threshold [46,63,74]. In these cases, students felt the effort they put into the work they submitted was not being taken into account, as no partial credit was given for assignment submissions that did not pass. Reports from Toledo and Dubas, from Rojas, and from Blodgett also acknowledge student displeasure with not earning partial credit on work that did not meet the passing threshold [19,54,76].
+
+Grade Transparency
+
+Many adopters of specifications grading report that students find the grading system to be more transparent than points-based courses. For some students, this transparency refers to the clarity of assignment expectations and the associated rubrics [56,57,66,87]. For others, the transparency refers to knowing what assignments need to be completed to earn their desired final letter grade and what their standing is in the course at any point throughout the term [20,23,30,61,75,84,92]. In three publications, authors commented that their students appreciated that the transparency of the specifications grading system allowed them to choose what assignments they needed to complete to achieve the grade they aimed for [30,97,103]. Jones and Tierney indicated that their students found that the choices afforded by the specifications grading system led to a greater ability to balance coursework in other classes and their life obligations [24,30]. In three cases, authors noted that their students felt that the transparency allowed them to direct their efforts in the course because the grading system provided guidance about which topics they understood well and which they needed to continue working on [54,69,76].
+
+Although many instructors reported that students found the grading system more transparent, there were several who reported student confusion about the new grading system [14,16,23,27,31,32,41,45,51,62,69,83]. Some students, at least initially, felt the new assignment expectations and rubrics were unclear [61,75,79]. Others were unaware of how to determine their final letter grade according to the grade bundles [27,54,61]. Some instructors adopted strategies in an attempt to achieve student buy-in and minimize confusion with this novel grading system. Early in the term, some instructors included in class or video explanations of the grading system [23–25,29,35,43,48,49,60,61,69,73,74,79,81,83,92,97], some compared specifications grading to traditional grading to help students understand the purpose behind why it was adopted [16,73], and some developed activities or tools for students to learn how to track and determine their final letter grade [37,49,54,61,62,74,92,104]. Other instructors provided regular reminders throughout the term [24,29,32,41,43,49,67,74,81,104] and/or implemented metacognitive reflections or goal setting exercises [51,61,67,73,74,82,84], which prompted students to think through how they could earn their desired final letter grade under the
+specifications grading system. The extent to which these interventions mitigated or resolved student confusion varied.
+
+**Stress and Anxiety**
+
+Student perceptions of the impact of specifications grading on their stress and anxiety compared to points-based grading varies. Twenty-four articles report a reduction in student stress and anxiety and comment on possible reasons for this change. In some cases this reduction is attributed to multiple revision opportunities being provided, lowering the stakes on assignments [14,18,26,27,31,41,45,49,51,56,69,74,79,81,89,99,102,105]. In other instances students reported feeling that the grading was lower stakes which allowed them to put more of their focus into learning the course material, however, they did not elaborate upon what made the grading feel lower stakes [24,71]. Truchsler et al. and Tierney reported that students felt reduced stress and anxiety stemmed from the flexibility afforded to them by being able to choose which assignments to complete to earn their desired grade [30,93]. Additionally, students perceived greater transparency in assignment expectations and how to earn their desired final letter grade, which accounted for a reduction in stress and anxiety [14,25,30,51,61,79,97,105].
+
+In contrast to a decrease in stress and anxiety, other students reported an increase with the specifications grading system. Many of the concerns raised by students were related to the pass/fail nature of specifications grading, and some students equated not passing an assignment on the first attempt to failing despite the fact that they were able to try again without a grade penalty. Some students felt that the expectations to pass an assignment were too high [28,37,46,49,71,85,87,105]. Many students did not like the absence of partial credit and felt that they should receive some credit for the work they submitted rather than not earning any credit for an assignment that did not meet the passing threshold [37,61,73,74,84,94]. Students expressed stress and anxiety about how one mistake could make the difference between passing and not passing an assignment and consequently affect their grade in the course [52,57,74,97]. Elkins acknowledges that not earning credit for the work they submitted can be a “harsh reality for students who are used to earning at least partial credit no matter how low their level of work [35].” Other instructors identified similar perceptions in which students appeared to believe that needing to revise an assignment was equivalent to “receiving an F [47], “a demoralizing ‘0’ rather than an opportunity for improvement” [76], or would “result in the assignment somehow being worth ‘less’ [97].” Bledgett shared a student quote that highlights this demoralization: “Making a great deal of effort and then getting a 0 for an assignment made me wonder why bother at all [19].” Noell et al. and Hunter et al. found that students are not accustomed to having opportunities to revise work, so it is useful in these situations to give reminders that not being assessed as passing on the first attempt is not a sign of failure and that revision opportunities are built into the course [69,94].
+
+Other sources of stress and anxiety unrelated to the pass/fail nature of specifications grading included the frequency of testing [50,94], the responsibility placed on the students to self-track their grade [54], and the tendency for increased procrastination by some students because they knew they had retake opportunities [56,89]. Students who expressed having good
+grades going into a final assignment did not like that poor performance on a final assignment could negatively impact their final letter grade [49,73,74].
+
+Discussion
+
+As the number of publications describing the design and implementation of specifications grading has grown, so has the breadth of disciplines from which instructors have reported their experiences. Despite specifications grading systems having four common features — grade bundles, rubrics with specifications and defined passing thresholds, opportunities to revise and resubmit work, and a token system — the details of each design and implementation vary substantially from instructor to instructor. Design choices likely impacted the outcomes of each implementation. Following, we discuss the themes that arose from instructors’ design choices and how they influenced implementation outcomes in specifications grading systems, focusing particularly on impacts on time, academic performance, and student reactions to the grading system.
+
+Instructor Time Investment
+
+In general, switching to specifications grading required a substantial time commitment prior to the start of a course to design the system. One of the time-consuming aspects of the design was the construction of the grade bundles. As instructors worked to construct grade bundles, they were incentivized to reevaluate their course LOs and the assignments that mapped to those LOs. This backwards course design in tandem with a specifications grading approach where the focus is put on the student achievement of LOs rather than the accumulation of points to earn a letter grade suggests that a grade a student earns in a course under specifications grading may more accurately reflect the knowledge and skills they have gained by completing the course [14,60,74,83].
+
+Although the time required to design a specifications grading system was substantial, most instructors who implemented specifications grading in their courses reported that the time required to implement the course was about the same or less than the amount of time spent implementing prior points-based courses. Instructors cite that the time they would have spent on allocating points on assignments in the points-based course was instead spent on giving students more feedback on assignments [14,31,44,88,91]. Previous research has shown that when both scores and feedback are provided to students, students will not necessarily pay attention to the feedback, in part due to the spatial separation of scores and feedback within the LMS [106]. However, when students have opportunities to revise their work, they show higher cognitive engagement with the feedback [107,108]. The opportunity for students to revise or retake assignments under a specifications grading system may incentivize students to more carefully review the feedback that was given rather than only checking their score. In this way, the additional feedback instructors leave on student assignments in courses using specifications grading may be more likely to lead to students producing higher quality work and achieving higher final letter grades compared to points-based courses.
+Although the majority of instructors found the time to implement specifications grading was not greater than for a points-based course, a small number reported spending more time implementing the new system. In analyzing how these instructors structured their grading systems, it became apparent that students were given many opportunities and/or unlimited time to retake or resubmit assignments [56,72,73,86]. Allowing many reattempts can result in students submitting low quality work on early attempts because the incentive to prepare appropriately for assignments is not present [73,86,91]. If deadlines for revising and resubmitting or retaking assignments are not provided, it may increase the likelihood of procrastination [45,73]. This can result in a high instructor workload at the end of the term when many assignments are submitted, and it may also result in students being unable to earn the grade they are aiming for because there is insufficient time to complete all of the unfinished assignment revisions [45,73]. It appears that token systems were not used in many of these cases, which could have mitigated some of the challenges with implementing opportunities for students to try again. Instructors who proactively included limited revision opportunities, deadlines for revising and resubmitting or retaking assignments, and/or a token system in their design and implementation of specifications grading reported manageable time investments [43,61,74,75,84,95].
+
+Several publications included discussions of how the specifications grading system evolved over time, specifically focusing on changes that were made to streamline the course and reduce the instructor time commitment. Changes that saved faculty time included a reduction in the number of LOs assessed and/or the number of assignments necessary to earn a letter grade [14,29,33,54], consolidation of course content coverage [45], limiting the number of retakes per assignment [45,73,86], and/or imposing deadlines on the time available to students to revise or retake an assignment [45,81]. This suggests that while the adoption of specifications grading may require a significant time investment initially, the time savings becomes more apparent during implementation, especially if appropriate revisions are made to the system over multiple iterations of the course. While not necessarily implemented, other instructors suggest that changing assignments to be auto-graded [23], developing methods to auto-generate test questions [99], and building on the work of others such as through a faculty learning community [98], could also save time in future implementations of their specifications grading course.
+
+**Impacts on Academic Performance**
+
+The majority of publications report a shift in the final letter grade distribution toward more A and B grades after adopting specifications grading. In general, it would be expected that as the final letter grade distribution shifts toward more A and B grades, the quality of student work would show substantial improvement. However, this potential correlation has not been studied systematically. Most reported comparisons of the quality of student work between points-based and specifications grading systems are anecdotal. This lack of detailed comparisons of student work is unsurprising due to the drastic changes that are made to a course when converting from a points-based grading system to a specifications grading system. Assignments are typically modified to better align with the LOs. The removal of partial credit makes conducting a rigorous comparison of student work particularly challenging because the scales are not the same.
+between the two grading systems (e.g. an assignment task may be graded out of five in a
+points-based grading system versus being graded using the binary pass/no pass rating in a
+specifications grading system).
+
+Without rigorous studies indicating that the quality of student work is higher under
+specifications grading, an argument could be made that the positive shift in final letter grades is
+a form of grade inflation due to reduced rigor. However, this argument fails to take into account
+that students are held to a high standard to earn credit on assignments when no partial credit is
+included. For example, an instructor may set a threshold of B-level work or above for a student
+to earn credit on an assignment, as recommended by Nilson. Holding students to these high
+standards often results in students not passing all assignments on the first attempt. Without the
+ability to accumulate partial credit, students are held accountable for revisiting material and
+taking advantage of revision or resubmission opportunities to demonstrate improved
+understanding of LOs. Providing opportunities for students to try again to meet the high
+standard set by the instructor supports learning and results in grade elevation, not grade
+inflation [109]. This sentiment is supported by work conducted by Moster and Zingales in their
+organic chemistry course described earlier in this review [31]. They suggest the higher final
+letter grades students earn under the specifications grading system are consistent with the
+achievement of course LOs based on their performance on a final exam. While their work
+presents some initial evidence that students’ quality of work correlates with final letter grades,
+additional studies are necessary to quell the concerns of those who are hesitant to adopt
+alternative grading systems for fear of propagating grade inflation.
+
+Student Reactions to Specifications Grading
+
+Overall, student sentiment toward specifications grading systems tends to be positive
+and appears to improve as a course progresses. Negative reactions to specifications grading
+may be attributed to student unfamiliarity with the grading scheme — because many students
+are habituated to traditional points-based grading — and/or to specific design choices within
+courses. Reports of student confusion about the specifications grading system and final letter
+grade determination at the start of a course were common. The confusion was likely due to
+students encountering an alternative grading approach for the first time and having to adjust to
+changes in grading norms. Instructors observed improvements in students’ understanding of the
+specifications grading system when the number of LOs were reduced, course content coverage
+was consolidated, grade bundles were streamlined, and/or when a tool was provided for
+students to track progress toward and determine their final letter grade. Many publications
+reported attempts to increase students’ buy-in to the specifications grading system. However,
+these interventions seemed to have varied success in increasing students’ comfort with the
+system. Future studies could investigate the efficacy of buy-in interventions, evaluate how
+student buy-in changes during a term, and explore whether student buy-in improves after
+multiple offerings of the course under the specifications grading system.
+
+In addition to reports of student confusion, cases of increased stress and anxiety were
+also reported. This increase in stress and anxiety, much like the confusion experienced by
+students taking a course taught using a specifications grading system for the first time, may
+stem primarily from students’ habituation to traditional points-based grading systems. For example, students did not like that they could not earn any credit when they submitted work that was not of passing quality. In these cases, students wanted credit for effort expended and/or felt that the passing threshold was set too high.
+
+Design choices made by instructors when designing their specifications grading systems may also contribute to some of the increased student stress and anxiety about grades. For example, setting the passing threshold of an assignment to 100% would send the message to students that perfection is required and could easily lead to students’ feeling that they will never pass an assignment or the course. Additionally, providing unlimited attempts or unlimited time with no clear due dates may remove structure that students need to stay on track and avoid procrastination. These observations suggest that setting an appropriate passing threshold for an assignment and providing structure around assignment attempts are critical design choices.
+
+While negative sentiments arose from students experiencing specifications grading systems, often for the first time, most students reacted positively to the structural components of these grading systems that are not often, if ever, present in traditional points-based grading systems. The combination of not being expected to complete or pass every assignment and the pass/fail approach of specifications grading systems encouraged students to focus on the learning process rather than the accumulation of points to earn their final letter grade. This shift away from a focus on points is logical because allocating partial credit on assignments creates many borderline cases, which in turn incentivizes students to fight for every point. Without partial credit, the number of borderline cases drops drastically as each specification is frequently graded on a binary scale [44]. Having opportunities to revise and resubmit further reduces stress and anxiety by reducing the stakes of any single assignment. The structural components discussed above, combined with students having the ability to choose the type of assignment to complete, provided students with greater agency and in most cases, a reduction in stress and anxiety. This increased agency also allowed students to better balance their obligations outside of academics and to better allocate time across all of their academic courses.
+
+The features of specifications grading systems discussed above may not only be improving student academic performance but may also be developing students’ professional and social identities in their chosen disciplines. Observed gains in students’ math identity [110] suggest that specifications grading systems can provide an avenue to improve inclusion and equity in STEM courses, and similar studies could be expanded to non-STEM disciplines. The implications of specifications grading systems to help address equity concerns in higher education provide ripe opportunities for further research to investigate these avenues.
+
+Limitations
+
+In addition to those discussed above, there are other limitations present in our analysis. Less formal methods of dissemination, such as theses, posters, workshops, etc., were excluded, so there are some design and/or implementation considerations about how instructors are implementing specifications grading systems in their courses that we did not discuss. Additionally, there are instructors who are contingent faculty or who are not in positions where
+publication is necessary in their academic institution, so there are unpublished examples of specifications grading systems that we cannot analyze and include in this review. This limitation may be especially present in implementations of specifications grading in community colleges and other two-year institutions. As is discussed above, most of the instructors publishing in the specifications grading system literature have written descriptive papers, which do not necessarily include controlled studies, so conclusions about the effects of specifications grading systems on students are limited.
+
+Conclusion
+
+Alternative grading systems have emerged to address challenges associated with points-based grading systems. These challenges include, but are not limited to, a misalignment between the LOs students achieve and their final course grade, a student focus on achieving a grade due to the influence of external rather than internal motivators, and a rise in student stress, anxiety, and mental health challenges. Specifications grading systems have been gaining popularity as one of the alternative systems that have emerged in the hopes of mitigating some of the challenges associated with points-based grading systems. The findings in this review indicate that publications on the design and implementation of specifications grading continue to grow, with the majority of publications occurring in STEM fields (chemistry, engineering, computer science, and mathematics) and in small courses (≤ 35 students), although examples across all course sizes and a wide variety of disciplines do exist. Grade bundles, rubrics with specifications and defined passing thresholds, opportunities to revise and resubmit work, and a token system are the four structural components of specifications grading systems and are found to be incorporated in a variety of ways.
+
+Analysis of the implementations of the specifications grading systems and emergent themes of time investment, academic performance, and student reactions to specifications grading reveal 1) important considerations for the design and development of specifications grading systems and 2) a roadmap for education researchers to collaborate with practitioners to study outcomes and impacts of specifications grading in higher education. Many of the current publications on specifications grading are descriptive studies on individual designs and implementations. While additional descriptive publications will be valuable resources for practitioners seeking inspiration for their courses, especially from disciplines or types of courses that are not yet represented, enough evidence now exists to point to the fact that we need systematic studies on topics such as impacts on student academic performance, implications of design choices, and potential for increased equity of specifications grading systems. Hackerson et al. have called for interdisciplinary studies on alternative grading systems across STEM fields [11], and we broaden that call to include the need for interdisciplinary studies on specifications grading systems across both STEM and non-STEM disciplines.
+Acknowledgments
+
+The authors thank Clarissa Sorensen-Unruh and Katy Hosbein for helpful conversations on review structures.
+
+References
+
+1. Schinske, J.; Tanner, K. Teaching More by Grading Less (or Differently). CBE Life Sci. Educ. 2014, 13, 159–166, doi:10.1187/cbe.cbe-14-03-0054.
+2. Nilson, L.B.; Stanny, C.J. Specifications Grading: Restoring Rigor, Motivating Students, and Saving Faculty Time; Reprint edition.; Stylus Publishing: Sterling, VA, 2014; ISBN 9781620362246.  
+3. Brookhart, S.M.; Guskey, T.R.; Bowers, A.J.; McMillan, J.H.; Smith, J.K.; Smith, L.F.; Stevens, M.T.; Welsh, M.E. A Century of Grading Research: Meaning and Value in the Most Common Educational Measure. Rev. Educ. Res. 2016, 86, 803–848, doi:10.3102/0034654316672069. 
+4. Seymour, E. Talking About Leaving: Why Undergraduates Leave The Sciences; 1st edition.; Westview Press: Boulder, CO, 1997; ISBN 9780813366425. 
+5. Bowen, R.S.; Cooper, M.M. Grading on a Curve as a Systemic Issue of Equity in Chemistry Education. J. Chem. Educ. 2022, 99, 185–194, doi:10.1021/acs.jchemed.1c00369. 
+6. Eyler, J.R. Failing Our Future; Johns Hopkins University Press: Baltimore, 2024; ISBN 9781421449944. 
+7. Hammoudi Halat, D.; Soltani, A.; Dalli, R.; Alsarraj, L.; Malki, A. Understanding and Fostering Mental Health and Well-Being among University Faculty: A Narrative Review. J. Clin. Med. 2023, 12, 4425, doi:10.3390/jcm12134425. 
+8. Smeding, A.; Darnon, C.; Souchal, C.; Toczek-Capelle, M.-C.; Butera, F. Reducing the Socio-Economic Status Achievement Gap at University by Promoting Mastery-Oriented Assessment. PLoS One 2013, 8, e71678, doi:10.1371/journal.pone.0071678. 
+9. Clark, D.; Talbert, R. Grading for Growth: A Guide to Alternative Grading Practices That Promote Authentic Learning and Student Engagement in Higher Education; Taylor & Francis, 2023; ISBN 9781000980790. 
+10. Leslie, P.; Lundblom, E. Specifications Grading: What It Is, and Lessons Learned. Semin. Speech Lang. 2020, 41, 298–309, doi:10.1055/s-0040-1713781. 
+11. Hackerson, E.L.; Slominiski, T.; Johnson, N.; Buncher, J.B.; Ismael, S.; Singelmann, L.; Leontyev, A.; Knopp, A.G.; McDarby, A.; Nguyen, J.J.; et al. Alternative Grading Practices in Undergraduate STEM Education: A Scoping Review. Disciplinary and Interdisciplinary Science Education Research 2024, 6, 1–20, doi:10.1186/s43031-024-00106-8. 
+12. Harrington, B.; Galal, A.; Nalluri, R.; Nasiha, F.; Vadarevu, A. Specifications and Contract Grading in Computer Science Education. In Proceedings of the Proceedings of the 55th ACM Technical Symposium on Computer Science Education V. 1; ACM: New York, NY, USA, March 7 2024. 
+13. Haddaway, N.R.; Page, M.J.; Pritchard, C.C.; McGuinness, L.A. PRISMA2020: An R Package and Shiny App for Producing PRISMA 2020-Compliant Flow Diagrams, with Interactivity for Optimised Digital Transparency and Open Synthesis. Campbell Syst. Rev. 2022, 18, e1230, doi:10.1002/cl.1230. 
+14. Earl, D. Two Years of Specifications Grading in Philosophy. Teach. Philos. 2021, doi:10.5840/teachphil20211118154. 
+15. Mendez, J. Work in Progress: Specifications Grading in Mechanical Engineering Design Courses. In Proceedings of the ASEE IL-IN Section Conference; ASEE, 2024. 
+16. Martin, K.M.; Fernandez, T.M.; Mangum, R. Work in Progress: Examining Engineering
+Seniors Students’ Perception of Justice and Fairness of Grading Practices. In Proceedings of the 2021 ASEE Virtual Annual Conference Content Access; ASEE Conferences: Virtual Conference, July 2021.
+
+17. Gargac, J. Incorporating Industry-Based Metrics into a Specifications Grading System for Capstone Assessment. In Proceedings of the Capstone design conference 2022; Capstone Design Community, 2022.
+
+18. Fernandez, T.; Martin, K.; Mangum, R.; Bell-Huff, C. Whose Grade Is It Anyway?: Transitioning Engineering Courses to an Evidence-Based Specifications Grading System. In Proceedings of the 2020 ASEE Virtual Annual Conference Content Access Proceedings; ASEE Conferences, 2020.
+
+19. Blodgett, B.J. Grading Matters in Theological Education. Teach. theol. relig. 2017, 20, 314–326, doi:10.1111/teth.12402.
+
+20. Dennen, V.; Bagdy, L. Shifting to Specifications Grading: Two Design Cases. In Proceedings of the TCC 2020 Conference Papers; 2020.
+
+21. Gay, J.L.; Poproski, R. Specifications Grading for Graduate Students: Motivated, Less Stressed, and Achieving in Public Health. Pedagogy in Health Promotion 2023, 1–7, doi:10.1177/23733799231198774.
+
+22. Hofmeister, E.H.; Fogelberg, K.; Conner, B.J.; Gibbons, P. Specifications Grading for Veterinary Medicine. J. Vet. Med. Educ. 2022, doi:10.3138/jvme-2021-0116.
+
+23. Hofmeister, E.H.; Fogelberg, K.; Conner, B.J.; Gibbons, P. Specifications Grading in a Cardiovascular Systems Course: Student and Course Coordinator Perspectives on the Impacts on Student Achievement. J. Vet. Med. Educ. 2022, doi:10.3138/jvme-2021-0115.
+
+24. Jones, P.A. Implementing Specifications Grading in MPA Courses: A Potential Strategy for Better Work-Life Balance. Journal of Public Affairs Education 2020, 1–17, doi:10.1080/15236803.2020.1773713.
+
+25. Quintana, R.; Quintana, C. When Classroom Interactions Have to Go Online: The Move to Specifications Grading in a Project-Based Design Course. Information and Learning Sciences 2020, 121, 525–532, doi:10.1108/ILS-04-2020-0119.
+
+26. Walden, P.R. Student Motivation, Anxiety and Pass/Fail Grading: A SoTL Project. Teaching and Learning in Communication Sciences & Disorders 2022, 6, 13, doi:10.30707/TLCSD6.1.1649037808.651639.
+
+27. Joseph, M.L.; Miller, S.W.; Diec, S.; Augustine, J.M. Successes and Challenges in Implementing Specifications Grading in Skills-Based Laboratory Courses: Experiences at Two Colleges of Pharmacy. Curr Pharm Teach Learn 2023, 15, 186–193, doi:10.1016/j.cplt.2023.02.025.
+
+28. Joshi, A. Assessing the Impact of Specifications Grading on a Data Visualization Course. In Proceedings of the 2023 IEEE Frontiers in Education Conference (FIE); IEEE, October 18 2023; Vol. 25, pp. 1–6.
+
+29. Dupree, L.H.; Augustine, J.M.; Miller, S.W. How Did We Get Here? Evolution of Specifications Grading in a Required Skills-Based Course Series. Curr. Pharm. Teach. Learn. 2024, 16, 102124, doi:10.1016/j.cplt.2024.102124.
+
+30. Tierney, J. Grade Insurance. SSRN Electron. J. 2023.
+
+31. Moster, C.A.; Zingales, S.K. Use of Specifications-Based Grading in an Online, Asynchronous Graduate Organic Chemistry Course. Front. Educ. 2024, 9, 1379216, doi:10.3389/feduc.2024.1379216.
+
+32. Santucci, A.; Golas, J.C. Grading for Learning at the University of Rhode Island. NEFDC Exchange 2023, 37, 7–12.
+
+33. Mendez, J. Standards-Based Specifications Grading in a Hybrid Course. In Proceedings of the 2018 ASEE Annual Conference & Exposition; June 23 2018.
+
+34. Houseknecht, J.B.; Bates, L.K. Transition to Remote Instruction Using Hybrid Just-in-Time Teaching, Collaborative Learning, and Specifications Grading for Organic Chemistry 2. J.
+Chem. Educ. 2020, 97, 3230–3234, doi:10.1021/acs.jchemed.0c00749.
+
+35. Elkins, D.M. Grading to Learn: An Analysis of the Importance and Application of Specifications Grading in a Communication Course. Kentucky Journal of Communication 2016, 35, 2016.
+
+36. Mendez, J. Development of a Hybrid Heat and Mass Transfer Course. In Proceedings of the ASME 2018 International Mechanical Engineering Congress and Exposition; American Society of Mechanical Engineers Digital Collection, January 15 2019.
+
+37. Shields, K.; Denlinger, K.; Webb, M. Not Missing the Point (s): Applying Specifications Grading to Credit-Bearing Information Literacy Classes. In The grounded instruction librarian: participating in the scholarship of teaching and learning; Mallon, M.N., Hays, L., Bradley, C., Huisman, R., Belanger, J., Eds.; Association of College and Research Libraries: Chicago, IL, 2019.
+
+38. Gestwicki, P. Godot Engine and Checklist-Based Specifications: Revising a Game Programming Class for Asynchronous Online Teaching. J. Comput. Sci. Coll. 2021, 37, 30–40.
+
+39. Gratwick, R.; Kinnear, G.; Wood, A.K. An Online Course Promoting Wider Access to University Mathematics. Proceedings of the British Society for Research into Learning Mathematics 2020, 40.
+
+40. Wasniewski, E.; Munro, T.; Tandon, T. Exploring Online Specifications Grading: An Undergraduate Course Case Study. In Proceedings of the EdMedia + Innovate Learning; Bastiaens, T.J., Ed.; Association for the Advancement of Computing in Education (AACE), July 6 2021; pp. 179–184.
+
+41. Evensen, H. Specifications Grading in General Physics and Engineering Physics Courses.; ASEE Conferences, August 23 2022.
+
+42. Gargac, J. Manufacturing Engagement: Improving Student Learning through Modifying Content Delivery and Assessment.; ASEE Conferences, August 23 2022.
+
+43. Dabney, B.W.; VanDerWoude, C.J. Implementing a Specifications Grading System in a Nursing Course. Nurse Educ. 2023, 48, 187–191, doi:10.1097/NNE.0000000000001372.
+
+44. Suresh, M.A. Challenges and Experiences in Implementing a Specifications Grading System in an Upper-Division Undergraduate Computer Networks Course. In Proceedings of the 2023 ASEE Annual Conference & Exposition; ASEE Conferences, June 25 2023.
+
+45. Closser, K.D.; Hawker, M.J.; Muchalski, H. Quantized Grading: An Ab Initio Approach to Using Specifications Grading in Physical Chemistry. J. Chem. Educ. 2024, 101, 474–482, doi:10.1021/acs.jchemed.3c00872.
+
+46. Kinnear, G.; Wood, A.K.; Gratwick, R. Designing and Evaluating an Online Course to Support Transition to University Mathematics. Int. J. Math. Educ. Sci. Technol. 2022, 53, 11–34, doi:10.1080/0020739x.2021.1962554.
+
+47. Johanesen, K.E.; Claiborne, L.L.; Falk, E.S.; Hubbard, K.P.; Kohfeld, K.E.; Nadin, E.S.; Schmidt, A.H. Common-Sense Teaching for the 2020s: Ungrading in Response to Covid-19 and beyond. J. Geosci. Educ. 2024, 72, 422–437, doi:10.1080/10899995.2023.2259784.
+
+48. Tsoi, M.Y.; Anzovino, M.E.; Erickson, A.H.; Forringer, E.R.; Henary, E. Variations in Implementation of Specifications Grading in STEM Courses. Georgia Journal of Science 2019, 77.
+
+49. Carlisle, S. Simple Specifications Grading. Problems, Resources, and Issues in Mathematics Undergraduate Studies 2020, 30, 926–951, doi:10.1080/10511970.2019.1695238.
+
+50. Ring, J. ConfChem Conference on Select 2016 BCCE Presentations: Specifications Grading in the Flipped Organic Classroom. J. Chem. Educ. 2017, 94, 2005–2006, doi:10.1021/acs.jchemed.6b01000.
+
+51. Biers, K. Decolonial and Feminist Course Design and Assessment in the First-Year French Curriculum. In Diversity and Decolonization in French Studies: New Approaches to
+52. McKnelly, K.J.; Morris, M.A.; Mang, S.A. Redesigning a “Writing for Chemists” Course Using Specifications Grading. J. Chem. Educ. 2021, 98, 1201–1207, doi:10.1021/acs.jchemed.0c00450.
+
+53. Yik, B.J.; Machost, H.; Streifer, A.C.; Palmer, M.S.; Morkowchuk, L.; Stains, M. Students’ Perceptions of Specifications Grading: Development and Evaluation of the Perceptions of Grading Schemes (PGS) Instrument. J. Chem. Educ. 2024, doi:10.1021/acs.jchemed.4c00698.
+
+54. Toledo, S.; Dubas, J.M. A Learner-Centered Grading Method Focused on Reaching Proficiency with Course Learning Outcomes. J. Chem. Educ. 2017, 94, 1043–1050, doi:10.1021/acs.jchemed.6b00651.
+
+55. Mirsky, G.M. Effectiveness of Specifications Grading in Teaching Technical Writing to Computer Science Students. J. Comput. Sci. Coll. 2018, 34, 104–110.
+
+56. Henriksen, M.; Katas, J.; Wentworth, M. Specifications-Based Grading Reduces Anxiety for Students of Ordinary Differential Equations. CODEE Journal 2020, 13, 1, doi:10.5642/codee.202013.01.01.
+
+57. Cosoroaba, E. Helping Students Write It Right: Instilling Good Report-Writing Habits in a Linear Circuit Lab Course. In Proceedings of the 2020 ASEE Virtual Annual Conference Content Access Proceedings; ASEE Conferences, 2020.
+
+58. Donato, J.J.; Marsh, T.C. Specifications Grading Is an Effective Approach to Teaching Biochemistry. J. Microbiol. Biol. Educ. 2023, 24, doi:10.1128/jmbev.e10236-22.
+
+59. Rupakheti, C.R.; Hays, M.; Mohan, S.; Chenoweth, S.; Stouder, A. On a Pursuit for Perfecting an Undergraduate Requirements Engineering Course. J. Syst. Softw. 2018, 144, 366–381, doi:10.1016/j.jss.2018.07.008.
+
+60. Blackstone, B.; Oldmixon, E. Specifications Grading in Political Science. Journal of Political Science Education 2019, 15, 191–205, doi:10.1080/15512169.2018.1447948.
+
+61. Howitz, W.J.; McKnelly, K.J.; Link, R.D. Developing and Implementing a Specifications Grading System in an Organic Chemistry Laboratory Course. J. Chem. Educ. 2021, 98, 385–394, doi:10.1021/acs.jchemed.0c00450.
+
+62. Lillard, A.S.; Taggart, J. Reimagining Assessment in a Large Lecture: An Alternative Approach Inspired by Thomas Jefferson and Maria Montessori. College Teaching 2022, 1–13, doi:10.1080/87567555.2022.2140097.
+
+63. Williams, K. Specifications-Based Grading in an Introduction to Proofs Course. PRIMUS 2018, 28, 128–142, doi:10.1080/10511970.2017.1344337.
+
+64. Stutzman, R.Y.; Race, K.H. EMRF: Everyday Rubric Grading. Math. Teach. 2004, 97, 34–39, doi:10.5951/mt.97.1.0034.
+
+65. Talbert, R. The EMRN Rubric.
+
+66. Vitale, S.E.; Concepción, D.W. Improving Student Learning with Aspects of Specifications Grading. Teach. Philos. 2021, 44, 29–57, doi:10.5840/teachphil2020121133.
+
+67. Johnson, S. An Alternative Grading Approach in Undergraduate Anatomy & Physiology Courses. HAPS Educ. 2023, 27, 99–108, doi:10.21692/haps.2023.017.
+
+68. Tamés, D. Implementation and Evaluation of Specifications Grading in a Video Production Course. Presented at the 75th University Film and Video Association (UFVA) Conference: Empowering Spaces, 2021.
+
+69. Hunter, R.A.; Pompano, R.R.; Tuchler, M.F. Alternative Assessment of Active Learning. In Active Learning in the Analytical Chemistry Curriculum; ACS Symposium Series; American Chemical Society, 2022; Vol. 1409, pp. 269–295 ISBN 9780841297722.
+
+70. Ludwigsen, D. Effective and Efficient Grading: Tips for Assessing Student Learning. Proc. Mtgs. Acoust. 2017, 30, 025001, doi:10.1121/2.0000535.
+
+71. Helmke, B.P. Specifications Grading in an Upper-Level BME Elective Course. In
+Proceedings of the ASEE Annual Conference & Exposition; ASEE Conferences, June 15 2019.
+
+72. Martin, L.J. Introducing Components of Specifications Grading to a General Chemistry I Course. In Enhancing Retention in Introductory Chemistry Courses: Teaching Practices and Assessments; ACS Symposium Series; American Chemical Society: Washington, DC, 2019; Vol. 1330, pp. 105–119 ISBN 9780841235298.
+
+73. Prasad, P.V. Using Revision and Specifications Grading to Develop Students’ Mathematical Habits of Mind. PRIMUS 2020, 1–18, doi:10.1080/10511970.2019.1709589.
+
+74. McKnelly, K.J.; Howitz, W.J.; Thane, T.A.; Link, R.D. Specifications Grading at Scale: Improved Letter Grades and Grading-Related Interactions in a Course with over 1,000 Students. J. Chem. Educ. 2023, 100, 3179–3193, doi:10.1021/acs.jchemed.4c00740.
+
+75. Kelz, J.I.; Uribe, J.L.; Rasekh, M.F.; Takahashi, G.R.; Gibson, W.S.; Link, R.D.; McKnelly, K.J.; Martin, R.W. Implementation of Specifications Grading in an Upper-Division Chemical Biology Lecture Course. The Biophysicist 2023, 4, 11–29, doi:10.35459/tbp.2022.000239.
+
+76. Rojas, C.; Quan, G.M. Mastery Grading in a Software Engineering Course. In Proceedings of the 2023 ASEE Annual Conference & Exposition; ASEE Conferences, June 25 2023.
+
+77. Saluga, S.J.; Burns, A.M.; Li, Y.; Nguyen, M.M.; Edwards, K.D. A Specifications-Graded, Spice-Themed, General Chemistry Laboratory Course Using an Argument-Driven Inquiry Approach. J. Chem. Educ. 2023, doi:10.1021/acs.jchemed.3c00433.
+
+78. Howitz, W.J.; Frey, T.; Saluga, S.J.; Nguyen, M.; Denaro, K.; Edwards, K.D. A Specifications-Graded, Sports-Drink-Themed General Chemistry Laboratory Course Using an Argument-Driven Inquiry Approach. J. Chem. Educ. 2023, 100, 672–680, doi:10.1021/acs.jchemed.3c00433.
+
+79. Cerkez, E.B. Application of Specifications Grading to an Analytical Chemistry Lab. J. Chem. Educ. 2024, 101, 4268–4275, doi:10.1021/acs.jchemed.4c00784.
+
+80. Brown, R.; Kennedy, T. Work in Progress: Differentiated Learning in a Specifications Grading Framework. In Proceedings of the 2022 ASEE Annual Conference & Exposition; ASEE Conferences, August 23 2022.
+
+81. Fierke, K.L. Utilizing Specification Grading in Sport Management Classes. Sport Manag. Educ. J. 2024, -1, 1–6, doi:10.1123/smej.2023-0018.
+
+82. Yang, M.A.; Korsnack, K. Pairing a Bioinformatics-Focused Course-Based Undergraduate Research Experience with Specifications Grading in an Introductory Biology Classroom. Biol. Methods Protoc. 2024, 9, bpae013, doi:10.1093/biometds/bpa013.
+
+83. Mio, M.J. Alternative Grading Strategies in Organic Chemistry: A Journey. Front. Educ. 2024, 5, 1400058, doi:10.3389/feduc.2024.1400058.
+
+84. Copp, D.A. Specifications Grading in an Undergraduate Engineering Dynamics Course. In Proceedings of the 2024 ASEE Annual Conference & Exposition; June 23 2024.
+
+85. Kiefer, S.F.; Earle, A.J. Work in Progress: Specifications Grading in a System Modeling Course. In Proceedings of the 2023 ASEE Annual Conference & Exposition; ASEE Conferences, June 25 2023.
+
+86. Hollinsed, W.C. Applying Innovations in Teaching to General Chemistry. In Increasing Retention of Under-Represented Students in STEM through Affective and Cognitive Interventions; ACS Symposium Series; American Chemical Society: Washington, DC, 2018; Vol. 1301, pp. 145–152 ISBN 9780841233652.
+
+87. Lovell, M.D. Board 44: Defining and Assessing Competencies in an Undergraduate Reinforced Concrete Design Course. In Proceedings of the 2018 ASEE Annual Conference & Exposition; ASEE Conferences, June 23 2018.
+
+88. Largent, D.L. Specifications Grading Meets Computer Science: Implementations in Skill- and Project-Based Courses. In Effective Alternative Assessment Practices in Higher Education; Tomlin, A.D., Nowik, C.M., Eds.; Research, Theory, and Practice Within Academic Affairs; Information Age Publishing: Greenwich, CT, 2024.
+89. Tuson, E.; Hickey, T. Mastery Learning and Specs Grading in Discrete Math. In Proceedings of the Proceedings of the 27th ACM Conference on Innovation and Technology in Computer Science Education Vol. 1; Association for Computing Machinery: New York, NY, USA, July 7 2022; pp. 19–25.
+
+90. Sanft, K.R.; Drawert, B.; Whitley, A. Modified Specifications Grading in Computer Science: Preliminary Assessment and Experience across Five Undergraduate Courses. J. Comput. Sci. Coll. 2021, 36, 34–46.
+
+91. Mendez, J. Standards-Based Specifications Grading in Thermodynamics. In Proceedings of the 2018 ASEE Annual Conference & Exposition; 2018.
+
+92. Pascal, J.; Vogel, T.J.; Wagstrom, K. Grading by Competency and Specifications: Giving Better Feedback and Saving Time. In Proceedings of the 2020 ASEE Virtual Annual Conference Content Access; ASEE Conferences, June 22 2020.
+
+93. Trachslser, T.A.; Morris, E.; Mahoney, T.Q. Specifications Grading in the Sport Management Classroom: Breakdown of the System and Reflections Upon Implementation With Relation to Outcomes Assessment. Sport Management Education Journal 2023, -1, 1–8, doi:10.1123/smej.2022-0032.
+
+94. Noell, S.L.; Rios Buza, M.; Roth, E.B.; Young, J.L.; Drummond, M.J. A Bridge to Specifications Grading in Second Semester General Chemistry. J. Chem. Educ. 2023, doi:10.1021/acs.jchemed.2c00731.
+
+95. Mendez, J. Specifications Grading in Undergraduate Fluid Mechanics. In Proceedings of the 2023 IL-IN Section Conference; December 31 2023.
+
+96. Tuson, E.; Hickey, T. Mastery Learning with Specs Grading for Programming Courses. In Proceedings of the Proceedings of the 54th ACM Technical Symposium on Computer Science Education V. 1; Association for Computing Machinery: New York, NY, USA, March 3 2023; pp. 1049–1054.
+
+97. LeHew, M. Specifications Grading: Experimenting with a New Form of Student Assessment. Journal for Academic Excellence 2019, 6, 12–15.
+
+98. Anzovino, M.E.; Behmke, D.; Villanueva, O.; Woodbridge, C.M. Specifications Grading and COVID. In ACS Symposium Series; ACS symposium series. American Chemical Society; American Chemical Society: Washington, DC, 2023; pp. 89–105 ISBN 9780841297029.
+
+99. Mattfeld, R.S. Improving Student Motivation Through an Alternative Grading System. J. Comput. Sci. Coll. 2023, 39, 86–95.
+
+100. Katzman Shoshana D.; Hurst-Kennedy Jennifer; Barrera Alessandra; Talley Jennell; Javazon Elisabeth; Diaz Mary; Anzovino Mary E. The Effect of Specifications Grading on Students’ Learning and Attitudes in an Undergraduate-Level Cell Biology Course. J. Microbiol. Biol. Educ. 2021, 22, e00200–e00221, doi:10.1128/jmbev.e00200-21.
+
+101. Bunnell, B.; LeBourgeois, L.; Doble, J.; Gute, B.; Wainman, J.W. Specifications-Based Grading Facilitates Student–instructor Interactions in a Flipped-Format General Chemistry II Course. J. Chem. Educ. 2023, 100, 4318–4326, doi:10.1021/acs.jchemed.3c00473.
+
+102. Ahlberg, L. Organic Chemistry Core Competencies: Helping Students Engage Using Specifications. In Engaging Students in Organic Chemistry; ACS Symposium Series; American Chemical Society, 2021; Vol. 1378, pp. 25–36 ISBN 9780841298446.
+
+103. Mirth, J.A. Applying Lean Thinking to the Structure and Delivery of a Kinematics Course. In Proceedings of the 2017 ASEE Annual Conference & Exposition; 2017.
+
+104. Reck, R.M. Adopting Alternative Grading in an Upper-Level Laboratory Course in Bioengineering. In Proceedings of the 2022 IEEE Frontiers in Education Conference (FIE); October 2022; pp. 1–5.
+
+105. Pope, L.; Parker, H.B.; Ultsch, S. Assessment of Specifications Grading in an Undergraduate Dietetics Course. J. Nutr. Educ. Behav. 2020, 52, 439–446, doi:10.1016/j.jneb.2019.07.017.
+
+106. Winstone, N.; Bourne, J.; Medland, E.; Niculescu, I.; Rees, R. “Check the Grade, Log
+Out": Students’ Engagement with Feedback in Learning Management Systems. *Assessment & Evaluation in Higher Education* **2021**, *46*, 631–643, doi:10.1080/02602938.2020.1787331.
+
+107. Fredricks, J.A.; Wang, M.-T.; Schall Linn, J.; Hofkens, T.L.; Sung, H.; Parr, A.; Allerton, J. Using Qualitative Methods to Develop a Survey Measure of Math and Science Engagement. *Learning and Instruction* **2016**, *43*, 5–15, doi:10.1016/j.learninstruc.2016.01.009.
+
+108. Espasa, A.; Guasch, T.; Mayordomo, R.M.; Martinez-Melo, M. Prior Experience with Online Feedback: Its Influence on Students’ Engagement. *Distance Education* **2022**, *43*, 444–465, doi:10.1080/01587919.2022.2088480.
+
+109. Streifer, A.C.; Palmer, M.S. Is Specifications Grading Right for Me?: A Readiness Assessment to Help Instructors Decide. *College Teaching* **2021**, *1*–*8*, doi:10.1080/87567555.2021.2018396.
+
+110. Villalobos, C.; Garza, G.; Setayesh, S.; Fernandez, L.; Balogh, A.; Serbin, K.S.; Huber, T.J. Our Never-Ending Pathway to Innovate Calculus 1: Course Coordination and Active Learning to Specifications Grading and Growth Mindset. *PRIMUS* **2024**, *1*–*17*, doi:10.1080/10511970.2024.2352874.

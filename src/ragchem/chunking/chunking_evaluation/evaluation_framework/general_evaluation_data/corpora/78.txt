@@ -1,0 +1,148 @@
+A \([\text{Cu}^{\text{II}}]_{24}\) truncated octahedron and its \([\text{Cu}^{\text{II}}]_8\) building block
+
+Lucinda R. B. Wilson,∗ Gary S. Nichol,∗ Scott J. Dalgarno∗b and Euan K. Brechin∗a
+
+∗EaStCHEM School of Chemistry, The University of Edinburgh, David Brewster Road, Edinburgh, EH9 3FJ, Scotland, UK. Email. ebrechin@ed.ac.uk
+
+ Institute of Chemical Sciences, Heriot-Watt University, Riccarton, Edinburgh, EH14 4AS, UK. E-mail: S.J.Dalgarno@hw.ac.uk
+
+Abstract
+
+Reaction of \(\text{CuCl}_2\cdot2\text{H}_2\text{O}\) with \(p\)-tert-butylthiacalix[4]arene (H\(_4\)TC[4]A) affords a \([\text{Cu}^{\text{II}}]_{24}\) cage whose metallic skeleton conforms to a truncated octahedron in which the metal ions are strongly antiferromagnetically coupled. A structurally related \([\text{Cu}^{\text{II}}]_8\) cluster can be made using CuBr\(_2\) in an otherwise identical reaction.
+
+Introduction
+
+Polymetallic complexes of Cu\(^{\text{II}}\) represented the gateway to the field of molecular magnetism, beginning with studies of copper acetate\(^1\) in the 1950s through to the development of magneto-structural correlations in hydroxide- and halide-bridged dimers in the 1970s and 80s.\(^2\) Later research revealed the presence of spin frustration in equilateral Cu\(^{\text{II}}\) triangles and prompted detailed studies into the mechanisms of magnetic exchange.\(^3\) Indeed, high symmetry molecules are often ideal model complexes to examine geometric spin-frustration, and for larger nuclearity cages this can lead to some exotic behaviour including enhanced ground-state degeneracy, low-lying singlets, non-collinear ground states and unusual magnetisation plateaus/jumps.\(^4\) The synthesis of high symmetry molecules is however not trivial.\(^5\) One approach is to build small nuclearity, high symmetry complexes such as triangles or squares, since these are the building blocks of certain Archimedean and Platonic (or Keplerate) polyhedra, and assemble them into larger species often at high temperatures and pressures.\(^6\) An additional challenge comes in designing an organic ligand capable of stabilising such building blocks, and an excellent candidate is \(p\)-tert-butylthiacalix[4]arene (H\(_4\)TC[4]A, Fig. 1). This versatile molecule was first synthesised in 1997 and has since proved to be a highly successful platform for a breadth of supramolecular and coordination chemistry.\(^7\)-\(^13\) In the latter area, the \([\text{S}_4\text{O}_4]\) donor atom set typically leads to the formation of square \([\text{M}_4]\) building blocks that can self-assemble to form aesthetically pleasing molecular cages exhibiting a variety of nuclearities and topologies.\(^14\) This versatility is particularly appealing to chemists interested in constructing high nuclearity cages of paramagnetic metal ions with a view to developing magneto-structural correlations and/or uncovering novel magnetic phenomena. Surprisingly however, a search of the Cambridge Structural Database for TC[4]A-supported Cu\(^{\text{II}}\) cages reveals just five hits: four \([\text{Cu}_4]\) squares and one \([\text{Cu}_{13}\text{Na}_2]\) cluster.\(^15\) Herein, we outline the synthesis, structure and magnetic behaviour of a \([\text{Cu}^{\text{II}}]_{24}\) cage and a structurally related \([\text{Cu}^{\text{II}}]_8\) building block.
+
+![Fig. 1. The structure of \(p\)-tert-butylthiacalix[4]arene (H\(_4\)TC[4]A). Colour code: C = grey, O = red, S = yellow, H = white. Only the phenolic H atoms are shown.](https://doi.org/10.26434/chemrxiv-2025-l2bk4 ORCID: https://orcid.org/0000-0002-9365-370X Content not peer-reviewed by ChemRxiv. License: CC BY 4.0)
+Results and Discussion
+
+Reaction of CuCl₂·2H₂O with H₄TC[4]A in a basic dmf/MeOH solution (see ESI for full details) leads to the formation of brown single crystals after 3 days, upon slow evaporation of the mother liquor. Crystals of [Cu₂₆(H₂O)₆]₄[Cu₄-TC[4]A]₄(CO₃)₂Cl₂(dmf)₂·22dmf (1·22dmf) were found to be in a triclinic cell and structure solution was performed in the P-1 space group (see SI; Fig. S1 shows the PXRD). The asymmetric unit (ASU) contains two distinct half clusters (i.e. the unit cell contains two [Cu₂₆] clusters) and symmetry expansion affords the cage shown in Fig. 2. The metallic skeleton (Fig. 3) of 1 describes a [Cu₆²₄] truncated octahedron. The fully deprotonated TC[4]A ligands sit atop the six square faces, bonding to the four Cu ions through four µ-O atoms and four terminal S atoms, as expected. Below the square lies a µ₂-Cl ion, creating the [Cu₆(TC[4]A)Cl] building block. Six of these building blocks are self-assembled into the [Cu₂₆] unit by a disordered combination of six µ₆-Co₃²⁻ ions and six µ-OH⁺ ions (see the CIF file/SI for full details), which lie in the hexagonal faces of the truncated octahedron. The carbonate anions originate from CO₂ fixation. Perhaps counter-intuitively, the deliberate addition of CO₂⁻ ions to the reaction mixture, in the form of Na₂CO₃/NaHCO₃, prevents crystal formation.
+
+Fig. 2. Different views of the molecular structure of complex 1. Colour code: Cu = pale blue, O = red, S = yellow, Cl = green, C = grey. 'Bu groups, H atoms and solvent molecules of crystallisation are omitted for clarity.
+
+The Cu ions are all six coordinate and in Jahn-Teller (JT) distorted {CuO₆SCl} environments with the JT axis directed along the S-Cu-Cl vector (Cu-O, ~1.60-2.10 Å, Cu-S, ~2.59-2.63 Å, Cu-Cl, ~2.65-2.67 Å). A dmf molecule sits in each of the calixarene cavities, although two were handled using a solvent mask during structure refinement. The self-assembly of the six [Cu(TC[4]A)Cl] moieties gives rise to a small encapsulated space at the centre of the [Cu₂₆] cluster that is occupied by three disordered H₂O molecules. These are H-bonded to both the µ₄-Cl ions and the O-atoms of the µ₆-Co₃²⁻ / µ-OH ions (O···O/Cl ≤ 3 Å) that line the interior wall of the cage. Closest intermolecular interactions occur between the 'Bu groups of the TC[4]A ligands (C···C ≥ 3.5 Å) and between the 'Bu groups and the dmf solvate (C···O, ≥ 3.7 Å). Examination of the extended structure (Fig. S2) confirms that the cluster cores are very well isolated from symmetry equivalents due to the TC[4]A ligands, with the closest Cu···Cu distance found being >12.6 Å.
+
+We note that TC[4]A-stabilised truncated octahedra are known for Co⁶⁺, Ni²⁺ and Mn⁴⁺, but 1 represents the first example obtained with Cu¹⁺. Interestingly a [Cu¹²₆] cage was recently synthesised using tetramercaptotetraphia[4]arene, which suggests that control over metal oxidation state can be
+achieved through choice/variation of lower rim substituent, or through the use of different calix[n]arenes within the same reaction, routes not yet exploited.
+
+![Fig. 3. A) Bonding modes of the TC[4]A ligand / Cl ion and the formation of the [Cu4(TC[4])Cl] building block. B) Metallic skeleton of 1 highlighting the truncated octahedron topology. C-D) Different views of the magnetic core of 1. Colour code: Cu = pale blue, O = red, S = yellow, Cl = green, C = grey. 'Bu groups, H-atoms and solvents molecules of crystallisation are omitted for clarity.]
+
+A [Cu8] cluster representing approximately one third of the structure of 1 can be isolated by replacing CuCl2·2H2O with CuBr2 in an otherwise identical reaction. Crystals of [Cu8(μ4-TC[4]A)(μ4-CO3)(μ-\text{OH})(\text{Br})2(dmf)3(H2O))·2dmf (2·2dmf, please see SI; Fig. S1 shows the PXRD) were in an orthorhombic cell with structure solution performed in the space group \text{Pbca}; the ASU contains the whole formula (Fig. 4). The structure of 2 describes two [Cu4(TC[4]A)\text{Br}] metallooligands bridged by one [CO3]2- ligand and one OH- ion. Here, each of the [Cu4] squares are asymmetric, with one Cu-Br bond length in the range 2.43-2.44 Å and three in the range 2.98-3.08 Å. As a result, the Cu⋯Cu distances are also asymmetric, and in the range ~3.21-3.45 Å. The [CO3]2- ion (which as with 1 originates from CO2 fixation) acts as a \text{µ}_4-bridge between the two [Cu4] squares, linking Cu1 and Cu4 on one square with Cu6 and Cu7 on the second square. Cu4 and Cu7 are also bridged by the sole \text{µ}-OH- ion (Cu4-O12-Cu7, ~105°) which itself is H-bonded to the terminal Br ion (Br6) attached to Cu8 with 50% occupancy (O(H)⋯Br, ~3.15 Å). Charge-balance is afforded through the 50% occupancy of another terminal Br ion (Br5) attached to Cu3, but at an angle that does not allow for H-bonding.
+with the OH ion. The remaining coordination sites on the Cu ions are filled with a dmf molecule (Cu1, Cu3, Cu6), a H₂O molecule (Cu8), and a terminal Br ion with full occupancy (Cu2, Cu5). The Cu ions adopt four different geometries/coordination spheres. Cu3 and Cu8 are five-/six-coordinate as the Br ion is disordered across the two positions and thus have distorted square pyramidal/octahedral (CuO₄Br₁S) geometries. Cu2 and Cu5 are five-coordinate and are in distorted square pyramidal {CuO₂Br₂S} geometries, and Cu1/Cu4/Cu6/Cu7 are all six-coordinate and in distorted octahedral {CuO₄Br₅} geometries. In each case the JT axis of the Cu²⁺ ion lies along the S-Cu-Br vector. A molecule of dmf occupies each TC[4]A cavity. Deliberate introduction of CO₃²⁻ ions to the reaction mixture, in the form of Na₂CO₃/NaHCO₃ results in the formation of insoluble powder.
+
+Examination of the extended structure of 2 reveals that symmetry equivalent clusters pack to form a bi-layer type structure (Fig. S3). This type of self-assembled bi-layer structure is commonly observed in a variety of calixarene solvates and coordination compounds in which the ligands are not forced to pack in a parallel manner, e.g. as in the structure of 1. The result of this is that the closest crystallographically unique Cu···Cu distance between neighbouring clusters is found to be significantly shorter than in 1, in this case at ~8.4 Å as shown in Fig. S3.
+
+Dc magnetic susceptibility data were measured on powdered polycrystalline samples of 1-2 in the T = 300-2.0 K temperature range, in a field of B = 0.1 T (Fig. S5). The χT values of 1/2 at 300 K are 4.29/2.49 cm³ K mol⁻¹, both well below the Curie constant expected for 24/8 uncoupled S = ½ ions (9/3 cm³ K mol⁻¹ for g = 2.00). As the temperature is decreased the value of χT decreases rapidly and reaches a value of 0 cm³ K mol⁻¹ at T = 15/5 K in both cases. This behaviour is clearly indicative of very strong antiferromagnetic exchange between neighbouring Cu²⁺ ions in both 1 and 2, and the presence of well isolated diamagnetic ground states, as corroborated by magnetisation data (Fig. S4).
+
+The presence of two different clusters of 1 in the unit cell, the disordered [CO₃]/[OH] and a total of twenty four Cu²⁺ ions per cluster poses some problems (over-parameterisation, computational limits) for modelling the magnetic behaviour. In order to overcome these issues, we have constructed three [Cu₁₂] model compounds (Models 1-3, Fig. S5) that describe half the cluster, and assume the presence of not more than three distinct exchange interactions based on the different bridging atoms and angles present. These are J₁ = Cu-O/Cl-Cu along the sides of the square faces (Cu-O-Cu = ~109-112°, Cu-Cl-Cu = ~75°); J₂ = Cu-Cl-Cu across the diagonal of the square faces (Cu-Cl-Cu = ~118°); and J₃ = Cu-O-Cu along the edges of hexagonal faces (Cu-Ohydroxide/Cu = ~94°, Cu-Ocarbonate/Cu = ~120°) through the disordered OH/CO₃ bridges. We ignore any diagonal interactions across the face of the hexagon through the three atom Cu-O-C-O-Cu carbonate bridges.
+\[ \hat{H} = \mu_B \sum_i g_i \hat{S}_i - 2 \sum_{i,j \neq i} J_{ij} \hat{S}_i \cdot \hat{S}_j \]  
+
+(1)
+
+The best fit parameters using these models and spin-Hamiltonian (1), where the indices refer to the constituent Cu$^{\text{II}}$ ions, $\mu_B$ is the Bohr magneton, $g$ is the $g$-factor fixed at $g = 2.00$, $\hat{S}$ is a spin operator and $J_{ij}$ is the pairwise isotropic exchange interaction parameter, are collected in Fig. S4. What is clear is that each model matches the experimental data (Fig. S5, Fig. S6) well but does so with different sets of $J$ values. In other words, there is no unique fit of the susceptibility data and we can only conclude that the $J$ values in 1 range between $-56 < J < -139 \text{ cm}^{-1}$. We disregard Model 2 on account of the erroneously large $J_2$ value. Models based on just 2 $J$ values led to poorer fits and/or erroneously large $J$ values.
+
+The data for 2 can fitted using the model shown in Fig. S7, which contains two $J$ values, one within each [Cu$_4$] square ($J_1 = \text{Cu-O/Br-Cu}$), and one between the two squares through the two single O-atom bridges ($J_2 = \text{Cu-O}_{\text{CO}_3/\text{OH-}-\text{Cu}}$). The best fit parameters are $J_1 = -98.6 \text{ cm}^{-1}$ and $J_2 = -40.6 \text{ cm}^{-1}$, with $g = 2.00$. The $J$ values obtained for 1 and 2 are in accordance with previous magneto-structural correlations developed for O-/Cl-bridged Cu$^{\text{II}}$ dimers with similar Cu$^{\text{II}}$-O/Cl-Cu angles.$^1$-$^2$
+
+In conclusion, reaction of CuCl$_2$·2H$_2$O or CuBr$_2$ with H$_4$TC[4]A in basic dmf/MeOH solutions affords [Cu$^{\text{II}}$_{24}] and [Cu$^{\text{II}}$_{8}] clusters, respectively. The former possesses a metallic skeleton conforming to a truncated octahedron containing six [Cu$_4$(TC[4]A)] metalloligands, and the latter a dimer of [Cu$_4$(TC[4]A)] squares. In each case the self-assembly process has been facilitated by the presence of carbonate ions, originating from the fixation of CO$_2$. Both 1 and 2 are novel structure types in Cu-TC[4]A coordination chemistry, the former joining the family of known TC[4]A-supported [M$_{24}$] cages of Ni$^{\text{II}}$, Co$^{\text{II}}$ and Mn$^{\text{II}}$. Surprisingly, 1 and 2 are just the sixth and seventh known polymetallic Cu-TC[4]A clusters, with 1 being by far the largest yet reported. Given the clear affinity between M$^{\text{II}}$ ions and TC[4]A, one would expect many more such compounds await discovery. Magnetic susceptibility measurements reveal the presence of very strong antiferromagnetic interactions between neighbouring Cu$^{\text{II}}$ ions in 1 and 2, resulting in well isolated $S = 0$ ground states in both cases.
+
+![Figure 5](https://example.com/data/figure5.png)
+
+**Fig. 5.** Experimental $\chi T$ versus $T$ data for 1 (o) and 2 (□) measured in the $T = 300 - 2.0 \text{ K}$ temperature range in an applied field, $B = 0.1 \text{ T}$. The experimental data for 1 is divided by two and modelled using spin-Hamiltonian (1) and Model 1 shown in Fig. S5. The solid red lines are the best fits to the experimental data. See text for details.
+Author Contributions
+
+LRBW synthesised and characterised the complexes. SJD/GSN collected/solved the XRD data. EKB and SJD conceived the idea. All authors contributed to the writing/editing of the manuscript.
+
+Conflicts of interest
+
+There are no conflicts to declare.
+
+Acknowledgements
+
+EKB thanks the Leverhulme Trust (RPG-2021-176).
+
+Notes and references
+
+1. B. Bleaney and K. D. Bowers, Proc. R. Soc. London, 1952, A214, 451-465.
+
+2. a) W. H. Crawford, H. W. Richardson, J. R. Wasson, D. J. Hodgson and W. E. Hatfield, Inorg. Chem., 1976, 15, 2107-2110; b) W. E. Marsh, K. C. Patel, W. E. Hatfield and D. J. Hodgson, Inorg. Chem., 1983, 22, 511-515.
+
+3. S. Ferrer, F. Lloret, E. Pardo, J. M. Clemente-Juan, M. Liu-González and S. García-Granda, Inorg. Chem., 2012, 51, 985–1001; b) M.-A. Bouammali, N. Suaud, N. Guihéry and R. Maurice, Inorg. Chem., 2022, 61, 12138–12148.
+
+4. J. Schnack, Dalton Trans., 2010, 39, 4677-4686.
+
+5. M. A. Palacios, E. Moreno Pineda, S. Sanz, R. Inglis, M. B. Pitak, S. J. Coles, M. Evangelisti, H. Nojiri, C. Heesing, E. K. Brechin, J. Schnack and R. E.P. Winpenny, Chem. Phys. Chem., 2016, 17, 55–60.
+
+6. L. R. B. Wilson, M. Coletta, M. Evangelisiti, S. Piligkos, S. J. Dalgarno and E. K. Brechin, Dalton Trans., 2022, 51, 4213-4226.
+
+7. N. Iki, (2016). Thiacyclixarenes. In: Neri, P., Sessler, J., Wang, MX. (eds) Calixarenes and Beyond. Springer, Cham.
+
+8. T. Sone, Y. Ohba, K. Moriya, H. Kumada and K. Ito, K. Tetrahedron, 1997, 53, 10689–10698.
+
+9. H. Kumagai, M. Hasegawa, S. Miyanari, Y. Sugawa, Y. Sato, T. Hori, S. Ueda, H. Kamiyama and S. Miyan, Tetrahedron Lett., 1997, 38, 3971–3972.
+
+10. N. Morohashi, F. Narumi, N. Iki, T. Hattori and S. Miyan, Chem. Rev., 2006, 106, 5291–5316.
+
+11. R. Kumar, Y. O. Lee, V. Bhalla, M. Kumar and J. S. Kim, Chem. Soc. Rev., 2014, 43, 4824-4870.
+
+12. M. Yamada, M. R. Gandhi, U. Maheswara, R. Kunda, F. Hamada, J. Incl. Phenom. Macrocycl. Chem., 2016, 85, 1–18.
+
+13. Y. Bi, S. Du and W. Liao, Coord. Chem. Rev., 2014, 276, 61-72.
+
+14. See for example: a) A. Bilyk, A. K. Hall, J. M. Harrowfield, M. W. Hosseini, B. W. Skelton and A. H. White, Inorg. Chem., 2001, 40, 672–686; b) A. Bilyk, J. W. Dunlop, R. O. Fuller, A. K. Hall, J. M. Harrowfield, M. W. Hosseini, G. A. Koutsantonis, I. W. Murray, B. W. Skelton, A. N. Sobolev, R. L. Stamps and A. H. White, Eur. J. Inorg. Chem., 2010, 2127–2152.
+
+15. a) A. Bilyk, J. W. Dunlop, R. O. Fuller, A. K. Hall, J. M. Harrowfield, M. W. Hosseini, G. A. Koutsantonis, I. W. Murray, B. W. Skelton, R. L. Stamps and A. H. White, Eur. J. Inorg. Chem., 2010, 2106–02126; b) G. Mislin, E. Graf, M. W. Hosseini, A. Bilyk, A. K. Hall, J. M. Harrowfield, B. W. Skelton, A. H. White, Chem. Commun., 1999, 373-374; c) Y. Bi, W. Liao, X. Wang, R. Deng and H. Zhang, Eur. J. Inorg. Chem., 2009, 4989-4994; d) C. Zhang, Z. Wang, W.-D. Si, L. Wang, J.-M. Dou, C.-H. Tung and D. Sun., ACS Nano, 2022, 6, 9598-9607
+
+https://doi.org/10.26434/chemrxiv-2025-l2bk4 ORCID: https://orcid.org/0000-0002-9365-370X Content not peer-reviewed by ChemRxiv. License: CC BY 4.0
+16. a) M. Liu, W. Liao, C. Hu, S. Du and H. Zhang, *Angew. Chem. Int. Ed.*, 2012, **51**, 1585–1588; b) K. Xiong, F. Jiang, Y. Gai, D. Yuan, L. Chen, M. Wu, K. Sua and M. Hong, *Chem. Sci.*, 2012, **3**, 2321–2325; c) K. Su, F. Jiang, J. Qian, Y. Gai, M. Wu, S. M. Bawaked, M. Mokhtar, S. A. Al-Thabaiti and M. Hong, *Cryst. Growth Des.*, 2014, **14**, 3116–3123; d) K.-C. Xiong, F.-L. Jiang, Y.-L. Gai, D.-Q. Yuan, D. Han, J. Ma, S.-Q. Zhang and M. C. Hong, *Chem. Eur. J.*, 2012, **18**, 5536 – 5540.
+
+17. N. Frank, A. Dallmann, B. Braun-Cula, C. Herwig and C. Limberg, *Angew. Chem. Int. Ed.*, 2020, **59**, 6735–6739.
+
+18. See for example: a) K. Su, F. Jiang, J. Qian, M. Wu, K. Xiong, Y. Gai and M. Hong, *Inorg. Chem.*, 2013, **52**, 3780-3786; b) D. Yuan, W.-X. Zhu, S. Ma, X. Yan, *J. Mol. Struct.*, 2002, **616**, 241-246; c) N. Morohashi, K. Nanbu, A. Tonosaki and T. Hattori, *CrystEngComm.*, 2015, **17**, 4799-4808.
+Experimental procedures
+
+Synthesis of 1
+
+H₄TC[4]A (0.225 g, 0.312 mmol) and CuCl₂·2H₂O (0.213 g, 1.248 mmol) were dissolved in a 1:1 dmf/MeOH mixture (24 mL) and stirred for 10 minutes. NEt₃ (0.2 mL, 1.43 mmol) was added and the resultant brown solution stirred for 2 hours. After filtration, the solution was allowed to evaporate slowly to afford crystals of 1 in 17.2% yield after 3 days. Elemental analysis (%) calculated for 1: C, 46.33; H, 4.59; N, 1.23. Found: C, 46.32; H, 4.44, N, 0.92.
+
+Synthesis of 2
+
+H₄TC[4]A (0.225 g, 0.312 mmol) and CuBr₂ (0.279 g, 1.248 mmol) were dissolved in a 1:1 dmf/MeOH mixture (20 mL) and stirred for 10 minutes. NEt₃ (0.2 mL, 1.43 mmol) was added and the resultant brown solution stirred for 2 hours. After filtration, the solution was allowed to evaporate slowly to afford crystals of 2 in 15% yield after 3 days. Elemental analysis (%) calculated for 2: C, 40.69; H, 4.25; N, 1.58. Found: C, 40.43; H, 4.46, N, 2.04.
+
+Single crystal X-ray diffraction
+
+A suitable crystal of 1 with dimensions 0.12 × 0.14 × 0.20 mm³ was selected and mounted on a loop in Paratone oil on a Bruker D8 diffractometer. The crystal was kept at a steady T = 100(2) K during data collection. The structure was solved with the ShelXT 2018/2 solution program using dual methods and by using Olex2 1.5-beta as the graphical interface. The model was refined with ShelXL 2014/7 using full matrix least squares minimisation on F². Crystal Data for 1 (CCDC 2417304). C₃₂₅H₄₄₈Cl₆Cu₂₂N₁₇O₁₈S₂₄, Mᵣ = 8478.69, triclinic, P-1 (No. 2), a = 22.2855(4) Å, b = 22.2953(3) Å, c = 40.7937(7) Å, α = 75.7320(1) °, β = 84.1880(1) °, γ = 89.7150(10) °, V = 19538.46(6) Å³, T = 100(2) K, Z = 2, μ(Cu Kα) = 4.984, 46220 reflections measured, 46220 unique (twin refinement) which were used in all calculations. The final wR² was 0.3137 (all data) and R₁ was 0.1003 (I≥2s(I)). The structure of 1 showed significant disorder that was handled using partial occupancies and a range of restraints. Disorder was present in upper-rim p-tert-butyl groups of the some TC[4]A ligands, bridging carbonates / hydroxides, encapsulated hydroxides, and dmf of crystallisation. The latter were handled with the use of a solvent mask as it was not possible to model all of the disorder, noting that the structure was already challenging with a large number of non-H atoms (~300) in the ASU. The data were collected several times but showed twinning in all cases. This was handled using TWINABS (2012/1) and resulted in the assignment of all major peaks to a sensible model, affording a reasonable agreement index irrespective of these collective challenges.
+
+A suitable crystal of 2 with dimensions 0.14 × 0.09 × 0.03 mm³ was selected and mounted on a MITIGEN holder in Paratone oil on a Rigaku Oxford Diffraction SuperNova diffractometer. The crystal was kept at a steady T = 200.01(10) K during data collection. The structure was solved with the ShelXT 2018/2 solution.
+program using dual methods and by using Olex2 1.5-beta as the graphical interface. The model was refined with ShelXL 2018/3 using full matrix least squares minimisation on $F^2$.\textsuperscript{1-3} Crystal Data for 2 (CCDC 2417305). C\textsubscript{96}H\textsubscript{126}Br\textsubscript{5}Cu\textsubscript{8}N\textsubscript{5}O\textsubscript{18}S\textsubscript{8}, $M_r = 2802.36$, orthorhombic, $Pbca$ (No. 61), $a = 23.4990(4)$ Å, $b = 25.0057(5)$ Å, $c = 43.0467(8)$ Å, $\alpha = \beta = \gamma = 90^\circ$, \(V = 25294.6(8)\) \(\text{Å}^3\), $T = 200.01(10)$ K, $Z = 8$, $Z' = 1$, $\mu(\text{Cu K\alpha}) = 4.984$, 177307 reflections measured, 13238 unique ($R_{int} = 0.1074$) which were used in all calculations. The final $wR_2$ was 0.2607 (all data) and $R_1$ was 0.0906 ($I\geq 2s(I)$).
+
+**Powder X-ray diffraction**
+
+Diffraction data for compounds 1-2 were collected on polycrystalline powders using a Bruker D8 ADVANCE with Cu radiation at 40 kV, 40 mA and a Johansson monochromator, 2 mm divergence slit and 2.5 degree Soller slits on the incident beam side, LynxEye detector and Bruker DIFFRAC software. Diffraction data were measured from $2\theta = 2.5^\circ - 30^\circ$; step size, 0.0101°. Freshly prepared crystalline powders were loaded into borosilicate capillaries with a 0.7 mm inside diameter and measured while spinning.
+
+**Magnetometry**
+
+Magnetic susceptibility and magnetisation data were collected on freshly prepared polycrystalline powders of 1-2 on a Quantum Design Dynacool PPMS equipped with a 9 T magnet in the temperature and field ranges, $T = 300 - 2.0$ K, $B = 0.1$ T and $T = 2 - 10$ K, $B = 0.5 - 9.0$ T, respectively. Samples were placed into a Quantum Design VSM Powder Sample Holder (P125E) with eicosane present and then transferred to a PPMS brass half-tube sample holder. Diamagnetic corrections from the holders and eicosane were applied. Diamagnetic corrections were applied to the observed paramagnetic susceptibilities using Pascal’s constants.
+Figure S1. Powder X-ray diffraction of 1 (top) and 2 (bottom) showing the experimental (black) and simulated (red) data.
+
+Figure S2. Extended structure of 1 showing (A) packing of clusters in a plane with TC[4]A ligands present, and (B) symmetry equivalent cages in the unit cell with an indication of closest Cu···Cu contact as a red double-headed arrow. H atoms, tBu groups and dmf are omitted for clarity in A.
+**Figure S3.** A $bc$ cross-section of the extended structure of 2 showing a bi-layer type assembly and closest Cu···Cu contact between neighbouring clusters as a red double-headed arrow. H atoms, ligated dmf and dmf of crystallisation are omitted for clarity.
+
+**Figure S4.** Magnetisation data for 1 (left) and 2 (right) collected in the $T = 2.0-10$ K, $B = 0.5-9.0$ T temperature and field ranges. The data is indicative of diamagnetic ground states in both cases.
+Figure S5. The three [Cu$_{12}$] model compounds (Models 1-3) used to fit the magnetic susceptibility data of 1. Each assign three distinct magnetic exchange interactions. These are $J_1 =$ Cu-O/Cl-Cu along the sides of the square faces (Cu-O-Cu = ~109-112°, Cu-Cl-Cu = ~75°); $J_2 =$ Cu-Cl-Cu across the diagonal of the square faces (Cu-Cl-Cu = ~118°); and $J_3 =$ Cu-O-Cu in the hexagonal faces (Cu-O$_{\text{hydroxide}}$-Cu = ~94°, Cu-O$_{\text{carbonate}}$-Cu = ~120°). We ignore any diagonal interactions across the hexagon through the three atom Cu-O-C-O-Cu carbonate bridges. The table shows the best fit parameters obtained with the $g$-value fixed at $g = 2.00$. 
+
+|       | $J_1 / \text{cm}^{-1}$ | $J_2 / \text{cm}^{-1}$ | $J_3 / \text{cm}^{-1}$ |
+|-------|------------------------|------------------------|------------------------|
+| Model 1 | -101                   | -56                    | -116                   |
+| Model 2 | -98                    | -296                   | -81                    |
+| Model 3 | -70                    | -139                   | -116                   |
+Figure S6. The best fit (solid red lines) using Models 1-3 for the experimental magnetic susceptibility data (empty circles) for 1 measured in the $T = 300 \text{ – } 2.0 \text{ K}$ temperature range in an applied field, $B = 0.1 \text{ T}$. The experimental data for 1 is divided by two and modelled using the [Cu$_{12}$] models shown in Fig. S4 and spin-Hamiltonian (1).
+Figure S7. The model used to fit the magnetic susceptibility data of 2. The model assigns two distinct magnetic exchange interactions - those within each $[\text{Cu}_4]$ square ($J_1$) and between the two squares ($J_2$). We ignore any diagonal interactions across the Cu-Br-Cu bridge due to the considerable asymmetry of the Cu-Br bond lengths.
+
+References
+
+1. O. V. Dolomanov, L. J. Bourhis, R. J. Gildea, J. A. K. Howard, H. Puschmann, Olex2: A complete structure solution, refinement and analysis program, *J. Appl. Cryst.* 2009, 42, 339-341.
+
+2. G. M. Sheldrick, Crystal structure refinement with ShelXL, *Acta Cryst.* 2015, *C71*, 3-8.
+
+3. G. M. Sheldrick, ShelXT-Integrated space-group and crystal-structure determination, *Acta Cryst.* 2015, *A71*, 3-8.
