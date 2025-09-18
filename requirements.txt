@@ -12,3 +12,10 @@ scipy>=1.11.0         # for STS correlations etc.
 tqdm>=4.66.0
 numpy>=1.24.0
 einops==0.8.1
+
+tiktoken==0.11.0
+langchain==0.3.27
+fuzzywuzzy==0.18.0
+langchain-experimental==0.3.4
+langchain-openai==0.3.33
+langchain-huggingface==0.3.1

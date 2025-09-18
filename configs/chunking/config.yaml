@@ -1,11 +1,11 @@
 # Save as: config.yaml
-input_path: data/papers.jsonl
-output_path: out/chunks.jsonl
+input_path: artifacts/chemquests/full_text.jsonl
+output_path: artifacts/chunks/chunks.jsonl
 
 # Each line in input should have this key containing the full text
-text_field: full_text
+text_field: text
 # (Optional) a doc id field in your input; if absent, we use line number
-id_field: paper_id
+id_field: corpus_id
 
 # Optional: token counting for stats only
 token_count_encoding: cl100k_base   # or leave null to skip
@@ -15,17 +15,17 @@ token_count_model: null             # e.g., gpt-4o-mini (tiktoken will map)
 max_docs: null
 
 # Choose one strategy and set its params
-strategy:
-  name: fixed_token        # one of: fixed_token | recursive_token | kamradt | cluster_semantic | llm
-  params:
-    # ---- fixed_token (FixedTokenChunker) params ----
-    encoding_name: cl100k_base
-    model_name: null          # optional, overrides encoding_name
-    chunk_size: 800
-    chunk_overlap: 100
-    keep_separator: false     # passed to base splitter if supported
-    add_start_index: false
-    strip_whitespace: true
+# strategy:
+#   name: fixed_token        # one of: fixed_token | recursive_token | kamradt | cluster_semantic | llm
+#   params:
+#     # ---- fixed_token (FixedTokenChunker) params ----
+#     encoding_name: cl100k_base
+#     model_name: null          # optional, overrides encoding_name
+#     chunk_size: 800
+#     chunk_overlap: 100
+#     keep_separator: false     # passed to base splitter if supported
+#     add_start_index: false
+#     strip_whitespace: true
 
 # strategy:
 #   name: recursive_token
@@ -46,12 +46,18 @@ strategy:
 #     # OPENAI_API_KEY: "sk-..."
 
 
-# strategy:
-#   name: cluster_semantic
-#   params:
-#     max_chunk_size: 400
-#     min_chunk_size: 50
-#     # embedding_function default + OPENAI_API_KEY env
+strategy:
+  name: semantic
+  params:
+    use_recursive: true
+    embedding_provider: huggingface
+    embedding_model: sentence-transformers/all-MiniLM-L6-v2
+    chunk_size: 800
+    chunk_overlap: 100
+    breakpoint_threshold_type: percentile
+    breakpoint_threshold_amount: 95
+    buffer_size: 1
+    add_start_index: true
 
 
 # strategy:

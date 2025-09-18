@@ -4,7 +4,7 @@
 STAGE1_CONFIG ?= configs/embedding_models_fast_validation_config.yaml
 STAGE2_CONFIG ?= configs/screen_top_models_config.yaml
 STAGE3_CONFIG ?= configs/download_chemquests_config.yaml
-
+STAGE4_CONFIG ?= configs/chunking/config.yaml
 
 # all: stage1 stage2 stage3 stage4
 # 	@echo "✅ Pipeline complete. See artifacts/stage4 for queries/qrels and artifacts/stage1 for corpus."
@@ -14,6 +14,7 @@ show-configs:
 	@echo "  stage1: $(STAGE1_CONFIG)"
 	@echo "  stage2: $(STAGE2_CONFIG)"
 	@echo "  stage3: $(STAGE3_CONFIG)"
+	@echo "  stage4: $(STAGE4_CONFIG)"
 
 stage1:
 	@echo "▶️ Stage1: model_screening_validation"
@@ -27,6 +28,9 @@ stage3:
 	@echo "▶️ Stage3: download_chemquests"
 	python -m stages.download_chemquests --config $(STAGE3_CONFIG)
 
+stage4:
+	@echo "▶️ Stage4: chunking"
+	python -m stages.chunking --config $(STAGE4_CONFIG)
 # clean:
 # 	rm -rf artifacts
 # 	@echo "🧹 Cleaned artifacts/"

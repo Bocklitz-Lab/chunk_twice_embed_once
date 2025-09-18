@@ -27,7 +27,7 @@ from pathlib import Path
 # Try likely layouts; adjust if your repo structure differs.
 # (No need to edit your chunker classes—this script adapts to them.)
 try:
-    from chunking_evaluation.chunkers.fixed_token_chunker import FixedTokenChunker  # type: ignore
+    from pipeline_lib.fixed_token_chunker import FixedTokenChunker  # type: ignore
 except Exception:
     try:
         from fixed_token_chunker import FixedTokenChunker  # type: ignore
@@ -35,7 +35,7 @@ except Exception:
         FixedTokenChunker = None  # type: ignore
 
 try:
-    from chunking_evaluation.chunkers.recursive_token_chunker import RecursiveTokenChunker  # type: ignore
+    from pipeline_lib.recursive_token_chunker import RecursiveTokenChunker  # type: ignore
 except Exception:
     try:
         from recursive_token_chunker import RecursiveTokenChunker  # type: ignore
@@ -43,7 +43,7 @@ except Exception:
         RecursiveTokenChunker = None  # type: ignore
 
 try:
-    from chunking_evaluation.chunkers.kamradt_modified_chunker import KamradtModifiedChunker  # type: ignore
+    from pipeline_lib.kamradt_modified_chunker import KamradtModifiedChunker  # type: ignore
 except Exception:
     try:
         from kamradt_modified_chunker import KamradtModifiedChunker  # type: ignore
@@ -51,15 +51,16 @@ except Exception:
         KamradtModifiedChunker = None  # type: ignore
 
 try:
-    from chunking_evaluation.chunkers.cluster_semantic_chunker import ClusterSemanticChunker  # type: ignore
+    from pipeline_lib.semantic_chunker import SemanticSplitter  # type: ignore
 except Exception:
     try:
-        from cluster_semantic_chunker import ClusterSemanticChunker  # type: ignore
+        from semantic_chunker import SemanticSplitter  # type: ignore
     except Exception:
-        ClusterSemanticChunker = None  # type: ignore
+        SemanticSplitter = None  # type: ignore
+
 
 try:
-    from chunking_evaluation.chunkers.llm_semantic_chunker import LLMSemanticChunker  # type: ignore
+    from pipeline_lib.llm_semantic_chunker import LLMSemanticChunker  # type: ignore
 except Exception:
     try:
         from llm_semantic_chunker import LLMSemanticChunker  # type: ignore
@@ -231,7 +232,7 @@ class ChunkerFactory:
       - "fixed_token"        -> FixedTokenChunker
       - "recursive_token"    -> RecursiveTokenChunker
       - "kamradt"            -> KamradtModifiedChunker
-      - "cluster_semantic"   -> ClusterSemanticChunker
+      - "semantic"           -> SemanticSplitter (embedding-based)
       - "llm"                -> LLMSemanticChunker
     """
     @staticmethod
@@ -254,10 +255,55 @@ class ChunkerFactory:
                 raise ImportError("KamradtModifiedChunker not importable. Check your module path.")
             return KamradtModifiedChunker(**params)
 
-        elif name == "cluster_semantic":
-            if ClusterSemanticChunker is None:
-                raise ImportError("ClusterSemanticChunker not importable. Check your module path.")
-            return ClusterSemanticChunker(**params)
+        elif name == "semantic":
+            if SemanticSplitter is None:
+                raise ImportError("SemanticSplitter not importable.")
+
+            provider = params.get("embedding_provider", "openai").lower()
+
+            if provider == "openai":
+                # --- OpenAI ---
+                api_key = params.get("api_key") or os.getenv("OPENAI_API_KEY")
+                if api_key is None:
+                    raise RuntimeError("No OpenAI API key provided.")
+                try:
+                    from langchain_openai import OpenAIEmbeddings
+                except ImportError:
+                    from langchain.embeddings import OpenAIEmbeddings
+                embeddings = OpenAIEmbeddings(
+                    model=params.get("embedding_model", "text-embedding-3-small"),
+                    api_key=api_key,
+                )
+
+            elif provider in {"hf", "huggingface"}:
+                # --- HuggingFace ---
+                try:
+                    from langchain_huggingface import HuggingFaceEmbeddings
+                except ImportError:
+                    from langchain_community.embeddings import HuggingFaceEmbeddings
+                embeddings = HuggingFaceEmbeddings(
+                    model_name=params.get("embedding_model", "sentence-transformers/all-MiniLM-L6-v2")
+                )
+
+            else:
+                raise ValueError(f"Unsupported embedding_provider: {provider}")
+
+            return SemanticSplitter(
+                embeddings=embeddings,
+                use_recursive=params.get("use_recursive", False),
+                chunk_size=params.get("chunk_size", 4000),
+                chunk_overlap=params.get("chunk_overlap", 200),
+                breakpoint_threshold_type=params.get("breakpoint_threshold_type", "percentile"),
+                breakpoint_threshold_amount=params.get("breakpoint_threshold_amount", 95.0),
+                buffer_size=params.get("buffer_size", 1),
+                min_chunk_size=params.get("min_chunk_size"),
+                encoding_name=params.get("encoding_name", "cl100k_base"),
+                model_name=params.get("model_name"),
+                add_start_index=params.get("add_start_index", False),
+                strip_whitespace=params.get("strip_whitespace", True),
+            )
+
+
 
         elif name == "llm":
             if LLMSemanticChunker is None:
