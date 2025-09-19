@@ -11,7 +11,7 @@ id_field: corpus_id
 token_count_encoding: cl100k_base   # or leave null to skip
 token_count_model: null             # e.g., gpt-4o-mini (tiktoken will map)
 
-compute_offsets: false
+compute_offsets: true
 
 # Limit processing during tests
 max_docs: null
@@ -132,19 +132,83 @@ max_docs: null
 
 
 
-# strategy:
-#   name: kamradt
-#   params:
-#     avg_chunk_size: 400
-#     min_chunk_size: 50
-#     # embedding_function uses your repo's default (OpenAI). Configure env var:
-#     # OPENAI_API_KEY: "sk-..."
-
 
 # strategy:
-#   name: llm
+#   name: hybrid_multi       # aliases: hybrid
 #   params:
-#     organisation: openai          # or "anthropic"
-#     model_name: gpt-4o            # or "claude-3-5-sonnet-20240620"
-#     api_key: null                 # optional; if null uses env var below
-#     api_key_env: OPENAI_API_KEY   # or ANTHROPIC_API_KEY
+#     encoding_name: cl100k_base
+#     model_name: null
+#     strip_whitespace: true
+
+#     # Which levels to output (order matters for internal setup)
+#     levels: ["section", "paragraph", "sentence"]
+
+#     # Per-level token sizes / overlaps
+#     chunk_sizes:
+#       section: 900
+#       paragraph: 500
+#       sentence: 160
+#     chunk_overlaps:
+#       section: 120
+#       paragraph: 60
+#       sentence: 24
+
+#     approx_chars_per_token: 4
+
+#     # Configure the sectioner (all your chemistry-aware switches)
+#     sectioner:
+#       encoding_name: cl100k_base
+#       model_name: null
+#       chunk_size: 900
+#       chunk_overlap: 120
+#       add_start_index: false
+#       strip_whitespace: true
+
+#       use_latex: true
+#       use_numbered_headings: true
+#       use_common_chem_headings: true
+#       use_generic_heading_heuristics: true
+
+#       custom_heading_regexes:
+#         - "^\\s*graphical\\s+abstract\\s*$"
+#         - "^\\s*experimental\\s+procedures?\\s*$"
+#         - "^\\s*author\\s+information\\s*$"
+#         - "^\\s*orcid\\s*:?"
+#         - "^\\s*corresponding\\s+author\\s*$"
+#         - "^\\s*author\\s+contributions?\\s*$"
+#         - "^\\s*funding(\\s+sources?)?\\s*$"
+#         - "^\\s*acknowledg(e)?ments?\\s*$"
+#         - "^\\s*abbreviations\\s*$"
+#         - "^\\s*references?\\s*$"
+#         - "^\\s*bibliograph(y|ies)\\s*$"
+
+#       join_short_sections: true
+#       min_section_tokens: 200
+#       prefer_merge_forward: true
+
+#       drop_tail_sections_matching:
+#         - "references"
+#         - "bibliography"
+#         - "works cited"
+#         - "author information"
+#         - "orcid"
+#         - "corresponding author"
+#         - "author contributions"
+#         - "funding sources"
+#         - "funding"
+#         - "acknowledg"
+#         - "abbreviations"
+#         - "nomenclature"
+#         - "glossary"
+#         - "conflict of interest"
+#         - "declarations"
+#         - "data availability"
+#         - "supplementary information"
+#         - "supporting information"
+#         - "toc graphic"
+#         - "table of contents graphic"
+#       drop_from_first_match: true
+
+
+
+

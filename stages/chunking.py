@@ -42,13 +42,6 @@ except Exception:
     except Exception:
         RecursiveTokenChunker = None  # type: ignore
 
-try:
-    from pipeline_lib.kamradt_modified_chunker import KamradtModifiedChunker  # type: ignore
-except Exception:
-    try:
-        from kamradt_modified_chunker import KamradtModifiedChunker  # type: ignore
-    except Exception:
-        KamradtModifiedChunker = None  # type: ignore
 
 try:
     from pipeline_lib.semantic_chunker import SemanticSplitter  # type: ignore
@@ -59,13 +52,6 @@ except Exception:
         SemanticSplitter = None  # type: ignore
 
 
-try:
-    from pipeline_lib.llm_semantic_chunker import LLMSemanticChunker  # type: ignore
-except Exception:
-    try:
-        from llm_semantic_chunker import LLMSemanticChunker  # type: ignore
-    except Exception:
-        LLMSemanticChunker = None  # type: ignore
 
 try:
     from pipeline_lib.hierarchical_section_chunker import HierarchicalSectionChunker  # type: ignore
@@ -74,6 +60,16 @@ except Exception:
         from hierarchical_section_chunker import HierarchicalSectionChunker  # type: ignore
     except Exception:
         HierarchicalSectionChunker = None  # type: ignore
+
+
+# in your main script (the chunking runner)
+try:
+    from pipeline_lib.hybrid_multi_chunker import HybridMultiGranularityChunker  # type: ignore
+except Exception:
+    try:
+        from hybrid_multi_chunker import HybridMultiGranularityChunker  # type: ignore
+    except Exception:
+        HybridMultiGranularityChunker = None  # type: ignore
 
 
 # Optional libs
@@ -240,7 +236,6 @@ class ChunkerFactory:
     Names supported:
       - "fixed_token"        -> FixedTokenChunker
       - "recursive_token"    -> RecursiveTokenChunker
-      - "kamradt"            -> KamradtModifiedChunker
       - "semantic"           -> SemanticSplitter (embedding-based)
       - "llm"                -> LLMSemanticChunker
     """
@@ -258,11 +253,6 @@ class ChunkerFactory:
             if RecursiveTokenChunker is None:
                 raise ImportError("RecursiveTokenChunker not importable. Check your module path.")
             return RecursiveTokenChunker(**params)
-
-        elif name == "kamradt":
-            if KamradtModifiedChunker is None:
-                raise ImportError("KamradtModifiedChunker not importable. Check your module path.")
-            return KamradtModifiedChunker(**params)
 
         elif name == "semantic":
             if SemanticSplitter is None:
@@ -318,25 +308,25 @@ class ChunkerFactory:
                 raise ImportError("HierarchicalSectionChunker not importable. Check your module path.")
             return HierarchicalSectionChunker(**params)
 
-
-        elif name == "llm":
-            if LLMSemanticChunker is None:
-                raise ImportError("LLMSemanticChunker not importable. Check your module path.")
-            # For LLMSemanticChunker, allow api_key via env if not provided
-            organisation = params.get("organisation", "openai")
-            api_key = params.get("api_key")
-            if api_key is None:
-                api_env = params.get("api_key_env") or ("OPENAI_API_KEY" if organisation == "openai" else "ANTHROPIC_API_KEY")
-                api_key = os.getenv(api_env)
-            model_name = params.get("model_name")
-            return LLMSemanticChunker(organisation=organisation, api_key=api_key, model_name=model_name)
+        elif name in {"hybrid_multi", "hybrid"}:
+            if HybridMultiGranularityChunker is None:
+                raise ImportError("HybridMultiGranularityChunker not importable. Check your module path.")
+            return HybridMultiGranularityChunker(
+                encoding_name=params.get("encoding_name", "cl100k_base"),
+                model_name=params.get("model_name"),
+                levels=params.get("levels", ["section", "paragraph", "sentence"]),
+                chunk_sizes=params.get("chunk_sizes"),
+                chunk_overlaps=params.get("chunk_overlaps"),
+                strip_whitespace=params.get("strip_whitespace", True),
+                approx_chars_per_token=params.get("approx_chars_per_token", 4),
+                sectioner=params.get("sectioner"),  # pass-through for section headings/merge behavior
+            )
 
         else:
-            raise ValueError(f"Unknown strategy name '{name}'. Valid: fixed_token, recursive_token, kamradt, cluster_semantic, llm.")
+            raise ValueError(f"Unknown strategy name '{name}'. Valid: fixed_token, recursive_token, cluster_semantic, llm.")
 
 
 # ---------- Main processing ----------
-
 def process_docs(
     input_path: str,
     output_path: str,
@@ -390,16 +380,58 @@ def process_docs(
             except Exception as e:
                 raise RuntimeError(f"Chunker failed for document #{i} (source_id={source_id}): {e}") from e
 
-            # Compute (start, end) offsets for each chunk in the original text
-            if compute_offsets:
-                try:
-                    offsets = locate_chunk_offsets(raw_text, chunks)
-                except Exception:
-                    offsets = [(None, None) for _ in chunks]
-            else:
-                offsets = [(None, None) for _ in chunks]
+            # ---- Normalize chunks to list[dict] with text + offsets + metadata ----
+            norm_chunks: list[dict] = []
 
-            for idx, (chunk_text, (start_char, end_char)) in enumerate(zip(chunks, offsets)):
+            if not chunks:
+                pass
+
+            elif isinstance(chunks[0], str):
+                # legacy splitters (strings only)
+                if compute_offsets:
+                    try:
+                        offsets = locate_chunk_offsets(raw_text, chunks)
+                    except Exception:
+                        offsets = [(None, None) for _ in chunks]
+                else:
+                    offsets = [(None, None) for _ in chunks]
+
+                for ctext, (s, e) in zip(chunks, offsets):
+                    norm_chunks.append({
+                        "text": ctext,
+                        "start_char": s,
+                        "end_char": e,
+                        "granularity": None,  # unknown for legacy splitters
+                    })
+
+            elif isinstance(chunks[0], dict):
+                # dict-based chunkers (e.g., hybrid_multi) — preserve their metadata
+                for item in chunks:
+                    ctext = item.get("text")
+                    if not isinstance(ctext, str):
+                        continue
+                    s = item.get("start_char")
+                    e = item.get("end_char")
+
+                    # compute offsets if requested OR if missing
+                    if (s is None or e is None) and compute_offsets:
+                        try:
+                            s, e = locate_chunk_offsets(raw_text, [ctext])[0]
+                        except Exception:
+                            s, e = None, None
+
+                    norm_item = {**item, "text": ctext, "start_char": s, "end_char": e}
+                    norm_chunks.append(norm_item)
+
+            else:
+                raise TypeError(f"Unsupported chunk item type: {type(chunks[0])}")
+
+            # ---- Write out normalized chunks ----
+            for idx, item in enumerate(norm_chunks):
+                chunk_text = item["text"]
+                start_char = item.get("start_char")
+                end_char = item.get("end_char")
+
                 rec = {
                     "source_doc_id": source_id,
                     "chunk_index": idx,
@@ -409,9 +441,21 @@ def process_docs(
                     "start_char": start_char,
                     "end_char": end_char,  # end is exclusive
                 }
+
+                # pass-through useful metadata when present
+                for key in (
+                    "granularity",
+                    "section_title", "section_index",
+                    "parent_section_start", "parent_section_end",
+                    "parent_par_start", "parent_par_end",
+                ):
+                    if key in item:
+                        rec[key] = item[key]
+
                 tok = count_tokens(chunk_text, encoder)
                 if tok is not None:
                     rec["n_tokens"] = tok
+
                 out_f.write(json.dumps(rec, ensure_ascii=False) + "\n")
                 num_chunks += 1
 
@@ -454,6 +498,8 @@ def main():
         token_count_model=token_count_model,
         max_docs=max_docs,
         include_source_line_number_as_id=include_source_line_number_as_id,
+        compute_offsets=compute_offsets,
+
     )
 
 
