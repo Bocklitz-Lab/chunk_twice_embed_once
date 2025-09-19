@@ -11,6 +11,8 @@ id_field: corpus_id
 token_count_encoding: cl100k_base   # or leave null to skip
 token_count_model: null             # e.g., gpt-4o-mini (tiktoken will map)
 
+compute_offsets: false
+
 # Limit processing during tests
 max_docs: null
 
@@ -36,6 +38,99 @@ max_docs: null
 #     keep_separator: true
 #     is_separator_regex: false
 
+# strategy:
+#   name: semantic
+#   params:
+#     use_recursive: false
+#     embedding_provider: huggingface
+#     embedding_model: sentence-transformers/all-MiniLM-L6-v2
+#     chunk_size: 800
+#     chunk_overlap: 100
+#     breakpoint_threshold_type: percentile
+#     breakpoint_threshold_amount: 95
+#     buffer_size: 1
+#     add_start_index: true
+
+# strategy:
+#   name: semantic
+#   params:
+#     use_recursive: true
+#     embedding_provider: huggingface
+#     embedding_model: sentence-transformers/all-MiniLM-L6-v2
+#     chunk_size: 800
+#     chunk_overlap: 100
+#     breakpoint_threshold_type: percentile
+#     breakpoint_threshold_amount: 95
+#     buffer_size: 1
+#     add_start_index: true    
+
+
+
+
+
+# strategy:
+#   name: hierarchical_section   # aliases: hierarchical | section | section_hier
+#   params:
+#     # token chunking inside sections
+#     encoding_name: cl100k_base
+#     model_name: null
+#     chunk_size: 800
+#     chunk_overlap: 120
+#     add_start_index: false
+#     strip_whitespace: true
+
+#     # section detection
+#     use_latex: true
+#     use_numbered_headings: true
+#     use_common_chem_headings: true
+#     use_generic_heading_heuristics: true
+
+#     # optional: add your own headings (regex, MULTILINE), e.g., journals' "Graphical Abstract"
+#     custom_heading_regexes:
+#       - "^\\s*graphical\\s+abstract\\s*$"
+#       - "^\\s*experimental\\s+procedures?\\s*$"
+#       - "^\\s*author\\s+information\\s*$"
+#       - "^\\s*orcid\\s*:?"          # some PDFs render “ORCID:” with colon
+#       - "^\\s*corresponding\\s+author\\s*$"
+#       - "^\\s*author\\s+contributions?\\s*$"
+#       - "^\\s*funding(\\s+sources?)?\\s*$"
+#       - "^\\s*acknowledg(e)?ments?\\s*$"
+#       - "^\\s*abbreviations\\s*$"
+#       - "^\\s*references?\\s*$"
+#       - "^\\s*bibliograph(y|ies)\\s*$"
+
+#     # merge tiny sections before chunking
+#     join_short_sections: true
+#     min_section_tokens: 200
+#     prefer_merge_forward: true
+
+#     # optionally drop tails (comment out if you want everything)
+#     drop_tail_sections_matching:
+#           - "references"
+#           - "bibliography"
+#           - "works cited"
+#           - "author information"
+#           - "orcid"
+#           - "corresponding author"
+#           - "author contributions"
+#           - "funding sources"
+#           - "funding"
+#           - "acknowledg"          # matches acknowledgment / acknowledgments
+#           - "abbreviations"
+#           - "nomenclature"
+#           - "glossary"
+#           - "conflict of interest"
+#           - "declarations"
+#           - "data availability"
+#           - "supplementary information"
+#           - "supporting information"
+#           - "toc graphic"
+#           - "table of contents graphic"
+#     drop_from_first_match: true
+
+    
+
+
 
 # strategy:
 #   name: kamradt
@@ -44,20 +139,6 @@ max_docs: null
 #     min_chunk_size: 50
 #     # embedding_function uses your repo's default (OpenAI). Configure env var:
 #     # OPENAI_API_KEY: "sk-..."
-
-
-strategy:
-  name: semantic
-  params:
-    use_recursive: true
-    embedding_provider: huggingface
-    embedding_model: sentence-transformers/all-MiniLM-L6-v2
-    chunk_size: 800
-    chunk_overlap: 100
-    breakpoint_threshold_type: percentile
-    breakpoint_threshold_amount: 95
-    buffer_size: 1
-    add_start_index: true
 
 
 # strategy:

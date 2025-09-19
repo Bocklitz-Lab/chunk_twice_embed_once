@@ -67,6 +67,15 @@ except Exception:
     except Exception:
         LLMSemanticChunker = None  # type: ignore
 
+try:
+    from pipeline_lib.hierarchical_section_chunker import HierarchicalSectionChunker  # type: ignore
+except Exception:
+    try:
+        from hierarchical_section_chunker import HierarchicalSectionChunker  # type: ignore
+    except Exception:
+        HierarchicalSectionChunker = None  # type: ignore
+
+
 # Optional libs
 try:
     import yaml  # for YAML config
@@ -304,6 +313,11 @@ class ChunkerFactory:
             )
 
 
+        elif name in {"hierarchical", "section", "section_hier", "hierarchical_section"}:
+            if HierarchicalSectionChunker is None:
+                raise ImportError("HierarchicalSectionChunker not importable. Check your module path.")
+            return HierarchicalSectionChunker(**params)
+
 
         elif name == "llm":
             if LLMSemanticChunker is None:
@@ -334,6 +348,7 @@ def process_docs(
     token_count_model: Optional[str] = None,
     max_docs: Optional[int] = None,
     include_source_line_number_as_id: bool = True,
+    compute_offsets: bool = False,
 ):
     ensure_dir(output_path)
     strategy_params = strategy_params or {}
@@ -376,10 +391,12 @@ def process_docs(
                 raise RuntimeError(f"Chunker failed for document #{i} (source_id={source_id}): {e}") from e
 
             # Compute (start, end) offsets for each chunk in the original text
-            try:
-                offsets = locate_chunk_offsets(raw_text, chunks)
-            except Exception:
-                # Fail-safe: if locator fails, produce None offsets per chunk
+            if compute_offsets:
+                try:
+                    offsets = locate_chunk_offsets(raw_text, chunks)
+                except Exception:
+                    offsets = [(None, None) for _ in chunks]
+            else:
                 offsets = [(None, None) for _ in chunks]
 
             for idx, (chunk_text, (start_char, end_char)) in enumerate(zip(chunks, offsets)):
@@ -424,6 +441,7 @@ def main():
     strategy_cfg = cfg.get("strategy", {})
     strategy_name = strategy_cfg.get("name", "fixed_token")
     strategy_params = strategy_cfg.get("params", {})
+    compute_offsets = cfg.get("compute_offsets", False)
 
     process_docs(
         input_path=input_path,
