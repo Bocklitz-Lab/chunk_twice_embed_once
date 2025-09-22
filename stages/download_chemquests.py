@@ -5,7 +5,7 @@ import logging
 import os
 from pathlib import Path
 from typing import Dict, Any, List, Optional
-
+import yaml
 from datasets import load_dataset
 
 
@@ -23,7 +23,8 @@ def setup_logger(verbosity: int) -> None:
 
 def read_config(path: str) -> Dict[str, Any]:
     with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
+        return yaml.safe_load(f) or {}
+
 
 
 def ensure_dir(path: str) -> Path:

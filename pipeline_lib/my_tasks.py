@@ -1,7 +1,11 @@
 # my_tasks.py
 from __future__ import annotations
 import logging
-from typing import Dict, Any
+from typing import Dict, Any, Iterable
+from pathlib import Path
+import json
+import csv
+
 from datasets import load_dataset
 from mteb.abstasks.AbsTaskRetrieval import AbsTaskRetrieval
 from mteb.abstasks.TaskMetadata import TaskMetadata
@@ -14,7 +18,7 @@ class ChemQuest(AbsTaskRetrieval):
         name="ChemQuest",
         dataset={
             "path": "Bocklitz-Lab/ChemQuest",
-            "revision": "main",   # tip: pin to a commit hash for reproducibility
+            "revision": "main",
         },
         description="A retrieval dataset for ChemQuest.",
         reference="https://huggingface.co/datasets/Bocklitz-Lab/ChemQuest",
@@ -46,6 +50,22 @@ class ChemQuest(AbsTaskRetrieval):
         super().__init__(**kwargs)
         self.k_values = [1, 3, 5, 10, 100]
 
+    # ---------- helpers ----------
+    def _read_jsonl(self, path: Path) -> Iterable[Dict[str, Any]]:
+        with path.open("r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                yield json.loads(line)
+
+    def _read_tsv(self, path: Path) -> Iterable[Dict[str, Any]]:
+        with path.open("r", encoding="utf-8") as f:
+            reader = csv.DictReader(f, delimiter="\t")
+            for row in reader:
+                yield row
+
+    # Your existing mappers:
     def _to_corpus(self, rows) -> Dict[str, Dict[str, Any]]:
         out = {}
         for r in rows:
@@ -86,17 +106,92 @@ class ChemQuest(AbsTaskRetrieval):
             out.setdefault(qid, {})[did] = rel
         return out
 
-    def load_data(self, **kwargs):
+    def load_data(self, data_dir: str | Path | None = None, **kwargs):
         """
-        Expected layout:
-        - default config: split 'test' with qrels rows: ['query-id','corpus-id','score']
-        - named subset 'corpus' with split 'corpus' (docs)
-        - named subset 'queries' with split 'queries' (query texts)
+        If data_dir is provided, read from local files; otherwise fall back to HF Hub.
+
+        Local layout (recommended):
+        data_dir/
+          corpus.jsonl            # fields: _id/id/doc_id, title?, text/contents/passage
+          queries.jsonl           # fields: _id/id/query_id, text/query
+          qrels/
+            test.tsv              # tab-separated columns: query-id corpus-id score
         """
+        if data_dir is not None:
+            data_dir = Path(data_dir)
+            if not data_dir.exists():
+                raise FileNotFoundError(f"data_dir not found: {data_dir}")
+
+            # --- read corpus
+            corpus_path = data_dir / "corpus.jsonl"
+            if not corpus_path.exists():
+                raise FileNotFoundError(f"Missing {corpus_path}")
+            corpus_rows = list(self._read_jsonl(corpus_path))
+            corpus = self._to_corpus(corpus_rows)
+
+            # --- read queries
+            queries_path = data_dir / "queries.jsonl"
+            if not queries_path.exists():
+                raise FileNotFoundError(f"Missing {queries_path}")
+            queries_rows = list(self._read_jsonl(queries_path))
+            queries = self._to_queries(queries_rows)
+
+            # --- read qrels (prefer TSV at qrels/test.tsv)
+            qrels_dir = data_dir / "qrels"
+            tsv = qrels_dir / "test.tsv"
+            alt_tsv = data_dir / "qrels.tsv"
+            jsonl = qrels_dir / "test.jsonl"
+
+            if tsv.exists():
+                qrels_rows = list(self._read_tsv(tsv))
+            elif alt_tsv.exists():
+                qrels_rows = list(self._read_tsv(alt_tsv))
+            elif jsonl.exists():
+                qrels_rows = list(self._read_jsonl(jsonl))
+            else:
+                raise FileNotFoundError(
+                    f"Missing qrels. Looked for {tsv}, {alt_tsv}, {jsonl}"
+                )
+            qrels_all = self._to_qrels(qrels_rows)
+
+            # --- filter qrels to valid corpus & queries (same logic as before)
+            corpus_ids = set(corpus.keys())
+            kept_qrels = {}
+            kept_queries = {}
+            dropped_qids_empty_text = 0
+            dropped_qids_missing_docs = 0
+
+            for qid, rels in qrels_all.items():
+                if qid not in queries:
+                    dropped_qids_empty_text += 1
+                    continue
+                rels_f = {did: rel for did, rel in rels.items() if did in corpus_ids}
+                if not rels_f:
+                    dropped_qids_missing_docs += 1
+                    continue
+                kept_qrels[qid] = rels_f
+                kept_queries[qid] = queries[qid]
+
+            log.info(
+                f"ChemQuest(local): corpus={len(corpus)} docs, "
+                f"queries={len(queries)} provided, qrels={len(qrels_all)} qids "
+                f"-> kept {len(kept_queries)} queries "
+                f"(dropped {dropped_qids_empty_text} empty-text, "
+                f"{dropped_qids_missing_docs} no-valid-docs)."
+            )
+
+            if not kept_qrels:
+                raise ValueError("After filtering, no valid queries/qrels remain. Check dataset alignment.")
+
+            self.corpus = {"test": corpus}
+            self.queries = {"test": kept_queries}
+            self.relevant_docs = {"test": kept_qrels}
+            return  # done
+
+        # ---------- fallback: original HF path ----------
         path = self.metadata.dataset["path"]
         rev = self.metadata.dataset.get("revision")
 
-        # --- Load qrels from default config 'test'
         ds_default = load_dataset(path, revision=rev)
         if "test" not in ds_default:
             raise ValueError("Expected default config to contain a 'test' split with qrels.")
@@ -106,7 +201,6 @@ class ChemQuest(AbsTaskRetrieval):
         if not required.issubset(cols):
             raise ValueError(f"'test' split must have {required}, found {sorted(cols)}")
 
-        # Build qrels
         qrels = {}
         for r in test:
             qid = str(r["query-id"])
@@ -114,13 +208,11 @@ class ChemQuest(AbsTaskRetrieval):
             rel = int(r.get("score", 1))
             qrels.setdefault(qid, {})[did] = rel
 
-        # --- Load corpus from named subset
         try:
             corpus_rows = load_dataset(path, name="corpus", revision=rev, split="corpus")
         except Exception as e:
             raise ValueError(
                 "Could not load the corpus subset (name='corpus', split='corpus'). "
-                "Make sure your dataset exposes that subset.\n"
                 f"Original error: {e}"
             )
 
@@ -136,7 +228,6 @@ class ChemQuest(AbsTaskRetrieval):
                 raise ValueError("Corpus row missing a text-like column (text/contents/passage).")
             corpus[doc_id] = {"title": title, "text": text}
 
-        # --- Load queries from named subset
         try:
             queries_rows = load_dataset(path, name="queries", revision=rev, split="queries")
             queries = {}
@@ -147,17 +238,14 @@ class ChemQuest(AbsTaskRetrieval):
                 qid = str(qid)
                 qtext = r.get("text") or r.get("query")
                 if not qtext or not qtext.strip():
-                    # You can choose to drop or raise. Dropping is safer:
                     continue
                 queries[qid] = qtext
         except Exception as e:
             raise ValueError(
                 "Could not load queries subset (name='queries', split='queries'). "
-                "You must provide query texts to evaluate retrieval.\n"
                 f"Original error: {e}"
             )
 
-        # --- Filter qrels to valid corpus & queries
         corpus_ids = set(corpus.keys())
         kept_qrels = {}
         kept_queries = {}
@@ -187,7 +275,6 @@ class ChemQuest(AbsTaskRetrieval):
         if not kept_qrels:
             raise ValueError("After filtering, no valid queries/qrels remain. Check dataset alignment.")
 
-        # --- Assign to MTEB fields with split keys
         self.corpus = {"test": corpus}
         self.queries = {"test": kept_queries}
         self.relevant_docs = {"test": kept_qrels}

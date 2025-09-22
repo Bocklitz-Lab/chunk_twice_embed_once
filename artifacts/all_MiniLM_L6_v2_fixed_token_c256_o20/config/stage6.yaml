@@ -1,0 +1,14 @@
+models:
+- name: sentence-transformers/all-MiniLM-L6-v2
+  revision: main
+  batch_size: '128'
+  normalize: 'True'
+tasks:
+- class: pipeline_lib.my_tasks.ChemQuest
+  kwargs:
+    data_dir: artifacts2/mteb_task
+import_modules:
+- pipeline_lib.my_tasks
+encode_kwargs:
+  normalize_embeddings: false
+output_root: 1_MultiRetrieval

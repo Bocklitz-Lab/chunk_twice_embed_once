@@ -36,7 +36,7 @@ from sentence_transformers import SentenceTransformer
 from mteb import MTEB, get_tasks
 
 # local
-from model_wrapper import STNoPrompt  # keep your wrapper
+from pipeline_lib.model_wrapper import STNoPrompt  # keep your wrapper
 
 # =================== CONFIG LOADING =========================================
 def load_config(path: Union[str, Path]) -> Dict[str, Any]:
@@ -164,59 +164,71 @@ def import_from_path(path: str):
     module = importlib.import_module(mod)
     try:
         return getattr(module, attr)
-    except AttributeError:
-        raise ImportError(f"Module '{mod}' has no attribute '{attr}'")
+    except AttributeError as e:
+        raise ImportError(f"Module '{mod}' has no attribute '{attr}'") from e
+
 
 def resolve_tasks(task_specs: List[TaskSpec], import_modules: List[str]) -> List[Any]:
     """
     Mix official MTEB tasks with custom classes.
-    Supports:
-      - official task names (strings known to MTEB)
-      - import path strings: 'my_tasks.ChemQuest'
-      - dicts: {'class': 'my_tasks.ChemQuest', 'kwargs': {...}}
+    Supports task entries in the config as:
+      - "OfficialTaskName"
+      - "my_tasks.ChemQuest"               # import path string (no kwargs)
+      - {"class": "my_tasks.ChemQuest", "kwargs": {...}}  # import path with kwargs (e.g., data_dir)
+      - {"name": "OfficialTaskName"}       # explicit official by name
     """
-    # attempt pre-imports to make bare names available if user relies on them
+    # Pre-imports (handy if custom tasks rely on side effects or bare names)
     for mod in import_modules:
         importlib.import_module(mod)
 
     resolved: List[Any] = []
-
-    # Split official-name-like vs custom
     official_names: List[str] = []
-    custom_specs: List[Union[str, Dict[str, Any]]] = []
+    custom_items: List[Union[str, Dict[str, Any]]] = []
 
     for t in task_specs:
         spec = t.spec
         if isinstance(spec, str):
-            # Heuristic: if it contains a dot/colon assume import path; else try official
             if ("." in spec) or (":" in spec):
-                custom_specs.append(spec)
+                custom_items.append(spec)
             else:
                 official_names.append(spec)
         elif isinstance(spec, dict):
-            custom_specs.append(spec)
+            # Accept {"class": "...", "kwargs": {...}} (custom) or {"name": "..."} (official)
+            if "class" in spec:
+                custom_items.append(spec)
+            elif "name" in spec and isinstance(spec["name"], str):
+                official_names.append(spec["name"])
+            else:
+                raise ValueError(
+                    "Task dict must contain either 'class' (import path) or 'name' (official). "
+                    f"Got: {spec}"
+                )
         else:
             raise ValueError(f"Unsupported task spec type: {type(spec)}")
 
-    # Resolve official names
+    # Resolve official tasks by name
     if official_names:
         try:
             resolved.extend(get_tasks(tasks=official_names))
         except Exception as e:
             print(f"[WARN] get_tasks failed for {official_names}: {e}")
 
-    # Resolve custom items
-    for cs in custom_specs:
-        if isinstance(cs, str):
-            cls = import_from_path(cs)
+    # Resolve custom classes
+    for item in custom_items:
+        if isinstance(item, str):
+            cls = import_from_path(item)
             instance = cls()  # no kwargs
             resolved.append(instance)
         else:
-            # dict with {"class": "...", "kwargs": {...}}
-            cls_path = cs.get("class")
+            cls_path = item.get("class")
             if not cls_path:
-                raise ValueError(f"Custom task dict missing 'class': {cs}")
-            kwargs = cs.get("kwargs", {}) or {}
+                raise ValueError(f"Custom task dict missing 'class': {item}")
+            kwargs = item.get("kwargs", {}) or {}
+            # Expand ~ and env vars for common kwarg values like data_dir
+            for k, v in list(kwargs.items()):
+                if isinstance(v, str):
+                    v = Path(v).expanduser()
+                    kwargs[k] = str(v)
             cls = import_from_path(cls_path)
             instance = cls(**kwargs)
             resolved.append(instance)
@@ -224,6 +236,7 @@ def resolve_tasks(task_specs: List[TaskSpec], import_modules: List[str]) -> List
     if not resolved:
         raise RuntimeError("No tasks resolved. Check task names/imports in config.")
     return resolved
+
 
 # =================== RESULT NORMALIZATION ===================================
 def normalize_results(results):

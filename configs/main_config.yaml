@@ -1,0 +1,518 @@
+# =================== GLOBAL PARAMS (programmable) ===================
+params:
+  paths:
+    artifacts_root: artifacts2
+    chemquests_dir: ${params.paths.artifacts_root}/chemquests
+    chunks_dir: ${params.paths.artifacts_root}/chunks
+    screen_dir: ${params.paths.artifacts_root}/01_embedding_models_screening
+    stage1_out: ${params.paths.screen_dir}/validation_results
+    mteb_task_dir: ${params.paths.artifacts_root}/mteb_task
+  model:
+    # Change this once; it propagates everywhere that references it.
+    name: sentence-transformers/all-MiniLM-L6-v2
+    revision: main
+    batch_size: 128
+    normalize: true
+  strategy_presets:
+    fixed_token:
+      name: fixed_token        # one of: fixed_token | recursive_token | kamradt | cluster_semantic | llm
+      params:
+        # ---- fixed_token (FixedTokenChunker) params ----
+        encoding_name: cl100k_base
+        model_name: null          # optional, overrides encoding_name
+        chunk_size: 200
+        chunk_overlap: 10
+        keep_separator: false     # passed to base splitter if supported
+        add_start_index: false
+        strip_whitespace: true
+    recursive_token:
+      name: recursive_token
+      params:
+        chunk_size: 800
+        chunk_overlap: 100
+        separators: ["\n\n", "\n", ".", "?", "!", " ", ""]
+        keep_separator: true
+        is_separator_regex: false
+    semantic_fixed:
+      name: semantic
+      params:
+        use_recursive: false
+        embedding_provider: huggingface
+        embedding_model: sentence-transformers/all-MiniLM-L6-v2
+        chunk_size: 800
+        chunk_overlap: 100
+        breakpoint_threshold_type: percentile
+        breakpoint_threshold_amount: 95
+        buffer_size: 1
+        add_start_index: true
+    semantic_recursive:
+      name: semantic
+      params:
+        use_recursive: true
+        embedding_provider: huggingface
+        embedding_model: sentence-transformers/all-MiniLM-L6-v2
+        chunk_size: 800
+        chunk_overlap: 100
+        breakpoint_threshold_type: percentile
+        breakpoint_threshold_amount: 95
+        buffer_size: 1
+        add_start_index: true    
+    hierarchical_section:
+      name: hierarchical_section   # aliases: hierarchical | section | section_hier
+      params:
+        encoding_name: cl100k_base
+        model_name: null
+        chunk_size: 800
+        chunk_overlap: 120
+        add_start_index: false
+        strip_whitespace: true
+        use_latex: true
+        use_numbered_headings: true
+        use_common_chem_headings: true
+        use_generic_heading_heuristics: true
+        custom_heading_regexes:
+          - "^\\s*graphical\\s+abstract\\s*$"
+          - "^\\s*experimental\\s+procedures?\\s*$"
+          - "^\\s*author\\s+information\\s*$"
+          - "^\\s*orcid\\s*:?"          # some PDFs render “ORCID:” with colon
+          - "^\\s*corresponding\\s+author\\s*$"
+          - "^\\s*author\\s+contributions?\\s*$"
+          - "^\\s*funding(\\s+sources?)?\\s*$"
+          - "^\\s*acknowledg(e)?ments?\\s*$"
+          - "^\\s*abbreviations\\s*$"
+          - "^\\s*references?\\s*$"
+          - "^\\s*bibliograph(y|ies)\\s*$"
+        join_short_sections: true
+        min_section_tokens: 200
+        prefer_merge_forward: true
+        drop_tail_sections_matching:
+              - "references"
+              - "bibliography"
+              - "works cited"
+              - "author information"
+              - "orcid"
+              - "corresponding author"
+              - "author contributions"
+              - "funding sources"
+              - "funding"
+              - "acknowledg"          # matches acknowledgment / acknowledgments
+              - "abbreviations"
+              - "nomenclature"
+              - "glossary"
+              - "conflict of interest"
+              - "declarations"
+              - "data availability"
+              - "supplementary information"
+              - "supporting information"
+              - "toc graphic"
+              - "table of contents graphic"
+        drop_from_first_match: true
+    hybrid_multi:
+      name: hybrid_multi       # aliases: hybrid
+      params:
+        encoding_name: cl100k_base
+        model_name: null
+        strip_whitespace: true
+        levels: ["section", "paragraph", "sentence"]
+        chunk_sizes:
+          section: 900
+          paragraph: 500
+          sentence: 160
+        chunk_overlaps:
+          section: 120
+          paragraph: 60
+          sentence: 24
+        approx_chars_per_token: 4
+        sectioner:
+          encoding_name: cl100k_base
+          model_name: null
+          chunk_size: 900
+          chunk_overlap: 120
+          add_start_index: false
+          strip_whitespace: true
+          use_latex: true
+          use_numbered_headings: true
+          use_common_chem_headings: true
+          use_generic_heading_heuristics: true
+          custom_heading_regexes:
+            - "^\\s*graphical\\s+abstract\\s*$"
+            - "^\\s*experimental\\s+procedures?\\s*$"
+            - "^\\s*author\\s+information\\s*$"
+            - "^\\s*orcid\\s*:?"
+            - "^\\s*corresponding\\s+author\\s*$"
+            - "^\\s*author\\s+contributions?\\s*$"
+            - "^\\s*funding(\\s+sources?)?\\s*$"
+            - "^\\s*acknowledg(e)?ments?\\s*$"
+            - "^\\s*abbreviations\\s*$"
+            - "^\\s*references?\\s*$"
+            - "^\\s*bibliograph(y|ies)\\s*$"
+          join_short_sections: true
+          min_section_tokens: 200
+          prefer_merge_forward: true
+          drop_tail_sections_matching:
+            - "references"
+            - "bibliography"
+            - "works cited"
+            - "author information"
+            - "orcid"
+            - "corresponding author"
+            - "author contributions"
+            - "funding sources"
+            - "funding"
+            - "acknowledg"
+            - "abbreviations"
+            - "nomenclature"
+            - "glossary"
+            - "conflict of interest"
+            - "declarations"
+            - "data availability"
+            - "supplementary information"
+            - "supporting information"
+            - "toc graphic"
+            - "table of contents graphic"
+          drop_from_first_match: true
+  strategy:
+    preset: recursive_token
+    overrides: {}     # e.g., { params: { chunk_size: 256 } }
+#-------------------------------------------------------------------------------------
+#                 STAGE 1: Embedding Models Fast Screening
+#-------------------------------------------------------------------------------------
+stage1:
+  output_root: ${params.paths.stage1_out}
+  # import_modules:
+  #   - my_tasks
+  encode_kwargs: {}
+  models:
+    - name: sentence-transformers/bert-base-nli-mean-tokens
+      revision: main
+      normalize: true
+    - name: allenai/scibert_scivocab_uncased
+      revision: main
+      normalize: true
+      model_kwargs:
+        trust_remote_code: true
+    - name: nomic-ai/nomic-bert-2048
+      revision: 40b98394640e630d5276807046089b233113aa87
+      normalize: true
+      batch_size: 32
+      model_kwargs:
+        trust_remote_code: true
+    - name: intfloat/e5-small
+      revision: e272f3049e853b47cb5ca3952268c6662abda68f
+      normalize: true
+      batch_size: 64
+      model_kwargs:
+        trust_remote_code: true
+    - name: intfloat/e5-base
+      revision: b533fe4636f4a2507c08ddab40644d20b0006d6a
+      normalize: true
+      batch_size: 64
+      model_kwargs:
+        trust_remote_code: true
+    - name: intfloat/e5-large
+      revision: 4dc6d853a804b9c8886ede6dda8a073b7dc08a81
+      normalize: true
+      batch_size: 32
+      model_kwargs:
+        trust_remote_code: true
+    - name: intfloat/e5-small-v2
+      revision: dca8b1a9dae0d4575df2bf423a5edb485a431236
+      normalize: true
+      batch_size: 64
+      model_kwargs:
+        trust_remote_code: true
+    - name: intfloat/e5-base-v2
+      revision: 1c644c92ad3ba1efdad3f1451a637716616a20e8
+      normalize: true
+      batch_size: 64
+      model_kwargs:
+        trust_remote_code: true
+    - name: intfloat/e5-large-v2
+      revision: b322e09026e4ea05f42beadf4d661fb4e101d311
+      normalize: true
+      batch_size: 32
+      model_kwargs:
+        trust_remote_code: true
+    - name: intfloat/multilingual-e5-small
+      revision: fd1525a9fd15316a2d503bf26ab031a61d056e98
+      normalize: true
+      batch_size: 64
+      model_kwargs:
+        trust_remote_code: true
+    - name: intfloat/multilingual-e5-base
+      revision: d13f1b27baf31030b7fd040960d60d909913633f
+      normalize: true
+      batch_size: 64
+      model_kwargs:
+        trust_remote_code: true
+    - name: intfloat/multilingual-e5-large
+      revision: ab10c1a7f42e74530fe7ae5be82e6d4f11a719eb
+      normalize: true
+      batch_size: 32
+      model_kwargs:
+        trust_remote_code: true
+    - name: nomic-ai/nomic-embed-text-v1
+      revision: 0759316f275aa0cb93a5b830973843ca66babcf5
+      normalize: true
+      batch_size: 64
+      model_kwargs:
+        trust_remote_code: true
+    - name: nomic-ai/nomic-embed-text-v1.5
+      revision: b0753ae76394dd36bcfb912a46018088bca48be0
+      normalize: true
+      batch_size: 64
+      model_kwargs:
+        trust_remote_code: true
+    - name: recobo/chemical-bert-uncased
+      revision: main
+      normalize: true
+      model_kwargs:
+        trust_remote_code: true
+    - name: BAAI/bge-m3
+      revision: main
+      normalize: true
+      batch_size: 32
+      model_kwargs:
+        trust_remote_code: true
+    - name: BAAI/bge-small-en
+      revision: main
+      normalize: true
+      batch_size: 64
+      model_kwargs:
+        trust_remote_code: true
+    - name: BAAI/bge-base-en
+      revision: main
+      normalize: true
+      batch_size: 64
+      model_kwargs:
+        trust_remote_code: true
+    - name: BAAI/bge-large-en
+      revision: main
+      normalize: true
+      batch_size: 32
+      model_kwargs:
+        trust_remote_code: true
+    - name: BAAI/bge-small-en-v1.5
+      revision: 5c38ec7c405ec4b44b94cc5a9bb96e735b38267a
+      normalize: true
+      batch_size: 64
+      model_kwargs:
+        trust_remote_code: true
+    - name: BAAI/bge-base-en-v1.5
+      revision: a5beb1e3e68b9ab74eb54cfd186867f64f240e1a
+      normalize: true
+      batch_size: 64
+      model_kwargs:
+        trust_remote_code: true
+    - name: BAAI/bge-large-en-v1.5
+      revision: d4aa6901d3a41ba39fb536a557fa166f842b0e09
+      normalize: true
+      batch_size: 32
+      model_kwargs:
+        trust_remote_code: true
+    - name: sentence-transformers/all-mpnet-base-v2
+      revision: main
+      normalize: true
+      model_kwargs:
+        trust_remote_code: true
+    - name: sentence-transformers/multi-qa-mpnet-base-dot-v1
+      revision: main
+      normalize: true
+      model_kwargs:
+        trust_remote_code: true
+    - name: sentence-transformers/all-MiniLM-L12-v2
+      revision: main
+      normalize: true
+      batch_size: 64
+      model_kwargs:
+        trust_remote_code: true
+    - name: sentence-transformers/all-MiniLM-L6-v2
+      revision: main
+      normalize: true
+      batch_size: 64
+      model_kwargs:
+        trust_remote_code: true
+    - name: m3rg-iitd/matscibert
+      revision: main
+      normalize: true
+      model_kwargs:
+        trust_remote_code: true
+    - name: allenai/specter
+      revision: main
+      normalize: true
+      model_kwargs:
+        trust_remote_code: true
+    - name: facebook/contriever
+      revision: main
+      normalize: true
+      batch_size: 64
+      model_kwargs:
+        trust_remote_code: true
+    - name: hkunlp/instructor-xl
+      revision: main
+      normalize: true
+      batch_size: 16
+      model_kwargs:
+        trust_remote_code: true
+    - name: facebook/contriever-msmarco
+      revision: main
+      normalize: true
+      batch_size: 64
+      model_kwargs:
+        trust_remote_code: true
+    - name: sentence-transformers/gtr-t5-base
+      revision: main
+      normalize: true
+      batch_size: 32
+      model_kwargs:
+        trust_remote_code: true
+    - name: sentence-transformers/gtr-t5-large
+      revision: main
+      normalize: true
+      batch_size: 16
+      model_kwargs:
+        trust_remote_code: true
+    - name: sentence-transformers/gtr-t5-xl
+      revision: main
+      normalize: true
+      batch_size: 8
+      model_kwargs:
+        trust_remote_code: true
+    - name: jinaai/jina-embeddings-v2-small-en
+      revision: main
+      normalize: true
+      batch_size: 32
+      model_kwargs:
+        trust_remote_code: true
+    - name: jinaai/jina-embeddings-v2-base-en
+      revision: main
+      normalize: true
+      batch_size: 64
+      model_kwargs:
+        trust_remote_code: true
+    - name: microsoft/mpnet-base
+      revision: main
+      normalize: true
+      batch_size: 64
+      model_kwargs:
+        trust_remote_code: true
+    - name: microsoft/MiniLM-L12-H384-uncased
+      revision: main
+      normalize: true
+      batch_size: 64
+      model_kwargs:
+        trust_remote_code: true
+    - name: sentence-transformers/paraphrase-multilingual-mpnet-base-v2
+      revision: 79f2382ceacceacdf38563d7c5d16b9ff8d725d6
+      normalize: true
+      batch_size: 64
+      model_kwargs:
+        trust_remote_code: true
+    - name: nomic-ai/nomic-embed-text-v2-moe
+      revision: main
+      normalize: true
+      batch_size: 32
+      model_kwargs:
+        trust_remote_code: true
+    - name: microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract
+      revision: main
+      normalize: true
+      model_kwargs:
+        trust_remote_code: true
+    - name: microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext
+      revision: main
+      normalize: true
+      model_kwargs:
+        trust_remote_code: true
+    - name: DeepChem/ChemBERTa-77M-MTR
+      revision: main
+      normalize: true
+      batch_size: 64
+      model_kwargs:
+        trust_remote_code: true
+    - name: microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract
+      revision: main
+      normalize: true
+      model_kwargs:
+        trust_remote_code: true
+  tasks:
+    # - { class: "my_tasks.ChemQuest" }
+    - "ChemNQRetrieval"
+    - "ChemHotpotQARetrieval"
+#-------------------------------------------------------------------------------------
+#                               STAGE 2
+#-------------------------------------------------------------------------------------
+stage2:
+  root_dir: ${params.paths.screen_dir}
+  results_subdir: "validation_results"
+  split_preference: ["test", "validation", "train"]  # Which split(s) to prefer when extracting nDCG@10 (first match wins)
+  metric_key: "ndcg_at_10" 
+  top_percent: 0.10   # Keep top X% within each dataset (0–1)
+  datasets_include: []   # e.g., ["ChemHotpotQARetrieval", "ChemNQRetrieval"](leave empty to take all found)
+  output_union_csv: ${params.paths.screen_dir}/passed_models_union.csv
+  output_per_dataset_csv: ${params.paths.screen_dir}/passed_per_dataset.csv
+  model_id_format: "name@rev"
+  # How to name models in outputs:
+  # "name" -> from model_meta.json "name" (e.g., BAAI/bge-base-en-v1.5)
+  # "name@rev" -> name + '@' + revision if present
+  # "folder" -> use the outer folder name (e.g., BAAI__bge-base-en-v1.5_a5be...)
+#-------------------------------------------------------------------------------------
+#                               STAGE 3
+#-------------------------------------------------------------------------------------
+stage3:
+  repo_id: "Bocklitz-Lab/ChemQuests"
+  data_files: ["metadata.jsonl", "full_text.jsonl", "qa.jsonl"]
+  output_dir: ${params.paths.chemquests_dir}
+  revision: "main"
+  overwrite: false
+#-------------------------------------------------------------------------------------
+#                               STAGE 4
+#-------------------------------------------------------------------------------------
+stage4:
+  input_path: ${params.paths.chemquests_dir}/full_text.jsonl
+  output_path: ${params.paths.chunks_dir}/chunks.jsonl
+  text_field: text
+  id_field: corpus_id
+  token_count_encoding: cl100k_base   # or leave null to skip
+  token_count_model: null             # e.g., gpt-4o-mini (tiktoken will map)
+  compute_offsets: true
+  max_docs: null  # Limit processing during tests
+  strategy: ${params.strategy.preset}
+#-------------------------------------------------------------------------------------
+#                               STAGE 5
+#-------------------------------------------------------------------------------------
+stage5:
+  qa_jsonl_file: ${params.paths.chemquests_dir}/qa.jsonl
+  chunks_jsonl_file: ${params.paths.chunks_dir}/chunks.jsonl
+  output_folder: ${params.paths.mteb_task_dir}
+  search_scope: single        # "single" or "all"
+  include_source_flag: true
+  ngram_n: 1                  # 1 = unigrams (good recall, simple)
+  top_k: 5
+  adjacency_window: 1         # neighbor boost ±1
+  neighbor_penalty: 0.9
+  merge_window: true          # merged neighbor window scoring
+  weights:
+    bm25: 1.0
+    jaccard: 1.0
+    fuzzy_token_set: 1.0
+#-------------------------------------------------------------------------------------
+#                               STAGE 6
+#-------------------------------------------------------------------------------------
+stage6:
+  models:
+    - name: ${params.model.name}
+      revision: ${params.model.revision}
+      batch_size: ${params.model.batch_size}
+      normalize: ${params.model.normalize}
+  tasks:
+    # - ChemNQRetrieval # An official MTEB task by name
+    - class: pipeline_lib.my_tasks.ChemQuest
+      kwargs:
+        data_dir: ${params.paths.mteb_task_dir}    
+  import_modules:
+    - pipeline_lib.my_tasks
+  encode_kwargs:
+    normalize_embeddings: false
+  output_root: 1_MultiRetrieval
+

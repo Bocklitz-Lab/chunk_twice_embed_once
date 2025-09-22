@@ -1,0 +1,24 @@
+models:
+  - name: sentence-transformers/all-MiniLM-L6-v2
+    revision: main
+    batch_size: 128
+    normalize: true
+
+tasks:
+  # An official MTEB task by name
+  - ChemNQRetrieval
+
+  # Your local custom task via import path + kwargs
+  - class: pipeline_lib.my_tasks.ChemQuest
+    kwargs:
+      data_dir: artifacts/mteb_task    # <- your local folder (uses the load_data(data_dir=...) you implemented)
+
+# Optional: pre-import modules so "my_tasks" is available
+import_modules:
+  - pipeline_lib.my_tasks
+
+# Global encode kwargs (merged under the hood with per-model ones; model wins)
+encode_kwargs:
+  normalize_embeddings: false
+
+output_root: 1_MultiRetrieval

@@ -17,17 +17,17 @@ compute_offsets: true
 max_docs: null
 
 # Choose one strategy and set its params
-# strategy:
-#   name: fixed_token        # one of: fixed_token | recursive_token | kamradt | cluster_semantic | llm
-#   params:
-#     # ---- fixed_token (FixedTokenChunker) params ----
-#     encoding_name: cl100k_base
-#     model_name: null          # optional, overrides encoding_name
-#     chunk_size: 800
-#     chunk_overlap: 100
-#     keep_separator: false     # passed to base splitter if supported
-#     add_start_index: false
-#     strip_whitespace: true
+strategy:
+  name: fixed_token        # one of: fixed_token | recursive_token | kamradt | cluster_semantic | llm
+  params:
+    # ---- fixed_token (FixedTokenChunker) params ----
+    encoding_name: cl100k_base
+    model_name: null          # optional, overrides encoding_name
+    chunk_size: 200
+    chunk_overlap: 10
+    keep_separator: false     # passed to base splitter if supported
+    add_start_index: false
+    strip_whitespace: true
 
 # strategy:
 #   name: recursive_token

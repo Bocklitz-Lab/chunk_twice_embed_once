@@ -1,0 +1,21 @@
+# Required
+qa_jsonl_file: artifacts/chemquests/qa.jsonl
+chunks_jsonl_file: artifacts/chunks/chunks.jsonl
+output_folder: artifacts/mteb_task
+
+# Core settings (lean defaults)
+search_scope: single        # "single" or "all"
+include_source_flag: true
+
+# Retrieval knobs
+ngram_n: 1                  # 1 = unigrams (good recall, simple)
+top_k: 5
+adjacency_window: 1         # neighbor boost ±1
+neighbor_penalty: 0.9
+merge_window: true          # merged neighbor window scoring
+
+# Scoring weights
+weights:
+  bm25: 1.0
+  jaccard: 1.0
+  fuzzy_token_set: 1.0
