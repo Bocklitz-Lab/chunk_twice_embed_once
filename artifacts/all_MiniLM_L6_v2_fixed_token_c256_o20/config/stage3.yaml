@@ -1,8 +1,0 @@
-repo_id: Bocklitz-Lab/ChemQuests
-data_files:
-- metadata.jsonl
-- full_text.jsonl
-- qa.jsonl
-output_dir: artifacts2/chemquests_hf_db
-revision: main
-overwrite: false

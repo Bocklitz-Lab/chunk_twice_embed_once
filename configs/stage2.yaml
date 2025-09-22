@@ -1,8 +1,0 @@
-global:
-  # seed: 42
-
-stage2_qa:
-  qa_csv: "./chunking_evaluation/evaluation_framework/general_evaluation_data/questions_df.csv"
-  output_dir: "./artifacts/stage2"   # writes: qa_pairs.json
-  # reads: artifacts/stage1/corpus_id_mapping.json
-

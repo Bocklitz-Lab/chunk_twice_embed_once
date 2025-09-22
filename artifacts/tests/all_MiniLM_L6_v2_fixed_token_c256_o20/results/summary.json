@@ -1,0 +1,10 @@
+[
+  {
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "main",
+    "normalize": true,
+    "batch_size": 128,
+    "task": "ChemQuest",
+    "main_score": null
+  }
+]
