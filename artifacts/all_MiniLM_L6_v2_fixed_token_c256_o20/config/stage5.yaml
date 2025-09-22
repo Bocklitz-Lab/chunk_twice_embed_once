@@ -1,6 +1,6 @@
-qa_jsonl_file: artifacts2/chemquests/qa.jsonl
-chunks_jsonl_file: artifacts2/chunks/chunks.jsonl
-output_folder: artifacts2/mteb_task
+qa_jsonl_file: artifacts2/chemquests_hf_db/qa.jsonl
+chunks_jsonl_file: artifacts2/tests/all_MiniLM_L6_v2_fixed_token_c256_o20/chunks/chunks.jsonl
+output_folder: artifacts2/tests/all_MiniLM_L6_v2_fixed_token_c256_o20/mteb_task
 search_scope: single
 include_source_flag: true
 ngram_n: 1

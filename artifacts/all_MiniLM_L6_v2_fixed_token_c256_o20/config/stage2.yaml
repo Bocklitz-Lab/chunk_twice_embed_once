@@ -1,4 +1,4 @@
-root_dir: artifacts2/01_embedding_models_screening
+root_dir: artifacts2/embedding_models_screening
 results_subdir: validation_results
 split_preference:
 - test
@@ -7,6 +7,6 @@ split_preference:
 metric_key: ndcg_at_10
 top_percent: 0.1
 datasets_include: []
-output_union_csv: artifacts2/01_embedding_models_screening/passed_models_union.csv
-output_per_dataset_csv: artifacts2/01_embedding_models_screening/passed_per_dataset.csv
+output_union_csv: artifacts2/embedding_models_screening/passed_models_union.csv
+output_per_dataset_csv: artifacts2/embedding_models_screening/passed_per_dataset.csv
 model_id_format: name@rev

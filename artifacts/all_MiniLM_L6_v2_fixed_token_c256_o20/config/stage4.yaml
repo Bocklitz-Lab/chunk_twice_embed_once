@@ -1,5 +1,5 @@
-input_path: artifacts2/chemquests/full_text.jsonl
-output_path: artifacts2/chunks/chunks.jsonl
+input_path: artifacts2/chemquests_hf_db/full_text.jsonl
+output_path: artifacts2/tests/all_MiniLM_L6_v2_fixed_token_c256_o20/chunks/chunks.jsonl
 text_field: text
 id_field: corpus_id
 token_count_encoding: cl100k_base

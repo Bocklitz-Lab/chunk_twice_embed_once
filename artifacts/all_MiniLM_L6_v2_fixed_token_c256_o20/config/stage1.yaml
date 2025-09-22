@@ -1,4 +1,4 @@
-output_root: artifacts2/01_embedding_models_screening/validation_results
+output_root: artifacts2/embedding_models_screening/validation_results
 encode_kwargs: {}
 models:
 - name: sentence-transformers/bert-base-nli-mean-tokens

@@ -1,18 +1,26 @@
 # =================== GLOBAL PARAMS (programmable) ===================
 params:
-  paths:
-    artifacts_root: artifacts2
-    chemquests_dir: ${params.paths.artifacts_root}/chemquests
-    chunks_dir: ${params.paths.artifacts_root}/chunks
-    screen_dir: ${params.paths.artifacts_root}/01_embedding_models_screening
-    stage1_out: ${params.paths.screen_dir}/validation_results
-    mteb_task_dir: ${params.paths.artifacts_root}/mteb_task
   model:
     # Change this once; it propagates everywhere that references it.
     name: sentence-transformers/all-MiniLM-L6-v2
+    dir: all_MiniLM_L6_v2
     revision: main
     batch_size: 128
     normalize: true
+  chunk:
+    chunker: fixed_token
+    size: 256
+    overlap: 20
+  paths:
+    artifacts_root: artifacts
+    chemquests_dir: ${params.paths.artifacts_root}/chemquests_hf_db
+    screen_dir: ${params.paths.artifacts_root}/embedding_models_screening
+    top_performer_input: ${params.paths.screen_dir}/validation_results
+    test_name: ${params.model.dir}_${params.chunk.chunker}_c${params.chunk.size}_o${params.chunk.overlap}    
+    chunks_dir: ${params.paths.artifacts_root}/tests/${params.paths.test_name}/chunks
+    mteb_task_dir: ${params.paths.artifacts_root}/tests/${params.paths.test_name}/mteb_task
+    test_results_dir: ${params.paths.artifacts_root}/tests/${params.paths.test_name}/results
+
   strategy_presets:
     fixed_token:
       name: fixed_token        # one of: fixed_token | recursive_token | kamradt | cluster_semantic | llm
@@ -172,13 +180,16 @@ params:
             - "table of contents graphic"
           drop_from_first_match: true
   strategy:
-    preset: recursive_token
-    overrides: {}     # e.g., { params: { chunk_size: 256 } }
+    preset: ${params.chunk.chunker}
+    overrides: 
+      params:
+        chunk_size: ${params.chunk.size}  
+        overlap: ${params.chunk.overlap}      
 #-------------------------------------------------------------------------------------
 #                 STAGE 1: Embedding Models Fast Screening
 #-------------------------------------------------------------------------------------
 stage1:
-  output_root: ${params.paths.stage1_out}
+  output_root: ${params.paths.top_performer_input}
   # import_modules:
   #   - my_tasks
   encode_kwargs: {}
@@ -514,5 +525,5 @@ stage6:
     - pipeline_lib.my_tasks
   encode_kwargs:
     normalize_embeddings: false
-  output_root: 1_MultiRetrieval
+  output_root: ${params.paths.test_results_dir}
 
