@@ -1,8 +1,14 @@
 SHELL := /bin/bash
 .PHONY: all stage1 stage2 stage3 stage4 clean show-configs
 
-OVERLAP = 0 32 #64
-SIZE    = 128 384 #192 256 320  448
+OVERLAP = 0 16 32 48 64
+SIZE    = 64 128 384 192 256 320  448 512
+TOTAL_LIMIT ?= 512
+TOKEN_LIMIT ?= 510
+MIN_STRIDE ?= 96
+MAX_OVERLAP_ABS ?= 64
+MAX_OVERLAP_PCT ?= 20
+
 CSV ?= artifacts/embedding_models_screening/passed_per_dataset.csv
 
 MODELS = $(shell awk -F, 'NR>1 {printf "%s%s@%s", sep,$$2,$$3; sep=" "}' $(CSV) | tr -d "\r")
@@ -57,6 +63,25 @@ stage4-6:
 		for c in $(CHUNKER); do \
 			for s in $(SIZE); do \
 			for o in $(OVERLAP); do \
+				if (( s > $(TOKEN_LIMIT) )); then \
+					echo "⏭️  Skip: L=$$s > TOKEN_LIMIT=$(TOKEN_LIMIT)"; \
+					continue; \
+				fi; \
+				pct_cap=$$(( s * $(MAX_OVERLAP_PCT) / 100 )); \
+				max_o=$$pct_cap; \
+				if (( max_o > $(MAX_OVERLAP_ABS) )); then max_o=$(MAX_OVERLAP_ABS); fi; \
+				if (( o > max_o )); then \
+					echo "⏭️  Skip: O=$$o > max_allowed=$$max_o for L=$$s"; \
+					continue; \
+				fi; \
+				if (( s - o < $(MIN_STRIDE) )); then \
+					echo "⏭️  Skip: stride=$$((s-o)) < $(MIN_STRIDE) (L=$$s, O=$$o)"; \
+					continue; \
+				fi; \
+				if (( s + o > $(TOTAL_LIMIT) )); then \
+					echo "⏭️  Skip: L+O=$$((s+o)) > $(TOTAL_LIMIT) (L=$$s, O=$$o)"; \
+					continue; \
+				fi; \
 				outdir=artifacts/tests/$${dir}_$${c}_c$${s}_o$${o}; \
 				config_dir=$$outdir/config; \
 				echo "▶️ model=$$name@$$rev chunker=$$c size=$$s overlap=$$o -> $$config_dir"; \
@@ -87,3 +112,8 @@ stage4-6:
 # clean:
 # 	rm -rf artifacts
 # 	@echo "🧹 Cleaned artifacts/"
+
+
+
+
+
