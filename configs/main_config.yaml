@@ -23,54 +23,61 @@ params:
 
   strategy_presets:
     fixed_token:
-      name: fixed_token        # one of: fixed_token | recursive_token | kamradt | cluster_semantic | llm
+      name: fixed_token
       params:
-        # ---- fixed_token (FixedTokenChunker) params ----
-        encoding_name: cl100k_base
-        model_name: null          # optional, overrides encoding_name
-        chunk_size: ${params.chunk.size} 
-        chunk_overlap: ${params.chunk.overlap} 
-        keep_separator: false     # passed to base splitter if supported
+        model_name: ${params.model.name}  # or your HF tokenizer model id
+        chunk_size: ${params.chunk.size}
+        chunk_overlap: ${params.chunk.overlap}
         add_start_index: false
         strip_whitespace: true
+
     recursive_token:
       name: recursive_token
       params:
-        chunk_size: ${params.chunk.size} 
-        chunk_overlap: ${params.chunk.overlap} 
+        chunk_size: ${params.chunk.size}
+        chunk_overlap: ${params.chunk.overlap}
         separators: ["\n\n", "\n", ".", "?", "!", " ", ""]
         keep_separator: true
         is_separator_regex: false
+        model_name: ${params.model.name}   # any HF tokenizer id
+        add_start_index: false                               # set true to annotate start offsets
+        strip_whitespace: true                               # trim around splits
+
     semantic_fixed:
       name: semantic
       params:
+        model_name: ${params.model.name}
         use_recursive: false
-        embedding_provider: huggingface
-        embedding_model: sentence-transformers/all-MiniLM-L6-v2
-        chunk_size: ${params.chunk.size} 
-        chunk_overlap: ${params.chunk.overlap} 
+        chunk_size: ${params.chunk.size}
+        chunk_overlap: ${params.chunk.overlap}
         breakpoint_threshold_type: percentile
         breakpoint_threshold_amount: 95
         buffer_size: 1
         add_start_index: true
+        strip_whitespace: true
+        min_chunk_size: 128
+
+
     semantic_recursive:
       name: semantic
       params:
+        model_name: ${params.model.name}
         use_recursive: true
-        embedding_provider: huggingface
-        embedding_model: sentence-transformers/all-MiniLM-L6-v2
-        chunk_size: ${params.chunk.size} 
-        chunk_overlap: ${params.chunk.overlap} 
+        chunk_size: ${params.chunk.size}
+        chunk_overlap: ${params.chunk.overlap}
         breakpoint_threshold_type: percentile
         breakpoint_threshold_amount: 95
         buffer_size: 1
-        add_start_index: true    
+        add_start_index: true
+        strip_whitespace: true
+        min_chunk_size: 128
+  
+
     hierarchical_section:
       name: hierarchical_section   # aliases: hierarchical | section | section_hier
       params:
-        encoding_name: cl100k_base
-        model_name: null
-        chunk_size: 500
+        model_name: ${params.model.name}
+        chunk_size: ${params.chunk.size}
         chunk_overlap: ${params.chunk.overlap} 
         add_start_index: false
         strip_whitespace: true
@@ -115,27 +122,26 @@ params:
               - "toc graphic"
               - "table of contents graphic"
         drop_from_first_match: true
+
     hybrid_multi:
-      name: hybrid_multi       # aliases: hybrid
+      name: hybrid_multi
       params:
-        encoding_name: cl100k_base
-        model_name: null
+        model_name: ${params.model.name}   
         strip_whitespace: true
         levels: ["section", "paragraph", "sentence"]
         chunk_sizes:
-          section: 500
-          paragraph: 500
-          sentence: ${params.chunk.size} 
+          section: ${params.chunk.size}
+          paragraph: ${params.chunk.size}
+          sentence: ${params.chunk.size}
         chunk_overlaps:
-          section: ${params.chunk.overlap} 
-          paragraph: ${params.chunk.overlap} 
-          sentence: ${params.chunk.overlap} 
-        approx_chars_per_token: 4
+          section: ${params.chunk.overlap}
+          paragraph: ${params.chunk.overlap}
+          sentence: ${params.chunk.overlap}
+        approx_chars_per_token: 4  # kept for API compatibility; unused when HF tokens are active
         sectioner:
-          encoding_name: cl100k_base
-          model_name: null
-          chunk_size: 500
-          chunk_overlap: ${params.chunk.overlap} 
+          model_name: ${params.model.name}
+          chunk_size: ${params.chunk.size}
+          chunk_overlap: ${params.chunk.overlap}
           add_start_index: false
           strip_whitespace: true
           use_latex: true
@@ -146,7 +152,7 @@ params:
             - "^\\s*graphical\\s+abstract\\s*$"
             - "^\\s*experimental\\s+procedures?\\s*$"
             - "^\\s*author\\s+information\\s*$"
-            - "^\\s*orcid\\s*:?"
+            - "^\\s*orcid\\s*:?$"
             - "^\\s*corresponding\\s+author\\s*$"
             - "^\\s*author\\s+contributions?\\s*$"
             - "^\\s*funding(\\s+sources?)?\\s*$"
@@ -179,6 +185,7 @@ params:
             - "toc graphic"
             - "table of contents graphic"
           drop_from_first_match: true
+
   strategy:
     preset: ${params.chunk.chunker}
     overrides: 

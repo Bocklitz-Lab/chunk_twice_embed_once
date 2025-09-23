@@ -258,37 +258,11 @@ class ChunkerFactory:
             if SemanticSplitter is None:
                 raise ImportError("SemanticSplitter not importable.")
 
-            provider = params.get("embedding_provider", "openai").lower()
-
-            if provider == "openai":
-                # --- OpenAI ---
-                api_key = params.get("api_key") or os.getenv("OPENAI_API_KEY")
-                if api_key is None:
-                    raise RuntimeError("No OpenAI API key provided.")
-                try:
-                    from langchain_openai import OpenAIEmbeddings
-                except ImportError:
-                    from langchain.embeddings import OpenAIEmbeddings
-                embeddings = OpenAIEmbeddings(
-                    model=params.get("embedding_model", "text-embedding-3-small"),
-                    api_key=api_key,
-                )
-
-            elif provider in {"hf", "huggingface"}:
-                # --- HuggingFace ---
-                try:
-                    from langchain_huggingface import HuggingFaceEmbeddings
-                except ImportError:
-                    from langchain_community.embeddings import HuggingFaceEmbeddings
-                embeddings = HuggingFaceEmbeddings(
-                    model_name=params.get("embedding_model", "sentence-transformers/all-MiniLM-L6-v2")
-                )
-
-            else:
-                raise ValueError(f"Unsupported embedding_provider: {provider}")
+            model_name = params.get("model_name") or params.get("embedding_model") \
+                        or "sentence-transformers/all-MiniLM-L6-v2"
 
             return SemanticSplitter(
-                embeddings=embeddings,
+                model_name=model_name,
                 use_recursive=params.get("use_recursive", False),
                 chunk_size=params.get("chunk_size", 4000),
                 chunk_overlap=params.get("chunk_overlap", 200),
@@ -296,11 +270,10 @@ class ChunkerFactory:
                 breakpoint_threshold_amount=params.get("breakpoint_threshold_amount", 95.0),
                 buffer_size=params.get("buffer_size", 1),
                 min_chunk_size=params.get("min_chunk_size"),
-                encoding_name=params.get("encoding_name", "cl100k_base"),
-                model_name=params.get("model_name"),
                 add_start_index=params.get("add_start_index", False),
                 strip_whitespace=params.get("strip_whitespace", True),
             )
+
 
 
         elif name in {"hierarchical", "section", "section_hier", "hierarchical_section"}:
@@ -312,7 +285,6 @@ class ChunkerFactory:
             if HybridMultiGranularityChunker is None:
                 raise ImportError("HybridMultiGranularityChunker not importable. Check your module path.")
             return HybridMultiGranularityChunker(
-                encoding_name=params.get("encoding_name", "cl100k_base"),
                 model_name=params.get("model_name"),
                 levels=params.get("levels", ["section", "paragraph", "sentence"]),
                 chunk_sizes=params.get("chunk_sizes"),

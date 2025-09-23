@@ -21,3 +21,6 @@ strategy:
     - ''
     keep_separator: true
     is_separator_regex: false
+    model_name: nomic-ai/nomic-embed-text-v1
+    add_start_index: false
+    strip_whitespace: true

@@ -2,15 +2,12 @@ SHELL := /bin/bash
 .PHONY: all stage1 stage2 stage3 stage4 clean show-configs
 
 OVERLAP = 0 32 #64
-SIZE    = 128 192 #256 320 384 448
+SIZE    = 128 384 #192 256 320  448
 CSV ?= artifacts/embedding_models_screening/passed_per_dataset.csv
 
 MODELS = $(shell awk -F, 'NR>1 {printf "%s%s@%s", sep,$$2,$$3; sep=" "}' $(CSV) | tr -d "\r")
 
-
-
-
-CHUNKER = fixed_token recursive_token #semantic_fixed semantic_recursive hierarchical_section hybrid_multi
+CHUNKER =  recursive_token fixed_token semantic_fixed semantic_recursive hierarchical_section hybrid_multi
 
 INPUT_CONFIG = configs/main_config.yaml
 OUTPUT_CONFIG = configs/stages/

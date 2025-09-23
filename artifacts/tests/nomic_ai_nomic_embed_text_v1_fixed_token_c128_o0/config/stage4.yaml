@@ -9,10 +9,8 @@ max_docs: null
 strategy:
   name: fixed_token
   params:
-    encoding_name: cl100k_base
-    model_name: null
+    model_name: nomic-ai/nomic-embed-text-v1
     chunk_size: 128
     chunk_overlap: 0
-    keep_separator: false
     add_start_index: false
     strip_whitespace: true

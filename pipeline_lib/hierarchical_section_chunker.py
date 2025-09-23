@@ -1,18 +1,120 @@
 # section_hier_chunker.py
 from __future__ import annotations
-from typing import Any, AbstractSet, Collection, Iterable, List, Literal, Optional, Sequence, Tuple, Type, Union
+from typing import Any, AbstractSet, Collection, Iterable, List, Literal, Optional, Sequence, Tuple, Union
 import re
 
-# LangChain imports (support both v0.1+ and v0.2+ package names)
+# LangChain imports kept for compatibility in environments that still expect them,
+# but we won't rely on them for token-based splitting.
 try:
-    from langchain_text_splitters import TokenTextSplitter as LCTokenTextSplitter
+    from langchain_text_splitters import TokenTextSplitter as LCTokenTextSplitter  # noqa: F401
 except ImportError:
-    from langchain.text_splitter import TokenTextSplitter as LCTokenTextSplitter
+    try:
+        from langchain.text_splitter import TokenTextSplitter as LCTokenTextSplitter  # noqa: F401
+    except Exception:
+        LCTokenTextSplitter = None  # not used
 
+# Hugging Face tokenizer
 try:
-    import tiktoken
+    from transformers import AutoTokenizer
 except Exception:
-    tiktoken = None
+    AutoTokenizer = None
+
+
+class _HFTokenTextSplitter:
+    """
+    Minimal token-based splitter that uses a Hugging Face tokenizer when available.
+    It matches the key behaviors we need:
+      - split_text(text) -> List[str] with token-length chunks (+ overlap)
+      - create_documents(texts, metadatas) -> List[dict] (page_content, metadata)
+    """
+
+    def __init__(
+        self,
+        *,
+        chunk_size: int,
+        chunk_overlap: int,
+        tokenizer=None,  # HF tokenizer or None
+        add_start_index: bool = False,
+        strip_whitespace: bool = True,
+    ) -> None:
+        if chunk_overlap > chunk_size:
+            raise ValueError(
+                f"chunk_overlap ({chunk_overlap}) must be <= chunk_size ({chunk_size})"
+            )
+        self._chunk_size = int(chunk_size)
+        self._chunk_overlap = int(chunk_overlap)
+        self._tokenizer = tokenizer  # HF tokenizer (fast preferred), or None
+        self._add_start_index = bool(add_start_index)
+        self._strip_ws = bool(strip_whitespace)
+
+    def _basic_tokenize_with_offsets(self, text: str) -> List[Tuple[int, int]]:
+        # Fallback: split on non-space and capture spans
+        return [m.span() for m in re.finditer(r"\S+", text)]
+
+    def _tokenize_with_offsets(self, text: str) -> List[Tuple[int, int]]:
+        if self._tokenizer is None:
+            return self._basic_tokenize_with_offsets(text)
+        try:
+            enc = self._tokenizer(
+                text,
+                return_offsets_mapping=True,
+                add_special_tokens=False,
+                truncation=False,
+            )
+            offsets = enc.get("offset_mapping", None)
+            if offsets is None:
+                # Some slow tokenizers may not support offsets; fallback
+                return self._basic_tokenize_with_offsets(text)
+            # Filter out tokens with offset (0,0) which can appear for special handling
+            return [(s, e) for (s, e) in offsets if not (s == 0 and e == 0)]
+        except Exception:
+            return self._basic_tokenize_with_offsets(text)
+
+    def split_text(self, text: str) -> List[str]:
+        text = text or ""
+        if not text.strip():
+            return []
+
+        offsets = self._tokenize_with_offsets(text)
+        if not offsets:
+            return [text.strip()] if self._strip_ws else [text]
+
+        chunks: List[str] = []
+        n = len(offsets)
+        size = self._chunk_size
+        overlap = self._chunk_overlap
+
+        start_tok = 0
+        while start_tok < n:
+            end_tok = min(n, start_tok + size)
+            start_char = offsets[start_tok][0]
+            end_char = offsets[end_tok - 1][1]
+            chunk = text[start_char:end_char]
+            if self._strip_ws:
+                chunk = chunk.strip()
+            if chunk:
+                chunks.append(chunk)
+            if end_tok == n:
+                break
+            # advance with overlap
+            start_tok = end_tok - overlap if end_tok - overlap > start_tok else end_tok
+        return chunks
+
+    def create_documents(self, texts: Sequence[str], metadatas: Optional[Sequence[dict]] = None):
+        docs = []
+        metadatas = metadatas or [{} for _ in texts]
+        for t, m in zip(texts, metadatas):
+            # We do NOT further split here — HierarchicalSectionChunker already chunked.
+            content = t.strip() if self._strip_ws else t
+            md = dict(m or {})
+            if self._add_start_index:
+                # Best-effort: compute start index = 0 because we don't know absolute
+                # position here (the caller passes already-sliced chunks).
+                # The HierarchicalSectionChunker uses add_start_index parity but
+                # does not rely on this value later.
+                md.setdefault("start_index", 0)
+            docs.append({"page_content": content, "metadata": md})
+        return docs
 
 
 class HierarchicalSectionChunker:
@@ -27,22 +129,18 @@ class HierarchicalSectionChunker:
          - (Optional) generic heading heuristics (short line, no trailing period, title case or ALLCAPS, blank line around).
       2) Build contiguous section spans (heading + content until next heading).
       3) Optionally merge short adjacent sections (< min_section_tokens) to avoid tiny orphan chunks.
-      4) Within each (possibly merged) section, do token-based chunking with overlap via LangChain's TokenTextSplitter.
-
-    Notes:
-      - Chunks are substrings of the original text (we keep the original heading text) so your
-        locate_chunk_offsets() will align well.
-      - We include the heading line only once at the start of the section (no synthetic prefixes).
+      4) Within each (possibly merged) section, do token-based chunking with overlap.
+         (Now uses a Hugging Face tokenizer if available.)
     """
 
     def __init__(
         self,
         *,
-        # tokenization controls (passed to TokenTextSplitter)
-        encoding_name: str = "cl100k_base",
-        model_name: Optional[str] = None,
-        allowed_special: Union[Literal["all"], AbstractSet[str]] = set(),
-        disallowed_special: Union[Literal["all"], Collection[str]] = "all",
+        # tokenization controls (kept for interface compatibility)
+        encoding_name: str = "cl100k_base",   # kept but not used without tiktoken
+        model_name: Optional[str] = None,     # HF model id to load tokenizer from
+        allowed_special: Union[Literal["all"], AbstractSet[str]] = set(),   # unused with HF
+        disallowed_special: Union[Literal["all"], Collection[str]] = "all", # unused with HF
         chunk_size: int = 800,
         chunk_overlap: int = 100,
         add_start_index: bool = False,
@@ -74,14 +172,19 @@ class HierarchicalSectionChunker:
 
         self.keep_separator = keep_separator
 
-        # splitter used *inside* sections
-        self._splitter = LCTokenTextSplitter(
+        # Try to prepare a HF tokenizer for both counting and chunking
+        self._hf_tokenizer = None
+        if model_name and AutoTokenizer is not None:
+            try:
+                self._hf_tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
+            except Exception:
+                self._hf_tokenizer = None
+
+        # splitter used *inside* sections (HF-based)
+        self._splitter = _HFTokenTextSplitter(
             chunk_size=chunk_size,
             chunk_overlap=chunk_overlap,
-            encoding_name=encoding_name,
-            model_name=model_name,
-            allowed_special=allowed_special,
-            disallowed_special=disallowed_special,
+            tokenizer=self._hf_tokenizer,
             add_start_index=add_start_index,
             strip_whitespace=strip_whitespace,
         )
@@ -103,22 +206,8 @@ class HierarchicalSectionChunker:
             min_section_tokens=min_section_tokens,
             prefer_merge_forward=prefer_merge_forward,
             drop_tail_sections_matching=drop_tail_sections_matching or [],
-            drop_from_first_match=drop_from_first_match, 
+            drop_from_first_match=drop_from_first_match,
         )
-
-        # prepare token encoder for counting sections (optional)
-        self._encoder = None
-        if tiktoken is not None:
-            try:
-                if model_name:
-                    self._encoder = tiktoken.encoding_for_model(model_name)
-                else:
-                    self._encoder = tiktoken.get_encoding(encoding_name or "cl100k_base")
-            except Exception:
-                try:
-                    self._encoder = tiktoken.get_encoding("cl100k_base")
-                except Exception:
-                    self._encoder = None
 
         # compile heading detectors
         self._latex_re = re.compile(
@@ -129,14 +218,13 @@ class HierarchicalSectionChunker:
         # numbered headings like "1", "1.2", "1.2.3", optionally followed by '-', ')' or '.'
         num_prefix = r"""(?:(?:\d+)(?:\.\d+){0,3}\s*[-\).]?\s*)"""
 
-        # common chemistry headings (very useful in this domain)
+        # common chemistry headings
         chem_heads = [
             # Front matter
             r"abstract",
             r"graphical\s+abstract",
             r"highlights",
             r"keywords?",
-
             # Introduction / background
             r"introduction",
             r"background",
@@ -146,7 +234,6 @@ class HierarchicalSectionChunker:
             r"theoretical\s+(background|methods|framework|analysis|considerations?)",
             r"computational\s+details?",
             r"model(\s+systems?)?",
-
             # Methods / experimental
             r"(materials\s+and\s+methods)",
             r"methods?",
@@ -166,7 +253,6 @@ class HierarchicalSectionChunker:
             r"fabrication",
             r"characterization",
             r"measurements?",
-
             # Results / findings
             r"results",
             r"observations?",
@@ -177,7 +263,6 @@ class HierarchicalSectionChunker:
             r"case\s+study",
             r"case\s+studies",
             r"examples?",
-
             # Analysis / discussion
             r"discussion",
             r"analysis",
@@ -185,7 +270,6 @@ class HierarchicalSectionChunker:
             r"discussion\s+and\s+conclusions?",
             r"modeling\s+and\s+analysis",
             r"interpretation",
-
             # Conclusions / outlook
             r"conclusion(s)?",
             r"summary",
@@ -193,7 +277,6 @@ class HierarchicalSectionChunker:
             r"outlook",
             r"future\s+work",
             r"perspectives?",
-
             # Supporting sections
             r"supporting\s+(information|materials)",
             r"supplementary\s+(information|materials|data|figures|tables)?",
@@ -201,7 +284,6 @@ class HierarchicalSectionChunker:
             r"appendices",
             r"annex",
             r"additional\s+(information|materials|files|data)?",
-
             # Acknowledgments / ethics
             r"acknowledg(e)?ments?",
             r"conflicts?\s+of\s+interest",
@@ -212,14 +294,12 @@ class HierarchicalSectionChunker:
             r"ethics",
             r"ethical\s+approval",
             r"data\s+availability",
-
             # References / end matter
             r"references?",
             r"bibliograph(y|ies)",
             r"works\s+cited",
             r"citations?",
             r"further\s+reading",
-
             # Journal-specific extras
             r"nomenclature",
             r"abbreviations",
@@ -244,7 +324,7 @@ class HierarchicalSectionChunker:
 
         # heuristics: short, no trailing period, looks like a title, surrounded by blank line(s)
         self._generic_re = re.compile(
-            r"^[^\n\.]{1,120}$"  # one line, short, no trailing period
+            r"^[^\n\.]{1,120}$"
         )
 
         # user-specified custom regexes
@@ -259,7 +339,7 @@ class HierarchicalSectionChunker:
         if not text.strip():
             return []
 
-        # Step 1: find candidate section starts (list of (start_idx, end_idx) ranges covering the heading line/command)
+        # Step 1: find candidate section starts (list of (start_idx, end_idx))
         headings = self._find_headings(text)
 
         # If nothing detected, just token-chunk the whole text
@@ -285,7 +365,6 @@ class HierarchicalSectionChunker:
         chunks: List[str] = []
         for (s, e) in spans:
             section_text = text[s:e]
-            # ensure we don't accidentally pass empty strings
             if section_text.strip():
                 chunks.extend(self._splitter.split_text(section_text))
 
@@ -301,6 +380,7 @@ class HierarchicalSectionChunker:
         metadatas = metadatas or [{} for _ in texts]
         for t, m in zip(texts, metadatas):
             for chunk in self.split_text(t):
+                # Our splitter.create_documents returns one Document per provided text
                 docs.extend(self._splitter.create_documents([chunk], [m]))
         return docs
 
@@ -320,14 +400,11 @@ class HierarchicalSectionChunker:
 
         def line_span(i: int) -> Tuple[int, int]:
             start = line_starts[i]
-            # end at start of next line or end of text
             end = line_starts[i + 1] if i + 1 < len(line_starts) else len(text)
-            # strip trailing '\r' if present
             while end > start and text[end - 1] in ("\n", "\r"):
                 end -= 1
             return (start, end)
 
-        # helper: check blank prev/next lines
         def is_blank_line(line: str) -> bool:
             return len(line.strip()) == 0
 
@@ -340,7 +417,7 @@ class HierarchicalSectionChunker:
 
             matched = False
 
-            # custom regexes (full text, but they are compiled as MULTILINE so they can match this line)
+            # custom regexes
             for rx in self._custom_res:
                 if rx.match(line):
                     candidates.append((start_i, end_i))
@@ -357,10 +434,7 @@ class HierarchicalSectionChunker:
 
             # numbered headings (generic)
             if self._config["use_numbered_headings"]:
-                # Must be reasonably short, and often preceded or followed by a blank line
                 if self._numbered_re.match(line):
-                    # apply a small heuristic to avoid catching normal sentences:
-                    #  - either previous or next line is blank
                     prev_blank = is_blank_line(lines[i - 1]) if i > 0 else True
                     next_blank = is_blank_line(lines[i + 1]) if i + 1 < len(lines) else True
                     if prev_blank or next_blank:
@@ -369,12 +443,10 @@ class HierarchicalSectionChunker:
 
             # generic heuristics
             if self._config["use_generic_heading_heuristics"]:
-                # short, no final period, surrounded by blank line(s), looks like a title
                 if self._generic_re.match(l):
                     prev_blank = is_blank_line(lines[i - 1]) if i > 0 else True
                     next_blank = is_blank_line(lines[i + 1]) if i + 1 < len(lines) else True
                     if prev_blank or next_blank:
-                        # Title-ish if either many capitals or Most Words TitleCased
                         if self._looks_like_title(l):
                             candidates.append((start_i, end_i))
                             continue
@@ -390,15 +462,12 @@ class HierarchicalSectionChunker:
                 deduped.append((s, e))
                 last_end = e
             else:
-                # overlapping headings: keep the earliest start / longest end
                 if deduped and s == deduped[-1][0] and e > deduped[-1][1]:
                     deduped[-1] = (s, e)
                     last_end = e
         return deduped
 
     def _build_section_spans(self, text: str, headings: List[Tuple[int, int]]) -> List[Tuple[int, int]]:
-        # Cover entire doc: from first heading to next, etc. If the first heading isn't at pos 0,
-        # also include the preamble as a section (e.g., title/author/abstract when not marked)
         spans: List[Tuple[int, int]] = []
         n = len(text)
 
@@ -411,7 +480,6 @@ class HierarchicalSectionChunker:
             if start < end:
                 spans.append((start, end))
 
-        # If no headings, fallback handled before.
         return spans
 
     def _drop_tail_sections(
@@ -420,14 +488,6 @@ class HierarchicalSectionChunker:
         spans: List[Tuple[int, int]],
         labels: List[str],
     ) -> List[Tuple[int, int]]:
-        """
-        Drop tail sections based on heading labels.
-
-        Modes:
-        - Default: remove only the contiguous trailing run of matches.
-        - Aggressive (drop_from_first_match=True in config): remove everything
-            from the first match (scanning backward) to the end.
-        """
         if not spans:
             return spans
 
@@ -436,25 +496,21 @@ class HierarchicalSectionChunker:
 
         def is_tail(span: Tuple[int, int]) -> bool:
             s, e = span
-            # extract the first line of this span
             first_newline = text.find("\n", s, e)
             line = text[s:e] if first_newline == -1 else text[s:first_newline]
             l = line.strip().lower()
             return any(lbl in l for lbl in lowered_labels)
 
         if drop_from_first_match:
-            # find the *last* match scanning backwards and drop from there
             for i in range(len(spans) - 1, -1, -1):
                 if is_tail(spans[i]):
-                    return spans[:i]  # cut everything from here onward
+                    return spans[:i]
             return spans
 
-        # default behavior: drop only trailing run of matches
         end_idx = len(spans)
         while end_idx > 0 and is_tail(spans[end_idx - 1]):
             end_idx -= 1
         return spans[:end_idx]
-
 
     def _merge_short_sections(
         self, text: str, spans: List[Tuple[int, int]], min_tokens: int
@@ -475,19 +531,15 @@ class HierarchicalSectionChunker:
                 i += 1
                 continue
 
-            # too short; try to merge with neighbor
             if self._config["prefer_merge_forward"] and i + 1 < n:
-                # merge with next
                 ns, ne = spans[i + 1]
                 merged.append((s, ne))
                 i += 2
             elif not self._config["prefer_merge_forward"] and merged:
-                # merge with previous
                 ps, pe = merged.pop()
                 merged.append((ps, e))
                 i += 1
             else:
-                # fallback: merge forward if possible
                 if i + 1 < n:
                     ns, ne = spans[i + 1]
                     merged.append((s, ne))
@@ -499,7 +551,6 @@ class HierarchicalSectionChunker:
         return merged
 
     def _line_starts(self, text: str) -> List[int]:
-        # positions in text where each line starts
         starts = [0]
         idx = 0
         while True:
@@ -511,29 +562,26 @@ class HierarchicalSectionChunker:
         return starts
 
     def _looks_like_title(self, line: str) -> bool:
-        # simple heuristic: many capitals OR most words title-cased
         words = [w for w in re.split(r"\s+", line.strip()) if w]
         if not words:
             return False
 
-        # many capital letters (relative to letters)
         letters = [c for c in line if c.isalpha()]
         if letters:
             cap_ratio = sum(1 for c in letters if c.isupper()) / len(letters)
             if cap_ratio >= 0.6:
                 return True
 
-        # Title Case heuristic: majority of words start with uppercase
         titleish = sum(1 for w in words if re.match(r"^[A-Z][a-zA-Z\-µα-ωΑ-Ω0-9]*$", w)) / len(words)
         return titleish >= 0.6
 
     def _count_tokens(self, text: str) -> int:
-        if self._encoder is None:
-            # approximate if tiktoken isn't available
-            # (token ~= 0.75 * words for English; here we just use words count as a proxy)
+        # Use HF tokenizer if available, else fallback to word-count proxy
+        if self._hf_tokenizer is None:
             return max(1, len(re.findall(r"\w+", text)))
         try:
-            return len(self._encoder.encode(text))
+            # add_special_tokens=False to match chunking behavior
+            return len(self._hf_tokenizer.encode(text, add_special_tokens=False))
         except Exception:
             return max(1, len(re.findall(r"\w+", text)))
 
@@ -544,8 +592,8 @@ class HierarchicalSectionChunker:
 
     @property
     def chunk_size(self) -> int:
-        return self._splitter._chunk_size if hasattr(self._splitter, "_chunk_size") else self._config["chunk_size"]
+        return getattr(self._splitter, "_chunk_size", self._config["chunk_size"])
 
     @property
     def chunk_overlap(self) -> int:
-        return self._splitter._chunk_overlap if hasattr(self._splitter, "_chunk_overlap") else self._config["chunk_overlap"]
+        return getattr(self._splitter, "_chunk_overlap", self._config["chunk_overlap"])

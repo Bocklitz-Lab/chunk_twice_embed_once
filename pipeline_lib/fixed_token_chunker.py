@@ -1,80 +1,209 @@
-from typing import Any, AbstractSet, Collection, Iterable, List, Literal, Optional, Sequence, Union, Type, TypeVar
+from typing import Any, List, Optional, Sequence, Type, TypeVar, Tuple, Dict
 
-# LangChain imports (support both v0.1+ and v0.2+ package names)
+# LangChain Document import (support both v0.1+ and v0.2+ package names)
 try:
-    from langchain_text_splitters import TokenTextSplitter as LCTokenTextSplitter
-except ImportError:
-    # Fallback for older installs
-    from langchain.text_splitter import TokenTextSplitter as LCTokenTextSplitter
+    from langchain_core.documents import Document  # v0.2+
+except Exception:
+    try:
+        from langchain.schema import Document  # v0.1
+    except Exception:
+        Document = None  # type: ignore
+
+# Prefer Hugging Face tokenizers
+try:
+    from transformers import AutoTokenizer, PreTrainedTokenizerFast, PreTrainedTokenizerBase
+except ImportError as e:
+    raise ImportError(
+        "transformers is required for FixedTokenChunker. Install with: pip install transformers"
+    ) from e
 
 
 TS = TypeVar("TS", bound="FixedTokenChunker")
 
 
+class _HFTokenTextSplitter:
+    """
+    Minimal, self-contained token-based splitter using a Hugging Face tokenizer.
+    Chunks by token count with overlap; uses offsets to map back to char spans.
+    """
+
+    _TOKENIZER_CACHE: Dict[str, PreTrainedTokenizerBase] = {}
+
+    def __init__(
+        self,
+        *,
+        chunk_size: int,
+        chunk_overlap: int,
+        model_name: Optional[str],
+        add_start_index: bool,
+        strip_whitespace: bool,
+    ):
+        if chunk_overlap > chunk_size:
+            raise ValueError(
+                f"chunk_overlap ({chunk_overlap}) must be <= chunk_size ({chunk_size})"
+            )
+
+        self.chunk_size = int(chunk_size)
+        self.chunk_overlap = int(chunk_overlap)
+        self.add_start_index = bool(add_start_index)
+        self.strip_whitespace = bool(strip_whitespace)
+
+        tok_name = model_name or "gpt2"  # default to a widely available HF tokenizer
+        self.tokenizer = self._get_tokenizer(tok_name)
+
+    @classmethod
+    def _get_tokenizer(cls, name: str) -> PreTrainedTokenizerBase:
+        if name not in cls._TOKENIZER_CACHE:
+            tok = AutoTokenizer.from_pretrained(name, use_fast=True)
+            cls._TOKENIZER_CACHE[name] = tok
+        return cls._TOKENIZER_CACHE[name]
+
+    def _tokenize_with_offsets(self, text: str):
+        enc = self.tokenizer(
+            text,
+            add_special_tokens=False,
+            return_offsets_mapping=True,
+            return_attention_mask=False,
+            return_token_type_ids=False,
+            truncation=False,
+        )
+        offsets = enc.get("offset_mapping")
+        if offsets is None and hasattr(enc, "encodings") and enc.encodings:
+            offsets = enc.encodings[0].offsets
+        if offsets is None:
+            offsets = [(0, len(text))] * len(enc["input_ids"])
+        input_ids = enc["input_ids"]
+        return input_ids, offsets
+
+    def split_text(self, text: str) -> List[str]:
+        if not text:
+            return []
+
+        input_ids, offsets = self._tokenize_with_offsets(text)
+        n_tokens = len(input_ids)
+        if n_tokens == 0:
+            return [] if not text.strip() else [text.strip() if self.strip_whitespace else text]
+
+        chunks: List[str] = []
+        step = max(1, self.chunk_size - self.chunk_overlap)
+        start_token = 0
+
+        while start_token < n_tokens:
+            end_token = min(n_tokens, start_token + self.chunk_size)
+            start_char = offsets[start_token][0]
+            end_char = offsets[end_token - 1][1]
+            piece = text[start_char:end_char]
+            if self.strip_whitespace:
+                piece = piece.strip()
+            if piece:
+                chunks.append(piece)
+            if end_token == n_tokens:
+                break
+            start_token += step
+
+        return chunks
+
+    def create_documents(
+        self,
+        texts: Sequence[str],
+        metadatas: Optional[Sequence[dict]] = None,
+    ):
+        if Document is None:
+            docs = []
+            for i, t in enumerate(texts):
+                md_base = (metadatas[i] if metadatas and i < len(metadatas) else {}) or {}
+                chunks, starts = self._split_with_starts(t)
+                for chunk, start in zip(chunks, starts):
+                    md = dict(md_base)
+                    if self.add_start_index:
+                        md["start_index"] = start
+                    docs.append({"page_content": chunk, "metadata": md})
+            return docs
+
+        docs: List[Document] = []
+        for i, t in enumerate(texts):
+            md_base = (metadatas[i] if metadatas and i < len(metadatas) else {}) or {}
+            chunks, starts = self._split_with_starts(t)
+            for chunk, start in zip(chunks, starts):
+                md = dict(md_base)
+                if self.add_start_index:
+                    md["start_index"] = start
+                docs.append(Document(page_content=chunk, metadata=md))
+        return docs
+
+    def _split_with_starts(self, text: str) -> Tuple[List[str], List[int]]:
+        if not text:
+            return [], []
+        input_ids, offsets = self._tokenize_with_offsets(text)
+        n_tokens = len(input_ids)
+        if n_tokens == 0:
+            s = text.strip() if self.strip_whitespace else text
+            return ([s], [0]) if s else ([], [])
+
+        chunks: List[str] = []
+        starts: List[int] = []
+        step = max(1, self.chunk_size - self.chunk_overlap)
+        start_token = 0
+
+        while start_token < n_tokens:
+            end_token = min(n_tokens, start_token + self.chunk_size)
+            start_char = offsets[start_token][0]
+            end_char = offsets[end_token - 1][1]
+            piece = text[start_char:end_char]
+            if self.strip_whitespace:
+                piece_stripped = piece.strip()
+                if piece_stripped and piece != piece_stripped:
+                    lead_ws = len(piece) - len(piece.lstrip())
+                    start_char = start_char + lead_ws
+                piece = piece_stripped
+            if piece:
+                chunks.append(piece)
+                starts.append(start_char)
+            if end_token == n_tokens:
+                break
+            start_token += step
+
+        return chunks, starts
+
+
 class FixedTokenChunker:
     """
-    A thin wrapper around LangChain's TokenTextSplitter that keeps (roughly) the same
-    constructor surface and behavior as in your example:
-      - Token-based chunks using tiktoken encoder
-      - Supports chunk_size, chunk_overlap
-      - Supports encoding_name/model_name
-      - Supports allowed_special/disallowed_special
-      - Supports add_start_index (via LangChain's TextSplitter base)
-      - Supports strip_whitespace
-      - keep_separator is accepted for API compatibility (no-op in token mode)
-
+    Token-based chunker using a Hugging Face tokenizer (no OpenAI/tiktoken).
+    Params:
+      - model_name: HF model id whose tokenizer will be used (e.g., 'sentence-transformers/all-MiniLM-L6-v2')
+      - chunk_size, chunk_overlap
+      - add_start_index, strip_whitespace
     Methods:
       - split_text(text) -> List[str]
-      - create_documents(texts, metadatas=None) -> List[Document]
-        (includes 'start_index' in metadata if add_start_index=True)
+      - create_documents(texts, metadatas=None) -> List[Document or dict]
     """
 
     def __init__(
         self,
         *,
-        # tokenization controls
-        encoding_name: str = "cl100k_base",
         model_name: Optional[str] = None,
-        allowed_special: Union[Literal["all"], AbstractSet[str]] = set(),
-        disallowed_special: Union[Literal["all"], Collection[str]] = "all",
-        # chunking controls
         chunk_size: int = 4000,
         chunk_overlap: int = 200,
-        # formatting / metadata
-        keep_separator: bool = False,     # accepted for compatibility; not used by token splitter
-        add_start_index: bool = False,    # handled by LC TextSplitter
-        strip_whitespace: bool = True,    # handled by LC TextSplitter
+        add_start_index: bool = False,
+        strip_whitespace: bool = True,
     ) -> None:
         if chunk_overlap > chunk_size:
             raise ValueError(
                 f"chunk_overlap ({chunk_overlap}) must be <= chunk_size ({chunk_size})"
             )
 
-        # Note: TokenTextSplitter does not use keep_separator (char-splitting concern).
-        # We accept it to mirror the original API.
-        self.keep_separator = keep_separator
-
-        # Instantiate the LC token-based splitter
-        self._splitter = LCTokenTextSplitter(
+        self._splitter = _HFTokenTextSplitter(
             chunk_size=chunk_size,
             chunk_overlap=chunk_overlap,
-            encoding_name=encoding_name,
             model_name=model_name,
-            allowed_special=allowed_special,
-            disallowed_special=disallowed_special,
             add_start_index=add_start_index,
             strip_whitespace=strip_whitespace,
         )
 
-        # Expose config if you want to introspect later
         self._config = dict(
             chunk_size=chunk_size,
             chunk_overlap=chunk_overlap,
-            encoding_name=encoding_name,
             model_name=model_name,
-            allowed_special=allowed_special,
-            disallowed_special=disallowed_special,
-            keep_separator=keep_separator,
             add_start_index=add_start_index,
             strip_whitespace=strip_whitespace,
         )
@@ -83,28 +212,18 @@ class FixedTokenChunker:
     def from_tiktoken_encoder(
         cls: Type[TS],
         *,
-        encoding_name: str = "gpt2",
         model_name: Optional[str] = None,
-        allowed_special: Union[Literal["all"], AbstractSet[str]] = set(),
-        disallowed_special: Union[Literal["all"], Collection[str]] = "all",
         **kwargs: Any,
     ) -> TS:
         """
-        Factory for parity with your original API.
-        All kwargs are forwarded (e.g., chunk_size, chunk_overlap, add_start_index, strip_whitespace).
+        Factory retained for compatibility in call sites, but now purely HF-based.
+        Prefer passing your HF model name via model_name (e.g., 'sentence-transformers/all-MiniLM-L6-v2').
         """
-        return cls(
-            encoding_name=encoding_name,
-            model_name=model_name,
-            allowed_special=allowed_special,
-            disallowed_special=disallowed_special,
-            **kwargs,
-        )
+        return cls(model_name=model_name, **kwargs)
 
     # --- Main API ---
 
     def split_text(self, text: str) -> List[str]:
-        """Token-based split using LangChain's TokenTextSplitter."""
         return self._splitter.split_text(text)
 
     def create_documents(
@@ -112,15 +231,9 @@ class FixedTokenChunker:
         texts: Sequence[str],
         metadatas: Optional[Sequence[dict]] = None,
     ):
-        """
-        Wraps LangChain's create_documents:
-        - If add_start_index=True, each resulting Document's metadata includes 'start_index'
-          (the character start of the chunk in the original string).
-        - strip_whitespace is applied if enabled.
-        """
         return self._splitter.create_documents(texts, metadatas)
 
-    # Convenience passthroughs (optional)
+    # Convenience passthroughs
     @property
     def config(self) -> dict:
         return dict(self._config)
@@ -132,6 +245,3 @@ class FixedTokenChunker:
     @property
     def chunk_overlap(self) -> int:
         return self._config["chunk_overlap"]
-
-
-

@@ -1,15 +1,9 @@
 # MIT License
-# Semantic splitter wrapper using LangChain's SemanticChunker (+ token-size enforcement)
+# Semantic splitter wrapper using LangChain's SemanticChunker (+ HF token-size enforcement)
 
 from typing import Any, List, Optional, Sequence, Dict
 
-# Embeddings + Document
-try:
-    from langchain_core.embeddings import Embeddings
-except ImportError:
-    # older LC
-    from langchain.embeddings.base import Embeddings  # type: ignore
-
+# Document
 try:
     from langchain_core.documents import Document
 except ImportError:
@@ -37,13 +31,25 @@ if _semantic_cls is None:
         "  pip install -U langchain-experimental"
     )
 
-# TokenTextSplitter (new & old package names)
-try:
-    from langchain_text_splitters import TokenTextSplitter as LCTokenTextSplitter
-except ImportError:
-    from langchain.text_splitter import TokenTextSplitter as LCTokenTextSplitter  # type: ignore
+# HF embeddings (new & old LC package locations)
+_HFEmb = None
+for path, name in [
+    ("langchain_community.embeddings", "HuggingFaceEmbeddings"),
+    ("langchain.embeddings", "HuggingFaceEmbeddings"),  # very old LC
+]:
+    try:
+        mod = __import__(path, fromlist=[name])
+        _HFEmb = getattr(mod, name)
+        break
+    except Exception:
+        pass
+if _HFEmb is None:
+    raise ImportError(
+        "Could not import HuggingFaceEmbeddings from LangChain. Install:\n"
+        "  pip install -U langchain-community sentence-transformers"
+    )
 
-# RecursiveTokenChunker
+# Optional RecursiveTokenChunker (your project/local)
 try:
     from pipeline_lib.recursive_token_chunker import RecursiveTokenChunker
 except ImportError:
@@ -52,69 +58,119 @@ except ImportError:
     except Exception:
         RecursiveTokenChunker = None  # type: ignore
 
-class SemanticSplitter:
+# HF tokenizer
+try:
+    from transformers import AutoTokenizer  # type: ignore
+except Exception:
+    raise ImportError(
+        "transformers is required for HF token counting. Install:\n"
+        "  pip install -U transformers"
+    )
+
+
+class _HFTokenTextSplitter:
     """
-    Semantic splitter using LangChain's SemanticChunker for breakpoint detection,
-    with optional token-based re-chunking to enforce model-friendly `chunk_size`
-    and `chunk_overlap`.
+    Minimal tokenizer-aware splitter using a Hugging Face tokenizer.
+    Splits by token count (chunk_size / chunk_overlap) and decodes back to text.
 
-    API:
-      - split_text(text: str) -> List[str]
-      - create_documents(texts: Sequence[str], metadatas: Optional[Sequence[dict]]) -> List[Document]
-
-    Key params:
-      embeddings: Embeddings (required)  # e.g., from langchain_openai, sentence-transformers, etc.
-      chunk_size: int = 4000             # token-based max size per final chunk (post semantic)
-      chunk_overlap: int = 200           # token overlap (applied during token enforcement)
-      breakpoint_threshold_type: str = "percentile"  # per LC SemanticChunker
-      breakpoint_threshold_amount: float = 95.0
-      buffer_size: int = 1               # sentence buffer around breakpoints
-      min_chunk_size: Optional[int] = None  # semantic-side minimum tokens (LC may treat as chars in some versions)
-
-    Tokenization knobs (forwarded to TokenTextSplitter):
-      encoding_name: str = "cl100k_base"
-      model_name: Optional[str] = None
-      allowed_special = set()
-      disallowed_special = "all"
-      strip_whitespace: bool = True
-      add_start_index: bool = False  # for create_documents: adds character start offsets
+    Notes:
+      - add_special_tokens=False for counting; decode with skip_special_tokens=True.
+      - Decoding may slightly alter whitespace; start_index is best-effort via substring search.
     """
 
     def __init__(
         self,
         *,
-        embeddings: "Embeddings",
-        # token enforcement
-        chunk_size: int = 4000,
-        chunk_overlap: int = 200,
-        use_recursive: bool = False,
-        # semantic knobs
-        breakpoint_threshold_type: str = "percentile",
-        breakpoint_threshold_amount: float = 95.0,
-        buffer_size: int = 1,
-        min_chunk_size: Optional[int] = None,
-        # tokenization knobs
-        encoding_name: str = "cl100k_base",
-        model_name: Optional[str] = None,
-        allowed_special=None,
-        disallowed_special="all",
+        tokenizer,
+        chunk_size: int,
+        chunk_overlap: int,
         strip_whitespace: bool = True,
-        add_start_index: bool = False,
-        # compatibility / extras
-        **kwargs: Any,
     ) -> None:
-        if allowed_special is None:
-            allowed_special = set()
         if chunk_size <= 0:
             raise ValueError("chunk_size must be > 0")
         if chunk_overlap < 0:
             raise ValueError("chunk_overlap must be >= 0")
         if chunk_overlap > chunk_size:
             raise ValueError("chunk_overlap must be <= chunk_size")
+        self.tokenizer = tokenizer
+        self.chunk_size = chunk_size
+        self.chunk_overlap = chunk_overlap
+        self.strip_whitespace = strip_whitespace
+
+    def split_text(self, text: str) -> List[str]:
+        ids = self.tokenizer.encode(text, add_special_tokens=False)
+        if not ids:
+            return []
+
+        step = max(1, self.chunk_size - self.chunk_overlap)
+        chunks: List[str] = []
+        for start in range(0, len(ids), step):
+            window_ids = ids[start : start + self.chunk_size]
+            if not window_ids:
+                continue
+            piece = self.tokenizer.decode(window_ids, skip_special_tokens=True)
+            if self.strip_whitespace:
+                piece = piece.strip()
+            if piece:
+                chunks.append(piece)
+        return chunks
+
+
+class SemanticSplitter:
+    """
+    Semantic splitter using LangChain's SemanticChunker for breakpoint detection,
+    with token-based re-chunking to enforce `chunk_size` and `chunk_overlap`
+    using a Hugging Face tokenizer.
+
+    Public API (unchanged):
+      - split_text(text: str) -> List[str]
+      - create_documents(texts: Sequence[str], metadatas: Optional[Sequence[dict]]) -> List[Document]
+
+    Init parameters kept:
+      model_name: str                                  # HF model id for both embeddings + tokenizer
+      chunk_size: int = 4000
+      chunk_overlap: int = 200
+      use_recursive: bool = False
+      breakpoint_threshold_type: str = "percentile"
+      breakpoint_threshold_amount: float = 95.0
+      buffer_size: int = 1
+      min_chunk_size: Optional[int] = None
+      add_start_index: bool = False
+      strip_whitespace: bool = True
+    """
+
+    def __init__(
+        self,
+        *,
+        model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
+        chunk_size: int = 4000,
+        chunk_overlap: int = 200,
+        use_recursive: bool = False,
+        breakpoint_threshold_type: str = "percentile",
+        breakpoint_threshold_amount: float = 95.0,
+        buffer_size: int = 1,
+        min_chunk_size: Optional[int] = None,
+        add_start_index: bool = False,
+        strip_whitespace: bool = True,
+        **kwargs: Any,
+    ) -> None:
+        if chunk_size <= 0:
+            raise ValueError("chunk_size must be > 0")
+        if chunk_overlap < 0:
+            raise ValueError("chunk_overlap must be >= 0")
+        if chunk_overlap > chunk_size:
+            raise ValueError("chunk_overlap must be <= chunk_size")
+        if Document is None:
+            raise ImportError("Could not import LangChain Document class.")
+
+        # --- Build HF pieces from model_name ---
+        # 1) Embeddings for SemanticChunker
+        embeddings = _HFEmb(model_name=model_name)
+
+        # 2) Tokenizer for token-based enforcement
+        tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
 
         # --- SemanticChunker (finds semantic breakpoints) ---
-        # Different LC versions have slightly different constructor signatures;
-        # we pass the common ones and ignore unknown **kwargs here.
         self._semantic = _semantic_cls(
             embeddings=embeddings,
             breakpoint_threshold_type=breakpoint_threshold_type,
@@ -123,12 +179,12 @@ class SemanticSplitter:
             min_chunk_size=min_chunk_size,
         )
 
-        # --- Token splitter (enforce final token size / overlap) ---
-        # --- Enforcement splitter ---
+        # --- Enforcement splitter (HF tokenizer-based) ---
         self._use_recursive = use_recursive
         if use_recursive:
             if RecursiveTokenChunker is None:
                 raise ImportError("RecursiveTokenChunker not available.")
+            # If your RecursiveTokenChunker supports tokenizer, pass it here similarly.
             self._token_splitter = RecursiveTokenChunker(
                 chunk_size=chunk_size,
                 chunk_overlap=chunk_overlap,
@@ -136,22 +192,18 @@ class SemanticSplitter:
                 keep_separator=True,
             )
         else:
-            self._token_splitter = LCTokenTextSplitter(
+            self._token_splitter = _HFTokenTextSplitter(
+                tokenizer=tokenizer,
                 chunk_size=chunk_size,
                 chunk_overlap=chunk_overlap,
-                encoding_name=encoding_name,
-                model_name=model_name,
-                allowed_special=allowed_special,
-                disallowed_special=disallowed_special,
-                add_start_index=False,  # we compute offsets ourselves in create_documents if requested
                 strip_whitespace=strip_whitespace,
             )
-
 
         self._add_start_index = add_start_index
         self._strip_whitespace = strip_whitespace
 
         self._config = dict(
+            model_name=model_name,
             chunk_size=chunk_size,
             chunk_overlap=chunk_overlap,
             use_recursive=use_recursive,
@@ -159,18 +211,16 @@ class SemanticSplitter:
             breakpoint_threshold_amount=breakpoint_threshold_amount,
             buffer_size=buffer_size,
             min_chunk_size=min_chunk_size,
-            encoding_name=encoding_name,
-            model_name=model_name,
             add_start_index=add_start_index,
             strip_whitespace=strip_whitespace,
+            tokenizer="hf",
+            embeddings="hf",
         )
 
     def _semantic_segments(self, text: str) -> List[str]:
-        # LangChain SemanticChunker typically exposes split_text
-        # (older variants may expose a transform that returns Documents).
+        # Prefer split_text; fallback to create_documents/transform_documents
         if hasattr(self._semantic, "split_text"):
             return self._semantic.split_text(text)
-        # Fallback: try transform_documents API if split_text is unavailable
         if hasattr(self._semantic, "create_documents"):
             docs = self._semantic.create_documents([text])
             return [d.page_content for d in docs]
@@ -182,13 +232,11 @@ class SemanticSplitter:
     def split_text(self, text: str) -> List[str]:
         """
         1) Split semantically into coherent segments.
-        2) Within each segment, enforce token-based chunk_size/overlap.
+        2) Within each segment, enforce token-based chunk_size/overlap with HF tokenizer.
         """
         segments = self._semantic_segments(text)
-
         chunks: List[str] = []
         for seg in segments:
-            # Enforce token-size limits per segment
             sub_chunks = self._token_splitter.split_text(seg)
             chunks.extend(sub_chunks)
         return chunks
@@ -203,9 +251,6 @@ class SemanticSplitter:
         semantic splitting + token enforcement. If `add_start_index=True`,
         includes a character 'start_index' in metadata for each chunk.
         """
-        if Document is None:
-            raise ImportError("Could not import LangChain Document class.")
-
         if metadatas is not None:
             if len(metadatas) == 1 and len(texts) > 1:
                 metadatas = list(metadatas) * len(texts)
@@ -215,20 +260,16 @@ class SemanticSplitter:
         out_docs: List[Document] = []
         for i, text in enumerate(texts):
             base_meta = metadatas[i] if metadatas else {}
-            # Do the same 2-stage split as split_text
             segments = self._semantic_segments(text)
 
-            # Build final chunks and compute start indices if requested
             cursor = 0
             for seg in segments:
                 sub_chunks = self._token_splitter.split_text(seg)
                 for ch in sub_chunks:
                     start_idx = None
                     if self._add_start_index:
-                        # Find the next occurrence of chunk from current cursor
                         pos = text.find(ch, cursor)
                         if pos == -1:
-                            # Fallback: search from 0 (may duplicate if text repeats)
                             pos = text.find(ch)
                         if pos != -1:
                             start_idx = pos
@@ -238,7 +279,6 @@ class SemanticSplitter:
                     if start_idx is not None:
                         meta["start_index"] = start_idx
                     out_docs.append(Document(page_content=ch, metadata=meta))
-
         return out_docs
 
     @property

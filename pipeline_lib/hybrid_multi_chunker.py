@@ -1,4 +1,3 @@
-
 # hybrid_multi_chunker.py
 from __future__ import annotations
 from typing import Any, Dict, List, Optional, Sequence, Tuple
@@ -19,10 +18,11 @@ except Exception:
     except Exception:
         HierarchicalSectionChunker = None  # type: ignore
 
+# --- NEW: Hugging Face tokenizer support (no OpenAI/tiktoken) ---
 try:
-    import tiktoken
+    from transformers import AutoTokenizer  # type: ignore
 except Exception:
-    tiktoken = None
+    AutoTokenizer = None  # type: ignore
 
 
 # ---------- Regex helpers / constants ----------
@@ -78,6 +78,126 @@ AFFILIATION_HINT_RE = re.compile(
 EMAIL_LINE_RE = re.compile(r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", re.IGNORECASE)
 
 
+# ------------------ NEW: HF-based splitter ------------------
+
+class HFTokenTextSplitter:
+    """
+    Minimal token-based text splitter using a Hugging Face tokenizer.
+    Mirrors the subset of the LangChain TokenTextSplitter interface we rely on.
+    """
+    def __init__(
+        self,
+        *,
+        chunk_size: int,
+        chunk_overlap: int,
+        tokenizer,
+        strip_whitespace: bool = True,
+        add_start_index: bool = False,  # accepted for parity; unused here
+        **_: Any,
+    ) -> None:
+        self.chunk_size = max(1, int(chunk_size))
+        self.chunk_overlap = max(0, int(chunk_overlap))
+        if self.chunk_overlap >= self.chunk_size:
+            self.chunk_overlap = max(0, self.chunk_size // 4)
+        self.tokenizer = tokenizer
+        self.strip_whitespace = bool(strip_whitespace)
+
+    # --- internal helpers ---
+
+    def _token_len(self, text: str) -> int:
+        return len(self.tokenizer.encode(text, add_special_tokens=False))
+
+    def _last_n_tokens_text(self, text: str, n: int) -> str:
+        if n <= 0:
+            return ""
+        ids = self.tokenizer.encode(text, add_special_tokens=False)
+        tail = ids[-n:] if len(ids) > n else ids
+        # Decode w/o special tokens; HF decodes whitespace reasonably
+        return self.tokenizer.decode(tail, skip_special_tokens=True)
+
+    def split_text(self, text: str) -> List[str]:
+        if not text or not text.strip():
+            return []
+
+        # Split into tokens softly by growing from whitespace-aware segments
+        # We iterate over segments preserving spaces using a capture group.
+        segments = re.split(r"(\s+)", text)
+        out: List[str] = []
+        current: str = ""
+
+        def finalize_current():
+            nonlocal current
+            c = current.strip() if self.strip_whitespace else current
+            if c:
+                out.append(c)
+            current = ""
+
+        for seg in segments:
+            if seg == "":
+                continue
+            candidate = (current + seg) if current else seg
+            if self._token_len(candidate) <= self.chunk_size:
+                current = candidate
+            else:
+                if current:
+                    finalize_current()
+                    # Start new chunk with overlap tail
+                    if self.chunk_overlap > 0 and out:
+                        tail_text = self._last_n_tokens_text(out[-1], self.chunk_overlap)
+                        current = tail_text
+                    else:
+                        current = ""
+                    # Try to add seg into new chunk (may still be too big -> split hard)
+                    if self._token_len(seg) <= self.chunk_size:
+                        current += (seg if not current else seg)
+                    else:
+                        # Hard split very long segment by tokens
+                        ids = self.tokenizer.encode(seg, add_special_tokens=False)
+                        start = 0
+                        while start < len(ids):
+                            end = min(start + self.chunk_size, len(ids))
+                            piece = self.tokenizer.decode(ids[start:end], skip_special_tokens=True)
+                            piece = piece.strip() if self.strip_whitespace else piece
+                            if piece:
+                                out.append(piece)
+                            start = end
+                        # seed next current with overlap
+                        if self.chunk_overlap > 0 and out:
+                            tail_text = self._last_n_tokens_text(out[-1], self.chunk_overlap)
+                            current = tail_text
+                        else:
+                            current = ""
+                else:
+                    # current is empty; seg itself exceeds chunk size -> hard split
+                    ids = self.tokenizer.encode(seg, add_special_tokens=False)
+                    start = 0
+                    while start < len(ids):
+                        end = min(start + self.chunk_size, len(ids))
+                        piece = self.tokenizer.decode(ids[start:end], skip_special_tokens=True)
+                        piece = piece.strip() if self.strip_whitespace else piece
+                        if piece:
+                            out.append(piece)
+                        start = end
+                    if self.chunk_overlap > 0 and out:
+                        tail_text = self._last_n_tokens_text(out[-1], self.chunk_overlap)
+                        current = tail_text
+                    else:
+                        current = ""
+
+        if current:
+            finalize_current()
+        return out
+
+    # light parity with LangChain splitter
+    def create_documents(self, texts: Sequence[str], metadatas: Optional[Sequence[dict]] = None):
+        metadatas = metadatas or [{} for _ in texts]
+        docs = []
+        for t, meta in zip(texts, metadatas):
+            for chunk in self.split_text(t):
+                docs.append({"page_content": chunk, "metadata": meta})
+        return docs
+
+
 class HybridMultiGranularityChunker:
     """
     Multi-level chunker: section -> paragraph -> sentence (configurable).
@@ -92,8 +212,8 @@ class HybridMultiGranularityChunker:
         self,
         *,
         # tokenization defaults
-        encoding_name: str = "cl100k_base",
-        model_name: Optional[str] = None,
+        encoding_name: str = "cl100k_base",  # kept for API compatibility; unused if HF tokenizer is used
+        model_name: Optional[str] = None,     # now treated as HF model id if provided
         strip_whitespace: bool = True,
 
         # define levels & per-level sizes/overlaps (in tokens)
@@ -118,37 +238,44 @@ class HybridMultiGranularityChunker:
         self.chunk_sizes = {**default_sizes, **(chunk_sizes or {})}
         self.chunk_overlaps = {**default_overlaps, **(chunk_overlaps or {})}
 
+        # Try to prepare a HF tokenizer if model_name and transformers are available
+        self._hf_tokenizer = None
+        if model_name and AutoTokenizer is not None:
+            try:
+                self._hf_tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
+            except Exception:
+                self._hf_tokenizer = None  # fallback to LC splitter
+
         # build a TokenTextSplitter per level
-        self._splitters: Dict[str, LCTokenTextSplitter] = {}
+        self._splitters: Dict[str, Any] = {}
         for lvl in set(self.levels):
             size = int(self.chunk_sizes.get(lvl, default_sizes.get(lvl, 500)))
             overlap = int(self.chunk_overlaps.get(lvl, default_overlaps.get(lvl, 50)))
             if overlap > size:
                 overlap = max(0, size // 4)  # safety fallback
-            self._splitters[lvl] = LCTokenTextSplitter(
-                chunk_size=size,
-                chunk_overlap=overlap,
-                encoding_name=encoding_name,
-                model_name=model_name,
-                allowed_special=set(),
-                disallowed_special="all",
-                add_start_index=False,
-                strip_whitespace=strip_whitespace,
-            )
 
-        # encoder (optional counting)
-        self._encoder = None
-        if tiktoken is not None:
-            try:
-                if model_name:
-                    self._encoder = tiktoken.encoding_for_model(model_name)
-                else:
-                    self._encoder = tiktoken.get_encoding(encoding_name or "cl100k_base")
-            except Exception:
-                try:
-                    self._encoder = tiktoken.get_encoding("cl100k_base")
-                except Exception:
-                    self._encoder = None
+            if self._hf_tokenizer is not None:
+                # Use HF-based token counting
+                self._splitters[lvl] = HFTokenTextSplitter(
+                    chunk_size=size,
+                    chunk_overlap=overlap,
+                    tokenizer=self._hf_tokenizer,
+                    add_start_index=False,
+                    strip_whitespace=strip_whitespace,
+                )
+            else:
+                # Fallback: LangChain TokenTextSplitter (character-based fallback;
+                # API kept identical to your previous code)
+                self._splitters[lvl] = LCTokenTextSplitter(
+                    chunk_size=size,
+                    chunk_overlap=overlap,
+                    encoding_name=encoding_name,  # kept for compatibility; may be ignored by LC
+                    model_name=None,              # avoid OpenAI/tiktoken path
+                    allowed_special=set(),
+                    disallowed_special="all",
+                    add_start_index=False,
+                    strip_whitespace=strip_whitespace,
+                )
 
         # sectioner
         self._sectioner = None
@@ -273,6 +400,7 @@ class HybridMultiGranularityChunker:
         for t, meta in zip(texts, metadatas):
             for item in self.split_text(t):
                 m = {**meta, **{k: v for k, v in item.items() if k != "text"}}
+                # both LC and our HF splitter implement create_documents
                 docs.extend(chosen_splitter.create_documents([item["text"]], [m]))
         return docs
 
@@ -474,4 +602,3 @@ class HybridMultiGranularityChunker:
         if not span_text or not span_text.strip():
             return []
         return splitter.split_text(span_text)
-
