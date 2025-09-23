@@ -1,12 +1,12 @@
 # =================== GLOBAL PARAMS (programmable) ===================
 params:
   model:
-    # Change this once; it propagates everywhere that references it.
-    name: sentence-transformers/all-MiniLM-L6-v2
-    dir: all_MiniLM_L6_v2
-    revision: main
-    batch_size: 128
+    name: intfloat/e5-large-v2
+    dir: intfloat_e5_large_v2
+    revision: b322e09026e4ea05f42beadf4d661fb4e101d311
     normalize: true
+    batch_size: 32
+    
   chunk:
     chunker: fixed_token
     size: 256
@@ -516,6 +516,8 @@ stage6:
       revision: ${params.model.revision}
       batch_size: ${params.model.batch_size}
       normalize: ${params.model.normalize}
+      model_kwargs:
+        trust_remote_code: true
   tasks:
     # - ChemNQRetrieval # An official MTEB task by name
     - class: pipeline_lib.my_tasks.ChemQuest
