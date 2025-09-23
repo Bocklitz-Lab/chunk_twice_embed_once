@@ -2,18 +2,18 @@ SHELL := /bin/bash
 .PHONY: all stage1 stage2 stage3 stage4 clean show-configs
 
 OVERLAP = 0 16 32 48 64
-SIZE    = 64 128 384 192 256 320  448 512
+SIZE    = 128 384 192 256 320  448 512
 TOTAL_LIMIT ?= 512
 TOKEN_LIMIT ?= 510
 MIN_STRIDE ?= 96
 MAX_OVERLAP_ABS ?= 64
-MAX_OVERLAP_PCT ?= 20
+MAX_OVERLAP_PCT ?= 30
 
 CSV ?= artifacts/embedding_models_screening/passed_per_dataset.csv
 
 MODELS = $(shell awk -F, 'NR>1 {printf "%s%s@%s", sep,$$2,$$3; sep=" "}' $(CSV) | tr -d "\r")
 
-CHUNKER =  recursive_token fixed_token semantic_fixed semantic_recursive hierarchical_section hybrid_multi
+CHUNKER = recursive_token fixed_token semantic_fixed semantic_recursive hierarchical_section 
 
 INPUT_CONFIG = configs/main_config.yaml
 OUTPUT_CONFIG = configs/stages/
@@ -83,6 +83,11 @@ stage4-6:
 					continue; \
 				fi; \
 				outdir=artifacts/tests/$${dir}_$${c}_c$${s}_o$${o}; \
+				if [ -d "$$outdir" ] && \
+				   [ -n "$$(find "$$outdir" -mindepth 1 -maxdepth 1 -print -quit 2>/dev/null)" ]; then \
+					echo "⏭️  Skip: output already present -> $$outdir"; \
+					continue; \
+				fi; \
 				config_dir=$$outdir/config; \
 				echo "▶️ model=$$name@$$rev chunker=$$c size=$$s overlap=$$o -> $$config_dir"; \
 				mkdir -p $$config_dir; \
