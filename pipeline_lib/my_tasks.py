@@ -46,9 +46,15 @@ class ChemQuest(AbsTaskRetrieval):
 """,
     )
 
-    def __init__(self, **kwargs):
+    # def __init__(self, **kwargs):
+    #     super().__init__(**kwargs)
+    #     self.k_values = [1, 3, 5, 10, 100]
+    
+    def __init__(self, data_dir: str | Path | None = None, **kwargs):
         super().__init__(**kwargs)
         self.k_values = [1, 3, 5, 10, 100]
+        # keep what came from config so load_data can use it later
+        self.data_dir = Path(data_dir).expanduser() if data_dir else None
 
     # ---------- helpers ----------
     def _read_jsonl(self, path: Path) -> Iterable[Dict[str, Any]]:
@@ -105,20 +111,18 @@ class ChemQuest(AbsTaskRetrieval):
             rel = int(r.get("score", r.get("relevance", 1)))
             out.setdefault(qid, {})[did] = rel
         return out
-
     def load_data(self, data_dir: str | Path | None = None, **kwargs):
         """
-        If data_dir is provided, read from local files; otherwise fall back to HF Hub.
-
-        Local layout (recommended):
-        data_dir/
-          corpus.jsonl            # fields: _id/id/doc_id, title?, text/contents/passage
-          queries.jsonl           # fields: _id/id/query_id, text/query
-          qrels/
-            test.tsv              # tab-separated columns: query-id corpus-id score
+        If data_dir is provided (arg or instance attribute), read from local files;
+        otherwise fall back to HF Hub.
         """
+        # prefer explicit arg, else instance attribute set in __init__
+        if data_dir is None:
+            data_dir = self.data_dir
+
         if data_dir is not None:
             data_dir = Path(data_dir)
+            print(data_dir)
             if not data_dir.exists():
                 raise FileNotFoundError(f"data_dir not found: {data_dir}")
 
@@ -136,11 +140,11 @@ class ChemQuest(AbsTaskRetrieval):
             queries_rows = list(self._read_jsonl(queries_path))
             queries = self._to_queries(queries_rows)
 
-            # --- read qrels (prefer TSV at qrels/test.tsv)
-            qrels_dir = data_dir / "qrels"
+            # --- read qrels
+            qrels_dir = data_dir
             tsv = qrels_dir / "test.tsv"
             alt_tsv = data_dir / "qrels.tsv"
-            jsonl = qrels_dir / "test.jsonl"
+            jsonl = qrels_dir / "qrels.jsonl"
 
             if tsv.exists():
                 qrels_rows = list(self._read_tsv(tsv))
@@ -154,7 +158,7 @@ class ChemQuest(AbsTaskRetrieval):
                 )
             qrels_all = self._to_qrels(qrels_rows)
 
-            # --- filter qrels to valid corpus & queries (same logic as before)
+            # --- filter qrels
             corpus_ids = set(corpus.keys())
             kept_qrels = {}
             kept_queries = {}
@@ -187,6 +191,89 @@ class ChemQuest(AbsTaskRetrieval):
             self.queries = {"test": kept_queries}
             self.relevant_docs = {"test": kept_qrels}
             return  # done
+
+    # def load_data(self, data_dir: str | Path | None = None, **kwargs):
+    #     """
+    #     If data_dir is provided, read from local files; otherwise fall back to HF Hub.
+
+    #     Local layout (recommended):
+    #     data_dir/
+    #       corpus.jsonl            # fields: _id/id/doc_id, title?, text/contents/passage
+    #       queries.jsonl           # fields: _id/id/query_id, text/query
+    #       qrels/
+    #         test.tsv              # tab-separated columns: query-id corpus-id score
+    #     """
+    #     if data_dir is not None:
+    #         data_dir = Path(data_dir)
+    #         print(data_dir)
+    #         if not data_dir.exists():
+    #             raise FileNotFoundError(f"data_dir not found: {data_dir}")
+
+    #         # --- read corpus
+    #         corpus_path = data_dir / "corpus.jsonl"
+    #         if not corpus_path.exists():
+    #             raise FileNotFoundError(f"Missing {corpus_path}")
+    #         corpus_rows = list(self._read_jsonl(corpus_path))
+    #         corpus = self._to_corpus(corpus_rows)
+
+    #         # --- read queries
+    #         queries_path = data_dir / "queries.jsonl"
+    #         if not queries_path.exists():
+    #             raise FileNotFoundError(f"Missing {queries_path}")
+    #         queries_rows = list(self._read_jsonl(queries_path))
+    #         queries = self._to_queries(queries_rows)
+
+    #         # --- read qrels (prefer TSV at qrels/test.tsv)
+    #         qrels_dir = data_dir / "qrels"
+    #         tsv = qrels_dir / "test.tsv"
+    #         alt_tsv = data_dir / "qrels.tsv"
+    #         jsonl = qrels_dir / "test.jsonl"
+
+    #         if tsv.exists():
+    #             qrels_rows = list(self._read_tsv(tsv))
+    #         elif alt_tsv.exists():
+    #             qrels_rows = list(self._read_tsv(alt_tsv))
+    #         elif jsonl.exists():
+    #             qrels_rows = list(self._read_jsonl(jsonl))
+    #         else:
+    #             raise FileNotFoundError(
+    #                 f"Missing qrels. Looked for {tsv}, {alt_tsv}, {jsonl}"
+    #             )
+    #         qrels_all = self._to_qrels(qrels_rows)
+
+    #         # --- filter qrels to valid corpus & queries (same logic as before)
+    #         corpus_ids = set(corpus.keys())
+    #         kept_qrels = {}
+    #         kept_queries = {}
+    #         dropped_qids_empty_text = 0
+    #         dropped_qids_missing_docs = 0
+
+    #         for qid, rels in qrels_all.items():
+    #             if qid not in queries:
+    #                 dropped_qids_empty_text += 1
+    #                 continue
+    #             rels_f = {did: rel for did, rel in rels.items() if did in corpus_ids}
+    #             if not rels_f:
+    #                 dropped_qids_missing_docs += 1
+    #                 continue
+    #             kept_qrels[qid] = rels_f
+    #             kept_queries[qid] = queries[qid]
+
+    #         log.info(
+    #             f"ChemQuest(local): corpus={len(corpus)} docs, "
+    #             f"queries={len(queries)} provided, qrels={len(qrels_all)} qids "
+    #             f"-> kept {len(kept_queries)} queries "
+    #             f"(dropped {dropped_qids_empty_text} empty-text, "
+    #             f"{dropped_qids_missing_docs} no-valid-docs)."
+    #         )
+
+    #         if not kept_qrels:
+    #             raise ValueError("After filtering, no valid queries/qrels remain. Check dataset alignment.")
+
+    #         self.corpus = {"test": corpus}
+    #         self.queries = {"test": kept_queries}
+    #         self.relevant_docs = {"test": kept_qrels}
+    #         return  # done
 
         # ---------- fallback: original HF path ----------
         path = self.metadata.dataset["path"]

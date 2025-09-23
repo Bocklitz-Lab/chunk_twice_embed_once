@@ -110,25 +110,70 @@ def deep_merge(base: Any, patch: Any) -> Any:
 # ---------------------------
 # Interpolation (fixed-point)
 # ---------------------------
-def _interpolate_once(val: Any, ctx: Dict[str, Any]) -> Any:
-    """Single-pass substitution of ${...} placeholders."""
-    if isinstance(val, str):
-        def _sub(m):
-            key = m.group(1).strip()
-            if "|" in key:
-                path, default_literal = key.split("|", 1)
-                path = path.strip()
-                default_literal = default_literal.strip()
-                try:
-                    got = deep_get(ctx, path)
-                    return str(got)
-                except KeyError:
-                    return default_literal
+# def _interpolate_once(val: Any, ctx: Dict[str, Any]) -> Any:
+#     """Single-pass substitution of ${...} placeholders."""
+#     if isinstance(val, str):
+#         def _sub(m):
+#             key = m.group(1).strip()
+#             if "|" in key:
+#                 path, default_literal = key.split("|", 1)
+#                 path = path.strip()
+#                 default_literal = default_literal.strip()
+#                 try:
+#                     got = deep_get(ctx, path)
+#                     return str(got)
+#                 except KeyError:
+#                     return default_literal
+#             try:
+#                 got = deep_get(ctx, key)
+#                 return str(got)
+#             except KeyError:
+#                 raise KeyError(f"Unresolved placeholder: ${{{key}}}")
+#         return PLACEHOLDER_RE.sub(_sub, val)
+
+#     if isinstance(val, list):
+#         return [_interpolate_once(x, ctx) for x in val]
+#     if isinstance(val, dict):
+#         return {k: _interpolate_once(v, ctx) for k, v in val.items()}
+#     return val
+def _resolve_placeholder(key: str, ctx: Dict[str, Any]) -> Any:
+    key = key.strip()
+    if "|" in key:
+        path, default_literal = key.split("|", 1)
+        path = path.strip()
+        default_literal = default_literal.strip()
+        try:
+            return deep_get(ctx, path)
+        except KeyError:
+            # Parse default via YAML so numbers/bools/null survive as types
             try:
-                got = deep_get(ctx, key)
+                return yaml.safe_load(default_literal)
+            except Exception:
+                return default_literal
+    else:
+        return deep_get(ctx, key)
+
+def _interpolate_once(val: Any, ctx: Dict[str, Any]) -> Any:
+    """Single-pass substitution of ${...} placeholders (type-preserving)."""
+    if isinstance(val, str):
+        # If the whole string is a single placeholder, return its value as-is (preserve type).
+        m_full = re.fullmatch(r"\$\{([^}]+)\}", val)
+        if m_full:
+            key = m_full.group(1)
+            try:
+                return _resolve_placeholder(key, ctx)
+            except KeyError:
+                raise KeyError(f"Unresolved placeholder: ${{{key.strip()}}}")
+
+        # Otherwise, do string-based substitution inside the larger string.
+        def _sub(m):
+            key = m.group(1)
+            try:
+                got = _resolve_placeholder(key, ctx)
                 return str(got)
             except KeyError:
-                raise KeyError(f"Unresolved placeholder: ${{{key}}}")
+                raise KeyError(f"Unresolved placeholder: ${{{key.strip()}}}")
+
         return PLACEHOLDER_RE.sub(_sub, val)
 
     if isinstance(val, list):

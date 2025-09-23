@@ -1,5 +1,5 @@
 input_path: artifacts/chemquests_hf_db/full_text.jsonl
-output_path: artifacts/tests/all_MiniLM_L6_v2_fixed_token_c256_o20/chunks/chunks.jsonl
+output_path: artifacts/tests/all_MiniLM_L6_v2_fixed_token_c128_o0/chunks/chunks.jsonl
 text_field: text
 id_field: corpus_id
 token_count_encoding: cl100k_base
@@ -11,8 +11,8 @@ strategy:
   params:
     encoding_name: cl100k_base
     model_name: null
-    chunk_size: 200
-    chunk_overlap: 10
+    chunk_size: 128
+    chunk_overlap: 0
     keep_separator: false
     add_start_index: false
     strip_whitespace: true

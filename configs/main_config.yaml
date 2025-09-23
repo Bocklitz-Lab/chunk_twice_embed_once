@@ -28,16 +28,16 @@ params:
         # ---- fixed_token (FixedTokenChunker) params ----
         encoding_name: cl100k_base
         model_name: null          # optional, overrides encoding_name
-        chunk_size: 200
-        chunk_overlap: 10
+        chunk_size: ${params.chunk.size} 
+        chunk_overlap: ${params.chunk.overlap} 
         keep_separator: false     # passed to base splitter if supported
         add_start_index: false
         strip_whitespace: true
     recursive_token:
       name: recursive_token
       params:
-        chunk_size: 800
-        chunk_overlap: 100
+        chunk_size: ${params.chunk.size} 
+        chunk_overlap: ${params.chunk.overlap} 
         separators: ["\n\n", "\n", ".", "?", "!", " ", ""]
         keep_separator: true
         is_separator_regex: false
@@ -47,8 +47,8 @@ params:
         use_recursive: false
         embedding_provider: huggingface
         embedding_model: sentence-transformers/all-MiniLM-L6-v2
-        chunk_size: 800
-        chunk_overlap: 100
+        chunk_size: ${params.chunk.size} 
+        chunk_overlap: ${params.chunk.overlap} 
         breakpoint_threshold_type: percentile
         breakpoint_threshold_amount: 95
         buffer_size: 1
@@ -59,8 +59,8 @@ params:
         use_recursive: true
         embedding_provider: huggingface
         embedding_model: sentence-transformers/all-MiniLM-L6-v2
-        chunk_size: 800
-        chunk_overlap: 100
+        chunk_size: ${params.chunk.size} 
+        chunk_overlap: ${params.chunk.overlap} 
         breakpoint_threshold_type: percentile
         breakpoint_threshold_amount: 95
         buffer_size: 1
@@ -70,8 +70,8 @@ params:
       params:
         encoding_name: cl100k_base
         model_name: null
-        chunk_size: 800
-        chunk_overlap: 120
+        chunk_size: 500
+        chunk_overlap: ${params.chunk.overlap} 
         add_start_index: false
         strip_whitespace: true
         use_latex: true
@@ -91,7 +91,7 @@ params:
           - "^\\s*references?\\s*$"
           - "^\\s*bibliograph(y|ies)\\s*$"
         join_short_sections: true
-        min_section_tokens: 200
+        min_section_tokens: 128
         prefer_merge_forward: true
         drop_tail_sections_matching:
               - "references"
@@ -123,19 +123,19 @@ params:
         strip_whitespace: true
         levels: ["section", "paragraph", "sentence"]
         chunk_sizes:
-          section: 900
+          section: 500
           paragraph: 500
-          sentence: 160
+          sentence: ${params.chunk.size} 
         chunk_overlaps:
-          section: 120
-          paragraph: 60
-          sentence: 24
+          section: ${params.chunk.overlap} 
+          paragraph: ${params.chunk.overlap} 
+          sentence: ${params.chunk.overlap} 
         approx_chars_per_token: 4
         sectioner:
           encoding_name: cl100k_base
           model_name: null
-          chunk_size: 900
-          chunk_overlap: 120
+          chunk_size: 500
+          chunk_overlap: ${params.chunk.overlap} 
           add_start_index: false
           strip_whitespace: true
           use_latex: true
@@ -155,7 +155,7 @@ params:
             - "^\\s*references?\\s*$"
             - "^\\s*bibliograph(y|ies)\\s*$"
           join_short_sections: true
-          min_section_tokens: 200
+          min_section_tokens: 128
           prefer_merge_forward: true
           drop_tail_sections_matching:
             - "references"

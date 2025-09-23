@@ -1,0 +1,2 @@
+model,revision,normalize,batch_size,task,main_score
+sentence-transformers/all-MiniLM-L6-v2,main,True,128,ChemQuest,

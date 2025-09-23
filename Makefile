@@ -1,9 +1,9 @@
 .PHONY: all stage1 stage2 stage3 stage4 clean show-configs
 
-OVERLAP = 0 32 64
-SIZE    = 128 192 256 320 384 448
+OVERLAP = 0 #32 64
+SIZE    = 128 #192 256 320 384 448
 MODEL   = all_MiniLM_L6_v2
-CHUNKER = fixed_token
+CHUNKER = fixed_token recursive_token semantic_fixed semantic_recursive hierarchical_section hybrid_multi
 
 INPUT_CONFIG = configs/main_config.yaml
 OUTPUT_CONFIG = configs/stages/
@@ -27,8 +27,8 @@ show-configs:
 
 stage0:
 	@echo "▶️ Stage0: generate_configs"
-	python -m pipeline_lib.split_config -i $(INPUT_CONFIG) -o $(OUTPUT_CONFIG)
-	rm -rf configs/stages/stage4.yaml configs/stages/stage5.yaml configs/stages/stage6.yaml
+	python -m pipeline_lib.split_config --input  $(INPUT_CONFIG) --output-dir $(OUTPUT_CONFIG) --section stage1 stage2 stage3
+	# rm -rf configs/stages/stage4.yaml configs/stages/stage5.yaml configs/stages/stage6.yaml
 
 stage1:
 	@echo "▶️ Stage1: model_screening_validation"
@@ -51,7 +51,13 @@ stage4-6:
 	        config_dir=$$outdir/config; \
 	        echo "▶️ model=$$m chunker=$$c size=$$s overlap=$$o -> $$config_dir"; \
 	        mkdir -p $$config_dir; \
-	        python -m pipeline_lib.split_config -i $(INPUT_CONFIG) -o $$config_dir; \
+	        python -m pipeline_lib.split_config \
+	          --input $(INPUT_CONFIG) \
+	          --output-dir $$config_dir \
+	          --sections stage4 stage5 stage6 \
+			  --param chunk.chunker=$${c} \
+	          --param chunk.size=$${s} \
+	          --param chunk.overlap=$${o}; \
 	        rm -f $$config_dir/stage1.yaml $$config_dir/stage2.yaml $$config_dir/stage3.yaml; \
 	        $(MAKE) -f test.mk all \
 	          MODELS=$$m CHUNKER=$$c CHUNK_SIZE=$$s CHUNK_OVERLAP=$$o \
