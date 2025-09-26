@@ -15,14 +15,19 @@ CHUNKERS = {
     "hybrid_multi",
 }
 
-def extract_ndcg10(data):
-    """Handle MTEB formats where scores.test is dict or list."""
+def extract_metric(data, metric_key: str):
+    """Extract a metric from MTEB-style results where scores.test is dict or list.
+    Returns a single float (mean if list), or None if not found."""
     scores = data.get("scores", {})
     test = scores.get("test")
     if isinstance(test, dict):
-        return test.get("ndcg_at_10")
+        val = test.get(metric_key)
+        return float(val) if isinstance(val, (int, float)) else None
     if isinstance(test, list):
-        vals = [d.get("ndcg_at_10") for d in test if isinstance(d, dict) and "ndcg_at_10" in d]
+        vals = []
+        for d in test:
+            if isinstance(d, dict) and metric_key in d and isinstance(d[metric_key], (int, float)):
+                vals.append(float(d[metric_key]))
         return mean(vals) if vals else None
     return None
 
@@ -35,7 +40,6 @@ def parse_model_info(rel_dir_str: str):
     Returns dict with model_name, chunker, token_size, overlap.
     If multiple path segments, we pick the first segment that contains a known chunker.
     """
-    # pick the segment most likely to be the run folder
     parts = rel_dir_str.split("/")
     candidate = None
     for p in parts[::-1]:
@@ -45,10 +49,8 @@ def parse_model_info(rel_dir_str: str):
     if candidate is None:
         candidate = parts[-1]
 
-    # find the chunker token
     found_chunker = None
     for ch in sorted(CHUNKERS, key=len, reverse=True):  # prefer longer names
-        # enforce boundary with underscores or string edges
         if re.search(rf"(^|_){re.escape(ch)}(_|$)", candidate):
             found_chunker = ch
             break
@@ -58,9 +60,7 @@ def parse_model_info(rel_dir_str: str):
     overlap = None
 
     if found_chunker:
-        # model name is everything before the chunker (strip trailing underscore)
         model_name = re.split(rf"_{re.escape(found_chunker)}(_|$)", candidate, maxsplit=1)[0]
-        # look for _cNNN and _oNNN anywhere after the chunker
         tail = candidate[len(model_name):]
         m_c = re.search(r"_c(\d+)", tail)
         m_o = re.search(r"_o(\d+)", tail)
@@ -75,12 +75,16 @@ def parse_model_info(rel_dir_str: str):
     }
 
 def main():
-    ap = argparse.ArgumentParser(description="Compare ndcg@10 across ChemQuest.json files and enrich with run metadata from folder names.")
+    ap = argparse.ArgumentParser(
+        description="Compare metric across ChemQuest.json files and enrich with run metadata from folder names."
+    )
     ap.add_argument("--root", type=Path, default=Path("tests"), help="Root folder to search")
     ap.add_argument("--pattern", default="ChemQuest.json", help="Filename to look for")
     ap.add_argument("--csv", type=Path, help="Optional CSV output path")
+    ap.add_argument("--metric", default="ndcg_at_10", help="Metric key to extract from scores.test (default: ndcg_at_10)")
     args = ap.parse_args()
 
+    metric_key = args.metric
     files = sorted(args.root.rglob(args.pattern))
     rows, warnings = [], []
 
@@ -92,32 +96,32 @@ def main():
             warnings.append(f"Failed to read {f}: {e}")
             continue
 
-        score = extract_ndcg10(data)
+        score = extract_metric(data, metric_key)
         if score is None:
-            warnings.append(f"Missing scores.test.ndcg_at_10 in {f}")
+            warnings.append(f"Missing scores.test.{metric_key} in {f}")
             continue
 
         rel_dir = str(f.parent.relative_to(args.root))
         info = parse_model_info(rel_dir)
         rows.append({
             "rel_path": rel_dir,
-            "ndcg_at_10": float(score),
+            metric_key: float(score),
             **info,
         })
 
-    # Sort by score desc, then model/chunker for stability
-    rows.sort(key=lambda r: (-r["ndcg_at_10"], r["model_name"] or "", r["chunker"] or ""))
+    # Sort by chosen metric desc, then model/chunker for stability
+    rows.sort(key=lambda r: (-r.get(metric_key, float("-inf")), r["model_name"] or "", r["chunker"] or ""))
 
-    # CSV output (recommended)
+    # CSV output
     if args.csv:
         args.csv.parent.mkdir(parents=True, exist_ok=True)
         with args.csv.open("w", encoding="utf-8") as out:
-            out.write("model_name,chunker,token_size,overlap,ndcg_at_10,rel_path\n")
+            out.write(f"model_name,chunker,token_size,overlap,{metric_key},rel_path\n")
             for r in rows:
                 out.write(f'{r["model_name"] or ""},{r["chunker"] or ""},'
                           f'{"" if r["token_size"] is None else r["token_size"]},'
                           f'{"" if r["overlap"] is None else r["overlap"]},'
-                          f'{r["ndcg_at_10"]:.6f},{r["rel_path"]}\n')
+                          f'{r[metric_key]:.6f},{r["rel_path"]}\n')
         for w in warnings:
             print("WARNING:", w, file=sys.stderr)
         return
@@ -126,12 +130,15 @@ def main():
     if not rows:
         print("No valid results found.")
     else:
-        print(f'{"Model":<28} {"Chunker":<20} {"c":>5} {"o":>5}  {"ndcg@10":>10}  Rel Path')
-        print("-"*90)
+        metric_label = metric_key
+        # compute width for label cell
+        header = f'{"Model":<28} {"Chunker":<20} {"c":>5} {"o":>5}  {metric_label:>10}  Rel Path'
+        print(header)
+        print("-" * max(90, len(header)))
         for r in rows:
             c = "" if r["token_size"] is None else r["token_size"]
             o = "" if r["overlap"] is None else r["overlap"]
-            print(f'{(r["model_name"] or ""):<28} {(r["chunker"] or ""):<20} {c:>5} {o:>5}  {r["ndcg_at_10"]:>10.6f}  {r["rel_path"]}')
+            print(f'{(r["model_name"] or ""):<28} {(r["chunker"] or ""):<20} {c:>5} {o:>5}  {r[metric_key]:>10.6f}  {r["rel_path"]}')
     for w in warnings:
         print("WARNING:", w, file=sys.stderr)
 
