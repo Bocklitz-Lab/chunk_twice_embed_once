@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{l l l l l l l l l l l l l l l l l l l l}
+\toprule
+model_short & chunker & token_size & overlap & rrf_beta_at_k & rrf_g_at_k & ndcg_at_k & map_at_k & mrr_at_k & recall_at_k & cost_norm & k_request & k_recall_used & k_ndcg_used & k_map_used & k_mrr_used & beta & alpha & gamma & delta \\
+\midrule
+nomic ai nomic embed text v1 & recursive_token & 448.000 & 32.000 & \textbf{0.000} & \textbf{0.000} & nan & nan & nan & nan & 1.000 & 10.000 & None & None & None & None & 2.000 & 2.000 & 1.000 & 0.500 \\
+BAAI bge base en v1.5 & fixed_token & 320.000 & 48.000 & \textbf{0.000} & \textbf{0.000} & nan & nan & nan & nan & 1.000 & 10.000 & None & None & None & None & 2.000 & 2.000 & 1.000 & 0.500 \\
+BAAI bge large en v1.5 & semantic_fixed & 256.000 & 64.000 & \textbf{0.000} & \textbf{0.000} & nan & nan & nan & nan & 1.000 & 10.000 & None & None & None & None & 2.000 & 2.000 & 1.000 & 0.500 \\
+BAAI bge large en v1.5 & fixed_token & 192.000 & 0.000 & \textbf{0.000} & \textbf{0.000} & nan & nan & nan & nan & 1.000 & 10.000 & None & None & None & None & 2.000 & 2.000 & 1.000 & 0.500 \\
+BAAI bge large en v1.5 & fixed_token & 256.000 & 48.000 & \textbf{0.000} & \textbf{0.000} & nan & nan & nan & nan & 1.000 & 10.000 & None & None & None & None & 2.000 & 2.000 & 1.000 & 0.500 \\
+nomic ai nomic embed text v1 & hierarchical_section & 192.000 & 48.000 & \textbf{0.000} & \textbf{0.000} & nan & nan & nan & nan & 1.000 & 10.000 & None & None & None & None & 2.000 & 2.000 & 1.000 & 0.500 \\
+BAAI bge base en v1.5 & recursive_token & 256.000 & 16.000 & \textbf{0.000} & \textbf{0.000} & nan & nan & nan & nan & 1.000 & 10.000 & None & None & None & None & 2.000 & 2.000 & 1.000 & 0.500 \\
+BAAI bge base en v1.5 & recursive_token & 320.000 & 48.000 & \textbf{0.000} & \textbf{0.000} & nan & nan & nan & nan & 1.000 & 10.000 & None & None & None & None & 2.000 & 2.000 & 1.000 & 0.500 \\
+BAAI bge base en v1.5 & hierarchical_section & 256.000 & 32.000 & \textbf{0.000} & \textbf{0.000} & nan & nan & nan & nan & 1.000 & 10.000 & None & None & None & None & 2.000 & 2.000 & 1.000 & 0.500 \\
+nomic ai nomic embed text v1 & semantic_recursive & 192.000 & 32.000 & \textbf{0.000} & \textbf{0.000} & nan & nan & nan & nan & 1.000 & 10.000 & None & None & None & None & 2.000 & 2.000 & 1.000 & 0.500 \\
+\bottomrule
+\end{tabular}
+\caption{Top configurations by single-score retrieval metric (higher is better). Best per metric in bold. • k=10 • β=2}
+\label{tab:leaderboard_scores}
+\end{table}

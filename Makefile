@@ -186,7 +186,7 @@ stage4-6:
 
 stage7:
 	@echo "▶️ Stage7: calculate loss"
-	python -m pipeline_lib.loss_compare --root $(RESULTS) --csv $(LOSS_CSV)
+	python -m pipeline_lib.single_value_scores --root $(RESULTS) --k 10 --beta 2.5 --alpha 2 --gamma 1 --delta 0.5 --csv $(LOSS_CSV)
 
 
 # clean:

@@ -1,0 +1,21 @@
+fixed,model_short,chunker,auc,norm_auc,n_points,occ,legend_label
+0,nomic ai nomic embed text v1,fixed_token,181.32479999999998,0.5666399999999999,6,0,nomic ai nomic embed text v1
+0,nomic ai nomic embed text v1,recursive_token,180.1696,0.56303,6,1,nomic ai nomic embed text v1¹
+0,nomic ai nomic embed text v1,semantic_fixed,179.67680000000001,0.56149,6,2,nomic ai nomic embed text v1²
+0,nomic ai nomic embed text v1,hierarchical_section,179.1296,0.55978,6,3,nomic ai nomic embed text v1³
+0,nomic ai nomic embed text v1,semantic_recursive,174.7648,0.5461400000000001,6,4,nomic ai nomic embed text v1⁴
+16,nomic ai nomic embed text v1,recursive_token,179.62560000000002,0.5613300000000001,6,0,nomic ai nomic embed text v1
+16,nomic ai nomic embed text v1,fixed_token,178.3872,0.5574600000000001,6,1,nomic ai nomic embed text v1¹
+16,nomic ai nomic embed text v1,semantic_fixed,177.95520000000002,0.5561100000000001,6,2,nomic ai nomic embed text v1²
+16,nomic ai nomic embed text v1,hierarchical_section,176.0832,0.55026,6,3,nomic ai nomic embed text v1³
+16,nomic ai nomic embed text v1,semantic_recursive,174.704,0.54595,6,4,nomic ai nomic embed text v1⁴
+32,nomic ai nomic embed text v1,recursive_token,176.54399999999998,0.5517,6,0,nomic ai nomic embed text v1
+32,nomic ai nomic embed text v1,fixed_token,176.13440000000003,0.5504200000000001,6,1,nomic ai nomic embed text v1¹
+32,nomic ai nomic embed text v1,semantic_recursive,173.72160000000002,0.54288,6,2,nomic ai nomic embed text v1²
+32,nomic ai nomic embed text v1,hierarchical_section,173.69920000000002,0.54281,6,3,nomic ai nomic embed text v1³
+32,nomic ai nomic embed text v1,semantic_fixed,173.57760000000002,0.5424300000000001,6,4,nomic ai nomic embed text v1⁴
+64,nomic ai nomic embed text v1,recursive_token,110.272,0.5743333333333334,4,0,nomic ai nomic embed text v1
+64,nomic ai nomic embed text v1,fixed_token,108.13439999999999,0.5631999999999999,4,1,nomic ai nomic embed text v1¹
+64,nomic ai nomic embed text v1,hierarchical_section,107.2832,0.5587666666666666,4,2,nomic ai nomic embed text v1²
+64,nomic ai nomic embed text v1,semantic_fixed,107.0496,0.55755,4,3,nomic ai nomic embed text v1³
+64,nomic ai nomic embed text v1,semantic_recursive,106.6144,0.5552833333333334,4,4,nomic ai nomic embed text v1⁴

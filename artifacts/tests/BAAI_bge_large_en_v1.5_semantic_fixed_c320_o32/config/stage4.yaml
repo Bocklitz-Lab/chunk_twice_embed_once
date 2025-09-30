@@ -1,0 +1,23 @@
+input_path: artifacts/chemquests_hf_db/full_text.jsonl
+output_path: artifacts/tests/BAAI_bge_large_en_v1.5_semantic_fixed_c320_o32/chunks/chunks.jsonl
+text_field: text
+id_field: corpus_id
+token_count_encoding: cl100k_base
+token_count_model: null
+compute_offsets: true
+max_docs: null
+strategy:
+  name: semantic
+  params:
+    model_name: BAAI/bge-large-en-v1.5
+    model_kwargs:
+      trust_remote_code: true
+    use_recursive: false
+    chunk_size: 320
+    chunk_overlap: 32
+    breakpoint_threshold_type: percentile
+    breakpoint_threshold_amount: 95
+    buffer_size: 1
+    add_start_index: true
+    strip_whitespace: true
+    min_chunk_size: 128
