@@ -1,0 +1,6 @@
+chunker,loss_total
+fixed_token,0.6617622083333333
+hierarchical_section,0.6676508253968254
+recursive_token,0.6684381435185186
+semantic_fixed,0.6747261614906832
+semantic_recursive,0.7032225333333333

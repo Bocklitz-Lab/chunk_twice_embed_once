@@ -1,0 +1,21 @@
+c,model_short,chunker,auc,norm_auc,n_points
+128,nomic ai nomic embed text v1,hierarchical_section,18.110152,0.56594225,3
+128,nomic ai nomic embed text v1,recursive_token,18.137344,0.566792,3
+128,nomic ai nomic embed text v1,semantic_recursive,18.448576000000003,0.5765180000000001,3
+128,nomic ai nomic embed text v1,semantic_fixed,18.528304,0.5790095,3
+128,nomic ai nomic embed text v1,fixed_token,18.597616000000002,0.5811755000000001,3
+256,nomic ai nomic embed text v1,recursive_token,34.058672,0.53216675,5
+256,nomic ai nomic embed text v1,fixed_token,34.384192,0.537253,5
+256,nomic ai nomic embed text v1,semantic_recursive,34.43829600000001,0.5380983750000001,5
+256,nomic ai nomic embed text v1,hierarchical_section,34.552112,0.53987675,5
+256,nomic ai nomic embed text v1,semantic_fixed,34.6588,0.54154375,5
+384,nomic ai nomic embed text v1,recursive_token,32.267247999999995,0.5041757499999999,5
+384,nomic ai nomic embed text v1,fixed_token,32.480648,0.507510125,5
+384,nomic ai nomic embed text v1,semantic_fixed,32.521519999999995,0.5081487499999999,5
+384,nomic ai nomic embed text v1,semantic_recursive,32.784688,0.51226075,5
+384,nomic ai nomic embed text v1,hierarchical_section,32.990415999999996,0.5154752499999999,5
+448,nomic ai nomic embed text v1,fixed_token,31.501976,0.492218375,5
+448,nomic ai nomic embed text v1,recursive_token,31.574151999999998,0.49334612499999997,5
+448,nomic ai nomic embed text v1,semantic_fixed,31.984887999999998,0.49976387499999997,5
+448,BAAI bge large en v1.5,fixed_token,8.0518,0.5032375,2
+448,nomic ai nomic embed text v1,semantic_recursive,32.30924,0.504831875,5

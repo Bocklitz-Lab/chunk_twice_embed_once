@@ -272,6 +272,9 @@ class ChunkerFactory:
                 min_chunk_size=params.get("min_chunk_size"),
                 add_start_index=params.get("add_start_index", False),
                 strip_whitespace=params.get("strip_whitespace", True),
+                model_kwargs=params.get("model_kwargs"),
+                encode_kwargs=params.get("encode_kwargs"),
+                tokenizer_kwargs=params.get("tokenizer_kwargs"),
             )
 
 

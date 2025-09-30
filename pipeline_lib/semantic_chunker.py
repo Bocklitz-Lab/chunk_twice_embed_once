@@ -34,6 +34,7 @@ if _semantic_cls is None:
 # HF embeddings (new & old LC package locations)
 _HFEmb = None
 for path, name in [
+    ("langchain_huggingface", "HuggingFaceEmbeddings"),   # pip install -U langchain-huggingface
     ("langchain_community.embeddings", "HuggingFaceEmbeddings"),
     ("langchain.embeddings", "HuggingFaceEmbeddings"),  # very old LC
 ]:
@@ -45,7 +46,8 @@ for path, name in [
         pass
 if _HFEmb is None:
     raise ImportError(
-        "Could not import HuggingFaceEmbeddings from LangChain. Install:\n"
+        "Could not import HuggingFaceEmbeddings. Install one of:\n"
+        "  pip install -U langchain-huggingface\n"
         "  pip install -U langchain-community sentence-transformers"
     )
 
@@ -152,7 +154,11 @@ class SemanticSplitter:
         min_chunk_size: Optional[int] = None,
         add_start_index: bool = False,
         strip_whitespace: bool = True,
-        **kwargs: Any,
+        # passthroughs
+        model_kwargs: Optional[Dict[str, Any]] = None,
+        encode_kwargs: Optional[Dict[str, Any]] = None,
+        tokenizer_kwargs: Optional[Dict[str, Any]] = None,
+        **_: Any,
     ) -> None:
         if chunk_size <= 0:
             raise ValueError("chunk_size must be > 0")
@@ -165,11 +171,25 @@ class SemanticSplitter:
 
         # --- Build HF pieces from model_name ---
         # 1) Embeddings for SemanticChunker
-        embeddings = _HFEmb(model_name=model_name)
+        if model_kwargs is None:
+            model_kwargs = {"trust_remote_code": True}
 
-        # 2) Tokenizer for token-based enforcement
-        tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
+        emb_kwargs: Dict[str, Any] = {
+            "model_name": model_name,
+            "model_kwargs": model_kwargs,
+        }
+        if encode_kwargs is not None:
+            # pydantic requires dict, not None
+            emb_kwargs["encode_kwargs"] = encode_kwargs
 
+        embeddings = _HFEmb(**emb_kwargs)
+
+        # ---- Tokenizer (trust flag) ----
+        if tokenizer_kwargs is None:
+            tokenizer_kwargs = {"trust_remote_code": True}
+        tokenizer = AutoTokenizer.from_pretrained(
+            model_name, use_fast=True, **tokenizer_kwargs
+        )
         # --- SemanticChunker (finds semantic breakpoints) ---
         self._semantic = _semantic_cls(
             embeddings=embeddings,

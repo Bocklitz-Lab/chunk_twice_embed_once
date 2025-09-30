@@ -47,6 +47,8 @@ params:
       name: semantic
       params:
         model_name: ${params.model.name}
+        model_kwargs:
+          trust_remote_code: true
         use_recursive: false
         chunk_size: ${params.chunk.size}
         chunk_overlap: ${params.chunk.overlap}
@@ -62,6 +64,8 @@ params:
       name: semantic
       params:
         model_name: ${params.model.name}
+        model_kwargs:
+          trust_remote_code: true
         use_recursive: true
         chunk_size: ${params.chunk.size}
         chunk_overlap: ${params.chunk.overlap}
@@ -503,17 +507,19 @@ stage5:
   qa_jsonl_file: ${params.paths.chemquests_dir}/qa.jsonl
   chunks_jsonl_file: ${params.paths.chunks_dir}/chunks.jsonl
   output_folder: ${params.paths.mteb_task_dir}
-  search_scope: single        # "single" or "all"
-  include_source_flag: true
-  ngram_n: 1                  # 1 = unigrams (good recall, simple)
-  top_k: 5
-  adjacency_window: 1         # neighbor boost ±1
-  neighbor_penalty: 0.9
-  merge_window: true          # merged neighbor window scoring
+  search_scope: single              # "single" or "all"
+  include_source_flag: true         # include continuous score in qrels
+  ngram_n: 1                        # 1 = unigrams
+  adjacency_window: 1               # neighbor boost ±2 chunks
+  merge_window: true                # enable neighbor merged scoring
+  alpha_neighbor: 0.2               # 0 = ignore neighbors, 1 = use only merged window
   weights:
     bm25: 1.0
     jaccard: 1.0
     fuzzy_token_set: 1.0
+  min_score_threshold: 0.95           # keep all chunks with score >= this value
+  max_results_per_query: 5          # 0 = no cap; set e.g. 100 to cap
+  print_log : false
 #-------------------------------------------------------------------------------------
 #                               STAGE 6
 #-------------------------------------------------------------------------------------

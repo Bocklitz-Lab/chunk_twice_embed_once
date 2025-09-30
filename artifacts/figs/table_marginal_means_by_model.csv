@@ -1,0 +1,4 @@
+model_short,loss_total
+nomic ai nomic embed text v1,0.5298360000000001
+BAAI bge large en v1.5,0.5464323921568627
+BAAI bge base en v1.5,0.5701859185185185

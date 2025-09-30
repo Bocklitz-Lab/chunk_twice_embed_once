@@ -4,11 +4,13 @@ output_folder: artifacts/tests/BAAI_bge_large_en_v1.5_fixed_token_c192_o32/mteb_
 search_scope: single
 include_source_flag: true
 ngram_n: 1
-top_k: 5
 adjacency_window: 1
-neighbor_penalty: 0.9
 merge_window: true
+alpha_neighbor: 0.2
 weights:
   bm25: 1.0
   jaccard: 1.0
   fuzzy_token_set: 1.0
+min_score_threshold: 0.95
+max_results_per_query: 5
+print_log: false

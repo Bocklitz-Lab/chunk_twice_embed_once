@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-.PHONY: all stage1 stage2 stage3 stage4 clean show-configs
+.PHONY: all stage0 stage1 stage2 stage3 stage4-6 stage7 show-configs
 
 OVERLAP = 0 16 32 48 64
 SIZE    = 128 384 192 256 320  448 512
@@ -9,15 +9,18 @@ MIN_STRIDE ?= 96
 MAX_OVERLAP_ABS ?= 64
 MAX_OVERLAP_PCT ?= 30
 
-CSV ?= artifacts/embedding_models_screening/passed_per_dataset.csv
+MODELS_CSV ?= artifacts/embedding_models_screening/passed_per_dataset.csv
 
-MODELS = $(shell awk -F, 'NR>1 {printf "%s%s@%s", sep,$$2,$$3; sep=" "}' $(CSV) | tr -d "\r")
+MODELS = $(shell awk -F, 'NR>1 {printf "%s%s@%s", sep,$$2,$$3; sep=" "}' $(MODELS_CSV) | tr -d "\r")
 
 CHUNKER = recursive_token fixed_token semantic_fixed semantic_recursive hierarchical_section 
 
 INPUT_CONFIG = configs/main_config.yaml
 OUTPUT_CONFIG = configs/stages/
 
+LOSS_CSV ?= artifacts/loss.csv
+RESULTS ?= artifacts/tests/
+DURATION_CSV ?= $(RESULTS)/durations.csv
 
 # Build directory name
 STAGE1_CONFIG ?= configs/stages/stage1.yaml
@@ -53,9 +56,14 @@ stage3:
 	python -m stages.download_chemquests --config $(STAGE3_CONFIG)
 
 stage4-6:
-	@test -s "$(CSV)" || { echo "❌ CSV not found or empty: $(CSV). Did stage2 run and write it?"; exit 1; }
-	@echo "📄 Using models from $(CSV)"
+	@test -s "$(MODELS_CSV)" || { echo "❌ MODELS_CSV not found or empty: $(MODELS_CSV). Did stage2 run and write it?"; exit 1; }
+	@echo "📄 Using models from $(MODELS_CSV)"
 	@echo "🧪 Models: $(MODELS)"
+	@# Ensure durations CSV exists with header
+	@[ -f "$(DURATION_CSV)" ] || { \
+		mkdir -p "$(RESULTS)"; \
+		echo "started_at,ended_at,duration_s,status,stage,model,revision,chunker,size,overlap,outdir" > "$(DURATION_CSV)"; \
+	}
 	@for m in $(MODELS); do \
 		name="$${m%@*}"; \
 		rev="$$(printf '%s' "$$m" | cut -d@ -f2-)"; \
@@ -102,23 +110,85 @@ stage4-6:
 				--param chunk.size=$${s} \
 				--param chunk.overlap=$${o}; \
 				rm -f $$config_dir/stage1.yaml $$config_dir/stage2.yaml $$config_dir/stage3.yaml; \
-				$(MAKE) -f test.mk all \
-				MODELS=$$m CHUNKER=$$c CHUNK_SIZE=$$s CHUNK_OVERLAP=$$o \
-				OUTDIR=$$outdir \
-				STAGE4_CONFIG=$$config_dir/stage4.yaml \
-				STAGE5_CONFIG=$$config_dir/stage5.yaml \
-				STAGE6_CONFIG=$$config_dir/stage6.yaml; \
+				\
+				# ---------- Run stage4 (chunking) ---------- \
+				stage="stage4"; \
+				start_iso=$$(date -u +"%Y-%m-%dT%H:%M:%SZ"); \
+				start_sec=$$(date +%s); \
+				$(MAKE) -f test.mk stage4 \
+					MODELS=$$m CHUNKER=$$c SIZE=$$s OVERLAP=$$o \
+					OUTDIR=$$outdir \
+					STAGE4_CONFIG=$$config_dir/stage4.yaml; \
+				status=$$?; \
+				end_sec=$$(date +%s); \
+				end_iso=$$(date -u +"%Y-%m-%dT%H:%M:%SZ"); \
+				dur=$$((end_sec - start_sec)); \
+				echo $$dur > "$$outdir/duration_$${stage}_s.txt"; \
+				printf "%s,%s,%d,%d,%s,%s,%s,%s,%s,%s,%s\n" \
+					"$$start_iso" "$$end_iso" "$$dur" "$$status" "$$stage" \
+					"$$name" "$$rev" "$$c" "$$s" "$$o" "$$outdir" >> "$(DURATION_CSV)"; \
+				if [ $$status -ne 0 ]; then \
+					echo "❌ $$stage failed (model=$$name@$$rev, chunker=$$c, size=$$s, overlap=$$o) in $$dur s"; \
+					exit $$status; \
+				else \
+					echo "⏱️  $$stage done in $$dur s -> $$outdir"; \
+				fi; \
+				\
+				# ---------- Run stage5 (MTEB task) ---------- \
+				stage="stage5"; \
+				start_iso=$$(date -u +"%Y-%m-%dT%H:%M:%SZ"); \
+				start_sec=$$(date +%s); \
+				$(MAKE) -f test.mk stage5 \
+					MODELS=$$m CHUNKER=$$c SIZE=$$s OVERLAP=$$o \
+					OUTDIR=$$outdir \
+					STAGE5_CONFIG=$$config_dir/stage5.yaml; \
+				status=$$?; \
+				end_sec=$$(date +%s); \
+				end_iso=$$(date -u +"%Y-%m-%dT%H:%M:%SZ"); \
+				dur=$$((end_sec - start_sec)); \
+				echo $$dur > "$$outdir/duration_$${stage}_s.txt"; \
+				printf "%s,%s,%d,%d,%s,%s,%s,%s,%s,%s,%s\n" \
+					"$$start_iso" "$$end_iso" "$$dur" "$$status" "$$stage" \
+					"$$name" "$$rev" "$$c" "$$s" "$$o" "$$outdir" >> "$(DURATION_CSV)"; \
+				if [ $$status -ne 0 ]; then \
+					echo "❌ $$stage failed (model=$$name@$$rev, chunker=$$c, size=$$s, overlap=$$o) in $$dur s"; \
+					exit $$status; \
+				else \
+					echo "⏱️  $$stage done in $$dur s -> $$outdir"; \
+				fi; \
+				\
+				# ---------- Run stage6 (custom eval) ---------- \
+				stage="stage6"; \
+				start_iso=$$(date -u +"%Y-%m-%dT%H:%M:%SZ"); \
+				start_sec=$$(date +%s); \
+				$(MAKE) -f test.mk stage6 \
+					MODELS=$$m CHUNKER=$$c SIZE=$$s OVERLAP=$$o \
+					OUTDIR=$$outdir \
+					STAGE6_CONFIG=$$config_dir/stage6.yaml; \
+				status=$$?; \
+				end_sec=$$(date +%s); \
+				end_iso=$$(date -u +"%Y-%m-%dT%H:%M:%SZ"); \
+				dur=$$((end_sec - start_sec)); \
+				echo $$dur > "$$outdir/duration_$${stage}_s.txt"; \
+				printf "%s,%s,%d,%d,%s,%s,%s,%s,%s,%s,%s\n" \
+					"$$start_iso" "$$end_iso" "$$dur" "$$status" "$$stage" \
+					"$$name" "$$rev" "$$c" "$$s" "$$o" "$$outdir" >> "$(DURATION_CSV)"; \
+				if [ $$status -ne 0 ]; then \
+					echo "❌ $$stage failed (model=$$name@$$rev, chunker=$$c, size=$$s, overlap=$$o) in $$dur s"; \
+					exit $$status; \
+				else \
+					echo "⏱️  $$stage done in $$dur s -> $$outdir"; \
+				fi; \
 			done; \
 			done; \
 		done; \
 		done
 
+stage7:
+	@echo "▶️ Stage7: calculate loss"
+	python -m pipeline_lib.loss_compare --root $(RESULTS) --csv $(LOSS_CSV)
+
 
 # clean:
 # 	rm -rf artifacts
 # 	@echo "🧹 Cleaned artifacts/"
-
-
-
-
-

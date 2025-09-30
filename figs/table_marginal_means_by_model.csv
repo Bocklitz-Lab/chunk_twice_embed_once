@@ -1,0 +1,9 @@
+model_short,loss_total
+nomic ai nomic embed text v1,0.6517587901234568
+nomic ai nomic embed text v1.5,0.6578537777777778
+intfloat e5 large,0.663767075
+BAAI bge large en v1.5,0.6726442814814815
+intfloat e5 base,0.6772924666666666
+intfloat e5 small,0.6773631925925926
+BAAI bge base en v1.5,0.6783637481481481
+intfloat multilingual e5 base,0.6861529925925925
