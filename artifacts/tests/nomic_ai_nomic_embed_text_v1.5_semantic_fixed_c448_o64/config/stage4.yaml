@@ -1,0 +1,23 @@
+input_path: artifacts/chemquests_hf_db/full_text.jsonl
+output_path: artifacts/tests/nomic_ai_nomic_embed_text_v1.5_semantic_fixed_c448_o64/chunks/chunks.jsonl
+text_field: text
+id_field: corpus_id
+token_count_encoding: cl100k_base
+token_count_model: null
+compute_offsets: true
+max_docs: null
+strategy:
+  name: semantic
+  params:
+    model_name: nomic-ai/nomic-embed-text-v1.5
+    model_kwargs:
+      trust_remote_code: true
+    use_recursive: false
+    chunk_size: 448
+    chunk_overlap: 64
+    breakpoint_threshold_type: percentile
+    breakpoint_threshold_amount: 95
+    buffer_size: 1
+    add_start_index: true
+    strip_whitespace: true
+    min_chunk_size: 128

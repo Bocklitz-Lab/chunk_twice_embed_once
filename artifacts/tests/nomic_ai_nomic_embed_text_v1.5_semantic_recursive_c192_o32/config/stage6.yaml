@@ -1,0 +1,16 @@
+models:
+- name: nomic-ai/nomic-embed-text-v1.5
+  revision: b0753ae76394dd36bcfb912a46018088bca48be0
+  batch_size: 32
+  normalize: true
+  model_kwargs:
+    trust_remote_code: true
+tasks:
+- class: pipeline_lib.my_tasks.ChemQuest
+  kwargs:
+    data_dir: artifacts/tests/nomic_ai_nomic_embed_text_v1.5_semantic_recursive_c192_o32/mteb_task
+import_modules:
+- pipeline_lib.my_tasks
+encode_kwargs:
+  normalize_embeddings: false
+output_root: artifacts/tests/nomic_ai_nomic_embed_text_v1.5_semantic_recursive_c192_o32/results

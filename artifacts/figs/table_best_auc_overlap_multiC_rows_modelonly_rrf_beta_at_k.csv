@@ -1,21 +1,21 @@
 fixed,model_short,chunker,auc,norm_auc,n_points,occ,legend_label
+128,intfloat e5 large,recursive_token,15.4632,0.483225,3,0,intfloat e5 large
 128,nomic ai nomic embed text v1,recursive_token,15.328800000000001,0.47902500000000003,3,0,nomic ai nomic embed text v1
 128,nomic ai nomic embed text v1,hierarchical_section,15.3088,0.4784,3,1,nomic ai nomic embed text v1¹
 128,nomic ai nomic embed text v1,semantic_recursive,15.3064,0.478325,3,2,nomic ai nomic embed text v1²
-128,nomic ai nomic embed text v1,semantic_fixed,14.9616,0.46755,3,3,nomic ai nomic embed text v1³
-128,nomic ai nomic embed text v1,fixed_token,14.940000000000001,0.46687500000000004,3,4,nomic ai nomic embed text v1⁴
+128,intfloat e5 large,hierarchical_section,15.1152,0.47235,3,1,intfloat e5 large¹
 256,nomic ai nomic embed text v1,recursive_token,35.304,0.551625,5,0,nomic ai nomic embed text v1
 256,nomic ai nomic embed text v1,semantic_recursive,34.742399999999996,0.5428499999999999,5,1,nomic ai nomic embed text v1¹
 256,nomic ai nomic embed text v1,hierarchical_section,34.716,0.5424375,5,2,nomic ai nomic embed text v1²
 256,nomic ai nomic embed text v1,semantic_fixed,34.712,0.542375,5,3,nomic ai nomic embed text v1³
 256,nomic ai nomic embed text v1,fixed_token,34.668000000000006,0.5416875000000001,5,4,nomic ai nomic embed text v1⁴
+384,intfloat e5 base,fixed_token,38.1816,0.5965875,5,0,intfloat e5 base
 384,nomic ai nomic embed text v1,fixed_token,38.0184,0.5940375,5,0,nomic ai nomic embed text v1
 384,nomic ai nomic embed text v1,recursive_token,37.884,0.5919375,5,1,nomic ai nomic embed text v1¹
+384,intfloat e5 base,recursive_token,37.763999999999996,0.5900624999999999,5,1,intfloat e5 base¹
 384,nomic ai nomic embed text v1,semantic_fixed,37.7192,0.5893625,5,2,nomic ai nomic embed text v1²
-384,nomic ai nomic embed text v1,hierarchical_section,37.0632,0.5791125,5,3,nomic ai nomic embed text v1³
-384,nomic ai nomic embed text v1,semantic_recursive,36.96,0.5775,5,4,nomic ai nomic embed text v1⁴
+448,intfloat e5 base,fixed_token,39.4936,0.6170875,5,0,intfloat e5 base
 448,nomic ai nomic embed text v1,recursive_token,39.4392,0.6162375,5,0,nomic ai nomic embed text v1
+448,intfloat e5 base,recursive_token,39.0312,0.6098625,5,1,intfloat e5 base¹
 448,nomic ai nomic embed text v1,fixed_token,38.8656,0.607275,5,1,nomic ai nomic embed text v1¹
-448,nomic ai nomic embed text v1,semantic_fixed,38.4752,0.601175,5,2,nomic ai nomic embed text v1²
-448,nomic ai nomic embed text v1,hierarchical_section,38.428,0.6004375,5,3,nomic ai nomic embed text v1³
-448,BAAI bge large en v1.5,fixed_token,37.985600000000005,0.5935250000000001,5,0,BAAI bge large en v1.5
+448,intfloat e5 large,recursive_token,38.69200000000001,0.6045625000000001,5,0,intfloat e5 large

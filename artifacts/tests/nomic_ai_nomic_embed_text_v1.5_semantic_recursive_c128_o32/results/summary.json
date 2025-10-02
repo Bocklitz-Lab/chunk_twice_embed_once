@@ -1,0 +1,10 @@
+[
+  {
+    "model": "nomic-ai/nomic-embed-text-v1.5",
+    "revision": "b0753ae76394dd36bcfb912a46018088bca48be0",
+    "normalize": true,
+    "batch_size": 32,
+    "task": "ChemQuest",
+    "main_score": null
+  }
+]
