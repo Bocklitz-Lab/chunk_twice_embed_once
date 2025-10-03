@@ -3239,3 +3239,5 @@ started_at,ended_at,duration_s,status,stage,model,revision,chunker,size,overlap,
 2025-10-02T07:48:29Z,2025-10-02T07:48:47Z,18,0,stage4,intfloat/e5-large,4dc6d853a804b9c8886ede6dda8a073b7dc08a81,hierarchical_section,448,64,artifacts/tests/intfloat_e5_large_hierarchical_section_c448_o64
 2025-10-02T07:48:47Z,2025-10-02T07:49:02Z,15,0,stage5,intfloat/e5-large,4dc6d853a804b9c8886ede6dda8a073b7dc08a81,hierarchical_section,448,64,artifacts/tests/intfloat_e5_large_hierarchical_section_c448_o64
 2025-10-02T07:49:02Z,2025-10-02T07:50:56Z,114,0,stage6,intfloat/e5-large,4dc6d853a804b9c8886ede6dda8a073b7dc08a81,hierarchical_section,448,64,artifacts/tests/intfloat_e5_large_hierarchical_section_c448_o64
+2025-10-03T17:36:41Z,2025-10-03T17:37:22Z,41,0,stage4,jinaai/jina-embeddings-v2-base-en,322d4d7e2f35e84137961a65af894fda0385eb7a,recursive_token,128,0,artifacts/tests/jinaai_jina_embeddings_v2_base_en_recursive_token_c128_o0
+2025-10-03T17:37:22Z,2025-10-03T17:37:42Z,20,0,stage5,jinaai/jina-embeddings-v2-base-en,322d4d7e2f35e84137961a65af894fda0385eb7a,recursive_token,128,0,artifacts/tests/jinaai_jina_embeddings_v2_base_en_recursive_token_c128_o0
