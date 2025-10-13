@@ -17,7 +17,7 @@ rrf:
   - 20
   - 50
   - 100
-top_percent: 0.1
+top_percent: 0.2
 datasets_include: []
 output_union_csv: artifacts/embedding_models_screening/passed_models_union.csv
 output_per_dataset_csv: artifacts/embedding_models_screening/passed_per_dataset.csv

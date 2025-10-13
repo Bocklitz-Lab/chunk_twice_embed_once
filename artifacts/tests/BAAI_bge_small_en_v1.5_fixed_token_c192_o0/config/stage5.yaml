@@ -1,0 +1,16 @@
+qa_jsonl_file: artifacts/chemquests_hf_db/qa.jsonl
+chunks_jsonl_file: artifacts/tests/BAAI_bge_small_en_v1.5_fixed_token_c192_o0/chunks/chunks.jsonl
+output_folder: artifacts/tests/BAAI_bge_small_en_v1.5_fixed_token_c192_o0/mteb_task
+search_scope: single
+include_source_flag: true
+ngram_n: 1
+adjacency_window: 1
+merge_window: true
+alpha_neighbor: 0.2
+weights:
+  bm25: 1.0
+  jaccard: 1.0
+  fuzzy_token_set: 1.0
+min_score_threshold: 0.95
+max_results_per_query: 5
+print_log: false

@@ -1,0 +1,16 @@
+input_path: artifacts/chemquests_hf_db/full_text.jsonl
+output_path: artifacts/tests/hkunlp_instructor_xl_fixed_token_c448_o16/chunks/chunks.jsonl
+text_field: text
+id_field: corpus_id
+token_count_encoding: cl100k_base
+token_count_model: null
+compute_offsets: true
+max_docs: null
+strategy:
+  name: fixed_token
+  params:
+    model_name: hkunlp/instructor-xl
+    chunk_size: 448
+    chunk_overlap: 16
+    add_start_index: false
+    strip_whitespace: true

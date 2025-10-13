@@ -1,0 +1,16 @@
+models:
+- name: hkunlp/instructor-xl
+  revision: ce48b213095e647a6c3536364b9fa00daf57f436
+  batch_size: 4
+  normalize: true
+  model_kwargs:
+    trust_remote_code: true
+tasks:
+- class: pipeline_lib.my_tasks.ChemQuest
+  kwargs:
+    data_dir: artifacts/tests/hkunlp_instructor_xl_semantic_fixed_c256_o0/mteb_task
+import_modules:
+- pipeline_lib.my_tasks
+encode_kwargs:
+  normalize_embeddings: false
+output_root: artifacts/tests/hkunlp_instructor_xl_semantic_fixed_c256_o0/results

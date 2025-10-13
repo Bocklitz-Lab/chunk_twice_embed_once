@@ -1,0 +1,10 @@
+[
+  {
+    "model": "intfloat/e5-base-v2",
+    "revision": "1c644c92ad3ba1efdad3f1451a637716616a20e8",
+    "normalize": true,
+    "batch_size": 32,
+    "task": "ChemQuest",
+    "main_score": null
+  }
+]

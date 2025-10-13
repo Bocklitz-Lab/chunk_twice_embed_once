@@ -1,0 +1,16 @@
+models:
+- name: jinaai/jina-embeddings-v2-base-en
+  revision: 322d4d7e2f35e84137961a65af894fda0385eb7a
+  batch_size: 32
+  normalize: true
+  model_kwargs:
+    trust_remote_code: true
+tasks:
+- class: pipeline_lib.my_tasks.ChemQuest
+  kwargs:
+    data_dir: artifacts/tests/jinaai_jina_embeddings_v2_base_en_recursive_token_c192_o48/mteb_task
+import_modules:
+- pipeline_lib.my_tasks
+encode_kwargs:
+  normalize_embeddings: false
+output_root: artifacts/tests/jinaai_jina_embeddings_v2_base_en_recursive_token_c192_o48/results

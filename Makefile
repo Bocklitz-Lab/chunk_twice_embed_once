@@ -4,7 +4,7 @@ SHELL := /bin/bash
 OVERLAP = 0 16 32 48 64
 SIZE    = 128 384 192 256 320  448 512
 TOTAL_LIMIT ?= 512
-TOKEN_LIMIT ?= 510
+TOKEN_LIMIT ?= 512
 MIN_STRIDE ?= 96
 MAX_OVERLAP_ABS ?= 64
 MAX_OVERLAP_PCT ?= 30
@@ -13,7 +13,7 @@ MODELS_CSV ?= artifacts/embedding_models_screening/passed_per_dataset.csv
 
 MODELS = $(shell awk -F, 'NR>1 {printf "%s%s@%s", sep,$$2,$$3; sep=" "}' $(MODELS_CSV) | tr -d "\r")
 
-CHUNKER = recursive_token fixed_token semantic_fixed semantic_recursive hierarchical_section 
+CHUNKER = recursive_token fixed_token semantic_recursive semantic_fixed  hierarchical_section 
 
 INPUT_CONFIG = configs/main_config.yaml
 OUTPUT_CONFIG = configs/stages/

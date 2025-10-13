@@ -1,0 +1,16 @@
+models:
+- name: intfloat/e5-base-v2
+  revision: 1c644c92ad3ba1efdad3f1451a637716616a20e8
+  batch_size: 32
+  normalize: true
+  model_kwargs:
+    trust_remote_code: true
+tasks:
+- class: pipeline_lib.my_tasks.ChemQuest
+  kwargs:
+    data_dir: artifacts/tests/intfloat_e5_base_v2_semantic_recursive_c384_o0/mteb_task
+import_modules:
+- pipeline_lib.my_tasks
+encode_kwargs:
+  normalize_embeddings: false
+output_root: artifacts/tests/intfloat_e5_base_v2_semantic_recursive_c384_o0/results

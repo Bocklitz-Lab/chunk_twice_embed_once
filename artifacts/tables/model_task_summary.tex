@@ -1,0 +1,107 @@
+{\scriptsize
+\begin{longtable}{llrrrrrr}
+\caption{Performance summary of the top embedding models across individual chemistry retrieval tasks using six IR metrics.} \label{tab:summary_model_task} \\
+\toprule
+Short Model & Task & F2@10 & MAP@10 & MRR@10 & NDCG@10 & Precision@10 & Recall@10 \\
+\midrule
+\endfirsthead
+\caption*{Table \thetable\ (continued): Performance summary of the top embedding models (continued).} \\
+\toprule
+Short Model & Task & F2@10 & MAP@10 & MRR@10 & NDCG@10 & Precision@10 & Recall@10 \\
+\midrule
+\endhead
+\midrule
+\multicolumn{8}{r}{Continued on next page} \\
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
+AI\_SciBERT & ChemHotpotQARetrieval & 0.422100 & 0.319400 & 0.319400 & 0.351300 & 0.044400 & 0.444400 \\
+AI\_SciBERT & ChemNQRetrieval & 0.053000 & 0.039700 & 0.042300 & 0.044600 & 0.007400 & 0.055600 \\
+AI\_Specter & ChemHotpotQARetrieval & 0.413700 & 0.286100 & 0.286100 & 0.324200 & 0.044400 & 0.444400 \\
+AI\_Specter & ChemNQRetrieval & 0.199300 & 0.071600 & 0.085500 & 0.118000 & 0.033300 & 0.240700 \\
+BAAI\_bgeB & ChemHotpotQARetrieval & 0.821600 & 0.759300 & 0.759300 & 0.777800 & 0.083300 & 0.833300 \\
+BAAI\_bgeB & ChemNQRetrieval & 0.525300 & 0.329500 & 0.398500 & 0.404000 & 0.074100 & 0.567900 \\
+BAAI\_bgeB\_v1.5 & ChemHotpotQARetrieval & 0.874700 & 0.802500 & 0.802500 & 0.822300 & 0.088900 & 0.888900 \\
+BAAI\_bgeB\_v1.5 & ChemNQRetrieval & 0.693000 & 0.491100 & 0.543600 & 0.565000 & 0.096300 & 0.734600 \\
+BAAI\_bgeL & ChemHotpotQARetrieval & 0.819500 & 0.748700 & 0.748700 & 0.768500 & 0.083300 & 0.833300 \\
+BAAI\_bgeL & ChemNQRetrieval & 0.190300 & 0.081200 & 0.107800 & 0.120900 & 0.029600 & 0.222200 \\
+BAAI\_bgeL\_v1.5 & ChemHotpotQARetrieval & 0.913200 & 0.765700 & 0.765700 & 0.806500 & 0.094400 & 0.944400 \\
+BAAI\_bgeL\_v1.5 & ChemNQRetrieval & 0.734300 & 0.430800 & 0.477600 & 0.537000 & 0.103700 & 0.808600 \\
+BAAI\_bgeM3 & ChemHotpotQARetrieval & 0.863200 & 0.736100 & 0.736100 & 0.773900 & 0.088900 & 0.888900 \\
+BAAI\_bgeM3 & ChemNQRetrieval & 0.748400 & 0.503200 & 0.538300 & 0.589600 & 0.103700 & 0.802500 \\
+BAAI\_bgeS & ChemHotpotQARetrieval & 0.856200 & 0.700900 & 0.700900 & 0.746400 & 0.088900 & 0.888900 \\
+BAAI\_bgeS & ChemNQRetrieval & 0.445600 & 0.209000 & 0.243200 & 0.293000 & 0.066700 & 0.512400 \\
+BAAI\_bgeS\_v1.5 & ChemHotpotQARetrieval & 0.866800 & 0.757900 & 0.757900 & 0.788300 & 0.088900 & 0.888900 \\
+BAAI\_bgeS\_v1.5 & ChemNQRetrieval & 0.665900 & 0.351900 & 0.413200 & 0.464300 & 0.096300 & 0.746900 \\
+DC\_ChemBERTa & ChemHotpotQARetrieval & 0.037900 & 0.006200 & 0.006200 & 0.016700 & 0.005600 & 0.055600 \\
+DC\_ChemBERTa & ChemNQRetrieval & 0.000000 & 0.000000 & 0.000000 & 0.000000 & 0.000000 & 0.000000 \\
+FB\_contriever & ChemHotpotQARetrieval & 0.651700 & 0.577400 & 0.577400 & 0.598000 & 0.066700 & 0.666700 \\
+FB\_contriever & ChemNQRetrieval & 0.435100 & 0.299700 & 0.349400 & 0.350600 & 0.055600 & 0.463000 \\
+FB\_contrieverMS & ChemHotpotQARetrieval & 0.804900 & 0.666700 & 0.666700 & 0.708300 & 0.083300 & 0.833300 \\
+FB\_contrieverMS & ChemNQRetrieval & 0.645200 & 0.416700 & 0.451200 & 0.496300 & 0.092600 & 0.697500 \\
+HKU\_InstructXL & ChemHotpotQARetrieval & 0.770400 & 0.731500 & 0.731500 & 0.742000 & 0.077800 & 0.777800 \\
+HKU\_InstructXL & ChemNQRetrieval & 0.785400 & 0.465500 & 0.507500 & 0.575600 & 0.107400 & 0.864200 \\
+IITD\_MatSci & ChemHotpotQARetrieval & 0.263400 & 0.199100 & 0.199100 & 0.218400 & 0.027800 & 0.277800 \\
+IITD\_MatSci & ChemNQRetrieval & 0.000000 & 0.000000 & 0.000000 & 0.000000 & 0.000000 & 0.000000 \\
+Intf\_e5B & ChemHotpotQARetrieval & 0.808300 & 0.685200 & 0.685200 & 0.721800 & 0.083300 & 0.833300 \\
+Intf\_e5B & ChemNQRetrieval & 0.791700 & 0.547900 & 0.571300 & 0.630700 & 0.107400 & 0.845700 \\
+Intf\_e5B\_v2 & ChemHotpotQARetrieval & 0.713600 & 0.666700 & 0.666700 & 0.681200 & 0.072200 & 0.722200 \\
+Intf\_e5B\_v2 & ChemNQRetrieval & 0.770300 & 0.430800 & 0.466800 & 0.546800 & 0.111100 & 0.858000 \\
+Intf\_e5L & ChemHotpotQARetrieval & 0.823200 & 0.768500 & 0.768500 & 0.785000 & 0.083300 & 0.833300 \\
+Intf\_e5L & ChemNQRetrieval & 0.809400 & 0.515800 & 0.562700 & 0.619500 & 0.114800 & 0.876500 \\
+Intf\_e5L\_v2 & ChemHotpotQARetrieval & 0.773600 & 0.750000 & 0.750000 & 0.757300 & 0.077800 & 0.777800 \\
+Intf\_e5L\_v2 & ChemNQRetrieval & 0.751700 & 0.515300 & 0.555900 & 0.599900 & 0.107400 & 0.802500 \\
+Intf\_e5S & ChemHotpotQARetrieval & 0.868100 & 0.764800 & 0.764800 & 0.793800 & 0.088900 & 0.888900 \\
+Intf\_e5S & ChemNQRetrieval & 0.727300 & 0.452400 & 0.515100 & 0.551900 & 0.100000 & 0.790100 \\
+Intf\_e5S\_v2 & ChemHotpotQARetrieval & 0.761100 & 0.675900 & 0.675900 & 0.701000 & 0.077800 & 0.777800 \\
+Intf\_e5S\_v2 & ChemNQRetrieval & 0.720200 & 0.444400 & 0.503800 & 0.543400 & 0.103700 & 0.784000 \\
+Intf\_mE5B & ChemHotpotQARetrieval & 0.759400 & 0.666700 & 0.666700 & 0.693700 & 0.077800 & 0.777800 \\
+Intf\_mE5B & ChemNQRetrieval & 0.771000 & 0.538400 & 0.570100 & 0.619900 & 0.107400 & 0.821000 \\
+Intf\_mE5L & ChemHotpotQARetrieval & 0.708100 & 0.636100 & 0.636100 & 0.656500 & 0.072200 & 0.722200 \\
+Intf\_mE5L & ChemNQRetrieval & 0.764300 & 0.440600 & 0.469500 & 0.551800 & 0.107400 & 0.845700 \\
+Intf\_mE5S & ChemHotpotQARetrieval & 0.866100 & 0.754600 & 0.754600 & 0.785700 & 0.088900 & 0.888900 \\
+Intf\_mE5S & ChemNQRetrieval & 0.779400 & 0.494400 & 0.533700 & 0.593300 & 0.107400 & 0.845700 \\
+Jina\_v2B & ChemHotpotQARetrieval & 0.807200 & 0.677800 & 0.677800 & 0.717300 & 0.083300 & 0.833300 \\
+Jina\_v2B & ChemNQRetrieval & 0.789800 & 0.511400 & 0.565700 & 0.611700 & 0.111100 & 0.851800 \\
+Jina\_v2S & ChemHotpotQARetrieval & 0.795700 & 0.624500 & 0.624500 & 0.674100 & 0.083300 & 0.833300 \\
+Jina\_v2S & ChemNQRetrieval & 0.657700 & 0.481700 & 0.541200 & 0.550400 & 0.092600 & 0.691400 \\
+MS\_BiomedBERT\_a & ChemHotpotQARetrieval & 0.318900 & 0.250000 & 0.250000 & 0.271800 & 0.033300 & 0.333300 \\
+MS\_BiomedBERT\_a & ChemNQRetrieval & 0.210600 & 0.103700 & 0.120200 & 0.140300 & 0.029600 & 0.240700 \\
+MS\_BiomedBERT\_af & ChemHotpotQARetrieval & 0.451100 & 0.272800 & 0.272800 & 0.324400 & 0.050000 & 0.500000 \\
+MS\_BiomedBERT\_af & ChemNQRetrieval & 0.140200 & 0.096300 & 0.118500 & 0.115300 & 0.018500 & 0.148200 \\
+MS\_MPNetB & ChemHotpotQARetrieval & 0.266600 & 0.213000 & 0.213000 & 0.229500 & 0.027800 & 0.277800 \\
+MS\_MPNetB & ChemNQRetrieval & 0.083100 & 0.047100 & 0.049700 & 0.058900 & 0.011100 & 0.092600 \\
+MS\_MiniLM384 & ChemHotpotQARetrieval & 0.038700 & 0.006900 & 0.006900 & 0.017500 & 0.005600 & 0.055600 \\
+MS\_MiniLM384 & ChemNQRetrieval & 0.000000 & 0.000000 & 0.000000 & 0.000000 & 0.000000 & 0.000000 \\
+Nomic\_BERT2048 & ChemHotpotQARetrieval & 0.100600 & 0.062500 & 0.062500 & 0.073100 & 0.011100 & 0.111100 \\
+Nomic\_BERT2048 & ChemNQRetrieval & 0.045300 & 0.013900 & 0.023100 & 0.026000 & 0.007400 & 0.055600 \\
+Nomic\_text\_v1 & ChemHotpotQARetrieval & 0.921300 & 0.808800 & 0.808800 & 0.839100 & 0.094400 & 0.944400 \\
+Nomic\_text\_v1 & ChemNQRetrieval & 0.757300 & 0.487000 & 0.518400 & 0.577800 & 0.107400 & 0.821000 \\
+Nomic\_text\_v1.5 & ChemHotpotQARetrieval & 0.906600 & 0.732500 & 0.732500 & 0.781500 & 0.094400 & 0.944400 \\
+Nomic\_text\_v1.5 & ChemNQRetrieval & 0.784300 & 0.535600 & 0.570500 & 0.621100 & 0.111100 & 0.839500 \\
+Nomic\_text\_v2 & ChemHotpotQARetrieval & 0.814500 & 0.719400 & 0.719400 & 0.747100 & 0.083300 & 0.833300 \\
+Nomic\_text\_v2 & ChemNQRetrieval & 0.749300 & 0.487500 & 0.532400 & 0.579300 & 0.103700 & 0.808600 \\
+Rec\_ChemBERT & ChemHotpotQARetrieval & 0.303600 & 0.188500 & 0.188500 & 0.223700 & 0.033300 & 0.333300 \\
+Rec\_ChemBERT & ChemNQRetrieval & 0.156500 & 0.100300 & 0.132700 & 0.125700 & 0.022200 & 0.166700 \\
+Sent\_BERTnli & ChemHotpotQARetrieval & 0.369800 & 0.284000 & 0.284000 & 0.309000 & 0.038900 & 0.388900 \\
+Sent\_BERTnli & ChemNQRetrieval & 0.261800 & 0.185200 & 0.203700 & 0.212700 & 0.033300 & 0.277800 \\
+Sent\_MQA\_MPNetB & ChemHotpotQARetrieval & 0.693600 & 0.561100 & 0.561100 & 0.598700 & 0.072200 & 0.722200 \\
+Sent\_MQA\_MPNetB & ChemNQRetrieval & 0.706400 & 0.430500 & 0.487800 & 0.528000 & 0.100000 & 0.771600 \\
+Sent\_MiniLM12\_v2 & ChemHotpotQARetrieval & 0.693600 & 0.559300 & 0.559300 & 0.598500 & 0.072200 & 0.722200 \\
+Sent\_MiniLM12\_v2 & ChemNQRetrieval & 0.729200 & 0.485500 & 0.530600 & 0.570000 & 0.100000 & 0.784000 \\
+Sent\_MiniLM6\_v2 & ChemHotpotQARetrieval & 0.755000 & 0.645500 & 0.645500 & 0.675900 & 0.077800 & 0.777800 \\
+Sent\_MiniLM6\_v2 & ChemNQRetrieval & 0.738900 & 0.450700 & 0.501100 & 0.549400 & 0.103700 & 0.808600 \\
+Sent\_allMPNetB\_v2 & ChemHotpotQARetrieval & 0.649000 & 0.561700 & 0.561700 & 0.586800 & 0.066700 & 0.666700 \\
+Sent\_allMPNetB\_v2 & ChemNQRetrieval & 0.690200 & 0.444700 & 0.472100 & 0.529500 & 0.096300 & 0.746900 \\
+Sent\_gtrT5\_B & ChemHotpotQARetrieval & 0.595000 & 0.517300 & 0.517300 & 0.538200 & 0.061100 & 0.611100 \\
+Sent\_gtrT5\_B & ChemNQRetrieval & 0.757400 & 0.463400 & 0.522400 & 0.566300 & 0.103700 & 0.827200 \\
+Sent\_gtrT5\_L & ChemHotpotQARetrieval & 0.687500 & 0.531200 & 0.531200 & 0.576700 & 0.072200 & 0.722200 \\
+Sent\_gtrT5\_L & ChemNQRetrieval & 0.737500 & 0.450200 & 0.480700 & 0.545400 & 0.103700 & 0.808600 \\
+Sent\_gtrT5\_XL & ChemHotpotQARetrieval & 0.702900 & 0.608000 & 0.608000 & 0.635100 & 0.072200 & 0.722200 \\
+Sent\_gtrT5\_XL & ChemNQRetrieval & 0.757100 & 0.429400 & 0.473500 & 0.543800 & 0.107400 & 0.839500 \\
+Sent\_paraMPNetB\_v2 & ChemHotpotQARetrieval & 0.632300 & 0.479600 & 0.479600 & 0.524300 & 0.066700 & 0.666700 \\
+Sent\_paraMPNetB\_v2 & ChemNQRetrieval & 0.605700 & 0.357200 & 0.396300 & 0.443500 & 0.081500 & 0.666700 \\
+\end{longtable}
+
+}

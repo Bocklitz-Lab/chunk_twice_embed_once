@@ -1,0 +1,10 @@
+[
+  {
+    "model": "hkunlp/instructor-xl",
+    "revision": "ce48b213095e647a6c3536364b9fa00daf57f436",
+    "normalize": true,
+    "batch_size": 4,
+    "task": "ChemQuest",
+    "main_score": null
+  }
+]

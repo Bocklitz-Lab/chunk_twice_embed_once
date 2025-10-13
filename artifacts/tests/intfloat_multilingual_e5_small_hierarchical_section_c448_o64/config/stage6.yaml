@@ -1,0 +1,16 @@
+models:
+- name: intfloat/multilingual-e5-small
+  revision: fd1525a9fd15316a2d503bf26ab031a61d056e98
+  batch_size: 32
+  normalize: true
+  model_kwargs:
+    trust_remote_code: true
+tasks:
+- class: pipeline_lib.my_tasks.ChemQuest
+  kwargs:
+    data_dir: artifacts/tests/intfloat_multilingual_e5_small_hierarchical_section_c448_o64/mteb_task
+import_modules:
+- pipeline_lib.my_tasks
+encode_kwargs:
+  normalize_embeddings: false
+output_root: artifacts/tests/intfloat_multilingual_e5_small_hierarchical_section_c448_o64/results

@@ -1,0 +1,26 @@
+input_path: artifacts/chemquests_hf_db/full_text.jsonl
+output_path: artifacts/tests/jinaai_jina_embeddings_v2_base_en_recursive_token_c256_o16/chunks/chunks.jsonl
+text_field: text
+id_field: corpus_id
+token_count_encoding: cl100k_base
+token_count_model: null
+compute_offsets: true
+max_docs: null
+strategy:
+  name: recursive_token
+  params:
+    chunk_size: 256
+    chunk_overlap: 16
+    separators:
+    - '\n\n'
+    - '\n'
+    - .
+    - '?'
+    - '!'
+    - ' '
+    - ''
+    keep_separator: true
+    is_separator_regex: false
+    model_name: jinaai/jina-embeddings-v2-base-en
+    add_start_index: false
+    strip_whitespace: true

@@ -1,0 +1,16 @@
+models:
+- name: BAAI/bge-m3
+  revision: 5617a9f61b028005a4858fdac845db406aefb181
+  batch_size: 32
+  normalize: true
+  model_kwargs:
+    trust_remote_code: true
+tasks:
+- class: pipeline_lib.my_tasks.ChemQuest
+  kwargs:
+    data_dir: artifacts/tests/BAAI_bge_m3_hierarchical_section_c384_o48/mteb_task
+import_modules:
+- pipeline_lib.my_tasks
+encode_kwargs:
+  normalize_embeddings: false
+output_root: artifacts/tests/BAAI_bge_m3_hierarchical_section_c384_o48/results

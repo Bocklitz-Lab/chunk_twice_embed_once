@@ -1,0 +1,2 @@
+model,revision,normalize,batch_size,task,main_score
+hkunlp/instructor-xl,ce48b213095e647a6c3536364b9fa00daf57f436,True,4,ChemQuest,

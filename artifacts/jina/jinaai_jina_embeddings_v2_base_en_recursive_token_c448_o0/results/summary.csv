@@ -1,0 +1,2 @@
+model,revision,normalize,batch_size,task,main_score
+jinaai/jina-embeddings-v2-base-en,322d4d7e2f35e84137961a65af894fda0385eb7a,True,32,ChemQuest,
