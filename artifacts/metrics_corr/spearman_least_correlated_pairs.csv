@@ -1,0 +1,17 @@
+,,corr
+map_at_1,precision_at_100,0.34584732401166185
+recall_at_1,precision_at_100,0.34584732401166185
+precision_at_100,mrr_at_1,0.37838935026537995
+ndcg_at_1,precision_at_100,0.37838935026537995
+precision_at_1,precision_at_100,0.37838935026537995
+map_at_10,precision_at_100,0.38955818150241595
+map_at_100,precision_at_100,0.3908107959119396
+precision_at_100,mrr_at_100,0.4163589049078144
+precision_at_100,mrr_at_10,0.41993360632574195
+ndcg_at_10,precision_at_100,0.4362029005708875
+ndcg_at_100,precision_at_100,0.44128712911002843
+map_at_1,precision_at_10,0.4596845086256014
+recall_at_1,precision_at_10,0.4596845086256014
+precision_at_1,precision_at_10,0.4833312294354058
+precision_at_10,mrr_at_1,0.4833312294354058
+ndcg_at_1,precision_at_10,0.4833312294354058

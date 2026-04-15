@@ -186,7 +186,7 @@ stage4-6:
 
 stage7:
 	@echo "▶️ Stage7: calculate loss"
-	python -m pipeline_lib.single_value_scores --root $(RESULTS) --k 10 --beta 2.0  --csv $(RESULTS)/loss.csv
+	python -m pipeline_lib.single_value_scores --root $(RESULTS) --w-ndcg 0.5 --w-recall 0.5 --w-time 0.0 --time-seconds-key evaluation_time --time-transform inverse --reference-seconds 300.0 --allow-time-missing-as-one --csv $(RESULTS)/loss.csv
 	python -m pipeline_lib.merge_runs --csv $(RESULTS)/durations.csv --save $(RESULTS)/merged_runs.csv
 	python -m pipeline_lib.merge_csvs --loss $(RESULTS)/loss.csv --runs $(RESULTS)/merged_runs.csv --out $(RESULTS)/combined.csv
 

@@ -1,0 +1,16 @@
+cluster_id,metric
+1,precision_at_10
+1,precision_at_100
+2,recall_at_100
+3,map_at_1
+3,map_at_10
+3,map_at_100
+3,mrr_at_1
+3,mrr_at_10
+3,mrr_at_100
+3,ndcg_at_1
+3,ndcg_at_10
+3,ndcg_at_100
+3,precision_at_1
+3,recall_at_1
+4,recall_at_10

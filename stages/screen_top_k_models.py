@@ -8,15 +8,7 @@ import yaml
 import argparse
 import math
 
-# ------------------ RRF helpers ------------------
-
-def rrf_beta(recall: Optional[float], ndcg: Optional[float], beta: float = 2.0) -> Optional[float]:
-    if recall is None or ndcg is None:
-        return None
-    if recall <= 0.0 or ndcg <= 0.0:
-        return 0.0
-    b2 = beta * beta
-    return (1.0 + b2) * recall * ndcg / (b2 * ndcg + recall)
+# ------------------ helpers ------------------
 
 def pick_split(scores_obj: Dict, split_pref: List[str]) -> Optional[Dict]:
     """
@@ -52,7 +44,7 @@ def read_model_meta(leaf_dir: Path) -> Dict:
         return {}
 
 def derive_model_id(leaf_dir: Path, meta: Dict, fmt: str) -> str:
-    name = meta.get("name")  # e.g., "BAAI/bge-base-en-v1.5"
+    name = meta.get("name")
     rev = meta.get("revision")
     if fmt == "name@rev":
         if name and rev:
@@ -62,8 +54,6 @@ def derive_model_id(leaf_dir: Path, meta: Dict, fmt: str) -> str:
     elif fmt == "name":
         if name:
             return name
-    # fallback to outermost folder name under 'validation'
-    # e.g., validation/BAAI__bge-base-en-v1.5_a5beb1e.../...
     return leaf_dir.parents[2].name if len(leaf_dir.parents) >= 3 else leaf_dir.name
 
 def read_json(fp: Path) -> dict:
@@ -78,75 +68,152 @@ def read_json(fp: Path) -> dict:
 def _get_metric_at_k(
     split_dict: Dict,
     base: str,
-    k: int,
-    allow_nearest: bool = True,
-    candidates: List[int] = None
+    k: int
 ) -> Tuple[Optional[float], Optional[int]]:
     """
-    Try exact "<base>_at_<k>", else nearest among candidates if allowed.
-    Returns (value, used_k).
+    Only try exact '<base>_at_<k>'. If missing, final fallback: raw 'base' key.
+    Returns (value, used_k) where used_k is k (or None if raw base was used).
     """
-    if candidates is None:
-        candidates = [1, 3, 5, 10, 20, 50, 100]
     exact_key = f"{base}_at_{k}"
     if exact_key in split_dict and isinstance(split_dict[exact_key], (int, float)):
         return float(split_dict[exact_key]), k
 
-    if not allow_nearest:
-        return None, None
+    # Final fallback: raw "base" key, if present (kept for robustness)
+    v = split_dict.get(base)
+    if isinstance(v, (int, float)):
+        return float(v), None
+    return None, None
 
-    found: List[Tuple[int, float]] = []
-    for ck in candidates:
-        key = f"{base}_at_{ck}"
+def _time_score_from_split(split_dict: Dict, cfg: Dict) -> Tuple[Optional[float], Dict]:
+    """
+    Build a [0,1]-ish time score where lower eval time => higher score.
+    Config (example):
+      geom_mean:
+        time:
+          # If you already have a normalized score field in [0,1]
+          # score_key: "time_score"
+
+          # Otherwise derive from raw time values
+          value_keys: ["evaluation_time_s", "eval_seconds", "time_s", "evaluation_time"]
+          unit: "seconds"            # or "ms"/"milliseconds"
+          transform: "inverse"       # "inverse" (default), "qps", or "identity"
+          reference_seconds: 1.0
+          reference_qps: 100.0
+    """
+    gm_cfg = (cfg.get("geom_mean") or {})
+    tcfg = (gm_cfg.get("time") or {})
+
+    # 1) ready-to-use score
+    score_key = tcfg.get("score_key")
+    if score_key:
+        v = split_dict.get(score_key)
+        if isinstance(v, (int, float)):
+            return float(v), {"time_score_source": score_key, "time_score_transform": "identity"}
+
+    # 2) derive from raw time value
+    value_keys = tcfg.get("value_keys") or ["evaluation_time_s", "eval_time_s", "eval_seconds",
+                                            "evaluation_time", "latency_s", "elapsed_s", "time_s", "time"]
+    unit = str(tcfg.get("unit", "seconds")).lower()
+    transform = str(tcfg.get("transform", "inverse")).lower()
+
+    for key in value_keys:
         v = split_dict.get(key)
-        if isinstance(v, (int, float)):
-            found.append((ck, float(v)))
-    if not found:
-        # final fallback: raw "base" key, if present
-        v = split_dict.get(base)
-        if isinstance(v, (int, float)):
-            return float(v), k
-        return None, None
+        if not isinstance(v, (int, float)):
+            continue
 
-    # choose nearest k by absolute distance
-    used_k, val = min(found, key=lambda t: abs(t[0] - k))
-    return val, used_k
+        time_s = float(v)
+        if unit in ("ms", "millisecond", "milliseconds"):
+            time_s = time_s / 1000.0
+
+        if transform == "inverse":
+            ref = float(tcfg.get("reference_seconds", 1.0)) or 1.0
+            time_score = 1.0 / (1.0 + (time_s / ref))
+        elif transform == "qps":
+            if time_s <= 0:
+                continue
+            qps = 1.0 / time_s
+            ref_qps = float(tcfg.get("reference_qps", 100.0)) or 100.0
+            time_score = min(1.0, qps / ref_qps)
+        elif transform == "identity":
+            time_score = float(v)
+        else:
+            time_score = 1.0 / (1.0 + time_s)
+
+        return time_score, {
+            "time_value_seconds": time_s,
+            "time_score_source": key,
+            "time_score_transform": transform
+        }
+
+    return None, {}
 
 def compute_metric_value(
     split_dict: Dict,
     metric_key: str,
     cfg: Dict
-) -> Tuple[Optional[float], Dict[str, Optional[int]]]:
+) -> Tuple[Optional[float], Dict]:
     """
-    Return (metric_value, extras) where extras may include which k was used for recall/ndcg.
+    Return (metric_value, extras).
     Supports:
-      - any direct metric key (e.g., 'ndcg_at_10', 'recall_at_10', 'main_score', etc.)
-      - "rrf" composite:
-          Set config:
-            metric_key: "rrf"
-            rrf:
-              k: 10
-              beta: 2.0
-              allow_nearest: true
-              fallback_k_candidates: [1,3,5,10,20,50,100]
+      - direct metrics (e.g., 'ndcg_at_10', 'recall_at_10', 'main_score', etc.)
+      - "geom_mean": weighted geometric mean of ndcg@k, recall@k, time_score
     """
-    if metric_key.lower() != "rrf":
-        # direct metric path (existing behavior)
+    mk = metric_key.lower()
+
+    if mk != "geom_mean":
         val = split_dict.get(metric_key, split_dict.get("main_score"))
         return (float(val) if isinstance(val, (int, float)) else None, {})
 
-    # RRF mode
-    rrf_cfg = cfg.get("rrf", {}) or {}
-    k = int(rrf_cfg.get("k", 10))
-    beta = float(rrf_cfg.get("beta", 2.0))
-    allow_nearest = bool(rrf_cfg.get("allow_nearest", True))
-    cand = rrf_cfg.get("fallback_k_candidates") or [1, 3, 5, 10, 20, 50, 100]
+    gm_cfg = cfg.get("geom_mean", {}) or {}
+    k = int(gm_cfg.get("k", 10))
 
-    recall, k_rec = _get_metric_at_k(split_dict, "recall", k, allow_nearest, cand)
-    ndcg,  k_ndc = _get_metric_at_k(split_dict, "ndcg",  k, allow_nearest, cand)
+    # weights
+    w_ndcg = float(gm_cfg.get("weights", {}).get("ndcg", 1.0))
+    w_recall = float(gm_cfg.get("weights", {}).get("recall", 1.0))
+    w_time = float(gm_cfg.get("weights", {}).get("time", 1.0))
+    w_sum = w_ndcg + w_recall + w_time
+    if w_sum <= 0:
+        return None, {"error": "weights_sum_nonpositive"}
 
-    val = rrf_beta(recall, ndcg, beta=beta)
-    extras = {"k_used_recall": k_rec, "k_used_ndcg": k_ndc}
+    # components
+    ndcg, k_ndc = _get_metric_at_k(split_dict, "ndcg", k)
+    recall, k_rec = _get_metric_at_k(split_dict, "recall", k)
+    time_score, time_meta = _time_score_from_split(split_dict, cfg)
+
+    if ndcg is None or recall is None or time_score is None:
+        return None, {"k_used_recall": k_rec, "k_used_ndcg": k_ndc, **time_meta}
+
+    # allow zeros -> product 0; negatives (shouldn't happen) clip to >=0
+    ndcg = max(0.0, float(ndcg))
+    recall = max(0.0, float(recall))
+    time_score = max(0.0, float(time_score))
+
+    # weighted geometric mean
+    # geom = (ndcg^w1 * recall^w2 * time^w3)^(1/(w1+w2+w3))
+    # handle 0^0 by adding tiny epsilon only if all are zero (still returns 0)
+    product = 1.0
+    for base, w in ((ndcg, w_ndcg), (recall, w_recall), (time_score, w_time)):
+        if base == 0.0:
+            if w > 0:
+                product = 0.0
+                break
+            else:
+                continue
+        product *= (base ** w)
+
+    val = product ** (1.0 / w_sum) if product > 0.0 else 0.0
+
+    extras = {
+        "geom_k_used_recall": k_rec,
+        "geom_k_used_ndcg": k_ndc,
+        "geom_time_score": time_score,
+        "geom_time_source": time_meta.get("time_score_source"),
+        "geom_time_seconds": time_meta.get("time_value_seconds"),
+        "geom_time_transform": time_meta.get("time_score_transform"),
+        "geom_weights_ndcg": w_ndcg,
+        "geom_weights_recall": w_recall,
+        "geom_weights_time": w_time,
+    }
     return val, extras
 
 def read_dataset_file(
@@ -157,7 +224,7 @@ def read_dataset_file(
 ) -> Optional[Tuple[str, float, Dict]]:
     """
     Returns (task_name, metric_value, meta_extras) or None if not available.
-    meta_extras may include which k was used for recall/ndcg in RRF mode.
+    Also merges useful top-level timing fields into the split dict so time can be derived.
     """
     if fp.name == "model_meta.json" or not fp.name.endswith(".json"):
         return None
@@ -173,16 +240,31 @@ def read_dataset_file(
     if not split_dict:
         return None
 
-    metric_val, extras = compute_metric_value(split_dict, metric_key, cfg)
+    # --- NEW: merge top-level timing fields into split_dict clone ---
+    # Your files have: "evaluation_time": <seconds>  at top level.
+    merged = dict(split_dict)
+    top_level_time_keys = [
+        "evaluation_time", "evaluation_time_s", "eval_seconds",
+        "time_s", "latency_s", "elapsed_s", "time", "latency_ms", "eval_time_ms"
+    ]
+    for k in top_level_time_keys:
+        if k in js and k not in merged:
+            merged[k] = js[k]
+    # ---------------------------------------------------------------
+
+    metric_val, extras = compute_metric_value(merged, metric_key, cfg)
     if metric_val is None:
         return None
 
     return task_name, float(metric_val), extras
 
+
 # ------------------ main ------------------
 
 def main():
-    parser = argparse.ArgumentParser(description="Screen embedding models by a chosen metric (supports nDCG@10 and RRF@k).")
+    parser = argparse.ArgumentParser(
+        description="Screen embedding models by a chosen metric (supports direct metrics and weighted GEOM@k of ndcg/recall/time)."
+    )
     parser.add_argument(
         "--config",
         type=str,
@@ -191,11 +273,11 @@ def main():
     )
     args = parser.parse_args()
 
-    cfg = load_config(args.config)  # <-- uses the arg
+    cfg = load_config(args.config)
     root_dir = Path(cfg["root_dir"]).expanduser().resolve()
     results_dir = (root_dir / cfg.get("results_subdir", "validation")).resolve()
     split_pref = cfg.get("split_preference", ["test", "validation", "train"])
-    metric_key = cfg.get("metric_key", "ndcg_at_10")  # set to "rrf" in config to use RRF@k
+    metric_key = cfg.get("metric_key", "ndcg_at_10")  # or "geom_mean"
     top_pct = float(cfg.get("top_percent", 0.30))
     datasets_include = set(cfg.get("datasets_include") or [])
     model_id_fmt = cfg.get("model_id_format", "name@rev")
@@ -211,7 +293,6 @@ def main():
     for leaf in leaf_dirs:
         meta = read_model_meta(leaf)
         model_id = derive_model_id(leaf, meta, model_id_fmt)
-        # read every dataset JSON in the same leaf dir
         for fp in leaf.glob("*.json"):
             if fp.name == "model_meta.json":
                 continue
@@ -220,12 +301,10 @@ def main():
                 continue
             task_name, metric_val, extras = parsed
             if not task_name:
-                # fallback: derive from filename (e.g., ChemNQRetrieval.json)
                 task_name = fp.stem
             if datasets_include and task_name not in datasets_include:
                 continue
 
-            # determine which split was used (optional trace)
             js = read_json(fp)
             scores = js.get("scores", {})
             split_used = None
@@ -243,12 +322,17 @@ def main():
                 metric_key: metric_val,
                 "split_used": split_used
             }
-            # include RRF bookkeeping if applicable
-            if metric_key.lower() == "rrf":
+            if metric_key.lower() == "geom_mean":
                 row.update({
-                    "rrf_k_used_recall": extras.get("k_used_recall"),
-                    "rrf_k_used_ndcg": extras.get("k_used_ndcg"),
-                    "rrf_beta": float((cfg.get("rrf", {}) or {}).get("beta", 2.0)),
+                    "geom_k_used_recall": extras.get("geom_k_used_recall"),
+                    "geom_k_used_ndcg": extras.get("geom_k_used_ndcg"),
+                    "geom_time_score": extras.get("geom_time_score"),
+                    "geom_time_source": extras.get("geom_time_source"),
+                    "geom_time_seconds": extras.get("geom_time_seconds"),
+                    "geom_time_transform": extras.get("geom_time_transform"),
+                    "geom_weights_ndcg": extras.get("geom_weights_ndcg"),
+                    "geom_weights_recall": extras.get("geom_weights_recall"),
+                    "geom_weights_time": extras.get("geom_weights_time"),
                 })
             rows.append(row)
 
@@ -262,9 +346,7 @@ def main():
     df["count_in_ds"] = df.groupby("dataset")[metric_key].transform("count")
     df["rank_pct"] = df["rank_in_ds"] / df["count_in_ds"]
 
-    
     passed = df[df["rank_pct"] <= top_pct].copy()
-    # Union across datasets
     passed_union = sorted(passed["model_id"].unique())
 
     # Print summary
@@ -280,9 +362,10 @@ def main():
     # Optional: write CSVs
     if out_per_ds:
         cols = ["model_id", "model_name", "revision", "dataset", metric_key, "rank_in_ds", "count_in_ds", "rank_pct", "split_used"]
-        # include RRF extras if present
-        if metric_key.lower() == "rrf":
-            cols += ["rrf_k_used_recall", "rrf_k_used_ndcg", "rrf_beta"]
+        if metric_key.lower() == "geom_mean":
+            cols += ["geom_k_used_recall", "geom_k_used_ndcg",
+                     "geom_time_score", "geom_time_source", "geom_time_seconds", "geom_time_transform",
+                     "geom_weights_ndcg", "geom_weights_recall", "geom_weights_time"]
         passed[cols].sort_values(["dataset", "rank_in_ds"]).to_csv(out_per_ds, index=False)
         print(f"\nWrote per-dataset passes to: {out_per_ds}")
     if out_union:

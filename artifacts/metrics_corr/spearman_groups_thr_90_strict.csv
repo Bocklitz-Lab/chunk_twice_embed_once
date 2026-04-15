@@ -1,0 +1,16 @@
+group_id,metric
+1,map_at_1
+1,map_at_10
+1,map_at_100
+1,mrr_at_1
+1,mrr_at_10
+1,mrr_at_100
+1,ndcg_at_1
+1,ndcg_at_10
+1,ndcg_at_100
+1,precision_at_1
+1,recall_at_1
+2,precision_at_10
+3,precision_at_100
+4,recall_at_10
+5,recall_at_100

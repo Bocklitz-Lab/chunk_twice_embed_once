@@ -1,0 +1,11 @@
+{
+  "files": [],
+  "references": [
+    { "path": "apps/web" },
+    { "path": "apps/api" },
+    { "path": "apps/worker" },
+    { "path": "packages/shared-types" },
+    { "path": "packages/design-tokens" },
+    { "path": "packages/utils-time" }
+  ]
+}

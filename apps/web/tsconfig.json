@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@shared-types": ["../../packages/shared-types/src/index.ts"],
+      "@shared-types/*": ["../../packages/shared-types/src/*"],
+      "@utils-time": ["../../packages/utils-time/src/index.ts"],
+      "@utils-time/*": ["../../packages/utils-time/src/*"],
+      "@design-tokens/*": ["../../packages/design-tokens/src/*"]
+    },
+    "types": ["node"]
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}

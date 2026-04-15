@@ -1,143 +1,95 @@
 # Dimensionality Reduction Report
-- Generated: 2025-10-09T09:40:04
+- Generated: 2025-10-14T14:54:25
 - Method: **PCA**
-- PCA explained variance ratio: PC1=0.8850, PC2=0.1054, sum=0.9903
+- PCA explained variance ratio: PC1=0.8867, PC2=0.1040, sum=0.9907
 - k_clusters: 4
-- β for Fβ@10: 2.0
-- Top-N for Fβ@10: 16
+- GEOM weights: w_ndcg=1.0, w_recall=1.0, w_time=0.0
+- time_transform: inverse, reference_seconds=1.0, reference_qps=100.0
+- Top-N by GEOM@10: 16
 - Recall transform: neglog1m
 - NDCG transform: neglog1m
-- #rows (after dropna): 88 | #models: 43
+- #rows (after dropna): 84 | #models: 41
 - Metrics used: ndcg_at_1, ndcg_at_10, ndcg_at_100, map_at_1, map_at_10, map_at_100, recall_at_1, recall_at_10, recall_at_100, precision_at_1, precision_at_10, precision_at_100, mrr_at_1, mrr_at_10, mrr_at_100
 
 ## Left subplot: DR scatter & KMeans clusters
 | cluster | n_models | DR1_centroid | DR2_centroid | mean(metric_cols) | hull_area | hull_verts |
 |---:|---:|---:|---:|---:|---:|---:|
-| 0 ⭐ | 19 | 2.8965 | -0.2120 | 0.5470 | 1.0644 | 6 |
-| 1 | 5 | -7.6304 | -0.4332 | 0.0614 | 0.9516 | 5 |
-| 2 | 13 | 1.0080 | 0.3454 | 0.4576 | 2.2600 | 6 |
-| 3 | 6 | -4.9975 | 0.2839 | 0.1814 | 0.7560 | 4 |
+| 0 | 13 | 1.1037 | 0.3449 | 0.4576 | 2.1817 | 6 |
+| 1 | 8 | -5.1581 | 0.1514 | 0.1656 | 1.4175 | 6 |
+| 2 ⭐ | 17 | 3.0336 | -0.2361 | 0.5503 | 0.9373 | 6 |
+| 3 | 3 | -8.2184 | -0.5604 | 0.0235 | 0.0762 | 3 |
 
 ### Per-model DR coordinates & cluster assignment
 | model | category | cluster | DR1 | DR2 | DR1_plot | DR2_plot | marker | color_hex |
-|---|---|---:|---:|---:|---:|---:|:--:|:--:|
-| DC_ChemBERTa | biomedical_chemical | 1 | -8.8251 | -0.8211 | -8.8251 | -0.8211 | o | #9467bd |
-| MS_BiomedBERT_a | biomedical_chemical | 3 | -5.1083 | 0.4310 | -5.1377 | 0.3863 | s | #9467bd |
-| MS_BiomedBERT_af | biomedical_chemical | 3 | -4.7187 | 0.3629 | -4.7187 | 0.3629 | D | #9467bd |
-| Rec_ChemBERT | biomedical_chemical | 3 | -5.5881 | 0.6183 | -5.5881 | 0.6183 | ^ | #9467bd |
-| MS_MPNetB | foundation_nlp | 1 | -6.2906 | -0.4810 | -6.2906 | -0.4810 | o | #7f7f7f |
-| MS_MiniLM384 | foundation_nlp | 1 | -8.6894 | -0.5881 | -8.6894 | -0.5881 | s | #7f7f7f |
-| Nomic_BERT2048 | foundation_nlp | 1 | -7.8454 | -0.2832 | -7.8454 | -0.2832 | D | #7f7f7f |
-| HKU_InstructXL | instruction_tuned | 0 | 2.7528 | -0.2386 | 2.7107 | -0.3622 | o | #e377c2 |
-| Intf_mE5B | multilingual | 0 | 2.5781 | -0.1500 | 2.5654 | -0.1530 | o | #2ca02c |
-| Intf_mE5L | multilingual | 2 | 1.9017 | 0.4527 | 1.9262 | 0.5249 | s | #2ca02c |
-| Intf_mE5S | multilingual | 0 | 3.2599 | -0.3233 | 3.2727 | -0.3443 | D | #2ca02c |
-| Sent_paraMPNetB_v2 | multilingual | 2 | -0.3038 | 1.2177 | -0.3038 | 1.2177 | ^ | #2ca02c |
-| BAAI_bgeB | retrieval | 0 | 2.2553 | -0.2191 | 2.2922 | -0.2721 | o | #1f77b4 |
-| BAAI_bgeB_v1.5 | retrieval | 0 | 3.9042 | -0.9741 | 3.9042 | -0.9741 | s | #1f77b4 |
-| BAAI_bgeL | retrieval | 2 | -0.2419 | -0.4107 | -0.2419 | -0.4107 | D | #1f77b4 |
-| BAAI_bgeL_v1.5 | retrieval | 0 | 3.0527 | 0.0880 | 3.0418 | 0.1094 | ^ | #1f77b4 |
-| BAAI_bgeM3 | retrieval | 0 | 3.1511 | -0.1360 | 3.1633 | -0.1143 | v | #1f77b4 |
-| BAAI_bgeS | retrieval | 2 | 0.3863 | 0.5830 | 0.3863 | 0.5830 | < | #1f77b4 |
-| BAAI_bgeS_v1.5 | retrieval | 0 | 2.3081 | 0.2792 | 2.2861 | 0.2772 | > | #1f77b4 |
-| FB_contriever | retrieval | 2 | 0.2747 | -0.4501 | 0.2747 | -0.4501 | p | #1f77b4 |
-| FB_contrieverMS | retrieval | 2 | 1.7143 | 0.4305 | 1.6849 | 0.4322 | P | #1f77b4 |
-| Intf_e5B | retrieval | 0 | 2.7931 | -0.1630 | 2.8594 | -0.1555 | * | #1f77b4 |
-| Intf_e5B_v2 | retrieval | 2 | 1.8955 | 0.3455 | 1.9004 | 0.2716 | X | #1f77b4 |
-| Intf_e5L | retrieval | 0 | 3.3340 | -0.6082 | 3.2598 | -0.5985 | H | #1f77b4 |
-| Intf_e5L_v2 | retrieval | 0 | 3.3993 | -0.6665 | 3.4768 | -0.7317 | 8 | #1f77b4 |
-| Intf_e5S | retrieval | 0 | 3.0494 | -0.2960 | 3.0183 | -0.3544 | d | #1f77b4 |
-| Intf_e5S_v2 | retrieval | 0 | 2.3752 | 0.0069 | 2.4198 | 0.0558 | h | #1f77b4 |
-| Jina_v2B | retrieval | 0 | 2.5177 | 0.2983 | 2.5396 | 0.3003 | 1 | #1f77b4 |
-| Jina_v2S | retrieval | 0 | 2.0828 | -0.1769 | 2.0071 | -0.2206 | 2 | #1f77b4 |
-| Sent_MQA_MPNetB | retrieval | 2 | 1.2169 | 0.4361 | 1.2332 | 0.4376 | 3 | #1f77b4 |
-| Sent_gtrT5_B | retrieval | 2 | 1.1864 | 0.2029 | 1.2025 | 0.1833 | 4 | #1f77b4 |
-| Sent_gtrT5_L | retrieval | 2 | 1.0081 | 0.7168 | 1.0081 | 0.7168 | x | #1f77b4 |
-| Sent_gtrT5_XL | retrieval | 2 | 1.3987 | 0.5856 | 1.4235 | 0.6067 | + | #1f77b4 |
-| AI_SciBERT | scientific | 3 | -5.4333 | -0.3118 | -5.4333 | -0.3118 | o | #d62728 |
-| AI_Specter | scientific | 3 | -5.0272 | 0.5543 | -4.9978 | 0.5990 | s | #d62728 |
-| IITD_MatSci | scientific | 1 | -6.5016 | 0.0074 | -6.5016 | 0.0074 | D | #d62728 |
-| Sent_BERTnli | semantic_similarity | 3 | -4.1096 | 0.0483 | -4.1096 | 0.0483 | o | #ff7f0e |
-| Sent_MiniLM12_v2 | semantic_similarity | 2 | 1.6128 | 0.0361 | 1.6128 | 0.0361 | s | #ff7f0e |
-| Sent_MiniLM6_v2 | semantic_similarity | 0 | 2.2066 | -0.1048 | 2.1823 | -0.0359 | D | #ff7f0e |
-| Sent_allMPNetB_v2 | semantic_similarity | 2 | 1.0547 | 0.3447 | 0.9974 | 0.3416 | ^ | #ff7f0e |
-| Nomic_text_v1 | universal_encoders | 0 | 3.8440 | -0.3869 | 3.8440 | -0.3869 | o | #8c564b |
-| Nomic_text_v1.5 | universal_encoders | 0 | 3.3800 | -0.1974 | 3.4311 | -0.1450 | s | #8c564b |
-| Nomic_text_v2 | universal_encoders | 0 | 2.7886 | -0.0593 | 2.7582 | 0.0781 | D | #8c564b |
+|---|---|---:|---:|---:|---:|:--:|:--:|
+| DC_ChemBERTa | biomedical_chemical | 3 | -8.5845 | -0.8161 | -8.5845 | -0.8161 | o | #9467bd |
+| MS_BiomedBERT_a | biomedical_chemical | 1 | -4.9227 | 0.4245 | -4.9528 | 0.3800 | s | #9467bd |
+| MS_BiomedBERT_af | biomedical_chemical | 1 | -4.5391 | 0.3605 | -4.5391 | 0.3605 | D | #9467bd |
+| Rec_ChemBERT | biomedical_chemical | 1 | -5.3955 | 0.6099 | -5.3955 | 0.6099 | ^ | #9467bd |
+| MS_MPNetB | foundation_nlp | 1 | -6.0875 | -0.4764 | -6.0875 | -0.4764 | o | #7f7f7f |
+| MS_MiniLM384 | foundation_nlp | 3 | -8.4510 | -0.5840 | -8.4510 | -0.5840 | s | #7f7f7f |
+| Nomic_BERT2048 | foundation_nlp | 3 | -7.6196 | -0.2810 | -7.6196 | -0.2810 | D | #7f7f7f |
+| HKU_InstructXL | instruction_tuned | 2 | 2.8231 | -0.2323 | 2.7775 | -0.3513 | o | #e377c2 |
+| Intf_mE5B | multilingual | 2 | 2.6512 | -0.1478 | 2.6345 | -0.1451 | o | #2ca02c |
+| Intf_mE5L | multilingual | 0 | 1.9842 | 0.4513 | 2.0077 | 0.5204 | s | #2ca02c |
+| Intf_mE5S | multilingual | 2 | 3.3228 | -0.3158 | 3.3361 | -0.3387 | D | #2ca02c |
+| Sent_paraMPNetB_v2 | multilingual | 0 | -0.1886 | 1.2017 | -0.1886 | 1.2017 | ^ | #2ca02c |
+| BAAI_bgeB | retrieval | 2 | 2.3316 | -0.2020 | 2.3626 | -0.2619 | o | #1f77b4 |
+| BAAI_bgeB_v1.5 | retrieval | 2 | 3.9566 | -0.9481 | 3.9566 | -0.9481 | s | #1f77b4 |
+| BAAI_bgeL | retrieval | 0 | -0.1291 | -0.3901 | -0.1291 | -0.3901 | D | #1f77b4 |
+| BAAI_bgeL_v1.5 | retrieval | 2 | 3.1185 | 0.0912 | 3.1093 | 0.1093 | ^ | #1f77b4 |
+| BAAI_bgeM3 | retrieval | 2 | 3.2155 | -0.1307 | 3.2288 | -0.1112 | v | #1f77b4 |
+| BAAI_bgeS | retrieval | 0 | 0.4912 | 0.5783 | 0.4912 | 0.5783 | < | #1f77b4 |
+| BAAI_bgeS_v1.5 | retrieval | 2 | 2.3848 | 0.2792 | 2.3848 | 0.2792 | > | #1f77b4 |
+| FB_contriever | retrieval | 0 | 0.3800 | -0.4291 | 0.3800 | -0.4291 | p | #1f77b4 |
+| FB_contrieverMS | retrieval | 0 | 1.8000 | 0.4253 | 1.7711 | 0.4266 | P | #1f77b4 |
+| Intf_e5B | retrieval | 2 | 2.8632 | -0.1618 | 2.9290 | -0.1514 | * | #1f77b4 |
+| Intf_e5B_v2 | retrieval | 0 | 1.9786 | 0.3412 | 1.9841 | 0.2707 | X | #1f77b4 |
+| Intf_e5L | retrieval | 2 | 3.3962 | -0.5996 | 3.3185 | -0.5889 | H | #1f77b4 |
+| Intf_e5L_v2 | retrieval | 2 | 3.4596 | -0.6492 | 3.5391 | -0.7083 | 8 | #1f77b4 |
+| Intf_e5S | retrieval | 2 | 3.1153 | -0.2881 | 3.0854 | -0.3476 | d | #1f77b4 |
+| Intf_e5S_v2 | retrieval | 2 | 2.4507 | 0.0129 | 2.4634 | 0.0383 | h | #1f77b4 |
+| Sent_MQA_MPNetB | retrieval | 0 | 1.3097 | 0.4331 | 1.3246 | 0.4349 | 1 | #1f77b4 |
+| Sent_gtrT5_B | retrieval | 0 | 1.2793 | 0.2059 | 1.2957 | 0.1856 | 2 | #1f77b4 |
+| Sent_gtrT5_L | retrieval | 0 | 1.1042 | 0.7071 | 1.1042 | 0.7071 | 3 | #1f77b4 |
+| Sent_gtrT5_XL | retrieval | 0 | 1.4892 | 0.5763 | 1.5154 | 0.5977 | 4 | #1f77b4 |
+| AI_SciBERT | scientific | 1 | -5.2427 | -0.3101 | -5.2427 | -0.3101 | o | #d62728 |
+| AI_Specter | scientific | 1 | -4.8424 | 0.5433 | -4.8124 | 0.5878 | s | #d62728 |
+| IITD_MatSci | scientific | 1 | -6.2961 | 0.0115 | -6.2961 | 0.0115 | D | #d62728 |
+| Sent_BERTnli | semantic_similarity | 1 | -3.9387 | 0.0480 | -3.9387 | 0.0480 | o | #ff7f0e |
+| Sent_MiniLM12_v2 | semantic_similarity | 0 | 1.6997 | 0.0399 | 1.6997 | 0.0399 | s | #ff7f0e |
+| Sent_MiniLM6_v2 | semantic_similarity | 2 | 2.2846 | -0.0969 | 2.2286 | -0.0498 | D | #ff7f0e |
+| Sent_allMPNetB_v2 | semantic_similarity | 0 | 1.1498 | 0.3430 | 1.0923 | 0.3402 | ^ | #ff7f0e |
+| Nomic_text_v1 | universal_encoders | 2 | 3.8979 | -0.3744 | 3.8979 | -0.3744 | o | #8c564b |
+| Nomic_text_v1.5 | universal_encoders | 2 | 3.4414 | -0.1940 | 3.4917 | -0.1420 | s | #8c564b |
+| Nomic_text_v2 | universal_encoders | 2 | 2.8585 | -0.0565 | 2.8278 | 0.0780 | D | #8c564b |
 
-## Right subplot: Recall@10 vs NDCG@10 & Fβ@10
-- Best cluster by mean(metric_cols): **0**
-- Intersection (Best ∩ Top-16 Fβ@10): 16 models
-  - BAAI_bgeB_v1.5, BAAI_bgeL_v1.5, BAAI_bgeM3, BAAI_bgeS_v1.5, HKU_InstructXL, Intf_e5B, Intf_e5L, Intf_e5L_v2, Intf_e5S, Intf_mE5B, Intf_mE5S, Jina_v2B, Nomic_text_v1, Nomic_text_v1.5, Nomic_text_v2, Sent_MiniLM6_v2
-- Only in Best cluster: 3 models
-  - BAAI_bgeB, Intf_e5S_v2, Jina_v2S
-- Only in Top-16 Fβ@10: 0 models
+## Right subplot: Recall@10 vs NDCG@10 & GEOM@10
+- Best cluster by mean(metric_cols): **2**
+- Intersection (Best ∩ Top-16 GEOM@10): 16 models
+  - BAAI_bgeB_v1.5, BAAI_bgeL_v1.5, BAAI_bgeM3, BAAI_bgeS_v1.5, HKU_InstructXL, Intf_e5B, Intf_e5L, Intf_e5L_v2, Intf_e5S, Intf_e5S_v2, Intf_mE5B, Intf_mE5S, Nomic_text_v1, Nomic_text_v1.5, Nomic_text_v2, Sent_MiniLM6_v2
+- Only in Best cluster: 1 models
+  - BAAI_bgeB
+- Only in Top-16 GEOM@10: 0 models
   - (none)
 
-### Top 16 models by Fβ@10 (β=2.0)
-| rank | model | category | Fβ@10 | recall@10 | ndcg@10 |
-|---:|---|---|---:|---:|---:|
-| 1 | Nomic_text_v1.5 | universal_encoders | 0.8460 | 0.8920 | 0.7013 |
-| 2 | Nomic_text_v1 | universal_encoders | 0.8413 | 0.8827 | 0.7085 |
-| 3 | BAAI_bgeL_v1.5 | retrieval | 0.8262 | 0.8765 | 0.6718 |
-| 4 | Intf_mE5S | multilingual | 0.8248 | 0.8673 | 0.6895 |
-| 5 | Intf_e5L | retrieval | 0.8193 | 0.8549 | 0.7023 |
-| 6 | BAAI_bgeM3 | retrieval | 0.8069 | 0.8457 | 0.6818 |
-| 7 | Intf_e5B | retrieval | 0.8008 | 0.8395 | 0.6762 |
-| 8 | Intf_e5S | retrieval | 0.7999 | 0.8395 | 0.6729 |
-| 9 | Jina_v2B | retrieval | 0.7997 | 0.8426 | 0.6645 |
-| 10 | BAAI_bgeB_v1.5 | retrieval | 0.7850 | 0.8117 | 0.6936 |
-| 11 | Nomic_text_v2 | universal_encoders | 0.7837 | 0.8210 | 0.6632 |
-| 12 | HKU_InstructXL | instruction_tuned | 0.7825 | 0.8210 | 0.6588 |
-| 13 | BAAI_bgeS_v1.5 | retrieval | 0.7707 | 0.8179 | 0.6263 |
-| 14 | Intf_mE5B | multilingual | 0.7661 | 0.7994 | 0.6568 |
-| 15 | Intf_e5L_v2 | retrieval | 0.7650 | 0.7901 | 0.6786 |
-| 16 | Sent_MiniLM6_v2 | semantic_similarity | 0.7491 | 0.7932 | 0.6127 |
-
-### Per-model: recall/ndcg/Fβ and transformed coords
-| model | category | cluster | recall@10 | ndcg@10 | Fβ@10 | x=ndcg_t_plot | y=recall_t_plot |
-|---|---|---:|---:|---:|---:|---:|---:|
-| DC_ChemBERTa | biomedical_chemical | 1 | 0.0278 | 0.0084 | 0.0190 | -0.0309 | 0.0295 |
-| MS_BiomedBERT_a | biomedical_chemical | 3 | 0.2870 | 0.2061 | 0.2661 | 0.2167 | 0.3265 |
-| MS_BiomedBERT_af | biomedical_chemical | 3 | 0.3241 | 0.2198 | 0.2960 | 0.2539 | 0.3938 |
-| Rec_ChemBERT | biomedical_chemical | 3 | 0.2500 | 0.1747 | 0.2302 | 0.1546 | 0.2812 |
-| MS_MPNetB | foundation_nlp | 1 | 0.1852 | 0.1442 | 0.1752 | 0.1599 | 0.2044 |
-| MS_MiniLM384 | foundation_nlp | 1 | 0.0278 | 0.0088 | 0.0194 | 0.0452 | 0.0184 |
-| Nomic_BERT2048 | foundation_nlp | 1 | 0.0833 | 0.0495 | 0.0733 | 0.0530 | 0.0949 |
-| HKU_InstructXL | instruction_tuned | 0 | 0.8210 | 0.6588 | 0.7825 | 1.0482 | 1.7233 |
-| Intf_mE5B | multilingual | 0 | 0.7994 | 0.6568 | 0.7661 | 1.0695 | 1.6064 |
-| Intf_mE5L | multilingual | 2 | 0.7839 | 0.6042 | 0.7399 | 0.9249 | 1.5342 |
-| Intf_mE5S | multilingual | 0 | 0.8673 | 0.6895 | 0.8248 | 1.1696 | 2.0196 |
-| Sent_paraMPNetB_v2 | multilingual | 2 | 0.6667 | 0.4839 | 0.6199 | 0.6615 | 1.0986 |
-| BAAI_bgeB | retrieval | 0 | 0.7006 | 0.5909 | 0.6755 | 0.8960 | 1.2058 |
-| BAAI_bgeB_v1.5 | retrieval | 0 | 0.8117 | 0.6936 | 0.7850 | 1.1831 | 1.6698 |
-| BAAI_bgeL | retrieval | 2 | 0.5278 | 0.4447 | 0.5088 | 0.5883 | 0.7503 |
-| BAAI_bgeL_v1.5 | retrieval | 0 | 0.8765 | 0.6718 | 0.8262 | 1.1140 | 2.0918 |
-| BAAI_bgeM3 | retrieval | 0 | 0.8457 | 0.6818 | 0.8069 | 1.1507 | 1.8878 |
-| BAAI_bgeS | retrieval | 2 | 0.7006 | 0.5197 | 0.6550 | 0.7334 | 1.2060 |
-| BAAI_bgeS_v1.5 | retrieval | 0 | 0.8179 | 0.6263 | 0.7707 | 0.9747 | 1.7005 |
-| FB_contriever | retrieval | 2 | 0.5648 | 0.4743 | 0.5441 | 0.6431 | 0.8320 |
-| FB_contrieverMS | retrieval | 2 | 0.7654 | 0.6023 | 0.7261 | 0.9051 | 1.4598 |
-| Intf_e5B | retrieval | 0 | 0.8395 | 0.6762 | 0.8008 | 1.1690 | 1.8131 |
-| Intf_e5B_v2 | retrieval | 2 | 0.7901 | 0.6140 | 0.7472 | 0.9924 | 1.5709 |
-| Intf_e5L | retrieval | 0 | 0.8549 | 0.7023 | 0.8193 | 1.2136 | 1.9321 |
-| Intf_e5L_v2 | retrieval | 0 | 0.7901 | 0.6786 | 0.7650 | 1.1350 | 1.5612 |
-| Intf_e5S | retrieval | 0 | 0.8395 | 0.6729 | 0.7999 | 1.0931 | 1.8008 |
-| Intf_e5S_v2 | retrieval | 0 | 0.7809 | 0.6222 | 0.7430 | 0.9944 | 1.4932 |
-| Jina_v2B | retrieval | 0 | 0.8426 | 0.6645 | 0.7997 | 1.0674 | 1.8733 |
-| Jina_v2S | retrieval | 0 | 0.7623 | 0.6122 | 0.7267 | 0.9709 | 1.4200 |
-| Sent_MQA_MPNetB | retrieval | 2 | 0.7469 | 0.5634 | 0.7012 | 0.8119 | 1.3669 |
-| Sent_gtrT5_B | retrieval | 2 | 0.7191 | 0.5522 | 0.6781 | 0.7987 | 1.2855 |
-| Sent_gtrT5_L | retrieval | 2 | 0.7654 | 0.5610 | 0.7134 | 0.8214 | 1.4466 |
-| Sent_gtrT5_XL | retrieval | 2 | 0.7809 | 0.5894 | 0.7332 | 0.8496 | 1.5182 |
-| AI_SciBERT | scientific | 3 | 0.2500 | 0.1980 | 0.2375 | 0.2466 | 0.2557 |
-| AI_Specter | scientific | 3 | 0.3426 | 0.2211 | 0.3087 | 0.2427 | 0.4699 |
-| IITD_MatSci | scientific | 1 | 0.1389 | 0.1092 | 0.1317 | 0.1120 | 0.1443 |
-| Sent_BERTnli | semantic_similarity | 3 | 0.3333 | 0.2609 | 0.3158 | 0.3292 | 0.4094 |
-| Sent_MiniLM12_v2 | semantic_similarity | 2 | 0.7531 | 0.5843 | 0.7119 | 0.8866 | 1.3852 |
-| Sent_MiniLM6_v2 | semantic_similarity | 0 | 0.7932 | 0.6127 | 0.7491 | 0.9325 | 1.6204 |
-| Sent_allMPNetB_v2 | semantic_similarity | 2 | 0.7068 | 0.5582 | 0.6711 | 0.8194 | 1.2115 |
-| Nomic_text_v1 | universal_encoders | 0 | 0.8827 | 0.7085 | 0.8413 | 1.2327 | 2.1431 |
-| Nomic_text_v1.5 | universal_encoders | 0 | 0.8920 | 0.7013 | 0.8460 | 1.2083 | 2.2254 |
-| Nomic_text_v2 | universal_encoders | 0 | 0.8210 | 0.6632 | 0.7837 | 1.1250 | 1.7201 |
+### Top 16 models by GEOM@10 (w=[1.0,1.0,0.0])
+| rank | model | category | GEOM@10 | recall@10 | ndcg@10 | time_score |
+|---:|---|---|---:|---:|---:|---:|
+| 1 | Nomic_text_v1.5 | universal_encoders | 0.7909 | 0.8920 | 0.7013 | 0.0142 |
+| 2 | Nomic_text_v1 | universal_encoders | 0.7908 | 0.8827 | 0.7085 | 0.0141 |
+| 3 | Intf_e5L | retrieval | 0.7749 | 0.8549 | 0.7023 | 0.0068 |
+| 4 | Intf_mE5S | multilingual | 0.7733 | 0.8673 | 0.6895 | 0.0387 |
+| 5 | BAAI_bgeL_v1.5 | retrieval | 0.7674 | 0.8765 | 0.6718 | 0.0068 |
+| 6 | BAAI_bgeM3 | retrieval | 0.7593 | 0.8457 | 0.6818 | 0.0065 |
+| 7 | Intf_e5B | retrieval | 0.7535 | 0.8395 | 0.6762 | 0.0193 |
+| 8 | Intf_e5S | retrieval | 0.7516 | 0.8395 | 0.6729 | 0.0403 |
+| 9 | BAAI_bgeB_v1.5 | retrieval | 0.7504 | 0.8117 | 0.6936 | 0.0192 |
+| 10 | Nomic_text_v2 | universal_encoders | 0.7379 | 0.8210 | 0.6632 | 0.0087 |
+| 11 | HKU_InstructXL | instruction_tuned | 0.7354 | 0.8210 | 0.6588 | 0.0017 |
+| 12 | Intf_e5L_v2 | retrieval | 0.7322 | 0.7901 | 0.6786 | 0.0068 |
+| 13 | Intf_mE5B | multilingual | 0.7246 | 0.7994 | 0.6568 | 0.0184 |
+| 14 | BAAI_bgeS_v1.5 | retrieval | 0.7157 | 0.8179 | 0.6263 | 0.0399 |
+| 15 | Sent_MiniLM6_v2 | semantic_similarity | 0.6971 | 0.7932 | 0.6127 | 0.0625 |
+| 16 | Intf_e5S_v2 | retrieval | 0.6970 | 0.7809 | 0.6222 | 0.0406 |
 

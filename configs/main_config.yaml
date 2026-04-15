@@ -400,18 +400,18 @@ stage1:
       batch_size: 8
       model_kwargs:
         trust_remote_code: true
-    - name: jinaai/jina-embeddings-v2-small-en
-      revision: main
-      normalize: true
-      batch_size: 32
-      model_kwargs:
-        trust_remote_code: true
-    - name: jinaai/jina-embeddings-v2-base-en
-      revision: main
-      normalize: true
-      batch_size: 64
-      model_kwargs:
-        trust_remote_code: true
+    # - name: jinaai/jina-embeddings-v2-small-en
+    #   revision: main
+    #   normalize: true
+    #   batch_size: 32
+    #   model_kwargs:
+    #     trust_remote_code: true
+    # - name: jinaai/jina-embeddings-v2-base-en
+    #   revision: main
+    #   normalize: true
+    #   batch_size: 64
+    #   model_kwargs:
+    #     trust_remote_code: true
     - name: microsoft/mpnet-base
       revision: main
       normalize: true
@@ -468,12 +468,18 @@ stage2:
   root_dir: ${params.paths.screen_dir}
   results_subdir: "validation"
   split_preference: ["test", "validation", "train"]  # Which split(s) to prefer when extracting metrics (first match wins)
-  metric_key: "rrf" # Use RRF composite metric instead of a single metric key like "ndcg_at_10"
-  rrf:
-    k: 10                    # target cutoff k
-    beta: 2.0                # recall weight (β) in RRF
-    allow_nearest: true      # if exact @k missing, use nearest from fallback list
-    fallback_k_candidates: [1, 3, 5, 10, 20, 50, 100]
+  metric_key: "geom_mean"
+  geom_mean:
+    k: 10
+    weights:
+      ndcg: 1.0
+      recall: 1.0
+      time: 0.0
+    time:
+      value_keys: ["evaluation_time"]  
+      unit: "seconds"               # or "ms"
+      transform: "inverse"          # "inverse" => score = 1 / (1 + (time / reference_seconds))
+      reference_seconds: 200.0
   top_percent: 0.2          # Keep top X% within each dataset (0–1)
   datasets_include: []       # e.g., ["ChemHotpotQARetrieval", "ChemNQRetrieval"] (leave empty to take all)
   output_union_csv: ${params.paths.screen_dir}/passed_models_union.csv

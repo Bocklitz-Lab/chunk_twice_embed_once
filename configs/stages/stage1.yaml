@@ -196,18 +196,6 @@ models:
   batch_size: 8
   model_kwargs:
     trust_remote_code: true
-- name: jinaai/jina-embeddings-v2-small-en
-  revision: main
-  normalize: true
-  batch_size: 32
-  model_kwargs:
-    trust_remote_code: true
-- name: jinaai/jina-embeddings-v2-base-en
-  revision: main
-  normalize: true
-  batch_size: 64
-  model_kwargs:
-    trust_remote_code: true
 - name: microsoft/mpnet-base
   revision: main
   normalize: true

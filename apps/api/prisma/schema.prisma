@@ -1,0 +1,107 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model UserProfile {
+  id               String            @id @default(uuid())
+  deviceFingerprint String?          @unique
+  accountId        String?           @unique
+  timezoneOverride String?
+  theme            String            @default("light")
+  reducedMotion    Boolean           @default(false)
+  locale           String            @default("en-US")
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+
+  pinnedLocations  PinnedLocation[]
+  alerts           AlertRecord[]
+  auditEvents      AuditEvent[]
+  clockViews       ClockDisplayView[]
+}
+
+model PinnedLocation {
+  id          String      @id @default(uuid())
+  userId      String
+  timezone    String
+  customLabel String?
+  orderIndex  Int
+  starred     Boolean     @default(false)
+  colorToken  String?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  user        UserProfile @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, orderIndex])
+}
+
+model TimeSourceSnapshot {
+  id            String                     @id @default(uuid())
+  effectiveAt   DateTime
+  sourceVersion String
+  checksum      String                     @unique
+  generatedAt   DateTime                   @default(now())
+  metadata      Json
+
+  entries       TimeSourceSnapshotEntry[]
+  clockViews    ClockDisplayView[]
+}
+
+model TimeSourceSnapshotEntry {
+  snapshotId        String
+  timezone          String
+  utcOffsetSeconds  Int
+  nextTransitionAt  DateTime?
+  nextOffsetSeconds Int?
+
+  snapshot          TimeSourceSnapshot @relation(fields: [snapshotId], references: [id], onDelete: Cascade)
+
+  @@id([snapshotId, timezone])
+}
+
+model ClockDisplayView {
+  id                  String            @id @default(uuid())
+  userId              String
+  snapshotId          String
+  payload             Json
+  referenceTimestamp  DateTime
+  accuracyBudgetMs    Int
+  createdAt           DateTime          @default(now())
+
+  user      UserProfile        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  snapshot  TimeSourceSnapshot @relation(fields: [snapshotId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model AlertRecord {
+  id             String      @id @default(uuid())
+  userId         String
+  timezone       String
+  alertType      String
+  scheduledFor   DateTime
+  expiresAt      DateTime
+  acknowledgedAt DateTime?
+  payload        Json
+
+  user           UserProfile @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, scheduledFor])
+}
+
+model AuditEvent {
+  id          String      @id @default(uuid())
+  userId      String
+  eventType   String
+  eventPayload Json
+  recordedAt  DateTime    @default(now())
+
+  user        UserProfile @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, recordedAt])
+}

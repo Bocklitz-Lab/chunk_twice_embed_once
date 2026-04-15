@@ -1,0 +1,57 @@
+input_path: artifacts/chemquests_hf_db/full_text.jsonl
+output_path: artifacts/tests/intfloat_e5_large_v2_hierarchical_section_c128_o16/chunks/chunks.jsonl
+text_field: text
+id_field: corpus_id
+token_count_encoding: cl100k_base
+token_count_model: null
+compute_offsets: true
+max_docs: null
+strategy:
+  name: hierarchical_section
+  params:
+    model_name: intfloat/e5-large-v2
+    chunk_size: 128
+    chunk_overlap: 16
+    add_start_index: false
+    strip_whitespace: true
+    use_latex: true
+    use_numbered_headings: true
+    use_common_chem_headings: true
+    use_generic_heading_heuristics: true
+    custom_heading_regexes:
+    - ^\s*graphical\s+abstract\s*$
+    - ^\s*experimental\s+procedures?\s*$
+    - ^\s*author\s+information\s*$
+    - ^\s*orcid\s*:?
+    - ^\s*corresponding\s+author\s*$
+    - ^\s*author\s+contributions?\s*$
+    - ^\s*funding(\s+sources?)?\s*$
+    - ^\s*acknowledg(e)?ments?\s*$
+    - ^\s*abbreviations\s*$
+    - ^\s*references?\s*$
+    - ^\s*bibliograph(y|ies)\s*$
+    join_short_sections: true
+    min_section_tokens: 128
+    prefer_merge_forward: true
+    drop_tail_sections_matching:
+    - references
+    - bibliography
+    - works cited
+    - author information
+    - orcid
+    - corresponding author
+    - author contributions
+    - funding sources
+    - funding
+    - acknowledg
+    - abbreviations
+    - nomenclature
+    - glossary
+    - conflict of interest
+    - declarations
+    - data availability
+    - supplementary information
+    - supporting information
+    - toc graphic
+    - table of contents graphic
+    drop_from_first_match: true

@@ -1,0 +1,16 @@
+models:
+- name: intfloat/e5-large-v2
+  revision: b322e09026e4ea05f42beadf4d661fb4e101d311
+  batch_size: 32
+  normalize: true
+  model_kwargs:
+    trust_remote_code: true
+tasks:
+- class: pipeline_lib.my_tasks.ChemQuest
+  kwargs:
+    data_dir: artifacts/tests/intfloat_e5_large_v2_semantic_fixed_c128_o0/mteb_task
+import_modules:
+- pipeline_lib.my_tasks
+encode_kwargs:
+  normalize_embeddings: false
+output_root: artifacts/tests/intfloat_e5_large_v2_semantic_fixed_c128_o0/results

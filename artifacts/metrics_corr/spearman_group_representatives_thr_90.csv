@@ -1,0 +1,16 @@
+group_id,metric,is_representative,mean_rho_within_group
+1,map_at_100,True,0.9897660044647548
+1,map_at_1,False,0.9831021852229593
+1,map_at_10,False,0.9890689614160328
+1,mrr_at_1,False,0.9860040163634226
+1,mrr_at_10,False,0.9864674929100872
+1,mrr_at_100,False,0.9881276144876943
+1,ndcg_at_1,False,0.9860040163634226
+1,ndcg_at_10,False,0.9758834163451008
+1,ndcg_at_100,False,0.9832777141825986
+1,precision_at_1,False,0.9860040163634226
+1,recall_at_1,False,0.9831021852229593
+2,precision_at_10,True,1.0
+3,precision_at_100,True,1.0
+4,recall_at_10,True,1.0
+5,recall_at_100,True,1.0
