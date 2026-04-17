@@ -521,7 +521,7 @@ stage5:
   search_scope: single              # "single" or "all"
   include_source_flag: true         # include continuous score in qrels
   ngram_n: 1                        # 1 = unigrams
-  adjacency_window: 1               # neighbor boost ±2 chunks
+  adjacency_window: 1               # neighbor boost ±1 chunks
   merge_window: true                # enable neighbor merged scoring
   alpha_neighbor: 0.2               # 0 = ignore neighbors, 1 = use only merged window
   weights:

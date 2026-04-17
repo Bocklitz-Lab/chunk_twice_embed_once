@@ -11,7 +11,7 @@ split_preference: ["test", "validation", "train"]
 metric_key: "ndcg_at_10"
 
 # Keep top X% within each dataset (0–1)
-top_percent: 0.10
+top_percent: 0.20
 
 # Optional: limit to specific datasets by task_name (leave empty to take all found)
 datasets_include: []   # e.g., ["ChemHotpotQARetrieval", "ChemNQRetrieval"]
