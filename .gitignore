@@ -21,3 +21,5 @@ pipeline_lib
 pytest_cache
 stages/__pycache__/
 tests/__pycache__/
+2026-04-15_chunk_twice_embed_once_pipeline_code.zip
+artifacts/embedding_models_screening.zip
