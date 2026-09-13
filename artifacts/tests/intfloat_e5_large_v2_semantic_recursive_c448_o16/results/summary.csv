@@ -1,0 +1,2 @@
+model,revision,normalize,batch_size,task,main_score
+intfloat/e5-large-v2,b322e09026e4ea05f42beadf4d661fb4e101d311,True,32,ChemQuest,
