@@ -41,3 +41,6 @@ scripts/prepare_phase2_scratch_probe.py
 scripts/run_phase2_corrected_stage5.py
 scripts/run_phase2_corrected_stage6.py
 artifacts/tests/materialization_summary.json
+notebooks/.ipynb_checkpoints/evaluation_time-checkpoint.ipynb
+notebooks/.ipynb_checkpoints/phase2-checkpoint.ipynb
+notebooks/.ipynb_checkpoints/time_quailty_compare-checkpoint.ipynb
