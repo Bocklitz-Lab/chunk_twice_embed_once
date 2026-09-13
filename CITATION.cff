@@ -12,12 +12,10 @@ authors:
   - family-names: "Amiri"
     given-names: "Mahmoud"
     affiliation: "Leibniz Institute of Photonic Technology, Member of Research Alliance 'Leibniz Health Technologies', Jena, Germany; Institute of Physical Chemistry, Friedrich Schiller University Jena, Germany"
-    orcid: "https://orcid.org/0000-0000-0000-0000"
   - family-names: "Bocklitz"
     given-names: "Thomas"
     affiliation: "Leibniz Institute of Photonic Technology, Member of Research Alliance 'Leibniz Health Technologies', Jena, Germany; Institute of Physical Chemistry, Friedrich Schiller University Jena, Germany"
-    orcid: "https://orcid.org/0000-0000-0000-0000"
-repository-code: "https://github.com/<your-org-or-username>/chunk-twice-embed-once"
+repository-code: "https://github.com/Bocklitz-Lab/chunk_twice_embed_once"
 license: "MIT"
 keywords:
   - retrieval-augmented generation
@@ -27,8 +25,8 @@ keywords:
   - information retrieval
   - NLP
 contacts:
-  - name: "Maintainers"
-    email: "maintainers@example.com"
+  - name: "Thomas Bocklitz"
+    email: "thomas.bocklitz@uni-jena.de"
 
 preferred-citation:
   type: article
@@ -39,9 +37,9 @@ preferred-citation:
     - family-names: "Bocklitz"
       given-names: "Thomas"
   year: 2025
-  month: 9
+  month: 6
   identifiers:
     - type: doi
-      value: "10.48550/arXiv.2509.xxxxx"   # replace with the real arXiv DOI once available
+      value: "10.48550/arXiv.2506.17277"
     - type: url
-      value: "https://arxiv.org/abs/2509.xxxxx"
+      value: "https://arxiv.org/abs/2506.17277"
