@@ -1,0 +1,148 @@
+{
+  "canonical_rows": 1820,
+  "notebook_input_rows": 1820,
+  "models": 13,
+  "chunkers": 5,
+  "valid_pairs": 28,
+  "expected_configurations": 1820,
+  "missing_configurations": 0,
+  "unexpected_configurations": 0,
+  "duplicate_configuration_rows": 0,
+  "nonfinite_required_metrics": 0,
+  "raw_result_files_read": 1820,
+  "raw_result_read_failures": [],
+  "max_abs_canonical_ndcg_vs_raw": 0.0,
+  "max_abs_canonical_recall_vs_raw": 0.0,
+  "max_abs_geom_vs_sqrt": 0.0,
+  "max_abs_notebook_csv_vs_canonical": 4.997695715047712e-07,
+  "maximizer_ties": 0,
+  "models_in_input": [
+    "BAAI_bge_base_en_v1.5",
+    "BAAI_bge_large_en_v1.5",
+    "BAAI_bge_m3",
+    "BAAI_bge_small_en_v1.5",
+    "hkunlp_instructor_xl",
+    "intfloat_e5_base",
+    "intfloat_e5_large",
+    "intfloat_e5_large_v2",
+    "intfloat_e5_small",
+    "intfloat_multilingual_e5_base",
+    "intfloat_multilingual_e5_small",
+    "nomic_ai_nomic_embed_text_v1",
+    "nomic_ai_nomic_embed_text_v1.5"
+  ],
+  "valid_size_overlap_pairs": [
+    [
+      128,
+      0
+    ],
+    [
+      128,
+      16
+    ],
+    [
+      128,
+      32
+    ],
+    [
+      192,
+      0
+    ],
+    [
+      192,
+      16
+    ],
+    [
+      192,
+      32
+    ],
+    [
+      192,
+      48
+    ],
+    [
+      256,
+      0
+    ],
+    [
+      256,
+      16
+    ],
+    [
+      256,
+      32
+    ],
+    [
+      256,
+      48
+    ],
+    [
+      256,
+      64
+    ],
+    [
+      320,
+      0
+    ],
+    [
+      320,
+      16
+    ],
+    [
+      320,
+      32
+    ],
+    [
+      320,
+      48
+    ],
+    [
+      320,
+      64
+    ],
+    [
+      384,
+      0
+    ],
+    [
+      384,
+      16
+    ],
+    [
+      384,
+      32
+    ],
+    [
+      384,
+      48
+    ],
+    [
+      384,
+      64
+    ],
+    [
+      448,
+      0
+    ],
+    [
+      448,
+      16
+    ],
+    [
+      448,
+      32
+    ],
+    [
+      448,
+      48
+    ],
+    [
+      448,
+      64
+    ],
+    [
+      512,
+      0
+    ]
+  ]
+}
