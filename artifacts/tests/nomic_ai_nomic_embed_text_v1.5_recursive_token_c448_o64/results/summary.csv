@@ -1,2 +1,0 @@
-model,revision,normalize,batch_size,task,main_score
-nomic-ai/nomic-embed-text-v1.5,b0753ae76394dd36bcfb912a46018088bca48be0,True,32,ChemQuest,

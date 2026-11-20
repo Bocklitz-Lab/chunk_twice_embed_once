@@ -44,3 +44,12 @@ artifacts/tests/materialization_summary.json
 notebooks/.ipynb_checkpoints/evaluation_time-checkpoint.ipynb
 notebooks/.ipynb_checkpoints/phase2-checkpoint.ipynb
 notebooks/.ipynb_checkpoints/time_quailty_compare-checkpoint.ipynb
+assumption_tests/
+litqa2_overlap/
+chemquests_overlap/
+literature_overlap/
+qasper_overlap/
+overlap_studies/
+revision_analyses/
+artifacts_old/*
+artifacts.7z

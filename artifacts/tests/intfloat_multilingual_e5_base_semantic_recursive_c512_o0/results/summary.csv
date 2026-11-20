@@ -1,2 +1,0 @@
-model,revision,normalize,batch_size,task,main_score
-intfloat/multilingual-e5-base,d13f1b27baf31030b7fd040960d60d909913633f,True,32,ChemQuest,
