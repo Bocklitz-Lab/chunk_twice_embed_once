@@ -232,7 +232,9 @@ class SemanticSplitter:
                 model_name=model_name,
                 chunk_size=chunk_size,
                 chunk_overlap=chunk_overlap,
-                separators=["\n\n", "\n", ".", "?", "!", " "],
+                # "" last: a run without any separator (paper 91: ~1,000 characters of "~/~/...")
+                # is split by characters instead of staying one oversized chunk.
+                separators=["\n\n", "\n", ".", "?", "!", " ", ""],
                 keep_separator=True,
             )
         else:
