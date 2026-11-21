@@ -13,7 +13,7 @@ LABELLING_AND_RESCORING_CODE = [
     # added by the later commits of this branch:
     "stages/make_span_qrels.py",
     "stages/stage5.py",
-#    "tools/rescore.py",
+    "tools/rescore.py",
 ]
 
 # 0.9, .9, 0.90, 90, 90.0, 9/10, 9, 10 (as in Fraction(9, 10)), 0.90 in comments and strings too
