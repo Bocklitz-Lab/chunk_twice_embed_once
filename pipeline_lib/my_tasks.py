@@ -50,11 +50,14 @@ class ChemQuest(AbsTaskRetrieval):
     #     super().__init__(**kwargs)
     #     self.k_values = [1, 3, 5, 10, 100]
     
-    def __init__(self, data_dir: str | Path | None = None, **kwargs):
+    def __init__(self, data_dir: str | Path | None = None, qrels_file: str | None = None, **kwargs):
         super().__init__(**kwargs)
         self.k_values = [1, 3, 5, 10, 100]
         # keep what came from config so load_data can use it later
         self.data_dir = Path(data_dir).expanduser() if data_dir else None
+        # Name of the qrels file inside data_dir (config: labeling.qrels_file, e.g. qrels_span_c<value>.jsonl
+        # or qrels_lexical.jsonl). None keeps the old lookup (test.tsv, qrels.tsv, qrels.jsonl).
+        self.qrels_file = qrels_file
 
     # ---------- helpers ----------
     def _read_jsonl(self, path: Path) -> Iterable[Dict[str, Any]]:
@@ -193,22 +196,39 @@ class ChemQuest(AbsTaskRetrieval):
             queries = self._to_queries(queries_rows)
 
             # --- read qrels
-            qrels_dir = data_dir
-            tsv = qrels_dir / "test.tsv"
-            alt_tsv = data_dir / "qrels.tsv"
-            jsonl = qrels_dir / "qrels.jsonl"
-
-            if tsv.exists():
-                qrels_rows = list(self._read_tsv(tsv))
-            elif alt_tsv.exists():
-                qrels_rows = list(self._read_tsv(alt_tsv))
-            elif jsonl.exists():
-                qrels_rows = list(self._read_jsonl(jsonl))
+            if self.qrels_file:
+                # The config names the label set. Exactly that file is used; nothing else is tried, so a
+                # leftover file of another label set can never be evaluated by mistake.
+                named = data_dir / self.qrels_file
+                if not named.exists():
+                    raise FileNotFoundError(f"Missing qrels file named in the config (labeling.qrels_file): {named}")
+                qrels_rows = list(self._read_tsv(named) if named.suffix.lower() == ".tsv" else self._read_jsonl(named))
+                log.info(f"ChemQuest: qrels from {named.name}")
             else:
-                raise FileNotFoundError(
-                    f"Missing qrels. Looked for {tsv}, {alt_tsv}, {jsonl}"
-                )
+                qrels_dir = data_dir
+                tsv = qrels_dir / "test.tsv"
+                alt_tsv = data_dir / "qrels.tsv"
+                jsonl = qrels_dir / "qrels.jsonl"
+
+                if tsv.exists():
+                    qrels_rows = list(self._read_tsv(tsv))
+                elif alt_tsv.exists():
+                    qrels_rows = list(self._read_tsv(alt_tsv))
+                elif jsonl.exists():
+                    qrels_rows = list(self._read_jsonl(jsonl))
+                else:
+                    raise FileNotFoundError(
+                        f"Missing qrels. Looked for {tsv}, {alt_tsv}, {jsonl}"
+                    )
             qrels_all = self._to_qrels(qrels_rows)
+            if self.qrels_file:
+                # a labelled chunk that is not in the corpus means qrels and corpus come from different runs
+                unknown = sorted({d for rels in qrels_all.values() for d in rels if d not in corpus})
+                if unknown:
+                    raise ValueError(
+                        f"{self.qrels_file} refers to {len(unknown)} chunk ids that are not in corpus.jsonl "
+                        f"(first: {unknown[:3]}); the qrels do not belong to this corpus."
+                    )
 
             kept_queries, kept_qrels = self._finalize_split(corpus, queries, qrels_all, "local")
 
