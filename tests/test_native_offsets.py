@@ -256,3 +256,32 @@ def test_recursive_ambiguous_chunks_are_counted_and_logged(caplog):
     assert ch.n_ambiguous > 0
     assert any("occurs" in r.getMessage() for r in caplog.records)
     assert _uncovered_non_ws(TILDES, triples) == []
+
+
+def test_recursive_chunk_may_start_where_the_previous_one_started():
+    # Found by the audit (doc 123, bge-m3, c128 o32): a one-line heading is a chunk of its own and, being
+    # shorter than the overlap, is repeated at the start of the next chunk. Same start, longer end.
+    text = "Intro.\n\nPreparation of Raw Materials\nEight kilograms of cocoyam tubers were washed and peeled."
+    ch = RecursiveTokenChunker(model_name=TOK, chunk_size=24, chunk_overlap=8)
+    pieces = ["Intro.", "Preparation of Raw Materials",
+              "Preparation of Raw Materials\nEight kilograms of cocoyam tubers were washed and peeled."]
+    got = ch._locate(text, pieces)
+    assert [(s, e) for _, s, e in got][1][0] == [(s, e) for _, s, e in got][2][0] == text.index("Preparation")
+    assert [text[s:e] for _, s, e in got] == pieces
+    assert ch.n_relaxed == 0
+
+
+def test_recursive_doc_123_with_xlmr_tokenizer():
+    from pathlib import Path
+    p = Path(__file__).resolve().parents[1] / "temp_files/artifacts_old/chemquests_hf_db/full_text.jsonl"
+    if not p.exists():
+        pytest.skip("full_text.jsonl not available")
+    text = next(json.loads(l)["text"] for l in p.open() if str(json.loads(l)["corpus_id"]) == "123")
+    try:
+        ch = RecursiveTokenChunker(model_name="BAAI/bge-m3", chunk_size=128, chunk_overlap=32,
+                                   separators=["\n\n", "\n", ".", "?", "!", " ", ""])
+    except Exception:
+        pytest.skip("bge-m3 tokenizer not available")
+    triples = ch.split_text_with_offsets(text)
+    _check(text, triples)
+    assert _uncovered_non_ws(text, triples) == []

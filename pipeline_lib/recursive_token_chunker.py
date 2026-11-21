@@ -163,13 +163,14 @@ class RecursiveTokenChunker:
     def _locate(self, text: str, chunks: List[str]) -> List[Tuple[str, int, int]]:
         """Exact positions of LangChain's chunks inside ``text``.
 
-        Chunk i starts at or after ``prev_end - max_overlap_chars`` and (apart from
+        Chunk i starts at or after ``prev_end - max_overlap_chars`` (never before the previous
+        chunk's start; the same start is allowed) and (apart from
         whitespace that is stripped) not after ``prev_end``, and it ends after the previous chunk
         (each chunk adds new text). Candidates are the matches of its text in that window. LangChain never repeats more than ``chunk_overlap`` tokens, so
         candidates whose overlap with the previous chunk is longer are discarded, and the first
         remaining match is taken. A text that still matches more than once is counted in
         ``n_ambiguous`` and logged (first match wins). If the window finds nothing (bound too
-        tight) the search is widened to "after the previous chunk's start" and counted in
+        tight) the search is widened to "from the previous chunk's start" and counted in
         ``n_relaxed``.
         """
         overlap = self._config["chunk_overlap"]
@@ -178,7 +179,9 @@ class RecursiveTokenChunker:
         for ch in chunks:
             if not ch:
                 continue
-            lo = max(prev_start + 1, prev_end - self._max_overlap_chars(prev_text))
+            # A chunk may start exactly where the previous one started: a short previous chunk
+            # (e.g. a heading) that fits entirely in the overlap is repeated at the start of the next.
+            lo = max(prev_start, 0, prev_end - self._max_overlap_chars(prev_text))
             hi = prev_end
             while hi < len(text) and text[hi].isspace():
                 hi += 1          # whitespace between chunks was stripped
@@ -190,7 +193,7 @@ class RecursiveTokenChunker:
                 p = text.find(ch, p + 1)
 
             if not cands:
-                idx = text.find(ch, prev_start + 1)
+                idx = text.find(ch, max(prev_start, 0))
                 if idx == -1:
                     raise ValueError(
                         "RecursiveTokenChunker: chunk is not a substring of the text after the "
