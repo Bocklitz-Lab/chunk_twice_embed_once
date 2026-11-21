@@ -10,8 +10,8 @@ What it does
 4) Interpolate any ${...} placeholders across the *entire* document using the updated params,
    repeating until fully resolved (fixed-point interpolation).
 5) Write per-stage YAMLs with concrete values (no ${...} left).
-   While dumping, only escape control characters so strings like '\\n' remain literal where intended
-   without over-quoting everything.
+   While dumping, strings with control characters (e.g. the real newlines of the recursive
+   separators) are written double-quoted so that loading the file returns exactly the same string.
 """
 
 import argparse
@@ -41,17 +41,16 @@ class EscapingDumper(yaml.SafeDumper):
 
 def _represent_str_escaped(dumper: yaml.SafeDumper, data: str):
     """
-    - If string contains *actual* control characters (\n, \r, \t), replace them with two-char
-      sequences '\\n', '\\r', '\\t' so they survive round-trips literally.
-    - Prefer single-quoted style for such strings (no backslash processing), fall back to double
-      quotes if the string itself contains a single quote.
+    - A string that contains control characters (newline, tab, carriage return, other C0/C1
+      controls, line/paragraph separators) is written DOUBLE-QUOTED with YAML escapes (``"\\n\\n"``).
+      Loading that gives back the real characters. The earlier version replaced the real newline
+      by the two characters backslash + n inside single quotes, so a separator such as "\\n\\n"
+      came back as the literal text ``\\n\\n`` (backslash, n) and the recursive chunker never split
+      on line breaks (bug B4).
     - Otherwise, use the default string representer (no forced quoting).
     """
-    has_control = any(c in data for c in ("\n", "\r", "\t"))
-    if has_control:
-        escaped = data.replace("\n", "\\n").replace("\r", "\\r").replace("\t", "\\t")
-        style = "'" if "'" not in escaped else '"'
-        return dumper.represent_scalar('tag:yaml.org,2002:str', escaped, style=style)
+    if any(ord(c) < 0x20 or 0x7F <= ord(c) <= 0x9F or c in ("\u2028", "\u2029") for c in data):
+        return dumper.represent_scalar('tag:yaml.org,2002:str', data, style='"')
 
     # Default behavior: minimal quoting
     return yaml.representer.SafeRepresenter.represent_str(dumper, data)
