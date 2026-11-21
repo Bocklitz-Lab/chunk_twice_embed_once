@@ -27,6 +27,12 @@ except Exception:
     print("ERROR: PyYAML is required. Install with: pip install pyyaml", file=sys.stderr)
     raise
 
+try:  # run as ``python -m pipeline_lib.split_config`` (the Makefile) or imported
+    from pipeline_lib.span_labels import resolve_labeling
+except ImportError:  # pragma: no cover - run as a plain script from another directory
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from pipeline_lib.span_labels import resolve_labeling
+
 PLACEHOLDER_RE = re.compile(r"\$\{([^}]+)\}")
 
 
@@ -246,6 +252,20 @@ def resolve_stage4_strategy(doc: Dict[str, Any]) -> None:
     s4["strategy"] = resolved
 
 
+def resolve_labeling_block(doc: Dict[str, Any]) -> None:
+    """Validate params.labeling (method, 0 < cover_level <= 1) and derive qrels_file unless it is set.
+
+    This runs before the stage sections are interpolated, so that every ``${params.labeling...}``
+    reference (stage 5 ``labeling``, stage 6 ``qrels_file``) sees the final values.
+    """
+    params = doc.get("params", {})
+    block = params.get("labeling")
+    if block is None:
+        return
+    block = interpolate(block, ctx=doc)
+    params["labeling"] = resolve_labeling(block)
+
+
 def ensure_dir(p: str) -> None:
     os.makedirs(p, exist_ok=True)
 
@@ -275,6 +295,13 @@ def main(argv: Iterable[str] = None) -> int:
     # 1) Apply user overrides into params.*
     for k, v in args.params:
         deep_set(doc["params"], k, v)
+
+    # 1b) Labels: validate and derive the qrels file name from method and cover level
+    try:
+        resolve_labeling_block(doc)
+    except (ValueError, KeyError) as e:
+        print(f"ERROR: params.labeling: {e}", file=sys.stderr)
+        return 2
 
     # 2) First full interpolation (fixed-point) across the entire doc
     doc = interpolate(doc, ctx=doc)

@@ -11,6 +11,18 @@ params:
     chunker: fixed_token
     size: 256
     overlap: 20
+
+  # Relevance labels (qrels) of the retrieval task.
+  #   method:      span    labels from the evidence-span positions (stages/make_span_qrels.py)
+  #                lexical labels from BM25 + Jaccard + fuzzy matching (stages/make_mteb_task.py)
+  #   cover_level: c in (0, 1]: a chunk holding >= c of the evidence span is relevant (span method).
+  #                Override per run with  --param labeling.cover_level=<value>  (EXTRA_PARAMS in the Makefile).
+  #   qrels_file:  file of mteb_task_dir that stage 6 evaluates. null = derived from method and c
+  #                (qrels_span_c<value>.jsonl, qrels_lexical.jsonl); set it only to use another name.
+  labeling:
+    method: span
+    cover_level: 0.90
+    qrels_file: null
   paths:
     artifacts_root: artifacts
     chemquests_dir: ${params.paths.artifacts_root}/chemquests_hf_db
@@ -524,6 +536,8 @@ stage4:
 #-------------------------------------------------------------------------------------
 stage5:
   qa_jsonl_file: ${params.paths.chemquests_dir}/qa.jsonl
+  full_text_jsonl_file: ${params.paths.chemquests_dir}/full_text.jsonl   # span labels check the chunk and span positions against it
+  labeling: ${params.labeling}      # method, cover_level, qrels_file (see params.labeling)
   chunks_jsonl_file: ${params.paths.chunks_dir}/chunks.jsonl
   output_folder: ${params.paths.mteb_task_dir}
   search_scope: single              # "single" or "all"
@@ -554,7 +568,8 @@ stage6:
     # - ChemNQRetrieval # An official MTEB task by name
     - class: pipeline_lib.my_tasks.ChemQuest
       kwargs:
-        data_dir: ${params.paths.mteb_task_dir}    
+        data_dir: ${params.paths.mteb_task_dir}
+        qrels_file: ${params.labeling.qrels_file}
   import_modules:
     - pipeline_lib.my_tasks
   encode_kwargs:
