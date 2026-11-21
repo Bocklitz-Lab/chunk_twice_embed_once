@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 LABELLING_AND_RESCORING_CODE = [
     "pipeline_lib/span_labels.py",
     # added by the later commits of this branch:
-#    "stages/make_span_qrels.py",
+    "stages/make_span_qrels.py",
 #    "stages/stage5.py",
 #    "tools/rescore.py",
 ]

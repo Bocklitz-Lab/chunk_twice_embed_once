@@ -28,6 +28,15 @@ METHODS = ("span", "lexical")
 LEXICAL_QRELS_FILE = "qrels_lexical.jsonl"
 
 
+def norm_doc_id(s: Any) -> str:
+    """Normalize document ids so that numeric '098' matches '98' (same rule as stage 5 of the lexical labels)."""
+    s = str(s).strip()
+    if s.isdigit():
+        s = s.lstrip("0")
+        return s if s != "" else "0"
+    return s
+
+
 # --------------------------------------------------------------------------------------
 # cover level
 # --------------------------------------------------------------------------------------
