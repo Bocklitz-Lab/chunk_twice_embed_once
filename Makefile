@@ -22,6 +22,11 @@ LOSS_CSV ?= artifacts/loss.csv
 RESULTS ?= artifacts/tests/
 DURATION_CSV ?= $(RESULTS)/durations.csv
 
+# A configuration counts as finished only when the Stage 6 summary exists. run_eval.py writes it
+# last, after MTEB finished and the predictions were saved. A non-empty folder is not enough:
+# a run that failed after stage 4 or 5 leaves one behind.
+FINAL_RESULT ?= results/summary.json
+
 # Build directory name
 STAGE1_CONFIG ?= configs/stages/stage1.yaml
 STAGE2_CONFIG ?= configs/stages/stage2.yaml
@@ -91,10 +96,12 @@ stage4-6:
 					continue; \
 				fi; \
 				outdir=artifacts/tests/$${dir}_$${c}_c$${s}_o$${o}; \
-				if [ -d "$$outdir" ] && \
-				   [ -n "$$(find "$$outdir" -mindepth 1 -maxdepth 1 -print -quit 2>/dev/null)" ]; then \
-					echo "⏭️  Skip: output already present -> $$outdir"; \
+				if [ -s "$$outdir/$(FINAL_RESULT)" ]; then \
+					echo "⏭️  Skip: finished ($(FINAL_RESULT) exists) -> $$outdir"; \
 					continue; \
+				fi; \
+				if [ -d "$$outdir" ]; then \
+					echo "♻️  Earlier run incomplete (no $(FINAL_RESULT)); running again -> $$outdir"; \
 				fi; \
 				config_dir=$$outdir/config; \
 				echo "▶️ model=$$name@$$rev chunker=$$c size=$$s overlap=$$o -> $$config_dir"; \
