@@ -358,7 +358,17 @@ def main():
             model_revision=revision,
             output_folder=str(model_out_dir),
             encode_kwargs=encode_kwargs,  # replace deprecated batch_size arg
+            # Save the ranked retrieval results (<task>_default_predictions.json in output_folder).
+            # Do NOT also pass top_k: it would lower the retrieval depth and change the @1000 metrics.
+            save_predictions=True,
         )
+
+        # MTEB silently reuses an existing ChemQuest.json and then saves nothing: fail loudly instead.
+        if not list(model_out_dir.glob("*_predictions.json")):
+            raise RuntimeError(
+                f"No predictions were saved in {model_out_dir}. MTEB skips tasks whose results already "
+                "exist: point stage6.output_root to a new folder to re-run."
+            )
 
         per_task = normalize_results(results)
         for r in per_task:
