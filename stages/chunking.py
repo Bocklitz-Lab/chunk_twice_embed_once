@@ -90,74 +90,37 @@ from tqdm import tqdm
 
 import re
 
-def locate_chunk_offsets(original_text: str, chunks: list[str]) -> list[tuple[int, int]]:
+def locate_chunk_offsets(
+    original_text: str, chunks: list[str]
+) -> list[tuple[Optional[int], Optional[int]]]:
     """
-    Return [(start, end_exclusive), ...] for each chunk within original_text.
-    Uses a forward cursor to disambiguate repeated content and tolerate
-    some whitespace trimming differences from the splitters.
+    Return [(start, end_exclusive), ...] for each chunk, in document order.
+
+    A position is returned ONLY if it is exact: original_text[start:end] == chunk.
+    Otherwise (None, None) is returned. Nothing is guessed, because a wrong position
+    would silently mislabel chunks in any span-based relevance labelling.
+
+    Each chunk is searched forward from one character after the START of the previous
+    located chunk, not from its end. With overlap > 0 a chunk begins before the previous
+    chunk ends, so searching from the previous end skips the true position (the earlier
+    version did this and returned wrong offsets for almost every chunk when overlap > 0).
+
+    Chunks that are not verbatim substrings of the document (for example the detokenised
+    or whitespace-collapsed output of the semantic splitters) get (None, None).
     """
-    offsets: list[tuple[int, int]] = []
-    n = len(original_text)
-    cursor = 0
+    offsets: list[tuple[Optional[int], Optional[int]]] = []
+    prev_start = -1  # start of the last located chunk; the next chunk starts strictly after it
 
     for chunk in chunks:
         if not chunk:
-            # Empty chunk: pin to current cursor.
-            offsets.append((cursor, cursor))
+            offsets.append((None, None))
             continue
-
-        # 1) Nudge cursor past any whitespace (helps when splitter stripped)
-        while cursor < n and original_text[cursor].isspace():
-            cursor += 1
-
-        # 2) Try exact match from cursor
-        idx = original_text.find(chunk, cursor)
-
-        # 3) If not found, try stripped chunk (common when splitter strips ends)
-        used = chunk
+        idx = original_text.find(chunk, prev_start + 1)
         if idx == -1:
-            stripped = chunk.strip()
-            if stripped:
-                idx = original_text.find(stripped, cursor)
-                if idx != -1:
-                    used = stripped
-
-        # 4) If still not found, try a fuzzy: collapse internal whitespace in both
-        if idx == -1:
-            def squeeze_ws(s: str) -> str:
-                return re.sub(r'\s+', ' ', s.strip())
-            sq_chunk = squeeze_ws(chunk)
-            # Scan forward in small windows for performance; worst-case fallback to full search
-            window_start = cursor
-            step = 4096  # reasonable chunk window scan to avoid O(N^2) on huge texts
-            found = False
-            while window_start < n:
-                window_end = min(n, window_start + 1_000_000)  # 1MB-ish window
-                sq_window = squeeze_ws(original_text[window_start:window_end])
-                j = sq_window.find(sq_chunk)
-                if j != -1:
-                    # Map back to original indices by expanding around match
-                    # Find the start position in original by matching first non-ws char sequence
-                    head = sq_chunk.split(' ', 1)[0]
-                    # locate 'head' in original text from window_start
-                    guess = original_text.find(head, window_start)
-                    if guess != -1:
-                        idx = guess
-                        used = chunk  # best effort
-                        found = True
-                        break
-                if window_end == n:
-                    break
-                window_start = window_end
-            if not found:
-                # As a last resort, anchor at cursor with chunk length (avoids crash, flags mismatch)
-                idx = cursor
-
-        start = max(idx, 0)
-        end = start + len(used)
-        # Advance cursor to end to keep matching forward
-        cursor = max(end, cursor)
-        offsets.append((start, end))
+            offsets.append((None, None))
+            continue
+        offsets.append((idx, idx + len(chunk)))
+        prev_start = idx
 
     return offsets
 
@@ -388,12 +351,14 @@ def process_docs(
                     s = item.get("start_char")
                     e = item.get("end_char")
 
-                    # compute offsets if requested OR if missing
-                    if (s is None or e is None) and compute_offsets:
-                        try:
-                            s, e = locate_chunk_offsets(raw_text, [ctext])[0]
-                        except Exception:
-                            s, e = None, None
+                    # A position supplied by the chunker is trusted only if it is exact.
+                    if s is None or e is None or raw_text[s:e] != ctext:
+                        s, e = None, None
+                        # Dict chunkers (e.g. hybrid_multi) emit chunks of several granularities,
+                        # so document order cannot be assumed. Accept only an unambiguous match.
+                        if compute_offsets and raw_text.count(ctext) == 1:
+                            s = raw_text.find(ctext)
+                            e = s + len(ctext)
 
                     norm_item = {**item, "text": ctext, "start_char": s, "end_char": e}
                     norm_chunks.append(norm_item)
@@ -407,6 +372,15 @@ def process_docs(
                 start_char = item.get("start_char")
                 end_char = item.get("end_char")
 
+                # Final guard: never write a position that does not reproduce the chunk text.
+                offset_exact = (
+                    start_char is not None
+                    and end_char is not None
+                    and raw_text[start_char:end_char] == chunk_text
+                )
+                if not offset_exact:
+                    start_char, end_char = None, None
+
                 rec = {
                     "source_doc_id": source_id,
                     "chunk_index": idx,
@@ -414,7 +388,11 @@ def process_docs(
                     "text": chunk_text,
                     "n_chars": len(chunk_text),
                     "start_char": start_char,
-                    "end_char": end_char,  # end is exclusive
+                    "end_char": end_char,  # end is exclusive; None if no exact position exists
+                    # True only when raw_text[start_char:end_char] == text. Chunk files written
+                    # before this field existed have unreliable positions when overlap > 0:
+                    # treat a missing flag as untrusted.
+                    "offset_exact": offset_exact,
                 }
 
                 # pass-through useful metadata when present

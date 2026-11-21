@@ -1,7 +1,8 @@
 # MIT License
 # Semantic splitter wrapper using LangChain's SemanticChunker (+ HF token-size enforcement)
 
-from typing import Any, List, Optional, Sequence, Dict
+import re
+from typing import Any, List, Optional, Sequence, Dict, Tuple
 
 # Document
 try:
@@ -73,11 +74,13 @@ except Exception:
 class _HFTokenTextSplitter:
     """
     Minimal tokenizer-aware splitter using a Hugging Face tokenizer.
-    Splits by token count (chunk_size / chunk_overlap) and decodes back to text.
+    Splits by token count (chunk_size / chunk_overlap) and cuts each window out of the
+    ORIGINAL text using the tokenizer's character offsets, so every chunk is an exact
+    substring of the input (no decode round trip: that lower-cased and re-spaced the text).
 
     Notes:
-      - add_special_tokens=False for counting; decode with skip_special_tokens=True.
-      - Decoding may slightly alter whitespace; start_index is best-effort via substring search.
+      - add_special_tokens=False for counting.
+      - Requires a fast tokenizer (offset_mapping).
     """
 
     def __init__(
@@ -100,17 +103,25 @@ class _HFTokenTextSplitter:
         self.strip_whitespace = strip_whitespace
 
     def split_text(self, text: str) -> List[str]:
-        ids = self.tokenizer.encode(text, add_special_tokens=False)
-        if not ids:
+        enc = self.tokenizer(
+            text,
+            add_special_tokens=False,
+            return_offsets_mapping=True,
+            return_attention_mask=False,
+            return_token_type_ids=False,
+            truncation=False,
+        )
+        offsets = enc["offset_mapping"]
+        if not offsets:
             return []
 
         step = max(1, self.chunk_size - self.chunk_overlap)
         chunks: List[str] = []
-        for start in range(0, len(ids), step):
-            window_ids = ids[start : start + self.chunk_size]
-            if not window_ids:
+        for start in range(0, len(offsets), step):
+            window = offsets[start : start + self.chunk_size]
+            if not window:
                 continue
-            piece = self.tokenizer.decode(window_ids, skip_special_tokens=True)
+            piece = text[window[0][0] : window[-1][1]]
             if self.strip_whitespace:
                 piece = piece.strip()
             if piece:
@@ -204,8 +215,10 @@ class SemanticSplitter:
         if use_recursive:
             if RecursiveTokenChunker is None:
                 raise ImportError("RecursiveTokenChunker not available.")
-            # If your RecursiveTokenChunker supports tokenizer, pass it here similarly.
+            # Measure chunk size with the retrieval model's own tokenizer. Without
+            # model_name, RecursiveTokenChunker silently falls back to bert-base-uncased.
             self._token_splitter = RecursiveTokenChunker(
+                model_name=model_name,
                 chunk_size=chunk_size,
                 chunk_overlap=chunk_overlap,
                 separators=["\n\n", "\n", ".", "?", "!", " "],
@@ -237,17 +250,61 @@ class SemanticSplitter:
             embeddings="hf",
         )
 
+    def _segment_spans(self, text: str) -> List[Tuple[int, int]]:
+        """
+        (start, end) character spans, in the ORIGINAL text, of the semantic segments.
+
+        Same breakpoint logic as langchain_experimental's SemanticChunker.split_text
+        (0.3.x), but it returns spans instead of the strings LangChain builds with
+        " ".join(sentences). That re-joining replaces the original whitespace between
+        sentences, so its segments are not substrings of the document.
+        """
+        sc = self._semantic
+        needed = ("sentence_split_regex", "min_chunk_size", "number_of_chunks", "breakpoint_threshold_type",
+                  "_calculate_sentence_distances", "_calculate_breakpoint_threshold", "_threshold_from_clusters")
+        missing = [a for a in needed if not hasattr(sc, a)]
+        if missing:
+            raise RuntimeError(f"Unsupported SemanticChunker API (missing {missing}); langchain_experimental 0.3.x is required.")
+
+        # Sentence spans, using the same regex LangChain splits on.
+        spans: List[Tuple[int, int]] = []
+        pos = 0
+        for m in re.finditer(sc.sentence_split_regex, text):
+            spans.append((pos, m.start()))
+            pos = m.end()
+        spans.append((pos, len(text)))
+        sentences = [text[a:b] for a, b in spans]
+        if sentences != re.split(sc.sentence_split_regex, text):
+            raise RuntimeError("sentence_split_regex yields different pieces with finditer and split (capture group?).")
+
+        if len(sentences) == 1:
+            return spans
+        if sc.breakpoint_threshold_type == "gradient" and len(sentences) == 2:
+            return spans
+
+        distances, _ = sc._calculate_sentence_distances(sentences)
+        if sc.number_of_chunks is not None:
+            threshold, breakpoints = sc._threshold_from_clusters(distances), distances
+        else:
+            threshold, breakpoints = sc._calculate_breakpoint_threshold(distances)
+
+        groups: List[Tuple[int, int]] = []
+        first = 0  # first sentence of the current group
+        for i, x in enumerate(breakpoints):
+            if x <= threshold:
+                continue
+            # min_chunk_size is measured on the " "-joined text, as LangChain does.
+            if sc.min_chunk_size is not None and len(" ".join(sentences[first : i + 1])) < sc.min_chunk_size:
+                continue
+            groups.append((spans[first][0], spans[i][1]))
+            first = i + 1
+        if first < len(sentences):
+            groups.append((spans[first][0], spans[-1][1]))
+        return groups
+
     def _semantic_segments(self, text: str) -> List[str]:
-        # Prefer split_text; fallback to create_documents/transform_documents
-        if hasattr(self._semantic, "split_text"):
-            return self._semantic.split_text(text)
-        if hasattr(self._semantic, "create_documents"):
-            docs = self._semantic.create_documents([text])
-            return [d.page_content for d in docs]
-        if hasattr(self._semantic, "transform_documents"):
-            docs = self._semantic.transform_documents([Document(page_content=text)])  # type: ignore
-            return [d.page_content for d in docs]
-        raise RuntimeError("Unsupported SemanticChunker API in this LangChain version.")
+        # Verbatim slices of the original text, so every chunk derived from them is too.
+        return [text[a:b] for a, b in self._segment_spans(text)]
 
     def split_text(self, text: str) -> List[str]:
         """
