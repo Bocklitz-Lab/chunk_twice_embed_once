@@ -27,7 +27,11 @@ DURATION_CSV ?= $(RESULTS)/durations.csv
 # a run that failed after stage 4 or 5 leaves one behind.
 FINAL_RESULT ?= results/summary.json
 
-# Extra "--param KEY=VALUE" options for split_config (e.g. a pilot with other paths or eval.top_k=100)
+# Extra "--param KEY=VALUE" options for split_config (e.g. a pilot with other paths or eval.top_k=100).
+# Labels (stage 5, see params.labeling in the config): method span (default) or lexical, cover level c:
+#   make stage4-6 EXTRA_PARAMS="--param labeling.cover_level=0.8"
+#   make stage4-6 EXTRA_PARAMS="--param labeling.method=lexical"
+# Stage 5 runs stages/make_span_qrels.py for method span and stages/make_mteb_task.py for method lexical.
 EXTRA_PARAMS ?=
 
 # Build directory name

@@ -30,7 +30,7 @@ def _make(work, bindir, tmp_path):
     )
     assert r.returncode == 0, r.stdout + r.stderr
     calls = log.read_text()
-    return r.stdout, [s for s in ("stages.chunking", "stages.make_mteb_task", "stages.run_eval") if s in calls]
+    return r.stdout, [s for s in ("stages.chunking", "stages.stage5", "stages.run_eval") if s in calls]
 
 
 def test_nonempty_folder_without_result_is_rerun(tmp_path):
@@ -39,7 +39,7 @@ def test_nonempty_folder_without_result_is_rerun(tmp_path):
     (out / "chunks").mkdir(parents=True)
     (out / "chunks/chunks.jsonl").write_text("partial run that failed after stage 4\n")
     stdout, stages = _make(work, bindir, tmp_path)
-    assert stages == ["stages.chunking", "stages.make_mteb_task", "stages.run_eval"]
+    assert stages == ["stages.chunking", "stages.stage5", "stages.run_eval"]
     assert "Earlier run incomplete" in stdout
 
 

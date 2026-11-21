@@ -35,7 +35,7 @@ stage4:
 
 stage5:
 	@echo "▶️ Stage5: MTEB task"
-	python -m stages.make_mteb_task --config $(STAGE5_CONFIG)
+	python -m stages.stage5 --config $(STAGE5_CONFIG)
 
 stage6:
 	@echo "▶️ Stage6: test custom task"
