@@ -282,6 +282,23 @@ def save_jsonl(data, file_name):
 
 queries_out, qrels_out = [], []
 query_id = 0
+n_no_positive = 0  # questions that end up without any relevant chunk (kept, with a relevance-0 row)
+
+
+def _first_chunk_id(doc_id):
+    """A chunk id to carry the relevance-0 row of a question without relevant chunks."""
+    if doc_id in doc_chunks and doc_chunks[doc_id]:
+        return doc_chunks[doc_id][0]["chunk_id"]
+    return corpus_out[0]["id"]
+
+
+def _zero_label_row(qid, doc_id):
+    """Relevance-0 row: keeps the query in the evaluation (it scores 0) instead of dropping it."""
+    row = {"query_id": str(qid), "doc_id": _first_chunk_id(doc_id), "relevance": 0}
+    if INCLUDE_SOURCE:
+        row["score"] = 0.0
+    return row
+
 
 for question, references, doc_id in qa_pairs:
     # Build the reference text: content + question (simple concat)
@@ -289,11 +306,15 @@ for question, references, doc_id in qa_pairs:
     combined_ref = (ref_content + " " + (question or "")).strip()
     ref_norm = normalize_text(combined_ref)
 
-    if not ref_norm:
-        print(f"⚠️ Skipping query {query_id}: empty content+question.")
-        continue
-
+    # Every question stays in queries.jsonl, also when no chunk can be labelled for it.
     queries_out.append({"id": str(query_id), "title": f"Query {query_id}", "text": question or ref_content})
+
+    if not ref_norm:
+        print(f"⚠️ Query {query_id}: empty content+question -> kept with a relevance-0 row.")
+        qrels_out.append(_zero_label_row(query_id, doc_id))
+        n_no_positive += 1
+        query_id += 1
+        continue
 
     # Decide search docs
     if SEARCH_SCOPE == "all":
@@ -323,7 +344,9 @@ for question, references, doc_id in qa_pairs:
                 cand[cid]["fuzzy"] = max(cand[cid]["fuzzy"], vals["fuzzy"])
 
     if not cand:
-        print(f"⚠️ No candidates scored for query {query_id}.")
+        print(f"⚠️ No candidates scored for query {query_id} -> kept with a relevance-0 row.")
+        qrels_out.append(_zero_label_row(query_id, doc_id))
+        n_no_positive += 1
         query_id += 1
         continue
 
@@ -345,7 +368,9 @@ for question, references, doc_id in qa_pairs:
     best_cid, best_score = ranked[0]
 
     if best_score <= 0.0:
-        print(f"⚠️ Best final score <= 0 for query {query_id}; no results.")
+        print(f"⚠️ Best final score <= 0 for query {query_id} -> kept with a relevance-0 row.")
+        qrels_out.append(_zero_label_row(query_id, doc_id))
+        n_no_positive += 1
         query_id += 1
         continue
 
@@ -390,3 +415,4 @@ save_jsonl(qrels_out, "qrels.jsonl")
 
 print("✅ MTEB dataset created successfully (BM25 normalized per query to max)!")
 print(f"   Queries: {len(queries_out)} | Corpus: {len(corpus_out)} | Qrels: {len(qrels_out)}")
+print(f"   Queries without a positive label (kept, relevance-0 row): {n_no_positive}")
