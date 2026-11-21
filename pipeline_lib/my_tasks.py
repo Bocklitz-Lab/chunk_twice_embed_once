@@ -108,7 +108,10 @@ class ChemQuest(AbsTaskRetrieval):
                 raise ValueError("Qrels row missing query-id/query_id and/or corpus-id/doc_id.")
             qid = str(qid)
             did = str(did)
-            rel = int(r.get("score", r.get("relevance", 1)))
+            # `relevance` is the label. `score` is only a fallback for formats without
+            # a relevance column (e.g. test.tsv). Stage 5 also writes a continuous lexical
+            # `score` (0-3), which must not be used as the graded relevance.
+            rel = int(r.get("relevance", r.get("score", 1)))
             out.setdefault(qid, {})[did] = rel
         return out
     def load_data(self, data_dir: str | Path | None = None, **kwargs):
