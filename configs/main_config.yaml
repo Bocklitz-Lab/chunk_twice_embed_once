@@ -58,6 +58,8 @@ params:
         add_start_index: true
         strip_whitespace: true
         min_chunk_size: 128
+        # semantic breakpoints do not depend on chunk size/overlap: cache them per (model, document)
+        cache_dir: ${params.paths.artifacts_root}/semantic_cache
 
 
     semantic_recursive:
@@ -75,6 +77,8 @@ params:
         add_start_index: true
         strip_whitespace: true
         min_chunk_size: 128
+        # semantic breakpoints do not depend on chunk size/overlap: cache them per (model, document)
+        cache_dir: ${params.paths.artifacts_root}/semantic_cache
   
 
     hierarchical_section:
@@ -189,6 +193,9 @@ params:
             - "toc graphic"
             - "table of contents graphic"
           drop_from_first_match: true
+
+  eval:
+    top_k: null   # null = MTEB default depth (published runs). Set e.g. 100 only for explicit pilot runs.
 
   strategy:
     preset: ${params.chunk.chunker}
@@ -496,7 +503,8 @@ stage3:
   repo_id: "Bocklitz-Lab/ChemQuests"
   data_files: ["metadata.jsonl", "full_text.jsonl", "qa.jsonl"]
   output_dir: ${params.paths.chemquests_dir}
-  revision: "main"
+  revision: "5ab7dc673653b800f368fe30851efbdb24385e0d"   # pinned release (never "main")
+  qa_sha256: "e66ced49821787f7448b688a261ca0bb65c5cfe0f9961753316aec52c6b20e8d"
   overwrite: false
 #-------------------------------------------------------------------------------------
 #                               STAGE 4
@@ -552,4 +560,5 @@ stage6:
   encode_kwargs:
     normalize_embeddings: false
   output_root: ${params.paths.test_results_dir}
+  top_k: ${params.eval.top_k}
 

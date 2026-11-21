@@ -4,5 +4,6 @@ data_files:
 - full_text.jsonl
 - qa.jsonl
 output_dir: artifacts/chemquests_hf_db
-revision: main
+revision: 5ab7dc673653b800f368fe30851efbdb24385e0d
+qa_sha256: e66ced49821787f7448b688a261ca0bb65c5cfe0f9961753316aec52c6b20e8d
 overwrite: false

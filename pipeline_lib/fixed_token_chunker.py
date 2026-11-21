@@ -48,8 +48,11 @@ class _HFTokenTextSplitter:
         self.add_start_index = bool(add_start_index)
         self.strip_whitespace = bool(strip_whitespace)
 
-        tok_name = model_name or "gpt2"  # default to a widely available HF tokenizer
-        self.tokenizer = self._get_tokenizer(tok_name)
+        if not model_name:
+            # No silent default (it used to be gpt2): the chunk size must be measured with the
+            # tokenizer of the embedding model that will encode the chunks.
+            raise ValueError("FixedTokenChunker needs model_name (the HF tokenizer of the embedding model).")
+        self.tokenizer = self._get_tokenizer(model_name)
 
     @classmethod
     def _get_tokenizer(cls, name: str) -> PreTrainedTokenizerBase:
@@ -76,15 +79,29 @@ class _HFTokenTextSplitter:
         return input_ids, offsets
 
     def split_text(self, text: str) -> List[str]:
+        return [piece for piece, _, _ in self.split_text_with_offsets(text)]
+
+    def split_text_with_offsets(self, text: str) -> List[Tuple[str, int, int]]:
+        """Chunks as (piece, start, end) with ``text[start:end] == piece`` (end exclusive).
+
+        Positions come straight from the tokenizer's character offsets of the window's first and
+        last token; with ``strip_whitespace`` the start is moved past the stripped leading
+        whitespace. Nothing is searched for.
+        """
         if not text:
             return []
-
         input_ids, offsets = self._tokenize_with_offsets(text)
         n_tokens = len(input_ids)
         if n_tokens == 0:
-            return [] if not text.strip() else [text.strip() if self.strip_whitespace else text]
+            if not text.strip():
+                return []
+            if not self.strip_whitespace:
+                return [(text, 0, len(text))]
+            start = len(text) - len(text.lstrip())
+            piece = text.strip()
+            return [(piece, start, start + len(piece))]
 
-        chunks: List[str] = []
+        out: List[Tuple[str, int, int]] = []
         step = max(1, self.chunk_size - self.chunk_overlap)
         start_token = 0
 
@@ -94,14 +111,22 @@ class _HFTokenTextSplitter:
             end_char = offsets[end_token - 1][1]
             piece = text[start_char:end_char]
             if self.strip_whitespace:
-                piece = piece.strip()
-            if piece:
-                chunks.append(piece)
+                stripped = piece.strip()
+                if stripped:
+                    start_char += len(piece) - len(piece.lstrip())
+                piece = stripped
+                end_char = start_char + len(piece)
+            # A window whose characters all lie inside the previous chunk adds nothing. It happens
+            # when the last tokens of a SentencePiece text carry the same character offsets as the
+            # token before them (two tokens, one character): the window then ends at the same
+            # character as the previous one.
+            if piece and not (out and end_char <= out[-1][2]):
+                out.append((piece, start_char, end_char))
             if end_token == n_tokens:
                 break
             start_token += step
 
-        return chunks
+        return out
 
     def create_documents(
         self,
@@ -132,38 +157,8 @@ class _HFTokenTextSplitter:
         return docs
 
     def _split_with_starts(self, text: str) -> Tuple[List[str], List[int]]:
-        if not text:
-            return [], []
-        input_ids, offsets = self._tokenize_with_offsets(text)
-        n_tokens = len(input_ids)
-        if n_tokens == 0:
-            s = text.strip() if self.strip_whitespace else text
-            return ([s], [0]) if s else ([], [])
-
-        chunks: List[str] = []
-        starts: List[int] = []
-        step = max(1, self.chunk_size - self.chunk_overlap)
-        start_token = 0
-
-        while start_token < n_tokens:
-            end_token = min(n_tokens, start_token + self.chunk_size)
-            start_char = offsets[start_token][0]
-            end_char = offsets[end_token - 1][1]
-            piece = text[start_char:end_char]
-            if self.strip_whitespace:
-                piece_stripped = piece.strip()
-                if piece_stripped and piece != piece_stripped:
-                    lead_ws = len(piece) - len(piece.lstrip())
-                    start_char = start_char + lead_ws
-                piece = piece_stripped
-            if piece:
-                chunks.append(piece)
-                starts.append(start_char)
-            if end_token == n_tokens:
-                break
-            start_token += step
-
-        return chunks, starts
+        items = self.split_text_with_offsets(text)
+        return [p for p, _, _ in items], [a for _, a, _ in items]
 
 
 class FixedTokenChunker:
@@ -225,6 +220,10 @@ class FixedTokenChunker:
 
     def split_text(self, text: str) -> List[str]:
         return self._splitter.split_text(text)
+
+    def split_text_with_offsets(self, text: str) -> List[Tuple[str, int, int]]:
+        """[(chunk, start, end)] with ``text[start:end] == chunk``; positions are native, not searched."""
+        return self._splitter.split_text_with_offsets(text)
 
     def create_documents(
         self,

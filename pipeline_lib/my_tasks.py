@@ -18,7 +18,7 @@ class ChemQuest(AbsTaskRetrieval):
         name="ChemQuest",
         dataset={
             "path": "Bocklitz-Lab/ChemQuest",
-            "revision": "main",
+            "revision": "5ab7dc673653b800f368fe30851efbdb24385e0d",  # pinned ChemQuests release; see pipeline_lib/dataset_pin.py
         },
         description="A retrieval dataset for ChemQuest.",
         reference="https://huggingface.co/datasets/Bocklitz-Lab/ChemQuest",
@@ -93,10 +93,12 @@ class ChemQuest(AbsTaskRetrieval):
             if qid is None:
                 raise ValueError("Query row missing an id-like column (_id/id/query_id).")
             qid = str(qid)
-            text = r.get("text") or r.get("query")
+            text = r.get("text")
+            if text is None:
+                text = r.get("query")
             if text is None:
                 raise ValueError("Query row missing text/query column.")
-            out[qid] = text
+            out[qid] = text  # an empty question is kept (it scores 0), never dropped
         return out
 
     def _to_qrels(self, rows) -> Dict[str, Dict[str, int]]:
@@ -108,12 +110,59 @@ class ChemQuest(AbsTaskRetrieval):
                 raise ValueError("Qrels row missing query-id/query_id and/or corpus-id/doc_id.")
             qid = str(qid)
             did = str(did)
-            # `relevance` is the label. `score` is only a fallback for formats without
-            # a relevance column (e.g. test.tsv). Stage 5 also writes a continuous lexical
-            # `score` (0-3), which must not be used as the graded relevance.
-            rel = int(r.get("relevance", r.get("score", 1)))
+            # `relevance` is the label (0 or 1). The continuous lexical `score` written by
+            # stage 5 is never read as a label.
+            if r.get("relevance") is None:
+                raise ValueError(
+                    "Qrels row has no 'relevance' column; the 'score' column is never used as a label."
+                )
+            rel = self._parse_label(r["relevance"])
             out.setdefault(qid, {})[did] = rel
         return out
+
+    @staticmethod
+    def _parse_label(value) -> int:
+        f = float(value)
+        if f not in (0.0, 1.0):
+            raise ValueError(f"Relevance labels must be 0 or 1, got {value!r}.")
+        return int(f)
+
+    def _finalize_split(self, corpus, queries, qrels_all, origin: str):
+        """Build (queries, qrels) keeping EVERY query.
+
+        A query without a positive label stays in the evaluation and scores 0 (nDCG, Recall).
+        pytrec_eval only evaluates queries that appear in the qrels, so such a query needs at
+        least one row: stage 5 writes a relevance-0 row; if a query has no row at all, a
+        relevance-0 row on the first corpus id is added here (it cannot change any score).
+        """
+        corpus_ids = set(corpus)
+        if not corpus_ids:
+            raise ValueError("Empty corpus.")
+        if not queries:
+            raise ValueError("No queries found.")
+        placeholder = sorted(corpus_ids)[0]
+
+        kept_qrels: Dict[str, Dict[str, int]] = {}
+        n_qrels_unknown_query = sum(1 for q in qrels_all if q not in queries)
+        n_without_rows = 0
+        for qid in queries:
+            rels = {d: r for d, r in qrels_all.get(qid, {}).items() if d in corpus_ids}
+            if not rels:
+                rels = {placeholder: 0}
+                n_without_rows += 1
+            kept_qrels[qid] = rels
+
+        n_no_positive = sum(1 for rels in kept_qrels.values() if not any(v > 0 for v in rels.values()))
+        log.info(
+            f"ChemQuest({origin}): corpus={len(corpus)} docs, queries={len(queries)} "
+            f"-> all kept; {n_no_positive} without a positive label (score 0; "
+            f"{n_without_rows} had no usable qrels row), "
+            f"{n_qrels_unknown_query} qrels query ids not in queries were ignored."
+        )
+        if n_no_positive == len(queries):
+            raise ValueError("No query has a positive label. Check dataset alignment.")
+        return dict(queries), kept_qrels
+
     def load_data(self, data_dir: str | Path | None = None, **kwargs):
         """
         If data_dir is provided (arg or instance attribute), read from local files;
@@ -161,34 +210,7 @@ class ChemQuest(AbsTaskRetrieval):
                 )
             qrels_all = self._to_qrels(qrels_rows)
 
-            # --- filter qrels
-            corpus_ids = set(corpus.keys())
-            kept_qrels = {}
-            kept_queries = {}
-            dropped_qids_empty_text = 0
-            dropped_qids_missing_docs = 0
-
-            for qid, rels in qrels_all.items():
-                if qid not in queries:
-                    dropped_qids_empty_text += 1
-                    continue
-                rels_f = {did: rel for did, rel in rels.items() if did in corpus_ids}
-                if not rels_f:
-                    dropped_qids_missing_docs += 1
-                    continue
-                kept_qrels[qid] = rels_f
-                kept_queries[qid] = queries[qid]
-
-            log.info(
-                f"ChemQuest(local): corpus={len(corpus)} docs, "
-                f"queries={len(queries)} provided, qrels={len(qrels_all)} qids "
-                f"-> kept {len(kept_queries)} queries "
-                f"(dropped {dropped_qids_empty_text} empty-text, "
-                f"{dropped_qids_missing_docs} no-valid-docs)."
-            )
-
-            if not kept_qrels:
-                raise ValueError("After filtering, no valid queries/qrels remain. Check dataset alignment.")
+            kept_queries, kept_qrels = self._finalize_split(corpus, queries, qrels_all, "local")
 
             self.corpus = {"test": corpus}
             self.queries = {"test": kept_queries}
@@ -278,7 +300,7 @@ class ChemQuest(AbsTaskRetrieval):
     #         self.relevant_docs = {"test": kept_qrels}
     #         return  # done
 
-        # ---------- fallback: original HF path ----------
+        # ---------- fallback: HF Hub path ----------
         path = self.metadata.dataset["path"]
         rev = self.metadata.dataset.get("revision")
 
@@ -287,16 +309,10 @@ class ChemQuest(AbsTaskRetrieval):
             raise ValueError("Expected default config to contain a 'test' split with qrels.")
         test = ds_default["test"]
         cols = set(test.column_names)
-        required = {"query-id", "corpus-id", "score"}
+        required = {"query-id", "corpus-id", "relevance"}
         if not required.issubset(cols):
             raise ValueError(f"'test' split must have {required}, found {sorted(cols)}")
-
-        qrels = {}
-        for r in test:
-            qid = str(r["query-id"])
-            did = str(r["corpus-id"])
-            rel = int(r.get("score", 1))
-            qrels.setdefault(qid, {})[did] = rel
+        qrels = self._to_qrels(test)
 
         try:
             corpus_rows = load_dataset(path, name="corpus", revision=rev, split="corpus")
@@ -305,65 +321,18 @@ class ChemQuest(AbsTaskRetrieval):
                 "Could not load the corpus subset (name='corpus', split='corpus'). "
                 f"Original error: {e}"
             )
-
-        corpus = {}
-        for r in corpus_rows:
-            doc_id = r.get("_id") or r.get("id") or r.get("doc_id")
-            if doc_id is None:
-                raise ValueError("Corpus row missing an id-like column (_id/id/doc_id).")
-            doc_id = str(doc_id)
-            title = r.get("title")
-            text = r.get("text") or r.get("contents") or r.get("passage")
-            if text is None:
-                raise ValueError("Corpus row missing a text-like column (text/contents/passage).")
-            corpus[doc_id] = {"title": title, "text": text}
+        corpus = self._to_corpus(corpus_rows)
 
         try:
             queries_rows = load_dataset(path, name="queries", revision=rev, split="queries")
-            queries = {}
-            for r in queries_rows:
-                qid = r.get("_id") or r.get("id") or r.get("query_id")
-                if qid is None:
-                    raise ValueError("Query row missing an id-like column (_id/id/query_id).")
-                qid = str(qid)
-                qtext = r.get("text") or r.get("query")
-                if not qtext or not qtext.strip():
-                    continue
-                queries[qid] = qtext
         except Exception as e:
             raise ValueError(
                 "Could not load queries subset (name='queries', split='queries'). "
                 f"Original error: {e}"
             )
+        queries = self._to_queries(queries_rows)
 
-        corpus_ids = set(corpus.keys())
-        kept_qrels = {}
-        kept_queries = {}
-        dropped_qids_empty_text = 0
-        dropped_qids_missing_docs = 0
-
-        for qid, rels in qrels.items():
-            if qid not in queries:
-                dropped_qids_empty_text += 1
-                continue
-            rels_f = {did: rel for did, rel in rels.items() if did in corpus_ids}
-            if not rels_f:
-                dropped_qids_missing_docs += 1
-                continue
-            kept_qrels[qid] = rels_f
-            kept_queries[qid] = queries[qid]
-
-        log.info(
-            f"ChemQuest: corpus={len(corpus)} docs, "
-            f"queries={len(queries)} provided, "
-            f"qrels={len(qrels)} qids "
-            f"-> kept {len(kept_queries)} queries "
-            f"(dropped {dropped_qids_empty_text} empty-text, "
-            f"{dropped_qids_missing_docs} no-valid-docs)."
-        )
-
-        if not kept_qrels:
-            raise ValueError("After filtering, no valid queries/qrels remain. Check dataset alignment.")
+        kept_queries, kept_qrels = self._finalize_split(corpus, queries, qrels, "hf")
 
         self.corpus = {"test": corpus}
         self.queries = {"test": kept_queries}

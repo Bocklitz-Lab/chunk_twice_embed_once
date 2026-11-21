@@ -127,6 +127,35 @@ def locate_chunk_offsets(
 
 
 
+class ChunkOffsetError(RuntimeError):
+    """A chunker returned a position that does not reproduce its chunk (or breaks document order)."""
+
+
+def check_chunk_offsets(full_text: str, triples, source_id=None) -> None:
+    """Hard gate for chunkers that supply their own positions.
+
+    Every (text, start, end) must satisfy ``full_text[start:end] == text`` and the starts must not
+    decrease. Anything else raises ChunkOffsetError: the run stops instead of writing positions
+    that would silently mislabel chunks in a span-based relevance labelling.
+    """
+    prev_start = -1
+    for i, item in enumerate(triples):
+        try:
+            text, start, end = item
+        except (TypeError, ValueError):
+            raise ChunkOffsetError(f"doc {source_id!r} chunk {i}: expected (text, start, end), got {type(item)}")
+        where = f"doc {source_id!r} chunk {i}"
+        if not isinstance(text, str) or not text:
+            raise ChunkOffsetError(f"{where}: empty or non-string chunk text")
+        if not (isinstance(start, int) and isinstance(end, int)) or not (0 <= start < end <= len(full_text)):
+            raise ChunkOffsetError(f"{where}: invalid span ({start}, {end}) for a text of {len(full_text)} characters")
+        if full_text[start:end] != text:
+            raise ChunkOffsetError(f"{where}: text != full_text[{start}:{end}]")
+        if start < prev_start:
+            raise ChunkOffsetError(f"{where}: start {start} < previous start {prev_start} (chunks must be in document order)")
+        prev_start = start
+
+
 def load_config(path: str) -> Dict[str, Any]:
     p = Path(path)
     if not p.exists():
@@ -221,8 +250,9 @@ class ChunkerFactory:
             if SemanticSplitter is None:
                 raise ImportError("SemanticSplitter not importable.")
 
-            model_name = params.get("model_name") or params.get("embedding_model") \
-                        or "sentence-transformers/all-MiniLM-L6-v2"
+            model_name = params.get("model_name") or params.get("embedding_model")
+            if not model_name:
+                raise ValueError("Strategy 'semantic' needs params.model_name (no default model).")
 
             return SemanticSplitter(
                 model_name=model_name,
@@ -238,6 +268,7 @@ class ChunkerFactory:
                 model_kwargs=params.get("model_kwargs"),
                 encode_kwargs=params.get("encode_kwargs"),
                 tokenizer_kwargs=params.get("tokenizer_kwargs"),
+                cache_dir=params.get("cache_dir"),  # segmentation cache; never changes the output
             )
 
 
@@ -293,6 +324,7 @@ def process_docs(
     # Streaming read + write
     num_docs = 0
     num_chunks = 0
+    offset_sources: Dict[str, int] = {}
 
     with open(output_path, "w", encoding="utf-8") as out_f:
         for i, obj in enumerate(tqdm(iter_jsonl(input_path), desc="Chunking docs"), start=1):
@@ -313,16 +345,36 @@ def process_docs(
             else:
                 source_id = str(uuid.uuid4())
 
+            native_offsets = None  # [(start, end)] when the chunker supplies its own positions
             try:
-                chunks = chunker.split_text(raw_text)
+                if hasattr(chunker, "split_text_with_offsets"):
+                    triples = chunker.split_text_with_offsets(raw_text)
+                    chunks = [t for t, _, _ in triples]
+                    native_offsets = [(st, en) for _, st, en in triples]
+                else:
+                    chunks = chunker.split_text(raw_text)
             except Exception as e:
                 raise RuntimeError(f"Chunker failed for document #{i} (source_id={source_id}): {e}") from e
+
+            if native_offsets is not None:
+                # Hard gate: no search, no guessing. Wrong positions stop the run.
+                check_chunk_offsets(raw_text, triples, source_id)
 
             # ---- Normalize chunks to list[dict] with text + offsets + metadata ----
             norm_chunks: list[dict] = []
 
             if not chunks:
                 pass
+
+            elif native_offsets is not None:
+                for ctext, (s, e) in zip(chunks, native_offsets):
+                    norm_chunks.append({
+                        "text": ctext,
+                        "start_char": s,
+                        "end_char": e,
+                        "granularity": None,
+                        "offset_source": "native",
+                    })
 
             elif isinstance(chunks[0], str):
                 # legacy splitters (strings only)
@@ -379,6 +431,10 @@ def process_docs(
                     and raw_text[start_char:end_char] == chunk_text
                 )
                 if not offset_exact:
+                    if item.get("offset_source") == "native":
+                        raise ChunkOffsetError(
+                            f"doc {source_id!r} chunk {idx}: native position does not reproduce the chunk text"
+                        )
                     start_char, end_char = None, None
 
                 rec = {
@@ -393,6 +449,9 @@ def process_docs(
                     # before this field existed have unreliable positions when overlap > 0:
                     # treat a missing flag as untrusted.
                     "offset_exact": offset_exact,
+                    # "native": position computed by the chunker itself; "search": found by
+                    # locate_chunk_offsets (legacy string-only chunkers); "none": no exact position.
+                    "offset_source": (item.get("offset_source", "search") if offset_exact else "none"),
                 }
 
                 # pass-through useful metadata when present
@@ -411,10 +470,24 @@ def process_docs(
 
                 out_f.write(json.dumps(rec, ensure_ascii=False) + "\n")
                 num_chunks += 1
+                offset_sources[rec["offset_source"]] = offset_sources.get(rec["offset_source"], 0) + 1
 
             num_docs += 1
 
+    stats = {
+        "n_docs": num_docs,
+        "n_chunks": num_chunks,
+        "offset_sources": offset_sources,
+        # chunks whose text matched more than once inside the window where they can lie
+        # (recursive splitters); the first match was taken
+        "n_ambiguous_locations": getattr(chunker, "n_ambiguous", 0),
+        "n_relaxed_locations": getattr(chunker, "n_relaxed", 0),
+    }
+    with open(os.path.join(os.path.dirname(output_path) or ".", "chunking_stats.json"), "w", encoding="utf-8") as sf:
+        json.dump(stats, sf, indent=2)
+
     print(f"\nDone. Processed {num_docs} docs → wrote {num_chunks} chunks to {output_path}")
+    print(f"Offsets: {offset_sources}; ambiguous locations: {stats['n_ambiguous_locations']}")
 
 def main():
     ap = argparse.ArgumentParser(description="Chunk a JSONL of documents with a selectable strategy.")
