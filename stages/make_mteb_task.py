@@ -281,7 +281,6 @@ def save_jsonl(data, file_name):
             f.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
 queries_out, qrels_out = [], []
-query_id = 0
 n_no_positive = 0  # questions that end up without any relevant chunk (kept, with a relevance-0 row)
 
 
@@ -300,7 +299,9 @@ def _zero_label_row(qid, doc_id):
     return row
 
 
-for question, references, doc_id in qa_pairs:
+# Query id == row index of the question in qa.jsonl (one entry of qa_pairs per record, nothing
+# is ever skipped), never a running counter that a skipped question could shift.
+for query_id, (question, references, doc_id) in enumerate(qa_pairs):
     # Build the reference text: content + question (simple concat)
     ref_content = (references[0].get("content") or "").strip()
     combined_ref = (ref_content + " " + (question or "")).strip()
@@ -313,7 +314,6 @@ for question, references, doc_id in qa_pairs:
         print(f"⚠️ Query {query_id}: empty content+question -> kept with a relevance-0 row.")
         qrels_out.append(_zero_label_row(query_id, doc_id))
         n_no_positive += 1
-        query_id += 1
         continue
 
     # Decide search docs
@@ -347,7 +347,6 @@ for question, references, doc_id in qa_pairs:
         print(f"⚠️ No candidates scored for query {query_id} -> kept with a relevance-0 row.")
         qrels_out.append(_zero_label_row(query_id, doc_id))
         n_no_positive += 1
-        query_id += 1
         continue
 
     # 2) Normalize BM25 by max BM25 among ALL candidates (per query)
@@ -371,7 +370,6 @@ for question, references, doc_id in qa_pairs:
         print(f"⚠️ Best final score <= 0 for query {query_id} -> kept with a relevance-0 row.")
         qrels_out.append(_zero_label_row(query_id, doc_id))
         n_no_positive += 1
-        query_id += 1
         continue
 
     kept = [(best_cid, best_score, 1.0)]  # (cid, score, norm_score)
@@ -401,7 +399,9 @@ for question, references, doc_id in qa_pairs:
             qrel["fuzzy"] = float(f"{cand[cid]['fuzzy']:.6f}")
         qrels_out.append(qrel)
 
-    query_id += 1
+
+# Hard check of the id rule: query id i is row i of qa.jsonl.
+assert [q["id"] for q in queries_out] == [str(i) for i in range(len(qa_pairs))], "query ids != qa.jsonl rows"
 
 # outputs
 def save_jsonl(data, file_name):
