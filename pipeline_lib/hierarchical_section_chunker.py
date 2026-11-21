@@ -71,15 +71,23 @@ class _HFTokenTextSplitter:
             return self._basic_tokenize_with_offsets(text)
 
     def split_text(self, text: str) -> List[str]:
+        return [piece for piece, _, _ in self.split_text_with_offsets(text)]
+
+    def split_text_with_offsets(self, text: str) -> List[Tuple[str, int, int]]:
+        """(chunk, start, end) with ``text[start:end] == chunk`` (end exclusive)."""
         text = text or ""
         if not text.strip():
             return []
 
         offsets = self._tokenize_with_offsets(text)
         if not offsets:
-            return [text.strip()] if self._strip_ws else [text]
+            if not self._strip_ws:
+                return [(text, 0, len(text))]
+            start = len(text) - len(text.lstrip())
+            piece = text.strip()
+            return [(piece, start, start + len(piece))]
 
-        chunks: List[str] = []
+        out: List[Tuple[str, int, int]] = []
         n = len(offsets)
         size = self._chunk_size
         overlap = self._chunk_overlap
@@ -91,14 +99,18 @@ class _HFTokenTextSplitter:
             end_char = offsets[end_tok - 1][1]
             chunk = text[start_char:end_char]
             if self._strip_ws:
-                chunk = chunk.strip()
+                stripped = chunk.strip()
+                if stripped:
+                    start_char += len(chunk) - len(chunk.lstrip())
+                chunk = stripped
+                end_char = start_char + len(chunk)
             if chunk:
-                chunks.append(chunk)
+                out.append((chunk, start_char, end_char))
             if end_tok == n:
                 break
             # advance with overlap
             start_tok = end_tok - overlap if end_tok - overlap > start_tok else end_tok
-        return chunks
+        return out
 
     def create_documents(self, texts: Sequence[str], metadatas: Optional[Sequence[dict]] = None):
         docs = []
@@ -335,6 +347,13 @@ class HierarchicalSectionChunker:
     # ---------- Public API ----------
 
     def split_text(self, text: str) -> List[str]:
+        return [piece for piece, _, _ in self.split_text_with_offsets(text)]
+
+    def split_text_with_offsets(self, text: str) -> List[Tuple[str, int, int]]:
+        """[(chunk, start, end)] with ``text[start:end] == chunk`` (end exclusive).
+
+        Native positions: section start plus the position of the token window inside the section.
+        """
         text = text or ""
         if not text.strip():
             return []
@@ -344,7 +363,7 @@ class HierarchicalSectionChunker:
 
         # If nothing detected, just token-chunk the whole text
         if not headings:
-            return self._splitter.split_text(text)
+            return self._splitter.split_text_with_offsets(text)
 
         # Remove duplicates / sort
         headings = self._dedupe_and_sort(headings)
@@ -362,13 +381,14 @@ class HierarchicalSectionChunker:
             spans = self._merge_short_sections(text, spans, self._config["min_section_tokens"])
 
         # Step 4: inside each section, run token splitter
-        chunks: List[str] = []
+        out: List[Tuple[str, int, int]] = []
         for (s, e) in spans:
             section_text = text[s:e]
             if section_text.strip():
-                chunks.extend(self._splitter.split_text(section_text))
+                for piece, a, b in self._splitter.split_text_with_offsets(section_text):
+                    out.append((piece, s + a, s + b))
 
-        return chunks
+        return out
 
     def create_documents(
         self,

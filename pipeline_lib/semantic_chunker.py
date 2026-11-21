@@ -103,6 +103,10 @@ class _HFTokenTextSplitter:
         self.strip_whitespace = strip_whitespace
 
     def split_text(self, text: str) -> List[str]:
+        return [piece for piece, _, _ in self.split_text_with_offsets(text)]
+
+    def split_text_with_offsets(self, text: str) -> List[Tuple[str, int, int]]:
+        """(piece, start, end) with ``text[start:end] == piece``; positions come from the token windows."""
         enc = self.tokenizer(
             text,
             add_special_tokens=False,
@@ -116,17 +120,22 @@ class _HFTokenTextSplitter:
             return []
 
         step = max(1, self.chunk_size - self.chunk_overlap)
-        chunks: List[str] = []
+        out: List[Tuple[str, int, int]] = []
         for start in range(0, len(offsets), step):
             window = offsets[start : start + self.chunk_size]
             if not window:
                 continue
-            piece = text[window[0][0] : window[-1][1]]
+            a, b = window[0][0], window[-1][1]
+            piece = text[a:b]
             if self.strip_whitespace:
-                piece = piece.strip()
+                stripped = piece.strip()
+                if stripped:
+                    a += len(piece) - len(piece.lstrip())
+                piece = stripped
+                b = a + len(piece)
             if piece:
-                chunks.append(piece)
-        return chunks
+                out.append((piece, a, b))
+        return out
 
 
 class SemanticSplitter:
@@ -311,12 +320,21 @@ class SemanticSplitter:
         1) Split semantically into coherent segments.
         2) Within each segment, enforce token-based chunk_size/overlap with HF tokenizer.
         """
-        segments = self._semantic_segments(text)
-        chunks: List[str] = []
-        for seg in segments:
-            sub_chunks = self._token_splitter.split_text(seg)
-            chunks.extend(sub_chunks)
-        return chunks
+        return [piece for piece, _, _ in self.split_text_with_offsets(text)]
+
+    def split_text_with_offsets(self, text: str) -> List[Tuple[str, int, int]]:
+        """[(chunk, start, end)] with ``text[start:end] == chunk`` (end exclusive).
+
+        Positions are native: the segment span from ``_segment_spans`` plus the position of the
+        chunk inside the segment (token-window start for semantic-fixed, a search confined to
+        the segment for semantic-recursive).
+        """
+        out: List[Tuple[str, int, int]] = []
+        for a, b in self._segment_spans(text):
+            seg = text[a:b]
+            for piece, s, e in self._token_splitter.split_text_with_offsets(seg):
+                out.append((piece, a + s, a + e))
+        return out
 
     def create_documents(
         self,
@@ -337,26 +355,21 @@ class SemanticSplitter:
         out_docs: List[Document] = []
         for i, text in enumerate(texts):
             base_meta = metadatas[i] if metadatas else {}
-            segments = self._semantic_segments(text)
-
-            cursor = 0
-            for seg in segments:
-                sub_chunks = self._token_splitter.split_text(seg)
-                for ch in sub_chunks:
-                    start_idx = None
-                    if self._add_start_index:
-                        pos = text.find(ch, cursor)
-                        if pos == -1:
-                            pos = text.find(ch)
-                        if pos != -1:
-                            start_idx = pos
-                            cursor = pos + len(ch)
-
-                    meta = dict(base_meta)
-                    if start_idx is not None:
-                        meta["start_index"] = start_idx
-                    out_docs.append(Document(page_content=ch, metadata=meta))
+            for ch, start, _end in self.split_text_with_offsets(text):
+                meta = dict(base_meta)
+                if self._add_start_index:
+                    meta["start_index"] = start
+                out_docs.append(Document(page_content=ch, metadata=meta))
         return out_docs
+
+    @property
+    def n_ambiguous(self) -> int:
+        """Chunks (recursive variant only) whose text matched more than once in their window."""
+        return getattr(self._token_splitter, "n_ambiguous", 0)
+
+    @property
+    def n_relaxed(self) -> int:
+        return getattr(self._token_splitter, "n_relaxed", 0)
 
     @property
     def config(self) -> dict:
