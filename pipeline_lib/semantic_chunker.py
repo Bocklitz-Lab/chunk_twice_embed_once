@@ -135,6 +135,8 @@ class _HFTokenTextSplitter:
                 b = a + len(piece)
             if piece:
                 out.append((piece, a, b))
+            if start + self.chunk_size >= len(offsets):
+                break  # this window reaches the end of the segment: another one would lie inside it
         return out
 
 
