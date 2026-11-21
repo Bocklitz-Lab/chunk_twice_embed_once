@@ -502,8 +502,13 @@ class HierarchicalSectionChunker:
             return any(lbl in l for lbl in lowered_labels)
 
         if drop_from_first_match:
+            # The scan runs from the end, so it cuts at the LAST matching heading. A match in the
+            # front matter ("Corresponding Author", "Electronic supplementary information", ...)
+            # is not end matter: cutting there drops the whole paper body (docs 9 and 23 were
+            # reduced to ~2% of their text). Ignore matches in the first 30% of the document.
+            min_start = 0.30 * len(text)
             for i in range(len(spans) - 1, -1, -1):
-                if is_tail(spans[i]):
+                if spans[i][0] >= min_start and is_tail(spans[i]):
                     return spans[:i]
             return spans
 
