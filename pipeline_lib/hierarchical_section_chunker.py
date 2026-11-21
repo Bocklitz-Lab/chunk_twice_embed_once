@@ -100,7 +100,10 @@ class _HFTokenTextSplitter:
                     start_char += len(chunk) - len(chunk.lstrip())
                 chunk = stripped
                 end_char = start_char + len(chunk)
-            if chunk:
+            # skip a window whose characters all lie inside the previous chunk (two tokens with the
+            # same character offsets, as in SentencePiece vocabularies, make the last window end at
+            # the same character as the one before it)
+            if chunk and not (out and end_char <= out[-1][2]):
                 out.append((chunk, start_char, end_char))
             if end_tok == n:
                 break

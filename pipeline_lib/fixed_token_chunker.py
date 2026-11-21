@@ -116,7 +116,11 @@ class _HFTokenTextSplitter:
                     start_char += len(piece) - len(piece.lstrip())
                 piece = stripped
                 end_char = start_char + len(piece)
-            if piece:
+            # A window whose characters all lie inside the previous chunk adds nothing. It happens
+            # when the last tokens of a SentencePiece text carry the same character offsets as the
+            # token before them (two tokens, one character): the window then ends at the same
+            # character as the previous one.
+            if piece and not (out and end_char <= out[-1][2]):
                 out.append((piece, start_char, end_char))
             if end_token == n_tokens:
                 break

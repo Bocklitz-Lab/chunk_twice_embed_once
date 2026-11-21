@@ -143,7 +143,8 @@ class _HFTokenTextSplitter:
                     a += len(piece) - len(piece.lstrip())
                 piece = stripped
                 b = a + len(piece)
-            if piece:
+            # skip a window whose characters all lie inside the previous chunk (see fixed-token chunker)
+            if piece and not (out and b <= out[-1][2]):
                 out.append((piece, a, b))
             if start + self.chunk_size >= len(offsets):
                 break  # this window reaches the end of the segment: another one would lie inside it
