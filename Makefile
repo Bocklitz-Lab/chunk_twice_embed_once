@@ -27,6 +27,9 @@ DURATION_CSV ?= $(RESULTS)/durations.csv
 # a run that failed after stage 4 or 5 leaves one behind.
 FINAL_RESULT ?= results/summary.json
 
+# Extra "--param KEY=VALUE" options for split_config (e.g. a pilot with other paths or eval.top_k=100)
+EXTRA_PARAMS ?=
+
 # Build directory name
 STAGE1_CONFIG ?= configs/stages/stage1.yaml
 STAGE2_CONFIG ?= configs/stages/stage2.yaml
@@ -115,7 +118,7 @@ stage4-6:
 				--param model.dir=$${dir} \
 				--param chunk.chunker=$${c} \
 				--param chunk.size=$${s} \
-				--param chunk.overlap=$${o}; \
+				--param chunk.overlap=$${o} $(EXTRA_PARAMS); \
 				rm -f $$config_dir/stage1.yaml $$config_dir/stage2.yaml $$config_dir/stage3.yaml; \
 				\
 				# ---------- Run stage4 (chunking) ---------- \

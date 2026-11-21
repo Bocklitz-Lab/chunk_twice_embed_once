@@ -60,3 +60,18 @@ def test_empty_summary_file_is_not_a_result(tmp_path):
     (out / "results/summary.json").write_text("")
     _, stages = _make(work, bindir, tmp_path)
     assert len(stages) == 3
+
+
+def test_extra_params_reach_split_config(tmp_path):
+    work, bindir = _setup(tmp_path)
+    log = tmp_path / "calls.log"
+    log.write_text("")
+    env = {"PATH": f"{bindir}:/usr/bin:/bin", "PYSTUB_LOG": str(log), "HOME": str(tmp_path)}
+    r = subprocess.run(
+        ["make", "stage4-6", "MODELS_CSV=models.csv", "CHUNKER=fixed_token", "SIZE=128", "OVERLAP=0",
+         "EXTRA_PARAMS=--param eval.top_k=100"],
+        cwd=work, env=env, capture_output=True, text=True,
+    )
+    assert r.returncode == 0, r.stdout + r.stderr
+    split_calls = [l for l in log.read_text().splitlines() if "pipeline_lib.split_config" in l]
+    assert len(split_calls) == 1 and "--param eval.top_k=100" in split_calls[0]

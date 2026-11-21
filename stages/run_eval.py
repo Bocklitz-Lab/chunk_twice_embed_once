@@ -99,6 +99,11 @@ class AppConfig:
     # Optional global encode kwargs (merged with model.encode_kwargs, model wins)
     encode_kwargs: Dict[str, Any] = field(default_factory=dict)
 
+    # Optional retrieval depth passed to MTEB (top_k). None = MTEB's default (1000), which is what
+    # all published runs used. A smaller value (e.g. 100) only truncates the saved rankings and the
+    # @1000 metrics; metrics at k <= top_k are unchanged.
+    top_k: Optional[int] = None
+
 def parse_app_config(raw: Dict[str, Any]) -> AppConfig:
     if not isinstance(raw, dict):
         raise ValueError("Top-level config must be a mapping.")
@@ -137,12 +142,19 @@ def parse_app_config(raw: Dict[str, Any]) -> AppConfig:
     import_modules = raw.get("import_modules", []) or []
     encode_kwargs = raw.get("encode_kwargs", {}) or {}
 
+    top_k = raw.get("top_k")
+    if top_k is not None:
+        top_k = int(top_k)
+        if top_k <= 0:
+            raise ValueError(f"top_k must be a positive integer or null, got {top_k}")
+
     return AppConfig(
         models=models,
         tasks=tasks,
         output_root=output_root,
         import_modules=import_modules,
         encode_kwargs=encode_kwargs,
+        top_k=top_k,
     )
 
 # =================== TASK RESOLUTION ========================================
@@ -352,6 +364,11 @@ def main():
 
         # Run all tasks for this model
         evaluation = MTEB(tasks=tasks_resolved)
+        run_kwargs: Dict[str, Any] = {}
+        if app_cfg.top_k is not None:
+            # Only set for explicit runs (e.g. the pilot): it lowers the retrieval depth and so
+            # changes the @1000 metrics. The default (None) keeps MTEB's depth.
+            run_kwargs["top_k"] = app_cfg.top_k
         results = evaluation.run(
             model,
             model_name=model_name,
@@ -359,8 +376,8 @@ def main():
             output_folder=str(model_out_dir),
             encode_kwargs=encode_kwargs,  # replace deprecated batch_size arg
             # Save the ranked retrieval results (<task>_default_predictions.json in output_folder).
-            # Do NOT also pass top_k: it would lower the retrieval depth and change the @1000 metrics.
             save_predictions=True,
+            **run_kwargs,
         )
 
         # MTEB silently reuses an existing ChemQuest.json and then saves nothing: fail loudly instead.

@@ -194,6 +194,9 @@ params:
             - "table of contents graphic"
           drop_from_first_match: true
 
+  eval:
+    top_k: null   # null = MTEB default depth (published runs). Set e.g. 100 only for explicit pilot runs.
+
   strategy:
     preset: ${params.chunk.chunker}
     overrides: 
@@ -557,4 +560,5 @@ stage6:
   encode_kwargs:
     normalize_embeddings: false
   output_root: ${params.paths.test_results_dir}
+  top_k: ${params.eval.top_k}
 
