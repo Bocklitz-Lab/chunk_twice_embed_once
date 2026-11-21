@@ -84,8 +84,10 @@ class RecursiveTokenChunker:
                 "Install with `pip install transformers`."
             ) from e
 
-        if model_name is None:
-            model_name = "bert-base-uncased"
+        if not model_name:
+            # No silent default (it used to be bert-base-uncased): chunk size is measured with the
+            # tokenizer of the embedding model that will encode the chunks.
+            raise ValueError("RecursiveTokenChunker needs model_name (the HF tokenizer of the embedding model).")
 
         try:
             tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)

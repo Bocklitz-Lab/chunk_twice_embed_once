@@ -250,8 +250,9 @@ class ChunkerFactory:
             if SemanticSplitter is None:
                 raise ImportError("SemanticSplitter not importable.")
 
-            model_name = params.get("model_name") or params.get("embedding_model") \
-                        or "sentence-transformers/all-MiniLM-L6-v2"
+            model_name = params.get("model_name") or params.get("embedding_model")
+            if not model_name:
+                raise ValueError("Strategy 'semantic' needs params.model_name (no default model).")
 
             return SemanticSplitter(
                 model_name=model_name,

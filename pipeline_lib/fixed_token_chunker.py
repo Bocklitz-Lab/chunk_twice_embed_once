@@ -48,8 +48,11 @@ class _HFTokenTextSplitter:
         self.add_start_index = bool(add_start_index)
         self.strip_whitespace = bool(strip_whitespace)
 
-        tok_name = model_name or "gpt2"  # default to a widely available HF tokenizer
-        self.tokenizer = self._get_tokenizer(tok_name)
+        if not model_name:
+            # No silent default (it used to be gpt2): the chunk size must be measured with the
+            # tokenizer of the embedding model that will encode the chunks.
+            raise ValueError("FixedTokenChunker needs model_name (the HF tokenizer of the embedding model).")
+        self.tokenizer = self._get_tokenizer(model_name)
 
     @classmethod
     def _get_tokenizer(cls, name: str) -> PreTrainedTokenizerBase:

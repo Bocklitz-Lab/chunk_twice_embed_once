@@ -151,7 +151,7 @@ class SemanticSplitter:
       - create_documents(texts: Sequence[str], metadatas: Optional[Sequence[dict]]) -> List[Document]
 
     Init parameters kept:
-      model_name: str                                  # HF model id for both embeddings + tokenizer
+      model_name: str (required, no default)           # HF model id for both embeddings + tokenizer
       chunk_size: int = 4000
       chunk_overlap: int = 200
       use_recursive: bool = False
@@ -166,7 +166,7 @@ class SemanticSplitter:
     def __init__(
         self,
         *,
-        model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
+        model_name: Optional[str] = None,
         chunk_size: int = 4000,
         chunk_overlap: int = 200,
         use_recursive: bool = False,
@@ -190,6 +190,8 @@ class SemanticSplitter:
             raise ValueError("chunk_overlap must be <= chunk_size")
         if Document is None:
             raise ImportError("Could not import LangChain Document class.")
+        if not model_name:
+            raise ValueError("SemanticSplitter needs model_name (embedding model and tokenizer; no default).")
 
         # --- Build HF pieces from model_name ---
         # 1) Embeddings for SemanticChunker

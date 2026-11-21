@@ -4,9 +4,8 @@ from pipeline_lib.hierarchical_section_chunker import HierarchicalSectionChunker
 
 
 def _chunker():
-    # model_name=None: whitespace tokens, so the test runs offline.
     return HierarchicalSectionChunker(
-        model_name=None,
+        model_name="bert-base-uncased",
         chunk_size=40,
         chunk_overlap=0,
         use_latex=False,

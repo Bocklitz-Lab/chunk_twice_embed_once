@@ -33,7 +33,7 @@ class _HFTokenTextSplitter:
         *,
         chunk_size: int,
         chunk_overlap: int,
-        tokenizer=None,  # HF tokenizer or None
+        tokenizer=None,  # HF tokenizer (required)
         add_start_index: bool = False,
         strip_whitespace: bool = True,
     ) -> None:
@@ -43,32 +43,28 @@ class _HFTokenTextSplitter:
             )
         self._chunk_size = int(chunk_size)
         self._chunk_overlap = int(chunk_overlap)
-        self._tokenizer = tokenizer  # HF tokenizer (fast preferred), or None
+        if tokenizer is None:
+            raise ValueError("_HFTokenTextSplitter needs a Hugging Face tokenizer (no whitespace fallback).")
+        self._tokenizer = tokenizer  # HF fast tokenizer
         self._add_start_index = bool(add_start_index)
         self._strip_ws = bool(strip_whitespace)
 
-    def _basic_tokenize_with_offsets(self, text: str) -> List[Tuple[int, int]]:
-        # Fallback: split on non-space and capture spans
-        return [m.span() for m in re.finditer(r"\S+", text)]
-
     def _tokenize_with_offsets(self, text: str) -> List[Tuple[int, int]]:
-        if self._tokenizer is None:
-            return self._basic_tokenize_with_offsets(text)
-        try:
-            enc = self._tokenizer(
-                text,
-                return_offsets_mapping=True,
-                add_special_tokens=False,
-                truncation=False,
+        # No fallback to whitespace "tokens": chunk size must always be counted in model tokens.
+        enc = self._tokenizer(
+            text,
+            return_offsets_mapping=True,
+            add_special_tokens=False,
+            truncation=False,
+        )
+        offsets = enc.get("offset_mapping", None)
+        if offsets is None:
+            raise ValueError(
+                "The tokenizer returned no offset_mapping (a fast tokenizer is required to cut chunks "
+                "at exact character positions)."
             )
-            offsets = enc.get("offset_mapping", None)
-            if offsets is None:
-                # Some slow tokenizers may not support offsets; fallback
-                return self._basic_tokenize_with_offsets(text)
-            # Filter out tokens with offset (0,0) which can appear for special handling
-            return [(s, e) for (s, e) in offsets if not (s == 0 and e == 0)]
-        except Exception:
-            return self._basic_tokenize_with_offsets(text)
+        # Filter out tokens with offset (0,0) which can appear for special handling
+        return [(s, e) for (s, e) in offsets if not (s == 0 and e == 0)]
 
     def split_text(self, text: str) -> List[str]:
         return [piece for piece, _, _ in self.split_text_with_offsets(text)]
@@ -150,7 +146,7 @@ class HierarchicalSectionChunker:
         *,
         # tokenization controls (kept for interface compatibility)
         encoding_name: str = "cl100k_base",   # kept but not used without tiktoken
-        model_name: Optional[str] = None,     # HF model id to load tokenizer from
+        model_name: Optional[str] = None,     # HF model id of the tokenizer (required; no fallback)
         allowed_special: Union[Literal["all"], AbstractSet[str]] = set(),   # unused with HF
         disallowed_special: Union[Literal["all"], Collection[str]] = "all", # unused with HF
         chunk_size: int = 800,
@@ -184,13 +180,19 @@ class HierarchicalSectionChunker:
 
         self.keep_separator = keep_separator
 
-        # Try to prepare a HF tokenizer for both counting and chunking
-        self._hf_tokenizer = None
-        if model_name and AutoTokenizer is not None:
-            try:
-                self._hf_tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
-            except Exception:
-                self._hf_tokenizer = None
+        # The HF tokenizer of the embedding model counts and cuts. There is no fallback: a missing
+        # model_name or a tokenizer that cannot be loaded used to switch chunk size and
+        # min_section_tokens silently from tokens to whitespace words (bug B6).
+        if not model_name:
+            raise ValueError("HierarchicalSectionChunker needs model_name (the HF tokenizer of the embedding model).")
+        if AutoTokenizer is None:
+            raise ImportError("transformers is required for HierarchicalSectionChunker.")
+        try:
+            self._hf_tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
+        except Exception as e:
+            raise RuntimeError(f"Could not load the tokenizer for model_name={model_name!r}: {e}") from e
+        if not getattr(self._hf_tokenizer, "is_fast", False):
+            raise ValueError(f"The tokenizer for {model_name!r} is not a fast tokenizer (no character offsets).")
 
         # splitter used *inside* sections (HF-based)
         self._splitter = _HFTokenTextSplitter(
@@ -601,14 +603,8 @@ class HierarchicalSectionChunker:
         return titleish >= 0.6
 
     def _count_tokens(self, text: str) -> int:
-        # Use HF tokenizer if available, else fallback to word-count proxy
-        if self._hf_tokenizer is None:
-            return max(1, len(re.findall(r"\w+", text)))
-        try:
-            # add_special_tokens=False to match chunking behavior
-            return len(self._hf_tokenizer.encode(text, add_special_tokens=False))
-        except Exception:
-            return max(1, len(re.findall(r"\w+", text)))
+        # add_special_tokens=False to match chunking behavior; no word-count fallback
+        return len(self._hf_tokenizer.encode(text, add_special_tokens=False))
 
     # Convenience passthroughs
     @property
