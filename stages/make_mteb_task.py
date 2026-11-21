@@ -45,6 +45,13 @@ qa_jsonl_file     = cfg["qa_jsonl_file"]
 chunks_jsonl_file = cfg["chunks_jsonl_file"]
 output_folder     = cfg["output_folder"]
 
+# Pinned dataset: stop if qa.jsonl is not the corrected ChemQuests release.
+_repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if _repo_root not in __import__("sys").path:
+    __import__("sys").path.insert(0, _repo_root)
+from pipeline_lib.dataset_pin import CHEMQUESTS_QA_SHA256, verify_qa_sha256  # noqa: E402
+verify_qa_sha256(qa_jsonl_file, cfg.get("qa_sha256") or CHEMQUESTS_QA_SHA256)
+
 # Knobs
 SEARCH_SCOPE = cfg.get("search_scope", "single")         # "single" or "all"
 INCLUDE_SOURCE = cfg.get("include_source_flag", True)    # include scores in qrels

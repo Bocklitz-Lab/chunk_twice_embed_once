@@ -18,7 +18,7 @@ class ChemQuest(AbsTaskRetrieval):
         name="ChemQuest",
         dataset={
             "path": "Bocklitz-Lab/ChemQuest",
-            "revision": "main",
+            "revision": "5ab7dc673653b800f368fe30851efbdb24385e0d",  # pinned ChemQuests release; see pipeline_lib/dataset_pin.py
         },
         description="A retrieval dataset for ChemQuest.",
         reference="https://huggingface.co/datasets/Bocklitz-Lab/ChemQuest",
