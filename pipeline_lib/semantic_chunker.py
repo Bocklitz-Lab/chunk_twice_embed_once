@@ -1,8 +1,18 @@
 # MIT License
 # Semantic splitter wrapper using LangChain's SemanticChunker (+ HF token-size enforcement)
 
+import hashlib
+import json
+import logging
+import os
 import re
+import tempfile
 from typing import Any, List, Optional, Sequence, Dict, Tuple
+
+log = logging.getLogger(__name__)
+
+# Bump when the meaning of a cached segmentation changes (it is part of the cache key).
+_SEGMENT_CACHE_VERSION = 1
 
 # Document
 try:
@@ -180,6 +190,7 @@ class SemanticSplitter:
         model_kwargs: Optional[Dict[str, Any]] = None,
         encode_kwargs: Optional[Dict[str, Any]] = None,
         tokenizer_kwargs: Optional[Dict[str, Any]] = None,
+        cache_dir: Optional[str] = None,
         **_: Any,
     ) -> None:
         if chunk_size <= 0:
@@ -250,6 +261,15 @@ class SemanticSplitter:
         self._add_start_index = add_start_index
         self._strip_whitespace = strip_whitespace
 
+        # Optional on-disk cache of the semantic segmentation. The breakpoints depend on the
+        # embedding model, the document and the breakpoint parameters, but NOT on chunk_size or
+        # chunk_overlap, so one entry serves every size/overlap of the same (model, document).
+        self._cache_dir = os.fspath(cache_dir) if cache_dir else None
+        self._encode_kwargs = dict(encode_kwargs) if encode_kwargs else None
+        self._model_kwargs = dict(model_kwargs) if model_kwargs else None
+        self.cache_hits = 0
+        self.cache_misses = 0
+
         self._config = dict(
             model_name=model_name,
             chunk_size=chunk_size,
@@ -265,7 +285,85 @@ class SemanticSplitter:
             embeddings="hf",
         )
 
+    def _cache_key(self, text: str) -> str:
+        """sha256 over everything that determines the segmentation of ``text``.
+
+        model name, document text hash and the splitter parameters (breakpoint type/amount,
+        buffer size, min chunk size, number_of_chunks, sentence regex, embedding kwargs) plus the
+        langchain-experimental version. Not chunk_size / chunk_overlap / strategy.
+        """
+        sc = self._semantic
+        try:
+            from importlib.metadata import version
+            lc_version = version("langchain-experimental")
+        except Exception:
+            lc_version = "unknown"
+        payload = {
+            "cache_version": _SEGMENT_CACHE_VERSION,
+            "model_name": self._config["model_name"],
+            "text_sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
+            "breakpoint_threshold_type": self._config["breakpoint_threshold_type"],
+            "breakpoint_threshold_amount": self._config["breakpoint_threshold_amount"],
+            "buffer_size": self._config["buffer_size"],
+            "min_chunk_size": self._config["min_chunk_size"],
+            "number_of_chunks": getattr(sc, "number_of_chunks", None),
+            "sentence_split_regex": getattr(sc, "sentence_split_regex", None),
+            "encode_kwargs": self._encode_kwargs,
+            "model_kwargs": self._model_kwargs,
+            "langchain_experimental": lc_version,
+        }
+        blob = json.dumps(payload, sort_keys=True, default=str)
+        return hashlib.sha256(blob.encode("utf-8")).hexdigest()
+
+    @staticmethod
+    def _valid_spans(spans: Any, n: int) -> bool:
+        if not isinstance(spans, list) or not spans:
+            return False
+        prev_end = 0
+        for sp in spans:
+            if not (isinstance(sp, (list, tuple)) and len(sp) == 2 and all(isinstance(v, int) for v in sp)):
+                return False
+            a, b = sp
+            if not (prev_end <= a <= b <= n):
+                return False
+            prev_end = b
+        return True
+
     def _segment_spans(self, text: str) -> List[Tuple[int, int]]:
+        """Semantic segment spans of ``text``, served from the on-disk cache when enabled.
+
+        The cache never changes a result: an entry is used only if its key matches and its spans
+        are valid for this text; anything else is recomputed and rewritten.
+        """
+        if not self._cache_dir:
+            return self._compute_segment_spans(text)
+        path = os.path.join(self._cache_dir, f"{self._cache_key(text)}.json")
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                spans = json.load(f)["spans"]
+            if self._valid_spans(spans, len(text)):
+                self.cache_hits += 1
+                return [(a, b) for a, b in spans]
+            log.warning("ignoring invalid semantic cache entry %s", path)
+        except FileNotFoundError:
+            pass
+        except Exception as e:  # unreadable / corrupt entry: recompute
+            log.warning("ignoring unreadable semantic cache entry %s (%s)", path, e)
+
+        spans = self._compute_segment_spans(text)
+        self.cache_misses += 1
+        try:
+            os.makedirs(self._cache_dir, exist_ok=True)
+            fd, tmp = tempfile.mkstemp(dir=self._cache_dir, suffix=".tmp")
+            with os.fdopen(fd, "w", encoding="utf-8") as f:
+                json.dump({"model_name": self._config["model_name"], "n_chars": len(text),
+                           "spans": [list(sp) for sp in spans]}, f)
+            os.replace(tmp, path)  # atomic: parallel runs never see a half-written file
+        except Exception as e:
+            log.warning("could not write semantic cache entry %s (%s)", path, e)
+        return spans
+
+    def _compute_segment_spans(self, text: str) -> List[Tuple[int, int]]:
         """
         (start, end) character spans, in the ORIGINAL text, of the semantic segments.
 

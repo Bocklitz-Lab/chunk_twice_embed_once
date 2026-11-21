@@ -268,6 +268,7 @@ class ChunkerFactory:
                 model_kwargs=params.get("model_kwargs"),
                 encode_kwargs=params.get("encode_kwargs"),
                 tokenizer_kwargs=params.get("tokenizer_kwargs"),
+                cache_dir=params.get("cache_dir"),  # segmentation cache; never changes the output
             )
 
 

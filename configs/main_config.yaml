@@ -58,6 +58,8 @@ params:
         add_start_index: true
         strip_whitespace: true
         min_chunk_size: 128
+        # semantic breakpoints do not depend on chunk size/overlap: cache them per (model, document)
+        cache_dir: ${params.paths.artifacts_root}/semantic_cache
 
 
     semantic_recursive:
@@ -75,6 +77,8 @@ params:
         add_start_index: true
         strip_whitespace: true
         min_chunk_size: 128
+        # semantic breakpoints do not depend on chunk size/overlap: cache them per (model, document)
+        cache_dir: ${params.paths.artifacts_root}/semantic_cache
   
 
     hierarchical_section:
