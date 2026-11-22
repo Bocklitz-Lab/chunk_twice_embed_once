@@ -1,0 +1,5 @@
+prepared,n_questions,n_chunks,n_docs,mean_chunk_chars,mean_chunk_tokens,max_chunk_tokens,chunk_token_counter,pct_span_inside_one_chunk,mean_relevant_lexical,max_relevant_lexical,n_zero_relevant_lexical,mean_relevant_span,max_relevant_span,n_zero_relevant_span
+fixed_token_c128_o0__e290ce0e,952,17677,151,452.605872,127.488035,130,bert-base-uncased@86b5e093,57.142857,1.040966,5,0,1.359244,3,0
+fixed_token_c512_o0__650f573a,952,4474,151,1789.965802,503.656460,514,bert-base-uncased@86b5e093,90.021008,1.026261,5,0,1.077731,2,0
+hierarchical_section_c128_o0__4397bee8,952,15051,151,442.265697,117.313800,130,bert-base-uncased@86b5e093,56.827731,1.028361,5,0,1.324580,3,0
+hierarchical_section_c512_o0__1b471e12,952,4838,151,1377.137453,364.919388,514,bert-base-uncased@86b5e093,91.386555,1.019958,2,0,1.048319,2,0

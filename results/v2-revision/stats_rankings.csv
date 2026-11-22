@@ -1,0 +1,5 @@
+scope,name,metric,tau,p,n
+all_runs,all,geom_at_10,nan,nan,2
+within_model,bm25,geom_at_10,nan,nan,1
+within_model,bm25-b,geom_at_10,nan,nan,1
+within_configuration,fixed_token_128_0,geom_at_10,nan,nan,2

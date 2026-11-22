@@ -252,16 +252,24 @@ def _aligned(paths: Dict[str, str]):
     return {n: load_columns(paths[n], order) for n in paths}, order
 
 
-def cmd_ci(args) -> int:
+def ci_rows(paths: Dict[str, str], qa: Optional[str] = None, resamples: int = DEFAULT_RESAMPLES, seed: int = DEFAULT_SEED) -> List[Dict[str, Any]]:
+    """Bootstrap CI rows (query level, and paper level when ``qa`` is given) for runs {name: per_query_metrics.csv}."""
     rows = []
+    for name, path in paths.items():
+        c = load_columns(path)
+        levels = [("query", None)] + ([("paper", load_groups(qa, c["qids"]))] if qa else [])
+        for level, groups in levels:
+            for m, v in bootstrap_ci(c["ndcg_at_10"], c["recall_at_10"], groups, resamples, seed).items():
+                rows.append({"run": name, "level": level, "units": _n_units(c["ndcg_at_10"], groups), "metric": m, **v})
+    return rows
+
+
+def cmd_ci(args) -> int:
+    paths = {}
     for spec in args.per_query:
         name, _, path = spec.rpartition("=")
-        name = name or Path(path).parent.name
-        c = load_columns(path)
-        levels = [("query", None)] + ([("paper", load_groups(args.qa, c["qids"]))] if args.qa else [])
-        for level, groups in levels:
-            for m, v in bootstrap_ci(c["ndcg_at_10"], c["recall_at_10"], groups, args.resamples, args.seed).items():
-                rows.append({"run": name, "level": level, "units": _n_units(c["ndcg_at_10"], groups), "metric": m, **v})
+        paths[name or Path(path).parent.name] = path
+    rows = ci_rows(paths, args.qa, args.resamples, args.seed)
     if args.out:
         _write(args.out, rows)
     for r in rows:
@@ -269,28 +277,37 @@ def cmd_ci(args) -> int:
     return 0
 
 
-def cmd_compare(args) -> int:
-    paths = dict(s.split("=", 1) for s in args.runs)
+def compare_rows(paths: Dict[str, str], pairs: Optional[Sequence[tuple]] = None, qa: Optional[str] = None,
+                 resamples: int = DEFAULT_RESAMPLES, seed: int = DEFAULT_SEED) -> List[Dict[str, Any]]:
+    """Paired comparison rows for runs {name: per_query_metrics.csv}. ``pairs``: [(A, B)] (default: all pairs).
+    Holm correction within (level, metric) over the pairs given: one family per metric."""
     cols, order = _aligned(paths)
-    names = list(paths)
-    pairs = [(args.baseline, n) for n in names if n != args.baseline] if args.baseline else list(itertools.combinations(names, 2))
+    pairs = list(pairs) if pairs is not None else list(itertools.combinations(list(paths), 2))
     rows = []
-    levels = [("query", None)] + ([("paper", load_groups(args.qa, order))] if args.qa else [])
+    levels = [("query", None)] + ([("paper", load_groups(qa, order))] if qa else [])
     for level, groups in levels:
         for a, b in pairs:
-            pb = paired_bootstrap(cols[a], cols[b], groups, args.resamples, args.seed)
+            pb = paired_bootstrap(cols[a], cols[b], groups, resamples, seed)
             wil = {"ndcg_at_10": wilcoxon_p(cols[a]["ndcg_at_10"], cols[b]["ndcg_at_10"]),
                    "recall_at_10": wilcoxon_p(cols[a]["recall_at_10"], cols[b]["recall_at_10"]),
                    "geom_at_10": wilcoxon_p(np.sqrt(cols[a]["ndcg_at_10"] * cols[a]["recall_at_10"]),
                                             np.sqrt(cols[b]["ndcg_at_10"] * cols[b]["recall_at_10"]))}
             for m in METRICS:
                 rows.append({"level": level, "A": a, "B": b, "metric": m, **pb[m], "p_wilcoxon_per_query": wil[m]})
-    for level in {r["level"] for r in rows}:          # Holm within (level, metric): one family per metric
+    for level in {r["level"] for r in rows}:
         for m in METRICS:
             fam = [r for r in rows if r["level"] == level and r["metric"] == m]
             for key in ("p_bootstrap", "p_wilcoxon_per_query"):
                 for r, adj in zip(fam, holm([r[key] for r in fam])):
                     r[key + "_holm"] = adj
+    return rows
+
+
+def cmd_compare(args) -> int:
+    paths = dict(s.split("=", 1) for s in args.runs)
+    names = list(paths)
+    pairs = [(args.baseline, n) for n in names if n != args.baseline] if args.baseline else None
+    rows = compare_rows(paths, pairs, args.qa, args.resamples, args.seed)
     if args.out:
         _write(args.out, rows)
     for r in rows:

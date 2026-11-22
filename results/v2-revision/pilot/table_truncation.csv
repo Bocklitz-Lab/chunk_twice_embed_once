@@ -1,0 +1,9 @@
+chunker,size,overlap,model,max_seq_length,n_chunks,n_chunks_truncated,pct_chunks_truncated,mean_tokens_own_tokenizer
+fixed_token,128,0,BAAI/bge-m3,8192,17677,0,0.000000,137.004809
+fixed_token,128,0,intfloat/e5-large-v2,512,17677,0,0.000000,131.488035
+fixed_token,512,0,BAAI/bge-m3,8192,4474,0,0.000000,534.640590
+fixed_token,512,0,intfloat/e5-large-v2,512,4474,4324,96.647295,507.656460
+hierarchical_section,128,0,BAAI/bge-m3,8192,15051,0,0.000000,127.892300
+hierarchical_section,128,0,intfloat/e5-large-v2,512,15051,0,0.000000,121.313800
+hierarchical_section,512,0,BAAI/bge-m3,8192,4838,0,0.000000,393.141174
+hierarchical_section,512,0,intfloat/e5-large-v2,512,4838,2501,51.694915,368.919388

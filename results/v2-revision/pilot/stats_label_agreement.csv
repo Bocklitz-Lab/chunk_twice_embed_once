@@ -1,0 +1,5 @@
+config,n_questions,n_both_have_relevant,pct_same_top_chunk,mean_jaccard,n_only_lexical_has_relevant,n_only_span_has_relevant,n_neither,mean_relevant_lexical,mean_relevant_span
+fixed_token_c128_o0__e290ce0e,952,952,95.588235,0.829482,0,0,0,1.040966,1.359244
+fixed_token_c512_o0__650f573a,952,952,97.584034,0.947514,0,0,0,1.026261,1.077731
+hierarchical_section_c128_o0__4397bee8,952,952,96.638655,0.843312,0,0,0,1.028361,1.324580
+hierarchical_section_c512_o0__1b471e12,952,952,99.264706,0.969363,0,0,0,1.019958,1.048319

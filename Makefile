@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-.PHONY: all stage0 stage1 stage2 stage3 stage4-6 stage7 show-configs prepare eval rerun pilot check-identical collect
+.PHONY: all stage0 stage1 stage2 stage3 stage4-6 stage7 show-configs prepare eval rerun pilot check-identical collect collect-csv report
 
 OVERLAP = 0 16 32 48 64
 SIZE    = 128 384 192 256 320  448 512
@@ -216,7 +216,10 @@ stage7:
 #   make rerun              prepare, then eval
 #   make pilot              the pilot of params.pilot in the main config (own artifacts root, nothing else touched)
 #   make check-identical    hash the corpus / qrels each model read: byte-identical across models?
-#   make collect            one CSV row per run (metrics, truncation, timing, diagnostics)
+#   make report             statistics, diagnostics, lexical-overlap, paper tables -> results/v2-revision/ (tracked); also the last step of
+#                           eval / rerun / pilot (params.report)
+#   make collect            same as report
+#   make collect-csv        only the run table, one CSV row per run
 # Extra options:  make rerun RERUN_ARGS="--no-bm25 --param use_prompts=false"
 # Legacy per-model chunking (old behaviour):  RERUN_ARGS="--param chunking_tokenizer=model --param semantic_breakpoint_model=model"
 # ---------------------------------------------------------------------------------------------------------------
@@ -239,5 +242,13 @@ pilot:
 check-identical:
 	python -m tools.check_identical --tests-root $(TESTS_ROOT) --out $(TESTS_ROOT)/../identical_check.csv
 
-collect:
+ARTIFACTS_ROOT ?= artifacts
+REPORT_DIR ?= results/v2-revision
+
+report:
+	python -m tools.make_report --artifacts-root $(ARTIFACTS_ROOT) --out-dir $(REPORT_DIR)
+
+collect: report
+
+collect-csv:
 	python -m tools.collect_runs --tests-root $(TESTS_ROOT) --out $(COLLECT_CSV)

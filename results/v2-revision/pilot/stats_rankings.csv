@@ -1,0 +1,11 @@
+scope,name,metric,tau,p,n
+all_runs,all,geom_at_10,1.000000,0.000000,20
+within_model,BAAI/bge-m3,geom_at_10,1.000000,0.083333,4
+within_model,bm25,geom_at_10,1.000000,0.083333,4
+within_model,hybrid_rrf60_BAAI_bge_m3_bm25,geom_at_10,1.000000,0.083333,4
+within_model,hybrid_rrf60_intfloat_e5_large_v2_bm25,geom_at_10,1.000000,0.083333,4
+within_model,intfloat/e5-large-v2,geom_at_10,1.000000,0.083333,4
+within_configuration,fixed_token_128_0,geom_at_10,1.000000,0.016667,5
+within_configuration,fixed_token_512_0,geom_at_10,1.000000,0.016667,5
+within_configuration,hierarchical_section_128_0,geom_at_10,1.000000,0.016667,5
+within_configuration,hierarchical_section_512_0,geom_at_10,1.000000,0.016667,5

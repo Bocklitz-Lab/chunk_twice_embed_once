@@ -1,0 +1,99 @@
+{
+  "created_utc": "2026-11-22T13:42:09Z",
+  "seconds": 12.9,
+  "git": {
+    "commit": "7d814672179c1e0be4069a39395c941421b939f1",
+    "branch": "reviewer-revisions",
+    "dirty": true,
+    "diff_sha256": "d39a5b72f5e61ac96a9a3c6af264cac6b61afc08805b77f49a378cf380e33186"
+  },
+  "packages": {
+    "numpy": "1.26.4",
+    "scipy": "1.15.3",
+    "pytrec_eval": null,
+    "scikit-learn": "1.7.2",
+    "mteb": "1.36.8",
+    "sentence-transformers": "3.0.0",
+    "transformers": "4.56.1",
+    "torch": "2.8.0"
+  },
+  "artifacts_root": "artifacts/pilot_v2",
+  "qa_jsonl": "artifacts/pilot_v2/chemquests_hf_db/qa.jsonl",
+  "qa_sha256": "e66ced49821787f7448b688a261ca0bb65c5cfe0f9961753316aec52c6b20e8d",
+  "bootstrap": {
+    "resamples": 1000,
+    "seed": 20261121,
+    "levels": [
+      "query",
+      "paper"
+    ]
+  },
+  "n_configurations": 4,
+  "models": [
+    "BAAI/bge-m3",
+    "bm25",
+    "hybrid_rrf60_BAAI_bge_m3_bm25",
+    "hybrid_rrf60_intfloat_e5_large_v2_bm25",
+    "intfloat/e5-large-v2"
+  ],
+  "steps": {
+    "n_runs": 20,
+    "check_identical_exit_code": 0
+  },
+  "files": {
+    "table_main.csv": {
+      "bytes": 2541,
+      "sha256": "e76fb1ca99de79eaf9bcce203294b7738ab7ee0a54712c84ee5444d7f8d1c554"
+    },
+    "runs_overview.csv": {
+      "bytes": 11017,
+      "sha256": "4f266a6418a349b22da0be3742b9dcfc081cc48cbef1e1990ba2e7c3d865d191"
+    },
+    "stats_ci.csv": {
+      "bytes": 11297,
+      "sha256": "40afc130d8ad0d75352ef37ec51609befc66d1084dc9918f492f225dac3e87a4"
+    },
+    "stats_compare.csv": {
+      "bytes": 20680,
+      "sha256": "8c7e27b1e8c14c55a7b962eb270928f00fbe7720b6c841341e6dd6dd617d0f98"
+    },
+    "stats_label_agreement.csv": {
+      "bytes": 523,
+      "sha256": "4a11fa1fc4c636866ab46237cbdf8c64788c887cb334e8c6271278a2df4da1d1"
+    },
+    "stats_rankings.csv": {
+      "bytes": 707,
+      "sha256": "025fd977959c5486ed59ac80f08486c422f10f57007965a1ca178390f31c65ab"
+    },
+    "coverage_diagnostics.csv": {
+      "bytes": 815,
+      "sha256": "ed57e62f22bbb8b1bd8efc553f81ec582498ec2add8313816e6b926cc24d47d1"
+    },
+    "table_truncation.csv": {
+      "bytes": 702,
+      "sha256": "b39db39bbf1eb600052b73b01fe92ae30955b6da910ba9478e586bbcd1ed03fe"
+    },
+    "overlap_distribution.json": {
+      "bytes": 424,
+      "sha256": "ccb3cd708c994c2795e7d8a2399dfadddc7c3580d97c7dc72ecdceb010b2a4ac"
+    },
+    "overlap_questions.csv": {
+      "bytes": 24229,
+      "sha256": "ca97c4cc2594f1c763902da9f3e5008f179a31ce068ffd367e3a81998c3d8b46"
+    },
+    "overlap_advantage.csv": {
+      "bytes": 17632,
+      "sha256": "a6c9fd7769be89ff0b6417341e47228a23b7400668f78761709449e955a4d9f2"
+    },
+    "overlap_rank_by_bin.csv": {
+      "bytes": 4881,
+      "sha256": "0a41d36cda9b1029b880bcb27c731be97c631b60e34c524e5e910a3fe1c9da38"
+    },
+    "identical_check.csv": {
+      "bytes": 2554,
+      "sha256": "233d8cd6e9c63db10fabbf5e5fc4710a6ae569eb8e3d23184c3efb1755c43772"
+    }
+  },
+  "kept_in_artifacts_only": [],
+  "full_report_dir": "artifacts/pilot_v2/report"
+}

@@ -1,0 +1,73 @@
+{
+  "created_utc": "2026-11-22T13:45:05Z",
+  "seconds": 0.0,
+  "git": {
+    "commit": "7d814672179c1e0be4069a39395c941421b939f1",
+    "branch": "reviewer-revisions",
+    "dirty": true,
+    "diff_sha256": "d39a5b72f5e61ac96a9a3c6af264cac6b61afc08805b77f49a378cf380e33186"
+  },
+  "packages": {
+    "numpy": "1.26.4",
+    "scipy": "1.15.3",
+    "pytrec_eval": null,
+    "scikit-learn": "1.7.2",
+    "mteb": "1.36.8",
+    "sentence-transformers": "3.0.0",
+    "transformers": "4.56.1",
+    "torch": "2.8.0"
+  },
+  "artifacts_root": "/tmp/pytest-of-root/pytest-92/test_collect_runs_gives_one_ro0/art",
+  "qa_jsonl": "/tmp/pytest-of-root/pytest-92/test_collect_runs_gives_one_ro0/chemquests/qa.jsonl",
+  "qa_sha256": "a5f47367a1bfaa488ff02f09b02ef8c236f628dc0416e10e1882b783f7bbff64",
+  "bootstrap": {
+    "resamples": 1000,
+    "seed": 20261121,
+    "levels": [
+      "query",
+      "paper"
+    ]
+  },
+  "n_configurations": 1,
+  "models": [
+    "bm25",
+    "bm25-b"
+  ],
+  "steps": {
+    "n_runs": 2,
+    "check_identical_exit_code": 0,
+    "overlap_skipped": "needs at least one dense run and the BM25 run"
+  },
+  "files": {
+    "table_main.csv": {
+      "bytes": 373,
+      "sha256": "cd79016aec2753d344b3483e9c933114805222d8b8e6ea52f3e90bb137611c32"
+    },
+    "runs_overview.csv": {
+      "bytes": 1803,
+      "sha256": "c78b747fe03e801711276674fb2641e4632373ab8351f39472022c6410132169"
+    },
+    "stats_ci.csv": {
+      "bytes": 929,
+      "sha256": "fad171c98423ef1382e405e100b28e4a402e0cf47214e5fdb8b94c629bfada72"
+    },
+    "stats_label_agreement.csv": {
+      "bytes": 255,
+      "sha256": "53161a55eea44ad4357c682b0c088afc7d5efc790ef212ddfc3ba15500f9f401"
+    },
+    "stats_rankings.csv": {
+      "bytes": 205,
+      "sha256": "5b04433c7226532241b98cc58b40a3536667d4fa7d981d917b0c12621775427e"
+    },
+    "coverage_diagnostics.csv": {
+      "bytes": 389,
+      "sha256": "8334eb76f9100f1fe8d7fea997de55bb23a19a78a85fc75aa2c24a0748b12252"
+    },
+    "identical_check.csv": {
+      "bytes": 667,
+      "sha256": "c0a399eba9d7164f07a96460acc932bb0eca083b562c19dea0682e96fb5d7d09"
+    }
+  },
+  "kept_in_artifacts_only": [],
+  "full_report_dir": "/tmp/pytest-of-root/pytest-92/test_collect_runs_gives_one_ro0/art/report"
+}

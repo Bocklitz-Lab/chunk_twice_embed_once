@@ -76,7 +76,7 @@ make eval              # every model (+ BM25) on the prepared folders; finished 
 make rerun             # prepare, then eval
 make pilot             # 2 models + BM25 + their RRF hybrids, fixed-token and hierarchical-section, sizes 128/512, overlap 0 (artifacts/pilot_v2)
 make check-identical TESTS_ROOT=artifacts/tests   # corpus / qrels byte-identical across models?
-make collect TESTS_ROOT=artifacts/tests           # one CSV row per run
+make report            # statistics, diagnostics, overlap diagnostic, paper tables -> results/v2-revision/ (tracked); also run by eval/rerun/pilot
 ```
 
 - `params.chunking_tokenizer` (bert-base-uncased, pinned) counts all chunk sizes; each model still embeds with its own

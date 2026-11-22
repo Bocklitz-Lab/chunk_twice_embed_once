@@ -296,6 +296,7 @@ params:
 
   # Pilot (python -m stages.rerun all --pilot): own artifacts root, nothing of artifacts/tests is touched.
   pilot:
+    report_dir: results/v2-revision/pilot     # tracked summary tables of the pilot
     artifacts_root: artifacts/pilot_v2      # artifacts/pilot is the first pilot (chunk title embedded, old stage 3 files): kept as it is
     models: ["intfloat/e5-large-v2@b322e09026e4ea05f42beadf4d661fb4e101d311", "BAAI/bge-m3@5617a9f61b028005a4858fdac845db406aefb181", "bm25@rank_bm25"]
     chunkers: [fixed_token, hierarchical_section]
@@ -308,6 +309,17 @@ params:
     enabled: true
     k: 60
     depth: 100
+
+  # Report step, run automatically at the end of `make eval` / `make rerun` / `make pilot` (tools/make_report.py):
+  # run table, identical-input check, bootstrap CIs (query + paper level), paired tests (Holm), label agreement, coverage
+  # diagnostics, lexical-overlap diagnostic, truncation summary and the paper tables. The small CSVs are copied to out_dir
+  # (tracked by git); the large per-question files stay in <artifacts root>/report/.
+  report:
+    enabled: true
+    out_dir: results/v2-revision
+    resamples: 1000
+    overlap: true
+    track_max_mb: 5
 
   eval:
     # Retrieval depth saved per query (run_top<k>.trec.gz, per_query_metrics.csv). 100 for the reviewer-revision runs.

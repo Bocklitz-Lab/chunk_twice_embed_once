@@ -1,0 +1,6 @@
+chunker,size,overlap,file,ok,models,distinct_hashes,sha256,problem
+fixed_token,128,0,chunks/chunks.jsonl,True,2,1,8fed8a66b0eb19082804ec9d4d5f1cf2d120df138078df40c06b076683f00266,
+fixed_token,128,0,mteb_task/corpus.jsonl,True,2,1,97213f8cb76ee3dfe5a602ca11b0b47efc4f52a548b898b2a3f24b80b1bd586d,
+fixed_token,128,0,mteb_task/qrels_lexical.jsonl,True,2,1,c433d0d1a557865ae0543b1a0e193f203bb2fc4a7109713655d69e6451887eb2,
+fixed_token,128,0,mteb_task/qrels_span_c090.jsonl,True,2,1,69b528e944652f376cfe923f4d9d447d12b1355e1a175fe4a4753391e385861c,
+fixed_token,128,0,mteb_task/queries.jsonl,True,2,1,4b3ea455bd31fe29b33e7f1ae8f6d404d300c3d782790887cfbb455748fbcee6,

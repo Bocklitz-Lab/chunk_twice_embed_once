@@ -2,7 +2,8 @@
 
   prepare   chunk + label every configuration ONCE (stages/prepare.py): 28 (size, overlap) pairs x 5 strategies = 140
   eval      for every model (and BM25) and configuration: stage 6 on the prepared folder
-  all       prepare, then eval (+ the hybrid runs: reciprocal rank fusion of each dense run with BM25, params.hybrid)
+  all       prepare, then eval (+ the hybrid runs: reciprocal rank fusion of each dense run with BM25, params.hybrid;
+            + the report: statistics, diagnostics, tables in results/v2-revision/, tools/make_report.py, params.report)
   --pilot   the pilot of params.pilot in main_config.yaml (2 models + BM25, fixed-token and hierarchical-section,
             sizes 128 and 512, overlap 0) in its own artifacts root; never touches artifacts/tests
 
@@ -80,7 +81,7 @@ def models_from_csv(path: str) -> List[Tuple[str, str]]:
     return out
 
 
-def ensure_data(main_config: str, artifacts_root: str, params: List[str]) -> None:
+def ensure_data(main_config: str, artifacts_root: str, params: List[str]) -> Path:
     """Download the pinned ChemQuests release (stage 3) if full_text.jsonl / qa.jsonl are not there yet."""
     with tempfile.TemporaryDirectory() as tmp:
         argv = ["--input", main_config, "--output-dir", tmp, "--sections", "stage3", "--param", f"paths.artifacts_root={artifacts_root}"]
@@ -91,10 +92,11 @@ def ensure_data(main_config: str, artifacts_root: str, params: List[str]) -> Non
         cfg = yaml.safe_load((Path(tmp) / "stage3.yaml").read_text(encoding="utf-8"))
         out = Path(cfg["output_dir"])
         if all((out / n).exists() for n in ("full_text.jsonl", "qa.jsonl")):
-            return
+            return out / "qa.jsonl"
         print(f"downloading the pinned ChemQuests release -> {out}")
         subprocess.run([sys.executable, "-m", "stages.download_chemquests", "--config", str(Path(tmp) / "stage3.yaml")],
                        cwd=_REPO_ROOT, check=True)
+        return out / "qa.jsonl"
 
 
 def _link(link: Path, target: Path) -> None:
@@ -194,6 +196,8 @@ def main(argv: Optional[List[str]] = None) -> int:
     ap.add_argument("--models", nargs="*", help="name@revision ... (bm25 for the baseline)")
     ap.add_argument("--models-csv", default="artifacts/embedding_models_screening/passed_per_dataset.csv")
     ap.add_argument("--no-bm25", action="store_true")
+    ap.add_argument("--no-report", action="store_true", help="skip the report step (statistics, diagnostics, tracked tables)")
+    ap.add_argument("--report-dir", help="tracked folder for the summary tables (default params.report.out_dir)")
     ap.add_argument("--no-hybrid", action="store_true", help="skip the reciprocal-rank-fusion runs (dense + BM25)")
     ap.add_argument("--chunkers", nargs="*")
     ap.add_argument("--sizes", nargs="*", type=int)
@@ -223,8 +227,9 @@ def main(argv: Optional[List[str]] = None) -> int:
         cells = [(s, o) for s, o in sorted({(s, o) for s in sizes for o in overlaps})]   # the pilot asks for exact cells
     legacy = cfg.get("chunking_tokenizer") == "model" or any(p.startswith("chunking_tokenizer=model") for p in args.param)
     print(f"artifacts root: {root} | models: {[m[0] for m in models]} | chunkers: {chunkers} | cells: {cells}")
+    qa_path: Optional[Path] = None
     if not args.dry_run:
-        ensure_data(args.main_config, root, args.param)
+        qa_path = ensure_data(args.main_config, root, args.param)
     base_params = [f"paths.artifacts_root={root}"] + args.param
 
     prepared: Dict[Tuple[str, int, int, Optional[str]], Path] = {}
@@ -255,6 +260,15 @@ def main(argv: Optional[List[str]] = None) -> int:
     hy = cfg.get("hybrid") or {}
     if args.command in ("eval", "all") and hy.get("enabled", False) and not args.no_hybrid and not args.dry_run:
         run_hybrids(root, models, chunkers, cells, k=int(hy.get("k", 60)), depth=int(hy.get("depth", 100)), force=args.force)
+    rep = cfg.get("report") or {}
+    if args.command in ("eval", "all") and rep.get("enabled", False) and not args.no_report and not args.dry_run:
+        from tools import make_report
+        out_dir = args.report_dir or ((pilot.get("report_dir") if args.pilot else None) or rep.get("out_dir", "results/v2-revision"))
+        m = make_report.build_report(root, out_dir, qa_path, resamples=int(rep.get("resamples", 1000)), seed=int(cfg.get("seed", 20261121)),
+                                     overlap=bool(rep.get("overlap", True)), track_max_mb=float(rep.get("track_max_mb", 5)))
+        if m["steps"].get("check_identical_exit_code"):
+            print("WARNING: check_identical found a mismatch between models (see the report)")
+            return 1
     return 0
 
 
