@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-.PHONY: all stage0 stage1 stage2 stage3 stage4-6 stage7 show-configs
+.PHONY: all stage0 stage1 stage2 stage3 stage4-6 stage7 show-configs prepare eval rerun pilot check-identical collect
 
 OVERLAP = 0 16 32 48 64
 SIZE    = 128 384 192 256 320  448 512
@@ -207,3 +207,37 @@ stage7:
 # clean:
 # 	rm -rf artifacts
 # 	@echo "🧹 Cleaned artifacts/"
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# Reviewer revisions: prepare / eval split (stages/rerun.py). stage4-6 above is the legacy per-model path.
+#   make prepare            chunk + label every configuration ONCE (reference tokenizer; 140 configurations)
+#   make eval               every model (+ BM25) on the prepared folders; finished runs are skipped
+#   make rerun              prepare, then eval
+#   make pilot              the pilot of params.pilot in the main config (own artifacts root, nothing else touched)
+#   make check-identical    hash the corpus / qrels each model read: byte-identical across models?
+#   make collect            one CSV row per run (metrics, truncation, timing, diagnostics)
+# Extra options:  make rerun RERUN_ARGS="--no-bm25 --param use_prompts=false"
+# Legacy per-model chunking (old behaviour):  RERUN_ARGS="--param chunking_tokenizer=model --param semantic_breakpoint_model=model"
+# ---------------------------------------------------------------------------------------------------------------
+RERUN_ARGS ?=
+TESTS_ROOT ?= artifacts/tests
+COLLECT_CSV ?= artifacts/runs_overview.csv
+
+prepare:
+	PYTHONHASHSEED=0 python -m stages.rerun prepare --models-csv $(MODELS_CSV) $(RERUN_ARGS)
+
+eval:
+	PYTHONHASHSEED=0 python -m stages.rerun eval --models-csv $(MODELS_CSV) $(RERUN_ARGS)
+
+rerun:
+	PYTHONHASHSEED=0 python -m stages.rerun all --models-csv $(MODELS_CSV) $(RERUN_ARGS)
+
+pilot:
+	PYTHONHASHSEED=0 python -m stages.rerun all --pilot $(RERUN_ARGS)
+
+check-identical:
+	python -m tools.check_identical --tests-root $(TESTS_ROOT) --out $(TESTS_ROOT)/../identical_check.csv
+
+collect:
+	python -m tools.collect_runs --tests-root $(TESTS_ROOT) --out $(COLLECT_CSV)
