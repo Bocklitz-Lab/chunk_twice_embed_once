@@ -263,6 +263,7 @@ class ChunkerFactory:
                 breakpoint_threshold_amount=params.get("breakpoint_threshold_amount", 95.0),
                 buffer_size=params.get("buffer_size", 1),
                 min_chunk_size=params.get("min_chunk_size"),
+                min_chunk_unit=params.get("min_chunk_unit", "tokens"),
                 add_start_index=params.get("add_start_index", False),
                 strip_whitespace=params.get("strip_whitespace", True),
                 model_kwargs=params.get("model_kwargs"),

@@ -170,6 +170,7 @@ class SemanticSplitter:
       breakpoint_threshold_amount: float = 95.0
       buffer_size: int = 1
       min_chunk_size: Optional[int] = None
+      min_chunk_unit: "tokens" (default) or "chars" (legacy: LangChain's character count)
       add_start_index: bool = False
       strip_whitespace: bool = True
     """
@@ -185,6 +186,11 @@ class SemanticSplitter:
         breakpoint_threshold_amount: float = 95.0,
         buffer_size: int = 1,
         min_chunk_size: Optional[int] = None,
+        # Unit of min_chunk_size. "tokens": tokens of the HF tokenizer that also measures chunk_size
+        # (add_special_tokens=False), counted on the verbatim text of the candidate segment.
+        # "chars": the legacy rule of LangChain's SemanticChunker, len(" ".join(sentences)); it is what
+        # all published runs used and is kept only to reproduce them.
+        min_chunk_unit: str = "tokens",
         add_start_index: bool = False,
         strip_whitespace: bool = True,
         # passthroughs
@@ -204,6 +210,8 @@ class SemanticSplitter:
             raise ImportError("Could not import LangChain Document class.")
         if not model_name:
             raise ValueError("SemanticSplitter needs model_name (embedding model and tokenizer; no default).")
+        if min_chunk_unit not in ("tokens", "chars"):
+            raise ValueError(f"min_chunk_unit must be 'tokens' or 'chars', got {min_chunk_unit!r}")
 
         # --- Build HF pieces from model_name ---
         # 1) Embeddings for SemanticChunker
@@ -226,6 +234,7 @@ class SemanticSplitter:
         tokenizer = AutoTokenizer.from_pretrained(
             model_name, use_fast=True, **tokenizer_kwargs
         )
+        self._tokenizer = tokenizer
         # --- SemanticChunker (finds semantic breakpoints) ---
         self._semantic = _semantic_cls(
             embeddings=embeddings,
@@ -280,6 +289,7 @@ class SemanticSplitter:
             breakpoint_threshold_amount=breakpoint_threshold_amount,
             buffer_size=buffer_size,
             min_chunk_size=min_chunk_size,
+            min_chunk_unit=min_chunk_unit,
             add_start_index=add_start_index,
             strip_whitespace=strip_whitespace,
             tokenizer="hf",
@@ -307,6 +317,9 @@ class SemanticSplitter:
             "breakpoint_threshold_amount": self._config["breakpoint_threshold_amount"],
             "buffer_size": self._config["buffer_size"],
             "min_chunk_size": self._config["min_chunk_size"],
+            "min_chunk_unit": self._config["min_chunk_unit"],
+            # in token units the segmentation also depends on the tokenizer that counts them
+            "tokenizer_name": self._config["model_name"] if self._config["min_chunk_unit"] == "tokens" else None,
             "number_of_chunks": getattr(sc, "number_of_chunks", None),
             "sentence_split_regex": getattr(sc, "sentence_split_regex", None),
             "encode_kwargs": self._encode_kwargs,
@@ -402,14 +415,23 @@ class SemanticSplitter:
         else:
             threshold, breakpoints = sc._calculate_breakpoint_threshold(distances)
 
+        min_size = sc.min_chunk_size
+        in_tokens = self._config["min_chunk_unit"] == "tokens"
         groups: List[Tuple[int, int]] = []
         first = 0  # first sentence of the current group
         for i, x in enumerate(breakpoints):
             if x <= threshold:
                 continue
-            # min_chunk_size is measured on the " "-joined text, as LangChain does.
-            if sc.min_chunk_size is not None and len(" ".join(sentences[first : i + 1])) < sc.min_chunk_size:
-                continue
+            if min_size is not None:
+                if in_tokens:
+                    # tokens of the verbatim candidate segment, no special tokens (as chunk_size is counted)
+                    size = len(self._tokenizer(text[spans[first][0]:spans[i][1]], add_special_tokens=False,
+                                               truncation=False)["input_ids"])
+                else:
+                    # legacy: characters of the " "-joined text, as LangChain does
+                    size = len(" ".join(sentences[first : i + 1]))
+                if size < min_size:
+                    continue
             groups.append((spans[first][0], spans[i][1]))
             first = i + 1
         if first < len(sentences):

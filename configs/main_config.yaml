@@ -70,6 +70,7 @@ params:
         add_start_index: true
         strip_whitespace: true
         min_chunk_size: 128
+        min_chunk_unit: tokens   # "chars" = legacy LangChain character count (published runs)
         # semantic breakpoints do not depend on chunk size/overlap: cache them per (model, document)
         cache_dir: ${params.paths.artifacts_root}/semantic_cache
 
@@ -89,6 +90,7 @@ params:
         add_start_index: true
         strip_whitespace: true
         min_chunk_size: 128
+        min_chunk_unit: tokens   # "chars" = legacy LangChain character count (published runs)
         # semantic breakpoints do not depend on chunk size/overlap: cache them per (model, document)
         cache_dir: ${params.paths.artifacts_root}/semantic_cache
   
