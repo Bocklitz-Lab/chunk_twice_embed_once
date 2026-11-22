@@ -40,8 +40,8 @@ def test_instruction_length_is_the_token_count_minus_the_end_token(st):
     assert IM.instruction_length(tok, "  " + INS_D + "  ") == n                     # the official class strips
 
 
-def test_join_has_no_separator_and_strips():
-    assert IM.join_instruction("Represent: ", " text ") == "Represent:text"
+def test_join_keeps_the_instruction_as_it_is_and_strips_the_text():
+    assert IM.join_instruction("Represent: ", " text ") == "Represent: text"
 
 
 def test_pooling_mask_zeroes_the_prefix_only():
@@ -56,7 +56,7 @@ def _manual(st, instruction, texts, normalize=True):
     n = len(tok(instruction.strip())["input_ids"]) - 1
     rows = []
     for t in texts:
-        enc = tok(instruction.strip() + t.strip(), return_tensors="pt", truncation=True, max_length=64)
+        enc = tok(instruction + t.strip(), return_tensors="pt", truncation=True, max_length=64)
         with torch.no_grad():
             h = bert(**enc)[0][0]                       # (seq, 16): the text attended to the instruction
             pooled = h[n:].mean(0, keepdim=True)        # the instruction tokens are not averaged
@@ -109,7 +109,7 @@ def test_flag_off_is_the_old_behaviour_and_other_models_never_mask():
     import yaml
     from pathlib import Path
     cfg = yaml.safe_load((Path(__file__).resolve().parents[1] / "configs/main_config.yaml").read_text())["params"]
-    assert cfg["mask_instruction_tokens"] is False
+    assert cfg["instructor_mask_instruction"] is True      # official INSTRUCTOR behaviour is the default
     assert [n for n, e in cfg["model_prompts"].items() if e.get("mask_instruction")] == ["hkunlp/instructor-xl"]
     assert resolve_prompts("hkunlp/instructor-xl", cfg["model_prompts"], True, mask_instruction=False)["mask_instruction"] is False
     assert resolve_prompts("hkunlp/instructor-xl", cfg["model_prompts"], True, mask_instruction=True)["mask_instruction"] is True

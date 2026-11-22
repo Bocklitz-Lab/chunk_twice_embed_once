@@ -47,10 +47,12 @@ params:
   #   use_prompts: false  old behaviour of all published runs: no prompt for any model
   # One entry per Phase 1 model (42). Empty string = no prompt on that side. Checked against each model card.
   use_prompts: true
-  #   mask_instruction_tokens: true   INSTRUCTOR models (entries with mask_instruction: true, i.e. instructor-xl): the
+  #   instructor_mask_instruction: true   INSTRUCTOR models (entries with mask_instruction: true, i.e. instructor-xl): the
   #       instruction goes through the encoder with the text but is left out of the mean pooling, as in the official
-  #       INSTRUCTOR class (pipeline_lib/instruction_masking.py). false (default): plain prefix, pooling over all tokens.
-  mask_instruction_tokens: false
+  #       INSTRUCTOR package (pipeline_lib/instruction_masking.py, verified against InstructorEmbedding 1.0.1 by
+  #       tools/verify_instructor.py). false: plain prefix, pooling over all tokens (the instruction tokens are averaged too).
+  #       Only acts together with use_prompts: true.
+  instructor_mask_instruction: true
   # ---- chunk title ----
   #   embed_chunk_title: false  corpus.jsonl gets an empty title: MTEB embeds the chunk text only (ids stay in _id/id)
   #   embed_chunk_title: true  old behaviour of all published runs: the model sees "<doc> - Chunk <n> <text>"
@@ -325,7 +327,7 @@ stage1:
   output_root: ${params.paths.top_performer_input}
   seed: ${params.seed}
   use_prompts: ${params.use_prompts}
-  mask_instruction_tokens: ${params.mask_instruction_tokens}
+  instructor_mask_instruction: ${params.instructor_mask_instruction}
   model_prompts: ${params.model_prompts}
   # import_modules:
   #   - my_tasks
@@ -667,7 +669,7 @@ stage5:
 stage6:
   seed: ${params.seed}
   use_prompts: ${params.use_prompts}
-  mask_instruction_tokens: ${params.mask_instruction_tokens}
+  instructor_mask_instruction: ${params.instructor_mask_instruction}
   model_prompts: ${params.model_prompts}
   models:
     - name: ${params.model.name}

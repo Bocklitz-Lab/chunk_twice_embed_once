@@ -11,7 +11,7 @@ class STNoPrompt:
     With ``prompts`` ({"query": ..., "passage": ...}, see ``pipeline_lib.prompts``) the prompt of the side MTEB asks
     for (``prompt_type`` query / passage) is put in front of every text. This happens here, at encoding time, and
     nowhere else: chunks, token counts and qrels are not touched.
-    With ``prompts["mask_instruction"]`` (INSTRUCTOR models, ``params.mask_instruction_tokens``) the prompt is an INSTRUCTOR
+    With ``prompts["mask_instruction"]`` (INSTRUCTOR models, ``params.instructor_mask_instruction``) the prompt is an INSTRUCTOR
     instruction: it goes through the encoder with the text but is masked out of the mean pooling (instruction_masking.py).
     """
 

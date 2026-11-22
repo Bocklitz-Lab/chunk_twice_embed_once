@@ -102,7 +102,7 @@ make collect TESTS_ROOT=artifacts/tests           # one CSV row per run
 - `tools/lexical_overlap.py`: question/evidence-span word overlap, BM25 rank of the evidence chunk, BM25 advantage over a
   dense model by overlap bin.
 - All 42 Phase 1 models are pinned to commit hashes in `stage1.models`; `rerun` replaces a moving `main` by the pin.
-- `params.mask_instruction_tokens` (default `false`): INSTRUCTOR masking (instruction tokens left out of the mean
+- `params.instructor_mask_instruction` (default `false`): INSTRUCTOR masking (instruction tokens left out of the mean
   pooling) for instructor-xl, implemented without the `InstructorEmbedding` package.
 
 ## Results

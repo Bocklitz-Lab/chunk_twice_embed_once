@@ -28,7 +28,7 @@ def resolve_prompts(
 ) -> Optional[Dict[str, Any]]:
     """Return {"query": str, "passage": str, "card": str, "mask_instruction": bool} for the model, or None when prompts are off.
 
-    ``mask_instruction`` (``params.mask_instruction_tokens``) switches on the INSTRUCTOR masking for the entries that
+    ``mask_instruction`` (``params.instructor_mask_instruction``) switches on the INSTRUCTOR masking for the entries that
     declare ``mask_instruction: true`` (instructor-xl only); see ``pipeline_lib.instruction_masking``.
 
     ``override`` (an entry given directly in a model's own config block) wins over the table.
