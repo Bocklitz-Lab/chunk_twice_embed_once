@@ -2,7 +2,7 @@
 
   prepare   chunk + label every configuration ONCE (stages/prepare.py): 28 (size, overlap) pairs x 5 strategies = 140
   eval      for every model (and BM25) and configuration: stage 6 on the prepared folder
-  all       prepare, then eval
+  all       prepare, then eval (+ the hybrid runs: reciprocal rank fusion of each dense run with BM25, params.hybrid)
   --pilot   the pilot of params.pilot in main_config.yaml (2 models + BM25, fixed-token and hierarchical-section,
             sizes 128 and 512, overlap 0) in its own artifacts root; never touches artifacts/tests
 
@@ -162,6 +162,29 @@ def run_eval_one(model: str, revision: str, chunker: str, size: int, overlap: in
     return {"run_dir": str(run_dir), "status": "done", "seconds": dur}
 
 
+def run_hybrids(root: str, models: List[Tuple[str, str]], chunkers: List[str], cells: List[Tuple[int, int]], *, k: int, depth: int,
+                force: bool = False) -> List[Dict[str, Any]]:
+    """Reciprocal rank fusion of every dense run with the BM25 run of the same configuration (tools/hybrid.py): no new embedding."""
+    from tools import hybrid
+    tests = Path(root) / "tests"
+    found = hybrid.discover(tests)
+    sparse = next((n for n, _ in models if n.startswith(BM25)), None)
+    out = []
+    if sparse is None:
+        return out
+    for ch in chunkers:
+        for s, o in cells:
+            runs = found.get((ch, s, o), {})
+            if sparse not in runs:
+                continue
+            for name, _rev in models:
+                if name != sparse and not name.startswith(BM25) and name in runs:
+                    r = hybrid.run_hybrid(runs[name], runs[sparse], tests, k=k, depth=depth, force=force)
+                    print(f"hybrid rrf{k} {name} + {sparse} {ch} c{s} o{o}: {r['status']}")
+                    out.append(r)
+    return out
+
+
 def main(argv: Optional[List[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("command", choices=["prepare", "eval", "all"])
@@ -171,6 +194,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     ap.add_argument("--models", nargs="*", help="name@revision ... (bm25 for the baseline)")
     ap.add_argument("--models-csv", default="artifacts/embedding_models_screening/passed_per_dataset.csv")
     ap.add_argument("--no-bm25", action="store_true")
+    ap.add_argument("--no-hybrid", action="store_true", help="skip the reciprocal-rank-fusion runs (dense + BM25)")
     ap.add_argument("--chunkers", nargs="*")
     ap.add_argument("--sizes", nargs="*", type=int)
     ap.add_argument("--overlaps", nargs="*", type=int)
@@ -228,6 +252,9 @@ def main(argv: Optional[List[str]] = None) -> int:
                                                      params=args.param + (extra if legacy and not name.startswith(BM25) else []), qa_sha256=args.qa_sha256)
                     run_eval_one(name, rev, ch, s, o, folder, main_config=args.main_config, artifacts_root=root,
                                  params=args.param, force=args.force, dry_run=args.dry_run)
+    hy = cfg.get("hybrid") or {}
+    if args.command in ("eval", "all") and hy.get("enabled", False) and not args.no_hybrid and not args.dry_run:
+        run_hybrids(root, models, chunkers, cells, k=int(hy.get("k", 60)), depth=int(hy.get("depth", 100)), force=args.force)
     return 0
 
 

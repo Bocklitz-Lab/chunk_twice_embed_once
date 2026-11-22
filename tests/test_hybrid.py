@@ -80,3 +80,24 @@ def test_run_folder_end_to_end(tmp_path):
     with pytest.raises(ValueError, match="same prepared"):
         (sd / "run_info.json").write_text(json.dumps({**json.loads((sd / "run_info.json").read_text()), "prepared_key": "OTHER"}))
         hybrid.run_hybrid(dd, sd, tests, force=True)
+
+
+def test_rerun_hybrid_step_fuses_every_dense_run_with_bm25(tmp_path):
+    pytest.importorskip("transformers")
+    from stages import rerun
+    prepared = tmp_path / "prep"
+    (prepared / "mteb_task").mkdir(parents=True); (prepared / "chunks").mkdir()
+    (prepared / "mteb_task" / "queries.jsonl").write_text(json.dumps({"id": "0", "text": "t"}) + "\n")
+    (prepared / "mteb_task" / "qrels_span_c090.jsonl").write_text(json.dumps({"query_id": "0", "doc_id": "c1", "relevance": 1}) + "\n")
+    root = tmp_path / "art"; tests = root / "tests"; tests.mkdir(parents=True)
+    run = {"0": {"c0": 3.0, "c1": 2.0}}
+    _make_run(tests, "a_fixed_token_c128_o0", "org/a", run, prepared)
+    _make_run(tests, "b_fixed_token_c128_o0", "org/b", run, prepared)
+    _make_run(tests, "bm25_fixed_token_c128_o0", "bm25", run, prepared)
+    models = [("org/a", "r"), ("org/b", "r"), ("bm25", "rank_bm25")]
+    out = rerun.run_hybrids(str(root), models, ["fixed_token"], [(128, 0)], k=60, depth=100)
+    assert [r["status"] for r in out] == ["done", "done"]
+    assert (tests / "hybrid_rrf60_org_a_bm25_fixed_token_c128_o0" / "results" / "summary.json").exists()
+    assert (tests / "hybrid_rrf60_org_b_bm25_fixed_token_c128_o0" / "results" / "summary.json").exists()
+    assert [r["status"] for r in rerun.run_hybrids(str(root), models, ["fixed_token"], [(128, 0)], k=60, depth=100)] == ["skipped", "skipped"]
+    assert rerun.run_hybrids(str(root), [("org/a", "r")], ["fixed_token"], [(128, 0)], k=60, depth=100) == []     # no BM25: nothing to fuse

@@ -74,7 +74,7 @@ revision workflow separates model effects from segmentation effects:
 make prepare           # chunk + label each of the 140 configurations ONCE (reference tokenizer, fixed breakpoint model)
 make eval              # every model (+ BM25) on the prepared folders; finished runs are skipped
 make rerun             # prepare, then eval
-make pilot             # 2 models + BM25, fixed-token and hierarchical-section, sizes 128/512, overlap 0 (artifacts/pilot)
+make pilot             # 2 models + BM25 + their RRF hybrids, fixed-token and hierarchical-section, sizes 128/512, overlap 0 (artifacts/pilot_v2)
 make check-identical TESTS_ROOT=artifacts/tests   # corpus / qrels byte-identical across models?
 make collect TESTS_ROOT=artifacts/tests           # one CSV row per run
 ```
@@ -93,6 +93,17 @@ make collect TESTS_ROOT=artifacts/tests           # one CSV row per run
   and paper level, paired tests with Holm correction, lexical-vs-span agreement), `tools/coverage_diagnostics.py`,
   `tools/compare_runs.py` (repeat-run check).
 - `stages/run_bm25.py` is the BM25 baseline (`bm25` as a model name).
+- `params.embed_chunk_title` (default `false`): the corpus title is empty, so MTEB embeds the chunk text only. `true` is the
+  old behaviour (`"<doc> - Chunk <n> <text>"` was embedded).
+- Stage 3 builds `full_text.jsonl` from `full_text/<id>.txt` + `metadata.jsonl` of the pinned release (it has no
+  `full_text.jsonl`), byte-identical to the file of the published runs, and checks all 952 evidence spans.
+- `tools/hybrid.py`: reciprocal rank fusion (k=60) of saved dense and BM25 rankings, same outputs as a normal run, no
+  embedding (`params.hybrid`, run automatically by `make eval` / `make pilot`).
+- `tools/lexical_overlap.py`: question/evidence-span word overlap, BM25 rank of the evidence chunk, BM25 advantage over a
+  dense model by overlap bin.
+- All 42 Phase 1 models are pinned to commit hashes in `stage1.models`; `rerun` replaces a moving `main` by the pin.
+- `params.mask_instruction_tokens` (default `false`): INSTRUCTOR masking (instruction tokens left out of the mean
+  pooling) for instructor-xl, implemented without the `InstructorEmbedding` package.
 
 ## Results
 

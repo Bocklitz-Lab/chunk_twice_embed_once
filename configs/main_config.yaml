@@ -294,11 +294,18 @@ params:
 
   # Pilot (python -m stages.rerun all --pilot): own artifacts root, nothing of artifacts/tests is touched.
   pilot:
-    artifacts_root: artifacts/pilot
+    artifacts_root: artifacts/pilot_v2      # artifacts/pilot is the first pilot (chunk title embedded, old stage 3 files): kept as it is
     models: ["intfloat/e5-large-v2@b322e09026e4ea05f42beadf4d661fb4e101d311", "BAAI/bge-m3@5617a9f61b028005a4858fdac845db406aefb181", "bm25@rank_bm25"]
     chunkers: [fixed_token, hierarchical_section]
     sizes: [128, 512]
     overlaps: [0]
+
+  # Hybrid retrieval: reciprocal rank fusion of each dense run with the BM25 run of the same configuration
+  # (tools/hybrid.py; needs no embedding). Written as run folders hybrid_rrf<k>_<dense>_<bm25>_<chunker>_c<L>_o<O>.
+  hybrid:
+    enabled: true
+    k: 60
+    depth: 100
 
   eval:
     # Retrieval depth saved per query (run_top<k>.trec.gz, per_query_metrics.csv). 100 for the reviewer-revision runs.
