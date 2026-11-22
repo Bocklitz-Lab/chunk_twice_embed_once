@@ -1,6 +1,6 @@
 # Summary tables (written by `tools/make_report.py`; do not edit by hand)
 
-Created 2026-11-22T13:42:09Z from commit `7d814672179c1e0be4069a39395c941421b939f1` (dirty working tree). Artifacts root: `artifacts/pilot_v2`.
+Created 2026-11-22T13:45:23Z from commit `447ce5c50135d6330492f4baa511aab98ab0584d`. Artifacts root: `artifacts/pilot_v2`.
 Bootstrap: 1000 resamples, seed 20261121, query level and paper level (the 952 questions come from 149 papers). Labels: span labels, cover level c=0.90 (primary); the lexical labels are reported next to them.
 
 | file | content |
