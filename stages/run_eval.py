@@ -39,6 +39,8 @@ from mteb import MTEB, get_tasks
 # local
 from pipeline_lib.model_wrapper import STNoPrompt  # keep your wrapper
 from pipeline_lib.prompts import resolve_prompts
+from pipeline_lib.truncation import truncation_report, write_report as write_truncation
+from tools import coverage_diagnostics as qcov
 from tools import metrics as qmetrics
 from pipeline_lib.run_manifest import (
     Stopwatch, build_manifest, set_seeds, summarize_encode_timings, write_manifest,
@@ -313,6 +315,19 @@ def write_per_query_outputs(model_out_dir: Path, task_specs: List["TaskSpec"], d
     pq = qmetrics.per_query_metrics(run, qrels, qmetrics.DEFAULT_KS, qids)
     qmetrics.write_per_query_csv(model_out_dir / "per_query_metrics.csv", pq)
     summary: Dict[str, Any] = {"qrels_file": qrels_name, "aggregate": qmetrics.aggregate(pq), "run_lines": n_lines}
+    # every other label set of the folder (e.g. the lexical qrels next to the span qrels): same ranking, other labels
+    for other in sorted(data_dir.glob("qrels_*.jsonl")):
+        if other.name == qrels_name:
+            continue
+        opq = qmetrics.per_query_metrics(run, qmetrics.load_qrels(other), qmetrics.DEFAULT_KS, qids)
+        qmetrics.write_per_query_csv(model_out_dir / f"per_query_metrics__{other.stem}.csv", opq)
+        summary.setdefault("other_label_sets", {})[other.name] = qmetrics.aggregate(opq)
+    # chunking-independent span coverage of the top-k chunks (needs the overlap table of the span stage)
+    table = data_dir / "overlap_table.jsonl"
+    if table.exists():
+        cov = qcov.span_coverage(run, table, qids, qcov.COVERAGE_KS, qcov.corpus_chunk_chars(data_dir / "corpus.jsonl"))
+        qcov.write_span_coverage_csv(model_out_dir / "span_coverage.csv", cov)
+        summary["span_coverage"] = qcov.mean_of(cov)
     stored = sorted(model_out_dir.rglob("ChemQuest.json"))
     if stored:
         summary["cross_check"] = qmetrics.cross_check(run, qrels, stored[0], qids, max_k=depth)
@@ -439,6 +454,15 @@ def main():
         model_out_dir = app_cfg.output_root / f"{safe_name(model_name)}_{revision}"
         model_out_dir.mkdir(parents=True, exist_ok=True)
 
+        # Truncation log: how many chunks / queries exceed this model's max sequence length with ITS tokenizer
+        truncation = None
+        loc = _local_task_labels(app_cfg.tasks)
+        if loc is not None and hasattr(base, "tokenizer") and (loc[0] / "corpus.jsonl").exists():
+            truncation = truncation_report(loc[0], base.tokenizer, getattr(base, "max_seq_length", None), prompts, model_name)
+            write_truncation(model_out_dir / "truncation_report.json", truncation)
+            print(f"Truncation: {truncation['passages']['n_truncated']} of {truncation['passages']['n_texts']} chunks "
+                  f"({truncation['passages']['pct_truncated']:.2f}%) exceed max_seq_length={truncation['max_seq_length']}")
+
         # Run all tasks for this model
         evaluation = MTEB(tasks=tasks_resolved)
         run_kwargs: Dict[str, Any] = {}
@@ -489,7 +513,7 @@ def main():
             seeds=seeds,
             data_files=_task_data_files(app_cfg.tasks),
             timing=timing,
-            extra={"top_k": app_cfg.top_k, "per_query_outputs": per_query, "mteb_version": getattr(sys.modules.get("mteb"), "__version__", None)},
+            extra={"top_k": app_cfg.top_k, "per_query_outputs": per_query, "truncation": truncation, "mteb_version": getattr(sys.modules.get("mteb"), "__version__", None)},
         ))
 
         per_task = normalize_results(results)
