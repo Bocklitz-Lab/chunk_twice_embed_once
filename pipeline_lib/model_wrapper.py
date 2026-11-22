@@ -1,4 +1,6 @@
-from pipeline_lib.prompts import apply_prompt, has_any_prompt
+import time
+
+from pipeline_lib.prompts import apply_prompt, has_any_prompt, side_of
 
 
 class STNoPrompt:
@@ -15,6 +17,8 @@ class STNoPrompt:
         self.model = st_model
         self.normalize = normalize
         self.prompts = prompts if has_any_prompt(prompts) else None
+        # one record per encode call ({side, n_texts, seconds}); see pipeline_lib.run_manifest.summarize_encode_timings
+        self.timings = []
 
         # --- expose what MTEB looks for -----------------
         self.name = getattr(st_model, "name", None) \
@@ -29,13 +33,18 @@ class STNoPrompt:
         kwargs.pop("content_type", None)
         kwargs.pop("prompt_name", None)
         sentences = apply_prompt(sentences, self.prompts, prompt_type)
-        return self.model.encode(
+        t0 = time.perf_counter()
+        emb = self.model.encode(
             sentences,
             batch_size=batch_size,
             convert_to_numpy=True,
             normalize_embeddings=self.normalize,
             show_progress_bar=False,
         )
+        # convert_to_numpy copies the result to the host, so the GPU work is finished here
+        self.timings.append({"side": side_of(prompt_type), "n_texts": len(sentences) if not isinstance(sentences, str) else 1,
+                             "seconds": time.perf_counter() - t0})
+        return emb
 
     # make every other attribute fall through
     def __getattr__(self, attr):

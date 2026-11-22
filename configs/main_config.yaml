@@ -6,7 +6,10 @@ params:
     revision: b322e09026e4ea05f42beadf4d661fb4e101d311
     normalize: true
     batch_size: 32
-    
+
+  # seed for python / numpy / torch in every stage-6 run (also used by the statistics tools)
+  seed: 20261121
+
   chunk:
     chunker: fixed_token
     size: 256
@@ -270,6 +273,7 @@ params:
 #-------------------------------------------------------------------------------------
 stage1:
   output_root: ${params.paths.top_performer_input}
+  seed: ${params.seed}
   use_prompts: ${params.use_prompts}
   model_prompts: ${params.model_prompts}
   # import_modules:
@@ -609,6 +613,7 @@ stage5:
 #                               STAGE 6
 #-------------------------------------------------------------------------------------
 stage6:
+  seed: ${params.seed}
   use_prompts: ${params.use_prompts}
   model_prompts: ${params.model_prompts}
   models:

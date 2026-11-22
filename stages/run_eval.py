@@ -27,6 +27,7 @@ from __future__ import annotations
 import argparse
 import importlib
 import json
+import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Mapping, Optional, Union
@@ -38,6 +39,9 @@ from mteb import MTEB, get_tasks
 # local
 from pipeline_lib.model_wrapper import STNoPrompt  # keep your wrapper
 from pipeline_lib.prompts import resolve_prompts
+from pipeline_lib.run_manifest import (
+    Stopwatch, build_manifest, set_seeds, summarize_encode_timings, write_manifest,
+)
 
 # =================== CONFIG LOADING =========================================
 def load_config(path: Union[str, Path]) -> Dict[str, Any]:
@@ -112,6 +116,9 @@ class AppConfig:
     use_prompts: bool = False
     model_prompts: Dict[str, Any] = field(default_factory=dict)
 
+    # Seed for python / numpy / torch (null = not seeded). Written to the run manifest.
+    seed: Optional[int] = None
+
 def parse_app_config(raw: Dict[str, Any]) -> AppConfig:
     if not isinstance(raw, dict):
         raise ValueError("Top-level config must be a mapping.")
@@ -166,6 +173,7 @@ def parse_app_config(raw: Dict[str, Any]) -> AppConfig:
         top_k=top_k,
         use_prompts=bool(raw.get("use_prompts", False)),
         model_prompts=raw.get("model_prompts") or {},
+        seed=(int(raw["seed"]) if raw.get("seed") is not None else None),
     )
 
 # =================== TASK RESOLUTION ========================================
@@ -261,6 +269,21 @@ def resolve_tasks(task_specs: List[TaskSpec], import_modules: List[str]) -> List
     return resolved
 
 
+def _task_data_files(task_specs: List["TaskSpec"]) -> List[Path]:
+    """corpus / queries / qrels files of local tasks (for the hashes in the run manifest)."""
+    files: List[Path] = []
+    for t in task_specs:
+        spec = t.spec
+        if isinstance(spec, dict):
+            kw = spec.get("kwargs") or {}
+            d = kw.get("data_dir")
+            if d:
+                d = Path(str(d)).expanduser()
+                names = ["corpus.jsonl", "queries.jsonl"] + ([kw["qrels_file"]] if kw.get("qrels_file") else [])
+                files += [d / n for n in names]
+    return files
+
+
 # =================== RESULT NORMALIZATION ===================================
 def normalize_results(results):
     """
@@ -346,6 +369,7 @@ def main():
             task_names_for_print.append("UNKNOWN_TASK")
 
     summary_rows: List[Dict[str, Any]] = []
+    seeds = set_seeds(app_cfg.seed) if app_cfg.seed is not None else None
 
     # Ensure output root exists
     app_cfg.output_root.mkdir(parents=True, exist_ok=True)
@@ -366,7 +390,9 @@ def main():
         )
 
         # Build wrapper model
-        base = SentenceTransformer(model_name, revision=revision,**(cfg.model_kwargs or {}))
+        sw = Stopwatch()
+        with sw.section("model_load_s"):
+            base = SentenceTransformer(model_name, revision=revision,**(cfg.model_kwargs or {}))
         prompts = resolve_prompts(model_name, app_cfg.model_prompts, app_cfg.use_prompts, override=cfg.prompts)
         print(f"Prompts: {prompts if prompts else 'none'}")
         model = STNoPrompt(base, normalize=normalize, prompts=prompts)
@@ -382,16 +408,17 @@ def main():
             # Only set for explicit runs (e.g. the pilot): it lowers the retrieval depth and so
             # changes the @1000 metrics. The default (None) keeps MTEB's depth.
             run_kwargs["top_k"] = app_cfg.top_k
-        results = evaluation.run(
-            model,
-            model_name=model_name,
-            model_revision=revision,
-            output_folder=str(model_out_dir),
-            encode_kwargs=encode_kwargs,  # replace deprecated batch_size arg
-            # Save the ranked retrieval results (<task>_default_predictions.json in output_folder).
-            save_predictions=True,
-            **run_kwargs,
-        )
+        with sw.section("mteb_run_wall_s"):
+            results = evaluation.run(
+                model,
+                model_name=model_name,
+                model_revision=revision,
+                output_folder=str(model_out_dir),
+                encode_kwargs=encode_kwargs,  # replace deprecated batch_size arg
+                # Save the ranked retrieval results (<task>_default_predictions.json in output_folder).
+                save_predictions=True,
+                **run_kwargs,
+            )
 
         # MTEB silently reuses an existing ChemQuest.json and then saves nothing: fail loudly instead.
         if not list(model_out_dir.glob("*_predictions.json")):
@@ -399,6 +426,31 @@ def main():
                 f"No predictions were saved in {model_out_dir}. MTEB skips tasks whose results already "
                 "exist: point stage6.output_root to a new folder to re-run."
             )
+
+        # ---- run manifest (config, git, packages, hardware, prompts, data hashes, timing); written before summary.json
+        mteb_eval_s = [getattr(r, "evaluation_time", None) for r in (results if isinstance(results, list) else [])]
+        mteb_eval_s = [x for x in mteb_eval_s if isinstance(x, (int, float))]
+        timing = {
+            **sw.seconds,
+            # MTEB's own evaluation_time: encode corpus + queries, search, metrics, predictions dump (not model load)
+            "mteb_evaluation_time_s": sum(mteb_eval_s) if mteb_eval_s else None,
+            **summarize_encode_timings(getattr(model, "timings", [])),
+        }
+        if timing["mteb_evaluation_time_s"] is not None:
+            timing["search_metrics_and_dump_s"] = timing["mteb_evaluation_time_s"] - timing["encode_passage_s"] - timing["encode_query_s"]
+        write_manifest(model_out_dir / "run_manifest.json", build_manifest(
+            repo_root=Path(__file__).resolve().parents[1],
+            config_path=args.config,
+            resolved_config=raw_cfg,
+            model={"name": model_name, "revision": revision, "normalize": normalize, "model_kwargs": cfg.model_kwargs},
+            use_prompts=app_cfg.use_prompts,
+            prompts=prompts,
+            batch_size=batch_size,
+            seeds=seeds,
+            data_files=_task_data_files(app_cfg.tasks),
+            timing=timing,
+            extra={"top_k": app_cfg.top_k, "mteb_version": getattr(sys.modules.get("mteb"), "__version__", None)},
+        ))
 
         per_task = normalize_results(results)
         for r in per_task:

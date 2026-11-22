@@ -14,6 +14,9 @@ from mteb import MTEB, get_tasks
 # local
 from pipeline_lib.model_wrapper import STNoPrompt  # keep your wrapper
 from pipeline_lib.prompts import resolve_prompts
+from pipeline_lib.run_manifest import (
+    Stopwatch, build_manifest, set_seeds, summarize_encode_timings, write_manifest,
+)
 
 # =================== CONFIG LOADING =========================================
 def load_config(path: Union[str, Path]) -> Dict[str, Any]:
@@ -82,6 +85,7 @@ class AppConfig:
     # old behaviour (no prompt). The generated stage files carry params.use_prompts / params.model_prompts.
     use_prompts: bool = False
     model_prompts: Dict[str, Any] = field(default_factory=dict)
+    seed: Optional[int] = None
 
 def parse_app_config(raw: Dict[str, Any]) -> AppConfig:
     if not isinstance(raw, dict):
@@ -130,6 +134,7 @@ def parse_app_config(raw: Dict[str, Any]) -> AppConfig:
         encode_kwargs=encode_kwargs,
         use_prompts=bool(raw.get("use_prompts", False)),
         model_prompts=raw.get("model_prompts") or {},
+        seed=(int(raw["seed"]) if raw.get("seed") is not None else None),
     )
 
 # =================== TASK RESOLUTION ========================================
@@ -297,6 +302,7 @@ def main():
             task_names_for_print.append("UNKNOWN_TASK")
 
     summary_rows: List[Dict[str, Any]] = []
+    seeds = set_seeds(app_cfg.seed) if app_cfg.seed is not None else None
 
     # Ensure output root exists
     app_cfg.output_root.mkdir(parents=True, exist_ok=True)
@@ -317,7 +323,9 @@ def main():
         )
 
         # Build wrapper model
-        base = SentenceTransformer(model_name, revision=revision,**(cfg.model_kwargs or {}))
+        sw = Stopwatch()
+        with sw.section("model_load_s"):
+            base = SentenceTransformer(model_name, revision=revision,**(cfg.model_kwargs or {}))
         prompts = resolve_prompts(model_name, app_cfg.model_prompts, app_cfg.use_prompts, override=cfg.prompts)
         print(f"Prompts: {prompts if prompts else 'none'}")
         model = STNoPrompt(base, normalize=normalize, prompts=prompts)
@@ -328,13 +336,26 @@ def main():
 
         # Run all tasks for this model
         evaluation = MTEB(tasks=tasks_resolved)
-        results = evaluation.run(
-            model,
-            model_name=model_name,
-            model_revision=revision,
-            output_folder=str(model_out_dir),
-            encode_kwargs=encode_kwargs,  # replace deprecated batch_size arg
-        )
+        with sw.section("mteb_run_wall_s"):
+          results = evaluation.run(
+              model,
+              model_name=model_name,
+              model_revision=revision,
+              output_folder=str(model_out_dir),
+              encode_kwargs=encode_kwargs,  # replace deprecated batch_size arg
+          )
+
+        write_manifest(model_out_dir / "run_manifest.json", build_manifest(
+            repo_root=Path(__file__).resolve().parents[1],
+            config_path=args.config,
+            resolved_config=raw_cfg,
+            model={"name": model_name, "revision": revision, "normalize": normalize, "model_kwargs": cfg.model_kwargs},
+            use_prompts=app_cfg.use_prompts,
+            prompts=prompts,
+            batch_size=batch_size,
+            seeds=seeds,
+            timing={**sw.seconds, **summarize_encode_timings(getattr(model, "timings", []))},
+        ))
 
         per_task = normalize_results(results)
         for r in per_task:
