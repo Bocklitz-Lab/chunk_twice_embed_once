@@ -61,7 +61,8 @@ def test_invalid_top_k_rejected():
 
 def test_generated_stage6_carries_top_k_from_param(tmp_path):
     from pipeline_lib import split_config
-    for extra, expected in [([], None), (["--param", "eval.top_k=100"], 100)]:
+    # the reviewer-revision default is 100; "null" is the legacy depth (published runs)
+    for extra, expected in [([], 100), (["--param", "eval.top_k=null"], None), (["--param", "eval.top_k=50"], 50)]:
         out = tmp_path / str(expected)
         assert split_config.main(["--input", str(ROOT / "configs/main_config.yaml"), "--output-dir", str(out),
                                   "--sections", "stage6", "--param", "model.name=intfloat/e5-large-v2",

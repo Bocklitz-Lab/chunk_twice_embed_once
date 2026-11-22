@@ -260,7 +260,9 @@ params:
           drop_from_first_match: true
 
   eval:
-    top_k: null   # null = MTEB default depth (published runs). Set e.g. 100 only for explicit pilot runs.
+    # Retrieval depth saved per query (run_top<k>.trec.gz, per_query_metrics.csv). 100 for the reviewer-revision runs.
+    # null = MTEB default depth 1000 (published runs: aggregates only). Legacy: --param eval.top_k=null
+    top_k: 100
 
   strategy:
     preset: ${params.chunk.chunker}

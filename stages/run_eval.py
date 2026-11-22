@@ -39,6 +39,7 @@ from mteb import MTEB, get_tasks
 # local
 from pipeline_lib.model_wrapper import STNoPrompt  # keep your wrapper
 from pipeline_lib.prompts import resolve_prompts
+from tools import metrics as qmetrics
 from pipeline_lib.run_manifest import (
     Stopwatch, build_manifest, set_seeds, summarize_encode_timings, write_manifest,
 )
@@ -284,6 +285,43 @@ def _task_data_files(task_specs: List["TaskSpec"]) -> List[Path]:
     return files
 
 
+def _local_task_labels(task_specs: List["TaskSpec"]):
+    """(data_dir, qrels file name) of the first local task (Phase 2), or None."""
+    for t in task_specs:
+        spec = t.spec
+        if isinstance(spec, dict):
+            kw = spec.get("kwargs") or {}
+            if kw.get("data_dir"):
+                return Path(str(kw["data_dir"])).expanduser(), kw.get("qrels_file") or "qrels.jsonl"
+    return None
+
+
+def write_per_query_outputs(model_out_dir: Path, task_specs: List["TaskSpec"], depth: int = 100,
+                            run_name: str = "run") -> Optional[Dict[str, Any]]:
+    """From the saved predictions: gzipped TREC run (top ``depth``), per-query metrics, summary with the
+    cross-check against the metrics MTEB stored. Returns a small dict for the manifest, or None for a task that
+    has no local qrels (Phase 1 official tasks)."""
+    loc = _local_task_labels(task_specs)
+    preds = sorted(model_out_dir.glob("*_predictions.json"))
+    if loc is None or len(preds) != 1:
+        return None
+    data_dir, qrels_name = loc
+    run = qmetrics.load_run(preds[0])
+    qrels = qmetrics.load_qrels(data_dir / qrels_name)
+    qids = qmetrics.load_query_ids(data_dir / "queries.jsonl")
+    n_lines = qmetrics.write_trec_run(run, model_out_dir / f"run_top{depth}.trec.gz", tag=run_name, depth=depth)
+    pq = qmetrics.per_query_metrics(run, qrels, qmetrics.DEFAULT_KS, qids)
+    qmetrics.write_per_query_csv(model_out_dir / "per_query_metrics.csv", pq)
+    summary: Dict[str, Any] = {"qrels_file": qrels_name, "aggregate": qmetrics.aggregate(pq), "run_lines": n_lines}
+    stored = sorted(model_out_dir.rglob("ChemQuest.json"))
+    if stored:
+        summary["cross_check"] = qmetrics.cross_check(run, qrels, stored[0], qids, max_k=depth)
+        if not summary["cross_check"]["ok"]:
+            print(f"[WARN] metrics cross-check against MTEB failed: {summary['cross_check']}")
+    (model_out_dir / "metrics_summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
+    return summary
+
+
 # =================== RESULT NORMALIZATION ===================================
 def normalize_results(results):
     """
@@ -427,6 +465,8 @@ def main():
                 "exist: point stage6.output_root to a new folder to re-run."
             )
 
+        per_query = write_per_query_outputs(model_out_dir, app_cfg.tasks, depth=app_cfg.top_k or 100)
+
         # ---- run manifest (config, git, packages, hardware, prompts, data hashes, timing); written before summary.json
         mteb_eval_s = [getattr(r, "evaluation_time", None) for r in (results if isinstance(results, list) else [])]
         mteb_eval_s = [x for x in mteb_eval_s if isinstance(x, (int, float))]
@@ -449,7 +489,7 @@ def main():
             seeds=seeds,
             data_files=_task_data_files(app_cfg.tasks),
             timing=timing,
-            extra={"top_k": app_cfg.top_k, "mteb_version": getattr(sys.modules.get("mteb"), "__version__", None)},
+            extra={"top_k": app_cfg.top_k, "per_query_outputs": per_query, "mteb_version": getattr(sys.modules.get("mteb"), "__version__", None)},
         ))
 
         per_task = normalize_results(results)
