@@ -262,7 +262,8 @@ def cmd_ci(args) -> int:
         for level, groups in levels:
             for m, v in bootstrap_ci(c["ndcg_at_10"], c["recall_at_10"], groups, args.resamples, args.seed).items():
                 rows.append({"run": name, "level": level, "units": _n_units(c["ndcg_at_10"], groups), "metric": m, **v})
-    _write(args.out, rows)
+    if args.out:
+        _write(args.out, rows)
     for r in rows:
         print(f"{r['run']:40s} {r['level']:5s} {r['metric']:13s} {r['estimate']:.4f} [{r['ci_low']:.4f}, {r['ci_high']:.4f}]")
     return 0
@@ -290,7 +291,8 @@ def cmd_compare(args) -> int:
             for key in ("p_bootstrap", "p_wilcoxon_per_query"):
                 for r, adj in zip(fam, holm([r[key] for r in fam])):
                     r[key + "_holm"] = adj
-    _write(args.out, rows)
+    if args.out:
+        _write(args.out, rows)
     for r in rows:
         print(f"{r['level']:5s} {r['A']} - {r['B']} {r['metric']:13s} diff {r['diff']:+.4f} [{r['ci_low']:+.4f}, {r['ci_high']:+.4f}] "
               f"p_boot {r['p_bootstrap']:.4f} (Holm {r['p_bootstrap_holm']:.4f}) p_wilcoxon {r['p_wilcoxon_per_query']:.4g} (Holm {r['p_wilcoxon_per_query_holm']:.4g})")

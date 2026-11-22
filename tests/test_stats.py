@@ -108,3 +108,12 @@ def test_kendall_tau_between_rankings(tmp_path):
     with open(p, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0])); w.writeheader(); w.writerows(rows)
     assert S.ranking_agreement(p)[0]["tau"] < 1.0
+
+
+def test_cli_without_out_prints_only(tmp_path, capsys):
+    rng = np.random.default_rng(9)
+    base = rng.random(40)
+    _pq(tmp_path / "A.csv", base, base); _pq(tmp_path / "B.csv", np.clip(base + 0.1, 0, 1), base)
+    assert S.main(["ci", "--per-query", str(tmp_path / "A.csv")]) == 0
+    assert S.main(["compare", "--runs", f"A={tmp_path/'A.csv'}", f"B={tmp_path/'B.csv'}"]) == 0
+    assert "geom_at_10" in capsys.readouterr().out
