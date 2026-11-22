@@ -17,7 +17,7 @@ tmp/
 .vscode/
 .idea/
 myenv
-pipeline_lib
+__pycache__/
 pytest_cache
 stages/__pycache__/
 tests/__pycache__/
@@ -53,5 +53,6 @@ overlap_studies/
 revision_analyses/
 artifacts_old/*
 artifacts.7z
-
+artifacts/
 temp_files/
+review_samples/
