@@ -608,7 +608,7 @@ stage2:
 #-------------------------------------------------------------------------------------
 stage3:
   repo_id: "Bocklitz-Lab/ChemQuests"
-  data_files: ["metadata.jsonl", "full_text.jsonl", "qa.jsonl"]
+  data_files: ["metadata.jsonl", "full_text.jsonl", "qa.jsonl"]   # the pinned release has no full_text.jsonl: it is built from full_text/<id>.txt + metadata.jsonl
   output_dir: ${params.paths.chemquests_dir}
   revision: "5ab7dc673653b800f368fe30851efbdb24385e0d"   # pinned release (never "main")
   qa_sha256: "e66ced49821787f7448b688a261ca0bb65c5cfe0f9961753316aec52c6b20e8d"
