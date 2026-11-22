@@ -11,6 +11,7 @@ metric is identical.
 from __future__ import annotations
 
 import argparse
+import gzip
 import json
 import os
 import sys
@@ -49,7 +50,7 @@ def compare(a: Path, b: Path) -> Dict[str, Any]:
     max_metric = max((abs(pa[q][k] - pb[q][k]) for q in pa for k in pa[q]), default=0.0)
     out: Dict[str, Any] = {"n_queries": len(ra), "n_queries_with_different_ranking": len(diff_rank), "first_different": diff_rank[:5],
                            "max_abs_score_diff_where_ranking_equal": max_score, "max_abs_per_query_metric_diff": max_metric,
-                           "run_files_byte_identical": (a / "run_top100.trec.gz").read_bytes() == (b / "run_top100.trec.gz").read_bytes()}
+                           "run_files_identical": gzip.open(a / "run_top100.trec.gz").read() == gzip.open(b / "run_top100.trec.gz").read()}
     ca, cb = list(a.rglob("ChemQuest.json")), list(b.rglob("ChemQuest.json"))
     if ca and cb:
         sa, sb = M.mteb_stored_scores(ca[0]), M.mteb_stored_scores(cb[0])

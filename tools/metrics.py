@@ -22,6 +22,7 @@ from __future__ import annotations
 import argparse
 import csv
 import gzip
+import io
 import json
 import math
 import os
@@ -44,6 +45,9 @@ Qrels = Dict[str, Dict[str, int]]
 # --------------------------------------------------------------------------------------
 def _open(path, mode="rt"):
     p = str(path)
+    if p.endswith(".gz") and "w" in mode:
+        # mtime=0 and no file name in the header: the same ranking gives the same bytes (repeat-run check)
+        return io.TextIOWrapper(gzip.GzipFile(filename="", mode="wb", fileobj=open(p, "wb"), mtime=0), encoding="utf-8")
     return gzip.open(p, mode, encoding="utf-8") if p.endswith(".gz") else open(p, mode, encoding="utf-8")
 
 

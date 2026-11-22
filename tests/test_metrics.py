@@ -120,3 +120,10 @@ def test_run_eval_writes_run_file_per_query_csv_and_cross_check(tmp_path, monkey
     ms = json.loads((out / "metrics_summary.json").read_text())
     assert ms["cross_check"]["ok"] and ms["aggregate"]["n_queries"] == 3
     assert json.loads((out / "run_manifest.json").read_text())["per_query_outputs"]["cross_check"]["ok"]
+
+
+def test_trec_run_file_is_byte_reproducible(tmp_path):
+    a, b = tmp_path / "a.trec.gz", tmp_path / "b.trec.gz"
+    M.write_trec_run(RUN, a); M.write_trec_run(RUN, b)
+    assert a.read_bytes() == b.read_bytes()
+    assert M.load_run(a)["q1"] == RUN["q1"]
