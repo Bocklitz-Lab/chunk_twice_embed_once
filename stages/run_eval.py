@@ -40,8 +40,7 @@ from mteb import MTEB, get_tasks
 from pipeline_lib.model_wrapper import STNoPrompt  # keep your wrapper
 from pipeline_lib.prompts import resolve_prompts
 from pipeline_lib.truncation import truncation_report, write_report as write_truncation
-from tools import coverage_diagnostics as qcov
-from tools import metrics as qmetrics
+from pipeline_lib import run_outputs
 from pipeline_lib.run_manifest import (
     Stopwatch, build_manifest, set_seeds, summarize_encode_timings, write_manifest,
 )
@@ -300,41 +299,11 @@ def _local_task_labels(task_specs: List["TaskSpec"]):
 
 def write_per_query_outputs(model_out_dir: Path, task_specs: List["TaskSpec"], depth: int = 100,
                             run_name: str = "run") -> Optional[Dict[str, Any]]:
-    """From the saved predictions: gzipped TREC run (top ``depth``), per-query metrics, summary with the
-    cross-check against the metrics MTEB stored. Returns a small dict for the manifest, or None for a task that
-    has no local qrels (Phase 1 official tasks)."""
+    """See pipeline_lib.run_outputs; returns None for a task without local qrels (Phase 1 official tasks)."""
     loc = _local_task_labels(task_specs)
-    preds = sorted(model_out_dir.glob("*_predictions.json"))
-    if loc is None or len(preds) != 1:
+    if loc is None:
         return None
-    data_dir, qrels_name = loc
-    run = qmetrics.load_run(preds[0])
-    qrels = qmetrics.load_qrels(data_dir / qrels_name)
-    qids = qmetrics.load_query_ids(data_dir / "queries.jsonl")
-    n_lines = qmetrics.write_trec_run(run, model_out_dir / f"run_top{depth}.trec.gz", tag=run_name, depth=depth)
-    pq = qmetrics.per_query_metrics(run, qrels, qmetrics.DEFAULT_KS, qids)
-    qmetrics.write_per_query_csv(model_out_dir / "per_query_metrics.csv", pq)
-    summary: Dict[str, Any] = {"qrels_file": qrels_name, "aggregate": qmetrics.aggregate(pq), "run_lines": n_lines}
-    # every other label set of the folder (e.g. the lexical qrels next to the span qrels): same ranking, other labels
-    for other in sorted(data_dir.glob("qrels_*.jsonl")):
-        if other.name == qrels_name:
-            continue
-        opq = qmetrics.per_query_metrics(run, qmetrics.load_qrels(other), qmetrics.DEFAULT_KS, qids)
-        qmetrics.write_per_query_csv(model_out_dir / f"per_query_metrics__{other.stem}.csv", opq)
-        summary.setdefault("other_label_sets", {})[other.name] = qmetrics.aggregate(opq)
-    # chunking-independent span coverage of the top-k chunks (needs the overlap table of the span stage)
-    table = data_dir / "overlap_table.jsonl"
-    if table.exists():
-        cov = qcov.span_coverage(run, table, qids, qcov.COVERAGE_KS, qcov.corpus_chunk_chars(data_dir / "corpus.jsonl"))
-        qcov.write_span_coverage_csv(model_out_dir / "span_coverage.csv", cov)
-        summary["span_coverage"] = qcov.mean_of(cov)
-    stored = sorted(model_out_dir.rglob("ChemQuest.json"))
-    if stored:
-        summary["cross_check"] = qmetrics.cross_check(run, qrels, stored[0], qids, max_k=depth)
-        if not summary["cross_check"]["ok"]:
-            print(f"[WARN] metrics cross-check against MTEB failed: {summary['cross_check']}")
-    (model_out_dir / "metrics_summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
-    return summary
+    return run_outputs.write_per_query_outputs(model_out_dir, loc[0], loc[1], depth=depth, run_name=run_name)
 
 
 # =================== RESULT NORMALIZATION ===================================

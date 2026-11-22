@@ -658,6 +658,8 @@ stage6:
         qrels_file: ${params.labeling.qrels_file}
   import_modules:
     - pipeline_lib.my_tasks
+  # BM25 baseline (stages/run_bm25.py, model name "bm25"): rank_bm25 BM25Okapi on the same chunks and qrels
+  bm25: {k1: 1.5, b: 0.75, lowercase: true}
   encode_kwargs:
     normalize_embeddings: false
   output_root: ${params.paths.test_results_dir}
