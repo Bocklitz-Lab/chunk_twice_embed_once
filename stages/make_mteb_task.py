@@ -67,6 +67,7 @@ MAX_RESULTS_PER_QUERY = int(cfg.get("max_results_per_query", 0))   # 0 = no cap
 # Neighbor cap relative to J+F base (non-BM25 portion)
 ALPHA_NEIGHBOR = float(cfg.get("alpha_neighbor", 0.2))  # convex mix weight
 PRINT_LOG = bool(cfg.get("print_log", False))
+EMBED_CHUNK_TITLE = bool(cfg.get("embed_chunk_title", False))   # False: empty title, MTEB embeds the chunk text only
 os.makedirs(output_folder, exist_ok=True)
 
 # ----------------- Helpers -----------------
@@ -184,7 +185,7 @@ with open(chunks_jsonl_file, "r", encoding="utf-8") as f:
         }
         doc_chunks.setdefault(dname, []).append(entry)
         chunk_store[cid] = entry
-        corpus_out.append({"id": cid, "title": f"{dname} - Chunk {cidx}", "text": raw})
+        corpus_out.append({"id": cid, "title": f"{dname} - Chunk {cidx}" if EMBED_CHUNK_TITLE else "", "text": raw})
 
 # Ensure chunk order
 for dname in doc_chunks:

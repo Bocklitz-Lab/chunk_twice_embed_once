@@ -74,7 +74,12 @@ def _is_int(x: Any) -> bool:
     return isinstance(x, int) and not isinstance(x, bool)
 
 
-def load_chunks(path: str, full_text: Dict[str, str]):
+def chunk_title(doc: str, idx: int, embed_chunk_title: bool) -> str:
+    """MTEB embeds ``title + " " + text``. False (default): empty title, the model sees the chunk text only."""
+    return f"{doc} - Chunk {idx}" if embed_chunk_title else ""
+
+
+def load_chunks(path: str, full_text: Dict[str, str], embed_chunk_title: bool = False):
     """Return (chunks_by_doc, corpus_rows). Every chunk must carry exact positions: full_text[start:end] == text."""
     by_doc: Dict[str, List[Dict[str, Any]]] = {}
     corpus: List[Dict[str, Any]] = []
@@ -105,7 +110,7 @@ def load_chunks(path: str, full_text: Dict[str, str]):
         by_doc.setdefault(doc, []).append(
             {"chunk_id": cid, "chunk_index": idx, "start": start, "end": end, "text": text}
         )
-        corpus.append({"id": cid, "title": f"{doc} - Chunk {idx}", "text": text})
+        corpus.append({"id": cid, "title": chunk_title(doc, idx, embed_chunk_title), "text": text})
     for doc, chunks in by_doc.items():
         chunks.sort(key=lambda x: x["chunk_index"])
         indices = [c["chunk_index"] for c in chunks]
@@ -164,6 +169,7 @@ def build_span_qrels(
     qa_sha256: Optional[str] = None,
     extra_qrels_file: Optional[str] = None,
     verbose: bool = True,
+    embed_chunk_title: bool = False,
 ) -> Dict[str, Any]:
     """Write queries, corpus, overlap table and, for each c, qrels + label stats. Returns {tag: stats}."""
     verify_qa_sha256(qa_jsonl_file, qa_sha256 or CHEMQUESTS_QA_SHA256)
@@ -176,7 +182,7 @@ def build_span_qrels(
 
     full_text_path = full_text_jsonl_file or os.path.join(os.path.dirname(os.path.abspath(qa_jsonl_file)), "full_text.jsonl")
     full_text = load_full_text(full_text_path)
-    by_doc, corpus = load_chunks(chunks_jsonl_file, full_text)
+    by_doc, corpus = load_chunks(chunks_jsonl_file, full_text, embed_chunk_title)
     if not corpus:
         raise SpanQrelsError("the chunk file is empty")
     qa = load_qa(qa_jsonl_file, full_text)
@@ -329,6 +335,7 @@ def main(argv: Optional[List[str]] = None) -> int:
             full_text_jsonl_file=pick(args.full_text_jsonl, "full_text_jsonl_file"),
             qa_sha256=pick(args.qa_sha256, "qa_sha256"),
             extra_qrels_file=explicit_name,
+            embed_chunk_title=bool(cfg.get("embed_chunk_title", False)),
         )
     except (SpanQrelsError, ValueError) as e:
         raise SystemExit(f"ERROR: {e}")

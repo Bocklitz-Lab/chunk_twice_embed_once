@@ -47,6 +47,10 @@ params:
   #   use_prompts: false  old behaviour of all published runs: no prompt for any model
   # One entry per Phase 1 model (42). Empty string = no prompt on that side. Checked against each model card.
   use_prompts: true
+  # ---- chunk title ----
+  #   embed_chunk_title: false  corpus.jsonl gets an empty title: MTEB embeds the chunk text only (ids stay in _id/id)
+  #   embed_chunk_title: true  old behaviour of all published runs: the model sees "<doc> - Chunk <n> <text>"
+  embed_chunk_title: false
   model_prompts:
     sentence-transformers/bert-base-nli-mean-tokens: {query: "", passage: "", card: "sentence-transformers card: plain text, no prompt"}
     allenai/scibert_scivocab_uncased: {query: "", passage: "", card: "pretrained encoder, card defines no prompt"}
@@ -644,6 +648,7 @@ stage5:
   min_score_threshold: 0.95           # keep all chunks with score >= this value
   max_results_per_query: 5          # 0 = no cap; set e.g. 100 to cap
   print_log : false
+  embed_chunk_title: ${params.embed_chunk_title}
 #-------------------------------------------------------------------------------------
 #                               STAGE 6
 #-------------------------------------------------------------------------------------

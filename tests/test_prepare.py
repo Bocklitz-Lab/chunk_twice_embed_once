@@ -92,3 +92,29 @@ def test_tampering_with_a_prepared_file_is_detected(tmp_path, data):
     with open(f / "mteb_task" / "qrels_span_c090.jsonl", "a") as fh:
         fh.write(json.dumps({"query_id": "0", "doc_id": "0:0", "relevance": 1}) + "\n")
     assert "mteb_task/qrels_span_c090.jsonl" in chunk_cache.verify_files(f)
+
+
+def _corpus(f):
+    return [json.loads(l) for l in (f / "mteb_task" / "corpus.jsonl").read_text().splitlines()]
+
+
+def test_chunk_title_is_not_embedded_by_default_and_ids_are_kept(tmp_path, data):
+    from pipeline_lib import truncation
+    f = _prep(tmp_path, data)
+    rows = _corpus(f)
+    assert rows and all(r["title"] == "" and r["id"] for r in rows)
+    chunks = [json.loads(l) for l in (f / "chunks" / "chunks.jsonl").read_text().splitlines()]
+    assert [r["id"] for r in rows] == [str(c["chunk_id"]) for c in chunks]
+    # the string MTEB builds is exactly the chunk text
+    assert truncation.embedded_passages(f / "mteb_task") == [r["text"].strip() for r in rows]
+
+
+def test_embed_chunk_title_true_is_the_old_behaviour_and_makes_another_folder(tmp_path, data):
+    f0 = _prep(tmp_path, data)
+    f1 = _prep(tmp_path, data, extra=["embed_chunk_title=true"])
+    assert f0 != f1
+    rows = _corpus(f1)
+    assert all(r["title"].endswith(f" - Chunk {r['id'].split(':')[-1]}") or " - Chunk " in r["title"] for r in rows)
+    # the qrels do not depend on the title
+    assert (f0 / "mteb_task" / "qrels_span_c090.jsonl").read_bytes() == (f1 / "mteb_task" / "qrels_span_c090.jsonl").read_bytes()
+    assert (f0 / "mteb_task" / "qrels_lexical.jsonl").read_bytes() == (f1 / "mteb_task" / "qrels_lexical.jsonl").read_bytes()
