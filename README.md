@@ -65,6 +65,35 @@ make show-configs
 
 The full screening and Phase 2 grid require model downloads and substantial compute. Existing raw outputs are retained under `artifacts/` so analyses can be inspected without rerunning every model.
 
+## Reviewer-revision workflow (consistent chunks, prompts, per-query results)
+
+The legacy `make stage4-6` path chunks every configuration once per model with that model's own tokenizer. The
+revision workflow separates model effects from segmentation effects:
+
+```bash
+make prepare           # chunk + label each of the 140 configurations ONCE (reference tokenizer, fixed breakpoint model)
+make eval              # every model (+ BM25) on the prepared folders; finished runs are skipped
+make rerun             # prepare, then eval
+make pilot             # 2 models + BM25, fixed-token and hierarchical-section, sizes 128/512, overlap 0 (artifacts/pilot)
+make check-identical TESTS_ROOT=artifacts/tests   # corpus / qrels byte-identical across models?
+make collect TESTS_ROOT=artifacts/tests           # one CSV row per run
+```
+
+- `params.chunking_tokenizer` (bert-base-uncased, pinned) counts all chunk sizes; each model still embeds with its own
+  tokenizer. `chunking_tokenizer=model` restores the legacy per-model chunking.
+- `params.semantic_breakpoint_model` (all-MiniLM-L6-v2, pinned) finds the semantic breakpoints for all models.
+- `params.use_prompts` / `params.model_prompts`: query and document prompts per model (checked against the model cards),
+  applied at encoding time only. `--param use_prompts=false` reproduces the published behaviour (no prompts).
+- Prepared folders (`artifacts/prepared/<strategy>_c<L>_o<O>__<key>/`) hold the chunks, `corpus.jsonl`, `queries.jsonl`,
+  `qrels_lexical.jsonl`, `qrels_span_c<c>.jsonl`, the overlap table, coverage diagnostics and a manifest with file hashes.
+- Every run writes `run_top100.trec.gz`, `per_query_metrics*.csv`, `span_coverage.csv`, `truncation_report.json`,
+  `metrics_summary.json` (with a cross-check against MTEB's own numbers) and `run_manifest.json` (config, git commit,
+  package versions, GPU, prompts, seeds, data hashes, timing breakdown).
+- Tools: `tools/metrics.py` (all metrics from a saved ranking for any qrels file), `tools/stats.py` (bootstrap CIs at query
+  and paper level, paired tests with Holm correction, lexical-vs-span agreement), `tools/coverage_diagnostics.py`,
+  `tools/compare_runs.py` (repeat-run check).
+- `stages/run_bm25.py` is the BM25 baseline (`bm25` as a model name).
+
 ## Results
 
 - Historical Phase 1 results: `artifacts/embedding_models_screening/validation/`
