@@ -266,6 +266,37 @@ def resolve_labeling_block(doc: Dict[str, Any]) -> None:
     params["labeling"] = resolve_labeling(block)
 
 
+def resolve_chunking_block(doc: Dict[str, Any]) -> None:
+    """Derive params.chunking_resolved from chunking_tokenizer / semantic_breakpoint_model.
+
+    chunking_tokenizer: an HF tokenizer id (+ chunking_tokenizer_revision) used for ALL models, so chunk boundaries
+    are identical across models; or "model" = legacy: the tokenizer of the evaluated model, moving "main" revision.
+    semantic_breakpoint_model: {name, revision} of the one embedding model that finds the semantic breakpoints;
+    or "model" = legacy: the evaluated model. The strategy presets read params.chunking_resolved.*.
+    """
+    params = doc.get("params", {})
+    if "chunking_tokenizer" not in params:
+        return  # config written before the reference tokenizer existed: presets keep ${params.model.name}
+    model_name = (params.get("model") or {}).get("name")
+    tok = params.get("chunking_tokenizer")
+    if not tok:
+        raise ValueError("params.chunking_tokenizer must be a tokenizer id or 'model'")
+    legacy_tok = tok == "model"
+    bp = params.get("semantic_breakpoint_model", "model")
+    legacy_bp = bp == "model"
+    if not legacy_bp and not (isinstance(bp, dict) and bp.get("name") and bp.get("revision")):
+        raise ValueError("params.semantic_breakpoint_model must be 'model' or {name, revision} (revision pinned)")
+    if not legacy_tok and not params.get("chunking_tokenizer_revision"):
+        raise ValueError("params.chunking_tokenizer_revision must pin the reference tokenizer (a commit hash)")
+    params["chunking_resolved"] = {
+        "mode": "per_model_legacy" if legacy_tok else "reference",
+        "tokenizer": model_name if legacy_tok else tok,
+        "tokenizer_revision": None if legacy_tok else params["chunking_tokenizer_revision"],
+        "breakpoint_model": model_name if legacy_bp else bp["name"],
+        "breakpoint_revision": None if legacy_bp else bp["revision"],
+    }
+
+
 def ensure_dir(p: str) -> None:
     os.makedirs(p, exist_ok=True)
 
@@ -295,6 +326,13 @@ def main(argv: Iterable[str] = None) -> int:
     # 1) Apply user overrides into params.*
     for k, v in args.params:
         deep_set(doc["params"], k, v)
+
+    # 1a) Chunking tokenizer / semantic breakpoint model (reference tokenizer or legacy per-model)
+    try:
+        resolve_chunking_block(doc)
+    except ValueError as e:
+        print(f"ERROR: params: {e}", file=sys.stderr)
+        return 2
 
     # 1b) Labels: validate and derive the qrels file name from method and cover level
     try:

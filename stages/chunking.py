@@ -256,6 +256,9 @@ class ChunkerFactory:
 
             return SemanticSplitter(
                 model_name=model_name,
+                tokenizer_revision=params.get("tokenizer_revision"),
+                breakpoint_model_name=params.get("breakpoint_model_name"),
+                breakpoint_model_revision=params.get("breakpoint_model_revision"),
                 use_recursive=params.get("use_recursive", False),
                 chunk_size=params.get("chunk_size", 4000),
                 chunk_overlap=params.get("chunk_overlap", 200),

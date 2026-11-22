@@ -179,6 +179,11 @@ class SemanticSplitter:
         self,
         *,
         model_name: Optional[str] = None,
+        # Embedding model that finds the semantic breakpoints. None = model_name (legacy: the evaluated model).
+        # For the reviewer-revision runs it is one fixed model for all evaluated models (params.semantic_breakpoint_model).
+        breakpoint_model_name: Optional[str] = None,
+        breakpoint_model_revision: Optional[str] = None,
+        tokenizer_revision: Optional[str] = None,   # commit of the tokenizer repo (model_name); None = main
         chunk_size: int = 4000,
         chunk_overlap: int = 200,
         use_recursive: bool = False,
@@ -213,13 +218,17 @@ class SemanticSplitter:
         if min_chunk_unit not in ("tokens", "chars"):
             raise ValueError(f"min_chunk_unit must be 'tokens' or 'chars', got {min_chunk_unit!r}")
 
-        # --- Build HF pieces from model_name ---
-        # 1) Embeddings for SemanticChunker
+        # --- Build HF pieces ---
+        # 1) Embeddings for SemanticChunker (breakpoint model; model_name when none is given)
+        bp_name = breakpoint_model_name or model_name
         if model_kwargs is None:
             model_kwargs = {"trust_remote_code": True}
+        model_kwargs = dict(model_kwargs)
+        if breakpoint_model_revision:
+            model_kwargs["revision"] = breakpoint_model_revision
 
         emb_kwargs: Dict[str, Any] = {
-            "model_name": model_name,
+            "model_name": bp_name,
             "model_kwargs": model_kwargs,
         }
         if encode_kwargs is not None:
@@ -231,6 +240,9 @@ class SemanticSplitter:
         # ---- Tokenizer (trust flag) ----
         if tokenizer_kwargs is None:
             tokenizer_kwargs = {"trust_remote_code": True}
+        tokenizer_kwargs = dict(tokenizer_kwargs)
+        if tokenizer_revision:
+            tokenizer_kwargs["revision"] = tokenizer_revision
         tokenizer = AutoTokenizer.from_pretrained(
             model_name, use_fast=True, **tokenizer_kwargs
         )
@@ -253,6 +265,7 @@ class SemanticSplitter:
             # model_name, RecursiveTokenChunker silently falls back to bert-base-uncased.
             self._token_splitter = RecursiveTokenChunker(
                 model_name=model_name,
+                tokenizer_revision=tokenizer_revision,
                 chunk_size=chunk_size,
                 chunk_overlap=chunk_overlap,
                 # "" last: a run without any separator (paper 91: ~1,000 characters of "~/~/...")
@@ -282,6 +295,9 @@ class SemanticSplitter:
 
         self._config = dict(
             model_name=model_name,
+            tokenizer_revision=tokenizer_revision,
+            breakpoint_model_name=bp_name,
+            breakpoint_model_revision=breakpoint_model_revision,
             chunk_size=chunk_size,
             chunk_overlap=chunk_overlap,
             use_recursive=use_recursive,
@@ -311,7 +327,9 @@ class SemanticSplitter:
             lc_version = "unknown"
         payload = {
             "cache_version": _SEGMENT_CACHE_VERSION,
-            "model_name": self._config["model_name"],
+            # the model that embeds the sentences (the evaluated model in the legacy setting)
+            "model_name": self._config["breakpoint_model_name"],
+            "model_revision": self._config["breakpoint_model_revision"],
             "text_sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
             "breakpoint_threshold_type": self._config["breakpoint_threshold_type"],
             "breakpoint_threshold_amount": self._config["breakpoint_threshold_amount"],
@@ -319,7 +337,8 @@ class SemanticSplitter:
             "min_chunk_size": self._config["min_chunk_size"],
             "min_chunk_unit": self._config["min_chunk_unit"],
             # in token units the segmentation also depends on the tokenizer that counts them
-            "tokenizer_name": self._config["model_name"] if self._config["min_chunk_unit"] == "tokens" else None,
+            "tokenizer_name": ([self._config["model_name"], self._config["tokenizer_revision"]]
+                               if self._config["min_chunk_unit"] == "tokens" else None),
             "number_of_chunks": getattr(sc, "number_of_chunks", None),
             "sentence_split_regex": getattr(sc, "sentence_split_regex", None),
             "encode_kwargs": self._encode_kwargs,
@@ -370,7 +389,7 @@ class SemanticSplitter:
             os.makedirs(self._cache_dir, exist_ok=True)
             fd, tmp = tempfile.mkstemp(dir=self._cache_dir, suffix=".tmp")
             with os.fdopen(fd, "w", encoding="utf-8") as f:
-                json.dump({"model_name": self._config["model_name"], "n_chars": len(text),
+                json.dump({"model_name": self._config["breakpoint_model_name"], "n_chars": len(text),
                            "spans": [list(sp) for sp in spans]}, f)
             os.replace(tmp, path)  # atomic: parallel runs never see a half-written file
         except Exception as e:

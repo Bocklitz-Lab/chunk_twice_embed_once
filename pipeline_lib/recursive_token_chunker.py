@@ -63,6 +63,7 @@ class RecursiveTokenChunker:
 
         # Supported kwargs
         model_name = kwargs.pop("model_name", None)
+        tokenizer_revision = kwargs.pop("tokenizer_revision", None)  # commit hash of the tokenizer repo; None = main
         add_start_index = kwargs.pop("add_start_index", False)
         strip_whitespace = kwargs.pop("strip_whitespace", True)
 
@@ -90,7 +91,7 @@ class RecursiveTokenChunker:
             raise ValueError("RecursiveTokenChunker needs model_name (the HF tokenizer of the embedding model).")
 
         try:
-            tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
+            tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True, revision=tokenizer_revision)
         except Exception as e:
             raise ValueError(
                 f"Failed to load Hugging Face tokenizer for model_name='{model_name}'."
@@ -123,6 +124,7 @@ class RecursiveTokenChunker:
             keep_separator=keep_separator,
             is_separator_regex=is_separator_regex,
             model_name=model_name,   # HF model id
+            tokenizer_revision=tokenizer_revision,
             add_start_index=add_start_index,
             strip_whitespace=strip_whitespace,
         )

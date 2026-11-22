@@ -74,6 +74,7 @@ def test_every_generated_config_equals_the_resolved_input_exactly(tmp_path, chun
     for k, v in [("model.name", "intfloat/e5-large-v2"), ("model.dir", "intfloat_e5_large_v2"),
                  ("chunk.chunker", chunker), ("chunk.size", 128), ("chunk.overlap", 32)]:
         split_config.deep_set(doc["params"], k, v)
+    split_config.resolve_chunking_block(doc)  # reference tokenizer / breakpoint model, as main() does
     split_config.resolve_labeling_block(doc)  # derives labeling.qrels_file, as main() does
     doc = split_config.interpolate(doc, ctx=doc)
     split_config.resolve_stage4_strategy(doc)

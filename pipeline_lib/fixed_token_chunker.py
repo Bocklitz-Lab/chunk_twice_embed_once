@@ -27,7 +27,7 @@ class _HFTokenTextSplitter:
     Chunks by token count with overlap; uses offsets to map back to char spans.
     """
 
-    _TOKENIZER_CACHE: Dict[str, PreTrainedTokenizerBase] = {}
+    _TOKENIZER_CACHE: Dict[Tuple[str, Optional[str]], PreTrainedTokenizerBase] = {}
 
     def __init__(
         self,
@@ -37,6 +37,7 @@ class _HFTokenTextSplitter:
         model_name: Optional[str],
         add_start_index: bool,
         strip_whitespace: bool,
+        tokenizer_revision: Optional[str] = None,
     ):
         if chunk_overlap > chunk_size:
             raise ValueError(
@@ -52,14 +53,15 @@ class _HFTokenTextSplitter:
             # No silent default (it used to be gpt2): the chunk size must be measured with the
             # tokenizer of the embedding model that will encode the chunks.
             raise ValueError("FixedTokenChunker needs model_name (the HF tokenizer of the embedding model).")
-        self.tokenizer = self._get_tokenizer(model_name)
+        self.tokenizer = self._get_tokenizer(model_name, tokenizer_revision)
 
     @classmethod
-    def _get_tokenizer(cls, name: str) -> PreTrainedTokenizerBase:
-        if name not in cls._TOKENIZER_CACHE:
-            tok = AutoTokenizer.from_pretrained(name, use_fast=True)
-            cls._TOKENIZER_CACHE[name] = tok
-        return cls._TOKENIZER_CACHE[name]
+    def _get_tokenizer(cls, name: str, revision: Optional[str] = None) -> PreTrainedTokenizerBase:
+        key = (name, revision)
+        if key not in cls._TOKENIZER_CACHE:
+            # revision=None: the moving "main" (legacy, per-model tokenizers); a commit hash pins it
+            cls._TOKENIZER_CACHE[key] = AutoTokenizer.from_pretrained(name, use_fast=True, revision=revision)
+        return cls._TOKENIZER_CACHE[key]
 
     def _tokenize_with_offsets(self, text: str):
         enc = self.tokenizer(
@@ -181,6 +183,7 @@ class FixedTokenChunker:
         chunk_overlap: int = 200,
         add_start_index: bool = False,
         strip_whitespace: bool = True,
+        tokenizer_revision: Optional[str] = None,
     ) -> None:
         if chunk_overlap > chunk_size:
             raise ValueError(
@@ -193,12 +196,14 @@ class FixedTokenChunker:
             model_name=model_name,
             add_start_index=add_start_index,
             strip_whitespace=strip_whitespace,
+            tokenizer_revision=tokenizer_revision,
         )
 
         self._config = dict(
             chunk_size=chunk_size,
             chunk_overlap=chunk_overlap,
             model_name=model_name,
+            tokenizer_revision=tokenizer_revision,
             add_start_index=add_start_index,
             strip_whitespace=strip_whitespace,
         )

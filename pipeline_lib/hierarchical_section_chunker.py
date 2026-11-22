@@ -150,6 +150,7 @@ class HierarchicalSectionChunker:
         # tokenization controls (kept for interface compatibility)
         encoding_name: str = "cl100k_base",   # kept but not used without tiktoken
         model_name: Optional[str] = None,     # HF model id of the tokenizer (required; no fallback)
+        tokenizer_revision: Optional[str] = None,  # commit hash of the tokenizer repo; None = main
         allowed_special: Union[Literal["all"], AbstractSet[str]] = set(),   # unused with HF
         disallowed_special: Union[Literal["all"], Collection[str]] = "all", # unused with HF
         chunk_size: int = 800,
@@ -191,7 +192,7 @@ class HierarchicalSectionChunker:
         if AutoTokenizer is None:
             raise ImportError("transformers is required for HierarchicalSectionChunker.")
         try:
-            self._hf_tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
+            self._hf_tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True, revision=tokenizer_revision)
         except Exception as e:
             raise RuntimeError(f"Could not load the tokenizer for model_name={model_name!r}: {e}") from e
         if not getattr(self._hf_tokenizer, "is_fast", False):
@@ -210,6 +211,7 @@ class HierarchicalSectionChunker:
         self._config = dict(
             encoding_name=encoding_name,
             model_name=model_name,
+            tokenizer_revision=tokenizer_revision,
             chunk_size=chunk_size,
             chunk_overlap=chunk_overlap,
             add_start_index=add_start_index,

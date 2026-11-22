@@ -159,7 +159,7 @@ def test_tokenizer_cache_is_shared(model_name):
         chunk_size=16, chunk_overlap=4, model_name=model_name, add_start_index=True, strip_whitespace=False
     )
 
-    assert model_name in _HFTokenTextSplitter._TOKENIZER_CACHE
+    assert (model_name, None) in _HFTokenTextSplitter._TOKENIZER_CACHE  # keyed by (name, revision)
     assert s1.tokenizer is s2.tokenizer  # exact same object
     # Cache should not shrink
     assert len(_HFTokenTextSplitter._TOKENIZER_CACHE) >= len(cache_before)

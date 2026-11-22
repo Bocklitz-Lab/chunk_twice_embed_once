@@ -7,6 +7,22 @@ params:
     normalize: true
     batch_size: 32
 
+  # ---- chunking: ONE tokenizer and ONE breakpoint model for all evaluated models ----
+  # chunking_tokenizer: HF tokenizer that counts chunk_size / chunk_overlap / min sizes for every model, so chunk
+  #   boundaries (and qrels) are identical across models. Each model still embeds the text with its own tokenizer.
+  #   "model" = legacy: the evaluated model's own tokenizer (all published runs), moving "main" revision.
+  # semantic_breakpoint_model: the embedding model that finds the breakpoints of semantic-fixed / semantic-recursive,
+  #   the same for all evaluated models. "model" = legacy (the evaluated model).
+  # chunk_cache: prepared chunks + qrels, built once per (strategy, size, overlap) and reused by every model.
+  chunking_tokenizer: bert-base-uncased
+  chunking_tokenizer_revision: 86b5e0934494bd15c9632b12f734a8a67f723594
+  semantic_breakpoint_model:
+    name: sentence-transformers/all-MiniLM-L6-v2
+    revision: 1110a243fdf4706b3f48f1d95db1a4f5529b4d41
+  chunk_cache:
+    enabled: true
+    dir: ${params.paths.artifacts_root}/prepared
+
   # seed for python / numpy / torch in every stage-6 run (also used by the statistics tools)
   seed: 20261121
 
@@ -88,7 +104,8 @@ params:
     fixed_token:
       name: fixed_token
       params:
-        model_name: ${params.model.name}  # or your HF tokenizer model id
+        model_name: ${params.chunking_resolved.tokenizer}   # chunking tokenizer (see chunking_tokenizer)
+        tokenizer_revision: ${params.chunking_resolved.tokenizer_revision}
         chunk_size: ${params.chunk.size}
         chunk_overlap: ${params.chunk.overlap}
         add_start_index: false
@@ -102,14 +119,18 @@ params:
         separators: ["\n\n", "\n", ".", "?", "!", " ", ""]
         keep_separator: true
         is_separator_regex: false
-        model_name: ${params.model.name}   # any HF tokenizer id
+        model_name: ${params.chunking_resolved.tokenizer}   # chunking tokenizer (see chunking_tokenizer)
+        tokenizer_revision: ${params.chunking_resolved.tokenizer_revision}
         add_start_index: false                               # set true to annotate start offsets
         strip_whitespace: true                               # trim around splits
 
     semantic_fixed:
       name: semantic
       params:
-        model_name: ${params.model.name}
+        model_name: ${params.chunking_resolved.tokenizer}   # tokenizer that counts sizes (chunking_tokenizer)
+        tokenizer_revision: ${params.chunking_resolved.tokenizer_revision}
+        breakpoint_model_name: ${params.chunking_resolved.breakpoint_model}      # same model for all evaluated models
+        breakpoint_model_revision: ${params.chunking_resolved.breakpoint_revision}
         model_kwargs:
           trust_remote_code: true
         use_recursive: false
@@ -129,7 +150,10 @@ params:
     semantic_recursive:
       name: semantic
       params:
-        model_name: ${params.model.name}
+        model_name: ${params.chunking_resolved.tokenizer}   # tokenizer that counts sizes (chunking_tokenizer)
+        tokenizer_revision: ${params.chunking_resolved.tokenizer_revision}
+        breakpoint_model_name: ${params.chunking_resolved.breakpoint_model}      # same model for all evaluated models
+        breakpoint_model_revision: ${params.chunking_resolved.breakpoint_revision}
         model_kwargs:
           trust_remote_code: true
         use_recursive: true
@@ -149,7 +173,8 @@ params:
     hierarchical_section:
       name: hierarchical_section   # aliases: hierarchical | section | section_hier
       params:
-        model_name: ${params.model.name}
+        model_name: ${params.chunking_resolved.tokenizer}   # chunking tokenizer (see chunking_tokenizer)
+        tokenizer_revision: ${params.chunking_resolved.tokenizer_revision}
         chunk_size: ${params.chunk.size}
         chunk_overlap: ${params.chunk.overlap} 
         add_start_index: false
