@@ -46,6 +46,24 @@ def model_dir(name: str) -> str:
     return d.replace("-", "_")
 
 
+def pinned_revisions(main_config: str) -> Dict[str, str]:
+    """{model name: commit hash} of the 42 Phase 1 models (stage1.models of the main config)."""
+    doc = yaml.safe_load(Path(main_config).read_text(encoding="utf-8"))
+    return {m["name"]: m["revision"] for m in doc["stage1"]["models"]}
+
+
+def resolve_revision(name: str, rev: Optional[str], table: Dict[str, str]) -> str:
+    """A moving or missing revision (main, empty) is replaced by the commit pinned in the config; unknown models with a
+    moving revision are refused. An explicit commit hash is kept as it is."""
+    if name.startswith(BM25):
+        return rev or "rank_bm25"
+    if rev and rev not in ("main", "master"):
+        return rev
+    if name not in table or table[name] in ("main", "master"):
+        raise ValueError(f"{name}: no pinned revision (give name@<commit> or pin it in stage1.models of the main config)")
+    return table[name]
+
+
 def parse_model(spec: str) -> Tuple[str, str]:
     name, _, rev = spec.partition("@")
     return name, rev or "main"
@@ -174,6 +192,8 @@ def main(argv: Optional[List[str]] = None) -> int:
         models = [parse_model(m) for m in pilot["models"]]
     else:
         models = models_from_csv(args.models_csv) + ([] if args.no_bm25 else [(BM25, "rank_bm25")])
+    table = pinned_revisions(args.main_config)
+    models = [(n, resolve_revision(n, r, table)) for n, r in models]
     cells = grid.grid(sizes, overlaps)
     if args.pilot:
         cells = [(s, o) for s, o in sorted({(s, o) for s in sizes for o in overlaps})]   # the pilot asks for exact cells

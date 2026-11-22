@@ -2,10 +2,10 @@ output_root: artifacts/embedding_models_screening/validation
 encode_kwargs: {}
 models:
 - name: sentence-transformers/bert-base-nli-mean-tokens
-  revision: main
+  revision: 160a52b38a51ae87295ec3eabcf11755e5d27a8d   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
 - name: allenai/scibert_scivocab_uncased
-  revision: main
+  revision: 24f92d32b1bfb0bcaf9ab193ff3ad01e87732fc1   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   model_kwargs:
     trust_remote_code: true
@@ -82,30 +82,30 @@ models:
   model_kwargs:
     trust_remote_code: true
 - name: recobo/chemical-bert-uncased
-  revision: main
+  revision: 498698d28fcf7ce5954852a0444c864bdf232b64   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   model_kwargs:
     trust_remote_code: true
 - name: BAAI/bge-m3
-  revision: main
+  revision: 5617a9f61b028005a4858fdac845db406aefb181   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   batch_size: 32
   model_kwargs:
     trust_remote_code: true
 - name: BAAI/bge-small-en
-  revision: main
+  revision: 2275a7bdee235e9b4f01fa73aa60d3311983cfea   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   batch_size: 64
   model_kwargs:
     trust_remote_code: true
 - name: BAAI/bge-base-en
-  revision: main
+  revision: b737bf5dcc6ee8bdc530531266b4804a5d77b5d8   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   batch_size: 64
   model_kwargs:
     trust_remote_code: true
 - name: BAAI/bge-large-en
-  revision: main
+  revision: abe7d9d814b775ca171121fb03f394dc42974275   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   batch_size: 32
   model_kwargs:
@@ -129,81 +129,81 @@ models:
   model_kwargs:
     trust_remote_code: true
 - name: sentence-transformers/all-mpnet-base-v2
-  revision: main
+  revision: e8c3b32edf5434bc2275fc9bab85f82640a19130   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   model_kwargs:
     trust_remote_code: true
 - name: sentence-transformers/multi-qa-mpnet-base-dot-v1
-  revision: main
+  revision: 17997f24dca0df1a4fed68894fb0e1e133e60482   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   model_kwargs:
     trust_remote_code: true
 - name: sentence-transformers/all-MiniLM-L12-v2
-  revision: main
+  revision: a50ef00143b4d5391434df20ae11632588ac25be   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   batch_size: 64
   model_kwargs:
     trust_remote_code: true
 - name: sentence-transformers/all-MiniLM-L6-v2
-  revision: main
+  revision: 1110a243fdf4706b3f48f1d95db1a4f5529b4d41   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   batch_size: 64
   model_kwargs:
     trust_remote_code: true
 - name: m3rg-iitd/matscibert
-  revision: main
+  revision: ced9d8f5f208712c4a90f98a246fe32155b29995   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   model_kwargs:
     trust_remote_code: true
 - name: allenai/specter
-  revision: main
+  revision: 81cbfb43d4fc2e728d5b4201ce14987db8d0854c   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   model_kwargs:
     trust_remote_code: true
 - name: facebook/contriever
-  revision: main
+  revision: 2bd46a25019aeea091fd42d1f0fd4801675cf699   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   batch_size: 64
   model_kwargs:
     trust_remote_code: true
 - name: hkunlp/instructor-xl
-  revision: main
+  revision: ce48b213095e647a6c3536364b9fa00daf57f436   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   batch_size: 16
   model_kwargs:
     trust_remote_code: true
 - name: facebook/contriever-msmarco
-  revision: main
+  revision: abe8c1493371369031bcb1e02acb754cf4e162fa   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   batch_size: 64
   model_kwargs:
     trust_remote_code: true
 - name: sentence-transformers/gtr-t5-base
-  revision: main
+  revision: 9801579ce813fb37541e6098dffd17959fffcd6e   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   batch_size: 32
   model_kwargs:
     trust_remote_code: true
 - name: sentence-transformers/gtr-t5-large
-  revision: main
+  revision: 51aab2cd10b205ba0f3f1ebaf1d4d5460bbf728d   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   batch_size: 16
   model_kwargs:
     trust_remote_code: true
 - name: sentence-transformers/gtr-t5-xl
-  revision: main
+  revision: 8a47de8b7d81c794f59797f165533567280b0afd   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   batch_size: 8
   model_kwargs:
     trust_remote_code: true
 - name: microsoft/mpnet-base
-  revision: main
+  revision: 6996ce1e91bd2a9c7d7f61daec37463394f73f09   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   batch_size: 64
   model_kwargs:
     trust_remote_code: true
 - name: microsoft/MiniLM-L12-H384-uncased
-  revision: main
+  revision: 44acabbec0ef496f6dbc93adadea57f376b7c0ec   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   batch_size: 64
   model_kwargs:
@@ -215,29 +215,29 @@ models:
   model_kwargs:
     trust_remote_code: true
 - name: nomic-ai/nomic-embed-text-v2-moe
-  revision: main
+  revision: 1066b6599d099fbb93dfcb64f9c37a7c9e503e85   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   batch_size: 32
   model_kwargs:
     trust_remote_code: true
 - name: microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract
-  revision: main
+  revision: d673b8835373c6fa116d6d8006b33d48734e305d   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   model_kwargs:
     trust_remote_code: true
 - name: microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext
-  revision: main
+  revision: e1354b7a3a09615f6aba48dfad4b7a613eef7062   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   model_kwargs:
     trust_remote_code: true
 - name: DeepChem/ChemBERTa-77M-MTR
-  revision: main
+  revision: 66b895cab8adebea0cb59a8effa66b2020f204ca   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   batch_size: 64
   model_kwargs:
     trust_remote_code: true
 - name: microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract
-  revision: main
+  revision: d673b8835373c6fa116d6d8006b33d48734e305d   # was: main (pinned to the commit evaluated in Phase 1)
   normalize: true
   model_kwargs:
     trust_remote_code: true
