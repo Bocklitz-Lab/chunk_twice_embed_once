@@ -23,6 +23,54 @@ params:
     method: span
     cover_level: 0.90
     qrels_file: null
+  # ---- prompts (query / document prefixes or instructions), applied at encoding time only ----
+  #   use_prompts: true   put model_prompts[model] in front of queries / chunks when encoding (Phase 1 and 2)
+  #   use_prompts: false  old behaviour of all published runs: no prompt for any model
+  # One entry per Phase 1 model (42). Empty string = no prompt on that side. Checked against each model card.
+  use_prompts: true
+  model_prompts:
+    sentence-transformers/bert-base-nli-mean-tokens: {query: "", passage: "", card: "sentence-transformers card: plain text, no prompt"}
+    allenai/scibert_scivocab_uncased: {query: "", passage: "", card: "pretrained encoder, card defines no prompt"}
+    nomic-ai/nomic-bert-2048: {query: "", passage: "", card: "pretrained BERT, card defines no prompt"}
+    intfloat/e5-small: {query: "query: ", passage: "passage: ", card: "E5 card: every input must start with \"query: \" or \"passage: \"; both for retrieval"}
+    intfloat/e5-base: {query: "query: ", passage: "passage: ", card: "E5 card: every input must start with \"query: \" or \"passage: \"; both for retrieval"}
+    intfloat/e5-large: {query: "query: ", passage: "passage: ", card: "E5 card: every input must start with \"query: \" or \"passage: \"; both for retrieval"}
+    intfloat/e5-small-v2: {query: "query: ", passage: "passage: ", card: "E5 card: every input must start with \"query: \" or \"passage: \"; both for retrieval"}
+    intfloat/e5-base-v2: {query: "query: ", passage: "passage: ", card: "E5 card: every input must start with \"query: \" or \"passage: \"; both for retrieval"}
+    intfloat/e5-large-v2: {query: "query: ", passage: "passage: ", card: "E5 card: every input must start with \"query: \" or \"passage: \"; both for retrieval"}
+    intfloat/multilingual-e5-small: {query: "query: ", passage: "passage: ", card: "E5 card: every input must start with \"query: \" or \"passage: \"; both for retrieval"}
+    intfloat/multilingual-e5-base: {query: "query: ", passage: "passage: ", card: "E5 card: every input must start with \"query: \" or \"passage: \"; both for retrieval"}
+    intfloat/multilingual-e5-large: {query: "query: ", passage: "passage: ", card: "E5 card: every input must start with \"query: \" or \"passage: \"; both for retrieval"}
+    nomic-ai/nomic-embed-text-v1: {query: "search_query: ", passage: "search_document: ", card: "nomic card: the text must carry a task prefix; search_query / search_document for retrieval"}
+    nomic-ai/nomic-embed-text-v1.5: {query: "search_query: ", passage: "search_document: ", card: "nomic card: the text must carry a task prefix; search_query / search_document for retrieval"}
+    recobo/chemical-bert-uncased: {query: "", passage: "", card: "pretrained encoder, card defines no prompt"}
+    BAAI/bge-m3: {query: "", passage: "", card: "bge-m3 card: no query instruction needed"}
+    BAAI/bge-small-en: {query: "Represent this sentence for searching relevant passages: ", passage: "", card: "bge card: query instruction for retrieval, none for passages"}
+    BAAI/bge-base-en: {query: "Represent this sentence for searching relevant passages: ", passage: "", card: "bge card: query instruction for retrieval, none for passages"}
+    BAAI/bge-large-en: {query: "Represent this sentence for searching relevant passages: ", passage: "", card: "bge card: query instruction for retrieval, none for passages"}
+    BAAI/bge-small-en-v1.5: {query: "Represent this sentence for searching relevant passages: ", passage: "", card: "bge v1.5 card: instruction optional (small drop without) but recommended for short queries against long documents (our case); none for passages"}
+    BAAI/bge-base-en-v1.5: {query: "Represent this sentence for searching relevant passages: ", passage: "", card: "bge v1.5 card: instruction optional (small drop without) but recommended for short queries against long documents (our case); none for passages"}
+    BAAI/bge-large-en-v1.5: {query: "Represent this sentence for searching relevant passages: ", passage: "", card: "bge v1.5 card: instruction optional (small drop without) but recommended for short queries against long documents (our case); none for passages"}
+    sentence-transformers/all-mpnet-base-v2: {query: "", passage: "", card: "sentence-transformers card: plain text, no prompt"}
+    sentence-transformers/multi-qa-mpnet-base-dot-v1: {query: "", passage: "", card: "sentence-transformers card: plain text, no prompt"}
+    sentence-transformers/all-MiniLM-L12-v2: {query: "", passage: "", card: "sentence-transformers card: plain text, no prompt"}
+    sentence-transformers/all-MiniLM-L6-v2: {query: "", passage: "", card: "sentence-transformers card: plain text, no prompt"}
+    m3rg-iitd/matscibert: {query: "", passage: "", card: "pretrained encoder, card defines no prompt"}
+    allenai/specter: {query: "", passage: "", card: "SPECTER card: title+abstract text, no prompt"}
+    facebook/contriever: {query: "", passage: "", card: "contriever card: plain text, no prompt"}
+    hkunlp/instructor-xl: {query: "Represent the Wikipedia question for retrieving supporting documents: ", passage: "Represent the Wikipedia document for retrieval: ", card: "instructor-xl card retrieval example (given as text prefix; plain SentenceTransformer pooling includes the instruction tokens)"}
+    facebook/contriever-msmarco: {query: "", passage: "", card: "contriever card: plain text, no prompt"}
+    sentence-transformers/gtr-t5-base: {query: "", passage: "", card: "sentence-transformers card: plain text, no prompt"}
+    sentence-transformers/gtr-t5-large: {query: "", passage: "", card: "sentence-transformers card: plain text, no prompt"}
+    sentence-transformers/gtr-t5-xl: {query: "", passage: "", card: "sentence-transformers card: plain text, no prompt"}
+    microsoft/mpnet-base: {query: "", passage: "", card: "pretrained encoder, card defines no prompt (no README for mpnet-base / ChemBERTa)"}
+    microsoft/MiniLM-L12-H384-uncased: {query: "", passage: "", card: "pretrained encoder, card defines no prompt"}
+    sentence-transformers/paraphrase-multilingual-mpnet-base-v2: {query: "", passage: "", card: "sentence-transformers card: plain text, no prompt"}
+    nomic-ai/nomic-embed-text-v2-moe: {query: "search_query: ", passage: "search_document: ", card: "nomic card: the text must carry a task prefix; search_query / search_document for retrieval"}
+    microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract: {query: "", passage: "", card: "pretrained encoder, card defines no prompt"}
+    microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext: {query: "", passage: "", card: "pretrained encoder, card defines no prompt"}
+    DeepChem/ChemBERTa-77M-MTR: {query: "", passage: "", card: "pretrained encoder, card defines no prompt (no README for mpnet-base / ChemBERTa)"}
+    microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract: {query: "", passage: "", card: "pretrained encoder, card defines no prompt"}
   paths:
     artifacts_root: artifacts
     chemquests_dir: ${params.paths.artifacts_root}/chemquests_hf_db
@@ -222,6 +270,8 @@ params:
 #-------------------------------------------------------------------------------------
 stage1:
   output_root: ${params.paths.top_performer_input}
+  use_prompts: ${params.use_prompts}
+  model_prompts: ${params.model_prompts}
   # import_modules:
   #   - my_tasks
   encode_kwargs: {}
@@ -559,6 +609,8 @@ stage5:
 #                               STAGE 6
 #-------------------------------------------------------------------------------------
 stage6:
+  use_prompts: ${params.use_prompts}
+  model_prompts: ${params.model_prompts}
   models:
     - name: ${params.model.name}
       revision: ${params.model.revision}

@@ -13,6 +13,7 @@ from mteb import MTEB, get_tasks
 
 # local
 from pipeline_lib.model_wrapper import STNoPrompt  # keep your wrapper
+from pipeline_lib.prompts import resolve_prompts
 
 # =================== CONFIG LOADING =========================================
 def load_config(path: Union[str, Path]) -> Dict[str, Any]:
@@ -56,6 +57,8 @@ class ModelCfg:
     # Future: allow custom encode kwargs per model
     encode_kwargs: Dict[str, Any] = field(default_factory=dict)
     model_kwargs: Dict[str, Any] = field(default_factory=dict)
+    # optional prompt entry for this model only ({query, passage}); wins over the model_prompts table
+    prompts: Optional[Dict[str, Any]] = None
 @dataclass
 class TaskSpec:
     # One of:
@@ -74,6 +77,11 @@ class AppConfig:
 
     # Optional global encode kwargs (merged with model.encode_kwargs, model wins)
     encode_kwargs: Dict[str, Any] = field(default_factory=dict)
+
+    # Prompts (see pipeline_lib/prompts.py). Default False: a config written before prompts existed keeps the
+    # old behaviour (no prompt). The generated stage files carry params.use_prompts / params.model_prompts.
+    use_prompts: bool = False
+    model_prompts: Dict[str, Any] = field(default_factory=dict)
 
 def parse_app_config(raw: Dict[str, Any]) -> AppConfig:
     if not isinstance(raw, dict):
@@ -99,6 +107,7 @@ def parse_app_config(raw: Dict[str, Any]) -> AppConfig:
                 batch_size=int(m.get("batch_size", 64)),
                 encode_kwargs=m.get("encode_kwargs", {}) or {},
                 model_kwargs=m.get("model_kwargs", {}) or {},
+                prompts=m.get("prompts"),
             )
         )
 
@@ -119,6 +128,8 @@ def parse_app_config(raw: Dict[str, Any]) -> AppConfig:
         output_root=output_root,
         import_modules=import_modules,
         encode_kwargs=encode_kwargs,
+        use_prompts=bool(raw.get("use_prompts", False)),
+        model_prompts=raw.get("model_prompts") or {},
     )
 
 # =================== TASK RESOLUTION ========================================
@@ -307,7 +318,9 @@ def main():
 
         # Build wrapper model
         base = SentenceTransformer(model_name, revision=revision,**(cfg.model_kwargs or {}))
-        model = STNoPrompt(base, normalize=normalize)
+        prompts = resolve_prompts(model_name, app_cfg.model_prompts, app_cfg.use_prompts, override=cfg.prompts)
+        print(f"Prompts: {prompts if prompts else 'none'}")
+        model = STNoPrompt(base, normalize=normalize, prompts=prompts)
 
         # Per-model output dir; MTEB will nest per-task folders inside
         model_out_dir = app_cfg.output_root / f"{safe_name(model_name)}_{revision}"

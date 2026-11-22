@@ -33,7 +33,7 @@ def _run(tmp_path, monkeypatch, extra):
     _FakeMTEB.calls = []
     monkeypatch.setattr(run_eval, "MTEB", _FakeMTEB)
     monkeypatch.setattr(run_eval, "SentenceTransformer", lambda *a, **k: object())
-    monkeypatch.setattr(run_eval, "STNoPrompt", lambda base, normalize: object())
+    monkeypatch.setattr(run_eval, "STNoPrompt", lambda base, normalize, prompts=None: object())
     monkeypatch.setattr(run_eval, "resolve_tasks", lambda specs, mods: [object()])
     monkeypatch.setattr(sys, "argv", ["run_eval", "--config", str(p)])
     run_eval.main()
