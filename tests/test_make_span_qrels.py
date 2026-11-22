@@ -107,7 +107,7 @@ def test_outputs_for_three_cover_levels(tmp_path):
 
     # corpus: same format as the lexical stage 5
     corpus = _jsonl(out / "corpus.jsonl")
-    assert len(corpus) == 8 and corpus[0] == {"id": "0:0", "title": "0 - Chunk 0", "text": DOCS["0"][0:100]}
+    assert len(corpus) == 8 and corpus[0] == {"id": "0:0", "title": "", "text": DOCS["0"][0:100]}   # empty title: embed_chunk_title is false
     assert [c["id"] for c in corpus] == ["0:0", "0:1", "0:2", "1:0", "1:1", "2:0", "2:1", "2:2"]
 
     # qrels at c = 0.9 (a chunk with >= 90 % of the span, else greedy, else all overlapping)
