@@ -4,7 +4,7 @@ The prompts live in the config (``params.model_prompts``, one entry per model; `
 on or off). They are looked up here and applied by ``pipeline_lib.model_wrapper.STNoPrompt.encode`` to the text that
 goes into the embedding model. Chunking, token counting and the qrels never see them.
 
-An entry is ``{query: str, passage: str, card: str}``. An empty string means "no prompt for this side". A model
+An entry is ``{query: str, passage: str, card: str}`` (+ optionally ``mask_instruction: true``, see below). An empty string means "no prompt for this side". A model
 without any prompt has both empty. With ``use_prompts: true`` a model that has no entry is an error: whether a model
 needs a prompt must be decided explicitly, never by omission.
 """
@@ -24,8 +24,12 @@ def resolve_prompts(
     table: Optional[Mapping[str, Any]],
     use_prompts: bool,
     override: Optional[Mapping[str, Any]] = None,
+    mask_instruction: bool = False,
 ) -> Optional[Dict[str, Any]]:
-    """Return {"query": str, "passage": str, "card": str} for the model, or None when prompts are off.
+    """Return {"query": str, "passage": str, "card": str, "mask_instruction": bool} for the model, or None when prompts are off.
+
+    ``mask_instruction`` (``params.mask_instruction_tokens``) switches on the INSTRUCTOR masking for the entries that
+    declare ``mask_instruction: true`` (instructor-xl only); see ``pipeline_lib.instruction_masking``.
 
     ``override`` (an entry given directly in a model's own config block) wins over the table.
     ``use_prompts: false`` always returns None (the behaviour of all published runs).
@@ -49,6 +53,7 @@ def resolve_prompts(
             raise PromptConfigError(f"prompt entry of {model_name!r}: {side!r} must be a string")
         out[side] = val
     out["card"] = str(entry.get("card", ""))
+    out["mask_instruction"] = bool(mask_instruction and entry.get("mask_instruction", False))
     return out
 
 

@@ -77,7 +77,7 @@ def test_every_phase1_model_has_an_entry_and_19_need_prompts():
     assert len(names) == 42 and set(names) == set(TABLE)
     assert sum(1 for v in TABLE.values() if v["query"] or v["passage"]) == 19
     for v in TABLE.values():
-        assert set(v) == {"query", "passage", "card"} and v["card"]
+        assert set(v) - {"mask_instruction"} == {"query", "passage", "card"} and v["card"]
 
 
 def test_resolve_prompts_rules():

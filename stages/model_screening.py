@@ -84,6 +84,7 @@ class AppConfig:
     # Prompts (see pipeline_lib/prompts.py). Default False: a config written before prompts existed keeps the
     # old behaviour (no prompt). The generated stage files carry params.use_prompts / params.model_prompts.
     use_prompts: bool = False
+    mask_instruction_tokens: bool = False     # INSTRUCTOR masking for the prompt entries that declare mask_instruction
     model_prompts: Dict[str, Any] = field(default_factory=dict)
     seed: Optional[int] = None
 
@@ -133,6 +134,7 @@ def parse_app_config(raw: Dict[str, Any]) -> AppConfig:
         import_modules=import_modules,
         encode_kwargs=encode_kwargs,
         use_prompts=bool(raw.get("use_prompts", False)),
+        mask_instruction_tokens=bool(raw.get("mask_instruction_tokens", False)),
         model_prompts=raw.get("model_prompts") or {},
         seed=(int(raw["seed"]) if raw.get("seed") is not None else None),
     )
@@ -326,7 +328,8 @@ def main():
         sw = Stopwatch()
         with sw.section("model_load_s"):
             base = SentenceTransformer(model_name, revision=revision,**(cfg.model_kwargs or {}))
-        prompts = resolve_prompts(model_name, app_cfg.model_prompts, app_cfg.use_prompts, override=cfg.prompts)
+        prompts = resolve_prompts(model_name, app_cfg.model_prompts, app_cfg.use_prompts, override=cfg.prompts,
+                                 mask_instruction=app_cfg.mask_instruction_tokens)
         print(f"Prompts: {prompts if prompts else 'none'}")
         model = STNoPrompt(base, normalize=normalize, prompts=prompts)
 

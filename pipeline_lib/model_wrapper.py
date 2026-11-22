@@ -11,6 +11,8 @@ class STNoPrompt:
     With ``prompts`` ({"query": ..., "passage": ...}, see ``pipeline_lib.prompts``) the prompt of the side MTEB asks
     for (``prompt_type`` query / passage) is put in front of every text. This happens here, at encoding time, and
     nowhere else: chunks, token counts and qrels are not touched.
+    With ``prompts["mask_instruction"]`` (INSTRUCTOR models, ``params.mask_instruction_tokens``) the prompt is an INSTRUCTOR
+    instruction: it goes through the encoder with the text but is masked out of the mean pooling (instruction_masking.py).
     """
 
     def __init__(self, st_model, normalize=True, prompts=None):
@@ -32,15 +34,22 @@ class STNoPrompt:
         kwargs.pop("task_name", None)
         kwargs.pop("content_type", None)
         kwargs.pop("prompt_name", None)
-        sentences = apply_prompt(sentences, self.prompts, prompt_type)
+        side = side_of(prompt_type)
+        instruction = (self.prompts or {}).get(side) if side else ""
         t0 = time.perf_counter()
-        emb = self.model.encode(
-            sentences,
-            batch_size=batch_size,
-            convert_to_numpy=True,
-            normalize_embeddings=self.normalize,
-            show_progress_bar=False,
-        )
+        if instruction and (self.prompts or {}).get("mask_instruction"):
+            # INSTRUCTOR: the instruction conditions the text but is left out of the mean pooling (not a plain prefix)
+            from pipeline_lib.instruction_masking import encode_masked
+            emb = encode_masked(self.model, instruction, sentences, batch_size=batch_size, normalize=self.normalize)
+        else:
+            sentences = apply_prompt(sentences, self.prompts, prompt_type)
+            emb = self.model.encode(
+                sentences,
+                batch_size=batch_size,
+                convert_to_numpy=True,
+                normalize_embeddings=self.normalize,
+                show_progress_bar=False,
+            )
         # convert_to_numpy copies the result to the host, so the GPU work is finished here
         self.timings.append({"side": side_of(prompt_type), "n_texts": len(sentences) if not isinstance(sentences, str) else 1,
                              "seconds": time.perf_counter() - t0})
