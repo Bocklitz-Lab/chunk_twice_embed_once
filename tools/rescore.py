@@ -97,20 +97,12 @@ def qrels_from_overlap_table(table: Dict[str, List[Dict[str, Any]]], query_ids: 
 # --------------------------------------------------------------------------------------
 # metrics
 # --------------------------------------------------------------------------------------
-def score(predictions: Dict[str, Dict[str, float]], qrels: Dict[str, Dict[str, int]]) -> Dict[str, Any]:
-    """nDCG@10 and Recall@10 averaged over all queries of ``qrels``; a query without a positive label scores 0.
-
-    ``qrels`` must contain every query (queries with only relevance-0 rows or an empty dict are 'empty questions').
-    Predictions must cover the same queries; a mismatch is an error, never silently ignored.
-    """
+def per_query_scores(predictions: Dict[str, Dict[str, float]], qrels: Dict[str, Dict[str, int]]):
+    """({query: nDCG@10}, {query: Recall@10}, {query: positive labels}) for every query of ``qrels`` (0 for a query without a positive label)."""
     import pytrec_eval
 
-    if set(predictions) != set(qrels):
-        only_p, only_q = sorted(set(predictions) - set(qrels))[:5], sorted(set(qrels) - set(predictions))[:5]
-        raise ValueError(f"predictions and labels cover different queries (only in predictions: {only_p}..., only in labels: {only_q}...)")
     positive = {q: {d: 1 for d, r in rels.items() if r > 0} for q, rels in qrels.items()}
     positive = {q: rels for q, rels in positive.items() if rels}
-    n = len(qrels)
     per_ndcg: Dict[str, float] = {q: 0.0 for q in qrels}
     per_recall: Dict[str, float] = {q: 0.0 for q in qrels}
     if positive:
@@ -118,6 +110,20 @@ def score(predictions: Dict[str, Dict[str, float]], qrels: Dict[str, Dict[str, i
         res = pytrec_eval.RelevanceEvaluator(positive, {"ndcg_cut.10", "recall.10"}).evaluate(run)
         for q, m in res.items():
             per_ndcg[q], per_recall[q] = m["ndcg_cut_10"], m["recall_10"]
+    return per_ndcg, per_recall, positive
+
+
+def score(predictions: Dict[str, Dict[str, float]], qrels: Dict[str, Dict[str, int]]) -> Dict[str, Any]:
+    """nDCG@10 and Recall@10 averaged over all queries of ``qrels``; a query without a positive label scores 0.
+
+    ``qrels`` must contain every query (queries with only relevance-0 rows or an empty dict are 'empty questions').
+    Predictions must cover the same queries; a mismatch is an error, never silently ignored.
+    """
+    if set(predictions) != set(qrels):
+        only_p, only_q = sorted(set(predictions) - set(qrels))[:5], sorted(set(qrels) - set(predictions))[:5]
+        raise ValueError(f"predictions and labels cover different queries (only in predictions: {only_p}..., only in labels: {only_q}...)")
+    per_ndcg, per_recall, positive = per_query_scores(predictions, qrels)
+    n = len(qrels)
     ndcg = sum(per_ndcg.values()) / n
     recall = sum(per_recall.values()) / n
     geom_q = sum(math.sqrt(per_ndcg[q] * per_recall[q]) for q in qrels) / n
@@ -196,6 +202,68 @@ def stored_metrics(config_dir) -> Optional[Dict[str, float]]:
 
 
 # --------------------------------------------------------------------------------------
+# cover-level sensitivity of a whole report: every run (dense, BM25, hybrid, rerank), several c, paper-level intervals
+# --------------------------------------------------------------------------------------
+SENSITIVITY_COLUMNS = ["model", "kind", "chunker", "size", "overlap", "cover_level", "n_empty_questions", "ndcg_at_10", "ndcg_ci_low", "ndcg_ci_high",
+                       "recall_at_10", "recall_ci_low", "recall_ci_high", "geom_at_10", "geom_ci_low", "geom_ci_high", "resamples"]
+
+
+def sensitivity_rows(tests_root, qa_jsonl, cover_levels: Sequence, resamples: int, seed: int) -> List[Dict[str, Any]]:
+    """One row per run and cover level: nDCG@10, Recall@10 and Geom@10 of the saved ranking under the labels that the span rule gives at that c (derived
+    from the overlap table of the run's prepared folder: no re-chunking, no re-embedding), with paper-level bootstrap intervals (the draws are the
+    ones of ``tools/stats.py``). Runs without a saved ranking or overlap table are skipped. Nothing is written into the run folders."""
+    import numpy as np
+    from tools import stats
+
+    fracs = []
+    for c in cover_levels:
+        f = parse_cover_level(c)
+        if cover_tag(f) not in {cover_tag(x) for x in fracs}:
+            fracs.append(f)
+    tests_root = Path(tests_root)
+    tables: Dict[str, Dict[str, List[Dict[str, Any]]]] = {}
+    labels: Dict[tuple, Dict[str, Dict[str, int]]] = {}
+    rows: List[Dict[str, Any]] = []
+    groups = None
+    for d in sorted(p for p in tests_root.iterdir() if p.is_dir() and (p / "run_info.json").is_file()):
+        info = json.loads((d / "run_info.json").read_text(encoding="utf-8"))
+        preds = sorted((d / "results").glob("*/*_predictions.json"))
+        table_path = Path(info["prepared_dir"]) / "mteb_task" / "overlap_table.jsonl"
+        if len(preds) != 1 or not table_path.is_file():
+            continue
+        kind = "hybrid" if info.get("hybrid") else "rerank" if info.get("rerank") else "bm25" if str(info["model"]).startswith("bm25") else "dense"
+        pred = load_predictions(preds[0])
+        qids = sorted(pred, key=lambda x: (len(x), x))
+        if groups is None:
+            groups = stats.load_groups(qa_jsonl, qids)
+        if str(table_path) not in tables:
+            tables[str(table_path)] = load_overlap_table(table_path)
+        for frac in fracs:
+            key = (str(table_path), cover_tag(frac))
+            if key not in labels:
+                labels[key] = qrels_from_overlap_table(tables[str(table_path)], pred, frac)
+            pn, pr, positive = per_query_scores(pred, labels[key])
+            nd, rc = np.array([pn[q] for q in qids]), np.array([pr[q] for q in qids])
+            ci = stats.bootstrap_ci(nd, rc, groups, resamples, seed)
+            rows.append({"model": info["model"], "kind": kind, "chunker": info["chunker"], "size": info["size"], "overlap": info["overlap"],
+                         "cover_level": _fmt_c(frac), "n_empty_questions": len(qids) - len(positive),
+                         "ndcg_at_10": ci["ndcg_at_10"]["estimate"], "ndcg_ci_low": ci["ndcg_at_10"]["ci_low"], "ndcg_ci_high": ci["ndcg_at_10"]["ci_high"],
+                         "recall_at_10": ci["recall_at_10"]["estimate"], "recall_ci_low": ci["recall_at_10"]["ci_low"], "recall_ci_high": ci["recall_at_10"]["ci_high"],
+                         "geom_at_10": ci["geom_at_10"]["estimate"], "geom_ci_low": ci["geom_at_10"]["ci_low"], "geom_ci_high": ci["geom_at_10"]["ci_high"],
+                         "resamples": resamples})
+    return sorted(rows, key=lambda r: (r["chunker"], r["size"], r["overlap"], r["kind"], r["model"], float(r["cover_level"])))
+
+
+def write_sensitivity(path, rows: List[Dict[str, Any]]) -> None:
+    os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=SENSITIVITY_COLUMNS)
+        w.writeheader()
+        for r in rows:
+            w.writerow({k: (f"{v:.6f}" if isinstance(v, float) else v) for k, v in r.items()})
+
+
+# --------------------------------------------------------------------------------------
 # command line
 # --------------------------------------------------------------------------------------
 def build_parser() -> argparse.ArgumentParser:
@@ -209,11 +277,27 @@ def build_parser() -> argparse.ArgumentParser:
     ap.add_argument("--name", help="one configuration: name for the CSV (default: folder of the predictions)")
     ap.add_argument("--with-stored", action="store_true", help="with --config-dir: add the metrics MTEB stored for the run and the differences")
     ap.add_argument("--output", required=True, help="CSV file")
+    ap.add_argument("--sensitivity", metavar="TESTS_ROOT", help="every run below <artifacts>/tests (all kinds): nDCG/Recall/Geom@10 at each --cover-level "
+                    "(default params.analysis.cover_levels) with paper-level intervals; needs --qa; ignores the other selection options")
+    ap.add_argument("--qa", help="with --sensitivity: qa.jsonl (paper of each question)")
+    ap.add_argument("--resamples", type=int, help="with --sensitivity (default params.report.resamples)")
+    ap.add_argument("--seed", type=int, help="with --sensitivity (default params.seed)")
     return ap
 
 
 def main(argv: Optional[List[str]] = None) -> int:
     args = build_parser().parse_args(argv)
+    if args.sensitivity:
+        from pipeline_lib import config_params
+        from tools import stats
+        if not args.qa:
+            raise SystemExit("ERROR: --sensitivity needs --qa")
+        levels = args.cover_level or config_params.section("analysis").get("cover_levels") or []
+        rows = sensitivity_rows(args.sensitivity, args.qa, levels, args.resamples or stats.DEFAULT_RESAMPLES,
+                                args.seed if args.seed is not None else stats.DEFAULT_SEED)
+        write_sensitivity(args.output, rows)
+        print(f"wrote {len(rows)} rows ({len(levels)} cover levels) -> {args.output}")
+        return 0
     rows: List[Dict[str, Any]] = []
     try:
         if args.config_dir:

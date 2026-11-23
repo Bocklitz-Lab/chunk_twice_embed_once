@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-.PHONY: all stage0 stage1 stage2 stage3 stage4-6 stage7 show-configs prepare eval rerun pilot hybrid rerank external-bm25 check-identical collect collect-csv report check-models-csv transfer
+.PHONY: all stage0 stage1 stage2 stage3 stage4-6 stage7 show-configs prepare eval rerun pilot hybrid rerank external-bm25 check-identical collect collect-csv report check-models-csv transfer analysis
 
 OVERLAP = 0 16 32 48 64
 SIZE    = 128 384 192 256 320  448 512
@@ -284,6 +284,13 @@ REPORT_DIR ?= results/v2-revision
 REPORT_ARGS ?=
 report:
 	python -m tools.make_report --artifacts-root $(ARTIFACTS_ROOT) --out-dir $(REPORT_DIR) $(REPORT_ARGS)
+
+# Analysis tools on the outputs of the full rerun (token budget, subfield / question type, variance decomposition, winner stability, Phase 1 -> Phase 2
+# transfer, examples, fragmentation); paths and settings from the main config; run `make report` first (they read its runs_overview.csv).
+# ANALYSIS_ARGS e.g. --only token_budget examples, --skip phase_transfer, --resamples 1000. params.analysis.enabled_in_report: true runs it at the end of make report.
+ANALYSIS_ARGS ?=
+analysis:
+	python -m tools.run_analysis $(ANALYSIS_ARGS)
 
 collect: report
 

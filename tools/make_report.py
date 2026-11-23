@@ -46,7 +46,8 @@ from pipeline_lib.dataset_pin import sha256_file  # noqa: E402
 from pipeline_lib.grid import CHUNKERS as CHUNKER_ORDER  # noqa: E402     # only the display order of the chunkers; sizes / overlaps come from the runs
 from pipeline_lib.run_manifest import git_info, package_versions  # noqa: E402
 from pipeline_lib.truncation import PHASE1_COLUMNS, collect_phase1  # noqa: E402
-from tools import check_identical, collect_runs, hybrid, label_stats_table, lexical_overlap, stats  # noqa: E402
+from tools import check_identical, collect_runs, hybrid, label_stats_table, lexical_overlap, rescore, stats  # noqa: E402
+from pipeline_lib import config_params  # noqa: E402
 
 BM25 = "bm25"
 METRIC_COLS = (("geom_at_10", "Geom@10"), ("ndcg_at_10", "nDCG@10"), ("recall_at_10", "Recall@10"))
@@ -61,6 +62,7 @@ DESCRIPTIONS = {
     "stats_label_agreement.csv": "Lexical vs span labels per configuration: % questions with the same top relevant chunk, Jaccard of the relevant sets.",
     "stats_rankings.csv": "Kendall tau-b between the rankings of runs by the lexical and by the span labels (all runs, within model, within configuration).",
     "coverage_diagnostics.csv": "Per configuration: number of chunks, chunk length with the reference tokenizer, % evidence spans inside one chunk, relevant chunks per question.",
+    "table_cover_sensitivity.csv": "Every run (dense, bm25, hybrid, rerank) rescored with the span labels at each cover level c (params.analysis.cover_levels): nDCG@10, Recall@10, Geom@10 with paper-level 95% intervals.",
     "table_label_stats.csv": "Per configuration and cover level: chunks, chunk length (median / mean / max reference tokens), questions labelled in Step 1 / 2 / 3, % evidence split over several chunks, relevant chunks per question (mean / max).",
     "table_truncation.csv": "Per run: model max sequence length, number and % of chunks truncated by the model's own tokenizer.",
     "table_truncation_phase1.csv": "Phase 1: per model, external task and split, the number and % of passages and queries longer than the model's max sequence length (own tokenizer, title + text + prompt).",
@@ -315,7 +317,7 @@ def external_rows(roots: List[Path]) -> List[Dict[str, Any]]:
 def build_report(artifacts_root: str | Path, out_dir: str | Path, qa_jsonl: Optional[str | Path] = None, *, resamples: int = stats.DEFAULT_RESAMPLES,
                  seed: int = stats.DEFAULT_SEED, overlap: bool = True, track_max_mb: float = 5.0, tests_root: Optional[str | Path] = None,
                  prepared_root: Optional[str | Path] = None, verbose: bool = True, rerank_top_n: int = 50,
-                 external_roots: Optional[List[str | Path]] = None) -> Dict[str, Any]:
+                 external_roots: Optional[List[str | Path]] = None, cover_levels: Optional[List[Any]] = None) -> Dict[str, Any]:
     t_start = time.time()
     root = Path(artifacts_root)
     tests = Path(tests_root) if tests_root else root / "tests"
@@ -360,6 +362,12 @@ def build_report(artifacts_root: str | Path, out_dir: str | Path, qa_jsonl: Opti
         stats._write(heavy / "stats_rankings.csv", stats.ranking_agreement(heavy / "runs_overview.csv"))
     except Exception as e:                                           # too few runs for a rank correlation
         steps["rankings_skipped"] = str(e)
+
+    levels = cover_levels if cover_levels is not None else (config_params.section("analysis").get("cover_levels") or [])
+    sens = rescore.sensitivity_rows(tests, qa, levels, resamples, seed) if (levels and qa.exists()) else []
+    if sens:
+        rescore.write_sensitivity(heavy / "table_cover_sensitivity.csv", sens)
+    steps["cover_sensitivity_rows"] = len(sens)
 
     log("coverage diagnostics")
     cov: List[Dict[str, Any]] = []
@@ -466,6 +474,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     ap.add_argument("--no-overlap", action="store_true")
     ap.add_argument("--track-max-mb", type=float, default=5.0)
     ap.add_argument("--main-config", default="configs/main_config.yaml", help="source of params.rerank.top_n and params.external (when the flags below are absent)")
+    ap.add_argument("--no-analysis", action="store_true", help="do not run `make analysis` afterwards even if params.analysis.enabled_in_report is true")
     ap.add_argument("--rerank-top-n", type=int, help="depth of the rerank runs in the main tables, the others go to the ablation table (default params.rerank.top_n, else 50)")
     ap.add_argument("--external-root", action="append", default=[], help="folder with Phase 1 / BM25 results of the external tasks (repeatable; default: params.external)")
     args = ap.parse_args(argv)
@@ -480,7 +489,13 @@ def main(argv: Optional[List[str]] = None) -> int:
         args.external_root = [str(base / sub) for sub in [*(ext.get("phase1_subdirs") or []), ext.get("output_subdir", "")] if sub]
     m = build_report(args.artifacts_root, args.out_dir, args.qa, resamples=args.resamples, seed=args.seed, overlap=not args.no_overlap,
                      track_max_mb=args.track_max_mb, rerank_top_n=args.rerank_top_n, external_roots=args.external_root)
-    return 0 if m["steps"].get("check_identical_exit_code", 0) == 0 else 1
+    rc = 0 if m["steps"].get("check_identical_exit_code", 0) == 0 else 1
+    # optional last step: the analysis tools (params.analysis.enabled_in_report), only for the report of the MAIN artifacts root
+    if (cfg.get("analysis") or {}).get("enabled_in_report") and not args.no_analysis and \
+            Path(args.artifacts_root).resolve() == Path((cfg.get("paths") or {}).get("artifacts_root", "artifacts")).resolve():
+        from tools import run_analysis
+        rc = run_analysis.main(["--main-config", args.main_config]) or rc
+    return rc
 
 
 if __name__ == "__main__":
