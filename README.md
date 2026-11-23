@@ -153,8 +153,8 @@ C1-C5 (+ the extra C6) in the new pipeline, own root `artifacts/transfer`, same 
 no BM25 / hybrid / rerank, so the rerank ablation check cannot fire. `make transfer TRANSFER_ARGS="--dry-run"` validates the block and prints the plan.
 
 **Statistics**: `params.report.resamples: 10000`. Pairs per configuration: dense vs BM25, dense vs dense, hybrid vs its dense run and vs BM25, rerank vs its dense run, vs BM25 and vs its hybrid;
-Holm within a `family` (`dense_vs_bm25`, `dense_vs_dense`, `hybrid`, `rerank`) x level x metric (`stats_compare.csv`). Each run is resampled once per level; with the pilot copy (20 runs) `make report`
-takes 6 s at 10,000 resamples. `tools/lexical_overlap.py` uses the same setting.
+Holm within a `family` (`dense_vs_bm25`, `dense_vs_dense`, `hybrid`, `rerank`) x level x metric (`stats_compare.csv`). Each run is resampled once per level; with the pilot copy (20 runs, 4 configurations) `make report`
+takes 18 s at 10,000 resamples (6 s of it without the cover-level table). `tools/lexical_overlap.py` uses the same setting.
 
 **New tables in `make report`**: `table_label_stats.csv` (chunks, chunk length median/mean/max, questions in Step 1/2/3, % split evidence, relevant chunks per question),
 `table_cover_sensitivity.csv` (every run rescored at c = 0.8 / 0.9 / 1.0 = `params.analysis.cover_levels`, paper-level intervals; `python -m tools.rescore --sensitivity <tests> --qa <qa.jsonl> --output <csv>`),

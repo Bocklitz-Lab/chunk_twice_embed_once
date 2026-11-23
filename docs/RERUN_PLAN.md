@@ -69,7 +69,7 @@ Keep the filled sheets and `validation_sample_summary.json` (seed, strata, hashe
 make eval                    # efficiency + latency on (EFFICIENCY_ARGS), prompts on, per-model batch sizes, then hybrids, rerank and the report
 ```
 Expected: about 55-75 h on one RTX 3090 (dense encoding about 40 h, retrieval/metrics/dump 2.5 h, efficiency probes and latency 3-5 h, BM25 1.5 h on the CPU,
-1,820 hybrids 1 h, 140 reranks of e5-large-v2 7.5 h, report 0.5 h). Finished runs are skipped, so an interrupted `make eval` can simply be started again.
+1,820 hybrids 1 h, 140 reranks of e5-large-v2 7.5 h, report about 1 h). Finished runs are skipped, so an interrupted `make eval` can simply be started again.
 Peak GPU memory, throughput and latency cannot be recorded afterwards: do not start the main run with `EFFICIENCY_ARGS=` empty.
 
 Two GPUs (dense steps in about half the time): run the dense models in two shells with disjoint model lists and without the steps that need all runs, then finish once:
@@ -99,7 +99,7 @@ three models that are also in the main run. The report of this root goes to `res
 ## 7. Report, then the analysis tools (CPU)
 
 ```bash
-make report                  # main root -> results/v2-revision/ (tracked small CSVs; large files stay in artifacts/report/): about 20-30 min at 10,000 resamples for ~3,900 runs
+make report                  # main root -> results/v2-revision/ (tracked small CSVs; large files stay in artifacts/report/): about 45-60 min at 10,000 resamples for ~3,900 runs (extrapolated from the pilot: 18 s for 20 runs)
 make report ARTIFACTS_ROOT=artifacts/transfer REPORT_DIR=results/v2-revision/transfer       # (already written by make transfer)
 python -m tools.efficiency_analysis --efficiency artifacts/tests/efficiency_phase2.csv --scores results/v2-revision/runs_overview.csv --out results/efficiency --phase1 artifacts/embedding_models_screening/validation_prompts/efficiency_phase1.csv
 make analysis                # token budget, subfield / question type, variance decomposition, winner stability, Phase 1 -> Phase 2 transfer, examples, fragmentation -> results/v2-revision/analysis/

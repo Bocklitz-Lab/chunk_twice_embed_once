@@ -60,6 +60,10 @@ def test_phase_transfer_is_skipped_when_phase1_is_missing(tmp_path):
     (tmp_path / "s.csv").write_text("model_id\n")
     st = RA.run(ns(only=["phase_transfer"], phase1_root=str(tmp_path / "p1"), shortlist=str(tmp_path / "s.csv"), runs_overview=[str(tmp_path / "o.csv")]), lambda *a: 0)
     assert "runs overview missing" in st["phase_transfer"]
+    (tmp_path / "o.csv").write_text("model\n")
+    calls = []
+    RA.run(ns(only=["phase_transfer"], phase1_root=str(tmp_path / "p1"), shortlist=str(tmp_path / "s.csv"), runs_overview=[str(tmp_path / "o.csv")]), lambda t, c: calls.append(t) or 0)
+    assert calls == ["phase_transfer"]                          # all inputs exist: the tool is run (the option list ends at the next option)
 
 
 def test_only_and_skip_and_exit_codes():

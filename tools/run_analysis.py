@@ -73,8 +73,12 @@ def phase_transfer_inputs_exist(cmd: List[str]) -> Optional[str]:
         return f"Phase 1 folder {get('--phase1-root')} does not exist"
     if not Path(get("--shortlist")).is_file():
         return f"shortlist {get('--shortlist')} does not exist"
-    i = cmd.index("--runs-overview") + 1
-    missing = [x for x in cmd[i:] if not x.startswith("--") and not Path(x).is_file()]
+    files = []
+    for x in cmd[cmd.index("--runs-overview") + 1:]:
+        if x.startswith("--"):
+            break                                                  # the next option ends the list of overview files
+        files.append(x)
+    missing = [x for x in files if not Path(x).is_file()]
     return f"runs overview missing: {missing}" if missing else None
 
 
