@@ -27,13 +27,13 @@ def pooling_mode_from_flags(flags: Dict[str, Any]) -> Optional[str]:
     return "+".join(on) if on else None
 
 
-def snapshot_dir(name: str, revision: Optional[str]) -> Optional[Path]:
+def snapshot_dir(name: str, revision: Optional[str], cache_dir: Optional[str] = None) -> Optional[Path]:
     """Local snapshot folder of a pinned Hub model (cache only, never the network); None if it is not cached."""
     if os.path.isdir(name):
         return Path(name)
     try:
         from huggingface_hub import snapshot_download
-        return Path(snapshot_download(name, revision=revision, local_files_only=True))
+        return Path(snapshot_download(name, revision=revision, local_files_only=True, cache_dir=cache_dir))
     except Exception:
         return None
 
@@ -85,11 +85,11 @@ def _json(path: Path) -> Dict[str, Any]:
         return {}
 
 
-def describe_snapshot(snap: Path) -> Dict[str, Any]:
+def describe_snapshot(snap: Path, tokenizer_model_max_length: Optional[int] = None) -> Dict[str, Any]:
     """The same facts from ``modules.json`` / ``1_Pooling/config.json`` / ``sentence_bert_config.json`` / ``config.json`` / tokenizer files.
 
     ``max_seq_length`` follows the library: the value of ``sentence_bert_config.json`` of the Transformer module, else
-    ``min(max_position_embeddings, tokenizer model_max_length)``. ``embedding_dim``: the last Dense ``out_features``, else the pooling
+    ``min(max_position_embeddings, tokenizer model_max_length)`` (``tokenizer_model_max_length``: the loaded tokenizer's value, if given). ``embedding_dim``: the last Dense ``out_features``, else the pooling
     width (word dimension x number of pooling modes), else ``hidden_size``."""
     snap = Path(snap)
     modules: List[Dict[str, Any]] = []
@@ -116,7 +116,7 @@ def describe_snapshot(snap: Path) -> Dict[str, Any]:
     msl = _json(snap / t_path / "sentence_bert_config.json").get("max_seq_length") or _json(snap / "sentence_bert_config.json").get("max_seq_length")
     if msl is None:
         pos = cfg.get("max_position_embeddings") or cfg.get("n_positions")
-        tml = tok_cfg.get("model_max_length")
+        tml = tokenizer_model_max_length if tokenizer_model_max_length is not None else tok_cfg.get("model_max_length")
         cands = [v for v in (pos, tml) if isinstance(v, (int, float)) and 0 < v < 10 ** 9]
         msl = int(min(cands)) if cands else None
     return {
