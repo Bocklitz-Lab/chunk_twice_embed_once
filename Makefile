@@ -220,7 +220,7 @@ stage7:
 #   make external-bm25      BM25 on ChemNQRetrieval / ChemHotpotQARetrieval (params.external) -> artifacts/embedding_models_screening/baselines
 #   make check-identical    hash the corpus / qrels each model read: byte-identical across models?
 #   make report             statistics, diagnostics, lexical-overlap, paper tables -> results/v2-revision/ (tracked); also the last step of
-#                           eval / rerun / pilot (params.report)
+#                           eval / rerun / pilot (params.report). Extra options: REPORT_ARGS="--external-root <Phase 1 results> --rerank-top-n 50"
 #   make collect            same as report
 #   make collect-csv        only the run table, one CSV row per run
 # Extra options:  make rerun RERUN_ARGS="--no-bm25 --param use_prompts=false"
@@ -258,8 +258,9 @@ check-identical:
 ARTIFACTS_ROOT ?= artifacts
 REPORT_DIR ?= results/v2-revision
 
+REPORT_ARGS ?=
 report:
-	python -m tools.make_report --artifacts-root $(ARTIFACTS_ROOT) --out-dir $(REPORT_DIR)
+	python -m tools.make_report --artifacts-root $(ARTIFACTS_ROOT) --out-dir $(REPORT_DIR) $(REPORT_ARGS)
 
 collect: report
 
