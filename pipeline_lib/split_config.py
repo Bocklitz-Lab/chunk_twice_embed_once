@@ -301,6 +301,27 @@ def ensure_dir(p: str) -> None:
     os.makedirs(p, exist_ok=True)
 
 
+def resolve_section(input_path: str, section: str, params: Iterable[str] = ()) -> Dict[str, Any]:
+    """One section of the combined config with every ``${...}`` resolved, exactly as ``main`` writes it (same steps, no files).
+
+    ``params``: ``KEY=VALUE`` overrides of ``params.KEY`` (as ``--param``). Used by tools that need a path from the config
+    (e.g. the stage 2 shortlist file) without writing the stage files."""
+    with open(input_path, "r", encoding="utf-8") as f:
+        doc = yaml.safe_load(f)
+    doc.setdefault("params", {})
+    for p in params:
+        k, v = parse_param(p)
+        deep_set(doc["params"], k, v)
+    resolve_chunking_block(doc)
+    resolve_labeling_block(doc)
+    doc = interpolate(doc, ctx=doc)
+    resolve_stage4_strategy(doc)
+    doc = interpolate(doc, ctx=doc)
+    if section not in doc:
+        raise KeyError(f"section '{section}' not found in {input_path}")
+    return interpolate(doc[section], ctx=doc)
+
+
 def main(argv: Iterable[str] = None) -> int:
     ap = argparse.ArgumentParser(description="Split config with param-first overrides and concrete stage files.")
     ap.add_argument("-i", "--input", required=True, help="Combined YAML")

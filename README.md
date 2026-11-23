@@ -7,7 +7,7 @@ Code, configurations, data, and result artifacts for:
 
 ## Study design
 
-Phase 1 evaluates 41 distinct embedding models with complete results on the two external retrieval tasks `ChemNQRetrieval` and `ChemHotpotQARetrieval`. The union of the top 20% from each task gives the verified 13-model Phase 2 shortlist.
+Phase 1 evaluates 41 distinct embedding models (the published run listed 42 names; `microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract` is the old name of `microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract`, same commit, and is no longer listed) with complete results on the two external retrieval tasks `ChemNQRetrieval` and `ChemHotpotQARetrieval`. The union of the top 20% from each task gives the verified 13-model Phase 2 shortlist.
 
 Phase 2 evaluates those 13 models with five chunking strategies, seven nominal chunk sizes (`128`, `192`, `256`, `320`, `384`, `448`, and `512` tokens), and five nominal overlaps (`0`, `16`, `32`, `48`, and `64` tokens). The grid constraints leave 28 valid size-overlap combinations, or 140 configurations per model and 1,820 canonical configurations in total.
 
@@ -117,8 +117,8 @@ make report            # statistics, diagnostics, overlap diagnostic, paper tabl
   `table_external.{csv,md}` (BM25 next to the Phase 1 dense results).
 - `tools/lexical_overlap.py`: question/evidence-span word overlap, BM25 rank of the evidence chunk, BM25 advantage over a
   dense model by overlap bin.
-- All 42 Phase 1 models are pinned to commit hashes in `stage1.models`; `rerun` replaces a moving `main` by the pin.
-- `params.instructor_mask_instruction` (default `false`): INSTRUCTOR masking (instruction tokens left out of the mean
+- All 41 Phase 1 models are pinned to commit hashes in `stage1.models`; `rerun` replaces a moving `main` by the pin.
+- `params.instructor_mask_instruction` (default `true`; only acts with `use_prompts: true`): INSTRUCTOR masking (instruction tokens left out of the mean
   pooling) for instructor-xl, implemented without the `InstructorEmbedding` package.
 
 ### Efficiency measures (deployment cost)

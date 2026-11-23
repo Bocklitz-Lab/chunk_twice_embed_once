@@ -1,3 +1,0 @@
-chunker,size,overlap,model,n_chunks,span_geom_at_10,geom_ci95_low_paper,geom_ci95_high_paper,span_ndcg_at_10,span_recall_at_10,lexical_geom_at_10,span_coverage_at_5,pct_chunks_truncated
-fixed_token,128,0,bm25,126,0.412520,0.286777,0.639987,0.278464,0.611111,0.672292,0.320261,
-fixed_token,128,0,bm25-b,126,0.412520,0.286777,0.639987,0.278464,0.611111,0.672292,0.320261,

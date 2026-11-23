@@ -32,6 +32,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence
 
+from pipeline_lib.config_params import reference_tokenizer
 from pipeline_lib.prompts import side_of
 
 BYTES = {"fp32": 4, "fp16": 2}
@@ -342,8 +343,6 @@ def measure_latency(encode_one, queries: List[str], corpus_emb, *, top_k: int = 
 # --------------------------------------------------------------------------------------------------
 # rows
 # --------------------------------------------------------------------------------------------------
-REF_TOKENIZER = "bert-base-uncased"                                  # params.chunking_tokenizer (pinned)
-REF_TOKENIZER_REVISION = "86b5e0934494bd15c9632b12f734a8a67f723594"   # params.chunking_tokenizer_revision
 _TOKENIZERS: Dict[tuple, Any] = {}
 
 
@@ -355,9 +354,13 @@ def load_tokenizer(name: str, revision: Optional[str] = None):
     return _TOKENIZERS[key]
 
 
-def ref_token_lengths(texts: List[str], name: str = REF_TOKENIZER, revision: Optional[str] = REF_TOKENIZER_REVISION) -> List[int]:
+def ref_token_lengths(texts: List[str], name: Optional[str] = None, revision: Optional[str] = None) -> List[int]:
     """Chunk length in tokens of the chunking (reference) tokenizer, the one that counts chunk_size, without special tokens.
-    (``n_tokens`` in chunks.jsonl is another encoder's count and is not used.)"""
+    Name and pinned revision come from ``params.chunking_tokenizer`` / ``chunking_tokenizer_revision`` of the main config
+    (``pipeline_lib.config_params.reference_tokenizer``) unless given. (``n_tokens`` in chunks.jsonl is another encoder's count and is not used.)"""
+    if name is None:
+        name, cfg_rev = reference_tokenizer()
+        revision = revision or cfg_rev
     tok = load_tokenizer(name, revision)
     lens: List[int] = []
     for i in range(0, len(texts), 2000):

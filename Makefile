@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-.PHONY: all stage0 stage1 stage2 stage3 stage4-6 stage7 show-configs prepare eval rerun pilot hybrid rerank external-bm25 check-identical collect collect-csv report
+.PHONY: all stage0 stage1 stage2 stage3 stage4-6 stage7 show-configs prepare eval rerun pilot hybrid rerank external-bm25 check-identical collect collect-csv report check-models-csv
 
 OVERLAP = 0 16 32 48 64
 SIZE    = 128 384 192 256 320  448 512
@@ -9,7 +9,10 @@ MIN_STRIDE ?= 96
 MAX_OVERLAP_ABS ?= 64
 MAX_OVERLAP_PCT ?= 30
 
-MODELS_CSV ?= artifacts/embedding_models_screening/passed_per_dataset.csv
+# Shortlist of stage 2 = the Phase 2 model list. Default = stage2.output_per_dataset_csv of configs/main_config.yaml (it carries the name of the Phase 1
+# results folder, params.paths.phase1_results_subdir; tests/test_phase1_paths.py keeps the two equal). The PUBLISHED shortlist is
+# artifacts/embedding_models_screening/passed_per_dataset.csv (restore it first, see docs/RERUN_PLAN.md) and is selected with MODELS_CSV=...
+MODELS_CSV ?= artifacts/embedding_models_screening/passed_per_dataset__validation_prompts.csv
 
 MODELS = $(shell awk -F, 'NR>1 {printf "%s%s@%s", sep,$$2,$$3; sep=" "}' $(MODELS_CSV) | tr -d "\r")
 
@@ -230,22 +233,32 @@ RERUN_ARGS ?=
 TESTS_ROOT ?= artifacts/tests
 COLLECT_CSV ?= artifacts/runs_overview.csv
 
+# eval / rerun / hybrid / rerank need the model list: stop at once, with a message, if MODELS_CSV is missing (nothing is created or copied here)
+check-models-csv:
+	@test -s "$(MODELS_CSV)" || { \
+		echo "❌ MODELS_CSV not found or empty: $(MODELS_CSV)"; \
+		echo "   It is written by stage 2 (make stage1 stage2: Phase 1 with prompts)."; \
+		echo "   To use the PUBLISHED shortlist, restore the old Phase 1 results first:"; \
+		echo "     cp -a temp_files/artifacts_old/embedding_models_screening artifacts/"; \
+		echo "     make eval MODELS_CSV=artifacts/embedding_models_screening/passed_per_dataset.csv"; \
+		exit 1; }
+
 prepare:
 	PYTHONHASHSEED=0 python -m stages.rerun prepare --models-csv $(MODELS_CSV) $(RERUN_ARGS)
 
-eval:
+eval: check-models-csv
 	PYTHONHASHSEED=0 python -m stages.rerun eval --models-csv $(MODELS_CSV) $(RERUN_ARGS)
 
-rerun:
+rerun: check-models-csv
 	PYTHONHASHSEED=0 python -m stages.rerun all --models-csv $(MODELS_CSV) $(RERUN_ARGS)
 
 pilot:
 	PYTHONHASHSEED=0 python -m stages.rerun all --pilot $(RERUN_ARGS)
 
-hybrid:
+hybrid: check-models-csv
 	PYTHONHASHSEED=0 python -m stages.rerun hybrid --models-csv $(MODELS_CSV) $(RERUN_ARGS)
 
-rerank:
+rerank: check-models-csv
 	PYTHONHASHSEED=0 python -m stages.rerun rerank --models-csv $(MODELS_CSV) $(RERUN_ARGS)
 
 EXTERNAL_ARGS ?=

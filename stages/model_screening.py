@@ -279,6 +279,29 @@ def normalize_results(results):
     out.append({"task_name": "UNKNOWN_TASK", "main_score": None, "raw": results})
     return out
 
+# =================== OUTPUT FOLDER GUARD =====================================
+RESULT_SUFFIXES = (".json", ".csv", ".jsonl")
+
+
+def result_files(folder: Path) -> List[Path]:
+    """Result files (json / csv / jsonl) anywhere below ``folder``; empty if the folder does not exist."""
+    folder = Path(folder)
+    if not folder.is_dir():
+        return []
+    return sorted(p for p in folder.rglob("*") if p.is_file() and p.suffix.lower() in RESULT_SUFFIXES)
+
+
+def check_output_folder(folder: Path, force: bool = False) -> None:
+    """Stage 1 never writes into a folder that already holds results (MTEB would silently reuse a finished task and the new numbers would
+    be a mixture). ``force`` allows it on purpose, e.g. to resume an interrupted run: finished (model, task) pairs are then kept as they are."""
+    found = result_files(folder)
+    if found and not force:
+        raise SystemExit(
+            f"ERROR: the Phase 1 output folder {folder} already holds {len(found)} result file(s) (e.g. {found[0].name}). "
+            "Use a new folder (params.paths.phase1_results_subdir), or pass --force to write into it on purpose "
+            "(finished tasks are kept by MTEB, so use it only to resume the same run)."
+        )
+
 # =================== MAIN ====================================================
 def main():
     parser = argparse.ArgumentParser(description="Run MTEB eval from config.")
@@ -289,13 +312,16 @@ def main():
         required=True,
         help="Path to config file (.yaml/.yml/.json/.toml)",
     )
-    efficiency.add_cli_args(parser)          # --efficiency / --latency ...: optional, off by default, never changes a result
+    parser.add_argument("--force", action="store_true",
+                        help="write into an output folder that already holds result files (default: refuse); finished tasks are kept by MTEB")
+    efficiency.add_cli_args(parser)          # --efficiency / --latency ...: never changes a result
     args = parser.parse_args()
     eff_opts = efficiency.options_from_args(args)
     eff_opts.phase = 1
 
     raw_cfg = load_config(args.config)
     app_cfg = parse_app_config(raw_cfg)
+    check_output_folder(app_cfg.output_root, args.force)
 
     tasks_resolved = resolve_tasks(app_cfg.tasks, app_cfg.import_modules)
     task_names_for_print = []

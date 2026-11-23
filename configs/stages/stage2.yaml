@@ -1,5 +1,5 @@
 root_dir: artifacts/embedding_models_screening
-results_subdir: validation
+results_subdir: validation_prompts
 split_preference:
 - test
 - validation
@@ -19,6 +19,6 @@ geom_mean:
     reference_seconds: 200.0
 top_percent: 0.2
 datasets_include: []
-output_union_csv: artifacts/embedding_models_screening/passed_models_union.csv
-output_per_dataset_csv: artifacts/embedding_models_screening/passed_per_dataset.csv
+output_union_csv: artifacts/embedding_models_screening/passed_models_union__validation_prompts.csv
+output_per_dataset_csv: artifacts/embedding_models_screening/passed_per_dataset__validation_prompts.csv
 model_id_format: name@rev

@@ -16,7 +16,7 @@ Finished runs (results/summary.json) are skipped; old results are never deleted.
 
   python -m stages.rerun prepare --pilot
   python -m stages.rerun eval --pilot
-  python -m stages.rerun all --models-csv artifacts/embedding_models_screening/passed_per_dataset.csv   # the full rerun
+  python -m stages.rerun all                                        # the full rerun (models = shortlist of stage 2, stage2.output_per_dataset_csv)
 """
 from __future__ import annotations
 
@@ -72,6 +72,24 @@ def resolve_revision(name: str, rev: Optional[str], table: Dict[str, str]) -> st
 def parse_model(spec: str) -> Tuple[str, str]:
     name, _, rev = spec.partition("@")
     return name, rev or "main"
+
+
+RESTORE_HINT = ("The Phase 2 model list is the shortlist written by stage 2 (make stage1 stage2: Phase 1 with prompts). To use the PUBLISHED "
+                "shortlist instead, restore the old Phase 1 results yourself (this repository does not copy files), e.g.\n"
+                "    cp -a temp_files/artifacts_old/embedding_models_screening artifacts/\n"
+                "and pass it: make eval MODELS_CSV=artifacts/embedding_models_screening/passed_per_dataset.csv   (or --models-csv ...).")
+
+
+def default_models_csv(main_config: str, params: Optional[List[str]] = None) -> str:
+    """The shortlist file of the main config: stage 2 ``output_per_dataset_csv`` (derived from params.paths.phase1_results_subdir)."""
+    return str(split_config.resolve_section(main_config, "stage2", params or [])["output_per_dataset_csv"])
+
+
+def check_models_csv(path: str) -> None:
+    """Stop with a clear message if the shortlist file is missing or empty (before any chunking or evaluation starts)."""
+    p = Path(path)
+    if not p.is_file() or p.stat().st_size == 0:
+        raise SystemExit(f"ERROR: the model list MODELS_CSV does not exist or is empty: {path}\n{RESTORE_HINT}")
 
 
 def models_from_csv(path: str) -> List[Tuple[str, str]]:
@@ -225,7 +243,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     ap.add_argument("--main-config", default="configs/main_config.yaml")
     ap.add_argument("--artifacts-root")
     ap.add_argument("--models", nargs="*", help="name@revision ... (bm25 for the baseline)")
-    ap.add_argument("--models-csv", default="artifacts/embedding_models_screening/passed_per_dataset.csv")
+    ap.add_argument("--models-csv", help="shortlist of stage 2 (default: stage2.output_per_dataset_csv of the main config)")
     ap.add_argument("--no-bm25", action="store_true")
     ap.add_argument("--no-report", action="store_true", help="skip the report step (statistics, diagnostics, tracked tables)")
     ap.add_argument("--report-dir", help="tracked folder for the summary tables (default params.report.out_dir)")
@@ -256,18 +274,22 @@ def main(argv: Optional[List[str]] = None) -> int:
     chunkers = args.chunkers or (pilot["chunkers"] if args.pilot else grid.CHUNKERS)
     sizes = args.sizes or (pilot["sizes"] if args.pilot else grid.SIZES)
     overlaps = args.overlaps if args.overlaps is not None else (pilot["overlaps"] if args.pilot else grid.OVERLAPS)
+    legacy = cfg.get("chunking_tokenizer") == "model" or any(p.startswith("chunking_tokenizer=model") for p in args.param)
     if args.models:
         models = [parse_model(m) for m in args.models]
+    elif args.command == "prepare" and not legacy and not args.pilot:
+        models = []                                          # the prepared folders do not depend on any model
     elif args.pilot:
         models = [parse_model(m) for m in pilot["models"]]
     else:
-        models = models_from_csv(args.models_csv) + ([] if args.no_bm25 else [(BM25, "rank_bm25")])
+        models_csv = args.models_csv or default_models_csv(args.main_config, args.param)
+        check_models_csv(models_csv)
+        models = models_from_csv(models_csv) + ([] if args.no_bm25 else [(BM25, "rank_bm25")])
     table = pinned_revisions(args.main_config)
     models = [(n, resolve_revision(n, r, table)) for n, r in models]
     cells = grid.grid(sizes, overlaps)
     if args.pilot:
         cells = [(s, o) for s, o in sorted({(s, o) for s in sizes for o in overlaps})]   # the pilot asks for exact cells
-    legacy = cfg.get("chunking_tokenizer") == "model" or any(p.startswith("chunking_tokenizer=model") for p in args.param)
     print(f"artifacts root: {root} | models: {[m[0] for m in models]} | chunkers: {chunkers} | cells: {cells}")
     rr_cfg = cfg.get("rerank") or {}
     if args.command in ("eval", "all", "rerank") and rr_cfg.get("enabled", False) and not args.no_rerank:

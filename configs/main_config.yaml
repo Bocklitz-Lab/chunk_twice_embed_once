@@ -45,7 +45,7 @@ params:
   # ---- prompts (query / document prefixes or instructions), applied at encoding time only ----
   #   use_prompts: true   put model_prompts[model] in front of queries / chunks when encoding (Phase 1 and 2)
   #   use_prompts: false  old behaviour of all published runs: no prompt for any model
-  # One entry per Phase 1 model (42). Empty string = no prompt on that side. Checked against each model card.
+  # One entry per Phase 1 model (41). Empty string = no prompt on that side. Checked against each model card.
   use_prompts: true
   #   instructor_mask_instruction: true   INSTRUCTOR models (entries with mask_instruction: true, i.e. instructor-xl): the
   #       instruction goes through the encoder with the text but is left out of the mean pooling, as in the official
@@ -96,7 +96,6 @@ params:
     microsoft/MiniLM-L12-H384-uncased: {query: "", passage: "", card: "pretrained encoder, card defines no prompt"}
     sentence-transformers/paraphrase-multilingual-mpnet-base-v2: {query: "", passage: "", card: "sentence-transformers card: plain text, no prompt"}
     nomic-ai/nomic-embed-text-v2-moe: {query: "search_query: ", passage: "search_document: ", card: "nomic card: the text must carry a task prefix; search_query / search_document for retrieval"}
-    microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract: {query: "", passage: "", card: "pretrained encoder, card defines no prompt"}
     microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext: {query: "", passage: "", card: "pretrained encoder, card defines no prompt"}
     DeepChem/ChemBERTa-77M-MTR: {query: "", passage: "", card: "pretrained encoder, card defines no prompt (no README for mpnet-base / ChemBERTa)"}
     microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract: {query: "", passage: "", card: "pretrained encoder, card defines no prompt"}
@@ -104,7 +103,11 @@ params:
     artifacts_root: artifacts
     chemquests_dir: ${params.paths.artifacts_root}/chemquests_hf_db
     screen_dir: ${params.paths.artifacts_root}/embedding_models_screening
-    top_performer_input: ${params.paths.screen_dir}/validation_results
+    # Phase 1 results folder (below screen_dir): ONE key, written by stage 1 and read by stage 2 (stage1.output_root, stage2.results_subdir and the
+    # stage 2 output files all derive from it, so they cannot diverge). It is a NEW folder: the published no-prompt Phase 1 results in
+    # `validation/` are never overwritten or reused. Stage 1 refuses a folder that already holds results unless --force is given.
+    phase1_results_subdir: validation_prompts
+    top_performer_input: ${params.paths.screen_dir}/${params.paths.phase1_results_subdir}
     test_name: ${params.model.dir}_${params.chunk.chunker}_c${params.chunk.size}_o${params.chunk.overlap}    
     chunks_dir: ${params.paths.artifacts_root}/tests/${params.paths.test_name}/chunks
     mteb_task_dir: ${params.paths.artifacts_root}/tests/${params.paths.test_name}/mteb_task
@@ -344,7 +347,7 @@ params:
   external:
     tasks: [ChemNQRetrieval, ChemHotpotQARetrieval]
     output_subdir: embedding_models_screening/baselines
-    phase1_subdirs: [embedding_models_screening/validation, embedding_models_screening/validation_results]
+    phase1_subdirs: [embedding_models_screening/validation_prompts]   # the Phase 1 run with prompts (params.paths.phase1_results_subdir); add the published folder with --external-root
     top_k: 100
 
   # Report step, run automatically at the end of `make eval` / `make rerun` / `make pilot` (tools/make_report.py):
@@ -613,11 +616,8 @@ stage1:
       batch_size: 32
       model_kwargs:
         trust_remote_code: true
-    - name: microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract
-      revision: d673b8835373c6fa116d6d8006b33d48734e305d   # was: main (pinned to the commit evaluated in Phase 1)
-      normalize: true
-      model_kwargs:
-        trust_remote_code: true
+    # microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract was removed: it is the old name of the BiomedBERT entry below (the Hub redirects;
+    # both were pinned to d673b883...), so it is one model. 41 models.
     - name: microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext
       revision: e1354b7a3a09615f6aba48dfad4b7a613eef7062   # was: main (pinned to the commit evaluated in Phase 1)
       normalize: true
@@ -643,7 +643,7 @@ stage1:
 #-------------------------------------------------------------------------------------
 stage2:
   root_dir: ${params.paths.screen_dir}
-  results_subdir: "validation"
+  results_subdir: ${params.paths.phase1_results_subdir}   # the folder stage 1 writes (params.paths.phase1_results_subdir)
   split_preference: ["test", "validation", "train"]  # Which split(s) to prefer when extracting metrics (first match wins)
   metric_key: "geom_mean"
   geom_mean:
@@ -659,8 +659,10 @@ stage2:
       reference_seconds: 200.0
   top_percent: 0.2          # Keep top X% within each dataset (0–1)
   datasets_include: []       # e.g., ["ChemHotpotQARetrieval", "ChemNQRetrieval"] (leave empty to take all)
-  output_union_csv: ${params.paths.screen_dir}/passed_models_union.csv
-  output_per_dataset_csv: ${params.paths.screen_dir}/passed_per_dataset.csv
+  # The shortlist files carry the name of the Phase 1 folder, so the published shortlist (passed_per_dataset.csv, restored from the old
+  # artifacts) is never overwritten. The Makefile default MODELS_CSV is output_per_dataset_csv (tests/test_phase1_paths.py checks this).
+  output_union_csv: ${params.paths.screen_dir}/passed_models_union__${params.paths.phase1_results_subdir}.csv
+  output_per_dataset_csv: ${params.paths.screen_dir}/passed_per_dataset__${params.paths.phase1_results_subdir}.csv
   model_id_format: "name@rev"
   # How to name models in outputs:
   # "name" -> from model_meta.json "name" (e.g., BAAI/bge-base-en-v1.5)
