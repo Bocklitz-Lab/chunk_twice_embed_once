@@ -132,16 +132,28 @@ def _link(link: Path, target: Path) -> None:
     link.symlink_to(target, target_is_directory=True)
 
 
-def efficiency_args(args: argparse.Namespace, root: str) -> List[str]:
-    """Flags for stages.run_eval from the rerun flags (--efficiency, --latency and the latency subset); [] when off."""
+def efficiency_args(args: argparse.Namespace, root: str, eff_cfg: Optional[Dict[str, Any]] = None) -> List[str]:
+    """Flags for stages.run_eval from the rerun flags (--efficiency, --latency) and ``params.efficiency``; [] when both flags are off.
+
+    Number of timed queries, warm-up, search device and the latency subset come from the config block ``params.efficiency``
+    (``latency_queries``, ``latency_warmup``, ``latency_device``, ``latency_cells``, ``latency_models``). A flag given on the command line
+    wins: any explicit ``--latency-chunkers/-sizes/-overlaps/-models/-cells`` replaces the configured subset."""
     if not (args.efficiency or args.latency):
         return []
+    eff_cfg = eff_cfg or {}
     out = ["--efficiency", "--efficiency-out", str(Path(root) / "tests")]
     if args.latency:
-        out += ["--latency", "--latency-queries", str(args.latency_queries), "--latency-warmup", str(args.latency_warmup),
-                "--latency-device", args.latency_device]
-        for flag, vals in (("--latency-chunkers", args.latency_chunkers), ("--latency-sizes", args.latency_sizes),
-                           ("--latency-overlaps", args.latency_overlaps), ("--latency-models", args.latency_models)):
+        pick = lambda cli, key, default: cli if cli is not None else eff_cfg.get(key, default)      # noqa: E731
+        out += ["--latency", "--latency-queries", str(pick(args.latency_queries, "latency_queries", 200)),
+                "--latency-warmup", str(pick(args.latency_warmup, "latency_warmup", 10)),
+                "--latency-device", str(pick(args.latency_device, "latency_device", "cpu"))]
+        explicit = any([args.latency_chunkers, args.latency_sizes, args.latency_overlaps, args.latency_models, args.latency_cells])
+        subset = {"--latency-chunkers": args.latency_chunkers, "--latency-sizes": args.latency_sizes,
+                  "--latency-overlaps": args.latency_overlaps, "--latency-models": args.latency_models,
+                  "--latency-cells": args.latency_cells} if explicit else \
+                 {"--latency-cells": [f"{c['chunker']}:{c['size']}:{c['overlap']}" for c in eff_cfg.get("latency_cells") or []],
+                  "--latency-models": eff_cfg.get("latency_models") or []}
+        for flag, vals in subset.items():
             if vals:
                 out += [flag, *map(str, vals)]
     return out
@@ -256,13 +268,14 @@ def main(argv: Optional[List[str]] = None) -> int:
     g = ap.add_argument_group("efficiency measures (pipeline_lib/efficiency.py): never change a score or a stage timing")
     g.add_argument("--efficiency", action="store_true", help="eval: also record index / model / encoding efficiency -> <root>/tests/efficiency_phase2.csv")
     g.add_argument("--latency", action="store_true", help="eval: also measure per-query latency (batch size 1, exact cosine top-10)")
-    g.add_argument("--latency-queries", type=int, default=200, help="queries timed per configuration, evenly spaced (0 = all)")
-    g.add_argument("--latency-warmup", type=int, default=10)
-    g.add_argument("--latency-device", choices=["cpu", "cuda"], default="cpu", help="device of the timed search (cpu = as in MTEB)")
+    g.add_argument("--latency-queries", type=int, help="queries timed per configuration, evenly spaced, 0 = all (default: params.efficiency.latency_queries)")
+    g.add_argument("--latency-warmup", type=int, help="untimed warm-up queries (default: params.efficiency.latency_warmup)")
+    g.add_argument("--latency-device", choices=["cpu", "cuda"], help="device of the timed search, cpu = as in MTEB (default: params.efficiency.latency_device)")
     g.add_argument("--latency-chunkers", nargs="*", default=[], help="latency only for these chunkers (subset of the grid)")
     g.add_argument("--latency-sizes", nargs="*", type=int, default=[], help="latency only for these sizes")
     g.add_argument("--latency-overlaps", nargs="*", type=int, default=[], help="latency only for these overlaps")
     g.add_argument("--latency-models", nargs="*", default=[], help="latency only for models whose name contains one of these")
+    g.add_argument("--latency-cells", nargs="*", default=[], metavar="CHUNKER:SIZE:OVERLAP", help="latency only for exactly these configurations (default: params.efficiency.latency_cells)")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--qa-sha256", help=argparse.SUPPRESS)   # tests only: the pinned release is the default
@@ -328,7 +341,7 @@ def main(argv: Optional[List[str]] = None) -> int:
                         folder = prep.prepare_config(ch, s, o, main_config=args.main_config, artifacts_root=root,
                                                      params=args.param + (extra if legacy and not name.startswith(BM25) else []), qa_sha256=args.qa_sha256)
                     run_eval_one(name, rev, ch, s, o, folder, main_config=args.main_config, artifacts_root=root,
-                                 params=args.param, force=args.force, dry_run=args.dry_run, eff_args=efficiency_args(args, root))
+                                 params=args.param, force=args.force, dry_run=args.dry_run, eff_args=efficiency_args(args, root, cfg.get("efficiency")))
     hy = cfg.get("hybrid") or {}
     if args.command in ("eval", "all", "hybrid") and hy.get("enabled", False) and not args.no_hybrid and not args.dry_run:
         run_hybrids(root, models, chunkers, cells, k=int(hy.get("k", 60)), depth=int(hy.get("depth", 100)), force=args.force, seed=cfg.get("seed"))

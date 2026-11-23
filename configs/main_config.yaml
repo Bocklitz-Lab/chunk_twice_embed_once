@@ -306,6 +306,23 @@ params:
     sizes: [128, 512]
     overlaps: [0]
 
+  # Efficiency measures (pipeline_lib/efficiency.py): index size, model size, peak GPU memory, corpus encoding time / throughput and per-query latency,
+  # kept apart from evaluation_time. ON by default in the Makefile (STAGE1_ARGS = --efficiency, EFFICIENCY_ARGS = --efficiency --latency; set them empty
+  # to switch off). The probe only watches encode(): scores, rankings and stage timings are unchanged. Peak memory, throughput and latency cannot be
+  # backfilled, so they must be on in the run itself (finished runs are skipped).
+  # The index / model / encoding columns are recorded for EVERY run; latency (batch size 1, warm-up, exact cosine top-10) only for the configurations
+  # below, for all models (latency_models: [] = all). A --latency-* flag on the command line replaces this subset.
+  efficiency:
+    latency_queries: 200       # queries timed per configuration, evenly spaced (0 = all)
+    latency_warmup: 10         # untimed queries before the timed ones
+    latency_device: cpu        # where the timed search runs; cpu = as MTEB's exact search
+    latency_models: []
+    latency_cells:
+      - {chunker: fixed_token, size: 128, overlap: 0}
+      - {chunker: fixed_token, size: 256, overlap: 0}
+      - {chunker: fixed_token, size: 512, overlap: 0}
+      - {chunker: hierarchical_section, size: 512, overlap: 0}
+
   # Hybrid retrieval: reciprocal rank fusion of each dense run with the BM25 run of the same configuration
   # (tools/hybrid.py; needs no embedding). Written as run folders hybrid_rrf<k>_<dense>_<bm25>_<chunker>_c<L>_o<O>.
   hybrid:

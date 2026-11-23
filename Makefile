@@ -58,9 +58,13 @@ stage0:
 	python -m pipeline_lib.split_config --input  $(INPUT_CONFIG) --output-dir $(OUTPUT_CONFIG) --section stage1 stage2 stage3
 	# rm -rf configs/stages/stage4.yaml configs/stages/stage5.yaml configs/stages/stage6.yaml
 
+# Efficiency measures (params.efficiency in the main config) are ON by default; make them empty to switch off, e.g. make eval EFFICIENCY_ARGS=
+STAGE1_ARGS ?= --efficiency
+EFFICIENCY_ARGS ?= --efficiency --latency
+
 stage1:
 	@echo "▶️ Stage1: model_screening_validation"
-	python -m stages.model_screening --config $(STAGE1_CONFIG)
+	python -m stages.model_screening --config $(STAGE1_CONFIG) $(STAGE1_ARGS)
 
 stage2:
 	@echo "▶️ Stage2: model_screening_selection"
@@ -247,10 +251,10 @@ prepare:
 	PYTHONHASHSEED=0 python -m stages.rerun prepare --models-csv $(MODELS_CSV) $(RERUN_ARGS)
 
 eval: check-models-csv
-	PYTHONHASHSEED=0 python -m stages.rerun eval --models-csv $(MODELS_CSV) $(RERUN_ARGS)
+	PYTHONHASHSEED=0 python -m stages.rerun eval --models-csv $(MODELS_CSV) $(EFFICIENCY_ARGS) $(RERUN_ARGS)
 
 rerun: check-models-csv
-	PYTHONHASHSEED=0 python -m stages.rerun all --models-csv $(MODELS_CSV) $(RERUN_ARGS)
+	PYTHONHASHSEED=0 python -m stages.rerun all --models-csv $(MODELS_CSV) $(EFFICIENCY_ARGS) $(RERUN_ARGS)
 
 pilot:
 	PYTHONHASHSEED=0 python -m stages.rerun all --pilot $(RERUN_ARGS)

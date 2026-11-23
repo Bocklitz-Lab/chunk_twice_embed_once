@@ -65,10 +65,14 @@ class EfficiencyOptions:
     latency_sizes: List[int] = field(default_factory=list)
     latency_overlaps: List[int] = field(default_factory=list)
     latency_models: List[str] = field(default_factory=list)      # substring of the model name
+    # exact configurations (chunker, size, overlap): not a cross product (e.g. fixed-token 128/0, 256/0, 512/0 and hierarchical-section 512/0)
+    latency_cells: List[tuple] = field(default_factory=list)
 
     def latency_selected(self, model: str) -> bool:
         """Is latency measured for this configuration? (``--latency`` and the subset filters)"""
         if not (self.enabled and self.latency):
+            return False
+        if self.latency_cells and (self.chunker, self.size, self.overlap) not in self.latency_cells:
             return False
         if self.latency_chunkers and self.chunker not in self.latency_chunkers:
             return False
@@ -92,6 +96,8 @@ def add_cli_args(ap: argparse.ArgumentParser) -> None:
     g.add_argument("--latency-sizes", nargs="*", type=int, default=[], help="latency only for these chunk sizes")
     g.add_argument("--latency-overlaps", nargs="*", type=int, default=[], help="latency only for these overlaps")
     g.add_argument("--latency-models", nargs="*", default=[], help="latency only for models whose name contains one of these")
+    g.add_argument("--latency-cells", nargs="*", default=[], metavar="CHUNKER:SIZE:OVERLAP",
+                   help="latency only for exactly these configurations (not a cross product), e.g. fixed_token:128:0 hierarchical_section:512:0")
     g.add_argument("--efficiency-out", help="folder of the efficiency CSV (default: the run's output_root)")
     g.add_argument("--efficiency-phase", type=int, choices=[1, 2], help="CSV to write (default: 2 for a local task folder, else 1)")
     g.add_argument("--eff-chunker", help=argparse.SUPPRESS)
@@ -106,7 +112,19 @@ def options_from_args(args: argparse.Namespace) -> EfficiencyOptions:
         out_dir=args.efficiency_out, phase=args.efficiency_phase,
         chunker=args.eff_chunker, size=args.eff_size, overlap=args.eff_overlap,
         latency_chunkers=list(args.latency_chunkers), latency_sizes=list(args.latency_sizes),
-        latency_overlaps=list(args.latency_overlaps), latency_models=list(args.latency_models))
+        latency_overlaps=list(args.latency_overlaps), latency_models=list(args.latency_models),
+        latency_cells=parse_cells(getattr(args, "latency_cells", []) or []))
+
+
+def parse_cells(specs: Iterable[str]) -> List[tuple]:
+    """``chunker:size:overlap`` strings -> [(chunker, size, overlap)]. Raises ValueError for a malformed spec."""
+    out = []
+    for spec in specs:
+        parts = str(spec).split(":")
+        if len(parts) != 3 or not parts[0] or not parts[1].isdigit() or not parts[2].isdigit():
+            raise ValueError(f"latency cell must be CHUNKER:SIZE:OVERLAP, got {spec!r}")
+        out.append((parts[0], int(parts[1]), int(parts[2])))
+    return out
 
 
 # --------------------------------------------------------------------------------------------------
