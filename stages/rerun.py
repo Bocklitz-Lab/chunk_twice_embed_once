@@ -3,7 +3,10 @@
   prepare   chunk + label every configuration ONCE (stages/prepare.py): 28 (size, overlap) pairs x 5 strategies = 140
   eval      for every model (and BM25) and configuration: stage 6 on the prepared folder
   all       prepare, then eval (+ the hybrid runs: reciprocal rank fusion of each dense run with BM25, params.hybrid;
+            + the cross-encoder rerank runs of the dense runs, params.rerank (tools/rerank.py);
             + the report: statistics, diagnostics, tables in results/v2-revision/, tools/make_report.py, params.report)
+  hybrid    only the hybrid step on the finished dense and BM25 runs (resumable: finished runs are skipped)
+  rerank    only the rerank step (primary depth for params.rerank.models + the ablation entries; resumable)
   --pilot   the pilot of params.pilot in main_config.yaml (2 models + BM25, fixed-token and hierarchical-section,
             sizes 128 and 512, overlap 0) in its own artifacts root; never touches artifacts/tests
 
@@ -187,9 +190,19 @@ def run_hybrids(root: str, models: List[Tuple[str, str]], chunkers: List[str], c
     return out
 
 
+def run_reranks(root: str, models: List[Tuple[str, str]], cells: List[Tuple[int, int]], chunkers: List[str], rr: Dict[str, Any], *,
+                force: bool = False, dry_run: bool = False) -> List[Dict[str, Any]]:
+    """Cross-encoder reranking of the finished dense runs (tools/rerank.py, params.rerank): primary depth for ``rr['models']`` (all dense
+    runs of this invocation if the list is empty) plus the ablation entries. Finished rerank runs are skipped."""
+    from tools import rerank
+    wanted = [(ch, s, o) for ch in chunkers for s, o in cells]
+    return rerank.run_configured(Path(root) / "tests", rr, models=[n for n, _ in models if not n.startswith(BM25)], wanted_cells=wanted,
+                                 depth=int(rr.get("depth", 100)), force=force, dry_run=dry_run)
+
+
 def main(argv: Optional[List[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("command", choices=["prepare", "eval", "all"])
+    ap.add_argument("command", choices=["prepare", "eval", "all", "hybrid", "rerank"])
     ap.add_argument("--pilot", action="store_true", help="use params.pilot of the main config (own artifacts root)")
     ap.add_argument("--main-config", default="configs/main_config.yaml")
     ap.add_argument("--artifacts-root")
@@ -199,6 +212,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     ap.add_argument("--no-report", action="store_true", help="skip the report step (statistics, diagnostics, tracked tables)")
     ap.add_argument("--report-dir", help="tracked folder for the summary tables (default params.report.out_dir)")
     ap.add_argument("--no-hybrid", action="store_true", help="skip the reciprocal-rank-fusion runs (dense + BM25)")
+    ap.add_argument("--no-rerank", action="store_true", help="skip the cross-encoder rerank runs (params.rerank)")
     ap.add_argument("--chunkers", nargs="*")
     ap.add_argument("--sizes", nargs="*", type=int)
     ap.add_argument("--overlaps", nargs="*", type=int)
@@ -227,8 +241,16 @@ def main(argv: Optional[List[str]] = None) -> int:
         cells = [(s, o) for s, o in sorted({(s, o) for s in sizes for o in overlaps})]   # the pilot asks for exact cells
     legacy = cfg.get("chunking_tokenizer") == "model" or any(p.startswith("chunking_tokenizer=model") for p in args.param)
     print(f"artifacts root: {root} | models: {[m[0] for m in models]} | chunkers: {chunkers} | cells: {cells}")
+    rr_cfg = cfg.get("rerank") or {}
+    if args.command in ("eval", "all", "rerank") and rr_cfg.get("enabled", False) and not args.no_rerank:
+        from tools import rerank as _rerank
+        bad = _rerank.check_ablation(rr_cfg, chunkers, cells, [n for n, _ in models if not n.startswith(BM25)])
+        if bad and args.pilot:
+            print("[WARN] pilot: " + "; ".join(bad))                  # the pilot has its own small grid
+        elif bad:
+            raise SystemExit("ERROR: the rerank ablation does not fit this grid (fix params.rerank.ablation, or pass --no-rerank):\n  " + "\n  ".join(bad))
     qa_path: Optional[Path] = None
-    if not args.dry_run:
+    if not args.dry_run and args.command in ("prepare", "eval", "all"):
         qa_path = ensure_data(args.main_config, root, args.param)
     base_params = [f"paths.artifacts_root={root}"] + args.param
 
@@ -258,14 +280,21 @@ def main(argv: Optional[List[str]] = None) -> int:
                     run_eval_one(name, rev, ch, s, o, folder, main_config=args.main_config, artifacts_root=root,
                                  params=args.param, force=args.force, dry_run=args.dry_run)
     hy = cfg.get("hybrid") or {}
-    if args.command in ("eval", "all") and hy.get("enabled", False) and not args.no_hybrid and not args.dry_run:
+    if args.command in ("eval", "all", "hybrid") and hy.get("enabled", False) and not args.no_hybrid and not args.dry_run:
         run_hybrids(root, models, chunkers, cells, k=int(hy.get("k", 60)), depth=int(hy.get("depth", 100)), force=args.force)
+    rr = cfg.get("rerank") or {}
+    if args.command in ("eval", "all", "rerank") and rr.get("enabled", False) and not args.no_rerank:
+        run_reranks(root, models, cells, chunkers, rr, force=args.force, dry_run=args.dry_run)
     rep = cfg.get("report") or {}
     if args.command in ("eval", "all") and rep.get("enabled", False) and not args.no_report and not args.dry_run:
         from tools import make_report
         out_dir = args.report_dir or ((pilot.get("report_dir") if args.pilot else None) or rep.get("out_dir", "results/v2-revision"))
+        ext = cfg.get("external") or {}
+        ext_base = Path(args.artifacts_root or cfg["paths"]["artifacts_root"])           # Phase 1 results live in the main artifacts root, also for a pilot
+        ext_roots = [ext_base / sub for sub in [*(ext.get("phase1_subdirs") or []), ext.get("output_subdir", "embedding_models_screening/baselines")]]
         m = make_report.build_report(root, out_dir, qa_path, resamples=int(rep.get("resamples", 1000)), seed=int(cfg.get("seed", 20261121)),
-                                     overlap=bool(rep.get("overlap", True)), track_max_mb=float(rep.get("track_max_mb", 5)))
+                                     overlap=bool(rep.get("overlap", True)), track_max_mb=float(rep.get("track_max_mb", 5)),
+                                     rerank_top_n=int(rr.get("top_n", 50)), external_roots=ext_roots)
         if m["steps"].get("check_identical_exit_code"):
             print("WARNING: check_identical found a mismatch between models (see the report)")
             return 1

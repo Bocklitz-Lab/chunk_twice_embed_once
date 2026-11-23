@@ -60,4 +60,7 @@ def test_run_bm25_writes_the_same_outputs_as_run_eval(tmp_path):
     ms = json.loads((out / "metrics_summary.json").read_text())
     assert ms["cross_check"]["ok"] and ms["aggregate"]["n_empty_questions"] == 1
     m = json.loads((out / "run_manifest.json").read_text())
+    t = m["timing_s"]       # evaluation_time = index + search + metrics + dump (what MTEB's evaluation_time covers), not only index + search
+    assert t["mteb_evaluation_time_s"] >= t["bm25_index_s"] + t["bm25_search_s"] + t["metrics_s"] + t["dump_s"] - 1e-3
+    assert t["mteb_evaluation_time_s"] == pytest.approx(json.loads((out / "ChemQuest.json").read_text())["evaluation_time"])
     assert m["model"]["k1"] == 1.2 and m["seeds"]["seed"] == 5 and "bm25_index_s" in m["timing_s"] and m["prompts"] is None

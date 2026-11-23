@@ -12,6 +12,12 @@ import sys
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+_REPO_ROOT = str(Path(__file__).resolve().parents[1])
+if _REPO_ROOT not in sys.path:
+    sys.path.insert(0, _REPO_ROOT)
+
+from pipeline_lib.run_outputs import read_eval_time  # noqa: E402
+
 
 def _load(p: Path) -> Dict[str, Any]:
     return json.loads(p.read_text(encoding="utf-8")) if p.is_file() else {}
@@ -33,8 +39,12 @@ def run_row(run: Path) -> Optional[Dict[str, Any]]:
     agg, lex = ms.get("aggregate", {}), (ms.get("other_label_sets") or {}).get("qrels_lexical.jsonl", {})
     t = man.get("timing_s") or {}
     pm = _load(prepared / "manifest.json").get("timing_s", {})
+    hy, rr = info.get("hybrid"), info.get("rerank")
+    kind = "hybrid" if hy else "rerank" if rr else "bm25" if str(info["model"]).startswith("bm25") else "dense"
     row: Dict[str, Any] = {
-        "model": info["model"], "chunker": info["chunker"], "size": info["size"], "overlap": info["overlap"],
+        "model": info["model"], "kind": kind,
+        "source_dense": (hy or rr or {}).get("dense"), "rerank_top_n": (rr or {}).get("top_n"), "rerank_model": (rr or {}).get("model"),
+        "chunker": info["chunker"], "size": info["size"], "overlap": info["overlap"],
         "labels": ms.get("qrels_file"), "prepared": prepared.name,
         "n_chunks": diag.get("n_chunks"), "mean_chunk_tokens_ref": diag.get("mean_chunk_tokens"),
         "pct_span_inside_one_chunk": diag.get("pct_span_inside_one_chunk"),
@@ -51,7 +61,10 @@ def run_row(run: Path) -> Optional[Dict[str, Any]]:
                     "pct_chunks_truncated": tr["passages"]["pct_truncated"], "mean_tokens_own_tokenizer": tr["passages"]["mean_tokens"]})
     row.update({"use_prompts": man.get("use_prompts"), "prompt_query": (man.get("prompts") or {}).get("query"),
                 "prompt_passage": (man.get("prompts") or {}).get("passage"),
-                "mteb_evaluation_time_s": t.get("mteb_evaluation_time_s"), "model_load_s": t.get("model_load_s"),
+                "evaluation_time_s": read_eval_time(out),     # dense: MTEB; bm25: index+search+metrics+dump; hybrid / rerank: input runs + own stage
+                "mteb_evaluation_time_s": t.get("mteb_evaluation_time_s"),
+                "dense_evaluation_time_s": t.get("dense_evaluation_time_s"), "bm25_evaluation_time_s": t.get("bm25_evaluation_time_s"),
+                "fusion_s": t.get("fusion_s"), "rerank_s": t.get("rerank_s"), "score_pairs_s": t.get("score_pairs_s"), "model_load_s": t.get("model_load_s"),
                 "encode_passage_s": t.get("encode_passage_s"), "encode_query_s": t.get("encode_query_s"),
                 "search_metrics_and_dump_s": t.get("search_metrics_and_dump_s"),
                 "bm25_index_s": t.get("bm25_index_s"), "bm25_search_s": t.get("bm25_search_s"),

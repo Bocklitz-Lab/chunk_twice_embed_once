@@ -8,8 +8,13 @@ A chunk that is not in the top ``depth`` of a ranking gets no contribution from 
 chunks, queries and labels) and must rank the same queries.
 
 Run folder written  <tests root>/hybrid_rrf<k>_<dense dir>_<sparse dir>_<chunker>_c<L>_o<O>/ with run_info.json,
-links to chunks/ and mteb_task/, results/summary.json and results/<name>/{ChemQuest_default_predictions.json, run_top100.trec.gz,
-per_query_metrics*.csv, span_coverage.csv, metrics_summary.json, run_manifest.json}.
+links to chunks/ and mteb_task/, results/summary.json and results/<name>/{ChemQuest.json, ChemQuest_default_predictions.json,
+run_top100.trec.gz, per_query_metrics*.csv, span_coverage.csv, metrics_summary.json, run_manifest.json}.
+
+evaluation_time (ChemQuest.json, run_manifest timing_s.mteb_evaluation_time_s) = dense evaluation_time + BM25 evaluation_time +
+fusion_s, where fusion_s = reading the two rankings + fusion + metrics + dump of the fused ranking. The three parts are stored
+separately in run_manifest.json (timing_s.dense_evaluation_time_s, bm25_evaluation_time_s, fusion_s). The hybrid needs both
+inputs, so their cost is part of its cost; if an input run has no time the sum is null (and a warning is printed).
 
   python -m tools.hybrid --tests-root artifacts/pilot/tests --dense intfloat/e5-large-v2 BAAI/bge-m3 --sparse bm25
   python -m tools.hybrid --tests-root ... --dense intfloat/e5-large-v2 --sparse bm25 --k 60 --depth 100 --force
@@ -75,11 +80,13 @@ def _load_ranking(out: Path) -> Run:
 def discover(tests_root: Path) -> Dict[tuple, Dict[str, Path]]:
     """{(chunker, size, overlap): {model name: run folder}} from the run_info.json files."""
     cells: Dict[tuple, Dict[str, Path]] = {}
+    if not Path(tests_root).is_dir():
+        return cells
     for d in sorted(Path(tests_root).iterdir()):
         info = d / "run_info.json"
         if d.is_dir() and info.is_file() and (d / "results").is_dir():
             i = json.loads(info.read_text(encoding="utf-8"))
-            if i.get("hybrid"):
+            if i.get("hybrid") or i.get("rerank"):          # derived runs are never an input of a fusion
                 continue
             cells.setdefault((i["chunker"], int(i["size"]), int(i["overlap"])), {})[i["model"]] = d
     return cells
@@ -91,6 +98,10 @@ def hybrid_name(k: int) -> str:
 
 def _short(model: str) -> str:
     return model.replace("/", "_").replace("-", "_")
+
+
+def _sum_times(*parts: Optional[float]) -> Optional[float]:
+    return None if any(p is None for p in parts) else float(sum(parts))
 
 
 def run_hybrid(dense_dir: Path, sparse_dir: Path, tests_root: Path, *, k: int = DEFAULT_K, depth: int = 100,
@@ -120,6 +131,14 @@ def run_hybrid(dense_dir: Path, sparse_dir: Path, tests_root: Path, *, k: int = 
     out.mkdir(parents=True, exist_ok=True)
     (out / "ChemQuest_default_predictions.json").write_text(json.dumps(fused), encoding="utf-8")
     qrels_name = _primary_qrels(d_out, prepared)
+    scores = run_outputs.mteb_style_scores(fused, qmetrics.load_qrels(prepared / "mteb_task" / qrels_name),
+                                           qmetrics.load_query_ids(prepared / "mteb_task" / "queries.jsonl"))
+    fusion_s = time.perf_counter() - t0                       # read + fuse + metrics + dump (what a dense evaluation_time covers)
+    dense_s, sparse_s = run_outputs.read_eval_time(d_out), run_outputs.read_eval_time(s_out)
+    total_s = _sum_times(dense_s, sparse_s, fusion_s)
+    if total_s is None:
+        print(f"[WARN] {run_dir.name}: an input run has no evaluation_time (dense {dense_s}, sparse {sparse_s}); the hybrid time is null")
+    run_outputs.write_chemquest_json(out, scores, total_s, method="rrf")
     summary = run_outputs.write_per_query_outputs(out, prepared / "mteb_task", qrels_name, depth=depth, run_name=name)
     elapsed = time.perf_counter() - t0
     inputs = [{"role": role, "model": i["model"], "run_dir": str(d), "ranking": str(o / "run_top100.trec.gz"),
@@ -128,7 +147,9 @@ def run_hybrid(dense_dir: Path, sparse_dir: Path, tests_root: Path, *, k: int = 
     manifest = {"method": "reciprocal_rank_fusion", "k": k, "depth": depth, "inputs": inputs,
                 "tie_break": "score descending, chunk id descending", "no_embedding": True,
                 "prepared_key": di["prepared_key"], "git": git_info(_REPO_ROOT), "packages": package_versions(["numpy", "pytrec_eval"]),
-                "timing_s": {"fusion_and_metrics_s": elapsed}, "use_prompts": None,
+                "timing_s": {"dense_evaluation_time_s": dense_s, "bm25_evaluation_time_s": sparse_s, "fusion_s": fusion_s,
+                            "evaluation_time_s": total_s, "mteb_evaluation_time_s": total_s, "fusion_and_metrics_s": elapsed},
+                "evaluation_time": "dense evaluation_time + bm25 evaluation_time + fusion_s", "use_prompts": None,
                 "data_sha256": _data_hashes(d_out)}
     (out / "run_manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     info = dict(di, model=f"{name}", hybrid={"method": "rrf", "k": k, "depth": depth, "dense": di["model"], "sparse": si["model"]})
@@ -136,7 +157,7 @@ def run_hybrid(dense_dir: Path, sparse_dir: Path, tests_root: Path, *, k: int = 
     main_score = summary["aggregate"].get("ndcg_at_10") if summary else None
     (run_dir / "results" / "summary.json").write_text(json.dumps([{"model": name, "revision": "rrf", "task": "ChemQuest",
                                                                   "main_score": main_score}], indent=2), encoding="utf-8")
-    return {"run_dir": str(run_dir), "status": "done", "ndcg_at_10": main_score}
+    return {"run_dir": str(run_dir), "status": "done", "ndcg_at_10": main_score, "evaluation_time": total_s}
 
 
 def _data_hashes(model_out: Path) -> Dict[str, str]:

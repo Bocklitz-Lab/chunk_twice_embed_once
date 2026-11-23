@@ -310,6 +310,43 @@ params:
     k: 60
     depth: 100
 
+  # Cross-encoder reranking of the saved top-N of finished dense runs (tools/rerank.py; post-hoc, no embedding, no new chunking).
+  # Candidates below rank N keep their original order. Written as run folders
+  # rerank_<reranker>_top<N>_<dense>_<chunker>_c<L>_o<O> (run_info.json: rerank {model, revision, top_n, dense, depth}).
+  #   model / revision  the cross-encoder and its PINNED commit (sentence_transformers.CrossEncoder; never "main")
+  #   top_n             primary depth: every dense run of `models` is reranked at this depth (the main report tables)
+  #   models            dense models that are reranked at the primary depth (names as in the runs; [] = every dense run of the
+  #                     invocation). Cost: top_n x 952 pairs per run (~48k pairs at top_n 50, ~3 min per run at size 256 on an RTX 3090), so the
+  #                     study reranks e5-large-v2 only.
+  #   ablation          extra depths for chosen runs (the "rerank depth ablation" table). Each entry: model (name or its last path
+  #                     component), chunker, size, overlap (a number, a list or omitted = all) and top_n (a number or a list).
+  #                     Nothing is tied to a size, but every entry must match the grid of the invocation: stages/rerun.py checks this BEFORE
+  #                     any run starts and aborts if a chunker / size / overlap is not part of --chunkers / --sizes / --overlaps (so a changed
+  #                     grid can never silently skip the ablation). The size below must be a chunk size of the final grid; update it with the grid.
+  #   batch_size / max_length / fp16   forward-pass settings (max_length counts query + chunk tokens of the reranker tokenizer)
+  #   depth             length of the written ranking (like every run); top_n <= depth
+  rerank:
+    enabled: true
+    model: BAAI/bge-reranker-v2-m3
+    revision: 953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e
+    top_n: 50
+    depth: 100
+    batch_size: 32
+    max_length: 1024
+    fp16: true
+    models: [intfloat/e5-large-v2]
+    ablation:
+      - {model: intfloat/e5-large-v2, chunker: fixed_token, size: 256, overlap: 0, top_n: [20, 100]}
+
+  # External MTEB tasks of Phase 1 (stages/run_bm25_mteb.py = `make external-bm25`): BM25 only, the dense Phase 1 results are not re-run.
+  # Paths are relative to the artifacts root. BM25 is written to output_subdir, NOT to the folder stage 2 screens, so that it can never
+  # change the Phase 2 shortlist; the report (table_external) reads output_subdir and phase1_subdirs together.
+  external:
+    tasks: [ChemNQRetrieval, ChemHotpotQARetrieval]
+    output_subdir: embedding_models_screening/baselines
+    phase1_subdirs: [embedding_models_screening/validation, embedding_models_screening/validation_results]
+    top_k: 100
+
   # Report step, run automatically at the end of `make eval` / `make rerun` / `make pilot` (tools/make_report.py):
   # run table, identical-input check, bootstrap CIs (query + paper level), paired tests (Holm), label agreement, coverage
   # diagnostics, lexical-overlap diagnostic, truncation summary and the paper tables. The small CSVs are copied to out_dir

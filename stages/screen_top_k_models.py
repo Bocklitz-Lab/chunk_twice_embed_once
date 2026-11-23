@@ -281,6 +281,9 @@ def main():
     top_pct = float(cfg.get("top_percent", 0.30))
     datasets_include = set(cfg.get("datasets_include") or [])
     model_id_fmt = cfg.get("model_id_format", "name@rev")
+    # Baselines (BM25 of stages/run_bm25_mteb.py) are not candidates for the Phase 2 shortlist: they would change the ranks
+    # and the top-percent cut of the real models. Set include_baselines: true to score them next to the models anyway.
+    include_baselines = bool(cfg.get("include_baselines", False))
 
     out_union = cfg.get("output_union_csv", "")
     out_per_ds = cfg.get("output_per_dataset_csv", "")
@@ -292,6 +295,9 @@ def main():
     rows = []
     for leaf in leaf_dirs:
         meta = read_model_meta(leaf)
+        if not include_baselines and str(meta.get("name") or "").lower().startswith("bm25"):
+            print(f"skip baseline (include_baselines: false): {meta.get('name')} in {leaf}")
+            continue
         model_id = derive_model_id(leaf, meta, model_id_fmt)
         for fp in leaf.glob("*.json"):
             if fp.name == "model_meta.json":
