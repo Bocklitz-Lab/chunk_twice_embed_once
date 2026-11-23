@@ -3,7 +3,8 @@
 Reads the generated stage 6 config (the task's data_dir / qrels_file, output_root, top_k, seed, optional ``bm25`` block),
 builds a BM25 index over the prepared corpus, ranks every query and writes into
 ``<output_root>/bm25_<rank_bm25 version>/``: ChemQuest_default_predictions.json (top k), ChemQuest.json (metrics computed by
-MTEB's own evaluator, with ``evaluation_time`` = index + search seconds), run_top100.trec.gz, per_query_metrics*.csv,
+MTEB's own evaluator, with ``evaluation_time`` = index + search + metrics + prediction dump, the same stages MTEB's
+evaluation_time covers for a dense model, model loading excluded), run_top100.trec.gz, per_query_metrics*.csv,
 span_coverage.csv, metrics_summary.json, truncation-free by construction, run_manifest.json; then summary.json/csv last.
 """
 from __future__ import annotations
@@ -11,6 +12,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -26,7 +28,8 @@ from pipeline_lib.run_manifest import Stopwatch, build_manifest, package_version
 from tools import metrics as qmetrics  # noqa: E402
 
 MODEL_NAME = "bm25"
-KS = [1, 3, 5, 10, 20, 100]
+KS = run_outputs.KS
+mteb_style_scores = run_outputs.mteb_style_scores     # kept here for the callers and tests that import it from this stage
 
 
 def _read_jsonl(path):
@@ -34,22 +37,6 @@ def _read_jsonl(path):
         for line in f:
             if line.strip():
                 yield json.loads(line)
-
-
-def mteb_style_scores(run, qrels, query_ids) -> Dict[str, float]:
-    """Metrics with MTEB's own functions (pytrec_eval ndcg/map/recall/P and MTEB's MRR), rounded to 5 decimals."""
-    from mteb.evaluation.evaluators.RetrievalEvaluator import RetrievalEvaluator
-    from mteb.evaluation.evaluators.utils import mrr
-
-    full = {q: (qrels.get(q) or {"__none__": 0}) for q in query_ids}      # a question without a label stays (scores 0)
-    results = {q: dict(run[q]) for q in query_ids}
-    ndcg, _map, recall, prec, _ = RetrievalEvaluator.evaluate(full, results, KS)
-    mr = mrr(full, results, KS)
-    out: Dict[str, float] = {}
-    for k in KS:
-        out.update({f"ndcg_at_{k}": ndcg[f"NDCG@{k}"], f"map_at_{k}": _map[f"MAP@{k}"], f"recall_at_{k}": recall[f"Recall@{k}"],
-                    f"precision_at_{k}": prec[f"P@{k}"], f"mrr_at_{k}": mr[f"MRR@{k}"]})
-    return out
 
 
 def main(argv: Optional[List[str]] = None) -> int:
@@ -70,35 +57,36 @@ def main(argv: Optional[List[str]] = None) -> int:
     queries = {str(r["id"]): str(r.get("text") or "") for r in _read_jsonl(data_dir / "queries.jsonl")}
     sw = Stopwatch()
     retr = BM25Retriever(k1=float(bm.get("k1", 1.5)), b=float(bm.get("b", 0.75)), lowercase=bool(bm.get("lowercase", True)))
+    out_root = Path(raw["output_root"])
+    rev = package_versions(["rank-bm25"]).get("rank-bm25") or "unknown"
+    out = out_root / f"{MODEL_NAME}_{rev}"
+    out.mkdir(parents=True, exist_ok=True)
+    qrels = qmetrics.load_qrels(data_dir / qrels_name)
+    # evaluation_time = what MTEB's evaluation_time covers for a dense model: retrieval (here index + search), the metrics and
+    # the dump of the ranking. Reading the corpus / queries files is not counted (MTEB loads the dataset before it starts the clock).
+    t_eval = time.perf_counter()
     with sw.section("bm25_total_s"):
         retr.index(corpus)
         run = retr.search(queries, top_k=depth)
-    eval_time = retr.timing["bm25_index_s"] + retr.timing["bm25_search_s"]
-
-    rev = package_versions(["rank-bm25"]).get("rank-bm25") or "unknown"
-    out_root = Path(raw["output_root"])
-    out = out_root / f"{MODEL_NAME}_{rev}"
-    out.mkdir(parents=True, exist_ok=True)
-    (out / "ChemQuest_default_predictions.json").write_text(json.dumps(run), encoding="utf-8")
-    qrels = qmetrics.load_qrels(data_dir / qrels_name)
-    scores = mteb_style_scores(run, qrels, list(queries))
-    scores.update({"main_score": scores["ndcg_at_10"], "hf_subset": "default", "languages": ["eng-Latn"]})
-    (out / "ChemQuest.json").write_text(json.dumps({
-        "dataset_revision": "local", "task_name": "ChemQuest", "mteb_version": "bm25 (metrics by mteb RetrievalEvaluator)",
-        "evaluation_time": eval_time, "kg_co2_emissions": None, "scores": {"test": [scores]}}, indent=2), encoding="utf-8")
+    with sw.section("metrics_s"):
+        scores = mteb_style_scores(run, qrels, list(queries))
+    with sw.section("dump_s"):
+        (out / "ChemQuest_default_predictions.json").write_text(json.dumps(run), encoding="utf-8")
+    eval_time = time.perf_counter() - t_eval
+    run_outputs.write_chemquest_json(out, scores, eval_time, method="bm25")
     per_query = run_outputs.write_per_query_outputs(out, data_dir, qrels_name, depth=depth, run_name=MODEL_NAME)
     files = [data_dir / n for n in ("corpus.jsonl", "queries.jsonl", qrels_name)]
     write_manifest(out / "run_manifest.json", build_manifest(
         repo_root=_REPO_ROOT, config_path=args.config, resolved_config=raw,
         model={"name": MODEL_NAME, "revision": rev, "k1": retr.k1, "b": retr.b, "lowercase": retr.lowercase,
-               "text": "chunk text only (no title)", "tokens": "regex \\w+ on lower-cased text, no stemming, no stop words"},
+               "text": "chunk text only (no title)", "evaluation_time": "index + search + metrics + dump", "tokens": "regex \\w+ on lower-cased text, no stemming, no stop words"},
         use_prompts=False, prompts=None, batch_size=None, seeds=seeds, data_files=files,
-        timing={**sw.seconds, **retr.timing, "mteb_evaluation_time_s": eval_time},
+        timing={**sw.seconds, **retr.timing, "mteb_evaluation_time_s": eval_time},     # index + search + metrics + dump
         extra={"top_k": depth, "per_query_outputs": per_query}))
-    row = {"model": MODEL_NAME, "revision": rev, "normalize": "", "batch_size": "", "task": "ChemQuest", "main_score": scores["main_score"]}
+    row = {"model": MODEL_NAME, "revision": rev, "normalize": "", "batch_size": "", "task": "ChemQuest", "main_score": scores["ndcg_at_10"]}
     (out_root / "summary.json").write_text(json.dumps([row], indent=2), encoding="utf-8")
     (out_root / "summary.csv").write_text("model,revision,normalize,batch_size,task,main_score\n"
-                                          f"{MODEL_NAME},{rev},,,ChemQuest,{scores['main_score']}\n", encoding="utf-8")
+                                          f"{MODEL_NAME},{rev},,,ChemQuest,{scores['ndcg_at_10']}\n", encoding="utf-8")
     print(f"BM25: nDCG@10={scores['ndcg_at_10']} Recall@10={scores['recall_at_10']} evaluation_time={eval_time:.1f}s -> {out}")
     return 0
 

@@ -1,7 +1,8 @@
 """BM25 baseline over the chunks of a prepared task (rank_bm25, BM25Okapi).
 
 Runs on exactly the corpus / queries / qrels the dense models use. The text of a chunk is the chunk text itself (no
-document title). Tokens: Unicode word characters, lower-cased; no stemming and no stop-word list by default.
+document title), unless ``title_in_text`` is set: then ``title + " " + text`` is indexed, which is what MTEB hands to a
+dense model (used for the external MTEB tasks, whose corpus entries have a real title). Tokens: Unicode word characters, lower-cased; no stemming and no stop-word list by default.
 The index covers the whole corpus (all papers), like the dense retrievers.
 """
 from __future__ import annotations
@@ -20,16 +21,24 @@ def tokenize(text: str, lowercase: bool = True) -> List[str]:
 
 
 class BM25Retriever:
-    def __init__(self, k1: float = 1.5, b: float = 0.75, epsilon: float = 0.25, lowercase: bool = True):
+    def __init__(self, k1: float = 1.5, b: float = 0.75, epsilon: float = 0.25, lowercase: bool = True,
+                 title_in_text: bool = False):
         self.k1, self.b, self.epsilon, self.lowercase = k1, b, epsilon, lowercase
+        self.title_in_text = title_in_text
         self.timing = {"bm25_index_s": 0.0, "bm25_search_s": 0.0}
+
+    def document_text(self, doc: Dict[str, Any]) -> str:
+        """The string that is indexed: the chunk text, or ``(title + " " + text).strip()`` with ``title_in_text``."""
+        if self.title_in_text and doc.get("title"):
+            return f"{doc['title']} {doc['text']}".strip()
+        return doc["text"]
 
     def index(self, corpus: Dict[str, Dict[str, Any]]) -> None:
         from rank_bm25 import BM25Okapi
 
         t0 = time.perf_counter()
         self.ids = sorted(corpus)                                 # deterministic corpus order
-        toks = [tokenize(corpus[i]["text"], self.lowercase) for i in self.ids]
+        toks = [tokenize(self.document_text(corpus[i]), self.lowercase) for i in self.ids]
         self.bm25 = BM25Okapi(toks, k1=self.k1, b=self.b, epsilon=self.epsilon)
         # rank of every document id in DESCENDING id order: ties in the score are broken like trec_eval (id descending)
         order = sorted(range(len(self.ids)), key=lambda i: self.ids[i], reverse=True)
