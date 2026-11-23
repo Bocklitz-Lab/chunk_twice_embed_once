@@ -385,6 +385,21 @@ params:
     enabled_in_report: false          # true: make report runs `make analysis` as its last step (needs the reports of the main run and of the transfer root)
     out_dir: results/v2-revision/analysis
     token_budgets: [512, 1024, 2048]  # reference-tokenizer tokens handed over to the reader (tools/token_budget.py)
+    cover_levels: [0.8, 0.9, 1.0]     # cover-level sensitivity (tools/rescore.py, with paper-level intervals); labeling.cover_level is the primary
+    # tools/fragmentation.py: questions whose evidence the small size splits vs the gain at the large size (same strategy, same model, this overlap)
+    fragmentation:
+      overlap: 0
+      pairs: [[128, 512], [128, 256], [256, 512]]      # [small size, large size]; each size must exist with this overlap in the grid
+    # tools/examples.py: named success / failure cases for the discussion
+    examples:
+      seed: 20261121
+      n_per_rule: 10
+      size_pairs: [[128, 512]]       # fails_small_works_large: [small size, large size], same model, strategy and overlap
+      works_ndcg: 0.5                # a question "works" with Recall@10 = 1 and nDCG@10 >= this
+      margin: 0.5                    # dense / BM25 "wins" by at least this much nDCG@10
+      excerpt_chars: 300
+      top_chunks: 3
+      chunk_chars: 400
 
   # Efficiency measures (pipeline_lib/efficiency.py): index size, model size, peak GPU memory, corpus encoding time / throughput and per-query latency,
   # kept apart from evaluation_time. ON by default in the Makefile (STAGE1_ARGS = --efficiency, EFFICIENCY_ARGS = --efficiency --latency; set them empty
