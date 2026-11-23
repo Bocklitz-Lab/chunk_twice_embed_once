@@ -39,7 +39,7 @@ def test_tracked_stage_files_are_what_stage0_generates():
 def test_tracked_stage1_carries_the_prompt_settings():
     s1 = yaml.safe_load((ROOT / "configs" / "stages" / "stage1.yaml").read_text())
     assert s1["use_prompts"] is True and s1["instructor_mask_instruction"] is True and s1["seed"]
-    assert {m["name"] for m in s1["models"]} == set(s1["model_prompts"])
+    assert {m["name"] for m in s1["models"]} <= set(s1["model_prompts"]) and len(s1["models"]) == 41
 
 
 def test_makefile_default_models_csv_is_the_stage2_output():

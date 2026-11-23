@@ -99,6 +99,7 @@ params:
     microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext: {query: "", passage: "", card: "pretrained encoder, card defines no prompt"}
     DeepChem/ChemBERTa-77M-MTR: {query: "", passage: "", card: "pretrained encoder, card defines no prompt (no README for mpnet-base / ChemBERTa)"}
     microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract: {query: "", passage: "", card: "pretrained encoder, card defines no prompt"}
+    bert-base-uncased: {query: "", passage: "", card: "transfer-only extra model (strict base of bert-base-nli-mean-tokens, not a Phase 1 model): pretrained encoder, no prompt"}
   paths:
     artifacts_root: artifacts
     chemquests_dir: ${params.paths.artifacts_root}/chemquests_hf_db
@@ -305,6 +306,63 @@ params:
     chunkers: [fixed_token, hierarchical_section]
     sizes: [128, 512]
     overlaps: [0]
+
+  # Transfer runs (Reviewer 1 comment 3 / Reviewer 2 item 3): models that Phase 1 did NOT shortlist (plus three shortlisted references) on a small set
+  # of ChemQuests configurations, in the new pipeline (reference-tokenizer chunks, span labels, prompts). `make transfer` = stages/transfer.py:
+  # one `stages.rerun eval` per configuration, own artifacts root, no BM25 / hybrid / rerank, efficiency flags of the Makefile. The prepared folders
+  # (chunks, labels) and the ChemQuests inputs are SHARED with the main run (chunk_cache.dir and paths.chemquests_dir of the main artifacts root), so
+  # a transfer run sees byte-identical chunks and labels. Start only after `make prepare` of the main run has built these configurations.
+  #   models:  name + PINNED revision (the Phase 1 pin; checked against stage1.models) + role + group (a-e as in the Reviewer 1 experiment:
+  #            a domain-pretrained, b general-domain, c general-domain retrieval/similarity tuned, d shortlisted retrieval-tuned, e SPECTER)
+  #            Every model needs an entry in params.model_prompts (checked). Extra models are not Phase 1 models: they have a prompt entry (none)
+  #            but no stage1.models pin; their revision is pinned here.
+  #   configurations: id, chunker, size, overlap; each must be valid in pipeline_lib/grid.py. C1-C5 = main; C6 (fixed-token 128/0) is an extra
+  #            sensitivity configuration that is never mixed into the C1-C5 averages.
+  #   pairs:   tuned - base pairs of the Reviewer 1 experiment (P1-P4), read by tools/phase_transfer.py.
+  transfer:
+    artifacts_root: artifacts/transfer
+    report_dir: results/v2-revision/transfer
+    run_shortlisted_references: true     # false: skip the three role=shortlisted_reference models (they are in the main run anyway)
+    run_extras: true                     # false: skip role=extra models and configurations with extra: true (cheap: ~30 min on one GPU)
+    configurations:
+      - {id: C1, chunker: fixed_token,          size: 512, overlap: 0}
+      - {id: C2, chunker: recursive_token,      size: 512, overlap: 0}
+      - {id: C3, chunker: hierarchical_section, size: 512, overlap: 0}
+      - {id: C4, chunker: fixed_token,          size: 384, overlap: 32}
+      - {id: C5, chunker: fixed_token,          size: 256, overlap: 0}
+      - {id: C6, chunker: fixed_token,          size: 128, overlap: 0, extra: true}
+    models:
+      - {name: allenai/scibert_scivocab_uncased,                          revision: 24f92d32b1bfb0bcaf9ab193ff3ad01e87732fc1, role: non_shortlisted, group: a}
+      - {name: DeepChem/ChemBERTa-77M-MTR,                                revision: 66b895cab8adebea0cb59a8effa66b2020f204ca, role: non_shortlisted, group: a}
+      - {name: recobo/chemical-bert-uncased,                              revision: 498698d28fcf7ce5954852a0444c864bdf232b64, role: non_shortlisted, group: a}
+      - {name: m3rg-iitd/matscibert,                                      revision: ced9d8f5f208712c4a90f98a246fe32155b29995, role: non_shortlisted, group: a}
+      - {name: microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext, revision: e1354b7a3a09615f6aba48dfad4b7a613eef7062, role: non_shortlisted, group: a}
+      - {name: allenai/specter,                                           revision: 81cbfb43d4fc2e728d5b4201ce14987db8d0854c, role: non_shortlisted, group: e}
+      - {name: sentence-transformers/all-mpnet-base-v2,                   revision: e8c3b32edf5434bc2275fc9bab85f82640a19130, role: non_shortlisted, group: c}
+      - {name: facebook/contriever,                                       revision: 2bd46a25019aeea091fd42d1f0fd4801675cf699, role: non_shortlisted, group: b}
+      - {name: facebook/contriever-msmarco,                               revision: abe8c1493371369031bcb1e02acb754cf4e162fa, role: non_shortlisted, group: c}
+      - {name: microsoft/mpnet-base,                                      revision: 6996ce1e91bd2a9c7d7f61daec37463394f73f09, role: non_shortlisted, group: b}
+      - {name: sentence-transformers/multi-qa-mpnet-base-dot-v1,          revision: 17997f24dca0df1a4fed68894fb0e1e133e60482, role: non_shortlisted, group: c}
+      - {name: microsoft/MiniLM-L12-H384-uncased,                         revision: 44acabbec0ef496f6dbc93adadea57f376b7c0ec, role: non_shortlisted, group: b}
+      - {name: sentence-transformers/all-MiniLM-L12-v2,                   revision: a50ef00143b4d5391434df20ae11632588ac25be, role: non_shortlisted, group: c}
+      - {name: sentence-transformers/bert-base-nli-mean-tokens,           revision: 160a52b38a51ae87295ec3eabcf11755e5d27a8d, role: non_shortlisted, group: c}
+      - {name: intfloat/e5-large-v2,                                      revision: b322e09026e4ea05f42beadf4d661fb4e101d311, role: shortlisted_reference, group: d}
+      - {name: BAAI/bge-large-en-v1.5,                                    revision: d4aa6901d3a41ba39fb536a557fa166f842b0e09, role: shortlisted_reference, group: d}
+      - {name: nomic-ai/nomic-embed-text-v1.5,                            revision: b0753ae76394dd36bcfb912a46018088bca48be0, role: shortlisted_reference, group: d}
+      # strict base of bert-base-nli-mean-tokens (pair P4a); NOT a Phase 1 model: pinned here, prompt entry in params.model_prompts (none)
+      - {name: bert-base-uncased,                                         revision: 86b5e0934494bd15c9632b12f734a8a67f723594, role: extra, group: b}
+    pairs:
+      - {id: P1,  base: facebook/contriever,                  tuned: [facebook/contriever-msmarco], note: "same BERT-base, contrastive pretraining; + MS MARCO supervised retrieval fine-tuning"}
+      - {id: P2,  base: microsoft/mpnet-base,                 tuned: [sentence-transformers/all-mpnet-base-v2, sentence-transformers/multi-qa-mpnet-base-dot-v1], note: "same MPNet-base; + 1B-pair / QA-pair similarity tuning"}
+      - {id: P3,  base: microsoft/MiniLM-L12-H384-uncased,    tuned: [sentence-transformers/all-MiniLM-L12-v2], note: "same MiniLM-L12-H384; + 1B-pair similarity tuning"}
+      - {id: P4a, base: bert-base-uncased,                    tuned: [sentence-transformers/bert-base-nli-mean-tokens], note: "strict pair: bert-base-uncased -> NLI sentence-embedding tuning"}
+      - {id: P4b, base: allenai/scibert_scivocab_uncased,     tuned: [sentence-transformers/bert-base-nli-mean-tokens], note: "domain-pretrained BERT-base (SciBERT) vs general BERT-base + NLI tuning (different pretraining, not a strict pair)"}
+    groups:
+      a: domain-pretrained, no retrieval tuning
+      b: general-domain, no retrieval tuning
+      c: general-domain, retrieval/similarity tuned
+      d: shortlisted retrieval-tuned
+      e: domain-pretrained + citation-contrastive tuning (SPECTER; outside a-d)
 
   # Efficiency measures (pipeline_lib/efficiency.py): index size, model size, peak GPU memory, corpus encoding time / throughput and per-query latency,
   # kept apart from evaluation_time. ON by default in the Makefile (STAGE1_ARGS = --efficiency, EFFICIENCY_ARGS = --efficiency --latency; set them empty

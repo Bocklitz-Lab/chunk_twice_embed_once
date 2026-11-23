@@ -22,7 +22,8 @@ def test_every_phase1_model_has_a_commit_hash_in_both_configs():
 
 def test_prompt_table_and_pins_cover_the_same_models():
     doc = yaml.safe_load(MAIN.read_text())
-    assert set(doc["params"]["model_prompts"]) == {m["name"] for m in doc["stage1"]["models"]}
+    extras = {m["name"] for m in doc["params"]["transfer"]["models"] if m["role"] == "extra"}      # transfer-only models need a prompt entry, not a Phase 1 pin
+    assert set(doc["params"]["model_prompts"]) == {m["name"] for m in doc["stage1"]["models"]} | extras
 
 
 def test_both_configs_pin_the_same_commits():

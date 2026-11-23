@@ -168,6 +168,10 @@ model_prompts:
     query: ''
     passage: ''
     card: pretrained encoder, card defines no prompt
+  bert-base-uncased:
+    query: ''
+    passage: ''
+    card: 'transfer-only extra model (strict base of bert-base-nli-mean-tokens, not a Phase 1 model): pretrained encoder, no prompt'
 encode_kwargs: {}
 models:
 - name: sentence-transformers/bert-base-nli-mean-tokens

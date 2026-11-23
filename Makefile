@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-.PHONY: all stage0 stage1 stage2 stage3 stage4-6 stage7 show-configs prepare eval rerun pilot hybrid rerank external-bm25 check-identical collect collect-csv report check-models-csv
+.PHONY: all stage0 stage1 stage2 stage3 stage4-6 stage7 show-configs prepare eval rerun pilot hybrid rerank external-bm25 check-identical collect collect-csv report check-models-csv transfer
 
 OVERLAP = 0 16 32 48 64
 SIZE    = 128 384 192 256 320  448 512
@@ -264,6 +264,12 @@ hybrid: check-models-csv
 
 rerank: check-models-csv
 	PYTHONHASHSEED=0 python -m stages.rerun rerank --models-csv $(MODELS_CSV) $(RERUN_ARGS)
+
+# Transfer runs (params.transfer in the main config): models Phase 1 did not shortlist, on a few ChemQuests configurations, own artifacts root
+# (artifacts/transfer), same prepared chunks and labels as the main run (run `make prepare` first). TRANSFER_ARGS e.g. --dry-run, --no-extras.
+TRANSFER_ARGS ?=
+transfer:
+	PYTHONHASHSEED=0 python -m stages.transfer $(EFFICIENCY_ARGS) $(TRANSFER_ARGS)
 
 EXTERNAL_ARGS ?=
 external-bm25:
