@@ -14,6 +14,7 @@ from mteb import MTEB, get_tasks
 # local
 from pipeline_lib.model_wrapper import STNoPrompt  # keep your wrapper
 from pipeline_lib.prompts import resolve_prompts
+from pipeline_lib import efficiency
 from pipeline_lib.run_manifest import (
     Stopwatch, build_manifest, set_seeds, summarize_encode_timings, write_manifest,
 )
@@ -288,7 +289,10 @@ def main():
         required=True,
         help="Path to config file (.yaml/.yml/.json/.toml)",
     )
+    efficiency.add_cli_args(parser)          # --efficiency / --latency ...: optional, off by default, never changes a result
     args = parser.parse_args()
+    eff_opts = efficiency.options_from_args(args)
+    eff_opts.phase = 1
 
     raw_cfg = load_config(args.config)
     app_cfg = parse_app_config(raw_cfg)
@@ -332,6 +336,7 @@ def main():
                                  mask_instruction=app_cfg.instructor_mask_instruction)
         print(f"Prompts: {prompts if prompts else 'none'}")
         model = STNoPrompt(base, normalize=normalize, prompts=prompts)
+        probe = efficiency.EfficiencyProbe(model) if eff_opts.enabled else None
 
         # Per-model output dir; MTEB will nest per-task folders inside
         model_out_dir = app_cfg.output_root / f"{safe_name(model_name)}_{revision}"
@@ -341,7 +346,7 @@ def main():
         evaluation = MTEB(tasks=tasks_resolved)
         with sw.section("mteb_run_wall_s"):
           results = evaluation.run(
-              model,
+              probe if probe is not None else model,
               model_name=model_name,
               model_revision=revision,
               output_folder=str(model_out_dir),
@@ -359,6 +364,11 @@ def main():
             seeds=seeds,
             timing={**sw.seconds, **summarize_encode_timings(getattr(model, "timings", []))},
         ))
+
+        if probe is not None:
+            efficiency.finalize(probe, opts=eff_opts, st_model=base, model_name=model_name, revision=revision,
+                                model_out_dir=model_out_dir, output_root=app_cfg.output_root, tasks=[],
+                                data_dir=None, prompts=prompts, normalize=normalize)
 
         per_task = normalize_results(results)
         for r in per_task:

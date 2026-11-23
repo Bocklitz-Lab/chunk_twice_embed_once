@@ -39,6 +39,7 @@ import yaml  # noqa: E402
 
 from pipeline_lib import grid, split_config  # noqa: E402
 from stages import prepare as prep  # noqa: E402
+from pipeline_lib import efficiency as eff  # noqa: E402
 
 BM25 = "bm25"
 FINAL_RESULT = "results/summary.json"
@@ -113,8 +114,24 @@ def _link(link: Path, target: Path) -> None:
     link.symlink_to(target, target_is_directory=True)
 
 
+def efficiency_args(args: argparse.Namespace, root: str) -> List[str]:
+    """Flags for stages.run_eval from the rerun flags (--efficiency, --latency and the latency subset); [] when off."""
+    if not (args.efficiency or args.latency):
+        return []
+    out = ["--efficiency", "--efficiency-out", str(Path(root) / "tests")]
+    if args.latency:
+        out += ["--latency", "--latency-queries", str(args.latency_queries), "--latency-warmup", str(args.latency_warmup),
+                "--latency-device", args.latency_device]
+        for flag, vals in (("--latency-chunkers", args.latency_chunkers), ("--latency-sizes", args.latency_sizes),
+                           ("--latency-overlaps", args.latency_overlaps), ("--latency-models", args.latency_models)):
+            if vals:
+                out += [flag, *map(str, vals)]
+    return out
+
+
 def run_eval_one(model: str, revision: str, chunker: str, size: int, overlap: int, prepared: Path, *, main_config: str,
-                 artifacts_root: str, params: List[str], force: bool, dry_run: bool) -> Dict[str, Any]:
+                 artifacts_root: str, params: List[str], force: bool, dry_run: bool,
+                 eff_args: Optional[List[str]] = None) -> Dict[str, Any]:
     d = model_dir(model)
     run_dir = Path(artifacts_root) / "tests" / f"{d}_{chunker}_c{size}_o{overlap}"
     if not force and (run_dir / FINAL_RESULT).is_file() and (run_dir / FINAL_RESULT).stat().st_size > 0:
@@ -151,7 +168,8 @@ def run_eval_one(model: str, revision: str, chunker: str, size: int, overlap: in
     t0 = time.time()
     print(f"eval {model} {chunker} c{size} o{overlap}")
     with open(run_dir / "stage6.log", "w", encoding="utf-8") as lf:
-        r = subprocess.run([sys.executable, "-m", script, "--config", str(cfg_dir / "stage6.yaml")], cwd=_REPO_ROOT,
+        extra = ["--eff-chunker", chunker, "--eff-size", str(size), "--eff-overlap", str(overlap), *eff_args] if eff_args and script == "stages.run_eval" else []
+        r = subprocess.run([sys.executable, "-m", script, "--config", str(cfg_dir / "stage6.yaml"), *extra], cwd=_REPO_ROOT,
                            stdout=lf, stderr=subprocess.STDOUT, env=env)
     dur = int(round(time.time() - t0))
     (run_dir / "duration_stage6_s.txt").write_text(f"{dur}\n")
@@ -217,6 +235,16 @@ def main(argv: Optional[List[str]] = None) -> int:
     ap.add_argument("--sizes", nargs="*", type=int)
     ap.add_argument("--overlaps", nargs="*", type=int)
     ap.add_argument("--param", action="append", default=[], metavar="KEY=VALUE")
+    g = ap.add_argument_group("efficiency measures (pipeline_lib/efficiency.py): never change a score or a stage timing")
+    g.add_argument("--efficiency", action="store_true", help="eval: also record index / model / encoding efficiency -> <root>/tests/efficiency_phase2.csv")
+    g.add_argument("--latency", action="store_true", help="eval: also measure per-query latency (batch size 1, exact cosine top-10)")
+    g.add_argument("--latency-queries", type=int, default=200, help="queries timed per configuration, evenly spaced (0 = all)")
+    g.add_argument("--latency-warmup", type=int, default=10)
+    g.add_argument("--latency-device", choices=["cpu", "cuda"], default="cpu", help="device of the timed search (cpu = as in MTEB)")
+    g.add_argument("--latency-chunkers", nargs="*", default=[], help="latency only for these chunkers (subset of the grid)")
+    g.add_argument("--latency-sizes", nargs="*", type=int, default=[], help="latency only for these sizes")
+    g.add_argument("--latency-overlaps", nargs="*", type=int, default=[], help="latency only for these overlaps")
+    g.add_argument("--latency-models", nargs="*", default=[], help="latency only for models whose name contains one of these")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--qa-sha256", help=argparse.SUPPRESS)   # tests only: the pinned release is the default
@@ -278,7 +306,7 @@ def main(argv: Optional[List[str]] = None) -> int:
                         folder = prep.prepare_config(ch, s, o, main_config=args.main_config, artifacts_root=root,
                                                      params=args.param + (extra if legacy and not name.startswith(BM25) else []), qa_sha256=args.qa_sha256)
                     run_eval_one(name, rev, ch, s, o, folder, main_config=args.main_config, artifacts_root=root,
-                                 params=args.param, force=args.force, dry_run=args.dry_run)
+                                 params=args.param, force=args.force, dry_run=args.dry_run, eff_args=efficiency_args(args, root))
     hy = cfg.get("hybrid") or {}
     if args.command in ("eval", "all", "hybrid") and hy.get("enabled", False) and not args.no_hybrid and not args.dry_run:
         run_hybrids(root, models, chunkers, cells, k=int(hy.get("k", 60)), depth=int(hy.get("depth", 100)), force=args.force)

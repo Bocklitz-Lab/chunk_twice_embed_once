@@ -121,6 +121,51 @@ make report            # statistics, diagnostics, overlap diagnostic, paper tabl
 - `params.instructor_mask_instruction` (default `false`): INSTRUCTOR masking (instruction tokens left out of the mean
   pooling) for instructor-xl, implemented without the `InstructorEmbedding` package.
 
+### Efficiency measures (deployment cost)
+
+`pipeline_lib/efficiency.py` records what a deployment needs to know, per configuration, in `efficiency_phase2.csv`
+(`<artifacts>/tests/`, key `model, revision, chunker, size, overlap`) and `efficiency_phase1.csv` (key `model, revision, task`),
+plus an `efficiency.json` (rows + GPU / CUDA / library versions) next to each run's results. It is off by default and
+does not touch retrieval, chunking, qrels, metrics, seeds or the grid: the probe wraps the model handed to MTEB and only watches
+`encode()`. Its timings are **not** part of `evaluation_time` or `run_manifest.json: timing_s` (the latency runs happen after the
+manifest is written, and what they add to `STNoPrompt.timings` is removed again).
+Checked on two pilot configurations (`BAAI/bge-m3` fixed-token 128/0, `e5-large-v2` hierarchical-section 512/0) and on `e5-small`
+(Phase 1): `ChemQuest.json` scores, per-query metrics and the saved rankings are byte-identical with and without the flags.
+
+| column(s) | meaning |
+|---|---|
+| `n_chunks`, `embedding_dim`, `index_mb_fp32`, `index_mb_fp16` | corpus size, dimension, `n_chunks x dim x 4 or 2 bytes` (MB = MiB) |
+| `chunk_tokens_ref_{mean,median,max}` | chunk length with the chunking tokenizer (bert-base-uncased, no special tokens) |
+| `chunk_tokens_own_{mean,median,max}` | chunk length with the model's own tokenizer (special tokens, no prompt, no truncation) |
+| `n_params`, `weights_mb`, `weights_fp16_mb`, `weight_dtype` | parameter count, size of the loaded weights, size as fp16 |
+| `peak_gpu_mem_mb`, `encode_batch_size` | `torch.cuda.max_memory_allocated` during the corpus encode (weights included; `weights_gpu_mem_mb` = weights only), batch size used |
+| `corpus_encode_s`, `corpus_chunks_per_s` | time of the corpus `encode()` calls and throughput (the last eval split for Phase 1 tasks with several, `n_eval_passes`) |
+| `latency_{query_encode,search,total}_ms_{median,p95,mean}` | batch size 1 per query after a warm-up; search = exact cosine against the whole corpus + top-10 (on the CPU as in MTEB; `--latency-device cuda` for the GPU). The index is normalised once; `latency_top10_agree` compares the top-10 with MTEB's own `cos_sim` |
+
+```bash
+# new runs (finished runs are skipped; use a new --artifacts-root or --force)
+python -m stages.rerun eval --efficiency                        # index, model, memory, encoding time; no latency
+python -m stages.rerun eval --efficiency --latency              # + latency (200 evenly spaced queries, 10 warm-up)
+python -m stages.rerun eval --latency --latency-sizes 256 512 --latency-overlaps 0 --latency-chunkers fixed_token   # latency for a subset only
+#   also: --latency-models bge e5 --latency-queries 0 (all queries) --latency-device cuda
+python -m stages.run_eval --config <stage6.yaml> --efficiency --latency --eff-chunker fixed_token --eff-size 256 --eff-overlap 0
+python -m stages.model_screening --config configs/stages/stage1.yaml --efficiency [--latency]   # Phase 1
+
+# existing runs, nothing re-encoded: index and model columns from the chunk files (loads each model on the CPU once)
+python -m tools.efficiency_backfill --tests-root artifacts/tests [--no-model] [--models bge-m3]
+python -m tools.efficiency_backfill --phase 1 --config configs/stages/stage1.yaml --out artifacts/embedding_models_screening/validation
+
+# tables and figures (Geom@10 from the score table of tools/collect_runs.py / make report)
+python -m tools.efficiency_analysis --efficiency artifacts/tests/efficiency_phase2.csv \
+    --scores results/v2-revision/runs_overview.csv --out results/efficiency [--phase1 .../efficiency_phase1.csv]
+```
+
+`tools/efficiency_analysis.py` writes `table_efficiency_models.{csv,tex}` (per model, at its best Geom@10 configuration; memory and
+latency fall back to the median over the measured configurations, flagged in `latency_basis` / `gpu_basis`),
+`table_index_size.{csv,tex}` (chunk size x overlap), `fig_geom_vs_latency.{png,pdf}` and `fig_geom_vs_index_size.{png,pdf}` with the
+Pareto front (`pareto_*.csv`). The backfill and the live runs write the same CSV and complete each other (merged by key).
+Latency and GPU numbers belong to the machine named in `efficiency.json` and are comparable only within one run of the study.
+
 ### `evaluation_time` (seconds) of the four kinds of runs
 
 `ChemQuest.json: evaluation_time` and `run_manifest.json: timing_s.mteb_evaluation_time_s` (also the `evaluation_time_s` column of

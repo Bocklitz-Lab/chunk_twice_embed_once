@@ -41,6 +41,7 @@ from pipeline_lib.model_wrapper import STNoPrompt  # keep your wrapper
 from pipeline_lib.prompts import resolve_prompts
 from pipeline_lib.truncation import truncation_report, write_report as write_truncation
 from pipeline_lib import run_outputs
+from pipeline_lib import efficiency
 from pipeline_lib.run_manifest import (
     Stopwatch, build_manifest, set_seeds, summarize_encode_timings, write_manifest,
 )
@@ -377,7 +378,9 @@ def main():
         required=True,
         help="Path to config file (.yaml/.yml/.json/.toml)",
     )
+    efficiency.add_cli_args(parser)          # --efficiency / --latency ...: optional, off by default, never changes a result
     args = parser.parse_args()
+    eff_opts = efficiency.options_from_args(args)
 
     raw_cfg = load_config(args.config)
     app_cfg = parse_app_config(raw_cfg)
@@ -421,6 +424,8 @@ def main():
                                  mask_instruction=app_cfg.instructor_mask_instruction)
         print(f"Prompts: {prompts if prompts else 'none'}")
         model = STNoPrompt(base, normalize=normalize, prompts=prompts)
+        # the efficiency probe only watches encode(); the scores and the stage timings above do not depend on it
+        probe = efficiency.EfficiencyProbe(model) if eff_opts.enabled else None
 
         # Per-model output dir; MTEB will nest per-task folders inside
         model_out_dir = app_cfg.output_root / f"{safe_name(model_name)}_{revision}"
@@ -444,7 +449,7 @@ def main():
             run_kwargs["top_k"] = app_cfg.top_k
         with sw.section("mteb_run_wall_s"):
             results = evaluation.run(
-                model,
+                probe if probe is not None else model,
                 model_name=model_name,
                 model_revision=revision,
                 output_folder=str(model_out_dir),
@@ -487,6 +492,13 @@ def main():
             timing=timing,
             extra={"top_k": app_cfg.top_k, "per_query_outputs": per_query, "truncation": truncation, "mteb_version": getattr(sys.modules.get("mteb"), "__version__", None)},
         ))
+
+        if probe is not None:
+            # after the manifest: the latency runs must not touch the existing stage timings
+            loc_eff = _local_task_labels(app_cfg.tasks)
+            efficiency.finalize(probe, opts=eff_opts, st_model=base, model_name=model_name, revision=revision,
+                                model_out_dir=model_out_dir, output_root=app_cfg.output_root, tasks=[],
+                                data_dir=loc_eff[0] if loc_eff else None, prompts=prompts, normalize=normalize)
 
         per_task = normalize_results(results)
         for r in per_task:
