@@ -44,6 +44,7 @@ if _REPO_ROOT not in sys.path:
 from pipeline_lib.dataset_pin import sha256_file  # noqa: E402
 from pipeline_lib.grid import CHUNKERS as CHUNKER_ORDER  # noqa: E402     # only the display order of the chunkers; sizes / overlaps come from the runs
 from pipeline_lib.run_manifest import git_info, package_versions  # noqa: E402
+from pipeline_lib.truncation import PHASE1_COLUMNS, collect_phase1  # noqa: E402
 from tools import check_identical, collect_runs, hybrid, lexical_overlap, stats  # noqa: E402
 
 BM25 = "bm25"
@@ -60,6 +61,7 @@ DESCRIPTIONS = {
     "stats_rankings.csv": "Kendall tau-b between the rankings of runs by the lexical and by the span labels (all runs, within model, within configuration).",
     "coverage_diagnostics.csv": "Per configuration: number of chunks, chunk length with the reference tokenizer, % evidence spans inside one chunk, relevant chunks per question.",
     "table_truncation.csv": "Per run: model max sequence length, number and % of chunks truncated by the model's own tokenizer.",
+    "table_truncation_phase1.csv": "Phase 1: per model, external task and split, the number and % of passages and queries longer than the model's max sequence length (own tokenizer, title + text + prompt).",
     "overlap_distribution.json": "Distribution of the question/evidence-span word overlap over the 952 questions.",
     "overlap_questions.csv": "Per question: overlap share (question content words found in the evidence span), span length.",
     "overlap_advantage.csv": "BM25 minus dense per question metric by overlap bin, with paper-level bootstrap CI, Spearman rho and slope.",
@@ -338,6 +340,10 @@ def build_report(artifacts_root: str | Path, out_dir: str | Path, qa_jsonl: Opti
     trunc = [{k: r.get(k) for k in ("chunker", "size", "overlap", "model", "max_seq_length", "n_chunks", "n_chunks_truncated", "pct_chunks_truncated",
                                     "mean_tokens_own_tokenizer")} for r in overview_rows if r.get("max_seq_length") not in (None, "")]
     stats._write(heavy / "table_truncation.csv", trunc)
+    p1_trunc = collect_phase1([Path(r) for r in (external_roots or [])])
+    if p1_trunc:
+        stats._write(heavy / "table_truncation_phase1.csv", [{k: r.get(k) for k in PHASE1_COLUMNS} for r in p1_trunc])
+    steps["phase1_truncation_rows"] = len(p1_trunc)
 
     if overlap:
         dense = sorted({i["model"] for i in infos.values() if not i["model"].startswith(BM25) and not i.get("hybrid") and not i.get("rerank")})

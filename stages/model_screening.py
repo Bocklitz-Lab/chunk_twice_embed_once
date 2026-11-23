@@ -15,6 +15,7 @@ from mteb import MTEB, get_tasks
 from pipeline_lib.model_wrapper import STNoPrompt  # keep your wrapper
 from pipeline_lib.prompts import resolve_prompts
 from pipeline_lib import efficiency, model_info
+from pipeline_lib.truncation import write_phase1_reports
 from pipeline_lib.run_manifest import (
     Stopwatch, build_manifest, set_seeds, summarize_encode_timings, write_manifest,
 )
@@ -378,6 +379,10 @@ def main():
               output_folder=str(model_out_dir),
               encode_kwargs=encode_kwargs,  # replace deprecated batch_size arg
           )
+
+        # how many passages / queries of each external task exceed this model's maximum length (its own tokenizer, title + text + prompt)
+        if hasattr(base, "tokenizer"):
+            write_phase1_reports(tasks_resolved, base.tokenizer, getattr(base, "max_seq_length", None), prompts, model_name, revision, model_out_dir)
 
         write_manifest(model_out_dir / "run_manifest.json", build_manifest(
             repo_root=Path(__file__).resolve().parents[1],
