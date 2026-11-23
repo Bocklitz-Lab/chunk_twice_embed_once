@@ -1,2 +1,0 @@
-prepared,n_questions,n_chunks,n_docs,mean_chunk_chars,mean_chunk_tokens,max_chunk_tokens,chunk_token_counter,pct_span_inside_one_chunk,mean_relevant_lexical,max_relevant_lexical,n_zero_relevant_lexical,mean_relevant_span,max_relevant_span,n_zero_relevant_span
-fixed_token_c128_o0__daccc2e5,9,126,3,364.904762,126.333333,129,bert-base-uncased@86b5e093,66.666667,3.000000,5,0,1.333333,2,0

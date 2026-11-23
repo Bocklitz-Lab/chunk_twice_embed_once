@@ -41,7 +41,7 @@ from pipeline_lib.model_wrapper import STNoPrompt  # keep your wrapper
 from pipeline_lib.prompts import resolve_prompts
 from pipeline_lib.truncation import truncation_report, write_report as write_truncation
 from pipeline_lib import run_outputs
-from pipeline_lib import efficiency
+from pipeline_lib import efficiency, model_info
 from pipeline_lib.run_manifest import (
     Stopwatch, build_manifest, set_seeds, summarize_encode_timings, write_manifest,
 )
@@ -490,7 +490,8 @@ def main():
             seeds=seeds,
             data_files=_task_data_files(app_cfg.tasks),
             timing=timing,
-            extra={"top_k": app_cfg.top_k, "per_query_outputs": per_query, "truncation": truncation, "mteb_version": getattr(sys.modules.get("mteb"), "__version__", None)},
+            extra={"top_k": app_cfg.top_k, "per_query_outputs": per_query, "truncation": truncation, "mteb_version": getattr(sys.modules.get("mteb"), "__version__", None),
+                   "model_properties": model_info.describe_model(base, model_name, revision)},
         ))
 
         if probe is not None:

@@ -39,7 +39,7 @@ if _REPO_ROOT not in sys.path:
     sys.path.insert(0, _REPO_ROOT)
 
 from pipeline_lib import run_outputs  # noqa: E402
-from pipeline_lib.run_manifest import git_info, package_versions, sha256_file  # noqa: E402
+from pipeline_lib.run_manifest import derived_run_environment, git_info, package_versions, set_seeds, sha256_file  # noqa: E402
 from tools import hybrid  # noqa: E402
 from tools import metrics as qmetrics  # noqa: E402
 
@@ -151,7 +151,7 @@ def rerank_name(model: str, top_n: int, dense_model: str) -> str:
 
 
 def run_rerank(dense_dir: Path, tests_root: Path, scorer: Scorer, *, model: str = DEFAULT_MODEL, revision: str = "", top_n: int = 50,
-               depth: int = 100, force: bool = False, scorer_info: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+               depth: int = 100, force: bool = False, scorer_info: Optional[Dict[str, Any]] = None, seed: Optional[int] = None) -> Dict[str, Any]:
     """Rerank the top ``top_n`` of ``dense_dir`` (a dense run folder) into a new run folder under ``tests_root``."""
     di = json.loads((dense_dir / "run_info.json").read_text(encoding="utf-8"))
     if di.get("hybrid") or di.get("rerank") or str(di["model"]).startswith("bm25"):
@@ -164,6 +164,7 @@ def run_rerank(dense_dir: Path, tests_root: Path, scorer: Scorer, *, model: str 
     prepared = Path(di["prepared_dir"])
     task_dir = prepared / "mteb_task"
 
+    seeds = set_seeds(seed) if seed is not None else None
     if hasattr(scorer, "load"):
         scorer.load()                                          # the one-time model load is outside the clock (stored as model_load_s)
     scorer_info = scorer_info or (scorer.describe() if hasattr(scorer, "describe") else None)       # after the load: the device is known
@@ -208,7 +209,8 @@ def run_rerank(dense_dir: Path, tests_root: Path, scorer: Scorer, *, model: str 
                              "pairs_per_s": (n_pairs / score_pairs_s) if score_pairs_s > 0 else None, "model_load_s": getattr(scorer, "model_load_s", None),
                              "evaluation_time_s": total_s, "mteb_evaluation_time_s": total_s, "rerank_and_outputs_s": elapsed},
                 "evaluation_time": "dense evaluation_time + rerank_s (read + score + reorder + metrics + dump; model load not counted)",
-                "use_prompts": None, "data_sha256": hybrid._data_hashes(d_out)}
+                "use_prompts": None, "data_sha256": hybrid._data_hashes(d_out),
+                **derived_run_environment(str((scorer_info or {}).get("device") or "unknown"), seeds)}
     (out / "run_manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     info = dict(di, model=name, rerank={"model": model, "revision": revision, "top_n": top_n, "dense": di["model"], "depth": depth})
     (run_dir / "run_info.json").write_text(json.dumps(info, indent=2), encoding="utf-8")
@@ -298,7 +300,8 @@ def check_ablation(cfg: Dict[str, Any], chunkers: Iterable[str], cells: Iterable
 
 
 def run_configured(tests_root: Path, cfg: Dict[str, Any], *, models: Optional[Iterable[str]] = None, wanted_cells: Optional[Iterable[tuple]] = None,
-                   depth: int = 100, force: bool = False, scorer: Optional[Scorer] = None, dry_run: bool = False) -> List[Dict[str, Any]]:
+                   depth: int = 100, force: bool = False, scorer: Optional[Scorer] = None, dry_run: bool = False,
+                   seed: Optional[int] = None) -> List[Dict[str, Any]]:
     """The rerank step: plan the jobs of ``params.rerank`` over the dense runs found in ``tests_root`` and run them (finished runs are
     skipped, so the step is resumable). One cross-encoder is loaded for all jobs."""
     tests_root = Path(tests_root)
@@ -315,7 +318,7 @@ def run_configured(tests_root: Path, cfg: Dict[str, Any], *, models: Optional[It
             print(f"[dry-run] rerank {cell['model']} {cell['chunker']} c{cell['size']} o{cell['overlap']} top{top_n}")
             out.append({"run_dir": str(d), "status": "dry-run", "top_n": top_n})
             continue
-        r = run_rerank(d, tests_root, scorer, model=model, revision=revision, top_n=top_n, depth=depth, force=force)
+        r = run_rerank(d, tests_root, scorer, model=model, revision=revision, top_n=top_n, depth=depth, force=force, seed=seed)
         print(f"rerank {cell['model']} {cell['chunker']} c{cell['size']} o{cell['overlap']} top{top_n}: {r['status']}"
               + (f" ({r['rerank_s']:.1f}s)" if "rerank_s" in r else ""))
         out.append({**r, "top_n": top_n})

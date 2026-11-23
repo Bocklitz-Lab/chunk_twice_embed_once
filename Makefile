@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-.PHONY: all stage0 stage1 stage2 stage3 stage4-6 stage7 show-configs prepare eval rerun pilot hybrid rerank external-bm25 check-identical collect collect-csv report
+.PHONY: all stage0 stage1 stage2 stage3 stage4-6 stage7 show-configs prepare eval rerun pilot hybrid rerank external-bm25 check-identical collect collect-csv report check-models-csv transfer analysis
 
 OVERLAP = 0 16 32 48 64
 SIZE    = 128 384 192 256 320  448 512
@@ -9,7 +9,10 @@ MIN_STRIDE ?= 96
 MAX_OVERLAP_ABS ?= 64
 MAX_OVERLAP_PCT ?= 30
 
-MODELS_CSV ?= artifacts/embedding_models_screening/passed_per_dataset.csv
+# Shortlist of stage 2 = the Phase 2 model list. Default = stage2.output_per_dataset_csv of configs/main_config.yaml (it carries the name of the Phase 1
+# results folder, params.paths.phase1_results_subdir; tests/test_phase1_paths.py keeps the two equal). The PUBLISHED shortlist is
+# artifacts/embedding_models_screening/passed_per_dataset.csv (restore it first, see docs/RERUN_PLAN.md) and is selected with MODELS_CSV=...
+MODELS_CSV ?= artifacts/embedding_models_screening/passed_per_dataset__validation_prompts.csv
 
 MODELS = $(shell awk -F, 'NR>1 {printf "%s%s@%s", sep,$$2,$$3; sep=" "}' $(MODELS_CSV) | tr -d "\r")
 
@@ -55,9 +58,13 @@ stage0:
 	python -m pipeline_lib.split_config --input  $(INPUT_CONFIG) --output-dir $(OUTPUT_CONFIG) --section stage1 stage2 stage3
 	# rm -rf configs/stages/stage4.yaml configs/stages/stage5.yaml configs/stages/stage6.yaml
 
+# Efficiency measures (params.efficiency in the main config) are ON by default; make them empty to switch off, e.g. make eval EFFICIENCY_ARGS=
+STAGE1_ARGS ?= --efficiency
+EFFICIENCY_ARGS ?= --efficiency --latency
+
 stage1:
 	@echo "▶️ Stage1: model_screening_validation"
-	python -m stages.model_screening --config $(STAGE1_CONFIG)
+	python -m stages.model_screening --config $(STAGE1_CONFIG) $(STAGE1_ARGS)
 
 stage2:
 	@echo "▶️ Stage2: model_screening_selection"
@@ -230,23 +237,39 @@ RERUN_ARGS ?=
 TESTS_ROOT ?= artifacts/tests
 COLLECT_CSV ?= artifacts/runs_overview.csv
 
+# eval / rerun / hybrid / rerank need the model list: stop at once, with a message, if MODELS_CSV is missing (nothing is created or copied here)
+check-models-csv:
+	@test -s "$(MODELS_CSV)" || { \
+		echo "❌ MODELS_CSV not found or empty: $(MODELS_CSV)"; \
+		echo "   It is written by stage 2 (make stage1 stage2: Phase 1 with prompts)."; \
+		echo "   To use the PUBLISHED shortlist, restore the old Phase 1 results first:"; \
+		echo "     cp -a temp_files/artifacts_old/embedding_models_screening artifacts/"; \
+		echo "     make eval MODELS_CSV=artifacts/embedding_models_screening/passed_per_dataset.csv"; \
+		exit 1; }
+
 prepare:
 	PYTHONHASHSEED=0 python -m stages.rerun prepare --models-csv $(MODELS_CSV) $(RERUN_ARGS)
 
-eval:
-	PYTHONHASHSEED=0 python -m stages.rerun eval --models-csv $(MODELS_CSV) $(RERUN_ARGS)
+eval: check-models-csv
+	PYTHONHASHSEED=0 python -m stages.rerun eval --models-csv $(MODELS_CSV) $(EFFICIENCY_ARGS) $(RERUN_ARGS)
 
-rerun:
-	PYTHONHASHSEED=0 python -m stages.rerun all --models-csv $(MODELS_CSV) $(RERUN_ARGS)
+rerun: check-models-csv
+	PYTHONHASHSEED=0 python -m stages.rerun all --models-csv $(MODELS_CSV) $(EFFICIENCY_ARGS) $(RERUN_ARGS)
 
 pilot:
 	PYTHONHASHSEED=0 python -m stages.rerun all --pilot $(RERUN_ARGS)
 
-hybrid:
+hybrid: check-models-csv
 	PYTHONHASHSEED=0 python -m stages.rerun hybrid --models-csv $(MODELS_CSV) $(RERUN_ARGS)
 
-rerank:
+rerank: check-models-csv
 	PYTHONHASHSEED=0 python -m stages.rerun rerank --models-csv $(MODELS_CSV) $(RERUN_ARGS)
+
+# Transfer runs (params.transfer in the main config): models Phase 1 did not shortlist, on a few ChemQuests configurations, own artifacts root
+# (artifacts/transfer), same prepared chunks and labels as the main run (run `make prepare` first). TRANSFER_ARGS e.g. --dry-run, --no-extras.
+TRANSFER_ARGS ?=
+transfer:
+	PYTHONHASHSEED=0 python -m stages.transfer $(EFFICIENCY_ARGS) $(TRANSFER_ARGS)
 
 EXTERNAL_ARGS ?=
 external-bm25:
@@ -261,6 +284,13 @@ REPORT_DIR ?= results/v2-revision
 REPORT_ARGS ?=
 report:
 	python -m tools.make_report --artifacts-root $(ARTIFACTS_ROOT) --out-dir $(REPORT_DIR) $(REPORT_ARGS)
+
+# Analysis tools on the outputs of the full rerun (token budget, subfield / question type, variance decomposition, winner stability, Phase 1 -> Phase 2
+# transfer, examples, fragmentation); paths and settings from the main config; run `make report` first (they read its runs_overview.csv).
+# ANALYSIS_ARGS e.g. --only token_budget examples, --skip phase_transfer, --resamples 1000. params.analysis.enabled_in_report: true runs it at the end of make report.
+ANALYSIS_ARGS ?=
+analysis:
+	python -m tools.run_analysis $(ANALYSIS_ARGS)
 
 collect: report
 

@@ -29,6 +29,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import itertools
 import json
 import os
 import shutil
@@ -44,7 +45,9 @@ if _REPO_ROOT not in sys.path:
 from pipeline_lib.dataset_pin import sha256_file  # noqa: E402
 from pipeline_lib.grid import CHUNKERS as CHUNKER_ORDER  # noqa: E402     # only the display order of the chunkers; sizes / overlaps come from the runs
 from pipeline_lib.run_manifest import git_info, package_versions  # noqa: E402
-from tools import check_identical, collect_runs, hybrid, lexical_overlap, stats  # noqa: E402
+from pipeline_lib.truncation import PHASE1_COLUMNS, collect_phase1  # noqa: E402
+from tools import check_identical, collect_runs, hybrid, label_stats_table, lexical_overlap, rescore, stats  # noqa: E402
+from pipeline_lib import config_params  # noqa: E402
 
 BM25 = "bm25"
 METRIC_COLS = (("geom_at_10", "Geom@10"), ("ndcg_at_10", "nDCG@10"), ("recall_at_10", "Recall@10"))
@@ -54,12 +57,15 @@ DESCRIPTIONS = {
     "table_main.csv": "Main table: one row per configuration and model/hybrid: Geom@10, nDCG@10, Recall@10 under the span labels with 95% "
                       "paper-level bootstrap CI of Geom@10, Geom@10 under the lexical labels, span coverage@5, % chunks truncated, number of chunks.",
     "runs_overview.csv": "One row per run: metrics under both label sets, span coverage, truncation, timing, prompts, chunking diagnostics, git commit.",
-    "stats_ci.csv": "Bootstrap 95% CIs (1000 resamples) of Geom@10, nDCG@10, Recall@10 per run: level=query and level=paper.",
-    "stats_compare.csv": "Paired comparisons (dense vs BM25, hybrid vs its dense run and vs BM25): difference, CI, bootstrap and Wilcoxon p, Holm-adjusted.",
+    "stats_ci.csv": "Bootstrap 95% CIs of Geom@10, nDCG@10, Recall@10 per run: level=query and level=paper (number of resamples: report_manifest.json).",
+    "stats_compare.csv": "Paired comparisons per configuration (dense vs BM25, dense vs dense, hybrid vs its dense run and vs BM25, rerank vs its dense run, vs BM25 and vs the hybrid): difference, CI, bootstrap and Wilcoxon p, Holm-adjusted within `family` x level x metric.",
     "stats_label_agreement.csv": "Lexical vs span labels per configuration: % questions with the same top relevant chunk, Jaccard of the relevant sets.",
     "stats_rankings.csv": "Kendall tau-b between the rankings of runs by the lexical and by the span labels (all runs, within model, within configuration).",
     "coverage_diagnostics.csv": "Per configuration: number of chunks, chunk length with the reference tokenizer, % evidence spans inside one chunk, relevant chunks per question.",
+    "table_cover_sensitivity.csv": "Every run (dense, bm25, hybrid, rerank) rescored with the span labels at each cover level c (params.analysis.cover_levels): nDCG@10, Recall@10, Geom@10 with paper-level 95% intervals.",
+    "table_label_stats.csv": "Per configuration and cover level: chunks, chunk length (median / mean / max reference tokens), questions labelled in Step 1 / 2 / 3, % evidence split over several chunks, relevant chunks per question (mean / max).",
     "table_truncation.csv": "Per run: model max sequence length, number and % of chunks truncated by the model's own tokenizer.",
+    "table_truncation_phase1.csv": "Phase 1: per model, external task and split, the number and % of passages and queries longer than the model's max sequence length (own tokenizer, title + text + prompt).",
     "overlap_distribution.json": "Distribution of the question/evidence-span word overlap over the 952 questions.",
     "overlap_questions.csv": "Per question: overlap share (question content words found in the evidence span), span length.",
     "overlap_advantage.csv": "BM25 minus dense per question metric by overlap bin, with paper-level bootstrap CI, Spearman rho and slope.",
@@ -93,21 +99,49 @@ def _run_paths(tests_root: Path) -> Tuple[Dict[tuple, Dict[str, Path]], Dict[str
     return cells, infos
 
 
+def run_kind(name: str, info: Dict[str, Any]) -> str:
+    return "hybrid" if info.get("hybrid") else "rerank" if info.get("rerank") else "bm25" if name.startswith(BM25) else "dense"
+
+
 def comparison_pairs(names: List[str], infos: Dict[str, Dict[str, Any]], cell: tuple, rerank_top_n: Optional[int] = None) -> List[tuple]:
-    """(A, B) pairs of one configuration. ``rerank_top_n``: only the rerank runs of that depth are compared with their dense run
-    (None: every rerank depth)."""
+    """(A, B) pairs of one configuration. ``rerank_top_n``: only the rerank runs of that depth are compared (None: every rerank depth).
+
+      dense   vs BM25                                  every dense run
+      hybrid  vs its dense run, vs BM25                every RRF hybrid
+      rerank  vs its dense run, vs BM25, vs the hybrid of the same dense run (when that hybrid exists)
+      dense   vs dense                                 every pair of dense runs (models) on the same configuration, alphabetical order
+    """
+    infos_c = {n: infos.get(f"{n}|{cell[0]}|{cell[1]}|{cell[2]}", {}) for n in names}
+    hybrid_of = {i["hybrid"]["dense"]: n for n, i in infos_c.items() if i.get("hybrid")}
     pairs = []
     for n in names:
-        info = infos.get(f"{n}|{cell[0]}|{cell[1]}|{cell[2]}", {})
+        info = infos_c[n]
         h, rr = info.get("hybrid"), info.get("rerank")
         if h:
             pairs += [(n, h["dense"]), (n, h["sparse"])]
         elif rr:
             if rerank_top_n is None or int(rr["top_n"]) == int(rerank_top_n):
                 pairs.append((n, rr["dense"]))
+                if BM25 in names:
+                    pairs.append((n, BM25))
+                if rr["dense"] in hybrid_of:
+                    pairs.append((n, hybrid_of[rr["dense"]]))
         elif not n.startswith(BM25) and BM25 in names:
             pairs.append((n, BM25))
+    dense = sorted(n for n in names if run_kind(n, infos_c[n]) == "dense")
+    pairs += list(itertools.combinations(dense, 2))
     return [p for p in pairs if p[0] in names and p[1] in names]
+
+
+def pair_family(pair: tuple, infos: Dict[str, Dict[str, Any]], cell: tuple) -> str:
+    """Holm family of a pair: hybrid (vs its parts), rerank (vs dense / BM25 / hybrid), dense_vs_bm25, dense_vs_dense. Holm's correction is applied
+    within each family (and level and metric) of one configuration, so that the 78 dense pairs of 13 models do not weaken the baseline tests."""
+    a, b = pair
+    info = infos.get(f"{a}|{cell[0]}|{cell[1]}|{cell[2]}", {})
+    kind = run_kind(a, info)
+    if kind in ("hybrid", "rerank"):
+        return kind
+    return "dense_vs_bm25" if b.startswith(BM25) else "dense_vs_dense"
 
 
 def _csv_rows(path: Path) -> List[Dict[str, str]]:
@@ -280,10 +314,10 @@ def external_rows(roots: List[Path]) -> List[Dict[str, Any]]:
     return rows
 
 
-def build_report(artifacts_root: str | Path, out_dir: str | Path, qa_jsonl: Optional[str | Path] = None, *, resamples: int = 1000,
+def build_report(artifacts_root: str | Path, out_dir: str | Path, qa_jsonl: Optional[str | Path] = None, *, resamples: int = stats.DEFAULT_RESAMPLES,
                  seed: int = stats.DEFAULT_SEED, overlap: bool = True, track_max_mb: float = 5.0, tests_root: Optional[str | Path] = None,
                  prepared_root: Optional[str | Path] = None, verbose: bool = True, rerank_top_n: int = 50,
-                 external_roots: Optional[List[str | Path]] = None) -> Dict[str, Any]:
+                 external_roots: Optional[List[str | Path]] = None, cover_levels: Optional[List[Any]] = None) -> Dict[str, Any]:
     t_start = time.time()
     root = Path(artifacts_root)
     tests = Path(tests_root) if tests_root else root / "tests"
@@ -310,10 +344,12 @@ def build_report(artifacts_root: str | Path, out_dir: str | Path, qa_jsonl: Opti
     for (ch, s, o), runs in sorted(cells.items()):
         label = {"chunker": ch, "size": s, "overlap": o}
         paths = {n: str(p) for n, p in runs.items()}
-        ci_all += [{**label, **r} for r in stats.ci_rows(paths, qa, resamples, seed)]
+        cache: Dict[tuple, tuple] = {}                                  # each run is resampled once per level, for the CIs and for the pairs
+        ci_all += [{**label, **r} for r in stats.ci_rows(paths, qa, resamples, seed, cache=cache)]
         pairs = comparison_pairs(list(paths), infos, (ch, s, o), rerank_top_n)
         if pairs:
-            cmp_all += [{**label, **r} for r in stats.compare_rows(paths, pairs, qa, resamples, seed)]
+            fams = {p: pair_family(p, infos, (ch, s, o)) for p in pairs}
+            cmp_all += [{**label, **r} for r in stats.compare_rows(paths, pairs, qa, resamples, seed, families=fams, cache=cache)]
     stats._write(heavy / "stats_ci.csv", ci_all)
     stats._write(heavy / "stats_compare.csv", cmp_all)
 
@@ -327,6 +363,12 @@ def build_report(artifacts_root: str | Path, out_dir: str | Path, qa_jsonl: Opti
     except Exception as e:                                           # too few runs for a rank correlation
         steps["rankings_skipped"] = str(e)
 
+    levels = cover_levels if cover_levels is not None else (config_params.section("analysis").get("cover_levels") or [])
+    sens = rescore.sensitivity_rows(tests, qa, levels, resamples, seed) if (levels and qa.exists()) else []
+    if sens:
+        rescore.write_sensitivity(heavy / "table_cover_sensitivity.csv", sens)
+    steps["cover_sensitivity_rows"] = len(sens)
+
     log("coverage diagnostics")
     cov: List[Dict[str, Any]] = []
     for d in sorted(prepared.glob("*")):
@@ -334,16 +376,24 @@ def build_report(artifacts_root: str | Path, out_dir: str | Path, qa_jsonl: Opti
         if p.exists():
             cov += [{"prepared": d.name, **r} for r in _csv_rows(p)]
     stats._write(heavy / "coverage_diagnostics.csv", cov)
+    ls_rows = label_stats_table.build_table(prepared)
+    if ls_rows:
+        label_stats_table.write_table(heavy / "table_label_stats.csv", ls_rows)
+    steps["label_stats_rows"] = len(ls_rows)
 
     trunc = [{k: r.get(k) for k in ("chunker", "size", "overlap", "model", "max_seq_length", "n_chunks", "n_chunks_truncated", "pct_chunks_truncated",
                                     "mean_tokens_own_tokenizer")} for r in overview_rows if r.get("max_seq_length") not in (None, "")]
     stats._write(heavy / "table_truncation.csv", trunc)
+    p1_trunc = collect_phase1([Path(r) for r in (external_roots or [])])
+    if p1_trunc:
+        stats._write(heavy / "table_truncation_phase1.csv", [{k: r.get(k) for k in PHASE1_COLUMNS} for r in p1_trunc])
+    steps["phase1_truncation_rows"] = len(p1_trunc)
 
     if overlap:
         dense = sorted({i["model"] for i in infos.values() if not i["model"].startswith(BM25) and not i.get("hybrid") and not i.get("rerank")})
         if dense and any(i["model"].startswith(BM25) for i in infos.values()):
             log(f"lexical-overlap diagnostic: {len(dense)} dense models")
-            lexical_overlap.analyse(tests, qa, dense, BM25, heavy, seed)
+            lexical_overlap.analyse(tests, qa, dense, BM25, heavy, seed, resamples)
         else:
             steps["overlap_skipped"] = "needs at least one dense run and the BM25 run"
 
@@ -419,11 +469,12 @@ def main(argv: Optional[List[str]] = None) -> int:
     ap.add_argument("--artifacts-root", required=True)
     ap.add_argument("--out-dir", required=True, help="tracked folder for the small CSV tables, e.g. results/v2-revision")
     ap.add_argument("--qa")
-    ap.add_argument("--resamples", type=int, default=1000)
+    ap.add_argument("--resamples", type=int, default=stats.DEFAULT_RESAMPLES, help="paper / query bootstrap resamples (default: params.report.resamples)")
     ap.add_argument("--seed", type=int, default=stats.DEFAULT_SEED)
     ap.add_argument("--no-overlap", action="store_true")
     ap.add_argument("--track-max-mb", type=float, default=5.0)
     ap.add_argument("--main-config", default="configs/main_config.yaml", help="source of params.rerank.top_n and params.external (when the flags below are absent)")
+    ap.add_argument("--no-analysis", action="store_true", help="do not run `make analysis` afterwards even if params.analysis.enabled_in_report is true")
     ap.add_argument("--rerank-top-n", type=int, help="depth of the rerank runs in the main tables, the others go to the ablation table (default params.rerank.top_n, else 50)")
     ap.add_argument("--external-root", action="append", default=[], help="folder with Phase 1 / BM25 results of the external tasks (repeatable; default: params.external)")
     args = ap.parse_args(argv)
@@ -438,7 +489,13 @@ def main(argv: Optional[List[str]] = None) -> int:
         args.external_root = [str(base / sub) for sub in [*(ext.get("phase1_subdirs") or []), ext.get("output_subdir", "")] if sub]
     m = build_report(args.artifacts_root, args.out_dir, args.qa, resamples=args.resamples, seed=args.seed, overlap=not args.no_overlap,
                      track_max_mb=args.track_max_mb, rerank_top_n=args.rerank_top_n, external_roots=args.external_root)
-    return 0 if m["steps"].get("check_identical_exit_code", 0) == 0 else 1
+    rc = 0 if m["steps"].get("check_identical_exit_code", 0) == 0 else 1
+    # optional last step: the analysis tools (params.analysis.enabled_in_report), only for the report of the MAIN artifacts root
+    if (cfg.get("analysis") or {}).get("enabled_in_report") and not args.no_analysis and \
+            Path(args.artifacts_root).resolve() == Path((cfg.get("paths") or {}).get("artifacts_root", "artifacts")).resolve():
+        from tools import run_analysis
+        rc = run_analysis.main(["--main-config", args.main_config]) or rc
+    return rc
 
 
 if __name__ == "__main__":

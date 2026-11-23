@@ -91,21 +91,57 @@ def package_versions(names: Iterable[str] = PACKAGES) -> Dict[str, Optional[str]
     return out
 
 
+def cpu_info(cpuinfo: str = "/proc/cpuinfo", meminfo: str = "/proc/meminfo") -> Dict[str, Any]:
+    """CPU model, logical / physical cores and total RAM from ``/proc`` and ``os`` (None where the system does not say).
+
+    BM25, the rank fusion and the reranker's data handling run on the CPU, and the derived ``evaluation_time`` values add CPU and GPU time:
+    the CPU is part of the hardware a time belongs to."""
+    out: Dict[str, Any] = {"cpu_model": None, "cpu_logical_cores": os.cpu_count(), "cpu_physical_cores": None, "ram_total_gb": None}
+    try:
+        text = Path(cpuinfo).read_text(encoding="utf-8", errors="replace")
+        models = [ln.split(":", 1)[1].strip() for ln in text.splitlines() if ln.lower().startswith("model name") and ":" in ln]
+        out["cpu_model"] = models[0] if models else None
+        phys = {(a, b) for a, b in zip([ln.split(":", 1)[1].strip() for ln in text.splitlines() if ln.startswith("physical id")],
+                                       [ln.split(":", 1)[1].strip() for ln in text.splitlines() if ln.startswith("core id")])}
+        out["cpu_physical_cores"] = len(phys) or None
+    except Exception:
+        pass
+    try:
+        for ln in Path(meminfo).read_text(encoding="utf-8").splitlines():
+            if ln.startswith("MemTotal:"):
+                out["ram_total_gb"] = round(int(ln.split()[1]) / 1024 ** 2, 2)       # kB -> GiB
+                break
+    except Exception:
+        pass
+    return out
+
+
 def hardware_info() -> Dict[str, Any]:
     info: Dict[str, Any] = {
         "python": sys.version.split()[0], "platform": platform.platform(),
         "CUDA_VISIBLE_DEVICES": os.environ.get("CUDA_VISIBLE_DEVICES"), "gpus": [],
+        **cpu_info(),
     }
     try:
         import torch
         info["torch_cuda"] = torch.version.cuda
         info["cudnn"] = torch.backends.cudnn.version() if torch.cuda.is_available() else None
+        info["torch_threads"] = torch.get_num_threads()
         info["gpus"] = [torch.cuda.get_device_name(i) for i in range(torch.cuda.device_count())]
         info["device_in_use"] = torch.cuda.get_device_name(torch.cuda.current_device()) if torch.cuda.is_available() else "cpu"
     except Exception:
         pass
-    info["nvidia_driver"] = _run(["nvidia-smi", "--query-gpu=driver_version", "--format=csv,noheader"])
+    drv = _run(["nvidia-smi", "--query-gpu=driver_version", "--format=csv,noheader"])
+    info["nvidia_driver"] = ",".join(dict.fromkeys(drv.split())) if drv else drv        # one driver version once, not once per GPU
     return info
+
+
+def derived_run_environment(compute_device: str, seeds: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    """``hardware`` and ``seeds`` blocks for the manifests of post-hoc runs (rank fusion, reranking), like those of an evaluation run.
+
+    ``compute_device`` names where the step itself ran ("cpu", "cuda"); ``seeds`` is what ``set_seeds(params.seed)`` returned at the start of
+    the step (None: no seed given). These steps contain no sampling; the block documents the machine the stored time belongs to."""
+    return {"hardware": hardware_info(), "seeds": seeds, "compute_device": compute_device}
 
 
 class Stopwatch:

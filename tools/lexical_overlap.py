@@ -34,10 +34,12 @@ _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _REPO_ROOT not in sys.path:
     sys.path.insert(0, _REPO_ROOT)
 
+from pipeline_lib import config_params  # noqa: E402
 from tools import metrics as M  # noqa: E402
 
-SEED = 20261121
-B = 1000
+# seed and number of resamples come from configs/main_config.yaml (params.seed, params.report.resamples), like every other statistic of the report
+SEED = int(config_params.load_params().get("seed", 20261121))
+RESAMPLES = int((config_params.load_params().get("report") or {}).get("resamples", 10000))
 BIN_EDGES = (0.0, 0.25, 0.5, 0.75, 1.0)          # [0, .25) [.25, .5) [.5, .75) [.75, 1.0]; 1.0 belongs to the last bin
 NOT_FOUND = 101
 _TOKEN = re.compile(r"\w+", re.UNICODE)
@@ -102,19 +104,41 @@ def bin_of(share: float) -> Optional[str]:
     return None
 
 
-def _cluster_boot(values: np.ndarray, groups: np.ndarray, stat, rng, B: int = B) -> Tuple[float, float]:
-    """95% percentile CI of ``stat(index array)`` when the papers (groups) are resampled."""
-    uniq = np.unique(groups)
-    members = [np.where(groups == g)[0] for g in uniq]
-    res = np.empty(B)
-    for b in range(B):
-        pick = rng.integers(0, len(uniq), len(uniq))
-        res[b] = stat(np.concatenate([members[i] for i in pick]))
-    return float(np.percentile(res, 2.5)), float(np.percentile(res, 97.5))
+def _paper_draws(groups: np.ndarray, B: int, rng) -> Tuple[np.ndarray, np.ndarray, int]:
+    """(inverse index of each question's paper, the (B, G) resampled paper numbers, G). One matrix draw gives the same numbers as B draws of
+    G integers one after the other, so the intervals do not depend on how the loop is written."""
+    uniq, inv = np.unique(groups, return_inverse=True)
+    return inv, rng.integers(0, len(uniq), size=(B, len(uniq))), len(uniq)
+
+
+def _percentile_ci(res: np.ndarray) -> Tuple[float, float]:
+    res = res[~np.isnan(res)]
+    return (float(np.percentile(res, 2.5)), float(np.percentile(res, 97.5))) if len(res) else (float("nan"), float("nan"))
+
+
+def _cluster_boot_mean(values: np.ndarray, groups: np.ndarray, rng, B: int = RESAMPLES) -> Tuple[float, float]:
+    """95% percentile CI of the mean of ``values`` when the papers (groups) are resampled (all questions of a drawn paper are kept)."""
+    inv, idx, G = _paper_draws(groups, B, rng)
+    n_g = np.bincount(inv, minlength=G).astype(float)
+    s_g = np.bincount(inv, weights=values, minlength=G)
+    return _percentile_ci(s_g[idx].sum(axis=1) / n_g[idx].sum(axis=1))
+
+
+def _cluster_boot_slope(x: np.ndarray, y: np.ndarray, groups: np.ndarray, rng, B: int = RESAMPLES) -> Tuple[float, float]:
+    """95% CI of the least-squares slope of y on x when papers are resampled (from per-paper sums: n, Sx, Sy, Sxy, Sxx)."""
+    inv, idx, G = _paper_draws(groups, B, rng)
+    n = np.bincount(inv, minlength=G).astype(float)
+    sx, sy = np.bincount(inv, weights=x, minlength=G), np.bincount(inv, weights=y, minlength=G)
+    sxy, sxx = np.bincount(inv, weights=x * y, minlength=G), np.bincount(inv, weights=x * x, minlength=G)
+    N, SX, SY, SXY, SXX = (a[idx].sum(axis=1) for a in (n, sx, sy, sxy, sxx))
+    with np.errstate(divide="ignore", invalid="ignore"):
+        slope = (N * SXY - SX * SY) / (N * SXX - SX ** 2)                      # = np.polyfit(x, y, 1)[0] of the resampled questions
+    slope[~np.isfinite(slope)] = np.nan
+    return _percentile_ci(slope)
 
 
 def advantage_rows(table: List[Dict[str, Any]], bm25_pq: Dict[str, Dict[str, float]], dense_pq: Dict[str, Dict[str, float]],
-                   seed: int = SEED, label: Dict[str, Any] | None = None) -> List[Dict[str, Any]]:
+                   seed: int = SEED, label: Dict[str, Any] | None = None, resamples: int = RESAMPLES) -> List[Dict[str, Any]]:
     from scipy.stats import spearmanr
     rows = []
     keep = [r for r in table if not math.isnan(r["overlap_share"])]
@@ -129,14 +153,14 @@ def advantage_rows(table: List[Dict[str, Any]], bm25_pq: Dict[str, Dict[str, flo
             idx = np.arange(len(qids)) if b == "all" else np.where(bins == b)[0]
             if len(idx) == 0:
                 continue
-            lo, hi = _cluster_boot(adv[idx], groups[idx], lambda i, a=adv[idx]: a[i].mean(), rng) if len(np.unique(groups[idx])) > 1 else (float("nan"),) * 2
+            lo, hi = _cluster_boot_mean(adv[idx], groups[idx], rng, resamples) if len(np.unique(groups[idx])) > 1 else (float("nan"),) * 2
             rows.append({**(label or {}), "metric": metric, "bin": b, "n_questions": len(idx),
                          "mean_bm25": float(np.mean([bm25_pq[qids[i]][metric] for i in idx])),
                          "mean_dense": float(np.mean([dense_pq[qids[i]][metric] for i in idx])),
                          "mean_advantage_bm25": float(adv[idx].mean()), "ci_low": lo, "ci_high": hi})
         rho = spearmanr(share, adv)
         slope = float(np.polyfit(share, adv, 1)[0])
-        lo, hi = _cluster_boot(adv, groups, lambda i: float(np.polyfit(share[i], adv[i], 1)[0]), np.random.default_rng(seed + 1))
+        lo, hi = _cluster_boot_slope(share, adv, groups, np.random.default_rng(seed + 1), resamples)
         rows.append({**(label or {}), "metric": metric, "bin": "trend", "n_questions": len(qids), "spearman_rho": float(rho.statistic),
                      "spearman_p": float(rho.pvalue), "slope_per_unit_overlap": slope, "slope_ci_low": lo, "slope_ci_high": hi})
     return rows
@@ -150,7 +174,7 @@ def _model_out(run_dir: Path) -> Path:
 
 
 def analyse(tests_root: Path, qa_jsonl, dense: Sequence[str], sparse: str = "bm25", out_dir: Optional[Path] = None,
-            seed: int = SEED) -> Dict[str, Any]:
+            seed: int = SEED, resamples: int = RESAMPLES) -> Dict[str, Any]:
     from tools import hybrid
     table = question_table(qa_jsonl)
     cells = hybrid.discover(Path(tests_root))
@@ -173,7 +197,7 @@ def analyse(tests_root: Path, qa_jsonl, dense: Sequence[str], sparse: str = "bm2
         for model in dense:
             if model in pqs:
                 adv_rows += advantage_rows(table, pqs[sparse], pqs[model], seed,
-                                           {"chunker": chunker, "size": size, "overlap": overlap, "dense": model, "sparse": sparse})
+                                           {"chunker": chunker, "size": size, "overlap": overlap, "dense": model, "sparse": sparse}, resamples)
     res = {"distribution": distribution([r["overlap_share"] for r in table]), "questions": table, "ranks": rank_rows, "advantage": adv_rows}
     res["rank_by_bin"] = rank_by_bin(rank_rows)
     if out_dir:
@@ -221,9 +245,10 @@ def main(argv: Optional[List[str]] = None) -> int:
     ap.add_argument("--dense", nargs="+", required=True)
     ap.add_argument("--sparse", default="bm25")
     ap.add_argument("--out-dir", required=True)
-    ap.add_argument("--seed", type=int, default=SEED)
+    ap.add_argument("--seed", type=int, default=SEED, help="default: params.seed")
+    ap.add_argument("--resamples", type=int, default=RESAMPLES, help="paper-level bootstrap resamples (default: params.report.resamples)")
     args = ap.parse_args(argv)
-    res = analyse(Path(args.tests_root), args.qa, args.dense, args.sparse, Path(args.out_dir), args.seed)
+    res = analyse(Path(args.tests_root), args.qa, args.dense, args.sparse, Path(args.out_dir), args.seed, args.resamples)
     print(json.dumps(res["distribution"], indent=2))
     return 0
 

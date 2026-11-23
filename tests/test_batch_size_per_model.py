@@ -1,0 +1,76 @@
+"""B5: Phase 2 uses each model's own (Phase 1) batch size; models without one use params.model.batch_size."""
+import json
+from pathlib import Path
+from types import SimpleNamespace
+
+import yaml
+
+from stages import rerun
+
+ROOT = Path(__file__).resolve().parents[1]
+MAIN = str(ROOT / "configs" / "main_config.yaml")
+SHORTLIST = ["BAAI/bge-base-en-v1.5", "BAAI/bge-large-en-v1.5", "BAAI/bge-m3", "BAAI/bge-small-en-v1.5", "hkunlp/instructor-xl", "intfloat/e5-base",
+             "intfloat/e5-large-v2", "intfloat/e5-large", "intfloat/e5-small", "intfloat/multilingual-e5-base", "intfloat/multilingual-e5-small",
+             "nomic-ai/nomic-embed-text-v1.5", "nomic-ai/nomic-embed-text-v1"]
+
+
+def test_stage1_table_has_only_explicit_batch_sizes():
+    t = rerun.stage1_batch_sizes(MAIN)
+    assert t["BAAI/bge-small-en-v1.5"] == 64 and t["hkunlp/instructor-xl"] == 16 and t["intfloat/e5-large-v2"] == 32
+    assert t["sentence-transformers/gtr-t5-xl"] == 8
+    assert "sentence-transformers/all-mpnet-base-v2" not in t           # no explicit batch size in stage 1
+
+
+def test_batch_size_rules():
+    t = {"a/b": 16}
+    assert rerun.batch_size_for("a/b", t, 32) == (16, "stage1.models")
+    assert rerun.batch_size_for("c/d", t, 32) == (32, "params.model.batch_size")
+    assert rerun.batch_size_for("a/b", t, 32, forced=8) == (8, "--param model.batch_size")
+    assert rerun.forced_batch_size(["x=1", "model.batch_size=4"]) == 4 and rerun.forced_batch_size(["x=1"]) is None
+
+
+def test_the_shortlisted_models_whose_batch_size_changes():
+    """The 13 shortlisted models all used 32 in the published Phase 2 config; these are the ones that now differ."""
+    ch = {c["model"]: (c["before"], c["now"]) for c in rerun.batch_size_changes(MAIN, SHORTLIST)}
+    assert ch == {"BAAI/bge-base-en-v1.5": (32, 64), "BAAI/bge-small-en-v1.5": (32, 64), "hkunlp/instructor-xl": (32, 16),
+                  "intfloat/e5-base": (32, 64), "intfloat/e5-small": (32, 64), "intfloat/multilingual-e5-base": (32, 64),
+                  "intfloat/multilingual-e5-small": (32, 64), "nomic-ai/nomic-embed-text-v1.5": (32, 64), "nomic-ai/nomic-embed-text-v1": (32, 64)}
+    unchanged = set(SHORTLIST) - set(ch)
+    assert unchanged == {"BAAI/bge-large-en-v1.5", "BAAI/bge-m3", "intfloat/e5-large-v2", "intfloat/e5-large"}
+
+
+def _prepared(tmp_path):
+    prep = tmp_path / "prep"
+    (prep / "chunks").mkdir(parents=True)
+    (prep / "mteb_task").mkdir()
+    (prep / "manifest.json").write_text(json.dumps({"key": "K", "files_sha256": {}, "timing_s": {}}))
+    return prep
+
+
+def _run_one(tmp_path, monkeypatch, model, params=(), table=None):
+    monkeypatch.setattr(rerun.subprocess, "run", lambda cmd, **kw: SimpleNamespace(returncode=0))
+    rerun.run_eval_one(model, "r" * 40, "fixed_token", 128, 0, _prepared(tmp_path), main_config=MAIN, artifacts_root=str(tmp_path / "art"),
+                       params=list(params), force=False, dry_run=False, batch_sizes=rerun.stage1_batch_sizes(MAIN) if table is None else table)
+    run_dir = tmp_path / "art" / "tests" / f"{rerun.model_dir(model)}_fixed_token_c128_o0"
+    cfg = yaml.safe_load((run_dir / "config" / "stage6.yaml").read_text())
+    return cfg, json.loads((run_dir / "run_info.json").read_text())
+
+
+def test_stage6_config_and_run_info_carry_the_models_batch_size(tmp_path, monkeypatch):
+    cfg, info = _run_one(tmp_path, monkeypatch, "hkunlp/instructor-xl")
+    assert cfg["models"][0]["batch_size"] == 16 and info["batch_size"] == 16 and info["batch_size_source"] == "stage1.models"
+
+
+def test_a_model_without_a_stage1_batch_size_uses_the_default(tmp_path, monkeypatch):
+    cfg, info = _run_one(tmp_path, monkeypatch, "sentence-transformers/all-mpnet-base-v2")
+    assert cfg["models"][0]["batch_size"] == 32 and info["batch_size_source"] == "params.model.batch_size"
+
+
+def test_param_override_forces_one_batch_size_for_all(tmp_path, monkeypatch):
+    cfg, info = _run_one(tmp_path, monkeypatch, "hkunlp/instructor-xl", params=["model.batch_size=4"])
+    assert cfg["models"][0]["batch_size"] == 4 and info["batch_size_source"] == "--param model.batch_size"
+
+
+def test_bm25_has_no_batch_size(tmp_path, monkeypatch):
+    _, info = _run_one(tmp_path, monkeypatch, "bm25")
+    assert info["batch_size"] is None and info["batch_size_source"] is None

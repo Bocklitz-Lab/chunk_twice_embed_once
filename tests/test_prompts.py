@@ -74,7 +74,8 @@ def test_bge_instruction_on_queries_only_and_no_prompt_model_unchanged():
 
 def test_every_phase1_model_has_an_entry_and_19_need_prompts():
     names = [m["name"] for m in CFG["stage1"]["models"]]
-    assert len(names) == 42 and set(names) == set(TABLE)
+    extras = {m["name"] for m in CFG["params"]["transfer"]["models"] if m["role"] == "extra"}      # transfer-only models: a prompt entry, no Phase 1 run
+    assert len(names) == 41 and set(names) | extras == set(TABLE) and not extras & set(names)
     assert sum(1 for v in TABLE.values() if v["query"] or v["passage"]) == 19
     for v in TABLE.values():
         assert set(v) - {"mask_instruction"} == {"query", "passage", "card"} and v["card"]

@@ -85,3 +85,6 @@ def test_run_eval_writes_manifest_before_summary(tmp_path, monkeypatch):
     assert m["prompts"]["query"] == "query: " and m["use_prompts"] is True and m["seeds"]["seed"] == 7
     assert m["resolved_config"]["seed"] == 7 and "model_load_s" in m["timing_s"]
     assert (tmp_path / "res" / "summary.json").exists()
+    mp = m["model_properties"]                                      # B1: pooling, dimension, maximum length, tokenizer of the model
+    assert set(mp) >= {"modules", "pooling_mode", "pooling_is_library_default", "embedding_dim", "max_seq_length", "tokenizer_class"}
+    assert m["hardware"]["cpu_logical_cores"] and "ram_total_gb" in m["hardware"]

@@ -1,4 +1,4 @@
-"""All 42 Phase 1 models are pinned to a commit hash; the rerun resolves a moving revision from that table."""
+"""All 41 Phase 1 models are pinned to a commit hash; the rerun resolves a moving revision from that table."""
 import re
 from pathlib import Path
 
@@ -16,13 +16,14 @@ def test_every_phase1_model_has_a_commit_hash_in_both_configs():
     for path, key in [(MAIN, "stage1"), (ROOT / "configs" / "stages" / "stage1.yaml", None)]:
         doc = yaml.safe_load(path.read_text())
         models = doc[key]["models"] if key else doc["models"]
-        assert len(models) == 42, path
+        assert len(models) == 41, path
         assert [m["name"] for m in models if not HEX40.match(m["revision"])] == [], path
 
 
 def test_prompt_table_and_pins_cover_the_same_models():
     doc = yaml.safe_load(MAIN.read_text())
-    assert set(doc["params"]["model_prompts"]) == {m["name"] for m in doc["stage1"]["models"]}
+    extras = {m["name"] for m in doc["params"]["transfer"]["models"] if m["role"] == "extra"}      # transfer-only models need a prompt entry, not a Phase 1 pin
+    assert set(doc["params"]["model_prompts"]) == {m["name"] for m in doc["stage1"]["models"]} | extras
 
 
 def test_both_configs_pin_the_same_commits():
