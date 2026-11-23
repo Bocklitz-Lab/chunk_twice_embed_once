@@ -46,7 +46,7 @@ from pipeline_lib.dataset_pin import sha256_file  # noqa: E402
 from pipeline_lib.grid import CHUNKERS as CHUNKER_ORDER  # noqa: E402     # only the display order of the chunkers; sizes / overlaps come from the runs
 from pipeline_lib.run_manifest import git_info, package_versions  # noqa: E402
 from pipeline_lib.truncation import PHASE1_COLUMNS, collect_phase1  # noqa: E402
-from tools import check_identical, collect_runs, hybrid, lexical_overlap, stats  # noqa: E402
+from tools import check_identical, collect_runs, hybrid, label_stats_table, lexical_overlap, stats  # noqa: E402
 
 BM25 = "bm25"
 METRIC_COLS = (("geom_at_10", "Geom@10"), ("ndcg_at_10", "nDCG@10"), ("recall_at_10", "Recall@10"))
@@ -61,6 +61,7 @@ DESCRIPTIONS = {
     "stats_label_agreement.csv": "Lexical vs span labels per configuration: % questions with the same top relevant chunk, Jaccard of the relevant sets.",
     "stats_rankings.csv": "Kendall tau-b between the rankings of runs by the lexical and by the span labels (all runs, within model, within configuration).",
     "coverage_diagnostics.csv": "Per configuration: number of chunks, chunk length with the reference tokenizer, % evidence spans inside one chunk, relevant chunks per question.",
+    "table_label_stats.csv": "Per configuration and cover level: chunks, chunk length (median / mean / max reference tokens), questions labelled in Step 1 / 2 / 3, % evidence split over several chunks, relevant chunks per question (mean / max).",
     "table_truncation.csv": "Per run: model max sequence length, number and % of chunks truncated by the model's own tokenizer.",
     "table_truncation_phase1.csv": "Phase 1: per model, external task and split, the number and % of passages and queries longer than the model's max sequence length (own tokenizer, title + text + prompt).",
     "overlap_distribution.json": "Distribution of the question/evidence-span word overlap over the 952 questions.",
@@ -367,6 +368,10 @@ def build_report(artifacts_root: str | Path, out_dir: str | Path, qa_jsonl: Opti
         if p.exists():
             cov += [{"prepared": d.name, **r} for r in _csv_rows(p)]
     stats._write(heavy / "coverage_diagnostics.csv", cov)
+    ls_rows = label_stats_table.build_table(prepared)
+    if ls_rows:
+        label_stats_table.write_table(heavy / "table_label_stats.csv", ls_rows)
+    steps["label_stats_rows"] = len(ls_rows)
 
     trunc = [{k: r.get(k) for k in ("chunker", "size", "overlap", "model", "max_seq_length", "n_chunks", "n_chunks_truncated", "pct_chunks_truncated",
                                     "mean_tokens_own_tokenizer")} for r in overview_rows if r.get("max_seq_length") not in (None, "")]

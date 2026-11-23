@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import statistics
 import json
 import os
 import sys
@@ -81,6 +82,7 @@ def diagnose_config(task_dir, chunks_jsonl, tokenizer_name: Optional[str] = None
         "n_questions": len(qids), "n_chunks": len(chunks), "n_docs": len({c["source_doc_id"] for c in chunks}),
         "mean_chunk_chars": sum(chars) / len(chars),
         "mean_chunk_tokens": (sum(tok_len) / len(tok_len)) if tok_len else "",
+        "median_chunk_tokens": float(statistics.median(tok_len)) if tok_len else "",
         "max_chunk_tokens": max(tok_len) if tok_len else "",
         "chunk_token_counter": f"{tokenizer_name}@{(tokenizer_revision or 'main')[:8]}" if tokenizer_name else "",
     })
