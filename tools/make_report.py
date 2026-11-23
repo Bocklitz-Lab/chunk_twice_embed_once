@@ -29,6 +29,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import itertools
 import json
 import os
 import shutil
@@ -55,8 +56,8 @@ DESCRIPTIONS = {
     "table_main.csv": "Main table: one row per configuration and model/hybrid: Geom@10, nDCG@10, Recall@10 under the span labels with 95% "
                       "paper-level bootstrap CI of Geom@10, Geom@10 under the lexical labels, span coverage@5, % chunks truncated, number of chunks.",
     "runs_overview.csv": "One row per run: metrics under both label sets, span coverage, truncation, timing, prompts, chunking diagnostics, git commit.",
-    "stats_ci.csv": "Bootstrap 95% CIs (1000 resamples) of Geom@10, nDCG@10, Recall@10 per run: level=query and level=paper.",
-    "stats_compare.csv": "Paired comparisons (dense vs BM25, hybrid vs its dense run and vs BM25): difference, CI, bootstrap and Wilcoxon p, Holm-adjusted.",
+    "stats_ci.csv": "Bootstrap 95% CIs of Geom@10, nDCG@10, Recall@10 per run: level=query and level=paper (number of resamples: report_manifest.json).",
+    "stats_compare.csv": "Paired comparisons per configuration (dense vs BM25, dense vs dense, hybrid vs its dense run and vs BM25, rerank vs its dense run, vs BM25 and vs the hybrid): difference, CI, bootstrap and Wilcoxon p, Holm-adjusted within `family` x level x metric.",
     "stats_label_agreement.csv": "Lexical vs span labels per configuration: % questions with the same top relevant chunk, Jaccard of the relevant sets.",
     "stats_rankings.csv": "Kendall tau-b between the rankings of runs by the lexical and by the span labels (all runs, within model, within configuration).",
     "coverage_diagnostics.csv": "Per configuration: number of chunks, chunk length with the reference tokenizer, % evidence spans inside one chunk, relevant chunks per question.",
@@ -95,21 +96,49 @@ def _run_paths(tests_root: Path) -> Tuple[Dict[tuple, Dict[str, Path]], Dict[str
     return cells, infos
 
 
+def run_kind(name: str, info: Dict[str, Any]) -> str:
+    return "hybrid" if info.get("hybrid") else "rerank" if info.get("rerank") else "bm25" if name.startswith(BM25) else "dense"
+
+
 def comparison_pairs(names: List[str], infos: Dict[str, Dict[str, Any]], cell: tuple, rerank_top_n: Optional[int] = None) -> List[tuple]:
-    """(A, B) pairs of one configuration. ``rerank_top_n``: only the rerank runs of that depth are compared with their dense run
-    (None: every rerank depth)."""
+    """(A, B) pairs of one configuration. ``rerank_top_n``: only the rerank runs of that depth are compared (None: every rerank depth).
+
+      dense   vs BM25                                  every dense run
+      hybrid  vs its dense run, vs BM25                every RRF hybrid
+      rerank  vs its dense run, vs BM25, vs the hybrid of the same dense run (when that hybrid exists)
+      dense   vs dense                                 every pair of dense runs (models) on the same configuration, alphabetical order
+    """
+    infos_c = {n: infos.get(f"{n}|{cell[0]}|{cell[1]}|{cell[2]}", {}) for n in names}
+    hybrid_of = {i["hybrid"]["dense"]: n for n, i in infos_c.items() if i.get("hybrid")}
     pairs = []
     for n in names:
-        info = infos.get(f"{n}|{cell[0]}|{cell[1]}|{cell[2]}", {})
+        info = infos_c[n]
         h, rr = info.get("hybrid"), info.get("rerank")
         if h:
             pairs += [(n, h["dense"]), (n, h["sparse"])]
         elif rr:
             if rerank_top_n is None or int(rr["top_n"]) == int(rerank_top_n):
                 pairs.append((n, rr["dense"]))
+                if BM25 in names:
+                    pairs.append((n, BM25))
+                if rr["dense"] in hybrid_of:
+                    pairs.append((n, hybrid_of[rr["dense"]]))
         elif not n.startswith(BM25) and BM25 in names:
             pairs.append((n, BM25))
+    dense = sorted(n for n in names if run_kind(n, infos_c[n]) == "dense")
+    pairs += list(itertools.combinations(dense, 2))
     return [p for p in pairs if p[0] in names and p[1] in names]
+
+
+def pair_family(pair: tuple, infos: Dict[str, Dict[str, Any]], cell: tuple) -> str:
+    """Holm family of a pair: hybrid (vs its parts), rerank (vs dense / BM25 / hybrid), dense_vs_bm25, dense_vs_dense. Holm's correction is applied
+    within each family (and level and metric) of one configuration, so that the 78 dense pairs of 13 models do not weaken the baseline tests."""
+    a, b = pair
+    info = infos.get(f"{a}|{cell[0]}|{cell[1]}|{cell[2]}", {})
+    kind = run_kind(a, info)
+    if kind in ("hybrid", "rerank"):
+        return kind
+    return "dense_vs_bm25" if b.startswith(BM25) else "dense_vs_dense"
 
 
 def _csv_rows(path: Path) -> List[Dict[str, str]]:
@@ -282,7 +311,7 @@ def external_rows(roots: List[Path]) -> List[Dict[str, Any]]:
     return rows
 
 
-def build_report(artifacts_root: str | Path, out_dir: str | Path, qa_jsonl: Optional[str | Path] = None, *, resamples: int = 1000,
+def build_report(artifacts_root: str | Path, out_dir: str | Path, qa_jsonl: Optional[str | Path] = None, *, resamples: int = stats.DEFAULT_RESAMPLES,
                  seed: int = stats.DEFAULT_SEED, overlap: bool = True, track_max_mb: float = 5.0, tests_root: Optional[str | Path] = None,
                  prepared_root: Optional[str | Path] = None, verbose: bool = True, rerank_top_n: int = 50,
                  external_roots: Optional[List[str | Path]] = None) -> Dict[str, Any]:
@@ -312,10 +341,12 @@ def build_report(artifacts_root: str | Path, out_dir: str | Path, qa_jsonl: Opti
     for (ch, s, o), runs in sorted(cells.items()):
         label = {"chunker": ch, "size": s, "overlap": o}
         paths = {n: str(p) for n, p in runs.items()}
-        ci_all += [{**label, **r} for r in stats.ci_rows(paths, qa, resamples, seed)]
+        cache: Dict[tuple, tuple] = {}                                  # each run is resampled once per level, for the CIs and for the pairs
+        ci_all += [{**label, **r} for r in stats.ci_rows(paths, qa, resamples, seed, cache=cache)]
         pairs = comparison_pairs(list(paths), infos, (ch, s, o), rerank_top_n)
         if pairs:
-            cmp_all += [{**label, **r} for r in stats.compare_rows(paths, pairs, qa, resamples, seed)]
+            fams = {p: pair_family(p, infos, (ch, s, o)) for p in pairs}
+            cmp_all += [{**label, **r} for r in stats.compare_rows(paths, pairs, qa, resamples, seed, families=fams, cache=cache)]
     stats._write(heavy / "stats_ci.csv", ci_all)
     stats._write(heavy / "stats_compare.csv", cmp_all)
 
@@ -349,7 +380,7 @@ def build_report(artifacts_root: str | Path, out_dir: str | Path, qa_jsonl: Opti
         dense = sorted({i["model"] for i in infos.values() if not i["model"].startswith(BM25) and not i.get("hybrid") and not i.get("rerank")})
         if dense and any(i["model"].startswith(BM25) for i in infos.values()):
             log(f"lexical-overlap diagnostic: {len(dense)} dense models")
-            lexical_overlap.analyse(tests, qa, dense, BM25, heavy, seed)
+            lexical_overlap.analyse(tests, qa, dense, BM25, heavy, seed, resamples)
         else:
             steps["overlap_skipped"] = "needs at least one dense run and the BM25 run"
 
@@ -425,7 +456,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     ap.add_argument("--artifacts-root", required=True)
     ap.add_argument("--out-dir", required=True, help="tracked folder for the small CSV tables, e.g. results/v2-revision")
     ap.add_argument("--qa")
-    ap.add_argument("--resamples", type=int, default=1000)
+    ap.add_argument("--resamples", type=int, default=stats.DEFAULT_RESAMPLES, help="paper / query bootstrap resamples (default: params.report.resamples)")
     ap.add_argument("--seed", type=int, default=stats.DEFAULT_SEED)
     ap.add_argument("--no-overlap", action="store_true")
     ap.add_argument("--track-max-mb", type=float, default=5.0)

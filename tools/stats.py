@@ -3,7 +3,7 @@
   ci        bootstrap 95% CI of Geom@10, nDCG@10 and Recall@10 (1000 resamples): over QUERIES and over PAPERS.
   compare   paired comparison of two runs (same queries): paired bootstrap of the difference (CI and p-value) and the
             Wilcoxon signed-rank test, for Geom@10, nDCG@10 and Recall@10. With several runs: all pairs or each run
-            against ``--baseline``, Holm-corrected within each metric and test.
+            against ``--baseline``, Holm-corrected within each (family, level, metric) and test.
   labels    lexical vs span qrels of one prepared configuration: % of questions with the same top relevant chunk and
             the Jaccard overlap of the relevant sets.
   rankings  Kendall's tau (tau-b) between the configuration rankings under the lexical and the span labels, from the
@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import functools
 import itertools
 import json
 import math
@@ -37,10 +38,13 @@ _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _REPO_ROOT not in sys.path:
     sys.path.insert(0, _REPO_ROOT)
 
+from pipeline_lib import config_params  # noqa: E402
 from tools import metrics as M  # noqa: E402
 
-DEFAULT_SEED = 20261121
-DEFAULT_RESAMPLES = 1000
+# defaults come from configs/main_config.yaml (params.seed, params.report.resamples): nothing is hard-coded here
+_PARAMS = config_params.load_params()
+DEFAULT_SEED = int(_PARAMS.get("seed", 20261121))
+DEFAULT_RESAMPLES = int((_PARAMS.get("report") or {}).get("resamples", 10000))
 METRICS = ("geom_at_10", "ndcg_at_10", "recall_at_10")
 
 
@@ -73,6 +77,14 @@ def _resample_indices(n_units: int, B: int, rng: np.random.Generator) -> np.ndar
     return rng.integers(0, n_units, size=(B, n_units))
 
 
+@functools.lru_cache(maxsize=4)
+def resample_indices(n_units: int, B: int, seed: int) -> np.ndarray:
+    """The (B, n_units) resampled unit numbers of ``default_rng(seed)``. Memoised: every run of a configuration is resampled with the SAME
+    draws (they depend only on n_units, B and seed), so a comparison of two runs is paired and the draws are made once, not once per run.
+    The array must not be modified."""
+    return _resample_indices(n_units, B, np.random.default_rng(seed))
+
+
 def sample_stats(ndcg: np.ndarray, recall: np.ndarray, groups: Optional[np.ndarray], idx: np.ndarray):
     """Means of nDCG@10 / Recall@10 in every resample. ``idx``: resampled queries (B, n) or, with ``groups``, resampled
     group numbers (B, n_groups)."""
@@ -91,35 +103,46 @@ def _n_units(ndcg, groups):
     return len(ndcg) if groups is None else len(np.unique(groups))
 
 
-def bootstrap_ci(ndcg: np.ndarray, recall: np.ndarray, groups: Optional[np.ndarray] = None,
-                 B: int = DEFAULT_RESAMPLES, seed: int = DEFAULT_SEED, alpha: float = 0.05) -> Dict[str, Dict[str, float]]:
-    """{metric: {estimate, ci_low, ci_high}} (percentile interval). ``groups``: resample these clusters (papers)."""
-    rng = np.random.default_rng(seed)
-    idx = _resample_indices(_n_units(ndcg, groups), B, rng)
-    bn, br = sample_stats(ndcg, recall, groups, idx)
+def resampled_means(ndcg: np.ndarray, recall: np.ndarray, groups: Optional[np.ndarray], B: int, seed: int):
+    """(mean nDCG@10, mean Recall@10) of one run in each of the B resamples (queries, or papers when ``groups`` is given)."""
+    return sample_stats(ndcg, recall, groups, resample_indices(_n_units(ndcg, groups), B, seed))
+
+
+def ci_from_means(ndcg_mean: float, recall_mean: float, bn: np.ndarray, br: np.ndarray, alpha: float = 0.05) -> Dict[str, Dict[str, float]]:
+    """{metric: {estimate, ci_low, ci_high}} from the point means and the resampled means (percentile interval)."""
     out = {}
     for m in METRICS:
-        est = float(_stat(m, ndcg.mean(), recall.mean()))
+        est = float(_stat(m, ndcg_mean, recall_mean))
         dist = _stat(m, bn, br)
         out[m] = {"estimate": est, "ci_low": float(np.quantile(dist, alpha / 2)), "ci_high": float(np.quantile(dist, 1 - alpha / 2))}
     return out
 
 
-def paired_bootstrap(a: Dict[str, np.ndarray], b: Dict[str, np.ndarray], groups: Optional[np.ndarray] = None,
-                     B: int = DEFAULT_RESAMPLES, seed: int = DEFAULT_SEED, alpha: float = 0.05) -> Dict[str, Dict[str, float]]:
-    """Paired bootstrap of (A - B): the SAME resampled queries (or papers) are used for both runs."""
-    rng = np.random.default_rng(seed)
-    idx = _resample_indices(_n_units(a["ndcg_at_10"], groups), B, rng)
-    an, ar = sample_stats(a["ndcg_at_10"], a["recall_at_10"], groups, idx)
-    bn, br = sample_stats(b["ndcg_at_10"], b["recall_at_10"], groups, idx)
+def paired_from_means(a_means, b_means, an, ar, bn, br, B: int, alpha: float = 0.05) -> Dict[str, Dict[str, float]]:
+    """Paired bootstrap of A - B from the point means ``(ndcg, recall)`` and the resampled means of the two runs (same resamples)."""
     out = {}
     for m in METRICS:
         d = _stat(m, an, ar) - _stat(m, bn, br)
-        est = float(_stat(m, a["ndcg_at_10"].mean(), a["recall_at_10"].mean()) - _stat(m, b["ndcg_at_10"].mean(), b["recall_at_10"].mean()))
+        est = float(_stat(m, *a_means) - _stat(m, *b_means))
         le, ge = int((d <= 0).sum()), int((d >= 0).sum())
         out[m] = {"diff": est, "ci_low": float(np.quantile(d, alpha / 2)), "ci_high": float(np.quantile(d, 1 - alpha / 2)),
                   "p_bootstrap": min(1.0, 2 * (1 + min(le, ge)) / (B + 1))}
     return out
+
+
+def bootstrap_ci(ndcg: np.ndarray, recall: np.ndarray, groups: Optional[np.ndarray] = None,
+                 B: int = DEFAULT_RESAMPLES, seed: int = DEFAULT_SEED, alpha: float = 0.05) -> Dict[str, Dict[str, float]]:
+    """{metric: {estimate, ci_low, ci_high}} (percentile interval). ``groups``: resample these clusters (papers)."""
+    bn, br = resampled_means(ndcg, recall, groups, B, seed)
+    return ci_from_means(ndcg.mean(), recall.mean(), bn, br, alpha)
+
+
+def paired_bootstrap(a: Dict[str, np.ndarray], b: Dict[str, np.ndarray], groups: Optional[np.ndarray] = None,
+                     B: int = DEFAULT_RESAMPLES, seed: int = DEFAULT_SEED, alpha: float = 0.05) -> Dict[str, Dict[str, float]]:
+    """Paired bootstrap of (A - B): the SAME resampled queries (or papers) are used for both runs."""
+    an, ar = resampled_means(a["ndcg_at_10"], a["recall_at_10"], groups, B, seed)
+    bn, br = resampled_means(b["ndcg_at_10"], b["recall_at_10"], groups, B, seed)
+    return paired_from_means((a["ndcg_at_10"].mean(), a["recall_at_10"].mean()), (b["ndcg_at_10"].mean(), b["recall_at_10"].mean()), an, ar, bn, br, B, alpha)
 
 
 def wilcoxon_p(x: np.ndarray, y: np.ndarray) -> float:
@@ -252,14 +275,29 @@ def _aligned(paths: Dict[str, str]):
     return {n: load_columns(paths[n], order) for n in paths}, order
 
 
-def ci_rows(paths: Dict[str, str], qa: Optional[str] = None, resamples: int = DEFAULT_RESAMPLES, seed: int = DEFAULT_SEED) -> List[Dict[str, Any]]:
-    """Bootstrap CI rows (query level, and paper level when ``qa`` is given) for runs {name: per_query_metrics.csv}."""
+def _cached_means(cache: Optional[Dict[tuple, tuple]], name: str, level: str, ndcg, recall, groups, B: int, seed: int):
+    """Resampled means of run ``name`` at ``level`` from ``cache`` (filled on first use); the draws are the same for every run, so the
+    values may be shared between the CI step and the paired tests of one configuration."""
+    key = (name, level, B, seed)
+    if cache is not None and key in cache:
+        return cache[key]
+    val = resampled_means(ndcg, recall, groups, B, seed)
+    if cache is not None:
+        cache[key] = val
+    return val
+
+
+def ci_rows(paths: Dict[str, str], qa: Optional[str] = None, resamples: int = DEFAULT_RESAMPLES, seed: int = DEFAULT_SEED,
+            cache: Optional[Dict[tuple, tuple]] = None) -> List[Dict[str, Any]]:
+    """Bootstrap CI rows (query level, and paper level when ``qa`` is given) for runs {name: per_query_metrics.csv}.
+    ``cache``: dict shared with ``compare_rows`` so that each run is resampled once per level."""
     rows = []
     for name, path in paths.items():
         c = load_columns(path)
         levels = [("query", None)] + ([("paper", load_groups(qa, c["qids"]))] if qa else [])
         for level, groups in levels:
-            for m, v in bootstrap_ci(c["ndcg_at_10"], c["recall_at_10"], groups, resamples, seed).items():
+            bn, br = _cached_means(cache, name, level, c["ndcg_at_10"], c["recall_at_10"], groups, resamples, seed)
+            for m, v in ci_from_means(c["ndcg_at_10"].mean(), c["recall_at_10"].mean(), bn, br).items():
                 rows.append({"run": name, "level": level, "units": _n_units(c["ndcg_at_10"], groups), "metric": m, **v})
     return rows
 
@@ -278,28 +316,35 @@ def cmd_ci(args) -> int:
 
 
 def compare_rows(paths: Dict[str, str], pairs: Optional[Sequence[tuple]] = None, qa: Optional[str] = None,
-                 resamples: int = DEFAULT_RESAMPLES, seed: int = DEFAULT_SEED) -> List[Dict[str, Any]]:
+                 resamples: int = DEFAULT_RESAMPLES, seed: int = DEFAULT_SEED, families: Optional[Dict[tuple, str]] = None,
+                 cache: Optional[Dict[tuple, tuple]] = None) -> List[Dict[str, Any]]:
     """Paired comparison rows for runs {name: per_query_metrics.csv}. ``pairs``: [(A, B)] (default: all pairs).
-    Holm correction within (level, metric) over the pairs given: one family per metric."""
+    Holm correction within (family, level, metric): ``families`` maps a pair to its family name (default: one family "all", i.e. one family
+    per metric and level over the pairs given, as before). Every run is resampled once per level (``cache``), not once per pair."""
     cols, order = _aligned(paths)
     pairs = list(pairs) if pairs is not None else list(itertools.combinations(list(paths), 2))
     rows = []
     levels = [("query", None)] + ([("paper", load_groups(qa, order))] if qa else [])
+    geom = {n: np.sqrt(c["ndcg_at_10"] * c["recall_at_10"]) for n, c in cols.items()}
     for level, groups in levels:
+        means = {n: _cached_means(cache, n, level, c["ndcg_at_10"], c["recall_at_10"], groups, resamples, seed) for n, c in cols.items()
+                 if any(n in p for p in pairs)}
         for a, b in pairs:
-            pb = paired_bootstrap(cols[a], cols[b], groups, resamples, seed)
+            pb = paired_from_means((cols[a]["ndcg_at_10"].mean(), cols[a]["recall_at_10"].mean()), (cols[b]["ndcg_at_10"].mean(), cols[b]["recall_at_10"].mean()),
+                                   *means[a], *means[b], resamples)
             wil = {"ndcg_at_10": wilcoxon_p(cols[a]["ndcg_at_10"], cols[b]["ndcg_at_10"]),
                    "recall_at_10": wilcoxon_p(cols[a]["recall_at_10"], cols[b]["recall_at_10"]),
-                   "geom_at_10": wilcoxon_p(np.sqrt(cols[a]["ndcg_at_10"] * cols[a]["recall_at_10"]),
-                                            np.sqrt(cols[b]["ndcg_at_10"] * cols[b]["recall_at_10"]))}
+                   "geom_at_10": wilcoxon_p(geom[a], geom[b])}
             for m in METRICS:
-                rows.append({"level": level, "A": a, "B": b, "metric": m, **pb[m], "p_wilcoxon_per_query": wil[m]})
-    for level in {r["level"] for r in rows}:
-        for m in METRICS:
-            fam = [r for r in rows if r["level"] == level and r["metric"] == m]
-            for key in ("p_bootstrap", "p_wilcoxon_per_query"):
-                for r, adj in zip(fam, holm([r[key] for r in fam])):
-                    r[key + "_holm"] = adj
+                rows.append({"family": (families or {}).get((a, b), "all"), "level": level, "A": a, "B": b, "metric": m, **pb[m],
+                             "p_wilcoxon_per_query": wil[m]})
+    for fam in {r["family"] for r in rows}:
+        for level in {r["level"] for r in rows}:
+            for m in METRICS:
+                sel = [r for r in rows if r["family"] == fam and r["level"] == level and r["metric"] == m]
+                for key in ("p_bootstrap", "p_wilcoxon_per_query"):
+                    for r, adj in zip(sel, holm([r[key] for r in sel])):
+                        r[key + "_holm"] = adj
     return rows
 
 

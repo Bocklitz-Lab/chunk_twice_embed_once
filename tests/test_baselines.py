@@ -263,7 +263,7 @@ def test_collect_runs_gives_hybrids_and_reranks_a_time_and_a_kind(world):
 def test_comparison_pairs_include_the_primary_rerank_depth_only():
     names = ["a", "bm25", "rr20", "rr50"]
     infos = {"rr20|fixed_token|128|0": {"rerank": {"dense": "a", "top_n": 20}}, "rr50|fixed_token|128|0": {"rerank": {"dense": "a", "top_n": 50}}}
-    assert R.comparison_pairs(names, infos, ("fixed_token", 128, 0), rerank_top_n=50) == [("a", "bm25"), ("rr50", "a")]
+    assert R.comparison_pairs(names, infos, ("fixed_token", 128, 0), rerank_top_n=50) == [("a", "bm25"), ("rr50", "a"), ("rr50", "bm25")]    # + rerank vs BM25
     assert ("rr20", "a") in R.comparison_pairs(names, infos, ("fixed_token", 128, 0))
 
 
@@ -309,7 +309,10 @@ def test_report_writes_one_table_per_label_type_and_the_ablation(tmp_path, world
     desc = (out / "README.md").read_text()
     assert "table_retrievers_span.csv" in desc and "evaluation_time (seconds)" in desc
     stats = list(csv.DictReader(open(out / "stats_compare.csv")))
-    assert {(r["A"], r["B"]) for r in stats if r["A"].startswith("rerank")} == {("rerank_bge_reranker_v2_m3_top4_org_dense", "org/dense")}   # primary depth only
+    rr_name = "rerank_bge_reranker_v2_m3_top4_org_dense"
+    assert {(r["A"], r["B"]) for r in stats if r["A"].startswith("rerank")} == {   # primary depth only: vs its dense run, vs BM25, vs the hybrid
+        (rr_name, "org/dense"), (rr_name, "bm25"), (rr_name, "hybrid_rrf60_org_dense_bm25")}
+    assert {r["family"] for r in stats if r["A"].startswith("rerank")} == {"rerank"}
 
 
 def test_external_rows_put_bm25_next_to_the_dense_models(tmp_path):

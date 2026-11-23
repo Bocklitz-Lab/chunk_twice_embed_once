@@ -432,7 +432,7 @@ params:
   report:
     enabled: true
     out_dir: results/v2-revision
-    resamples: 1000
+    resamples: 10000          # paper / query bootstrap resamples of every interval and paired test (also read by tools/stats, lexical_overlap, make analysis)
     overlap: true
     track_max_mb: 5
 
