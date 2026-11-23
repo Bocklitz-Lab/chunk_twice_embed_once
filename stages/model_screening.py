@@ -14,7 +14,7 @@ from mteb import MTEB, get_tasks
 # local
 from pipeline_lib.model_wrapper import STNoPrompt  # keep your wrapper
 from pipeline_lib.prompts import resolve_prompts
-from pipeline_lib import efficiency
+from pipeline_lib import efficiency, model_info
 from pipeline_lib.run_manifest import (
     Stopwatch, build_manifest, set_seeds, summarize_encode_timings, write_manifest,
 )
@@ -389,6 +389,7 @@ def main():
             batch_size=batch_size,
             seeds=seeds,
             timing={**sw.seconds, **summarize_encode_timings(getattr(model, "timings", []))},
+            extra={"model_properties": model_info.describe_model(base, model_name, revision)},
         ))
 
         if probe is not None:

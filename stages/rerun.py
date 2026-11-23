@@ -204,7 +204,7 @@ def run_eval_one(model: str, revision: str, chunker: str, size: int, overlap: in
 
 
 def run_hybrids(root: str, models: List[Tuple[str, str]], chunkers: List[str], cells: List[Tuple[int, int]], *, k: int, depth: int,
-                force: bool = False) -> List[Dict[str, Any]]:
+                force: bool = False, seed: Optional[int] = None) -> List[Dict[str, Any]]:
     """Reciprocal rank fusion of every dense run with the BM25 run of the same configuration (tools/hybrid.py): no new embedding."""
     from tools import hybrid
     tests = Path(root) / "tests"
@@ -220,20 +220,20 @@ def run_hybrids(root: str, models: List[Tuple[str, str]], chunkers: List[str], c
                 continue
             for name, _rev in models:
                 if name != sparse and not name.startswith(BM25) and name in runs:
-                    r = hybrid.run_hybrid(runs[name], runs[sparse], tests, k=k, depth=depth, force=force)
+                    r = hybrid.run_hybrid(runs[name], runs[sparse], tests, k=k, depth=depth, force=force, seed=seed)
                     print(f"hybrid rrf{k} {name} + {sparse} {ch} c{s} o{o}: {r['status']}")
                     out.append(r)
     return out
 
 
 def run_reranks(root: str, models: List[Tuple[str, str]], cells: List[Tuple[int, int]], chunkers: List[str], rr: Dict[str, Any], *,
-                force: bool = False, dry_run: bool = False) -> List[Dict[str, Any]]:
+                force: bool = False, dry_run: bool = False, seed: Optional[int] = None) -> List[Dict[str, Any]]:
     """Cross-encoder reranking of the finished dense runs (tools/rerank.py, params.rerank): primary depth for ``rr['models']`` (all dense
     runs of this invocation if the list is empty) plus the ablation entries. Finished rerank runs are skipped."""
     from tools import rerank
     wanted = [(ch, s, o) for ch in chunkers for s, o in cells]
     return rerank.run_configured(Path(root) / "tests", rr, models=[n for n, _ in models if not n.startswith(BM25)], wanted_cells=wanted,
-                                 depth=int(rr.get("depth", 100)), force=force, dry_run=dry_run)
+                                 depth=int(rr.get("depth", 100)), force=force, dry_run=dry_run, seed=seed)
 
 
 def main(argv: Optional[List[str]] = None) -> int:
@@ -331,10 +331,10 @@ def main(argv: Optional[List[str]] = None) -> int:
                                  params=args.param, force=args.force, dry_run=args.dry_run, eff_args=efficiency_args(args, root))
     hy = cfg.get("hybrid") or {}
     if args.command in ("eval", "all", "hybrid") and hy.get("enabled", False) and not args.no_hybrid and not args.dry_run:
-        run_hybrids(root, models, chunkers, cells, k=int(hy.get("k", 60)), depth=int(hy.get("depth", 100)), force=args.force)
+        run_hybrids(root, models, chunkers, cells, k=int(hy.get("k", 60)), depth=int(hy.get("depth", 100)), force=args.force, seed=cfg.get("seed"))
     rr = cfg.get("rerank") or {}
     if args.command in ("eval", "all", "rerank") and rr.get("enabled", False) and not args.no_rerank:
-        run_reranks(root, models, cells, chunkers, rr, force=args.force, dry_run=args.dry_run)
+        run_reranks(root, models, cells, chunkers, rr, force=args.force, dry_run=args.dry_run, seed=cfg.get("seed"))
     rep = cfg.get("report") or {}
     if args.command in ("eval", "all") and rep.get("enabled", False) and not args.no_report and not args.dry_run:
         from tools import make_report

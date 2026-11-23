@@ -34,7 +34,7 @@ if _REPO_ROOT not in sys.path:
     sys.path.insert(0, _REPO_ROOT)
 
 from pipeline_lib import run_outputs  # noqa: E402
-from pipeline_lib.run_manifest import git_info, package_versions, sha256_file  # noqa: E402
+from pipeline_lib.run_manifest import derived_run_environment, git_info, package_versions, set_seeds, sha256_file  # noqa: E402
 from tools import metrics as qmetrics  # noqa: E402
 
 Run = Dict[str, Dict[str, float]]
@@ -105,7 +105,7 @@ def _sum_times(*parts: Optional[float]) -> Optional[float]:
 
 
 def run_hybrid(dense_dir: Path, sparse_dir: Path, tests_root: Path, *, k: int = DEFAULT_K, depth: int = 100,
-               force: bool = False, run_name: Optional[str] = None) -> Dict[str, Any]:
+               force: bool = False, run_name: Optional[str] = None, seed: Optional[int] = None) -> Dict[str, Any]:
     """Fuse the ranking of ``dense_dir`` with that of ``sparse_dir`` (both run folders) into a new run folder."""
     di, si = (json.loads((d / "run_info.json").read_text(encoding="utf-8")) for d in (dense_dir, sparse_dir))
     if di["prepared_key"] != si["prepared_key"]:
@@ -114,6 +114,7 @@ def run_hybrid(dense_dir: Path, sparse_dir: Path, tests_root: Path, *, k: int = 
     run_dir = Path(tests_root) / f"{name}_{di['chunker']}_c{di['size']}_o{di['overlap']}"
     if (run_dir / "results" / "summary.json").exists() and not force:
         return {"run_dir": str(run_dir), "status": "skipped"}
+    seeds = set_seeds(seed) if seed is not None else None
     t0 = time.perf_counter()
     d_out, s_out = _model_out(dense_dir), _model_out(sparse_dir)
     runs = [_load_ranking(d_out), _load_ranking(s_out)]
@@ -150,7 +151,7 @@ def run_hybrid(dense_dir: Path, sparse_dir: Path, tests_root: Path, *, k: int = 
                 "timing_s": {"dense_evaluation_time_s": dense_s, "bm25_evaluation_time_s": sparse_s, "fusion_s": fusion_s,
                             "evaluation_time_s": total_s, "mteb_evaluation_time_s": total_s, "fusion_and_metrics_s": elapsed},
                 "evaluation_time": "dense evaluation_time + bm25 evaluation_time + fusion_s", "use_prompts": None,
-                "data_sha256": _data_hashes(d_out)}
+                "data_sha256": _data_hashes(d_out), **derived_run_environment("cpu", seeds)}
     (out / "run_manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     info = dict(di, model=f"{name}", hybrid={"method": "rrf", "k": k, "depth": depth, "dense": di["model"], "sparse": si["model"]})
     (run_dir / "run_info.json").write_text(json.dumps(info, indent=2), encoding="utf-8")
