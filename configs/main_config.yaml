@@ -364,6 +364,28 @@ params:
       d: shortlisted retrieval-tuned
       e: domain-pretrained + citation-contrastive tuning (SPECTER; outside a-d)
 
+  # Manual validation of the span labels (tools/validation_sample.py, tools/kappa.py): a seeded sample of questions, stratified by the FIRST subfield
+  # listed for the paper (a paper without a label is the stratum "unlabelled"), at least min_per_subfield questions per stratum where it has that many.
+  # Each item shows the question, the span with context_chars characters of context on each side and, for each configuration below, the chunks that the
+  # span rule (labeling.cover_level) labelled relevant. One sheet per annotator, same order. Run `make prepare` first (the sheets read the prepared folders).
+  validation:
+    n_questions: 100
+    seed: 20261121
+    min_per_subfield: 2
+    context_chars: 300
+    annotators: [annotator_1, annotator_2]
+    configurations:
+      - {chunker: fixed_token,          size: 128, overlap: 0}
+      - {chunker: fixed_token,          size: 512, overlap: 0}
+      - {chunker: hierarchical_section, size: 512, overlap: 0}
+
+  # Analysis tools that run on the outputs of the full rerun (`make analysis`, tools/token_budget.py, subfield_breakdown.py, variance_decomposition.py,
+  # winner_stability.py, phase_transfer.py, examples.py, fragmentation.py): see README. All use params.report.resamples / params.seed.
+  analysis:
+    enabled_in_report: false          # true: make report runs `make analysis` as its last step (needs the reports of the main run and of the transfer root)
+    out_dir: results/v2-revision/analysis
+    token_budgets: [512, 1024, 2048]  # reference-tokenizer tokens handed over to the reader (tools/token_budget.py)
+
   # Efficiency measures (pipeline_lib/efficiency.py): index size, model size, peak GPU memory, corpus encoding time / throughput and per-query latency,
   # kept apart from evaluation_time. ON by default in the Makefile (STAGE1_ARGS = --efficiency, EFFICIENCY_ARGS = --efficiency --latency; set them empty
   # to switch off). The probe only watches encode(): scores, rankings and stage timings are unchanged. Peak memory, throughput and latency cannot be
