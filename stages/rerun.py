@@ -57,6 +57,38 @@ def pinned_revisions(main_config: str) -> Dict[str, str]:
     return {m["name"]: m["revision"] for m in doc["stage1"]["models"]}
 
 
+def stage1_batch_sizes(main_config: str) -> Dict[str, int]:
+    """{model name: batch size} of the Phase 1 models that set ``batch_size`` in ``stage1.models`` (the others are not in the table)."""
+    doc = yaml.safe_load(Path(main_config).read_text(encoding="utf-8"))
+    return {m["name"]: int(m["batch_size"]) for m in doc["stage1"]["models"] if m.get("batch_size") is not None}
+
+
+def batch_size_for(name: str, table: Dict[str, int], default: int, forced: Optional[int] = None) -> Tuple[int, str]:
+    """(batch size, source) of a Phase 2 run: ``forced`` (``--param model.batch_size=...``) for every model, else the model's own Phase 1
+    batch size, else ``params.model.batch_size``. BM25 has no batch size."""
+    if forced is not None:
+        return forced, "--param model.batch_size"
+    if name in table:
+        return table[name], "stage1.models"
+    return default, "params.model.batch_size"
+
+
+def forced_batch_size(params: List[str]) -> Optional[int]:
+    for p in params:
+        if p.startswith("model.batch_size="):
+            return int(p.split("=", 1)[1])
+    return None
+
+
+def batch_size_changes(main_config: str, models: Optional[List[str]] = None) -> List[Dict[str, Any]]:
+    """Models whose Phase 2 batch size differs from ``params.model.batch_size`` (what every model used before the per-model setting)."""
+    doc = yaml.safe_load(Path(main_config).read_text(encoding="utf-8"))
+    default, table = int(doc["params"]["model"]["batch_size"]), stage1_batch_sizes(main_config)
+    names = models if models is not None else [m["name"] for m in doc["stage1"]["models"]]
+    return [{"model": n, "before": default, "now": batch_size_for(n, table, default)[0]} for n in names
+            if batch_size_for(n, table, default)[0] != default]
+
+
 def resolve_revision(name: str, rev: Optional[str], table: Dict[str, str]) -> str:
     """A moving or missing revision (main, empty) is replaced by the commit pinned in the config; unknown models with a
     moving revision are refused. An explicit commit hash is kept as it is."""
@@ -161,7 +193,7 @@ def efficiency_args(args: argparse.Namespace, root: str, eff_cfg: Optional[Dict[
 
 def run_eval_one(model: str, revision: str, chunker: str, size: int, overlap: int, prepared: Path, *, main_config: str,
                  artifacts_root: str, params: List[str], force: bool, dry_run: bool,
-                 eff_args: Optional[List[str]] = None) -> Dict[str, Any]:
+                 eff_args: Optional[List[str]] = None, batch_sizes: Optional[Dict[str, int]] = None) -> Dict[str, Any]:
     d = model_dir(model)
     run_dir = Path(artifacts_root) / "tests" / f"{d}_{chunker}_c{size}_o{overlap}"
     if not force and (run_dir / FINAL_RESULT).is_file() and (run_dir / FINAL_RESULT).stat().st_size > 0:
@@ -182,6 +214,10 @@ def run_eval_one(model: str, revision: str, chunker: str, size: int, overlap: in
             "--param", f"model.name={model}", "--param", f"model.revision={revision}", "--param", f"model.dir={d}",
             "--param", f"chunk.chunker={chunker}", "--param", f"chunk.size={size}", "--param", f"chunk.overlap={overlap}",
             "--param", f"paths.artifacts_root={artifacts_root}"]
+    default_bs = int(yaml.safe_load(Path(main_config).read_text(encoding="utf-8"))["params"]["model"]["batch_size"])
+    bs, bs_source = batch_size_for(model, batch_sizes or {}, default_bs, forced_batch_size(params))
+    if not model.startswith(BM25):
+        argv += ["--param", f"model.batch_size={bs}"]                  # the model's own (Phase 1) batch size; later --param entries still win
     for p in params:
         argv += ["--param", p]
     if split_config.main(argv) != 0:
@@ -190,6 +226,7 @@ def run_eval_one(model: str, revision: str, chunker: str, size: int, overlap: in
     manifest = json.loads((prepared / "manifest.json").read_text(encoding="utf-8"))
     (run_dir / "run_info.json").write_text(json.dumps({
         "model": model, "revision": revision, "chunker": chunker, "size": size, "overlap": overlap,
+        "batch_size": None if model.startswith(BM25) else bs, "batch_size_source": None if model.startswith(BM25) else bs_source,
         "prepared_dir": str(prepared.resolve()), "prepared_key": manifest["key"],
         "prepared_files_sha256": manifest["files_sha256"], "prepare_timing_s": manifest["timing_s"]}, indent=2), encoding="utf-8")
     script = "stages.run_bm25" if model.startswith(BM25) else "stages.run_eval"   # bm25, bm25-k1-2, ...
@@ -299,6 +336,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         check_models_csv(models_csv)
         models = models_from_csv(models_csv) + ([] if args.no_bm25 else [(BM25, "rank_bm25")])
     table = pinned_revisions(args.main_config)
+    bs_table = stage1_batch_sizes(args.main_config)
     models = [(n, resolve_revision(n, r, table)) for n, r in models]
     cells = grid.grid(sizes, overlaps)
     if args.pilot:
@@ -341,7 +379,7 @@ def main(argv: Optional[List[str]] = None) -> int:
                         folder = prep.prepare_config(ch, s, o, main_config=args.main_config, artifacts_root=root,
                                                      params=args.param + (extra if legacy and not name.startswith(BM25) else []), qa_sha256=args.qa_sha256)
                     run_eval_one(name, rev, ch, s, o, folder, main_config=args.main_config, artifacts_root=root,
-                                 params=args.param, force=args.force, dry_run=args.dry_run, eff_args=efficiency_args(args, root, cfg.get("efficiency")))
+                                 params=args.param, force=args.force, dry_run=args.dry_run, eff_args=efficiency_args(args, root, cfg.get("efficiency")), batch_sizes=bs_table)
     hy = cfg.get("hybrid") or {}
     if args.command in ("eval", "all", "hybrid") and hy.get("enabled", False) and not args.no_hybrid and not args.dry_run:
         run_hybrids(root, models, chunkers, cells, k=int(hy.get("k", 60)), depth=int(hy.get("depth", 100)), force=args.force, seed=cfg.get("seed"))
