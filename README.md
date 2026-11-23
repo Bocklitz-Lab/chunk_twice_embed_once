@@ -99,11 +99,40 @@ make report            # statistics, diagnostics, overlap diagnostic, paper tabl
   `full_text.jsonl`), byte-identical to the file of the published runs, and checks all 952 evidence spans.
 - `tools/hybrid.py`: reciprocal rank fusion (k=60) of saved dense and BM25 rankings, same outputs as a normal run, no
   embedding (`params.hybrid`, run automatically by `make eval` / `make pilot`).
+- `tools/rerank.py` (`make rerank`, `params.rerank`): cross-encoder reranking (`BAAI/bge-reranker-v2-m3`, pinned commit,
+  `sentence_transformers.CrossEncoder`) of the saved top-N of a dense run; chunks below rank N keep their order. Post-hoc: no new
+  chunking, labels or embeddings. Primary depth `top_n` (default 50) for the dense models in `params.rerank.models`, plus the
+  `ablation` entries (model / chunker / size / overlap / extra depths; nothing is tied to a size). Resumable.
+- `stages/run_bm25_mteb.py` (`make external-bm25`, `params.external`): BM25 on `ChemNQRetrieval` / `ChemHotpotQARetrieval`, written
+  in the layout of a Phase 1 model (`model_meta.json` + `<Task>.json`) to `artifacts/embedding_models_screening/baselines/`.
+  It is deliberately NOT written to the folder stage 2 screens (and stage 2 skips `bm25*` unless `include_baselines: true`), so BM25
+  can never change the Phase 2 shortlist. Dense models are not re-run on the external tasks.
+- `make hybrid` / `make rerank` run only that step on finished runs (`python -m stages.rerun hybrid|rerank`, same
+  `--models/--chunkers/--sizes/--overlaps` flags); `--no-hybrid` / `--no-rerank` skip them in `eval` / `all`.
+- The report (`make report`, last step of `eval`) writes one table per label type, `table_retrievers_span.{csv,md}` and
+  `table_retrievers_lexical.{csv,md}` (rows: dense models, bm25, dense+bm25 hybrids, dense+rerank@N; columns: chunker x size x
+  overlap read from the runs; Geom@10, nDCG@10, Recall@10, evaluation_time), `table_rerank_ablation.{csv,md}` and
+  `table_external.{csv,md}` (BM25 next to the Phase 1 dense results).
 - `tools/lexical_overlap.py`: question/evidence-span word overlap, BM25 rank of the evidence chunk, BM25 advantage over a
   dense model by overlap bin.
 - All 42 Phase 1 models are pinned to commit hashes in `stage1.models`; `rerun` replaces a moving `main` by the pin.
 - `params.instructor_mask_instruction` (default `false`): INSTRUCTOR masking (instruction tokens left out of the mean
   pooling) for instructor-xl, implemented without the `InstructorEmbedding` package.
+
+### `evaluation_time` (seconds) of the four kinds of runs
+
+`ChemQuest.json: evaluation_time` and `run_manifest.json: timing_s.mteb_evaluation_time_s` (also the `evaluation_time_s` column of
+the run table). Model loading is never counted. The parts of a derived run are stored separately in its `run_manifest.json`.
+
+| run | evaluation_time | what it covers |
+|---|---|---|
+| dense | MTEB's `evaluation_time` | encode corpus and queries, exact search, metrics, dump of the ranking |
+| bm25 | index + search + metrics + dump | `bm25_index_s + bm25_search_s + metrics_s + dump_s`; reading the corpus / queries files is not counted (MTEB loads the dataset before it starts the clock). On the external tasks: index + search + metrics (the Phase 1 dense runs saved no predictions) |
+| hybrid (RRF) | dense + bm25 + `fusion_s` | `dense_evaluation_time_s`, `bm25_evaluation_time_s`, `fusion_s` = read the two rankings + fuse + metrics + dump |
+| rerank | dense + `rerank_s` | `dense_evaluation_time_s`, `rerank_s` = read corpus / queries + score the pairs + reorder + metrics + dump (`score_pairs_s`: the cross-encoder forward passes only); `model_load_s` stored, not counted |
+
+A hybrid and a rerank run need their input runs, so their cost includes the cost of those inputs. If an input run has no time the
+sum is null and a warning is printed. All four kinds are written with both label sets (span primary, lexical next to it).
 
 ## Results
 

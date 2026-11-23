@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-.PHONY: all stage0 stage1 stage2 stage3 stage4-6 stage7 show-configs prepare eval rerun pilot check-identical collect collect-csv report
+.PHONY: all stage0 stage1 stage2 stage3 stage4-6 stage7 show-configs prepare eval rerun pilot hybrid rerank external-bm25 check-identical collect collect-csv report
 
 OVERLAP = 0 16 32 48 64
 SIZE    = 128 384 192 256 320  448 512
@@ -215,6 +215,9 @@ stage7:
 #   make eval               every model (+ BM25) on the prepared folders; finished runs are skipped
 #   make rerun              prepare, then eval
 #   make pilot              the pilot of params.pilot in the main config (own artifacts root, nothing else touched)
+#   make hybrid             only the RRF hybrids (dense + BM25) of the finished runs (also part of eval / rerun / pilot; resumable)
+#   make rerank             only the cross-encoder rerank runs, params.rerank: primary depth + ablation (also part of eval / rerun / pilot; resumable)
+#   make external-bm25      BM25 on ChemNQRetrieval / ChemHotpotQARetrieval (params.external) -> artifacts/embedding_models_screening/baselines
 #   make check-identical    hash the corpus / qrels each model read: byte-identical across models?
 #   make report             statistics, diagnostics, lexical-overlap, paper tables -> results/v2-revision/ (tracked); also the last step of
 #                           eval / rerun / pilot (params.report)
@@ -238,6 +241,16 @@ rerun:
 
 pilot:
 	PYTHONHASHSEED=0 python -m stages.rerun all --pilot $(RERUN_ARGS)
+
+hybrid:
+	PYTHONHASHSEED=0 python -m stages.rerun hybrid --models-csv $(MODELS_CSV) $(RERUN_ARGS)
+
+rerank:
+	PYTHONHASHSEED=0 python -m stages.rerun rerank --models-csv $(MODELS_CSV) $(RERUN_ARGS)
+
+EXTERNAL_ARGS ?=
+external-bm25:
+	PYTHONHASHSEED=0 python -m stages.run_bm25_mteb --main-config $(INPUT_CONFIG) $(EXTERNAL_ARGS)
 
 check-identical:
 	python -m tools.check_identical --tests-root $(TESTS_ROOT) --out $(TESTS_ROOT)/../identical_check.csv
