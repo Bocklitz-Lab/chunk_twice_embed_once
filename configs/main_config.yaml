@@ -316,10 +316,13 @@ params:
   #   model / revision  the cross-encoder and its PINNED commit (sentence_transformers.CrossEncoder; never "main")
   #   top_n             primary depth: every dense run of `models` is reranked at this depth (the main report tables)
   #   models            dense models that are reranked at the primary depth (names as in the runs; [] = every dense run of the
-  #                     invocation). Cost: top_n x 952 pairs per run (~48k pairs at top_n 50), so the default is the three best models.
+  #                     invocation). Cost: top_n x 952 pairs per run (~48k pairs at top_n 50, ~3 min per run at size 256 on an RTX 3090), so the
+  #                     study reranks e5-large-v2 only.
   #   ablation          extra depths for chosen runs (the "rerank depth ablation" table). Each entry: model (name or its last path
   #                     component), chunker, size, overlap (a number, a list or omitted = all) and top_n (a number or a list).
-  #                     Nothing is tied to a size: an entry that matches no dense run of the invocation only prints a warning.
+  #                     Nothing is tied to a size, but every entry must match the grid of the invocation: stages/rerun.py checks this BEFORE
+  #                     any run starts and aborts if a chunker / size / overlap is not part of --chunkers / --sizes / --overlaps (so a changed
+  #                     grid can never silently skip the ablation). The size below must be a chunk size of the final grid; update it with the grid.
   #   batch_size / max_length / fp16   forward-pass settings (max_length counts query + chunk tokens of the reranker tokenizer)
   #   depth             length of the written ranking (like every run); top_n <= depth
   rerank:
@@ -331,7 +334,7 @@ params:
     batch_size: 32
     max_length: 1024
     fp16: true
-    models: [intfloat/e5-large-v2, BAAI/bge-m3, nomic-ai/nomic-embed-text-v1.5]
+    models: [intfloat/e5-large-v2]
     ablation:
       - {model: intfloat/e5-large-v2, chunker: fixed_token, size: 256, overlap: 0, top_n: [20, 100]}
 

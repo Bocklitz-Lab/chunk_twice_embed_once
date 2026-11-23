@@ -20,7 +20,7 @@ def _go(tmp_path, data, *extra, command="all"):
     argv = [command, "--artifacts-root", str(tmp_path / "art"), "--main-config", str(ROOT / "configs/main_config.yaml"),
             "--models", "bm25@rank_bm25", "bm25-b@rank_bm25", "--chunkers", "fixed_token", "--sizes", "128", "--overlaps", "0",
             "--qa-sha256", sha256_file(data / "qa.jsonl"), "--param", f"paths.chemquests_dir={data}",
-            "--param", "pilot.x=1", "--report-dir", str(tmp_path / "report"), *extra]     # the report must not overwrite the tracked tables
+            "--param", "pilot.x=1", "--report-dir", str(tmp_path / "report"), "--no-rerank", *extra]     # the report must not overwrite the tracked tables
     return rerun.main(argv)
 
 

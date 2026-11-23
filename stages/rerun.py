@@ -241,6 +241,14 @@ def main(argv: Optional[List[str]] = None) -> int:
         cells = [(s, o) for s, o in sorted({(s, o) for s in sizes for o in overlaps})]   # the pilot asks for exact cells
     legacy = cfg.get("chunking_tokenizer") == "model" or any(p.startswith("chunking_tokenizer=model") for p in args.param)
     print(f"artifacts root: {root} | models: {[m[0] for m in models]} | chunkers: {chunkers} | cells: {cells}")
+    rr_cfg = cfg.get("rerank") or {}
+    if args.command in ("eval", "all", "rerank") and rr_cfg.get("enabled", False) and not args.no_rerank:
+        from tools import rerank as _rerank
+        bad = _rerank.check_ablation(rr_cfg, chunkers, cells, [n for n, _ in models if not n.startswith(BM25)])
+        if bad and args.pilot:
+            print("[WARN] pilot: " + "; ".join(bad))                  # the pilot has its own small grid
+        elif bad:
+            raise SystemExit("ERROR: the rerank ablation does not fit this grid (fix params.rerank.ablation, or pass --no-rerank):\n  " + "\n  ".join(bad))
     qa_path: Optional[Path] = None
     if not args.dry_run and args.command in ("prepare", "eval", "all"):
         qa_path = ensure_data(args.main_config, root, args.param)

@@ -120,10 +120,12 @@ def run_task(name: str, leaf: Path, *, k1: float = 1.5, b: float = 0.75, lowerca
         timing={**sw.seconds, **retr.timing, "mteb_evaluation_time_s": eval_time},
         extra={"task": name, "splits": list(per_split), "n_docs": n_docs, "n_queries": n_queries, "top_k": top_k,
                "dataset": getattr(task.metadata, "dataset", None)}))
-    main_split = next(iter(per_split))
-    print(f"BM25 {name}: nDCG@10={per_split[main_split]['ndcg_at_10']} Recall@10={per_split[main_split]['recall_at_10']} "
-          f"evaluation_time={eval_time:.1f}s ({n_docs} docs, {n_queries} queries) -> {result_json}")
-    return {"task": name, "status": "done", "path": str(result_json), "evaluation_time": eval_time, "ndcg_at_10": per_split[main_split]["ndcg_at_10"]}
+    # the split that counts is the one stage 2 and the report pick: test > validation > train, else the first
+    main_split = next((sp for sp in ("test", "validation", "train") if sp in per_split), next(iter(per_split)))
+    print(f"BM25 {name}: " + " | ".join(f"{sp}{'*' if sp == main_split else ''}: nDCG@10={sc['ndcg_at_10']} Recall@10={sc['recall_at_10']}" for sp, sc in per_split.items())
+          + f" | evaluation_time={eval_time:.1f}s ({n_docs} docs, {n_queries} queries over {len(per_split)} split(s), * = reported) -> {result_json}")
+    return {"task": name, "status": "done", "path": str(result_json), "evaluation_time": eval_time, "split": main_split,
+            "ndcg_at_10": per_split[main_split]["ndcg_at_10"]}
 
 
 def _append_summary(root: Path, rev: str, results: List[Dict[str, Any]]) -> None:

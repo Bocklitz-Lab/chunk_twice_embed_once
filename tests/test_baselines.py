@@ -397,3 +397,37 @@ def test_mteb_style_scores_break_ties_like_the_per_query_metrics():
     pq = M.per_query_metrics(run, qrels, (1, 10), ["0", "1"])
     assert sc["mrr_at_1"] == pytest.approx(0.5) == pytest.approx((pq["0"]["mrr_at_1"] + pq["1"]["mrr_at_1"]) / 2)
     assert sc["ndcg_at_10"] == pytest.approx(sum(pq[q]["ndcg_at_10"] for q in pq) / 2, abs=1e-5)
+
+
+def test_check_ablation_reports_entries_that_do_not_fit_the_grid():
+    cfg = {"ablation": [{"model": "e5-large-v2", "chunker": "fixed_token", "size": 256, "overlap": 0, "top_n": [20, 100]}]}
+    names = ["intfloat/e5-large-v2", "bge"]
+    assert rerank.check_ablation(cfg, ["fixed_token", "recursive_token"], [(128, 0), (256, 0)], names) == []
+    bad = rerank.check_ablation(cfg, ["fixed_token"], [(128, 0), (384, 0)], names)                        # 256 is not in the grid
+    assert len(bad) == 1 and "matches no configuration" in bad[0] and "[128, 384]" in bad[0]
+    assert len(rerank.check_ablation(cfg, ["recursive_token"], [(256, 0)], names)) == 1                  # chunker not in the grid
+    assert len(rerank.check_ablation(cfg, ["fixed_token"], [(256, 16)], names)) == 1                      # overlap not in the grid
+    assert "not among the evaluated models" in rerank.check_ablation(cfg, ["fixed_token"], [(256, 0)], ["bge"])[0]
+    assert rerank.check_ablation({}, ["fixed_token"], [(256, 0)]) == [] and rerank.check_ablation({"ablation": [{"top_n": 20}]}, ["a"], [(1, 0)]) == []
+
+
+def test_rerun_aborts_before_any_run_when_the_ablation_does_not_fit_the_grid(tmp_path, world):
+    pytest.importorskip("transformers")
+    import yaml
+    from stages import rerun
+    root, prep, tests, dense, bm = world
+    cfg = {"params": {"paths": {"artifacts_root": str(root)}, "hybrid": {"enabled": False},
+                      "rerank": {"enabled": True, "model": "org/rr", "revision": "r", "top_n": 4, "models": [],
+                                 "ablation": [{"model": "org/dense", "chunker": "fixed_token", "size": 999, "top_n": [2]}]}},
+           "stage1": {"models": []}}
+    mc = tmp_path / "main.yaml"
+    mc.write_text(yaml.safe_dump(cfg))
+    argv = ["--artifacts-root", str(root), "--main-config", str(mc), "--models", "org/dense@r1", "bm25@rank_bm25",
+            "--chunkers", "fixed_token", "--sizes", "128", "--overlaps", "0"]
+    before = sorted(p.name for p in tests.iterdir())
+    for command in ("rerank", "eval", "all"):
+        with pytest.raises(SystemExit, match="does not fit this grid"):
+            rerun.main([command, *argv])
+    assert sorted(p.name for p in tests.iterdir()) == before                      # nothing was started
+    assert rerun.main(["rerank", "--no-rerank", *argv]) == 0                       # explicit opt-out
+    assert rerun.main(["hybrid", *argv]) == 0                                      # steps that do not rerank are not blocked

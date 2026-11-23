@@ -280,6 +280,23 @@ def plan_jobs(cells: Dict[tuple, Dict[str, Path]], cfg: Dict[str, Any], *, model
     return sorted(jobs.values(), key=lambda j: (j[2]["chunker"], j[2]["size"], j[2]["overlap"], j[2]["model"], j[1])), warns
 
 
+def check_ablation(cfg: Dict[str, Any], chunkers: Iterable[str], cells: Iterable[Tuple[int, int]], models: Optional[Iterable[str]] = None) -> List[str]:
+    """Problems of ``cfg['ablation']`` against the grid of an invocation (``chunkers`` x ``cells`` = (size, overlap) pairs) and its
+    dense ``models``: an entry whose chunker / size / overlap is in no configuration of the grid, or whose model is not evaluated.
+    Empty list = every entry can run. stages/rerun.py aborts on a problem before any run starts."""
+    wanted = [(ch, s, o) for ch in chunkers for s, o in cells]
+    names = list(models) if models is not None else None
+    sizes = sorted({c[1] for c in wanted})
+    problems = []
+    for k, e in enumerate(cfg.get("ablation") or []):
+        if not any(_field_matches(e.get("chunker"), c[0]) and _field_matches(e.get("size"), c[1]) and _field_matches(e.get("overlap"), c[2]) for c in wanted):
+            problems.append(f"params.rerank.ablation[{k}] {e} matches no configuration of this grid (chunkers {sorted({c[0] for c in wanted})}, sizes {sizes}, "
+                            f"overlaps {sorted({c[2] for c in wanted})})")
+        if names is not None and e.get("model") is not None and not any(_model_matches(str(e["model"]), m) for m in names):
+            problems.append(f"params.rerank.ablation[{k}] model {e['model']!r} is not among the evaluated models {names}")
+    return problems
+
+
 def run_configured(tests_root: Path, cfg: Dict[str, Any], *, models: Optional[Iterable[str]] = None, wanted_cells: Optional[Iterable[tuple]] = None,
                    depth: int = 100, force: bool = False, scorer: Optional[Scorer] = None, dry_run: bool = False) -> List[Dict[str, Any]]:
     """The rerank step: plan the jobs of ``params.rerank`` over the dense runs found in ``tests_root`` and run them (finished runs are

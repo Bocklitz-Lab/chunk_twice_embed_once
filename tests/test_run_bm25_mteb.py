@@ -91,10 +91,16 @@ def test_a_task_with_two_eval_splits_gets_one_score_block_per_split(tmp_path):
                 getattr(self, attr)["validation"] = getattr(self, attr)["test"]
 
     leaf = tmp_path / "bm25_0.2.2" / "bm25" / "0.2.2"
-    X.run_task("Two", leaf, loader=lambda n: Two(), rev="0.2.2")
+    r = X.run_task("Two", leaf, loader=lambda n: Two(), rev="0.2.2")
+    assert r["split"] == "test"                                      # test > validation > train, as stage 2 and the report pick it
     js = json.loads((leaf / "Two.json").read_text())
     assert set(js["scores"]) == {"validation", "test"}
     assert (leaf.parents[1] / "Two_validation_default_predictions.json").exists() and (leaf.parents[1] / "Two_test_default_predictions.json").exists()
+
+
+def test_the_reported_split_follows_the_stage_2_preference(tmp_path):
+    t = FakeTask(*[getattr(fake_loader("x"), a)["test"] for a in ("corpus", "queries", "relevant_docs")], split="train")      # train only
+    assert X.run_task("T", tmp_path / "a" / "bm25" / "v", loader=lambda n: t, rev="v")["split"] == "train"
 
 
 def test_main_reads_tasks_and_paths_from_the_config(tmp_path, monkeypatch):

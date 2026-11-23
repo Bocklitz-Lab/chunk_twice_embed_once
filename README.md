@@ -102,7 +102,9 @@ make report            # statistics, diagnostics, overlap diagnostic, paper tabl
 - `tools/rerank.py` (`make rerank`, `params.rerank`): cross-encoder reranking (`BAAI/bge-reranker-v2-m3`, pinned commit,
   `sentence_transformers.CrossEncoder`) of the saved top-N of a dense run; chunks below rank N keep their order. Post-hoc: no new
   chunking, labels or embeddings. Primary depth `top_n` (default 50) for the dense models in `params.rerank.models`, plus the
-  `ablation` entries (model / chunker / size / overlap / extra depths; nothing is tied to a size). Resumable.
+  `ablation` entries (model / chunker / size / overlap / extra depths; nothing is tied to a size). The study reranks
+  e5-large-v2 only (`params.rerank.models`). `stages/rerun.py` aborts before any run starts if an ablation entry does not fit the
+  grid of the invocation (`--chunkers/--sizes/--overlaps`), so update `params.rerank.ablation` together with the grid. Resumable.
 - `stages/run_bm25_mteb.py` (`make external-bm25`, `params.external`): BM25 on `ChemNQRetrieval` / `ChemHotpotQARetrieval`, written
   in the layout of a Phase 1 model (`model_meta.json` + `<Task>.json`) to `artifacts/embedding_models_screening/baselines/`.
   It is deliberately NOT written to the folder stage 2 screens (and stage 2 skips `bm25*` unless `include_baselines: true`), so BM25
