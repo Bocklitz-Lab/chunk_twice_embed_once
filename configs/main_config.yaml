@@ -384,6 +384,14 @@ params:
   analysis:
     enabled_in_report: false          # true: make report runs `make analysis` as its last step (needs the reports of the main run and of the transfer root)
     out_dir: results/v2-revision/analysis
+    # tools/subfield_breakdown.py (question type, automatic question features, subfield): a group with fewer questions than this gets its numbers and
+    # intervals but no test (no p-value, no contrast)
+    breakdown:
+      min_questions_for_test: 30
+    # tools/question_features_check.py: the seeded sample for the hand check of auto_has_number / auto_has_formula
+    question_features_check:
+      n_questions: 50                 # 25 flagged + 25 not flagged for each feature (the two samples may overlap)
+      seed: 20261121
     token_budgets: [512, 1024, 2048]  # reference-tokenizer tokens handed over to the reader (tools/token_budget.py)
     cover_levels: [0.8, 0.9, 1.0]     # cover-level sensitivity (tools/rescore.py, with paper-level intervals); labeling.cover_level is the primary
     # tools/fragmentation.py: questions whose evidence the small size splits vs the gain at the large size (same strategy, same model, this overlap)

@@ -91,9 +91,13 @@ def _read_jsonl(path: Path, what: str) -> List[Dict[str, Any]]:
     return rows
 
 
-def load(path: Any, qa_jsonl: Any, *, n_questions: int = N_QUESTIONS, subfields: Sequence[str] = SUBFIELDS,
-         question_types: Sequence[str] = QUESTION_TYPES) -> QuestionMetadata:
-    """Read and check the metadata file against ``qa_jsonl`` (see the module docstring). The keyword arguments exist for tests on small fixtures."""
+def load(path: Any, qa_jsonl: Any, *, n_questions: Optional[int] = None, subfields: Optional[Sequence[str]] = None,
+         question_types: Optional[Sequence[str]] = None) -> QuestionMetadata:
+    """Read and check the metadata file against ``qa_jsonl`` (see the module docstring). The keyword arguments (default: the module constants
+    ``N_QUESTIONS``, ``SUBFIELDS``, ``QUESTION_TYPES``, read at call time) exist for tests on small fixtures."""
+    n_questions = N_QUESTIONS if n_questions is None else n_questions
+    subfields = SUBFIELDS if subfields is None else subfields
+    question_types = QUESTION_TYPES if question_types is None else question_types
     path, qa_path = Path(path), Path(qa_jsonl)
     if not path.is_file():
         raise QuestionMetadataError(f"question metadata not found: {path}\nThe question type and the chemistry subfields come only from this file; "

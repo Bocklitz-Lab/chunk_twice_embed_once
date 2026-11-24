@@ -8,7 +8,7 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from analysis_world import build_world
+from analysis_world import build_world, patch_metadata_constants
 from tools import metrics as M, rescore, run_analysis as RA
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -71,13 +71,14 @@ def test_only_and_skip_and_exit_codes():
     assert RA.run(ns(only=["examples"]), lambda *a: 3)["examples"] == "FAILED: exit code 3"
 
 
-def test_end_to_end_with_the_real_tools(tmp_path):
+def test_end_to_end_with_the_real_tools(tmp_path, monkeypatch):
+    patch_metadata_constants(monkeypatch)
     w = build_world(tmp_path / "w")
     out = tmp_path / "out"
     cfg = ns(roots=[str(w["root"])], qa=str(w["qa_path"]), out_dir=str(out), resamples=30, skip=["phase_transfer"])
     st = RA.run(cfg)
     assert set(st.values()) == {"ok"}, st
-    for f in ("token_budget.csv", "breakdown_subfield.csv", "variance_decomposition.csv", "winner_dense_overall.csv", "examples.csv", "fragmentation.csv"):
+    for f in ("token_budget.csv", "breakdown_subfield.csv", "breakdown_question_type.csv", "breakdown_question_features.csv", "question_features.csv", "variance_decomposition.csv", "winner_dense_overall.csv", "examples.csv", "fragmentation.csv"):
         assert (out / f).exists(), f
 
 
