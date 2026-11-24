@@ -285,7 +285,7 @@ REPORT_ARGS ?=
 report:
 	python -m tools.make_report --artifacts-root $(ARTIFACTS_ROOT) --out-dir $(REPORT_DIR) $(REPORT_ARGS)
 
-# Analysis tools on the outputs of the full rerun (token budget, subfield / question type, variance decomposition, winner stability, Phase 1 -> Phase 2
+# Analysis tools on the outputs of the full rerun (token budget, question type / subfield / automatic features, variance decomposition, winner stability, Phase 1 -> Phase 2
 # transfer, examples, fragmentation); paths and settings from the main config; run `make report` first (they read its runs_overview.csv).
 # ANALYSIS_ARGS e.g. --only token_budget examples, --skip phase_transfer, --resamples 1000. params.analysis.enabled_in_report: true runs it at the end of make report.
 ANALYSIS_ARGS ?=
