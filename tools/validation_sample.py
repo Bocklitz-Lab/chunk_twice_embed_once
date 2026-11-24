@@ -7,9 +7,12 @@ and writes one sheet per annotator.
 
 Sample (``params.validation`` in the main config; command-line options override):
   * N questions (default 100), seeded;
-  * stratified by the FIRST subfield listed in ``metadata.jsonl: fields_of_study`` of the question's paper (a paper without a label is the stratum
-    "unlabelled"), at least ``min_per_subfield`` (default 2) questions per stratum where the stratum has that many; the rest is allocated in
-    proportion to the stratum size (largest remainder), within a stratum questions are drawn at random;
+  * stratified by the OFFICIAL question type of ``question_metadata.jsonl`` (4 exclusive strata; allocated in proportion to the stratum size, largest
+    remainder; within a stratum questions are drawn at random). The chemistry subfields are the labels of the QUESTION (one or two per question, a set,
+    not a ranking: the order of the two names is never used), not the paper-level ``fields_of_study``. Every one of the 17 subfields must then appear in
+    at least ``min_per_subfield`` (default 2) sampled questions: a subfield below that is topped up, in alphabetical order of the subfields, by drawing
+    (seeded) an unsampled question that carries it and removing (seeded) a sampled question of the SAME type that is not needed for any subfield minimum,
+    so the number per type does not change (any type is used only if the type has no such question). Fully deterministic given the seed;
   * the order of the items is shuffled (seeded) and identical in every sheet.
 For each question the sheet shows the question, the paper, the span with ``context_chars`` (default 300) characters of context on each side, and for
 each of the configurations (default fixed-token 128/0, fixed-token 512/0, hierarchical-section 512/0) the chunks the rule labelled relevant.
@@ -21,7 +24,7 @@ Annotator columns (answer yes / partial / no):
   comment                   free text
 
 Outputs in ``--out-dir``: ``validation_sample.csv`` (master, all columns, answers empty), ``validation_sheet_<annotator>.csv`` and ``.md`` (one per
-annotator, same order), ``validation_sample_summary.json`` (seed, strata, configurations, prepared-folder keys). ``tools/kappa.py`` compares two filled sheets.
+annotator, same order), ``validation_sample_summary.json`` (seed, questions per type and per subfield, top-ups, configurations, prepared-folder keys). ``tools/kappa.py`` compares two filled sheets.
 
   python -m tools.validation_sample --qa artifacts/chemquests_hf_db/qa.jsonl --prepared-root artifacts/prepared --out-dir results/validation
 """
@@ -43,11 +46,11 @@ _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _REPO_ROOT not in sys.path:
     sys.path.insert(0, _REPO_ROOT)
 
-from pipeline_lib import config_params  # noqa: E402
+from pipeline_lib import config_params, question_metadata as QM  # noqa: E402
+from pipeline_lib.dataset_pin import QUESTION_METADATA_FILE  # noqa: E402
 from pipeline_lib.span_labels import norm_doc_id, qrels_filename  # noqa: E402
 
 ANSWERS = ("yes", "partial", "no")
-UNLABELLED = "unlabelled"
 _FOLDER = re.compile(r"^(?P<chunker>.+)_c(?P<size>\d+)_o(?P<overlap>\d+)__(?P<key>[0-9a-f]+)$")
 
 
@@ -66,17 +69,6 @@ def cfg_name(c: Dict[str, Any]) -> str:
 # ------------------------------------------------------------------------------------------------------------------
 # the sample
 # ------------------------------------------------------------------------------------------------------------------
-def first_subfields(metadata_jsonl: Any) -> Dict[str, str]:
-    """{normalised paper id: first listed subfield, or 'unlabelled'}."""
-    out: Dict[str, str] = {}
-    for line in open(metadata_jsonl, encoding="utf-8"):
-        if line.strip():
-            r = json.loads(line)
-            f = r.get("fields_of_study") or []
-            out[norm_doc_id(r["corpus_id"])] = f[0] if f else UNLABELLED
-    return out
-
-
 def allocate(sizes: Dict[str, int], n: int, min_per: int) -> Dict[str, int]:
     """Questions per stratum: ``min_per`` (or all, for a stratum that is smaller) first, the rest in proportion to the size (largest remainder).
     If the minimums alone exceed ``n`` they are lowered to what fits (equal share, rarest strata first). Never more than a stratum holds."""
@@ -104,18 +96,48 @@ def allocate(sizes: Dict[str, int], n: int, min_per: int) -> Dict[str, int]:
     return alloc
 
 
-def draw_sample(qa_rows: Sequence[Dict[str, Any]], subfield_of_paper: Dict[str, str], n: int, seed: int, min_per: int) -> List[int]:
-    """Row indices of ``qa_rows`` (= query ids) of the sample, in a shuffled order that depends only on the seed."""
-    by_stratum: Dict[str, List[int]] = defaultdict(list)
-    for i, r in enumerate(qa_rows):
-        by_stratum[subfield_of_paper.get(norm_doc_id(r["corpus_id"]), UNLABELLED)].append(i)
-    alloc = allocate({s: len(v) for s, v in by_stratum.items()}, n, min_per)
+def draw_sample(types: Sequence[str], subfields: Sequence[Sequence[str]], n: int, seed: int, min_per_subfield: int) -> List[int]:
+    """Row indices of the questions (= query ids) of the sample, in a shuffled order that depends only on the seed.
+
+    ``types[i]`` is the question type and ``subfields[i]`` the set of subfields of question i. Strata: the types. Then every subfield is topped up to
+    ``min_per_subfield`` questions (see the module docstring); a subfield that has fewer questions than that in the whole data is simply taken as often as it occurs."""
+    by_type: Dict[str, List[int]] = defaultdict(list)
+    for i, t in enumerate(types):
+        by_type[t].append(i)
+    alloc = allocate({t: len(v) for t, v in by_type.items()}, n, 0)
     rng = random.Random(seed)
     chosen: List[int] = []
-    for s in sorted(by_stratum):                                      # sorted: the draw does not depend on dict order
-        chosen += rng.sample(by_stratum[s], alloc[s])
+    for t in sorted(by_type):                                         # sorted: the draw does not depend on dict order
+        chosen += rng.sample(by_type[t], alloc[t])
+    chosen = top_up_subfields(chosen, types, subfields, min_per_subfield, rng)
     rng.shuffle(chosen)
     return chosen
+
+
+def top_up_subfields(chosen: Sequence[int], types: Sequence[str], subfields: Sequence[Sequence[str]], min_per: int, rng: random.Random) -> List[int]:
+    """Swap questions so that every subfield occurs in at least ``min_per`` chosen questions (or in all questions that carry it); the type counts are kept."""
+    chosen_set = set(chosen)
+    names = sorted({s for subs in subfields for s in subs})
+    carrying = {s: sorted(i for i, subs in enumerate(subfields) if s in subs) for s in names}
+    count = {s: sum(1 for i in chosen_set if s in subfields[i]) for s in names}
+    for sub in names:
+        target = min(min_per, len(carrying[sub]))
+        while count[sub] < target:
+            add = rng.choice([i for i in carrying[sub] if i not in chosen_set])
+            victims = lambda same: [j for j in sorted(chosen_set) if sub not in subfields[j] and (not same or types[j] == types[add])      # noqa: E731
+                                    and all(count[s] - 1 >= min(min_per, len(carrying[s])) for s in subfields[j])]
+            pool = victims(True) or victims(False)
+            if not pool:
+                raise ValueError(f"cannot give subfield {sub!r} {target} questions in a sample of {len(chosen_set)} without breaking another subfield")
+            out = rng.choice(pool)
+            chosen_set.remove(out)
+            chosen_set.add(add)
+            for s in subfields[out]:
+                count[s] -= 1
+            for s in subfields[add]:
+                count[s] += 1
+    # keep the original order of the surviving questions, then the new ones in index order: the final shuffle makes the order irrelevant
+    return [i for i in chosen if i in chosen_set] + sorted(chosen_set - set(chosen))
 
 
 # ------------------------------------------------------------------------------------------------------------------
@@ -159,7 +181,7 @@ def overlap_chars(a: int, b: int, s: int, e: int) -> int:
 
 
 def build_items(qa_rows: Sequence[Dict[str, Any]], ids: Sequence[int], *, full_text: Dict[str, str], metadata: Dict[str, Dict[str, Any]],
-                subfield_of_paper: Dict[str, str], configs: Sequence[Dict[str, Any]], labelled: Dict[str, Tuple[Dict[str, List[str]], Dict[str, Dict[str, Any]]]],
+                labels: QM.QuestionMetadata, configs: Sequence[Dict[str, Any]], labelled: Dict[str, Tuple[Dict[str, List[str]], Dict[str, Dict[str, Any]]]],
                 context_chars: int) -> List[Dict[str, Any]]:
     items = []
     for pos, qid in enumerate(ids, start=1):
@@ -168,7 +190,7 @@ def build_items(qa_rows: Sequence[Dict[str, Any]], ids: Sequence[int], *, full_t
         s, e = int(r["start_index"]), int(r["end_index"])
         before, span, after = span_with_context(full_text[doc], s, e, context_chars)
         item = {"item": pos, "query_id": str(qid), "corpus_id": doc, "paper_title": (metadata.get(doc) or {}).get("title", ""),
-                "subfield": subfield_of_paper.get(doc, UNLABELLED), "question": r["question"], "span_start": s, "span_end": e,
+                "question_type": labels.question_type[qid], "subfields": " | ".join(labels.subfields[qid]), "question": r["question"], "span_start": s, "span_end": e,
                 "context_before": before, "span_text": span, "context_after": after}
         for c in configs:
             name = cfg_name(c)
@@ -188,7 +210,7 @@ def answer_columns(configs: Sequence[Dict[str, Any]]) -> List[str]:
 
 
 def master_columns(configs: Sequence[Dict[str, Any]]) -> List[str]:
-    cols = ["item", "query_id", "corpus_id", "paper_title", "subfield", "question", "span_start", "span_end", "context_before", "span_text", "context_after"]
+    cols = ["item", "query_id", "corpus_id", "paper_title", "question_type", "subfields", "question", "span_start", "span_end", "context_before", "span_text", "context_after"]
     for c in configs:
         n = cfg_name(c)
         cols += [f"chunks_{n}_n", f"chunks_{n}_ids", f"chunks_{n}_share_of_span", f"chunks_{n}_text"]
@@ -226,26 +248,29 @@ def markdown_sheet(items: List[Dict[str, Any]], configs: Sequence[Dict[str, Any]
 
 
 def run(qa: Any, metadata: Any, full_text: Any, prepared_root: Any, out_dir: Any, *, n: int, seed: int, min_per: int, configs: Sequence[Dict[str, Any]],
-        context_chars: int, annotators: Sequence[str], cover_level: Any) -> Dict[str, Any]:
+        context_chars: int, annotators: Sequence[str], cover_level: Any, question_metadata: Any = None) -> Dict[str, Any]:
     qa_rows = [json.loads(l) for l in open(qa, encoding="utf-8") if l.strip()]
-    sub = first_subfields(metadata)
+    labels = QM.load(question_metadata or Path(qa).with_name(QUESTION_METADATA_FILE), qa)     # raises, naming the download command, if missing or not matching
     meta = {norm_doc_id(json.loads(l)["corpus_id"]): json.loads(l) for l in open(metadata, encoding="utf-8") if l.strip()}
     texts = {norm_doc_id(json.loads(l)["corpus_id"]): json.loads(l)["text"] for l in open(full_text, encoding="utf-8") if l.strip()}
-    ids = draw_sample(qa_rows, sub, n, seed, min_per)
+    ids = draw_sample(labels.question_type, labels.subfields, n, seed, min_per)
     prepared = {cfg_name(c): find_prepared(prepared_root, c) for c in configs}
     labelled = {name: load_labelled_chunks(p, cover_level) for name, p in prepared.items()}
-    items = build_items(qa_rows, ids, full_text=texts, metadata=meta, subfield_of_paper=sub, configs=configs, labelled=labelled, context_chars=context_chars)
+    items = build_items(qa_rows, ids, full_text=texts, metadata=meta, labels=labels, configs=configs, labelled=labelled, context_chars=context_chars)
     out = Path(out_dir)
     cols = master_columns(configs)
     write_csv(out / "validation_sample.csv", items, cols)
     for a in annotators:
         write_csv(out / f"validation_sheet_{a}.csv", items, cols)
         (out / f"validation_sheet_{a}.md").write_text(markdown_sheet(items, configs, a), encoding="utf-8")
-    strata = defaultdict(int)
+    per_type, per_subfield = defaultdict(int), defaultdict(int)
     for it in items:
-        strata[it["subfield"]] += 1
+        per_type[it["question_type"]] += 1
+        for s_ in it["subfields"].split(" | "):
+            per_subfield[s_] += 1
     summary = {"n_questions": len(items), "seed": seed, "min_per_subfield": min_per, "context_chars": context_chars, "cover_level": cover_level,
-               "questions_per_subfield": dict(sorted(strata.items())), "n_papers": len({it["corpus_id"] for it in items}),
+               "stratified_by": "question_type", "question_metadata": str(labels.path), "questions_per_type": dict(sorted(per_type.items())),
+               "questions_per_subfield": dict(sorted(per_subfield.items())), "n_papers": len({it["corpus_id"] for it in items}),
                "configurations": {cfg_name(c): {"prepared": str(prepared[cfg_name(c)]), "manifest_sha256": hashlib.sha256((prepared[cfg_name(c)] / "manifest.json").read_bytes()).hexdigest()}
                                   for c in configs},
                "annotators": list(annotators), "answers": list(ANSWERS), "answer_columns": answer_columns(configs),
@@ -258,7 +283,8 @@ def main(argv: Optional[List[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--main-config", default=str(config_params.DEFAULT_MAIN_CONFIG))
     ap.add_argument("--qa", required=True)
-    ap.add_argument("--metadata", help="metadata.jsonl (default: next to qa.jsonl)")
+    ap.add_argument("--metadata", help="metadata.jsonl, for the paper titles (default: next to qa.jsonl)")
+    ap.add_argument("--question-metadata", help="question_metadata.jsonl, the official question type and subfields (default: next to qa.jsonl)")
     ap.add_argument("--full-text", help="full_text.jsonl (default: next to qa.jsonl)")
     ap.add_argument("--prepared-root", required=True, help="folder with the prepared configurations (<artifacts>/prepared)")
     ap.add_argument("--out-dir", required=True)
@@ -274,8 +300,8 @@ def main(argv: Optional[List[str]] = None) -> int:
                   n=args.n or int(st["n_questions"]), seed=args.seed if args.seed is not None else int(st["seed"]),
                   min_per=args.min_per_subfield if args.min_per_subfield is not None else int(st["min_per_subfield"]), configs=st["configurations"],
                   context_chars=args.context_chars or int(st["context_chars"]), annotators=args.annotators or st["annotators"],
-                  cover_level=config_params.load_params(args.main_config)["labeling"]["cover_level"])
-    print(f"{summary['n_questions']} questions from {summary['n_papers']} papers, {len(summary['questions_per_subfield'])} subfields -> {args.out_dir}")
+                  cover_level=config_params.load_params(args.main_config)["labeling"]["cover_level"], question_metadata=args.question_metadata)
+    print(f"{summary['n_questions']} questions from {summary['n_papers']} papers, {len(summary['questions_per_subfield'])} subfields, {len(summary['questions_per_type'])} types -> {args.out_dir}")
     return 0
 
 

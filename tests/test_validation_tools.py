@@ -6,6 +6,7 @@ from pathlib import Path
 import numpy as np
 import pytest
 
+from pipeline_lib import question_metadata as QM
 from tools import kappa as K, validation_sample as V
 
 CONFIGS = [{"chunker": "fixed_token", "size": 128, "overlap": 0}, {"chunker": "fixed_token", "size": 512, "overlap": 0},
@@ -27,30 +28,54 @@ def test_allocation_when_the_minimum_does_not_fit_or_the_data_is_small():
     assert sum(V.allocate({"a": 3, "b": 4}, 100, 2).values()) == 7   # asks for more than exists: everything
 
 
-def _qa(n_papers=30, per=4):
-    return [{"question": f"q{p}-{j}", "corpus_id": f"{p:03d}", "content": "w", "start_index": 0, "end_index": 1} for p in range(n_papers) for j in range(per)]
+TYPES = ["Conceptual", "Mechanistic", "Applied", "Synthetic and Experimental"]
+SUBS = [f"Sub{k:02d}" for k in range(17)]
 
 
-def _fields(n_papers=30):
-    names = ["Organic", "Physical", "Analytical", "Materials", "Polymer"]
-    return {f"{p}": names[p % 5] for p in range(1, n_papers)} | {"0": V.UNLABELLED}      # paper 0 has no label (ids are normalised: 000 -> 0)
+def _labels(n=300):
+    """Question i: type i % 4 (exclusive), one or two subfields; subfield 16 is rare (3 questions), 15 occurs twice only for questions of one type."""
+    types = [TYPES[i % 4] for i in range(n)]
+    subs = [(SUBS[i % 14], SUBS[(i * 5 + 3) % 14]) if i % 3 else (SUBS[i % 14],) for i in range(n)]
+    subs = [tuple(dict.fromkeys(x)) for x in subs]
+    for i in (7, 8, 9):
+        subs[i] = subs[i] + (SUBS[16],)
+    for i in (11, 12, 13, 14):
+        subs[i] = subs[i] + (SUBS[14],)
+    subs[1] = subs[1] + (SUBS[15],)                                  # type Mechanistic
+    subs[5] = subs[5] + (SUBS[15],)                                  # type Mechanistic
+    return types, subs
 
 
-def test_sample_is_seeded_stratified_and_shuffled():
-    qa, sub = _qa(), _fields()
-    s1 = V.draw_sample(qa, sub, 20, seed=5, min_per=2)
-    assert s1 == V.draw_sample(qa, sub, 20, seed=5, min_per=2) and s1 != V.draw_sample(qa, sub, 20, seed=6, min_per=2)
-    assert len(s1) == len(set(s1)) == 20
-    strata = [sub.get(str(int(qa[i]["corpus_id"])), V.UNLABELLED) for i in s1]
-    assert {s: strata.count(s) for s in set(strata)}.keys() == set(sub.values()) and all(strata.count(s) >= 2 for s in set(strata))
+def test_sample_is_seeded_stratified_by_type_and_has_every_subfield_twice():
+    types, subs = _labels()
+    s1 = V.draw_sample(types, subs, 100, seed=5, min_per_subfield=2)
+    assert s1 == V.draw_sample(types, subs, 100, seed=5, min_per_subfield=2) and s1 != V.draw_sample(types, subs, 100, seed=6, min_per_subfield=2)
+    assert len(s1) == len(set(s1)) == 100
+    assert {t: sum(types[i] == t for i in s1) for t in TYPES} == {t: 25 for t in TYPES}          # 4 exclusive strata, proportional
+    for name in SUBS:
+        assert sum(name in subs[i] for i in s1) >= 2, name
     assert s1 != sorted(s1)                                          # shuffled, not in stratum or file order
 
 
-def test_first_listed_subfield_and_unlabelled(tmp_path):
-    f = tmp_path / "meta.jsonl"
-    f.write_text("\n".join(json.dumps(r) for r in [{"corpus_id": "7", "fields_of_study": ["Organic Chemistry", "Catalysis"]},
-                                                    {"corpus_id": "008", "fields_of_study": []}, {"corpus_id": "9"}]))
-    assert V.first_subfields(f) == {"7": "Organic Chemistry", "8": V.UNLABELLED, "9": V.UNLABELLED}
+def test_top_up_keeps_the_type_counts_and_ignores_the_order_of_the_two_labels():
+    types, subs = _labels()
+    base = V.draw_sample(types, subs, 100, seed=5, min_per_subfield=0)
+    flipped = [tuple(reversed(s)) for s in subs]
+    assert V.draw_sample(types, flipped, 100, seed=5, min_per_subfield=2) == V.draw_sample(types, flipped, 100, seed=5, min_per_subfield=2)
+    assert {t: sum(types[i] == t for i in base) for t in TYPES} == {t: 25 for t in TYPES}
+    # the same sets in another order give the same sample: the top-up depends on the sets, not on the listed order
+    assert sorted(V.draw_sample(types, subs, 100, seed=5, min_per_subfield=2)) == sorted(V.draw_sample(types, flipped, 100, seed=5, min_per_subfield=2))
+
+
+def test_a_subfield_with_fewer_questions_than_the_minimum_is_taken_whole():
+    types = [TYPES[i % 4] for i in range(40)]
+    subs = [("A",)] * 39 + [("A", "B")]
+    s = V.draw_sample(types, subs, 10, seed=1, min_per_subfield=2)
+    assert len(s) == 10 and 39 in s                                   # B has one question only: it is in the sample
+
+
+def test_the_old_paper_level_rule_is_gone():
+    assert not hasattr(V, "first_subfields") and not hasattr(V, "UNLABELLED")
 
 
 def test_span_context_is_cut_at_the_document_ends():
@@ -72,7 +97,10 @@ def _world(tmp_path):
             qa.append({"question": f"what about {p}-{j}?", "corpus_id": f"{p:03d}", "content": text_of(p)[s:s + 30], "start_index": s, "end_index": s + 30})
     d = tmp_path / "chem"
     d.mkdir()
-    for name, rows in (("qa.jsonl", qa), ("metadata.jsonl", meta), ("full_text.jsonl", full)):
+    subs3 = [["Organic"], ["Physical", "Analytical"], ["Analytical"]]
+    qmeta = [{"question_id": f"q{i:04d}", "corpus_id": r["corpus_id"], "question": r["question"], "question_type": TYPES[i % 4],
+              "chemistry_subfields": subs3[(i // 3 + i) % 3]} for i, r in enumerate(qa)]
+    for name, rows in (("qa.jsonl", qa), ("metadata.jsonl", meta), ("full_text.jsonl", full), ("question_metadata.jsonl", qmeta)):
         (d / name).write_text("".join(json.dumps(r) + "\n" for r in rows))
     prep = tmp_path / "prepared"
     for c in CONFIGS:
@@ -97,16 +125,22 @@ def _world(tmp_path):
     return d, prep
 
 
-def test_end_to_end_sheets(tmp_path):
+def test_end_to_end_sheets(tmp_path, monkeypatch):
+    monkeypatch.setattr(QM, "N_QUESTIONS", 18)
+    monkeypatch.setattr(QM, "SUBFIELDS", ("Analytical", "Organic", "Physical"))
     d, prep = _world(tmp_path)
     out = tmp_path / "out"
     summ = V.run(d / "qa.jsonl", d / "metadata.jsonl", d / "full_text.jsonl", prep, out, n=9, seed=3, min_per=2, configs=CONFIGS, context_chars=40,
                  annotators=["ann_a", "ann_b"], cover_level=0.9)
     assert summ["n_questions"] == 9 and set(summ["questions_per_subfield"]) == {"Organic", "Physical", "Analytical"} and min(summ["questions_per_subfield"].values()) >= 2
+    assert summ["stratified_by"] == "question_type" and sum(summ["questions_per_type"].values()) == 9 and set(summ["questions_per_type"]) <= set(TYPES)
     master = list(csv.DictReader(open(out / "validation_sample.csv")))
     a, b = (list(csv.DictReader(open(out / f"validation_sheet_{n}.csv"))) for n in ("ann_a", "ann_b"))
     assert [r["query_id"] for r in a] == [r["query_id"] for r in b] == [r["query_id"] for r in master] == summ["query_ids"]
     r = master[0]
+    q_meta = [json.loads(l) for l in open(d / "question_metadata.jsonl")]
+    assert r["question_type"] == q_meta[int(r["query_id"])]["question_type"] and r["subfields"].split(" | ") == q_meta[int(r["query_id"])]["chemistry_subfields"]
+    assert "subfield" not in r
     for col in ("span_correct", "span_sufficient", "chunks_sufficient_fixed_token_c128_o0", "chunks_sufficient_fixed_token_c512_o0",
                 "chunks_sufficient_hierarchical_section_c512_o0", "comment"):
         assert col in r and r[col] == ""                                    # the answers are empty

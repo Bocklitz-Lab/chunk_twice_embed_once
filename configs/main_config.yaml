@@ -364,8 +364,9 @@ params:
       d: shortlisted retrieval-tuned
       e: domain-pretrained + citation-contrastive tuning (SPECTER; outside a-d)
 
-  # Manual validation of the span labels (tools/validation_sample.py, tools/kappa.py): a seeded sample of questions, stratified by the FIRST subfield
-  # listed for the paper (a paper without a label is the stratum "unlabelled"), at least min_per_subfield questions per stratum where it has that many.
+  # Manual validation of the span labels (tools/validation_sample.py, tools/kappa.py): a seeded sample of questions, stratified by the official
+  # question type (4 exclusive strata; question_metadata.jsonl), topped up so that every one of the 17 question-level subfields has at least
+  # min_per_subfield sampled questions (the two subfields of a question are a set, not a ranking).
   # Each item shows the question, the span with context_chars characters of context on each side and, for each configuration below, the chunks that the
   # span rule (labeling.cover_level) labelled relevant. One sheet per annotator, same order. Run `make prepare` first (the sheets read the prepared folders).
   validation:
