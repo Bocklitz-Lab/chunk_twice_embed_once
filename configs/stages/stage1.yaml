@@ -1,5 +1,9 @@
 output_root: artifacts/embedding_models_screening/validation_prompts
 seed: 20261121
+save_per_query: true
+eval_split:
+  ChemNQRetrieval: test
+  ChemHotpotQARetrieval: test
 use_prompts: true
 instructor_mask_instruction: true
 model_prompts:

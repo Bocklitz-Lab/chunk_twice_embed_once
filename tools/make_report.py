@@ -46,7 +46,7 @@ from pipeline_lib.dataset_pin import question_metadata_provenance, sha256_file  
 from pipeline_lib.grid import CHUNKERS as CHUNKER_ORDER  # noqa: E402     # only the display order of the chunkers; sizes / overlaps come from the runs
 from pipeline_lib.run_manifest import git_info, package_versions  # noqa: E402
 from pipeline_lib.truncation import PHASE1_COLUMNS, collect_phase1  # noqa: E402
-from tools import check_identical, collect_runs, hybrid, label_stats_table, lexical_overlap, rescore, stats  # noqa: E402
+from tools import check_identical, collect_runs, phase1_intervals, hybrid, label_stats_table, lexical_overlap, rescore, stats  # noqa: E402
 from pipeline_lib import config_params, phase1_split  # noqa: E402
 
 BM25 = "bm25"
@@ -77,6 +77,7 @@ DESCRIPTIONS = {
     "table_rerank_ablation.md": "Same table as Markdown.",
     "table_external.csv": "External MTEB tasks (Phase 1): BM25 next to the dense models, Geom@10, nDCG@10, Recall@10, evaluation_time per task.",
     "table_external.md": "Same table as Markdown.",
+    "table_phase1_ci.csv": "Phase 1 (query level): Geom@10 of each model and task on the configured split with 95% query-level bootstrap CI, observed rank, and the share of resamples in which the model is in the top 20% of its task and of the union (shortlist stability).",
     "identical_check.csv": "Were corpus, queries, chunks and qrels byte-identical for all models of a configuration (and equal to the prepared folder)?",
 }
 
@@ -265,6 +266,12 @@ def rerank_ablation_rows(overview: List[Dict[str, Any]]) -> List[Dict[str, Any]]
     return rows
 
 
+def _top_percent() -> float:
+    """``top_percent`` of stage 2 (the share of models that the shortlist keeps per task)."""
+    import yaml
+    return float(yaml.safe_load(Path(config_params.DEFAULT_MAIN_CONFIG).read_text(encoding="utf-8"))["stage2"]["top_percent"])
+
+
 def external_rows(roots: List[Path], eval_split: Optional[Dict[str, str]] = None, n_queries: Optional[Dict[str, Dict[str, int]]] = None) -> List[Dict[str, Any]]:
     """One row per model found under ``roots`` (a leaf folder holds model_meta.json and <Task>.json files, the layout of Phase 1 and of
     stages/run_bm25_mteb.py): Geom@10 = sqrt(nDCG@10 x Recall@10), nDCG@10, Recall@10, evaluation_time per task. The first root that has
@@ -411,6 +418,11 @@ def build_report(artifacts_root: str | Path, out_dir: str | Path, qa_jsonl: Opti
         stats._write(heavy / "table_external.csv", ext_rows)
         (heavy / "table_external.md").write_text(_md_table("External MTEB tasks: BM25 and the dense Phase 1 models", ext_rows), encoding="utf-8")
     steps["external_rows"] = len(ext_rows)
+    p1_ci = phase1_intervals.analyse([Path(r) for r in (external_roots or [])], phase1_split.eval_splits(), top_percent=_top_percent(),
+                                     resamples=resamples, seed=seed)
+    if p1_ci:
+        stats._write(heavy / "table_phase1_ci.csv", p1_ci)
+    steps["phase1_ci_rows"] = len(p1_ci)
 
     # ---- the small files, tracked by git
     out = Path(out_dir)

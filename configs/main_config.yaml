@@ -478,6 +478,7 @@ params:
   # Do not change this to compare with the paper: a rerun with another split gives another shortlist (docs/PAPER_NOTES_phase1_split.md).
   phase1:
     eval_split: {ChemNQRetrieval: test, ChemHotpotQARetrieval: test}
+    save_per_query: true             # stage 1 also writes the top-100 run and per-query nDCG@10 / Recall@10 of that split (never changes an MTEB score)
     n_queries:                       # queries per split, counted in the dataset files (BASF-AI/ChemHotpotQARetrieval, BASF-AI/ChemNQRetrieval)
       ChemNQRetrieval: {test: 27}
       ChemHotpotQARetrieval: {train: 180, dev: 8, test: 18}
@@ -510,6 +511,8 @@ params:
 stage1:
   output_root: ${params.paths.top_performer_input}
   seed: ${params.seed}
+  save_per_query: ${params.phase1.save_per_query}
+  eval_split: ${params.phase1.eval_split}
   use_prompts: ${params.use_prompts}
   instructor_mask_instruction: ${params.instructor_mask_instruction}
   model_prompts: ${params.model_prompts}
