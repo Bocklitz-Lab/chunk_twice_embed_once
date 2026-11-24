@@ -324,7 +324,7 @@ def test_external_rows_put_bm25_next_to_the_dense_models(tmp_path):
 
     phase1, base = tmp_path / "validation", tmp_path / "baselines"
     leaf(phase1, "org_dense", "r1", "ChemNQRetrieval", 0.5, 0.8, 100.0)
-    leaf(phase1, "org_dense", "r1", "ChemHotpotQARetrieval", 0.4, 0.6, 50.0, split="train")
+    leaf(phase1, "org_dense", "r1", "ChemHotpotQARetrieval", 0.4, 0.6, 50.0, split="test")
     leaf(base, "bm25", "0.2.2", "ChemNQRetrieval", 0.45, 0.7, 2.0)
     leaf(tmp_path / "validation_results", "org_dense", "r1", "ChemNQRetrieval", 0.1, 0.1, 1.0)         # the first root wins
     rows = R.external_rows([phase1, base, tmp_path / "validation_results", tmp_path / "missing"])
@@ -332,7 +332,13 @@ def test_external_rows_put_bm25_next_to_the_dense_models(tmp_path):
     bm, de = rows
     assert de["ChemNQRetrieval__geom_at_10"] == pytest.approx((0.5 * 0.8) ** 0.5) and de["ChemNQRetrieval__ndcg_at_10"] == 0.5
     assert de["ChemHotpotQARetrieval__recall_at_10"] == 0.6 and bm["ChemHotpotQARetrieval__geom_at_10"] is None and bm["ChemNQRetrieval__evaluation_time_s"] == 2.0
+    assert de["ChemNQRetrieval__split"] == "test" and de["ChemNQRetrieval__n_queries"] == 27 and de["ChemHotpotQARetrieval__n_queries"] == 18
     assert R.external_rows([]) == []
+    # a result file without the configured split stops the table: no fallback to train
+    leaf(tmp_path / "other", "org_x", "r1", "ChemHotpotQARetrieval", 0.4, 0.6, 50.0, split="train")
+    from pipeline_lib.phase1_split import Phase1SplitError
+    with pytest.raises(Phase1SplitError):
+        R.external_rows([tmp_path / "other"])
 
 
 def test_report_includes_the_external_table(tmp_path, world):

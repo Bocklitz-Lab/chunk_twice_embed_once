@@ -4,8 +4,8 @@ root_dir: "artifacts/embedding_models_screening"
 # Subdir to scan inside root (exactly matches your structure)
 results_subdir: "validation"
 
-# Which split(s) to prefer when extracting nDCG@10 (first match wins)
-split_preference: ["test", "validation", "train"]
+# Split that is scored, per task (no fallback order; a missing split stops the screening)
+eval_split: {ChemNQRetrieval: test, ChemHotpotQARetrieval: test}
 
 # Metric key to use (MTEB uses ndcg_at_10; falls back to main_score if missing)
 metric_key: "ndcg_at_10"

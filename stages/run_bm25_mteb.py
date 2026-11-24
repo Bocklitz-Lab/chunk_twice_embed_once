@@ -36,7 +36,7 @@ if str(_REPO_ROOT) not in sys.path:
 
 import yaml  # noqa: E402
 
-from pipeline_lib import run_outputs  # noqa: E402
+from pipeline_lib import phase1_split, run_outputs  # noqa: E402
 from pipeline_lib.bm25_retriever import BM25Retriever  # noqa: E402
 from pipeline_lib.run_manifest import Stopwatch, build_manifest, package_versions, set_seeds, write_manifest  # noqa: E402
 
@@ -71,7 +71,7 @@ def split_data(task, split: str) -> Tuple[Dict[str, Dict[str, str]], Dict[str, s
 
 def run_task(name: str, leaf: Path, *, k1: float = 1.5, b: float = 0.75, lowercase: bool = True, top_k: int = 100,
              force: bool = False, seed: Optional[int] = None, config_path: Optional[str] = None,
-             loader: Optional[Callable[[str], Any]] = None, rev: Optional[str] = None) -> Dict[str, Any]:
+             loader: Optional[Callable[[str], Any]] = None, rev: Optional[str] = None, eval_split: Optional[Dict[str, str]] = None) -> Dict[str, Any]:
     """BM25 on one external task; writes ``<leaf>/<name>.json`` and the files next to it. Returns a status dict."""
     rev = rev or package_versions(["rank-bm25"]).get("rank-bm25") or "unknown"
     result_json = leaf / f"{name}.json"
@@ -80,15 +80,21 @@ def run_task(name: str, leaf: Path, *, k1: float = 1.5, b: float = 0.75, lowerca
         return {"task": name, "status": "skipped", "path": str(result_json)}
     seeds = set_seeds(seed) if seed is not None else None
     task = (loader or load_mteb_task)(name)
+    eval_split = eval_split if eval_split is not None else phase1_split.eval_splits(config_path or None)
+    main_split = phase1_split.split_of(name, eval_split)         # params.phase1.eval_split: the split that stage 2 and the report read
+    if main_split not in task.metadata.eval_splits:
+        raise phase1_split.Phase1SplitError(f"{name}: the configured split {eval_split[name]!r} is not one of the task's splits {list(task.metadata.eval_splits)}")
     sw = Stopwatch()
     per_split: Dict[str, Dict[str, float]] = {}
     preds: Dict[str, Dict[str, Dict[str, float]]] = {}
     retr = BM25Retriever(k1=k1, b=b, lowercase=lowercase, title_in_text=True)
     n_docs = n_queries = 0
+    queries_per_split: Dict[str, int] = {}
     eval_time = 0.0
     for split in task.metadata.eval_splits:
         corpus, queries, qrels = split_data(task, split)
         n_docs, n_queries = n_docs + len(corpus), n_queries + len(queries)
+        queries_per_split[split] = len(queries)
         t0 = time.perf_counter()                                  # index + search + metrics; the data is loaded before the clock starts
         with sw.section(f"bm25_total_{split}_s"):
             retr.index(corpus)
@@ -118,14 +124,12 @@ def run_task(name: str, leaf: Path, *, k1: float = 1.5, b: float = 0.75, lowerca
                "evaluation_time": "index + search + metrics (as the Phase 1 dense runs: no dump)"},
         use_prompts=False, prompts=None, batch_size=None, seeds=seeds, data_files=None,
         timing={**sw.seconds, **retr.timing, "mteb_evaluation_time_s": eval_time},
-        extra={"task": name, "splits": list(per_split), "n_docs": n_docs, "n_queries": n_queries, "top_k": top_k,
+        extra={"task": name, "splits": list(per_split), "n_docs": n_docs, "n_queries": n_queries, "n_queries_per_split": queries_per_split, "reported_split": main_split, "top_k": top_k,
                "dataset": getattr(task.metadata, "dataset", None)}))
-    # the split that counts is the one stage 2 and the report pick: test > validation > train, else the first
-    main_split = next((sp for sp in ("test", "validation", "train") if sp in per_split), next(iter(per_split)))
     print(f"BM25 {name}: " + " | ".join(f"{sp}{'*' if sp == main_split else ''}: nDCG@10={sc['ndcg_at_10']} Recall@10={sc['recall_at_10']}" for sp, sc in per_split.items())
           + f" | evaluation_time={eval_time:.1f}s ({n_docs} docs, {n_queries} queries over {len(per_split)} split(s), * = reported) -> {result_json}")
     return {"task": name, "status": "done", "path": str(result_json), "evaluation_time": eval_time, "split": main_split,
-            "ndcg_at_10": per_split[main_split]["ndcg_at_10"]}
+            "n_queries": queries_per_split[main_split], "ndcg_at_10": per_split[main_split]["ndcg_at_10"]}
 
 
 def _append_summary(root: Path, rev: str, results: List[Dict[str, Any]]) -> None:

@@ -7,22 +7,16 @@ import pandas as pd
 import yaml
 import argparse
 import math
+import os
+import sys
+
+_REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if _REPO_ROOT not in sys.path:
+    sys.path.insert(0, _REPO_ROOT)
+
+from pipeline_lib import phase1_split  # noqa: E402
 
 # ------------------ helpers ------------------
-
-def pick_split(scores_obj: Dict, split_pref: List[str]) -> Optional[Dict]:
-    """
-    scores_obj looks like {"train": [ {...} ], "test": [ {...} ], ...}
-    Return the first matching split dict (the first element of the list)
-    """
-    for sp in split_pref:
-        if sp in scores_obj and scores_obj[sp]:
-            return scores_obj[sp][0]
-    # If none match, fall back to any available
-    for v in scores_obj.values():
-        if isinstance(v, list) and v:
-            return v[0]
-    return None
 
 def find_leaf_dirs(results_dir: Path) -> List[Path]:
     """
@@ -218,7 +212,7 @@ def compute_metric_value(
 
 def read_dataset_file(
     fp: Path,
-    split_pref: List[str],
+    eval_split: Dict[str, str],
     metric_key: str,
     cfg: Dict
 ) -> Optional[Tuple[str, float, Dict]]:
@@ -236,9 +230,9 @@ def read_dataset_file(
 
     task_name = js.get("task_name")
     scores = js.get("scores", {})
-    split_dict = pick_split(scores, split_pref)
-    if not split_dict:
-        return None
+    if task_name not in eval_split:
+        return None                                    # a task that is not a Phase 1 task (the file is not read)
+    split_dict = phase1_split.pick_split(scores, task_name, eval_split, where=str(fp))     # raises if the configured split is missing: no fallback
 
     # --- NEW: merge top-level timing fields into split_dict clone ---
     # Your files have: "evaluation_time": <seconds>  at top level.
@@ -276,7 +270,12 @@ def main():
     cfg = load_config(args.config)
     root_dir = Path(cfg["root_dir"]).expanduser().resolve()
     results_dir = (root_dir / cfg.get("results_subdir", "validation")).resolve()
-    split_pref = cfg.get("split_preference", ["test", "validation", "train"])
+    if "split_preference" in cfg:
+        raise SystemExit("split_preference is gone: set eval_split (task -> split, params.phase1.eval_split); there is no fallback order any more")
+    eval_split = cfg.get("eval_split")
+    if not eval_split:
+        raise SystemExit("eval_split (task -> split) is missing in the stage 2 config: it comes from params.phase1.eval_split (make stage0)")
+    n_queries = cfg.get("n_queries") or {}
     metric_key = cfg.get("metric_key", "ndcg_at_10")  # or "geom_mean"
     top_pct = float(cfg.get("top_percent", 0.30))
     datasets_include = set(cfg.get("datasets_include") or [])
@@ -302,7 +301,7 @@ def main():
         for fp in leaf.glob("*.json"):
             if fp.name == "model_meta.json":
                 continue
-            parsed = read_dataset_file(fp, split_pref, metric_key, cfg)
+            parsed = read_dataset_file(fp, eval_split, metric_key, cfg)
             if not parsed:
                 continue
             task_name, metric_val, extras = parsed
@@ -312,12 +311,7 @@ def main():
                 continue
 
             js = read_json(fp)
-            scores = js.get("scores", {})
-            split_used = None
-            for sp in split_pref:
-                if sp in scores:
-                    split_used = sp
-                    break
+            split_used = phase1_split.split_of(task_name, eval_split)
 
             row = {
                 "model_id": model_id,
@@ -326,7 +320,8 @@ def main():
                 "folder": leaf.parents[2].name if len(leaf.parents) >= 3 else leaf.name,
                 "dataset": task_name,
                 metric_key: metric_val,
-                "split_used": split_used
+                "split": split_used,
+                "n_queries": phase1_split.n_queries_of(task_name, split_used, n_queries),
             }
             if metric_key.lower() == "geom_mean":
                 row.update({
@@ -343,7 +338,7 @@ def main():
             rows.append(row)
 
     if not rows:
-        raise SystemExit("No metrics found. Check config (datasets_include, split_preference) and directory structure.")
+        raise SystemExit("No metrics found. Check config (datasets_include, eval_split) and directory structure.")
 
     df = pd.DataFrame(rows)
 
@@ -367,7 +362,7 @@ def main():
 
     # Optional: write CSVs
     if out_per_ds:
-        cols = ["model_id", "model_name", "revision", "dataset", metric_key, "rank_in_ds", "count_in_ds", "rank_pct", "split_used"]
+        cols = ["model_id", "model_name", "revision", "dataset", metric_key, "rank_in_ds", "count_in_ds", "rank_pct", "split", "n_queries"]
         if metric_key.lower() == "geom_mean":
             cols += ["geom_k_used_recall", "geom_k_used_ndcg",
                      "geom_time_score", "geom_time_source", "geom_time_seconds", "geom_time_transform",

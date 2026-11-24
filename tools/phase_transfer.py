@@ -44,11 +44,10 @@ _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _REPO_ROOT not in sys.path:
     sys.path.insert(0, _REPO_ROOT)
 
-from pipeline_lib import config_params  # noqa: E402
+from pipeline_lib import config_params, phase1_split  # noqa: E402
 from tools import analysis_data as AD  # noqa: E402
 
 TASKS = ("ChemNQRetrieval", "ChemHotpotQARetrieval")
-SPLITS = ("test", "validation", "train")
 HEX40 = re.compile(r"^[0-9a-f]{40}$")
 # colours: slots 1 and 2 of the validated reference palette (references/palette.md of the dataviz skill); the marker shape is the second encoding
 C_SHORT, C_EXCL, INK, MUTED, GRID = "#2a78d6", "#eb6834", "#0b0b0b", "#52514e", "#e4e3df"
@@ -61,8 +60,13 @@ def geom(ndcg: float, recall: float) -> float:
 # ------------------------------------------------------------------------------------------------------------------
 # inputs
 # ------------------------------------------------------------------------------------------------------------------
-def load_phase1(root: Any, models: Sequence[Tuple[str, Optional[str]]], tasks: Sequence[str] = TASKS) -> Dict[str, Dict[str, Dict[str, float]]]:
-    """{model: {task: {ndcg_at_10, recall_at_10, geom_at_10, split}}} for the models that have every task in ``root`` (the others are left out)."""
+def load_phase1(root: Any, models: Sequence[Tuple[str, Optional[str]]], tasks: Sequence[str] = TASKS, eval_split: Optional[Dict[str, str]] = None,
+                n_queries: Optional[Dict[str, Dict[str, int]]] = None) -> Dict[str, Dict[str, Dict[str, float]]]:
+    """{model: {task: {ndcg_at_10, recall_at_10, geom_at_10, split, n_queries}}} for the models that have every task in ``root`` (the others are left out).
+    The split is ``eval_split[task]`` (``params.phase1.eval_split``; required); a result file without that split raises ``Phase1SplitError``, nothing falls back."""
+    if eval_split is None:
+        eval_split = phase1_split.eval_splits()
+        n_queries = phase1_split.n_queries_table() if n_queries is None else n_queries
     out: Dict[str, Dict[str, Dict[str, float]]] = {}
     for name, rev in models:
         safe = name.replace("/", "__").replace(":", "_")
@@ -76,11 +80,10 @@ def load_phase1(root: Any, models: Sequence[Tuple[str, Optional[str]]], tasks: S
             if len(hits) != 1:
                 break
             sc = json.loads(Path(hits[0]).read_text(encoding="utf-8"))["scores"]
-            split = next((s for s in SPLITS if s in sc), None)
-            if split is None:
-                break
-            s = sc[split][0]
-            found[t] = {"ndcg_at_10": s["ndcg_at_10"], "recall_at_10": s["recall_at_10"], "geom_at_10": geom(s["ndcg_at_10"], s["recall_at_10"]), "split": split}
+            split = phase1_split.split_of(t, eval_split)
+            s = phase1_split.pick_split(sc, t, eval_split, where=hits[0])
+            found[t] = {"ndcg_at_10": s["ndcg_at_10"], "recall_at_10": s["recall_at_10"], "geom_at_10": geom(s["ndcg_at_10"], s["recall_at_10"]), "split": split,
+                        "n_queries": phase1_split.n_queries_of(t, split, n_queries)}
         if len(found) == len(tasks):
             out[name] = found
     return out
@@ -263,6 +266,15 @@ def scatter(models: List[Dict[str, Any]], corr: List[Dict[str, Any]], out_base: 
     plt.close(fig)
 
 
+def with_split_columns(rows: List[Dict[str, Any]], p1: Dict[str, Dict[str, Dict[str, Any]]]) -> List[Dict[str, Any]]:
+    """Every Phase 1 table carries the split and the number of queries it is scored on (one entry per task, e.g. ``ChemHotpotQARetrieval=test``)."""
+    tasks = sorted({t for v in p1.values() for t in v})
+    info = {t: next(v[t] for v in p1.values() if t in v) for t in tasks}
+    split = "; ".join(f"{t}={info[t]['split']}" for t in tasks)
+    nq = "; ".join(f"{t}={info[t]['n_queries']}" for t in tasks)
+    return [{**r, "split": split, "n_queries": nq} for r in rows]
+
+
 def main(argv: Optional[List[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--phase1-root", required=True)
@@ -280,13 +292,14 @@ def main(argv: Optional[List[str]] = None) -> int:
     cand = {m["name"]: m["revision"] for m in transfer["models"]}
     shortlist = read_shortlist(args.shortlist)
     stage1 = {m["name"]: m["revision"] for m in __import__("yaml").safe_load(Path(args.main_config).read_text(encoding="utf-8"))["stage1"]["models"]}
-    p1 = load_phase1(args.phase1_root, [(n, stage1.get(n) or cand.get(n)) for n in sorted(set(stage1) | set(cand) | shortlist)])
+    eval_split, n_q = phase1_split.eval_splits(args.main_config), phase1_split.n_queries_table(args.main_config)
+    p1 = load_phase1(args.phase1_root, [(n, stage1.get(n) or cand.get(n)) for n in sorted(set(stage1) | set(cand) | shortlist)], eval_split=eval_split, n_queries=n_q)
     p2 = read_phase2(args.runs_overview, args.label_set)
     res = analyse(p1, p2, shortlist, transfer, resamples, seed)
     out = Path(args.out_dir)
     for name, fname in (("correlations", "phase_transfer_correlations.csv"), ("models", "phase_transfer_models.csv"), ("pairs", "phase_transfer_pairs.csv"),
                         ("groups", "phase_transfer_groups.csv"), ("beats", "phase_transfer_beats.csv")):
-        AD.write_rows(out / fname, res[name])
+        AD.write_rows(out / fname, with_split_columns(res[name], p1))
     scatter(res["models"], res["correlations"], out / "fig_phase_transfer")
     n_both = len(res["models"])
     allm = next((c for c in res["correlations"] if c["population"] == "all models" and c["phase1"] == "mean" and c["phase2"] == "mean_main"), {})

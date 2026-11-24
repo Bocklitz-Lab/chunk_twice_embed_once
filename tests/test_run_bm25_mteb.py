@@ -57,7 +57,7 @@ def test_split_data_accepts_string_and_dict_corpora_and_drops_queries_without_ju
 
 def test_run_task_writes_the_phase_1_layout(tmp_path):
     leaf = tmp_path / "bm25_0.2.2" / "bm25" / "0.2.2"
-    r = X.run_task("FakeRetrieval", leaf, loader=fake_loader, rev="0.2.2", top_k=3, seed=1)
+    r = X.run_task("FakeRetrieval", leaf, loader=fake_loader, rev="0.2.2", top_k=3, seed=1, eval_split={"FakeRetrieval": "test"})
     assert r["status"] == "done" and r["ndcg_at_10"] == pytest.approx(1.0)               # title_in_text: q2 finds d3 through its title
     js = json.loads((leaf / "FakeRetrieval.json").read_text())
     sc = js["scores"]["test"][0]
@@ -72,13 +72,14 @@ def test_run_task_writes_the_phase_1_layout(tmp_path):
     assert man["timing_s"]["mteb_evaluation_time_s"] == pytest.approx(js["evaluation_time"])
     # screen_top_k_models / the report read it like a dense model: leaf folder with model_meta.json + <Task>.json
     from tools import make_report
-    rows = make_report.external_rows([tmp_path])
+    rows = make_report.external_rows([tmp_path], eval_split={"FakeRetrieval": "test"}, n_queries={"FakeRetrieval": {"test": 2}})
     assert rows[0]["kind"] == "bm25" and rows[0]["FakeRetrieval__ndcg_at_10"] == pytest.approx(1.0)
+    assert rows[0]["FakeRetrieval__split"] == "test" and rows[0]["FakeRetrieval__n_queries"] == 2
     # finished tasks are skipped, --force repeats
     before = (leaf / "FakeRetrieval.json").stat().st_mtime_ns
-    assert X.run_task("FakeRetrieval", leaf, loader=fake_loader, rev="0.2.2")["status"] == "skipped"
+    assert X.run_task("FakeRetrieval", leaf, loader=fake_loader, rev="0.2.2", eval_split={"FakeRetrieval": "test"})["status"] == "skipped"
     assert (leaf / "FakeRetrieval.json").stat().st_mtime_ns == before
-    assert X.run_task("FakeRetrieval", leaf, loader=fake_loader, rev="0.2.2", force=True)["status"] == "done"
+    assert X.run_task("FakeRetrieval", leaf, loader=fake_loader, rev="0.2.2", force=True, eval_split={"FakeRetrieval": "test"})["status"] == "done"
 
 
 def test_a_task_with_two_eval_splits_gets_one_score_block_per_split(tmp_path):
@@ -91,21 +92,27 @@ def test_a_task_with_two_eval_splits_gets_one_score_block_per_split(tmp_path):
                 getattr(self, attr)["validation"] = getattr(self, attr)["test"]
 
     leaf = tmp_path / "bm25_0.2.2" / "bm25" / "0.2.2"
-    r = X.run_task("Two", leaf, loader=lambda n: Two(), rev="0.2.2")
-    assert r["split"] == "test"                                      # test > validation > train, as stage 2 and the report pick it
+    r = X.run_task("Two", leaf, loader=lambda n: Two(), rev="0.2.2", eval_split={"Two": "test"})
+    assert r["split"] == "test" and r["n_queries"] == 2              # the configured split (params.phase1.eval_split), with its number of queries
     js = json.loads((leaf / "Two.json").read_text())
     assert set(js["scores"]) == {"validation", "test"}
     assert (leaf.parents[1] / "Two_validation_default_predictions.json").exists() and (leaf.parents[1] / "Two_test_default_predictions.json").exists()
 
 
-def test_the_reported_split_follows_the_stage_2_preference(tmp_path):
+def test_the_reported_split_is_the_configured_one_and_a_missing_one_raises(tmp_path):
+    from pipeline_lib.phase1_split import Phase1SplitError
     t = FakeTask(*[getattr(fake_loader("x"), a)["test"] for a in ("corpus", "queries", "relevant_docs")], split="train")      # train only
-    assert X.run_task("T", tmp_path / "a" / "bm25" / "v", loader=lambda n: t, rev="v")["split"] == "train"
+    assert X.run_task("T", tmp_path / "a" / "bm25" / "v", loader=lambda n: t, rev="v", eval_split={"T": "train"})["split"] == "train"
+    with pytest.raises(Phase1SplitError, match="not one of the task's splits"):
+        X.run_task("T", tmp_path / "b" / "bm25" / "v", loader=lambda n: t, rev="v", eval_split={"T": "test"})            # no fallback to train
+    with pytest.raises(Phase1SplitError, match="no evaluation split configured"):
+        X.run_task("T", tmp_path / "c" / "bm25" / "v", loader=lambda n: t, rev="v", eval_split={"Other": "test"})
 
 
 def test_main_reads_tasks_and_paths_from_the_config(tmp_path, monkeypatch):
     monkeypatch.setattr(X, "load_mteb_task", fake_loader)
-    cfg = {"params": {"seed": 3, "paths": {"artifacts_root": str(tmp_path / "art")}, "external": {"tasks": ["FakeA", "FakeB"], "output_subdir": "bl", "top_k": 10}},
+    cfg = {"params": {"seed": 3, "paths": {"artifacts_root": str(tmp_path / "art")}, "external": {"tasks": ["FakeA", "FakeB"], "output_subdir": "bl", "top_k": 10},
+                      "phase1": {"eval_split": {"FakeA": "test", "FakeB": "test"}}},
            "stage6": {"bm25": {"k1": 1.2, "b": 0.6, "lowercase": True}}}
     p = tmp_path / "main.yaml"
     p.write_text(yaml.safe_dump(cfg))
@@ -135,7 +142,8 @@ def test_stage_2_does_not_screen_the_baselines_unless_asked(tmp_path, monkeypatc
     _leaf(val, "org_b", "r1", "ChemNQRetrieval", 0.4, 0.4)
     _leaf(val, "bm25", "0.2.2", "ChemNQRetrieval", 0.9, 0.9)                       # would be the best "model" and shift every rank
     out = tmp_path / "per_ds.csv"
-    cfg = {"root_dir": str(tmp_path), "results_subdir": "validation", "metric_key": "ndcg_at_10", "top_percent": 0.5, "output_per_dataset_csv": str(out)}
+    cfg = {"root_dir": str(tmp_path), "results_subdir": "validation", "metric_key": "ndcg_at_10", "top_percent": 0.5, "output_per_dataset_csv": str(out),
+           "eval_split": {"ChemNQRetrieval": "test"}, "n_queries": {"ChemNQRetrieval": {"test": 27}}}
 
     def run(extra):
         c = tmp_path / "s2.yaml"
