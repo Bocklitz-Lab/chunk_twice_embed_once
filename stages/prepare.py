@@ -33,6 +33,7 @@ if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
 from pipeline_lib import chunk_cache, split_config  # noqa: E402
+from pipeline_lib.dataset_pin import question_metadata_provenance  # noqa: E402
 from pipeline_lib.run_manifest import git_info, package_versions, sha256_file  # noqa: E402
 from pipeline_lib.span_labels import qrels_filename  # noqa: E402
 from tools import coverage_diagnostics  # noqa: E402
@@ -142,6 +143,7 @@ def prepare_config(chunker: str, size: int, overlap: int, *, main_config: str = 
         "tokenizer": sp.get("model_name"), "tokenizer_revision": sp.get("tokenizer_revision"),
         "breakpoint_model": sp.get("breakpoint_model_name"), "breakpoint_model_revision": sp.get("breakpoint_model_revision"),
         "span_qrels_file": span_file, "lexical_qrels_file": LEXICAL_QRELS,
+        "question_metadata": question_metadata_provenance(s5["qa_jsonl_file"]),     # recorded, not part of the cache key: it changes no chunk and no label
         "timing_s": timing, "chunking_stats": json.loads(stats_p.read_text()) if stats_p.exists() else None,
         "files_sha256": chunk_cache.files_sha256(folder, rel_files),
         "git": git_info(_REPO_ROOT), "packages": package_versions(),

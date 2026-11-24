@@ -9,6 +9,7 @@ import yaml
 from pipeline_lib import dataset_pin as DP, question_metadata as QM
 from pipeline_lib.question_metadata import QuestionMetadataError
 from stages import download_chemquests as D
+from tests.test_prepare import data  # noqa: F401  (fixture)
 
 ROOT = Path(__file__).resolve().parents[1]
 SUBS = ("Alpha", "Beta", "Gamma")
@@ -169,3 +170,31 @@ def test_download_uses_its_own_revision_and_checks_the_hash(tmp_path, monkeypatc
 
 def test_provenance_without_the_file(tmp_path):
     assert DP.question_metadata_provenance(tmp_path / "qa.jsonl") == {"file": None}
+
+
+# ---- manifests ----------------------------------------------------------------------------------------------------
+def test_prepare_manifest_records_the_question_metadata_without_changing_the_cache_key(tmp_path, data):
+    from pipeline_lib import chunk_cache
+    from stages import prepare
+    kw = dict(artifacts_root=str(tmp_path / "art"), qa_sha256=DP.sha256_file(data / "qa.jsonl"),
+              params=[f"paths.chemquests_dir={data}", "chunk_cache.dir=" + str(tmp_path / "prepared")], verbose=False)
+    f1 = prepare.prepare_config("fixed_token", 64, 16, **kw)
+    assert chunk_cache.read_manifest(f1)["question_metadata"] == {"file": None}              # nothing is invented
+    (data / "question_metadata.jsonl").write_text('{"question_id": "q0000"}\n')
+    f2 = prepare.prepare_config("fixed_token", 64, 16, **kw)
+    assert f1 == f2                                                                           # the cache key does not depend on the metadata
+    f3 = prepare.prepare_config("fixed_token", 64, 16, force=True, **kw)
+    qm = chunk_cache.read_manifest(f3)["question_metadata"]
+    assert qm["revision"] == DP.QUESTION_METADATA_REVISION and qm["sha256"] == DP.sha256_file(data / "question_metadata.jsonl") and qm["matches_pin"] is False
+
+
+def test_run_manifest_takes_the_record_from_the_prepared_folder(tmp_path):
+    pytest.importorskip("mteb")
+    from stages import run_eval
+    prepared = tmp_path / "prep"; (prepared / "mteb_task").mkdir(parents=True)
+    (prepared / "manifest.json").write_text(json.dumps({"question_metadata": {"revision": "r", "sha256": "s"}}))
+
+    class T:
+        spec = {"kwargs": {"data_dir": str(prepared / "mteb_task")}}
+    assert run_eval._question_metadata_of_task([T()]) == {"revision": "r", "sha256": "s"}
+    assert run_eval._question_metadata_of_task([]) is None

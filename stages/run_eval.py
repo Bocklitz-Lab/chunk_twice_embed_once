@@ -300,6 +300,18 @@ def _local_task_labels(task_specs: List["TaskSpec"]):
     return None
 
 
+def _question_metadata_of_task(task_specs: List["TaskSpec"]) -> Optional[Dict[str, Any]]:
+    """The ``question_metadata`` record (pinned revision, SHA-256) that the prepare manifest of the local task's folder holds, or None."""
+    loc = _local_task_labels(task_specs)
+    if loc is None:
+        return None
+    man = loc[0].resolve().parent / "manifest.json"
+    try:
+        return json.loads(man.read_text(encoding="utf-8")).get("question_metadata")
+    except (OSError, ValueError):
+        return None
+
+
 def write_per_query_outputs(model_out_dir: Path, task_specs: List["TaskSpec"], depth: int = 100,
                             run_name: str = "run") -> Optional[Dict[str, Any]]:
     """See pipeline_lib.run_outputs; returns None for a task without local qrels (Phase 1 official tasks)."""
@@ -490,7 +502,8 @@ def main():
             seeds=seeds,
             data_files=_task_data_files(app_cfg.tasks),
             timing=timing,
-            extra={"top_k": app_cfg.top_k, "per_query_outputs": per_query, "truncation": truncation, "mteb_version": getattr(sys.modules.get("mteb"), "__version__", None),
+            extra={"top_k": app_cfg.top_k, "per_query_outputs": per_query, "truncation": truncation,
+                   "question_metadata": _question_metadata_of_task(app_cfg.tasks), "mteb_version": getattr(sys.modules.get("mteb"), "__version__", None),
                    "model_properties": model_info.describe_model(base, model_name, revision)},
         ))
 
