@@ -1,0 +1,44 @@
+# Claims of main_springer.tex (line numbers as in /home/publication/main_springer.tex) and the new questions of the reviewers.
+# `calc` names the function of scripts/subset_compare.py that prints the numbers; verdicts (HOLDS / HOLDS, WEAKER / CHANGES / NOT TESTABLE ON THE SUBSET)
+# are assigned in Session 2, never by the script. "published" = the value or statement in the submitted paper; the script adds the published (old code) numbers
+# restricted to the same 4 models x 35 configurations.
+subset:
+  models: [intfloat/e5-large-v2, BAAI/bge-m3, nomic-ai/nomic-embed-text-v1.5, intfloat/e5-small]
+  strategies: [recursive_token, fixed_token, semantic_recursive, semantic_fixed, hierarchical_section]
+  cells_size_sweep_overlap0: [[128, 0], [256, 0], [384, 0], [448, 0], [512, 0]]
+  cells_overlap_sweep_256: [[256, 32], [256, 64]]
+  top_fraction_for_top1pct_claims: 0.10
+domain_models:    # Phase 1 claim 1: domain-pretrained (not retrieval-tuned); ChemBERTa-77M-MTR is the SMILES model
+  - allenai/scibert_scivocab_uncased
+  - allenai/specter
+  - m3rg-iitd/matscibert
+  - microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext
+  - microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract
+  - microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract
+  - recobo/chemical-bert-uncased
+  - DeepChem/ChemBERTa-77M-MTR
+smiles_model: DeepChem/ChemBERTa-77M-MTR
+tuned_families: [E5, Multilingual E5, BGE, Nomic, Instructor]     # params.figures.model_families
+published_shortlist_size: 13
+published_both_top8: 3
+claims:
+  - {id: 1, phase: 1, lines: "198, abstract", calc: phase1_family, text: "Retrieval-tuned models (E5, BGE, Nomic) beat domain-pretrained models on both external tasks; also without ChemBERTa-77M-MTR (Reviewer 2)"}
+  - {id: 2, phase: 1, lines: "170-195", calc: phase1_top5, text: "Table 1 top-5 per task; HotpotQA favours Nomic/BGE, ChemNQ favours E5; nomic-v1.5 in the top tier of both"}
+  - {id: 3, phase: 1, lines: "201", calc: phase1_shortlist, text: "13-model shortlist, three models in both top-eight sets"}
+  - {id: 4, phase: 2, lines: "207, 252, 269, abstract, Fig. 7", calc: model_vs_strategy, text: "Embedding-model choice is associated with larger differences than chunking strategy (eta^2 with intervals, ranges)"}
+  - {id: 5, phase: 2, lines: "212, 216", calc: winners_by_strategy, text: "e5-large-v2 highest Geom@10 for fixed, recursive, hierarchical, semantic-fixed; bge-m3 best for semantic-recursive"}
+  - {id: 6, phase: 2, lines: "216, 256, abstract", calc: strategy_means, text: "Fixed, recursive and hierarchical consistently competitive; semantic chunking mixed"}
+  - {id: 7, phase: 2, lines: "220, supp Fig. S12", calc: size_curve, text: "Performance improves from 128 toward medium-large sizes then levels off; 128 underperforms; 448 competitive; 512 strong at overlap 0"}
+  - {id: 8, phase: 2, lines: "224, supp Fig. S11", calc: overlap_curve, text: "Overlap neutral to negative (direction only; the small local optima at 16 / 32 are NOT TESTABLE: the subset has overlaps 0, 32, 64 at size 256)"}
+  - {id: 9, phase: 2, lines: "226, 254, abstract", calc: best_runs, text: "Best values at large chunks and low overlap"}
+  - {id: 10, phase: 2, lines: "236, Fig. 12", calc: top_region, text: "Top-1 % region: only e5-large-v2, sizes 384-512, overlap <= 32, mostly fixed/recursive/hierarchical (here: top 10 % of the 140 dense runs)"}
+  - {id: 11, phase: 2, lines: "245, supp 598-606", calc: top10_configs, text: "Top-10 configurations all e5-large-v2, mostly 448/512, overlap <= 32, five of ten at overlap 0 (within the subset)"}
+  - {id: 12, phase: 2, lines: "232, supp 557-593", calc: time_structure, text: "Encoder choice gives the largest differences in total evaluation time; semantic chunking slower; benchmark construction little; size and overlap smaller (the time definition changed: chunking once per configuration, shared semantic cache)"}
+  - {id: 13, phase: 2, lines: "234, 241, 258", calc: time_vs_quality, text: "Evaluation time only weakly associated with Geom@10"}
+  - {id: 14, phase: 2, lines: "258, 269, abstract", calc: recommendation, text: "E5/BGE/Nomic + fixed/recursive/hierarchical + large chunks + low or zero overlap"}
+  - {id: 15, phase: new, lines: "Reviewer 1.4, Reviewer 2 major 5", calc: baselines, text: "BM25 vs dense, hybrid vs dense and BM25, rerank vs all; at which sizes does BM25 win; does the large-chunk recommendation hold for them"}
+  - {id: 16, phase: new, lines: "Reviewer 2 major 1", calc: token_budget, text: "Fixed retrieved-token budget: does the advantage of large chunks remain (tests claims 7 and 9)"}
+  - {id: 17, phase: new, lines: "254", calc: fragmentation, text: "Fragmentation supports the explanation of main:254"}
+  - {id: 18, phase: new, lines: "Reviewer 1.5, Reviewer 2 major 5", calc: breakdowns, text: "Subfield / question-type / automatic-feature breakdowns: does any model or size ranking reverse"}
+  - {id: 19, phase: new, lines: "Reviewer 2 (cover level)", calc: cover_levels, text: "c = 0.8 / 0.9 / 1.0: does any claim change"}
+  - {id: 20, phase: new, lines: "Reviewer 2 major 3", calc: transfer, text: "Phase 1 -> Phase 2 transfer on the transfer subset; does an excluded model beat a shortlisted one"}
