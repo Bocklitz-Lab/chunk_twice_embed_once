@@ -146,6 +146,9 @@ def ensure_data(main_config: str, artifacts_root: str, params: List[str]) -> Pat
         cfg = yaml.safe_load((Path(tmp) / "stage3.yaml").read_text(encoding="utf-8"))
         out = Path(cfg["output_dir"])
         if all((out / n).exists() for n in ("full_text.jsonl", "qa.jsonl")):
+            if not (out / "question_metadata.jsonl").exists():
+                print(f"note: {out}/question_metadata.jsonl is missing (the subfield / question-type analysis needs it); run stage 3 once to download it: "
+                      "python -m stages.download_chemquests --config configs/stages/stage3.yaml")
             return out / "qa.jsonl"
         print(f"downloading the pinned ChemQuests release -> {out}")
         subprocess.run([sys.executable, "-m", "stages.download_chemquests", "--config", str(Path(tmp) / "stage3.yaml")],

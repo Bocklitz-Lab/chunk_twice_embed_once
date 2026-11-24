@@ -42,7 +42,7 @@ _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _REPO_ROOT not in sys.path:
     sys.path.insert(0, _REPO_ROOT)
 
-from pipeline_lib.dataset_pin import sha256_file  # noqa: E402
+from pipeline_lib.dataset_pin import question_metadata_provenance, sha256_file  # noqa: E402
 from pipeline_lib.grid import CHUNKERS as CHUNKER_ORDER  # noqa: E402     # only the display order of the chunkers; sizes / overlaps come from the runs
 from pipeline_lib.run_manifest import git_info, package_versions  # noqa: E402
 from pipeline_lib.truncation import PHASE1_COLUMNS, collect_phase1  # noqa: E402
@@ -431,6 +431,7 @@ def build_report(artifacts_root: str | Path, out_dir: str | Path, qa_jsonl: Opti
         "created_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "seconds": round(time.time() - t_start, 1),
         "git": git_info(_REPO_ROOT), "packages": package_versions(["numpy", "scipy", "pytrec_eval", "scikit-learn", "mteb", "sentence-transformers", "transformers", "torch"]),
         "artifacts_root": str(root), "qa_jsonl": str(qa), "qa_sha256": sha256_file(qa) if qa.exists() else None,
+        "question_metadata": question_metadata_provenance(qa),
         "bootstrap": {"resamples": resamples, "seed": seed, "levels": ["query", "paper"]},
         "n_configurations": len(cells), "models": sorted({m for r in cells.values() for m in r}),
         "steps": steps, "files": tracked, "kept_in_artifacts_only": kept_back, "full_report_dir": str(heavy),

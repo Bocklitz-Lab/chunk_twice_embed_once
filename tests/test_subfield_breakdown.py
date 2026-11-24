@@ -1,65 +1,19 @@
-"""tools/subfield_breakdown.py: subfield groups (all listed subfields), rule-based question tags, paper-level intervals inside a group, paired dense - BM25."""
+"""tools/subfield_breakdown.py: official question type and subfields (multi-label and fractional), automatic features, paper-level intervals, paired comparisons,
+contrasts between groups and Holm families. No question type is guessed from the text."""
+import csv
 import json
+import re
+from pathlib import Path
 
 import numpy as np
 import pytest
 
-from analysis_world import FIELDS, build_world
-from tools import analysis_data as AD, subfield_breakdown as SB
+from analysis_world import WORLD_SUBFIELDS, WORLD_TYPES, build_world, patch_metadata_constants
+from pipeline_lib import question_features as QF, question_metadata as QM
+from pipeline_lib.question_metadata import QuestionMetadataError
+from tools import analysis_data as AD, stats, subfield_breakdown as SB
 
-
-@pytest.mark.parametrize("token,expected", [("NaCl", True), ("CO2", True), ("TiO2", True), ("LiFePO4", True), ("H2O", True), ("O2", True), ("ZnO", True),
-                                              ("NMR", False), ("DNA", False), ("PEG", False), ("UV", False), ("In", False), ("As", False), ("He", False), ("Xyz", False)])
-def test_formula_detection(token, expected):
-    assert SB.is_formula(token) is expected
-
-
-def tags(q):
-    return SB.question_tags(q)
-
-
-def test_question_words_are_exclusive_and_documented():
-    assert tags("What is the yield?")["qword"] == "what" and tags("which catalyst works?")["qword"] == "which"
-    assert tags("How many cycles were run?")["qword"] == "how" and tags("Why does it crack?")["qword"] == "why"
-    assert tags("When was it measured?")["qword"] == "other" and tags("  ")["qword"] == "other" and tags("Describe the setup.")["qword"] == "other"
-
-
-def test_yes_no_questions():
-    for q in ("Is the sample stable?", "Does NaCl dissolve?", "Can it be reused?", "Were the films annealed?"):
-        assert tags(q)["yes_no"] and tags(q)["qword"] == "other"
-    assert not tags("What is stable?")["yes_no"] and not tags("How does it work?")["yes_no"]
-
-
-def test_numbers_and_units():
-    for q in ("What happens at 300 K?", "Which film has 12 layers?", "What shifts by 25 nm?", "What is the pH?" + " 7", "Which sample reaches 90%?", "How is 10 mg dissolved?",
-              "What happens at 25 °C?", "Which peak lies at 5 eV?"):
-        assert tags(q)["number_or_unit"], q
-    for q in ("What is the yield?", "Which catalyst is best?", "How does it work?"):
-        assert not tags(q)["number_or_unit"], q
-    assert not tags("What does the Amino acid do?")["number_or_unit"]                    # "mol" inside a word is not a unit
-
-
-def test_formulas_in_questions():
-    assert tags("What does NaCl do to the rate?")["chemical_formula"] and tags("Which CO2 uptake is highest?")["chemical_formula"]
-    assert not tags("What does NMR show?")["chemical_formula"] and not tags("In this study, what is measured?")["chemical_formula"]
-    assert not tags("What is the DNA yield?")["chemical_formula"]
-
-
-def test_groups_use_every_listed_subfield_and_normalise_ids():
-    qa = [{"question": "What is it?", "corpus_id": "003"}, {"question": "Is it?", "corpus_id": "3"}, {"question": "How?", "corpus_id": "7"}, {"question": "Why 5 mg?", "corpus_id": "008"}]
-    meta = {"3": ["Organic", "Catalysis"], "7": [], "8": ["Organic"]}
-    g = SB.question_groups(qa, meta)
-    assert g["subfield"]["subfield:Organic"].tolist() == [True, True, False, True] and g["subfield"]["subfield:Catalysis"].tolist() == [True, True, False, False]
-    assert g["subfield"]["subfield:unlabelled"].tolist() == [False, False, True, False]
-    assert g["tag"]["tag:yes_no"].tolist() == [False, True, False, False] and g["tag"]["tag:no_yes_no"].tolist() == [True, False, True, True]
-    assert g["tag"]["tag:qword:what"].sum() == 1 and sum(g["tag"][k].sum() for k in g["tag"] if k.startswith("tag:qword:")) == 4      # exactly one qword per question
-    assert g["tag"]["tag:number_or_unit"].tolist() == [False, False, False, True]
-
-
-def test_read_fields_normalises_ids(tmp_path):
-    f = tmp_path / "m.jsonl"
-    f.write_text(json.dumps({"corpus_id": "012", "fields_of_study": ["A"]}) + "\n" + json.dumps({"corpus_id": "13"}) + "\n")
-    assert SB.read_fields(f) == {"12": ["A"], "13": []}
+ROOT = Path(__file__).resolve().parents[1]
 
 
 @pytest.fixture(scope="module")
@@ -67,40 +21,244 @@ def world(tmp_path_factory):
     return build_world(tmp_path_factory.mktemp("sb"))
 
 
-def test_group_values_and_intervals(world):
+@pytest.fixture()
+def labelled(world, monkeypatch):
+    patch_metadata_constants(monkeypatch)
     runs = AD.load_runs([world["root"]], world["qa_path"], kinds=["dense", "bm25"])
-    qa = world["qa"]
-    meta = {str(p): FIELDS[p % 4] for p in range(1, 13)}
-    groups = SB.question_groups(qa, meta)
-    rows, paired, sizes = SB.analyse(runs, groups["subfield"], resamples=200, seed=3)
-    assert {s["group"]: s["n_questions"] for s in sizes}["subfield:Physical Chemistry"] == 9          # papers 1, 5, 9 x 3 questions
-    r = next(x for x in rows if x["group"] == "subfield:Physical Chemistry" and x["model"] == "org/m_a" and x["size"] == 128 and x["chunker"] == "fixed_token" and x["metric"] == "ndcg_at_10")
+    meta = AD.load_question_metadata(world["qa_path"])
+    idx = [int(q) for q in runs.qids]
+    feats = [QF.question_features(world["qa"][i]["question"]) for i in idx]
+    fam = SB.build_groups([meta.question_type[i] for i in idx], [meta.subfields[i] for i in idx], feats, meta.subfield_names, min_questions=5)
+    return {"runs": runs, "meta": meta, "feats": feats, "fam": fam, "idx": idx}
+
+
+def by_name(groups):
+    return {(g.name, g.attrs.get("label_rule")): g for g in groups}
+
+
+# ---- no guessing ---------------------------------------------------------------------------------------------------
+def test_no_heuristic_question_type_code_is_left():
+    code = re.sub(r'""".*?"""', "", (ROOT / "tools" / "subfield_breakdown.py").read_text(), count=1, flags=re.S)     # without the module docstring
+    for gone in ("question_tags", "qword", "yes_no", "QWORDS", "YES_NO_WORDS", "UNIT_RE", "read_fields", "fields_of_study", "UNLABELLED", "tag:"):
+        assert gone not in code, gone
+    assert not hasattr(SB, "question_tags") and not hasattr(SB, "read_fields") and not hasattr(SB, "is_formula")
+    for f in list((ROOT / "tools").glob("*.py")) + list((ROOT / "pipeline_lib").glob("*.py")):
+        assert "question_tags" not in f.read_text(), f.name
+
+
+def test_question_type_comes_from_the_metadata_file(labelled, world):
+    meta, runs = labelled["meta"], labelled["runs"]
+    types = {g.attrs["question_type"]: g for g in labelled["fam"]["question_type"][0]}
+    assert set(types) == set(WORLD_TYPES)
+    for i, q in enumerate(runs.qids):
+        want = meta.question_type[int(q)]
+        assert [t for t, g in types.items() if g.weights[i] == 1] == [want]
+    first = json.loads((Path(world["qa_path"]).with_name("question_metadata.jsonl")).read_text().splitlines()[0])
+    assert meta.question_type[0] == first["question_type"]
+
+
+def test_missing_metadata_stops_with_the_download_command(world, tmp_path):
+    qa = tmp_path / "qa.jsonl"
+    qa.write_text(Path(world["qa_path"]).read_text())
+    with pytest.raises(QuestionMetadataError, match="download_chemquests"):
+        SB.main(["--roots", str(world["root"]), "--qa", str(qa), "--out-dir", str(tmp_path / "o"), "--resamples", "20"])
+    assert not (tmp_path / "o" / "breakdown_question_type.csv").exists()
+
+
+def test_a_metadata_file_that_does_not_match_qa_stops_the_tool(world, tmp_path, monkeypatch):
+    patch_metadata_constants(monkeypatch)
+    for n in ("qa.jsonl", "question_metadata.jsonl"):
+        (tmp_path / n).write_text((Path(world["qa_path"]).with_name(n)).read_text())
+    rows = [json.loads(l) for l in (tmp_path / "question_metadata.jsonl").read_text().splitlines()]
+    rows[3]["question"] += " in this study?"
+    (tmp_path / "question_metadata.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows))
+    with pytest.raises(QuestionMetadataError, match="question text differs"):
+        SB.main(["--roots", str(world["root"]), "--qa", str(tmp_path / "qa.jsonl"), "--out-dir", str(tmp_path / "o"), "--resamples", "20"])
+
+
+# ---- groups ----------------------------------------------------------------------------------------------------
+def test_types_are_exclusive_subfields_are_multi_label_and_fractional(labelled):
+    n = len(labelled["runs"].qids)
+    tg = labelled["fam"]["question_type"][0]
+    assert np.all(sum(g.weights for g in tg) == 1) and sum(g.n_questions for g in tg) == n
+    sg = labelled["fam"]["subfield"][0]
+    multi = [g for g in sg if g.attrs["label_rule"] == SB.MULTI]
+    frac = [g for g in sg if g.attrs["label_rule"] == SB.FRACTIONAL]
+    assert [g.name for g in multi] == [f"subfield:{s}" for s in WORLD_SUBFIELDS]
+    n_labels = np.array([len(labelled["meta"].subfields[i]) for i in labelled["idx"]])
+    assert sum(g.n_questions for g in multi) == n_labels.sum() > n
+    assert np.allclose(sum(g.weights for g in frac), 1.0)                      # the weights of one question add up to 1
+    assert sum(g.weights.sum() for g in frac) == pytest.approx(n)              # so the totals add up to the number of questions
+    for g in frac:
+        m = next(x for x in multi if x.name == g.name)
+        assert np.array_equal(g.weights > 0, m.weights > 0)
+        assert set(np.round(g.weights[g.weights > 0], 6)) <= {1.0, 0.5}
+
+
+def test_every_question_has_a_subfield(labelled):
+    assert all(len(s) >= 1 for s in labelled["meta"].subfields)
+    assert np.all(sum(g.weights for g in labelled["fam"]["subfield"][0] if g.attrs["label_rule"] == SB.MULTI) >= 1)
+
+
+def test_feature_groups_are_flagged_and_not_flagged_and_labelled_as_rule_based(labelled):
+    groups, contrasts = labelled["fam"]["question_features"]
+    for feat in SB.FEATURES:
+        fl = next(g for g in groups if g.name == f"{feat}:flagged")
+        nf = next(g for g in groups if g.name == f"{feat}:not_flagged")
+        assert np.all(fl.weights + nf.weights == 1) and fl.attrs["feature_source"] == "rule_based" and fl.attrs["feature"] == feat
+        flags = np.array([getattr(f, feat) for f in labelled["feats"]])
+        assert np.array_equal(fl.weights > 0, flags)
+    assert not any(k in g.attrs for g in groups for k in ("type", "category"))        # the features are never a type
+    assert all(g.attrs.get("question_type") in (None, *WORLD_TYPES) for g in groups)
+    cell = next(g for g in groups if g.name == "auto_has_number:flagged|question_type:Applied")
+    assert cell.attrs == {"feature": "auto_has_number", "feature_source": "rule_based", "flag": "flagged", "question_type": "Applied"}
+
+
+# ---- statistics ---------------------------------------------------------------------------------------------------
+def test_group_values_intervals_and_weights(labelled):
+    runs, fam = labelled["runs"], labelled["fam"]
+    rows, paired, sizes = SB.analyse(runs, fam["question_type"][0], fam["question_type"][1], resamples=200, seed=3, min_questions=5)
+    g = next(x for x in fam["question_type"][0] if x.name == "question_type:Applied")
     i = runs.index["org/m_a|fixed_token|128|0"]
-    mask = groups["subfield"]["subfield:Physical Chemistry"]
-    assert r["value"] == pytest.approx(runs.metrics["ndcg_at_10"][i][mask].mean()) and r["n_papers"] == 3
-    assert r["ci_low"] <= r["value"] <= r["ci_high"]
-    g = next(x for x in rows if x["group"] == "subfield:unlabelled" and x["metric"] == "geom_at_10" and x["model"] == "org/m_a" and x["size"] == 128)
-    assert g["n_questions"] == 9 and g["n_papers"] == 3
-    # paired dense - BM25 in the same configuration
-    pr = next(x for x in paired if x["group"] == "subfield:Physical Chemistry" and x["model"] == "org/m_a" and x["size"] == 128 and x["chunker"] == "fixed_token" and x["metric"] == "ndcg_at_10")
-    j = runs.index["bm25|fixed_token|128|0"]
-    assert pr["dense_minus_bm25"] == pytest.approx(runs.metrics["ndcg_at_10"][i][mask].mean() - runs.metrics["ndcg_at_10"][j][mask].mean())
-    assert 0 < pr["p_bootstrap"] <= 1 and pr["ci_low"] <= pr["dense_minus_bm25"] <= pr["ci_high"] and "p_holm" in pr and pr["p_holm"] >= pr["p_bootstrap"] - 1e-12
-    assert not any(x["model"] == "bm25" for x in paired)
+    r = next(x for x in rows if x["group"] == "question_type:Applied" and x["model"] == "org/m_a" and x["size"] == 128 and x["chunker"] == "fixed_token"
+             and x["metric"] == "ndcg_at_10" and x["row_kind"] == "group")
+    assert r["value"] == pytest.approx(runs.metrics["ndcg_at_10"][i][g.weights > 0].mean())
+    assert r["ci_low"] <= r["value"] <= r["ci_high"] and r["ci_width"] == pytest.approx(r["ci_high"] - r["ci_low"]) and r["n_questions"] == 9
+    sz = next(s for s in sizes if s["group"] == "question_type:Applied")
+    assert sz["n_questions"] == 9 and sz["n_papers"] == 9 and 0 < sz["max_paper_share"] <= 1 and sz["weight_sum"] == 9 and sz["median_ci_width_geom"] > 0
+    geom = next(x for x in rows if x["group"] == "question_type:Applied" and x["model"] == "org/m_a" and x["size"] == 128 and x["metric"] == "geom_at_10" and x["chunker"] == "fixed_token")
+    nd, rc = (runs.metrics[m][i][g.weights > 0].mean() for m in ("ndcg_at_10", "recall_at_10"))
+    assert geom["value"] == pytest.approx(np.sqrt(nd * rc))
+
+
+def test_fractional_value_is_the_weighted_mean_and_totals_are_n(labelled):
+    runs, fam = labelled["runs"], labelled["fam"]
+    frac = [g for g in fam["subfield"][0] if g.attrs["label_rule"] == SB.FRACTIONAL]
+    rows, _, sizes = SB.analyse(runs, frac, resamples=100, seed=3, min_questions=5)
+    g = frac[0]
+    i = runs.index["org/m_a|fixed_token|128|0"]
+    r = next(x for x in rows if x["group"] == g.name and x["model"] == "org/m_a" and x["size"] == 128 and x["chunker"] == "fixed_token" and x["metric"] == "recall_at_10")
+    assert r["value"] == pytest.approx((runs.metrics["recall_at_10"][i] * g.weights).sum() / g.weights.sum()) and r["ci_low"] <= r["value"] <= r["ci_high"]
+    assert sum(s["weight_sum"] for s in sizes) == pytest.approx(len(runs.qids))
+
+
+def test_weighted_bootstrap_with_unit_weights_equals_the_unweighted_one(labelled):
+    runs = labelled["runs"]
+    w = (np.arange(len(runs.qids)) % 2 == 0).astype(float)
+    a = SB.Resampler({"g": w}, runs.groups, 100, 7)
+    b = SB.Resampler({"g": 0.5 * w}, runs.groups, 100, 7)                 # a common factor changes nothing
+    v = runs.metrics["ndcg_at_10"]
+    assert np.allclose(a.resampled("g", v), b.resampled("g", v)) and np.allclose(a.point("g", v), v[:, w > 0].mean(axis=1))
+
+
+def test_paired_comparisons_and_holm_over_the_four_types(labelled):
+    runs, fam = labelled["runs"], labelled["fam"]
+    rows, paired, _ = SB.analyse(runs, fam["question_type"][0], fam["question_type"][1], resamples=300, seed=3, min_questions=5)
+    key = lambda x: (x["model"], x["chunker"], x["size"], x["overlap"], x["metric"], x["comparison"])      # noqa: E731
+    assert {p["comparison"] for p in paired} >= {"dense_minus_bm25"} and not any(p["model"] == "bm25" for p in paired)
+    pr = [p for p in paired if p["row_kind"] == "group" and key(p) == ("org/m_a", "fixed_token", 128, 0, "ndcg_at_10", "dense_minus_bm25")]
+    assert [p["group"] for p in pr] == [f"question_type:{t}" for t in WORLD_TYPES]                          # Holm over the 4 types
+    assert [p["p_holm"] for p in pr] == pytest.approx(stats.holm([p["p_bootstrap"] for p in pr]))
+    i, j = runs.index["org/m_a|fixed_token|128|0"], runs.index["bm25|fixed_token|128|0"]
+    g = next(x for x in fam["question_type"][0] if x.name == pr[0]["group"])
+    nd = runs.metrics["ndcg_at_10"]
+    assert pr[0]["difference"] == pytest.approx(nd[i][g.weights > 0].mean() - nd[j][g.weights > 0].mean())
+    assert all(0 < p["p_bootstrap"] <= 1 and p["ci_low"] <= p["difference"] <= p["ci_high"] and p["p_holm"] >= p["p_bootstrap"] - 1e-12 for p in pr)
+
+
+def test_interaction_between_types_is_the_difference_of_the_two_differences(labelled):
+    runs, fam = labelled["runs"], labelled["fam"]
+    _, paired, _ = SB.analyse(runs, fam["question_type"][0], fam["question_type"][1], resamples=300, seed=3, min_questions=5)
+    con = [p for p in paired if p["row_kind"] == "contrast" and (p["model"], p["chunker"], p["size"], p["metric"], p["comparison"]) ==
+           ("org/m_a", "fixed_token", 128, "ndcg_at_10", "dense_minus_bm25")]
+    assert len(con) == 6 and len({p["group"] for p in con}) == 6                                         # all 6 pairs of types
+    assert [p["p_holm"] for p in con] == pytest.approx(stats.holm([p["p_bootstrap"] for p in con]))      # Holm over the 6 pairs
+    p = con[0]
+    a, b = (next(g for g in fam["question_type"][0] if g.name == n) for n in p["group"].split(" - "))
+    i, j = runs.index["org/m_a|fixed_token|128|0"], runs.index["bm25|fixed_token|128|0"]
+    nd = runs.metrics["ndcg_at_10"]
+    d = lambda g: nd[i][g.weights > 0].mean() - nd[j][g.weights > 0].mean()                              # noqa: E731
+    assert p["difference"] == pytest.approx(d(a) - d(b)) and p["ci_low"] <= p["difference"] <= p["ci_high"]
+
+
+def test_group_contrast_rows_per_run(labelled):
+    runs, fam = labelled["runs"], labelled["fam"]
+    rows, _, _ = SB.analyse(runs, fam["question_type"][0], fam["question_type"][1], resamples=200, seed=3, min_questions=5)
+    c = [r for r in rows if r["row_kind"] == "contrast" and r["model"] == "org/m_a" and r["size"] == 128 and r["chunker"] == "fixed_token" and r["metric"] == "recall_at_10"]
+    assert len(c) == 6 and all(0 < r["p_bootstrap"] <= 1 and r["p_holm"] >= r["p_bootstrap"] - 1e-12 for r in c)
+
+
+def test_small_cells_get_numbers_but_no_test(labelled):
+    runs, fam = labelled["runs"], labelled["fam"]
+    rows, paired, _ = SB.analyse(runs, fam["question_type"][0], fam["question_type"][1], resamples=100, seed=3, min_questions=30)      # every type has 9
+    assert [r for r in rows if r["row_kind"] == "group"] and not [r for r in rows if r["row_kind"] == "contrast"]
+    assert paired and all(np.isnan(p["p_bootstrap"]) and np.isnan(p["p_holm"]) for p in paired)
+    assert all(not np.isnan(p["difference"]) and not np.isnan(p["ci_low"]) for p in paired)
+    groups, contrasts = SB.build_groups(*(lambda m: ([m.question_type[i] for i in labelled["idx"]], [m.subfields[i] for i in labelled["idx"]]))(labelled["meta"]),
+                                        labelled["feats"], labelled["meta"].subfield_names, min_questions=30)["question_features"]
+    assert contrasts and all("|question_type:" not in c.name for c in contrasts)                           # no cell contrast below 30 questions
+
+
+def test_feature_contrast_is_flagged_minus_not_flagged(labelled):
+    runs = labelled["runs"]
+    groups, contrasts = labelled["fam"]["question_features"]
+    contrasts = [c for c in contrasts if c.name == "auto_has_number:flagged - auto_has_number:not_flagged"]
+    rows, paired, _ = SB.analyse(runs, [g for g in groups if "|" not in g.name and g.attrs["feature"] == "auto_has_number"], contrasts, resamples=200, seed=3, min_questions=5)
+    r = next(x for x in rows if x["row_kind"] == "contrast" and x["model"] == "org/m_a" and x["size"] == 128 and x["chunker"] == "fixed_token" and x["metric"] == "ndcg_at_10")
+    i = runs.index["org/m_a|fixed_token|128|0"]
+    fl = next(g for g in groups if g.name == "auto_has_number:flagged").weights > 0
+    assert r["value"] == pytest.approx(runs.metrics["ndcg_at_10"][i][fl].mean() - runs.metrics["ndcg_at_10"][i][~fl].mean())
+    assert r["feature_source"] == "rule_based" and r["ci_low"] <= r["value"] <= r["ci_high"]
+    assert {p["feature"] for p in paired} == {"auto_has_number"} and all(p["feature_source"] == "rule_based" for p in paired)
 
 
 def test_a_group_with_one_paper_has_no_interval(world):
     runs = AD.load_runs([world["root"]], world["qa_path"], kinds=["dense"])
-    mask = np.zeros(36, dtype=bool)
-    mask[:3] = True                                                  # the three questions of paper 1
-    rows, _, sizes = SB.analyse(runs, {"one paper": mask}, resamples=50, seed=1)
-    assert np.isnan(rows[0]["ci_low"]) and sizes[0]["n_papers"] == 1 and not np.isnan(rows[0]["value"])
+    w = np.zeros(36)
+    w[:3] = 1                                                      # the three questions of paper 1
+    rows, _, sizes = SB.analyse(runs, [SB.Group("one", w, "x")], resamples=50, seed=1, min_questions=1)
+    assert np.isnan(rows[0]["ci_low"]) and sizes[0]["n_papers"] == 1 and sizes[0]["max_paper_share"] == 1 and not np.isnan(rows[0]["value"])
 
 
-def test_cli_writes_all_tables(world, tmp_path):
+def test_an_empty_group_is_skipped_without_error(world):
+    runs = AD.load_runs([world["root"]], world["qa_path"], kinds=["dense"])
+    rows, _, sizes = SB.analyse(runs, [SB.Group("none", np.zeros(36), "x")], resamples=20, seed=1)
+    assert rows == [] and sizes[0]["n_questions"] == 0
+
+
+def test_run_pairs_follow_the_families(world):
+    runs = AD.load_runs([world["root"]], world["qa_path"])
+    comps = {c for _, _, c in SB.run_pairs(runs)}
+    assert "dense_minus_bm25" in comps and comps <= {"dense_minus_bm25", "hybrid_minus_dense", "hybrid_minus_bm25", "rerank_minus_dense", "rerank_minus_bm25", "rerank_minus_hybrid"}
+    assert "rerank_minus_dense" in comps                                  # the world has a rerank run of org/m_c
+
+
+# ---- outputs ---------------------------------------------------------------------------------------------------
+def read(path):
+    return list(csv.DictReader(open(path, newline="", encoding="utf-8")))
+
+
+def test_cli_writes_all_tables(world, tmp_path, monkeypatch):
+    patch_metadata_constants(monkeypatch)
     out = tmp_path / "o"
     assert SB.main(["--roots", str(world["root"]), "--qa", str(world["qa_path"]), "--out-dir", str(out), "--resamples", "50"]) == 0
-    for f in ("breakdown_subfield.csv", "breakdown_tag.csv", "breakdown_subfield_paired.csv", "breakdown_tag_paired.csv", "breakdown_groups.csv"):
+    for f in ("breakdown_question_type.csv", "breakdown_question_features.csv", "breakdown_subfield.csv", "breakdown_question_type_paired.csv",
+              "breakdown_question_features_paired.csv", "breakdown_subfield_paired.csv", "breakdown_groups.csv", "question_features.csv"):
         assert (out / f).exists(), f
-    text = (out / "breakdown_groups.csv").read_text()
-    assert "subfield:Materials Science" in text and "tag:qword:what" in text and "subfield:unlabelled" in text
+    assert not (out / "breakdown_tag.csv").exists() and not (out / "breakdown_tag_paired.csv").exists()
+    groups = read(out / "breakdown_groups.csv")
+    names = {(g["group"], g["label_rule"]) for g in groups}
+    assert ("subfield:Sub A", "multi_label") in names and ("subfield:Sub A", "fractional") in names and ("question_type:Applied", "") in names
+    frac = [g for g in groups if g["label_rule"] == "fractional"]
+    assert sum(float(g["weight_sum"]) for g in frac) == pytest.approx(36)
+    assert not any("unlabelled" in g["group"] for g in groups)
+    feat = read(out / "breakdown_question_features.csv")
+    assert {r["feature_source"] for r in feat} == {"rule_based"} and {r["feature"] for r in feat} == {"auto_has_number", "auto_has_formula"}
+    for f in ("breakdown_question_type.csv", "breakdown_question_features.csv", "breakdown_subfield.csv", "breakdown_groups.csv", "question_features.csv"):
+        head = (out / f).read_text().splitlines()[0].split(",")
+        assert "type" not in head and "category" not in head, f                                  # the features never go into a type column
+    qf = read(out / "question_features.csv")
+    assert len(qf) == 36 and set(qf[0]) == {"query_id", "question", "question_type", "auto_has_number", "auto_has_formula", "number_tokens", "formula_tokens", "feature_source"}
+    assert qf[0]["question_type"] == json.loads(Path(world["qa_path"]).with_name("question_metadata.jsonl").read_text().splitlines()[0])["question_type"]
+    row = next(r for r in qf if "CO2" in r["question"])
+    assert row["auto_has_formula"] == "1" and "CO2" in row["formula_tokens"] and row["feature_source"] == "rule_based"

@@ -7,6 +7,7 @@
                     the analysis tools agree with ``stats_ci.csv`` of ``make report``.
 
 The 952 questions come from 149 papers (1-10 questions each); a paper is the resampling unit. Query ids are the row indices of ``qa.jsonl``.
+Question type and subfield come only from ``load_question_metadata`` (query id = row index of qa.jsonl).
 ``kind`` of a run: dense / bm25 / hybrid / rerank (from ``run_info.json``). When the same (model, configuration) exists in several roots, the
 first root wins. Run metadata is joined from ``runs_overview.csv`` when given (columns such as n_chunks, evaluation_time_s).
 """
@@ -27,7 +28,8 @@ _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _REPO_ROOT not in sys.path:
     sys.path.insert(0, _REPO_ROOT)
 
-from pipeline_lib import config_params  # noqa: E402
+from pipeline_lib import config_params, question_metadata as QM  # noqa: E402
+from pipeline_lib.dataset_pin import QUESTION_METADATA_FILE  # noqa: E402
 from pipeline_lib.span_labels import norm_doc_id  # noqa: E402
 from tools import metrics as M  # noqa: E402
 from tools import stats  # noqa: E402
@@ -138,6 +140,13 @@ def paper_index(qa_jsonl: Any, qids: Sequence[str]) -> np.ndarray:
     """Normalised paper id (``norm_doc_id``: ``098`` = ``98``) of each query id (= row index of qa.jsonl)."""
     docs = [norm_doc_id(json.loads(l)["corpus_id"]) for l in open(qa_jsonl, encoding="utf-8") if l.strip()]
     return np.array([docs[int(q)] for q in qids])
+
+
+def load_question_metadata(qa_jsonl: Any, path: Optional[Any] = None) -> QM.QuestionMetadata:
+    """The official question type and subfields per question (``question_metadata.jsonl`` next to qa.jsonl unless ``path`` is given), checked against
+    ``qa_jsonl`` row by row (``pipeline_lib/question_metadata.py``). Raises ``QuestionMetadataError`` (with the download command) if the file is
+    missing or does not match: the analysis tools have no fallback and never guess a question type from the text."""
+    return QM.load(path or Path(qa_jsonl).with_name(QUESTION_METADATA_FILE), qa_jsonl)
 
 
 def read_overview(path: Optional[Any]) -> Dict[str, Dict[str, str]]:

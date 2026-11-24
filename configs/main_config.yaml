@@ -364,8 +364,9 @@ params:
       d: shortlisted retrieval-tuned
       e: domain-pretrained + citation-contrastive tuning (SPECTER; outside a-d)
 
-  # Manual validation of the span labels (tools/validation_sample.py, tools/kappa.py): a seeded sample of questions, stratified by the FIRST subfield
-  # listed for the paper (a paper without a label is the stratum "unlabelled"), at least min_per_subfield questions per stratum where it has that many.
+  # Manual validation of the span labels (tools/validation_sample.py, tools/kappa.py): a seeded sample of questions, stratified by the official
+  # question type (4 exclusive strata; question_metadata.jsonl), topped up so that every one of the 17 question-level subfields has at least
+  # min_per_subfield sampled questions (the two subfields of a question are a set, not a ranking).
   # Each item shows the question, the span with context_chars characters of context on each side and, for each configuration below, the chunks that the
   # span rule (labeling.cover_level) labelled relevant. One sheet per annotator, same order. Run `make prepare` first (the sheets read the prepared folders).
   validation:
@@ -384,6 +385,14 @@ params:
   analysis:
     enabled_in_report: false          # true: make report runs `make analysis` as its last step (needs the reports of the main run and of the transfer root)
     out_dir: results/v2-revision/analysis
+    # tools/subfield_breakdown.py (question type, automatic question features, subfield): a group with fewer questions than this gets its numbers and
+    # intervals but no test (no p-value, no contrast)
+    breakdown:
+      min_questions_for_test: 30
+    # tools/question_features_check.py: the seeded sample for the hand check of auto_has_number / auto_has_formula
+    question_features_check:
+      n_questions: 50                 # 25 flagged + 25 not flagged for each feature (the two samples may overlap)
+      seed: 20261121
     token_budgets: [512, 1024, 2048]  # reference-tokenizer tokens handed over to the reader (tools/token_budget.py)
     cover_levels: [0.8, 0.9, 1.0]     # cover-level sensitivity (tools/rescore.py, with paper-level intervals); labeling.cover_level is the primary
     # tools/fragmentation.py: questions whose evidence the small size splits vs the gain at the large size (same strategy, same model, this overlap)
@@ -785,10 +794,14 @@ stage2:
 #-------------------------------------------------------------------------------------
 stage3:
   repo_id: "Bocklitz-Lab/ChemQuests"
-  data_files: ["metadata.jsonl", "full_text.jsonl", "qa.jsonl"]   # the pinned release has no full_text.jsonl: it is built from full_text/<id>.txt + metadata.jsonl
+  data_files: ["metadata.jsonl", "full_text.jsonl", "qa.jsonl", "qa/question_metadata.jsonl"]   # the pinned release has no full_text.jsonl: it is built from full_text/<id>.txt + metadata.jsonl
   output_dir: ${params.paths.chemquests_dir}
   revision: "5ab7dc673653b800f368fe30851efbdb24385e0d"   # pinned release (never "main")
   qa_sha256: "e66ced49821787f7448b688a261ca0bb65c5cfe0f9961753316aec52c6b20e8d"
+  # qa/question_metadata.jsonl (question type, subfields per question) is NOT in the pinned release above; it has its own pin. That dataset commit
+  # differs from the release only by this file (qa.jsonl, metadata.jsonl, every full_text/<id>.txt have the same git blob ids).
+  question_metadata_revision: "790d2bc6829ccd7e1e480a6a4610149650b79e9f"
+  question_metadata_sha256: "4e1f83fbe22323bfd358e95c3814cd39b508d76d67df2680410acc7fb31c5a70"
   overwrite: false
 #-------------------------------------------------------------------------------------
 #                               STAGE 4

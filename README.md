@@ -78,7 +78,7 @@ make pilot             # 2 models + BM25 + their RRF hybrids, fixed-token and hi
 make check-identical TESTS_ROOT=artifacts/tests   # corpus / qrels byte-identical across models?
 make report            # statistics, diagnostics, overlap diagnostic, paper tables -> results/v2-revision/ (tracked); also run by eval/rerun/pilot
 make transfer          # models that Phase 1 did not shortlist on C1-C5 (+C6) in the new pipeline -> artifacts/transfer (params.transfer)
-make analysis          # token budget, subfield / question type, variance decomposition, winner stability, Phase 1 -> 2 transfer, examples, fragmentation
+make analysis          # token budget, question type / subfield / automatic features, variance decomposition, winner stability, Phase 1 -> 2 transfer, examples, fragmentation
 ```
 
 - `params.chunking_tokenizer` (bert-base-uncased, pinned) counts all chunk sizes; each model still embeds with its own
@@ -161,7 +161,8 @@ takes 18 s at 10,000 resamples (6 s of it without the cover-level table). `tools
 `table_truncation_phase1.csv`.
 
 **Manual validation of the labels**: `python -m tools.validation_sample --qa ... --prepared-root artifacts/prepared --out-dir results/validation` draws `params.validation.n_questions` (100) questions,
-seeded, stratified by the first listed subfield of the paper (at least 2 per subfield), and writes one CSV + Markdown sheet per annotator (question, span with 300 characters of context, labelled chunks of three
+seeded, stratified by the official question type (4 exclusive strata, proportional) and topped up so that each of the 17 question-level subfields appears in at least 2 sampled questions (the two subfields of a question are a set; the type
+counts do not change), and writes one CSV + Markdown sheet per annotator (question, type, subfields, span with 300 characters of context, labelled chunks of three
 configurations; answers `yes` / `partial` / `no`). `python -m tools.kappa --sheets A.csv B.csv --out-dir ...` gives percent agreement, Cohen's and linearly weighted kappa with paper-level intervals and the disagreements.
 
 **Analysis tools on the rerun outputs** (`make analysis` = `python -m tools.run_analysis`; `ANALYSIS_ARGS="--only ..."`; all share `tools/analysis_data.py`: a runs x queries matrix and the paper-level resampling of
@@ -170,12 +171,42 @@ configurations; answers `yes` / `partial` / `no`). `python -m tools.kappa --shee
 | tool | output | what it answers |
 |---|---|---|
 | `tools/token_budget.py` | `token_budget.csv` | share of the evidence span and hit rate (>= c) when the reader gets B = 512 / 1024 / 2048 reference tokens: the ranking is walked, overlapping chunks are counted as the union of their characters, the last chunk is cut at the token that still fits |
-| `tools/subfield_breakdown.py` | `breakdown_subfield.csv`, `breakdown_tag.csv`, `*_paired.csv`, `breakdown_groups.csv` | nDCG@10 / Recall@10 / Geom@10 per subfield (a paper counts in every listed subfield, "unlabelled" for none) and per rule-based question tag (question word, yes/no, number or unit, chemical formula), paper-level intervals, dense - BM25 per group, questions and papers per group |
+| `tools/subfield_breakdown.py` | `breakdown_question_type.csv`, `breakdown_question_features.csv`, `breakdown_subfield.csv` (each with `_paired.csv`), `breakdown_groups.csv`, `question_features.csv` | nDCG@10 / Recall@10 / Geom@10 by official question type, by the two automatic features and by subfield (multi-label and fractional), paper-level intervals; dense - BM25 and the other family comparisons per group; contrasts between groups; see "Question labels" below |
 | `tools/variance_decomposition.py` | `variance_decomposition[_balanced].csv`, `variance_ranges*.csv` | Type II eta^2 of model, strategy, size, overlap, model x strategy for Geom@10 of the dense runs, intervals by paper-level bootstrap, difference model - strategy, balanced sub-grid, simple ranges |
 | `tools/winner_stability.py` | `winner_<pool>_by_configuration.csv`, `_by_model.csv`, `_overall.csv` | share of resamples in which a run is first (pools: dense, all kinds) |
 | `tools/phase_transfer.py` | `phase_transfer_*.csv`, `fig_phase_transfer.png` | Spearman and Kendall (bootstrap over models) between Phase 1 and Phase 2 for all, shortlisted and excluded models; tuned - base pairs; group means; excluded vs shortlisted |
 | `tools/examples.py` | `examples.csv`, `examples.md` | named cases (fails at 128 / works at 512, dense wins, BM25 wins, all fail, rerank rescues) with question, span excerpt and top chunks of each retriever |
 | `tools/fragmentation.py` | `fragmentation.csv` | per question: fragmented at the small size vs gain at the large size, difference with an interval |
+
+### Question labels: type, subfields and two automatic features
+
+**Source.** Question type and chemistry subfields are the official per-question labels of the dataset, `qa/question_metadata.jsonl` of `Bocklitz-Lab/ChemQuests` (952 rows, `question_id` `q0000`-`q0951`, `question_type`,
+`chemistry_subfields`). The file is not in the pinned benchmark release (`5ab7dc67...`). It was added in dataset commit `790d2bc6829ccd7e1e480a6a4610149650b79e9f`, whose tree equals the release in every other file (same git blob ids for
+`qa.jsonl`, `metadata.jsonl` and all `full_text/<id>.txt`), so the benchmark pin is unchanged and the file has its own pin: `question_metadata_revision` and `question_metadata_sha256`
+(`4e1f83fb...`) in `params.stage3` and `pipeline_lib/dataset_pin.py`. Stage 3 (`make stage3`) downloads it next to `qa.jsonl` as `question_metadata.jsonl` and checks the hash; if `artifacts/chemquests_hf_db` already exists
+without it, run stage 3 again (existing files are only verified). The revision and the SHA-256 are recorded in the prepare `manifest.json`, `run_manifest.json` and `report_manifest.json`.
+
+**Checks (`pipeline_lib/question_metadata.py`, used by every analysis tool through `tools/analysis_data.load_question_metadata`).** The loader raises, with no fallback, if the file is missing (the message names the download command), if
+it does not have 952 rows, if a `question_id` is duplicated or missing, if `q%04d` is not the row index of `qa.jsonl`, if `corpus_id` or the question text differs from `qa.jsonl` in any row (exact comparison, differences listed; `qa/qa.csv`
+has other question texts and is not used), if `question_type` is not one of `Conceptual`, `Mechanistic`, `Applied`, `Synthetic and Experimental`, or if `chemistry_subfields` is empty, not a list, or the file does not hold exactly the 17 subfield
+names of the paper (names are never mapped or merged). No question type is guessed from the question text anywhere.
+
+**Subfields are per question**, one or two per question, a set and not a ranking. They are not the paper-level `fields_of_study` of `metadata.jsonl`. Two rules are reported side by side (`label_rule`): `multi_label` (a question counts fully
+in every subfield it carries; groups overlap) and `fractional` (weight 1/number of subfields in each of them, weighted means and weighted bootstrap; the group weights add up to 952). Question types are exclusive.
+
+**Automatic features, not annotations.** The dataset has no label for "the question contains a number" or "...a chemical formula". `pipeline_lib/question_features.py` computes two rule-based features from the question text only:
+`auto_has_number` (a number, a decimal, a range or a number with a unit; digits inside names and formulas such as CO2, 13C, SARS-CoV-2 do not count) and `auto_has_formula` (a token that parses completely into element symbols with counts, groups and
+charges; abbreviations such as UV, IR, NMR, PVC and single symbols such as In, As, No are excluded). The rules, the explicit exclusion lists and the known errors are in the module docstring. They are written with the prefix `auto_` and
+`feature_source = rule_based`, never into a `type` or `category` column and never merged with `question_type`; `question_features.csv` lists, per question, the flags and the tokens that triggered them.
+**Hand check:** `python -m tools.question_features_check draw --qa ... --out-dir results/validation` writes a seeded sheet of 50 questions (25 flagged and 25 not flagged for each feature) with empty `manual_has_number` and
+`manual_has_formula`; after a person fills it, `python -m tools.question_features_check score --sheet results/validation/question_features_check.csv --qa ...` gives precision, recall and agreement per feature. **The feature breakdowns are
+not final until this sheet is filled in and its precision and recall are reported.**
+
+**Breakdown outputs** (`tools/subfield_breakdown.py`): one row per run, group and metric with a paper-level 95% interval (the papers of the group are resampled, `params.report.resamples`, `params.seed`), `ci_width`, `n_questions`, `n_papers`;
+`_paired.csv`: dense - BM25, hybrid - dense, hybrid - BM25, rerank - dense / BM25 / hybrid inside each group with bootstrap p and Holm over the groups of the family (4 types; 17 subfields per label rule; the groups of one feature);
+`row_kind = contrast` rows compare two groups: the 6 pairs of types, and flagged - not flagged for each feature overall and inside each type, with a paired paper-level bootstrap over the papers of both groups and, in the paired tables, the
+interaction (does dense - BM25 differ between the groups?). A group or cell with fewer than `params.analysis.breakdown.min_questions_for_test` (30) questions gets its numbers and intervals, but no p-value and no contrast.
+`breakdown_groups.csv` adds the largest share of a group's questions that come from one paper and the median interval width.
 
 ### Efficiency measures (deployment cost)
 

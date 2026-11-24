@@ -46,6 +46,7 @@ def test_build_report_writes_tracked_tables_manifest_and_readme(tmp_path):
          hybrid={"method": "rrf", "k": 60, "dense": "org/dense", "sparse": "bm25"})
     out = tmp_path / "results" / "v2"
     m = R.build_report(root, out, qa, resamples=50, overlap=False, verbose=False)
+    assert m["question_metadata"] == {"file": None}                                 # no metadata file next to qa.jsonl: nothing recorded, nothing invented
     for f in ("table_main.csv", "runs_overview.csv", "stats_ci.csv", "stats_compare.csv", "README.md", "report_manifest.json"):
         assert (out / f).exists(), f
     assert (root / "report" / "stats_compare.csv").exists()                         # the full copy stays in the artifacts

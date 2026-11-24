@@ -46,7 +46,13 @@ make stage2                  # top 20% per task -> passed_per_dataset__validatio
 
 ```bash
 make prepare                 # 140 configurations; ChemQuests is downloaded (stage 3) if artifacts/chemquests_hf_db is missing
+make stage3                  # also needed once if artifacts/chemquests_hf_db exists from an earlier run: downloads qa/question_metadata.jsonl (needs an HF token)
 ```
+The question labels (`question_metadata.jsonl`: official question type and subfields) are NOT in the pinned release `5ab7dc67...`; stage 3 fetches them from their own pinned revision
+`790d2bc6829ccd7e1e480a6a4610149650b79e9f` (a dataset commit that differs from the release only by this file) and stops if the SHA-256 is not `4e1f83fb...`. Existing files are only verified, so qa.jsonl and
+full_text.jsonl stay byte-identical. Checks to read after the download: the loader (`python -c "from tools import analysis_data as AD; m = AD.load_question_metadata('artifacts/chemquests_hf_db/qa.jsonl'); print(m.type_counts(), m.subfield_counts())"`)
+raises unless there are 952 rows, `q%04d` equals the row index of `qa.jsonl`, `corpus_id` and the question text equal `qa.jsonl`, the four types and exactly 17 subfield names are present. The revision and the hash are recorded in
+`manifest.json` of every prepared folder, in `run_manifest.json` and in `report_manifest.json`.
 The semantic chunker's first configuration is cold (about 8 min); the others are cached. Check afterwards: 140 folders in `artifacts/prepared/`, each with a `manifest.json`.
 
 ## 4. Manual validation of the labels (start now; takes human time, no GPU)
@@ -61,7 +67,15 @@ works alone. When both are done:
 python -m tools.kappa --sheets results/validation/validation_sheet_annotator_1.csv results/validation/validation_sheet_annotator_2.csv --out-dir results/validation
 #   -> kappa.csv (agreement, kappa, weighted kappa with paper-level intervals), kappa_disagreements.csv (discuss these items)
 ```
-Keep the filled sheets and `validation_sample_summary.json` (seed, strata, hashes of the prepared folders) with the paper material.
+Keep the filled sheets and `validation_sample_summary.json` (seed, questions per type and subfield, hashes of the prepared folders) with the paper material.
+The sample is stratified by the official question type and every one of the 17 subfields has at least 2 questions in it.
+
+Second hand check, also human time: the two automatic question features (`auto_has_number`, `auto_has_formula`; rule-based, not annotations):
+```bash
+python -m tools.question_features_check draw --qa artifacts/chemquests_hf_db/qa.jsonl --out-dir results/validation    # 50 questions, manual_* columns empty
+python -m tools.question_features_check score --sheet results/validation/question_features_check.csv --qa artifacts/chemquests_hf_db/qa.jsonl
+```
+Do not quote any breakdown by these features as final before the sheet is filled in and precision / recall are in the paper.
 
 ## 5. Main run: every shortlisted model and BM25 on all 140 configurations
 
@@ -102,7 +116,7 @@ three models that are also in the main run. The report of this root goes to `res
 make report                  # main root -> results/v2-revision/ (tracked small CSVs; large files stay in artifacts/report/): about 45-60 min at 10,000 resamples for ~3,900 runs (extrapolated from the pilot: 18 s for 20 runs)
 make report ARTIFACTS_ROOT=artifacts/transfer REPORT_DIR=results/v2-revision/transfer       # (already written by make transfer)
 python -m tools.efficiency_analysis --efficiency artifacts/tests/efficiency_phase2.csv --scores results/v2-revision/runs_overview.csv --out results/efficiency --phase1 artifacts/embedding_models_screening/validation_prompts/efficiency_phase1.csv
-make analysis                # token budget, subfield / question type, variance decomposition, winner stability, Phase 1 -> Phase 2 transfer, examples, fragmentation -> results/v2-revision/analysis/
+make analysis                # token budget, question type / automatic features / subfield, variance decomposition, winner stability, Phase 1 -> Phase 2 transfer, examples, fragmentation -> results/v2-revision/analysis/
 ```
 `make analysis ANALYSIS_ARGS="--only token_budget examples"` runs some tools; `ANALYSIS_ARGS="--resamples 1000"` is a quick test. Time: `token_budget` about 0.5 s per run (about 30 min), the others minutes.
 `params.analysis.enabled_in_report: true` chains `make analysis` at the end of `make report` (main root only). `phase_transfer` needs `make report` of both roots first (it reads their `runs_overview.csv`)
@@ -122,7 +136,7 @@ and is skipped with a message if the Phase 1 folder or the shortlist is missing.
 | 14, 16 transfer, Phase 1 -> Phase 2 | `artifacts/transfer/`, `analysis/phase_transfer_*.csv`, `fig_phase_transfer.png` |
 | 17, 18 statistics | `stats_ci.csv`, `stats_compare.csv` (10,000 resamples, families) |
 | 19, 20 winner stability, variance | `analysis/winner_*.csv`, `analysis/variance_*.csv` |
-| 23, 24 subfield, question type | `analysis/breakdown_*.csv` |
+| 23, 24 subfield, question type | `analysis/breakdown_question_type*.csv`, `breakdown_subfield*.csv` (official labels; multi-label and fractional), `breakdown_question_features*.csv` (automatic features), `breakdown_groups.csv`, `question_features.csv` |
 | 25, 26 examples, fragmentation | `analysis/examples.csv/.md`, `analysis/fragmentation.csv` |
 | 27 hardware | `run_manifest.json: hardware` (CPU, RAM, GPU, threads, seeds) of dense, BM25, hybrid and rerank runs |
 | 29 efficiency | `artifacts/tests/efficiency_phase2.csv`, `efficiency_phase1.csv`, `results/efficiency/` |

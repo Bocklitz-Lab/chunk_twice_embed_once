@@ -19,6 +19,23 @@ from tools import coverage_diagnostics as CD, metrics as M
 
 N_PAPERS, PER_PAPER = 12, 3
 FIELDS = [["Organic Chemistry", "Catalysis"], ["Physical Chemistry"], ["Materials Science", "Energy"], []]       # paper p has FIELDS[p % 4]
+WORLD_SUBFIELDS = ("Sub A", "Sub B", "Sub C")
+WORLD_TYPES = ["Conceptual", "Mechanistic", "Applied", "Synthetic and Experimental"]
+
+
+def question_labels(p: int, j: int):
+    """(question_type, subfields) of question j of paper p in the synthetic world: the type cycles over the questions, the subfields over the papers."""
+    subs = [["Sub A", "Sub B"], ["Sub B"], ["Sub C", "Sub A"], ["Sub C"]][(p + j) % 4]
+    return WORLD_TYPES[(3 * p + j) % 4], subs
+
+
+def patch_metadata_constants(monkeypatch) -> None:
+    """The loader checks 952 questions and the 17 subfields of the paper; the synthetic world has 36 questions and 3 subfields."""
+    from pipeline_lib import question_metadata as QM
+    monkeypatch.setattr(QM, "N_QUESTIONS", N_PAPERS * PER_PAPER)
+    monkeypatch.setattr(QM, "SUBFIELDS", WORLD_SUBFIELDS)
+
+
 DEFAULT_CONFIGS = [("fixed_token", 128, 0), ("fixed_token", 512, 0), ("hierarchical_section", 128, 0), ("hierarchical_section", 512, 0)]
 CHAR_STEP = {128: 160, 256: 320, 512: 640}
 QUESTIONS = ["What is the yield of {x}?", "Which catalyst gives CO2 at 25 nm?", "How does NaCl change the rate?", "Is the sample stable at 300 °C?",
@@ -32,7 +49,7 @@ def paper_text(p: int) -> str:
 def build_corpus(root: Path) -> Dict[str, Any]:
     d = root / "chemquests_hf_db"
     d.mkdir(parents=True, exist_ok=True)
-    qa, meta, full = [], [], []
+    qa, meta, full, qmeta = [], [], [], []
     for p in range(1, N_PAPERS + 1):
         t = paper_text(p)
         full.append({"corpus_id": f"{p:03d}", "text": t})
@@ -41,7 +58,9 @@ def build_corpus(root: Path) -> Dict[str, Any]:
             s = 300 + 400 * j + 7 * p
             qa.append({"question": QUESTIONS[(p + j) % len(QUESTIONS)].format(x=f"w{p}_{j}"), "corpus_id": f"{p:03d}", "content": t[s:s + 70],
                        "start_index": s, "end_index": s + 70})
-    for name, rows in (("qa.jsonl", qa), ("metadata.jsonl", meta), ("full_text.jsonl", full)):
+            ty, subs = question_labels(p, j)
+            qmeta.append({"question_id": f"q{len(qa) - 1:04d}", "corpus_id": f"{p:03d}", "question": qa[-1]["question"], "question_type": ty, "chemistry_subfields": subs})
+    for name, rows in (("qa.jsonl", qa), ("metadata.jsonl", meta), ("full_text.jsonl", full), ("question_metadata.jsonl", qmeta)):
         (d / name).write_text("".join(json.dumps(r) + "\n" for r in rows), encoding="utf-8")
     return {"dir": d, "qa": qa}
 

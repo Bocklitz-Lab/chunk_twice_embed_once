@@ -1,7 +1,7 @@
 """``make analysis``: every analysis tool that runs on the outputs of the full rerun, one after the other, with the paths and settings of the main config.
 
   token_budget            span coverage and hit rate at a fixed budget of retrieved reference tokens          (Reviewer 2 item 7)
-  subfield_breakdown      results by chemistry subfield and by rule-based question type                         (items 23, 24)
+  subfield_breakdown      results by official question type, subfield (multi-label and fractional) and automatic features   (items 23, 24)
   variance_decomposition  eta^2 of model, strategy, size, overlap (Type II) with paper-level intervals          (item 20)
   winner_stability        how often each model / configuration is first across paper-level resamples            (item 19)
   phase_transfer          Phase 1 vs Phase 2 rank correlation over models, pairs, groups, scatter               (item 16)
