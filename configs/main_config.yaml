@@ -483,6 +483,16 @@ params:
       ChemNQRetrieval: {test: 27}
       ChemHotpotQARetrieval: {train: 180, dev: 8, test: 18}
 
+  # Figures of `make report` (tools/figures.py). model_families: family -> the models in it, for the compact variant of the quality-time figure (read from here,
+  # never parsed from a name; a model that is in no list is drawn as "Other"). The chunking strategies, sizes and overlaps are read from the data.
+  figures:
+    model_families:
+      E5: [intfloat/e5-small, intfloat/e5-base, intfloat/e5-large, intfloat/e5-small-v2, intfloat/e5-base-v2, intfloat/e5-large-v2]
+      Multilingual E5: [intfloat/multilingual-e5-small, intfloat/multilingual-e5-base, intfloat/multilingual-e5-large]
+      BGE: [BAAI/bge-small-en, BAAI/bge-base-en, BAAI/bge-large-en, BAAI/bge-small-en-v1.5, BAAI/bge-base-en-v1.5, BAAI/bge-large-en-v1.5, BAAI/bge-m3]
+      Nomic: [nomic-ai/nomic-embed-text-v1, nomic-ai/nomic-embed-text-v1.5]
+      Instructor: [hkunlp/instructor-xl]
+
   # Report step, run automatically at the end of `make eval` / `make rerun` / `make pilot` (tools/make_report.py):
   # run table, identical-input check, bootstrap CIs (query + paper level), paired tests (Holm), label agreement, coverage
   # diagnostics, lexical-overlap diagnostic, truncation summary and the paper tables. The small CSVs are copied to out_dir

@@ -424,6 +424,15 @@ def build_report(artifacts_root: str | Path, out_dir: str | Path, qa_jsonl: Opti
         stats._write(heavy / "table_phase1_ci.csv", p1_ci)
     steps["phase1_ci_rows"] = len(p1_ci)
 
+    log("figures")
+    try:                                                              # figures never stop the report; the CLI `python -m tools.figures` has the options
+        from tools import figures
+        figures.draw_all(heavy / "runs_overview.csv", heavy / "figures", roots=[root] if qa and Path(qa).exists() else None, qa=qa if qa and Path(qa).exists() else None,
+                         resamples=resamples, seed=seed)
+        steps["figures"] = str(heavy / "figures")
+    except Exception as e:                                           # noqa: BLE001
+        steps["figures_skipped"] = f"{type(e).__name__}: {e}"
+
     # ---- the small files, tracked by git
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
