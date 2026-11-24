@@ -785,10 +785,14 @@ stage2:
 #-------------------------------------------------------------------------------------
 stage3:
   repo_id: "Bocklitz-Lab/ChemQuests"
-  data_files: ["metadata.jsonl", "full_text.jsonl", "qa.jsonl"]   # the pinned release has no full_text.jsonl: it is built from full_text/<id>.txt + metadata.jsonl
+  data_files: ["metadata.jsonl", "full_text.jsonl", "qa.jsonl", "qa/question_metadata.jsonl"]   # the pinned release has no full_text.jsonl: it is built from full_text/<id>.txt + metadata.jsonl
   output_dir: ${params.paths.chemquests_dir}
   revision: "5ab7dc673653b800f368fe30851efbdb24385e0d"   # pinned release (never "main")
   qa_sha256: "e66ced49821787f7448b688a261ca0bb65c5cfe0f9961753316aec52c6b20e8d"
+  # qa/question_metadata.jsonl (question type, subfields per question) is NOT in the pinned release above; it has its own pin. That dataset commit
+  # differs from the release only by this file (qa.jsonl, metadata.jsonl, every full_text/<id>.txt have the same git blob ids).
+  question_metadata_revision: "790d2bc6829ccd7e1e480a6a4610149650b79e9f"
+  question_metadata_sha256: "4e1f83fbe22323bfd358e95c3814cd39b508d76d67df2680410acc7fb31c5a70"
   overwrite: false
 #-------------------------------------------------------------------------------------
 #                               STAGE 4

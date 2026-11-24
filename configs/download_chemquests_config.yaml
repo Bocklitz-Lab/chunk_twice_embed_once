@@ -1,8 +1,10 @@
 {
   "repo_id": "Bocklitz-Lab/ChemQuests",
-  "data_files": ["metadata.jsonl", "full_text.jsonl", "qa.jsonl"],
+  "data_files": ["metadata.jsonl", "full_text.jsonl", "qa.jsonl", "qa/question_metadata.jsonl"],
   "output_dir": "artifacts/chemquests",
   "revision": "5ab7dc673653b800f368fe30851efbdb24385e0d",
   "qa_sha256": "e66ced49821787f7448b688a261ca0bb65c5cfe0f9961753316aec52c6b20e8d",
+  "question_metadata_revision": "790d2bc6829ccd7e1e480a6a4610149650b79e9f",
+  "question_metadata_sha256": "4e1f83fbe22323bfd358e95c3814cd39b508d76d67df2680410acc7fb31c5a70",
   "overwrite": false
 }

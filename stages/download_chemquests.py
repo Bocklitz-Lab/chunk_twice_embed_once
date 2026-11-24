@@ -14,8 +14,12 @@ from pipeline_lib.dataset_pin import (
     CHEMQUESTS_QA_SHA256,
     CHEMQUESTS_REVISION,
     DatasetIntegrityError,
+    QUESTION_METADATA_REPO_PATH,
+    QUESTION_METADATA_REVISION,
+    QUESTION_METADATA_SHA256,
     sha256_file,
     verify_qa_sha256,
+    verify_question_metadata_sha256,
 )
 
 
@@ -134,6 +138,8 @@ def download_files(
     revision: Optional[str] = None,
     overwrite: bool = False,
     expected_qa_sha256: Optional[str] = CHEMQUESTS_QA_SHA256,
+    question_metadata_revision: Optional[str] = QUESTION_METADATA_REVISION,
+    expected_question_metadata_sha256: Optional[str] = QUESTION_METADATA_SHA256,
 ) -> None:
     """Copy the raw files of a pinned dataset revision into ``output_dir``.
 
@@ -141,6 +147,9 @@ def download_files(
     SHA256 of ``qa.jsonl`` can be checked against the pinned release. ``full_text.jsonl`` does not exist in that
     release: it is built from ``full_text/<id>.txt`` and ``metadata.jsonl`` and every span is checked. Existing
     files are kept when ``overwrite`` is false, but are verified all the same.
+
+    ``qa/question_metadata.jsonl`` is not in the pinned release. If it is listed in ``data_files`` it is fetched from its own pinned revision
+    (``question_metadata_revision``), written as ``question_metadata.jsonl`` next to qa.jsonl and checked against ``expected_question_metadata_sha256``.
     """
     outdir = ensure_dir(output_dir)
 
@@ -154,15 +163,21 @@ def download_files(
 
     for file in data_files:
         out_path = outdir / Path(file).name
+        is_qmeta = file == QUESTION_METADATA_REPO_PATH
+        file_revision = revision
+        if is_qmeta:
+            if question_metadata_revision in (None, "", "main", "master"):
+                raise DatasetIntegrityError(f"{file} needs its own pinned revision (question_metadata_revision), got {question_metadata_revision!r}")
+            file_revision = question_metadata_revision
         if out_path.exists() and not overwrite:
             logging.info(f"Skip (exists): {out_path}")
         else:
-            logging.info(f"Downloading {repo_id}:{file} (rev={revision})")
+            logging.info(f"Downloading {repo_id}:{file} (rev={file_revision})")
             cached = hf_hub_download(
                 repo_id=repo_id,
                 filename=file,
                 repo_type="dataset",
-                revision=revision,
+                revision=file_revision,
                 token=hf_token,
             )
             shutil.copyfile(cached, out_path)
@@ -171,6 +186,9 @@ def download_files(
         if Path(file).name == "qa.jsonl" and expected_qa_sha256:
             digest = verify_qa_sha256(out_path, expected_qa_sha256)
             logging.info(f"qa.jsonl SHA256 OK: {digest}")
+        if is_qmeta and expected_question_metadata_sha256:
+            digest = verify_question_metadata_sha256(out_path, expected_question_metadata_sha256)
+            logging.info(f"question_metadata.jsonl SHA256 OK: {digest}")
 
     if want_full_text:
         target = outdir / FULL_TEXT_JSONL
@@ -220,6 +238,8 @@ def main():
             f"(expected {CHEMQUESTS_REVISION})."
         )
     expected_qa_sha256 = cfg.get("qa_sha256") or CHEMQUESTS_QA_SHA256
+    question_metadata_revision = cfg.get("question_metadata_revision", QUESTION_METADATA_REVISION)
+    expected_question_metadata_sha256 = cfg.get("question_metadata_sha256") or QUESTION_METADATA_SHA256
     overwrite = bool(cfg.get("overwrite", False))
 
     logging.info(f"Repo: {repo_id}")
@@ -236,6 +256,8 @@ def main():
         revision=revision,
         overwrite=overwrite,
         expected_qa_sha256=expected_qa_sha256,
+        question_metadata_revision=question_metadata_revision,
+        expected_question_metadata_sha256=expected_question_metadata_sha256,
     )
 
     print(f"Done. Artifacts are in: {Path(output_dir).resolve()}")
