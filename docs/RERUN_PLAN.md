@@ -30,6 +30,8 @@ These files are never overwritten: Phase 1 with prompts writes to `validation_pr
 
 ## 2. Phase 1 with prompts (about 3 h on one GPU)
 
+The split that Phase 1 is scored on is `params.phase1.eval_split` (default `test` for both tasks = the published Table 1 and shortlist; see `docs/PAPER_NOTES_phase1_split.md`). Do not change it before the run unless the authors decide so: stage 2 follows it. Stage 1 also writes `per_query_<Task>.csv` and `run_top100_<Task>.trec.gz` (`params.phase1.save_per_query`); `make report` then writes `table_phase1_ci.csv`.
+
 ```bash
 make stage0                  # regenerates configs/stages/stage1-3.yaml from the main config (they are tracked; tests/test_phase1_paths.py checks them)
 make stage1                  # 41 models x 2 tasks, prompts on, --efficiency on; writes artifacts/embedding_models_screening/validation_prompts/
