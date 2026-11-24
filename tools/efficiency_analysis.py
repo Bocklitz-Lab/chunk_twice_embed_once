@@ -24,8 +24,17 @@ import argparse
 from pathlib import Path
 from typing import List, Optional
 
+import os
+import sys
+
 import numpy as np
 import pandas as pd
+
+_REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if _REPO_ROOT not in sys.path:
+    sys.path.insert(0, _REPO_ROOT)
+
+from pipeline_lib import phase1_split  # noqa: E402
 
 KEY = ["model", "chunker", "size", "overlap"]
 # categorical slots 1-5 of the reference palette (validated, light surface), fixed order; marker shape is the second encoding
@@ -174,7 +183,13 @@ def phase1_table(p1: Path) -> pd.DataFrame:
                                  index_MB_fp32_max=("index_mb_fp32", "max")).reset_index()
     if "latency_total_ms_median" in e:
         agg = agg.merge(e.groupby("model")["latency_total_ms_median"].mean().rename("latency_ms_median").reset_index(), on="model", how="left")
-    return agg.sort_values("params_M").reset_index(drop=True)
+    agg = agg.sort_values("params_M").reset_index(drop=True)
+    # The Phase 1 efficiency row of a task is the LAST evaluation pass MTEB makes (for ChemHotpotQARetrieval: train, dev, test in this order, so test).
+    # The split that the quality columns of the paper use is params.phase1.eval_split; both are written so that the table says which split it belongs to.
+    es, nq = phase1_split.eval_splits(), phase1_split.n_queries_table()
+    agg["split"] = "; ".join(f"{t}={sp}" for t, sp in sorted(es.items()))
+    agg["n_queries"] = "; ".join(f"{t}={phase1_split.n_queries_of(t, sp, nq)}" for t, sp in sorted(es.items()))
+    return agg
 
 
 def main(argv: Optional[List[str]] = None) -> int:

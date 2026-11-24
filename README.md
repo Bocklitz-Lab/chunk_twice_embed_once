@@ -178,6 +178,21 @@ configurations; answers `yes` / `partial` / `no`). `python -m tools.kappa --shee
 | `tools/examples.py` | `examples.csv`, `examples.md` | named cases (fails at 128 / works at 512, dense wins, BM25 wins, all fail, rerank rescues) with question, span excerpt and top chunks of each retriever |
 | `tools/fragmentation.py` | `fragmentation.csv` | per question: fragmented at the small size vs gain at the large size, difference with an interval |
 
+### Figures (`tools/figures.py`)
+
+`make report` ends by drawing the paper figures into `<report folder>/figures/` (also `python -m tools.figures --runs runs_overview.csv --out DIR [--roots ... --qa ...] [--include-baselines] [--threshold-over all] [--best-model]`;
+PNG at 300 dpi and PDF, each with a `<name>.json` sidecar: input hash, number of runs, threshold and how it was computed, run kinds, panels, git commit). They replace the old figures of `pipeline_lib/generate_figures.py`, which is **legacy** and kept unchanged:
+`fig_tradeoff_by_model` (Figure 3 replacement: one panel per model, runs coloured by strategy, top-1 % line), `fig_tradeoff_by_strategy` (compact variant: one panel per strategy, coloured by model family from `params.figures.model_families`),
+`fig_chunk_size_by_strategy` / `fig_chunk_size_lines` (chunk size at overlap 0, mean over the dense models with a paper-level 95 % band) and `fig_overlap_by_size` (overlap, one panel per size that has more than one overlap).
+Dense runs only unless `--include-baselines` (BM25, hybrid, rerank as a marked layer); the top-1 % threshold is over the dense runs unless `--threshold-over all`.
+
+### Phase 1 evaluation split
+
+MTEB scores every split of a task. `params.phase1.eval_split` (task -> split; default `test` for ChemNQRetrieval, 27 queries, and for ChemHotpotQARetrieval, 18 queries; HotpotQA also has `train` 180 and `dev` 8) is the ONE key that
+stage 2, `table_external`, `tools/phase_transfer.py`, `stages/run_bm25_mteb.py`, the Phase 1 truncation reports and the efficiency Phase 1 table read; there is no fallback order, and a result file without the configured split stops the run.
+The published Table 1 and shortlist are on `test` (checked on the published files, `docs/PAPER_NOTES_phase1_split.md`). Phase 1 outputs carry `split` and `n_queries`. Stage 1 also saves per-query results
+(`params.phase1.save_per_query`, no change to any MTEB score); `make report` writes `table_phase1_ci.csv` (query-level 95 % intervals of Geom@10 and the share of resamples in which each model is in the top 20 % of its task and of the union).
+
 ### Question labels: type, subfields and two automatic features
 
 **Source.** Question type and chemistry subfields are the official per-question labels of the dataset, `qa/question_metadata.jsonl` of `Bocklitz-Lab/ChemQuests` (952 rows, `question_id` `q0000`-`q0951`, `question_type`,

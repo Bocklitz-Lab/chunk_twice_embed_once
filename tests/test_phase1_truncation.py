@@ -193,3 +193,12 @@ def test_tool_main_writes_both_files(tmp_path, monkeypatch):
     assert P1.main(["--main-config", str(c), "--out-dir", str(tmp_path / "out")]) == 0
     assert list(csv.DictReader(open(tmp_path / "out" / "table_truncation_phase1.csv")))[0]["model"] == "a/m"
     assert list(csv.DictReader(open(tmp_path / "out" / "table_truncation_phase1_skipped.csv")))[0]["model"] == "z/n"
+
+
+def test_reported_split_is_the_configured_one_and_a_missing_split_raises():
+    from pipeline_lib.phase1_split import Phase1SplitError
+    task = fake_task("ChemHotpotQARetrieval", ("train", "dev", "test"))
+    rep = T.phase1_report(task, WordTok(), 16, None, "m/x", "rev", eval_split={"ChemHotpotQARetrieval": "dev"})
+    assert rep["reported_split"] == "dev" and [r["reported"] for r in T.phase1_rows(rep)] == [False, True, False]
+    with pytest.raises(Phase1SplitError):
+        T.phase1_report(fake_task("ChemHotpotQARetrieval", ("train", "dev")), WordTok(), 16, None, "m/x", "rev", eval_split={"ChemHotpotQARetrieval": "test"})

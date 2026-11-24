@@ -43,16 +43,27 @@ def _task_json(root, model, rev, task, nd, rc, split="test"):
     (d / f"{task}.json").write_text(json.dumps({"scores": {split: [{"ndcg_at_10": nd, "recall_at_10": rc}]}}))
 
 
-def test_load_phase1_needs_both_tasks_and_follows_the_split_preference(tmp_path):
+def test_load_phase1_needs_both_tasks_and_reads_the_configured_split_only(tmp_path):
+    from pipeline_lib.phase1_split import Phase1SplitError
     rev = "a" * 40
     for t in PT.TASKS:
         _task_json(tmp_path, "org/both", rev, t, 0.5, 0.8)
     _task_json(tmp_path, "org/one", rev, PT.TASKS[0], 0.5, 0.8)
+    p1 = PT.load_phase1(tmp_path, [("org/both", rev), ("org/one", rev), ("org/none", None)], eval_split={t: "test" for t in PT.TASKS}, n_queries={PT.TASKS[0]: {"test": 27}})
+    assert set(p1) == {"org/both"}
+    assert p1["org/both"][PT.TASKS[0]]["geom_at_10"] == pytest.approx((0.5 * 0.8) ** 0.5)
+    assert p1["org/both"][PT.TASKS[0]]["split"] == "test" and p1["org/both"][PT.TASKS[0]]["n_queries"] == 27 and p1["org/both"][PT.TASKS[1]]["n_queries"] is None
     _task_json(tmp_path, "org/val", rev, PT.TASKS[0], 0.4, 0.4, "validation")
     _task_json(tmp_path, "org/val", rev, PT.TASKS[1], 0.4, 0.4, "train")
-    p1 = PT.load_phase1(tmp_path, [("org/both", rev), ("org/one", rev), ("org/val", None), ("org/none", None)])
-    assert set(p1) == {"org/both", "org/val"}
-    assert p1["org/both"][PT.TASKS[0]]["geom_at_10"] == pytest.approx((0.5 * 0.8) ** 0.5) and p1["org/val"][PT.TASKS[1]]["split"] == "train"
+    with pytest.raises(Phase1SplitError, match="'test' is not in the result file"):               # no fallback to validation / train
+        PT.load_phase1(tmp_path, [("org/val", None)], eval_split={t: "test" for t in PT.TASKS})
+    assert PT.load_phase1(tmp_path, [("org/val", None)], eval_split={PT.TASKS[0]: "validation", PT.TASKS[1]: "train"})["org/val"][PT.TASKS[1]]["split"] == "train"
+
+
+def test_phase_transfer_tables_carry_split_and_n_queries():
+    p1 = {"a": {"ChemNQRetrieval": {"split": "test", "n_queries": 27}, "ChemHotpotQARetrieval": {"split": "test", "n_queries": 18}}}
+    rows = PT.with_split_columns([{"x": 1}], p1)
+    assert rows == [{"x": 1, "split": "ChemHotpotQARetrieval=test; ChemNQRetrieval=test", "n_queries": "ChemHotpotQARetrieval=18; ChemNQRetrieval=27"}]
 
 
 def test_shortlist_files_of_both_formats(tmp_path):

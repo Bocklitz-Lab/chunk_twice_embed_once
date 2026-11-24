@@ -87,9 +87,9 @@ def task_texts(task: Any, split: str) -> Tuple[List[str], List[str]]:
 
 
 def phase1_report(task: Any, tokenizer, max_seq_length: Optional[int], prompts: Optional[Dict[str, Any]] = None,
-                  model_name: str = "", revision: str = "") -> Dict[str, Any]:
+                  model_name: str = "", revision: str = "", eval_split: Optional[Dict[str, str]] = None) -> Dict[str, Any]:
     """Truncation of one model on one external task: one report per evaluation split (``splits``), plus the split the stage 2 screening uses
-    (``reported_split``: test > validation > train). ChemHotpotQARetrieval has three splits that share one corpus."""
+    (``reported_split``: ``params.phase1.eval_split``). ChemHotpotQARetrieval has three splits that share one corpus."""
     out: Dict[str, Any] = {"model": model_name, "revision": revision, "task": task.metadata.name, "max_seq_length": max_seq_length,
                            "counts_special_tokens": True, "splits": {}}
     seen: Dict[int, Dict[str, Any]] = {}                                     # splits that share one corpus are counted once
@@ -102,7 +102,11 @@ def phase1_report(task: Any, tokenizer, max_seq_length: Optional[int], prompts: 
         else:
             seen[key] = rep["passages"]
         out["splits"][split] = rep
-    out["reported_split"] = next((sp for sp in ("test", "validation", "train") if sp in out["splits"]), next(iter(out["splits"]), None))
+    from pipeline_lib import phase1_split                                      # the split of params.phase1.eval_split, no fallback
+    reported = phase1_split.split_of(task.metadata.name, eval_split if eval_split is not None else phase1_split.eval_splits())
+    if reported not in out["splits"]:
+        raise phase1_split.Phase1SplitError(f"{task.metadata.name}: the configured split {reported!r} is not among the task's splits {sorted(out['splits'])}")
+    out["reported_split"] = reported
     out["prompts_included"] = bool(prompts and (prompts.get("query") or prompts.get("passage")))
     return out
 

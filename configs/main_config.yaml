@@ -471,6 +471,28 @@ params:
     phase1_subdirs: [embedding_models_screening/validation_prompts]   # the Phase 1 run with prompts (params.paths.phase1_results_subdir); add the published folder with --external-root
     top_k: 100
 
+  # ---- Phase 1 evaluation split (pipeline_lib/phase1_split.py): the ONE key that stage 2, table_external, tools/phase_transfer.py, stages/run_bm25_mteb.py and
+  # the efficiency table read. MTEB scores every split of a task and writes them all to <Task>.json; the split that counts is this one, with no fallback order.
+  # The published Phase 1 numbers (Table 1) and the published shortlist are on "test" for both tasks (checked on the published files). ChemHotpotQARetrieval
+  # has train (180 queries), dev (8) and test (18) over the same 10,069 passages; ChemNQRetrieval has test only (27 queries, 22,933 passages).
+  # Do not change this to compare with the paper: a rerun with another split gives another shortlist (docs/PAPER_NOTES_phase1_split.md).
+  phase1:
+    eval_split: {ChemNQRetrieval: test, ChemHotpotQARetrieval: test}
+    save_per_query: true             # stage 1 also writes the top-100 run and per-query nDCG@10 / Recall@10 of that split (never changes an MTEB score)
+    n_queries:                       # queries per split, counted in the dataset files (BASF-AI/ChemHotpotQARetrieval, BASF-AI/ChemNQRetrieval)
+      ChemNQRetrieval: {test: 27}
+      ChemHotpotQARetrieval: {train: 180, dev: 8, test: 18}
+
+  # Figures of `make report` (tools/figures.py). model_families: family -> the models in it, for the compact variant of the quality-time figure (read from here,
+  # never parsed from a name; a model that is in no list is drawn as "Other"). The chunking strategies, sizes and overlaps are read from the data.
+  figures:
+    model_families:
+      E5: [intfloat/e5-small, intfloat/e5-base, intfloat/e5-large, intfloat/e5-small-v2, intfloat/e5-base-v2, intfloat/e5-large-v2]
+      Multilingual E5: [intfloat/multilingual-e5-small, intfloat/multilingual-e5-base, intfloat/multilingual-e5-large]
+      BGE: [BAAI/bge-small-en, BAAI/bge-base-en, BAAI/bge-large-en, BAAI/bge-small-en-v1.5, BAAI/bge-base-en-v1.5, BAAI/bge-large-en-v1.5, BAAI/bge-m3]
+      Nomic: [nomic-ai/nomic-embed-text-v1, nomic-ai/nomic-embed-text-v1.5]
+      Instructor: [hkunlp/instructor-xl]
+
   # Report step, run automatically at the end of `make eval` / `make rerun` / `make pilot` (tools/make_report.py):
   # run table, identical-input check, bootstrap CIs (query + paper level), paired tests (Holm), label agreement, coverage
   # diagnostics, lexical-overlap diagnostic, truncation summary and the paper tables. The small CSVs are copied to out_dir
@@ -499,6 +521,8 @@ params:
 stage1:
   output_root: ${params.paths.top_performer_input}
   seed: ${params.seed}
+  save_per_query: ${params.phase1.save_per_query}
+  eval_split: ${params.phase1.eval_split}
   use_prompts: ${params.use_prompts}
   instructor_mask_instruction: ${params.instructor_mask_instruction}
   model_prompts: ${params.model_prompts}
@@ -765,7 +789,8 @@ stage1:
 stage2:
   root_dir: ${params.paths.screen_dir}
   results_subdir: ${params.paths.phase1_results_subdir}   # the folder stage 1 writes (params.paths.phase1_results_subdir)
-  split_preference: ["test", "validation", "train"]  # Which split(s) to prefer when extracting metrics (first match wins)
+  eval_split: ${params.phase1.eval_split}    # task -> split that is scored (no fallback order; a missing split stops stage 2)
+  n_queries: ${params.phase1.n_queries}
   metric_key: "geom_mean"
   geom_mean:
     k: 10

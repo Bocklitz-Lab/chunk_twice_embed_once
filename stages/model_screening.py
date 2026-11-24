@@ -14,7 +14,7 @@ from mteb import MTEB, get_tasks
 # local
 from pipeline_lib.model_wrapper import STNoPrompt  # keep your wrapper
 from pipeline_lib.prompts import resolve_prompts
-from pipeline_lib import efficiency, model_info
+from pipeline_lib import efficiency, model_info, phase1_per_query, phase1_split
 from pipeline_lib.truncation import write_phase1_reports
 from pipeline_lib.run_manifest import (
     Stopwatch, build_manifest, set_seeds, summarize_encode_timings, write_manifest,
@@ -89,6 +89,9 @@ class AppConfig:
     instructor_mask_instruction: bool = False     # INSTRUCTOR masking for the prompt entries that declare mask_instruction
     model_prompts: Dict[str, Any] = field(default_factory=dict)
     seed: Optional[int] = None
+    # per-query rankings and metrics of the configured split (pipeline_lib/phase1_per_query.py); never changes an MTEB score. Off for a config written before it existed.
+    save_per_query: bool = False
+    eval_split: Dict[str, str] = field(default_factory=dict)      # params.phase1.eval_split: task -> split
 
 def parse_app_config(raw: Dict[str, Any]) -> AppConfig:
     if not isinstance(raw, dict):
@@ -135,6 +138,8 @@ def parse_app_config(raw: Dict[str, Any]) -> AppConfig:
         output_root=output_root,
         import_modules=import_modules,
         encode_kwargs=encode_kwargs,
+        save_per_query=bool(raw.get("save_per_query", False)),
+        eval_split=raw.get("eval_split") or {},
         use_prompts=bool(raw.get("use_prompts", False)),
         instructor_mask_instruction=bool(raw.get("instructor_mask_instruction", False)),
         model_prompts=raw.get("model_prompts") or {},
@@ -378,7 +383,17 @@ def main():
               model_revision=revision,
               output_folder=str(model_out_dir),
               encode_kwargs=encode_kwargs,  # replace deprecated batch_size arg
+              **({"save_predictions": True} if app_cfg.save_per_query else {}),   # a dump after the retrieval: the MTEB scores are the same
           )
+
+        per_query_info: Dict[str, Any] = {}
+        if app_cfg.save_per_query:
+            for t in tasks_resolved:
+                try:
+                    per_query_info[t.metadata.name] = phase1_per_query.write_task(model_out_dir, t, app_cfg.eval_split)
+                except Exception as e:                      # noqa: BLE001 - records only: a failure never stops the screening
+                    (model_out_dir / f"per_query_{t.metadata.name}.error.txt").write_text(f"{type(e).__name__}: {e}\n", encoding="utf-8")
+                    print(f"WARNING: no per-query results for {t.metadata.name}: {e}")
 
         # how many passages / queries of each external task exceed this model's maximum length (its own tokenizer, title + text + prompt)
         if hasattr(base, "tokenizer"):
@@ -394,7 +409,8 @@ def main():
             batch_size=batch_size,
             seeds=seeds,
             timing={**sw.seconds, **summarize_encode_timings(getattr(model, "timings", []))},
-            extra={"model_properties": model_info.describe_model(base, model_name, revision)},
+            extra={"model_properties": model_info.describe_model(base, model_name, revision), "eval_split": app_cfg.eval_split or None,
+                   "per_query": {k: {"split": v["split"], "n_queries": v["n_queries"]} for k, v in per_query_info.items()} or None},
         ))
 
         if probe is not None:
