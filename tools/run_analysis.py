@@ -55,7 +55,10 @@ def defaults(main_config: str) -> Dict[str, Any]:
 def commands(args: argparse.Namespace, d: Dict[str, Any]) -> Dict[str, List[str]]:
     """The argument list of every tool for these options and defaults."""
     roots, qa, out = args.roots or d["roots"], args.qa or d["qa"], args.out_dir or d["out_dir"]
-    common = ["--roots", *roots, "--qa", qa, "--out-dir", out, "--main-config", args.main_config, "--label-set", args.label_set]
+    # The transfer root holds ONE configuration per model: only phase_transfer reads it. Every other tool gets the main root alone (with the transfer root the
+    # variance decomposition, winner stability, token budget, breakdowns and fragmentation would load the transfer models as unbalanced dense runs).
+    main_roots = args.roots or d["roots"][:1]
+    common = ["--roots", *main_roots, "--qa", qa, "--out-dir", out, "--main-config", args.main_config, "--label-set", args.label_set]
     if args.resamples:
         common += ["--resamples", str(args.resamples)]
     pt = ["--phase1-root", args.phase1_root or d["phase1_root"], "--shortlist", args.shortlist or d["shortlist"],

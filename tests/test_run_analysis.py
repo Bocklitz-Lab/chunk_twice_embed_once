@@ -37,6 +37,24 @@ def test_every_tool_gets_its_arguments():
     assert all(t in RA.TOOLS for t in cmds)
 
 
+def test_only_phase_transfer_sees_the_transfer_root(tmp_path, monkeypatch):
+    """Audit bug 1: with the transfer root in the default roots the dense-run tools loaded 156 runs of 20 models instead of 140 of 4."""
+    (tmp_path / "artifacts" / "transfer" / "tests").mkdir(parents=True)
+    monkeypatch.chdir(tmp_path)
+    d = RA.defaults(MAIN)
+    assert d["roots"] == ["artifacts", "artifacts/transfer"] and len(d["overviews"]) == 2
+    cmds = RA.commands(ns(), d)
+    for tool, c in cmds.items():
+        if tool == "phase_transfer":
+            assert c[c.index("--runs-overview") + 1:c.index("--runs-overview") + 3] == d["overviews"]
+        else:
+            roots = c[c.index("--roots") + 1:c.index("--qa")]
+            assert roots == ["artifacts"], tool
+    assert cmds["variance_decomposition"][cmds["variance_decomposition"].index("--roots") + 1:cmds["variance_decomposition"].index("--qa")] == ["artifacts"]
+    given = RA.commands(ns(roots=["x", "y"]), d)                      # explicit roots are used as given
+    assert given["token_budget"][given["token_budget"].index("--roots") + 1:given["token_budget"].index("--qa")] == ["x", "y"]
+
+
 def test_a_failing_tool_does_not_stop_the_others(capsys):
     seen = []
 
