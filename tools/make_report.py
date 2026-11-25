@@ -267,9 +267,8 @@ def rerank_ablation_rows(overview: List[Dict[str, Any]]) -> List[Dict[str, Any]]
 
 
 def _top_percent() -> float:
-    """``top_percent`` of stage 2 (the share of models that the shortlist keeps per task)."""
-    import yaml
-    return float(yaml.safe_load(Path(config_params.DEFAULT_MAIN_CONFIG).read_text(encoding="utf-8"))["stage2"]["top_percent"])
+    """``params.phase1.selection.top_fraction`` (= stage 2 ``top_percent``): the share of models that the shortlist keeps per task."""
+    return float((config_params.load_params().get("phase1") or {}).get("selection", {}).get("top_fraction", 0.2))
 
 
 def external_rows(roots: List[Path], eval_split: Optional[Dict[str, str]] = None, n_queries: Optional[Dict[str, Dict[str, int]]] = None) -> List[Dict[str, Any]]:
