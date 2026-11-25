@@ -53,6 +53,13 @@ params:
   #       tools/verify_instructor.py). false: plain prefix, pooling over all tokens (the instruction tokens are averaged too).
   #       Only acts together with use_prompts: true.
   instructor_mask_instruction: true
+  # ---- pooling overrides (pipeline_lib/pooling.py) ----
+  #   Only for models WITHOUT modules.json, which sentence-transformers wraps in mean pooling (the library default: 12 of the 41 Phase 1 models, table_model_properties.csv).
+  #   An entry is made only where the authors of the model define another pooling; `source` quotes the sentence. All other library-default models were checked
+  #   against their Hugging Face cards (2026-11-25): contriever and contriever-msmarco: "requires to add a mean pooling operation" (= the default); SciBERT, MatSciBERT,
+  #   chemical-bert, BiomedBERT (abstract and abstract+fulltext), MiniLM-H384, nomic-bert-2048: the cards say nothing on pooling; mpnet-base and ChemBERTa-77M-MTR have no card.
+  model_pooling:
+    allenai/specter: {mode: cls, source: "The HF card is silent on pooling. The SPECTER paper (Cohan et al. 2020, arXiv 2004.07180, Sect. 3) says: 'we encode the concatenated title and abstract using a Transformer LM (e.g., SciBERT) and take the final representation of the [CLS] token as the output representation of the paper'"}
   # ---- chunk title ----
   #   embed_chunk_title: false  corpus.jsonl gets an empty title: MTEB embeds the chunk text only (ids stay in _id/id)
   #   embed_chunk_title: true  old behaviour of all published runs: the model sees "<doc> - Chunk <n> <text>"
@@ -137,6 +144,21 @@ params:
         tokenizer_revision: ${params.chunking_resolved.tokenizer_revision}
         add_start_index: false                               # set true to annotate start offsets
         strip_whitespace: true                               # trim around splits
+
+    # CONTROL strategy (Reviewer 2 / audit risk 8): fixed-token windows on the text that hierarchical-section keeps. hierarchical-section drops end matter
+    # (references, acknowledgements, ... about 17 % of the characters); the other strategies do not. `drop_end_matter` removes the SAME characters (it calls the
+    # hierarchical chunker's end_matter_cut with the parameters below) and chunks the rest like fixed_token. Run only at the cells of pipeline_lib/grid.py:CONTROL_CELLS.
+    fixed_token_nomatter:
+      name: fixed_token
+      params:
+        model_name: ${params.chunking_resolved.tokenizer}
+        tokenizer_revision: ${params.chunking_resolved.tokenizer_revision}
+        chunk_size: ${params.chunk.size}
+        chunk_overlap: ${params.chunk.overlap}
+        add_start_index: false
+        strip_whitespace: true
+        drop_end_matter: true
+        end_matter_config: ${params.strategy_presets.hierarchical_section.params}
 
     semantic_fixed:
       name: semantic
@@ -554,6 +576,7 @@ stage1:
   use_prompts: ${params.use_prompts}
   instructor_mask_instruction: ${params.instructor_mask_instruction}
   model_prompts: ${params.model_prompts}
+  model_pooling: ${params.model_pooling}
   # import_modules:
   #   - my_tasks
   encode_kwargs: {}
@@ -903,6 +926,7 @@ stage6:
   use_prompts: ${params.use_prompts}
   instructor_mask_instruction: ${params.instructor_mask_instruction}
   model_prompts: ${params.model_prompts}
+  model_pooling: ${params.model_pooling}
   models:
     - name: ${params.model.name}
       revision: ${params.model.revision}

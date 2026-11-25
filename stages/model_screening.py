@@ -1,5 +1,6 @@
 
 from __future__ import annotations
+from pipeline_lib import pooling as pooling_mod  # noqa: E402
 import argparse
 import importlib
 import json
@@ -88,6 +89,8 @@ class AppConfig:
     use_prompts: bool = False
     instructor_mask_instruction: bool = False     # INSTRUCTOR masking for the prompt entries that declare mask_instruction
     model_prompts: Dict[str, Any] = field(default_factory=dict)
+    # params.model_pooling: pooling override for models without modules.json (pipeline_lib/pooling.py)
+    model_pooling: Dict[str, Any] = field(default_factory=dict)
     seed: Optional[int] = None
     # per-query rankings and metrics of the configured split (pipeline_lib/phase1_per_query.py); never changes an MTEB score. Off for a config written before it existed.
     save_per_query: bool = False
@@ -143,6 +146,7 @@ def parse_app_config(raw: Dict[str, Any]) -> AppConfig:
         use_prompts=bool(raw.get("use_prompts", False)),
         instructor_mask_instruction=bool(raw.get("instructor_mask_instruction", False)),
         model_prompts=raw.get("model_prompts") or {},
+        model_pooling=raw.get("model_pooling") or {},
         seed=(int(raw["seed"]) if raw.get("seed") is not None else None),
     )
 
@@ -364,6 +368,9 @@ def main():
         sw = Stopwatch()
         with sw.section("model_load_s"):
             base = SentenceTransformer(model_name, revision=revision,**(cfg.model_kwargs or {}))
+            pooling_override = pooling_mod.maybe_apply(base, model_name, revision, app_cfg.model_pooling)
+        if pooling_override:
+            print(f"Pooling override (params.model_pooling): {pooling_override}")
         prompts = resolve_prompts(model_name, app_cfg.model_prompts, app_cfg.use_prompts, override=cfg.prompts,
                                  mask_instruction=app_cfg.instructor_mask_instruction)
         print(f"Prompts: {prompts if prompts else 'none'}")

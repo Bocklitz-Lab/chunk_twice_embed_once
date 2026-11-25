@@ -176,6 +176,10 @@ model_prompts:
     query: ''
     passage: ''
     card: 'transfer-only extra model (strict base of bert-base-nli-mean-tokens, not a Phase 1 model): pretrained encoder, no prompt'
+model_pooling:
+  allenai/specter:
+    mode: cls
+    source: 'The HF card is silent on pooling. The SPECTER paper (Cohan et al. 2020, arXiv 2004.07180, Sect. 3) says: ''we encode the concatenated title and abstract using a Transformer LM (e.g., SciBERT) and take the final representation of the [CLS] token as the output representation of the paper'''
 encode_kwargs: {}
 models:
 - name: sentence-transformers/bert-base-nli-mean-tokens

@@ -26,11 +26,11 @@ _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _REPO_ROOT not in sys.path:
     sys.path.insert(0, _REPO_ROOT)
 
-from pipeline_lib import model_info  # noqa: E402
+from pipeline_lib import model_info, pooling  # noqa: E402
 from pipeline_lib.config_params import DEFAULT_MAIN_CONFIG  # noqa: E402
 
 COLUMNS = ["model", "revision", "pooling_mode", "pooling_is_library_default", "modules", "embedding_dim", "max_seq_length", "tokenizer_class",
-           "architecture", "model_type", "query_prompt", "passage_prompt", "instruction_masked", "shortlisted"]
+           "architecture", "model_type", "query_prompt", "passage_prompt", "instruction_masked", "pooling_override", "shortlisted"]
 
 
 def load_shortlist(path: Optional[str]) -> Optional[set]:
@@ -52,7 +52,8 @@ def load_tokenizer_facts(snap: Path) -> Tuple[Optional[str], Optional[int]]:
 
 
 def build_rows(models: Sequence[Dict[str, Any]], prompts: Dict[str, Any], *, use_prompts: bool = True, mask_instruction: bool = True,
-               cache_dir: Optional[str] = None, shortlist: Optional[set] = None, load_tokenizers: bool = True
+               cache_dir: Optional[str] = None, shortlist: Optional[set] = None, load_tokenizers: bool = True,
+               pooling_overrides: Optional[Dict[str, Any]] = None
                ) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
     """(rows of the cached models, skipped models). ``models``: dicts with ``name`` and ``revision`` (stage1.models)."""
     rows, skipped = [], []
@@ -66,8 +67,12 @@ def build_rows(models: Sequence[Dict[str, Any]], prompts: Dict[str, Any], *, use
         d = model_info.describe_snapshot(snap, tok_max)
         entry = (prompts or {}).get(name) or {}
         tok = tok_cls or d.get("tokenizer_class")
+        override = pooling.resolve(name, pooling_overrides)               # params.model_pooling: replaces the library-default mean pooling
+        if override and not d["pooling_is_library_default"]:
+            raise pooling.PoolingConfigError(f"{name}: params.model_pooling names a model that ships modules.json")
         rows.append({
-            "model": name, "revision": rev, "pooling_mode": d["pooling_mode"], "pooling_is_library_default": d["pooling_is_library_default"],
+            "model": name, "revision": rev, "pooling_mode": override or d["pooling_mode"], "pooling_is_library_default": d["pooling_is_library_default"] and not override,
+            "pooling_override": bool(override),
             "modules": "+".join(d["modules"]), "embedding_dim": d["embedding_dim"], "max_seq_length": d["max_seq_length"],
             "tokenizer_class": tok, "architecture": d.get("architecture"), "model_type": d.get("model_type"),
             "query_prompt": (entry.get("query") or "") if use_prompts else "", "passage_prompt": (entry.get("passage") or "") if use_prompts else "",
@@ -97,7 +102,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     p = doc["params"]
     rows, skipped = build_rows(doc["stage1"]["models"], p.get("model_prompts") or {}, use_prompts=bool(p.get("use_prompts", False)),
                                mask_instruction=bool(p.get("instructor_mask_instruction", False)), cache_dir=args.cache_dir,
-                               shortlist=load_shortlist(args.shortlist), load_tokenizers=not args.no_tokenizers)
+                               shortlist=load_shortlist(args.shortlist), load_tokenizers=not args.no_tokenizers, pooling_overrides=p.get("model_pooling") or {})
     out = Path(args.out_dir)
     write_csv(out / "table_model_properties.csv", rows, COLUMNS)
     if skipped:
