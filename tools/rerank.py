@@ -296,6 +296,9 @@ def check_ablation(cfg: Dict[str, Any], chunkers: Iterable[str], cells: Iterable
                             f"overlaps {sorted({c[2] for c in wanted})})")
         if names is not None and e.get("model") is not None and not any(_model_matches(str(e["model"]), m) for m in names):
             problems.append(f"params.rerank.ablation[{k}] model {e['model']!r} is not among the evaluated models {names}")
+    for m in cfg.get("models") or []:
+        if names is not None and not any(_model_matches(str(m), n) for n in names):
+            problems.append(f"params.rerank.models entry {m!r} is not among the evaluated models {names} (is it on the Phase 2 list of stage 2?)")
     return problems
 
 

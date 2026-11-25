@@ -420,6 +420,13 @@ def test_check_ablation_reports_entries_that_do_not_fit_the_grid():
     assert rerank.check_ablation({}, ["fixed_token"], [(256, 0)]) == [] and rerank.check_ablation({"ablation": [{"top_n": 20}]}, ["a"], [(1, 0)]) == []
 
 
+def test_check_ablation_reports_rerank_models_that_are_not_on_the_model_list():
+    cfg = {"models": ["intfloat/e5-large-v2"], "ablation": []}
+    assert rerank.check_ablation(cfg, ["fixed_token"], [(256, 0)], ["intfloat/e5-large-v2", "bge"]) == []
+    bad = rerank.check_ablation(cfg, ["fixed_token"], [(256, 0)], ["bge"])
+    assert len(bad) == 1 and "params.rerank.models" in bad[0]
+
+
 def test_rerun_aborts_before_any_run_when_the_ablation_does_not_fit_the_grid(tmp_path, world):
     pytest.importorskip("transformers")
     import yaml
