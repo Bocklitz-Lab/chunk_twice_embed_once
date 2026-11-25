@@ -111,9 +111,7 @@ make hybrid && make rerank && make report
 ```
 (the model names and revisions are in `artifacts/embedding_models_screening/passed_per_dataset__validation_prompts.csv`).
 
-Batch sizes: each model uses its Phase 1 batch size, else 32. Compared with the earlier Phase 2 configuration (32 for all) these shortlisted models change: bge-base-en-v1.5,
-bge-small-en-v1.5, multilingual-e5-base, multilingual-e5-small, e5-base, e5-small, nomic-embed-text-v1, nomic-embed-text-v1.5 (64) and instructor-xl (16). Unchanged: bge-large-en-v1.5,
-bge-m3, e5-large, e5-large-v2 (32). The batch size of every run is in `run_info.json` and the manifest.
+Batch sizes: each model uses its Phase 1 batch size (`stage1.models`), else 32 (`python -c "from stages import rerun; print(rerun.batch_size_changes('configs/main_config.yaml', [<models>]))"` lists the models that differ from the 32 of the published Phase 2). The batch size of every run is in `run_info.json` and the manifest.
 
 ## 6. Transfer runs: models that Phase 1 did not shortlist (about 2.5-3 GPU hours)
 

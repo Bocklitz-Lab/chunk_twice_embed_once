@@ -9,9 +9,6 @@ from stages import rerun
 
 ROOT = Path(__file__).resolve().parents[1]
 MAIN = str(ROOT / "configs" / "main_config.yaml")
-SHORTLIST = ["BAAI/bge-base-en-v1.5", "BAAI/bge-large-en-v1.5", "BAAI/bge-m3", "BAAI/bge-small-en-v1.5", "hkunlp/instructor-xl", "intfloat/e5-base",
-             "intfloat/e5-large-v2", "intfloat/e5-large", "intfloat/e5-small", "intfloat/multilingual-e5-base", "intfloat/multilingual-e5-small",
-             "nomic-ai/nomic-embed-text-v1.5", "nomic-ai/nomic-embed-text-v1"]
 
 
 def test_stage1_table_has_only_explicit_batch_sizes():
@@ -29,14 +26,14 @@ def test_batch_size_rules():
     assert rerun.forced_batch_size(["x=1", "model.batch_size=4"]) == 4 and rerun.forced_batch_size(["x=1"]) is None
 
 
-def test_the_shortlisted_models_whose_batch_size_changes():
-    """The 13 shortlisted models all used 32 in the published Phase 2 config; these are the ones that now differ."""
-    ch = {c["model"]: (c["before"], c["now"]) for c in rerun.batch_size_changes(MAIN, SHORTLIST)}
-    assert ch == {"BAAI/bge-base-en-v1.5": (32, 64), "BAAI/bge-small-en-v1.5": (32, 64), "hkunlp/instructor-xl": (32, 16),
-                  "intfloat/e5-base": (32, 64), "intfloat/e5-small": (32, 64), "intfloat/multilingual-e5-base": (32, 64),
-                  "intfloat/multilingual-e5-small": (32, 64), "nomic-ai/nomic-embed-text-v1.5": (32, 64), "nomic-ai/nomic-embed-text-v1": (32, 64)}
-    unchanged = set(SHORTLIST) - set(ch)
-    assert unchanged == {"BAAI/bge-large-en-v1.5", "BAAI/bge-m3", "intfloat/e5-large-v2", "intfloat/e5-large"}
+def test_the_models_whose_batch_size_changes_follow_the_stage1_table():
+    """Rule, no model list: the published Phase 2 used 32 for every model; a model is reported iff its stage 1 batch size differs from params.model.batch_size."""
+    table = rerun.stage1_batch_sizes(MAIN)
+    default = yaml.safe_load(Path(MAIN).read_text())["params"]["model"]["batch_size"]
+    names = sorted(table) + ["sentence-transformers/all-mpnet-base-v2"]            # the last one has no explicit batch size
+    ch = {c["model"]: (c["before"], c["now"]) for c in rerun.batch_size_changes(MAIN, names)}
+    assert ch == {m: (default, b) for m, b in table.items() if b != default}
+    assert "sentence-transformers/all-mpnet-base-v2" not in ch
 
 
 def _prepared(tmp_path):

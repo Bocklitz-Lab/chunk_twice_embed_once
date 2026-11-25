@@ -22,7 +22,7 @@ artifacts/
   embedding_models_screening/
                           Phase 1 results and shortlist files
   tests/                  Historical Phase 2 run directories and summaries
-  canonical_phase2/      Canonical 13-model, 1,820-run analysis package
+  canonical_phase2/      Canonical analysis package of the PUBLISHED run (13 models, 1,820 runs)
 notebooks/                Analysis and figure-generation notebooks
 Makefile                  Supported pipeline targets
 test.mk                   Stage 4-6 execution targets

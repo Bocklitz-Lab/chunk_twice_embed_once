@@ -150,7 +150,7 @@ def comparison_pairs(names: List[str], infos: Dict[str, Dict[str, Any]], cell: t
 
 def pair_family(pair: tuple, infos: Dict[str, Dict[str, Any]], cell: tuple) -> str:
     """Holm family of a pair: hybrid (vs its parts), rerank (vs dense / BM25 / hybrid), dense_vs_bm25, dense_vs_dense. Holm's correction is applied
-    within each family (and level and metric) of one configuration, so that the 78 dense pairs of 13 models do not weaken the baseline tests."""
+    within each family (and level and metric) of one configuration, so that the dense pairs of all Phase 2 models (78 for 13 models) do not weaken the baseline tests."""
     a, b = pair
     info = infos.get(f"{a}|{cell[0]}|{cell[1]}|{cell[2]}", {})
     kind = run_kind(a, info)
