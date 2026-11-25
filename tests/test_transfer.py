@@ -133,7 +133,7 @@ def test_main_dry_run_validates_and_prints(capsys):
     out = capsys.readouterr().out
     assert "138 runs" in out and "artifacts/transfer" in out and out.count("stages.rerun eval") == 6
     assert transfer.main(["--dry-run", "--no-extras", "--no-references"]) == 0
-    assert "14 models x 5 configurations = 70 runs" in capsys.readouterr().out
+    assert "19 models x 5 configurations = 95 runs" in capsys.readouterr().out
 
 
 def test_main_stops_on_an_invalid_block(tmp_path):
