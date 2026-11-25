@@ -62,6 +62,8 @@ def test_prepare_writes_chunks_both_qrels_diagnostics_and_manifest(tmp_path, dat
     assert chunk_cache.verify_files(f) == {}
     assert len(M.load_qrels(f / "mteb_task" / "qrels_span_c090.jsonl")) == 9
     assert len(M.load_qrels(f / "mteb_task" / "qrels_lexical.jsonl")) == 9
+    assert not (f / "mteb_task" / "qrels.jsonl").exists()                         # no generic file that an outside reader could take for THE labels
+    assert "mteb_task/qrels.jsonl" not in m["files_sha256"]
 
 
 def test_second_call_is_a_cache_hit_and_models_share_the_folder(tmp_path, data):

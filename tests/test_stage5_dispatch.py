@@ -110,9 +110,8 @@ def test_lexical_method_runs_the_lexical_script_and_writes_qrels_lexical(tmp_pat
     r = _stage5(cfg)
     assert r.returncode == 0, r.stdout + r.stderr
     files = _files(d)
-    assert "qrels_lexical.jsonl" in files and "qrels.jsonl" in files
+    assert "qrels_lexical.jsonl" in files and "qrels.jsonl" not in files          # no generic qrels.jsonl any more
     assert not [f for f in files if f.startswith("qrels_span")]
-    assert (d / "mteb_task/qrels_lexical.jsonl").read_text() == (d / "mteb_task/qrels.jsonl").read_text()
     rows = _jsonl(d / "mteb_task/qrels_lexical.jsonl")
     assert all(r["relevance"] in (0, 1) for r in rows)
 
@@ -133,7 +132,7 @@ def test_config_without_labeling_block_keeps_the_lexical_labels(tmp_path):
     cfg.write_text(yaml.safe_dump(s5, sort_keys=False))
     r = _stage5(cfg)
     assert r.returncode == 0, r.stdout + r.stderr
-    assert "qrels.jsonl" in _files(d)
+    assert "qrels_lexical.jsonl" in _files(d) and "qrels.jsonl" not in _files(d)
 
 
 def test_unknown_method_is_an_error(tmp_path):

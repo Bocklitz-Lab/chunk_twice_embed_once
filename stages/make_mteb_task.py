@@ -412,8 +412,8 @@ def save_jsonl(data, file_name):
 
 save_jsonl(queries_out, "queries.jsonl")
 save_jsonl(corpus_out, "corpus.jsonl")
-save_jsonl(qrels_out, "qrels.jsonl")
-# The lexical labels live next to the span labels (qrels_span_c<value>.jsonl) under their own name.
+# The lexical labels live next to the span labels (qrels_span_c<value>.jsonl) under their own name. No generic "qrels.jsonl" is written any more: an outside
+# reader of the folder would take it for THE labels, and it held the lexical ones.
 save_jsonl(qrels_out, "qrels_lexical.jsonl")
 
 print("✅ MTEB dataset created successfully (BM25 normalized per query to max)!")

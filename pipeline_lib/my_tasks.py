@@ -208,17 +208,15 @@ class ChemQuest(AbsTaskRetrieval):
                 qrels_dir = data_dir
                 tsv = qrels_dir / "test.tsv"
                 alt_tsv = data_dir / "qrels.tsv"
-                jsonl = qrels_dir / "qrels.jsonl"
 
                 if tsv.exists():
                     qrels_rows = list(self._read_tsv(tsv))
                 elif alt_tsv.exists():
                     qrels_rows = list(self._read_tsv(alt_tsv))
-                elif jsonl.exists():
-                    qrels_rows = list(self._read_jsonl(jsonl))
                 else:
                     raise FileNotFoundError(
-                        f"Missing qrels. Looked for {tsv}, {alt_tsv}, {jsonl}"
+                        f"Missing qrels. Looked for {tsv}, {alt_tsv}. Name the label file in the config (labeling.qrels_file: qrels_span_c<c>.jsonl or "
+                        "qrels_lexical.jsonl); there is no default file."
                     )
             qrels_all = self._to_qrels(qrels_rows)
             if self.qrels_file:

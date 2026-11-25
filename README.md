@@ -33,7 +33,7 @@ Each generated local retrieval task contains:
 
 - `corpus.jsonl`: configuration-specific document chunks;
 - `queries.jsonl`: ChemQuests questions;
-- `qrels.jsonl`: generated query-relevance records.
+- `qrels_span_c<c>.jsonl`: span labels (primary; chunks that cover the evidence span), and `qrels_lexical.jsonl`: the lexical labels of the published runs. There is no generic `qrels.jsonl`: the label file is always named in the config (`labeling.qrels_file`).
 
 ## Installation
 

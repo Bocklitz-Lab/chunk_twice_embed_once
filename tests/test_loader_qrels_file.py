@@ -52,9 +52,11 @@ def test_the_named_file_is_read_and_others_are_ignored(tmp_path):
     assert lex == {"0": {"c2": 1}, "1": {"c2": 1}, "2": {"c1": 1}}
 
 
-def test_without_a_name_the_old_lookup_is_unchanged(tmp_path):
+def test_without_a_name_there_is_no_default_file(tmp_path):
+    """No generic qrels.jsonl is read or written any more: the label file is always named (labeling.qrels_file)."""
     d = _dir(tmp_path, qrels__jsonl=LEX, qrels_span_c080__jsonl=SPAN)
-    assert _load(d, None).relevant_docs["test"] == {"0": {"c2": 1}, "1": {"c2": 1}, "2": {"c1": 1}}
+    with pytest.raises(FileNotFoundError, match="there is no default file"):
+        _load(d, None)
 
 
 def test_missing_named_file_raises_and_does_not_fall_back(tmp_path):

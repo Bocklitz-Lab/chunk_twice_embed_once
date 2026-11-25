@@ -48,7 +48,9 @@ def main(argv: Optional[List[str]] = None) -> int:
     if spec is None:
         raise SystemExit("ERROR: BM25 needs a local task (tasks[].kwargs.data_dir)")
     data_dir = Path(spec["kwargs"]["data_dir"]).expanduser()
-    qrels_name = spec["kwargs"].get("qrels_file") or "qrels.jsonl"
+    qrels_name = spec["kwargs"].get("qrels_file")
+    if not qrels_name:
+        raise SystemExit("ERROR: tasks[].kwargs.qrels_file is not set (labeling.qrels_file): there is no default label file")
     depth = int(raw.get("top_k") or 100)
     bm = raw.get("bm25") or {}
     seeds = set_seeds(raw["seed"]) if raw.get("seed") is not None else None

@@ -26,7 +26,7 @@ def _run(tmp_path, qa_lines, chunk_rows):
                        cwd=ROOT, capture_output=True, text=True)
     assert r.returncode == 0, r.stderr
     return [json.loads(l) for l in (out / "queries.jsonl").read_text().splitlines()], \
-           [json.loads(l) for l in (out / "qrels.jsonl").read_text().splitlines()]
+           [json.loads(l) for l in (out / "qrels_lexical.jsonl").read_text().splitlines()]
 
 
 def _qa(question, content):

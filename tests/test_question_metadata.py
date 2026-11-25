@@ -195,6 +195,6 @@ def test_run_manifest_takes_the_record_from_the_prepared_folder(tmp_path):
     (prepared / "manifest.json").write_text(json.dumps({"question_metadata": {"revision": "r", "sha256": "s"}}))
 
     class T:
-        spec = {"kwargs": {"data_dir": str(prepared / "mteb_task")}}
+        spec = {"kwargs": {"data_dir": str(prepared / "mteb_task"), "qrels_file": "qrels_span_c090.jsonl"}}
     assert run_eval._question_metadata_of_task([T()]) == {"revision": "r", "sha256": "s"}
     assert run_eval._question_metadata_of_task([]) is None

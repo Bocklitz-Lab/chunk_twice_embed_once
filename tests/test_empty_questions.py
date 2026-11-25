@@ -29,12 +29,12 @@ def _task_dir(tmp_path, qrels, queries=("q zero", "q one", "q two")):
     d.mkdir()
     _write_jsonl(d / "corpus.jsonl", [{"id": f"c{i}", "title": "t", "text": f"chunk {i}"} for i in range(3)])
     _write_jsonl(d / "queries.jsonl", [{"id": str(i), "title": "t", "text": t} for i, t in enumerate(queries)])
-    _write_jsonl(d / "qrels.jsonl", qrels)
+    _write_jsonl(d / "qrels_lexical.jsonl", qrels)
     return d
 
 
 def _load(d):
-    t = ChemQuest(data_dir=str(d))
+    t = ChemQuest(data_dir=str(d), qrels_file="qrels_lexical.jsonl")
     t.load_data()
     return t
 
@@ -165,7 +165,7 @@ def _run_stage5(tmp_path, qa_rows, chunk_rows):
                        cwd=ROOT, capture_output=True, text=True)
     assert r.returncode == 0, r.stderr
     rd = lambda n: [json.loads(l) for l in (out / n).read_text().splitlines() if l.strip()]
-    return r.stdout, rd("queries.jsonl"), rd("qrels.jsonl"), out
+    return r.stdout, rd("queries.jsonl"), rd("qrels_lexical.jsonl"), out
 
 
 def test_stage5_keeps_question_without_label(tmp_path):
@@ -186,7 +186,7 @@ def test_stage5_keeps_question_without_label(tmp_path):
     assert "without a positive label (kept, relevance-0 row): 1" in stdout
 
     # and the loader + evaluator keep the empty question in the mean
-    t = ChemQuest(data_dir=str(out))
+    t = ChemQuest(data_dir=str(out), qrels_file="qrels_lexical.jsonl")
     t.load_data()
     assert set(t.queries["test"]) == {"0", "1", "2"}
     assert t.relevant_docs["test"]["1"] == {"1:0": 0}
