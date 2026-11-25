@@ -62,3 +62,23 @@ def test_the_features_never_look_like_a_question_type():
     import dataclasses
     names = [f.name for f in dataclasses.fields(QF.QuestionFeatures)]
     assert all(("type" not in n and "category" not in n) for n in names) and {"auto_has_number", "auto_has_formula"} <= set(names)
+
+
+def test_span_features_use_the_same_rules_as_the_question_features():
+    for text in ["The yield was 85 % at 25 nm.", "CO2 and Fe(II) were used.", "No number or formula here.", "In 2020 the UV lamp (SF) was on."]:
+        q, sp = QF.question_features(text), QF.span_features(text)
+        assert (q.auto_has_number, q.auto_has_formula) == (sp.auto_span_has_number, sp.auto_span_has_formula)
+        assert (q.number_tokens, q.formula_tokens) == (sp.number_tokens, sp.formula_tokens)
+    a = QF.all_features("What is H2O?", "Water (H2O) boils at 100 K.")
+    assert (a.auto_has_number, a.auto_has_formula, a.auto_span_has_number, a.auto_span_has_formula) == (False, True, True, True)
+
+
+def test_span_texts_are_cut_from_the_full_text_and_checked_against_content(tmp_path):
+    import json
+    qa = tmp_path / "qa.jsonl"
+    qa.write_text(json.dumps({"corpus_id": "007", "start_index": 4, "end_index": 9, "content": "CO2 a"}) + "\n")
+    (tmp_path / "full_text.jsonl").write_text(json.dumps({"corpus_id": "7", "text": "abc CO2 and 5 K"}) + "\n")
+    assert QF.span_texts(qa, [json.loads(qa.read_text())]) == ["CO2 a"]
+    qa.write_text(json.dumps({"corpus_id": "7", "start_index": 4, "end_index": 9, "content": "wrong"}) + "\n")
+    with pytest.raises(ValueError, match="differs"):
+        QF.span_texts(qa, [json.loads(qa.read_text())])

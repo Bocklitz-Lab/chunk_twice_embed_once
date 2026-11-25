@@ -407,6 +407,7 @@ params:
     # tools/question_features_check.py: the seeded sample for the hand check of auto_has_number / auto_has_formula
     question_features_check:
       n_questions: 50                 # 25 flagged + 25 not flagged for each feature (the two samples may overlap)
+      n_spans: 50                     # the same for the EVIDENCE SPANS (auto_span_has_number / auto_span_has_formula): span_features_check.csv
       seed: 20261121
     token_budgets: [512, 1024, 2048]  # reference-tokenizer tokens handed over to the reader (tools/token_budget.py)
     cover_levels: [0.8, 0.9, 1.0]     # cover-level sensitivity (tools/rescore.py, with paper-level intervals); labeling.cover_level is the primary

@@ -10,6 +10,7 @@ GROUPS OF QUESTIONS
                                 multi_label  a question counts fully in every subfield it carries (groups overlap, sizes add up to more than 952);
                                 fractional   a question has weight 1/len(subfields) in each of its subfields (weighted means and weighted bootstrap),
                                              so the weights of the groups add up to the number of questions (952) and every question counts once.
+  auto_span_has_number:<flag>, auto_span_has_formula:<flag>   the same rules applied to the EVIDENCE SPAN ``full_text[start_index:end_index]`` (same tables, same tests)
   auto_has_number:<flag>, auto_has_formula:<flag>      the AUTOMATIC, rule-based features of ``pipeline_lib/question_features.py`` (not annotations, not
                               question types; ``feature_source = rule_based``), flagged / not_flagged, overall and inside each question type.
 
@@ -57,7 +58,7 @@ from pipeline_lib.question_metadata import QUESTION_TYPES  # noqa: E402
 from tools import analysis_data as AD  # noqa: E402
 from tools import stats  # noqa: E402
 
-FEATURES = ("auto_has_number", "auto_has_formula")
+FEATURES = ("auto_has_number", "auto_has_formula", "auto_span_has_number", "auto_span_has_formula")      # of the question text / of the evidence span
 FEATURE_SOURCE = "rule_based"
 MULTI, FRACTIONAL = "multi_label", "fractional"
 METRIC_LIST = ("ndcg_at_10", "recall_at_10", "geom_at_10")
@@ -102,7 +103,7 @@ def build_groups(types: Sequence[str], subfields: Sequence[Sequence[str]], featu
     fgroups: List[Group] = []
     fcontrasts: List[Contrast] = []
     size = {ty: int((t == ty).sum()) for ty in question_types}
-    for feat in FEATURES:
+    for feat in [f for f in FEATURES if all(hasattr(x, f) for x in features)]:          # the span flags only when the caller gives them (QF.all_features)
         flag = np.array([getattr(f, feat) for f in features], dtype=bool)
         base = {"feature": feat, "feature_source": FEATURE_SOURCE}
         for label, mask in (("flagged", flag), ("not_flagged", ~flag)):
@@ -325,13 +326,18 @@ def analyse(runs: AD.RunSet, groups: Sequence[Group], contrasts: Sequence[Contra
 # ------------------------------------------------------------------------------------------------------------------
 # per-question table of the automatic features
 # ------------------------------------------------------------------------------------------------------------------
-def feature_table(qa_rows: Sequence[Dict[str, Any]], types: Sequence[str]) -> List[Dict[str, Any]]:
-    """One row per question: ``question_features.csv`` (the tokens let a person check each flag)."""
+def feature_table(qa_rows: Sequence[Dict[str, Any]], types: Sequence[str], spans: Optional[Sequence[str]] = None) -> List[Dict[str, Any]]:
+    """One row per question: ``question_features.csv`` (the tokens let a person check each flag); with ``spans`` also the flags of the evidence span."""
     out = []
     for i, (r, ty) in enumerate(zip(qa_rows, types)):
         f = QF.question_features(r["question"])
-        out.append({"query_id": i, "question": r["question"], "question_type": ty, "auto_has_number": int(f.auto_has_number), "auto_has_formula": int(f.auto_has_formula),
-                    "number_tokens": " | ".join(f.number_tokens), "formula_tokens": " | ".join(f.formula_tokens), "feature_source": FEATURE_SOURCE})
+        row = {"query_id": i, "question": r["question"], "question_type": ty, "auto_has_number": int(f.auto_has_number), "auto_has_formula": int(f.auto_has_formula),
+               "number_tokens": " | ".join(f.number_tokens), "formula_tokens": " | ".join(f.formula_tokens), "feature_source": FEATURE_SOURCE}
+        if spans is not None:
+            sf = QF.span_features(spans[i])
+            row.update({"auto_span_has_number": int(sf.auto_span_has_number), "auto_span_has_formula": int(sf.auto_span_has_formula),
+                        "span_number_tokens": " | ".join(sf.number_tokens), "span_formula_tokens": " | ".join(sf.formula_tokens)})
+        out.append(row)
     return out
 
 
@@ -356,10 +362,11 @@ def main(argv: Optional[List[str]] = None) -> int:
     qa_rows = [json.loads(l) for l in open(args.qa, encoding="utf-8") if l.strip()]
     idx = [int(q) for q in runs.qids]
     types = [meta.question_type[i] for i in idx]
-    feats = [QF.question_features(qa_rows[i]["question"]) for i in idx]
+    spans = QF.span_texts(args.qa, qa_rows)
+    feats = [QF.all_features(qa_rows[i]["question"], spans[i]) for i in idx]
     families = build_groups(types, [meta.subfields[i] for i in idx], feats, meta.subfield_names, min_q)
     out = Path(args.out_dir)
-    AD.write_rows(out / "question_features.csv", feature_table(qa_rows, list(meta.question_type)))
+    AD.write_rows(out / "question_features.csv", feature_table(qa_rows, list(meta.question_type), spans))
     all_sizes: List[Dict[str, Any]] = []
     for fam, (groups, contrasts) in families.items():
         rows, paired, sizes = analyse(runs, groups, contrasts, resamples=resamples, seed=seed, min_questions=min_q)

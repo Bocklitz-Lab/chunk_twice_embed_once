@@ -97,7 +97,13 @@ def test_weighted_scores_use_the_population(tmp_path):
 
 def test_cli_draw_and_score(tmp_path, capsys):
     qa = tmp_path / "qa.jsonl"
-    qa.write_text("".join(json.dumps({"question": q}) + "\n" for q in questions()))
+    qs = questions()
+    doc, rows, pos = "", [], 0
+    for q in qs:                                                 # the evidence span of a question is its own sentence: the span flags equal the question flags
+        rows.append({"question": q, "corpus_id": "0", "start_index": pos, "end_index": pos + len(q), "content": q})
+        doc, pos = doc + q + " ", pos + len(q) + 1
+    qa.write_text("".join(json.dumps(r) + "\n" for r in rows))
+    (tmp_path / "full_text.jsonl").write_text(json.dumps({"corpus_id": "0", "text": doc}) + "\n")
     assert C.main(["draw", "--qa", str(qa), "--out-dir", str(tmp_path / "v")]) == 0
     sheet = tmp_path / "v" / "question_features_check.csv"
     rows = list(csv.DictReader(open(sheet)))
@@ -111,3 +117,34 @@ def test_cli_draw_and_score(tmp_path, capsys):
     out = capsys.readouterr().out
     assert "auto_has_number: n=50" in out and "precision=1.000 recall=1.000" in out
     assert (tmp_path / "v" / "question_features_check_scores.csv").exists()
+
+
+def test_span_sheet_is_drawn_blind_and_scored_with_the_span_rules(tmp_path, capsys):
+    qa = tmp_path / "qa.jsonl"
+    qs = questions()
+    doc, rows, pos = "", [], 0
+    for q in qs:
+        rows.append({"question": q, "corpus_id": "0", "start_index": pos, "end_index": pos + len(q), "content": q})
+        doc, pos = doc + q + " ", pos + len(q) + 1
+    qa.write_text("".join(json.dumps(r) + "\n" for r in rows))
+    (tmp_path / "full_text.jsonl").write_text(json.dumps({"corpus_id": "0", "text": doc}) + "\n")
+    assert C.main(["draw", "--qa", str(qa), "--out-dir", str(tmp_path / "v")]) == 0
+    sheet = tmp_path / "v" / "span_features_check.csv"
+    srows = list(csv.DictReader(open(sheet)))
+    assert len(srows) == 50 and list(srows[0]) == C.SPAN_SHEET_COLUMNS and not any(r["manual_span_has_number"] or r["manual_span_has_formula"] for r in srows)
+    spans = C.read_spans(qa)
+    for feat in C.FEATURES:                                      # 25 flagged and 25 not flagged for each feature, by the SPAN rules
+        assert sum(C.flags(spans[int(r["query_id"])], "span")[feat] for r in srows) == 25
+    for r in srows:
+        f = C.flags(r["span_text"], "span")
+        r["manual_span_has_number"], r["manual_span_has_formula"] = str(int(f["number"])), str(int(f["formula"]))
+    with open(sheet, "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=list(srows[0])); w.writeheader(); w.writerows(srows)
+    assert C.main(["score", "--sheet", str(sheet), "--qa", str(qa), "--kind", "span"]) == 0
+    assert "auto_span_has_number: n=50" in capsys.readouterr().out and (tmp_path / "v" / "span_features_check_scores.csv").exists()
+    assert draw_is_seeded(qa, tmp_path)
+
+
+def draw_is_seeded(qa, tmp_path):
+    spans = C.read_spans(qa)
+    return C.draw_sample(spans, 50, 7, "span") == C.draw_sample(spans, 50, 7, "span") != C.draw_sample(spans, 50, 8, "span")

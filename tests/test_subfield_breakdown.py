@@ -27,7 +27,7 @@ def labelled(world, monkeypatch):
     runs = AD.load_runs([world["root"]], world["qa_path"], kinds=["dense", "bm25"])
     meta = AD.load_question_metadata(world["qa_path"])
     idx = [int(q) for q in runs.qids]
-    feats = [QF.question_features(world["qa"][i]["question"]) for i in idx]
+    feats = [QF.all_features(world["qa"][i]["question"], world["qa"][i]["content"]) for i in idx]
     fam = SB.build_groups([meta.question_type[i] for i in idx], [meta.subfields[i] for i in idx], feats, meta.subfield_names, min_questions=5)
     return {"runs": runs, "meta": meta, "feats": feats, "fam": fam, "idx": idx}
 
@@ -253,12 +253,13 @@ def test_cli_writes_all_tables(world, tmp_path, monkeypatch):
     assert sum(float(g["weight_sum"]) for g in frac) == pytest.approx(36)
     assert not any("unlabelled" in g["group"] for g in groups)
     feat = read(out / "breakdown_question_features.csv")
-    assert {r["feature_source"] for r in feat} == {"rule_based"} and {r["feature"] for r in feat} == {"auto_has_number", "auto_has_formula"}
+    assert {r["feature_source"] for r in feat} == {"rule_based"} and {r["feature"] for r in feat} == {"auto_has_number", "auto_has_formula", "auto_span_has_number", "auto_span_has_formula"}
     for f in ("breakdown_question_type.csv", "breakdown_question_features.csv", "breakdown_subfield.csv", "breakdown_groups.csv", "question_features.csv"):
         head = (out / f).read_text().splitlines()[0].split(",")
         assert "type" not in head and "category" not in head, f                                  # the features never go into a type column
     qf = read(out / "question_features.csv")
-    assert len(qf) == 36 and set(qf[0]) == {"query_id", "question", "question_type", "auto_has_number", "auto_has_formula", "number_tokens", "formula_tokens", "feature_source"}
+    assert len(qf) == 36 and set(qf[0]) == {"query_id", "question", "question_type", "auto_has_number", "auto_has_formula", "number_tokens", "formula_tokens", "feature_source",
+                                                         "auto_span_has_number", "auto_span_has_formula", "span_number_tokens", "span_formula_tokens"}
     assert qf[0]["question_type"] == json.loads(Path(world["qa_path"]).with_name("question_metadata.jsonl").read_text().splitlines()[0])["question_type"]
     row = next(r for r in qf if "CO2" in r["question"])
     assert row["auto_has_formula"] == "1" and "CO2" in row["formula_tokens"] and row["feature_source"] == "rule_based"

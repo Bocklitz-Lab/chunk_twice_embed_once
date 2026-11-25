@@ -1,4 +1,4 @@
-"""Hand check of the two automatic question features ``auto_has_number`` and ``auto_has_formula`` (``pipeline_lib/question_features.py``).
+"""Hand check of the automatic features (question text: ``question_features_check.csv``; evidence span: ``span_features_check.csv``, the same two rules). The two automatic question features ``auto_has_number`` and ``auto_has_formula`` (``pipeline_lib/question_features.py``).
 
 The features are rule-based, so before any feature breakdown is reported as final, a person must check the rules on a seeded sample of questions.
 
@@ -43,12 +43,24 @@ def read_questions(qa: Any) -> List[str]:
     return [json.loads(l)["question"] for l in open(qa, encoding="utf-8") if l.strip()]
 
 
-def flags(question: str) -> Dict[str, bool]:
-    f = QF.question_features(question)
+SPAN_SHEET_COLUMNS = ["query_id", "span_text", "manual_span_has_number", "manual_span_has_formula"]
+
+
+def flags(text: str, kind: str = "question") -> Dict[str, bool]:
+    """Automatic flags of a question text (kind ``question``) or of an evidence span (kind ``span``; same rules)."""
+    if kind == "span":
+        f = QF.span_features(text)
+        return {"number": f.auto_span_has_number, "formula": f.auto_span_has_formula}
+    f = QF.question_features(text)
     return {"number": f.auto_has_number, "formula": f.auto_has_formula}
 
 
-def draw_sample(questions: Sequence[str], n: int, seed: int) -> List[int]:
+def read_spans(qa: Any) -> List[str]:
+    rows = [json.loads(l) for l in open(qa, encoding="utf-8") if l.strip()]
+    return QF.span_texts(qa, rows)
+
+
+def draw_sample(questions: Sequence[str], n: int, seed: int, kind: str = "question") -> List[int]:
     """Query ids of ``n`` questions (n even) with n/2 flagged and n/2 not flagged for EACH feature.
 
     Four kinds of question (both flags, number only, formula only, neither): with a questions of both and a of neither, and b = n/2 - a of each single
@@ -58,7 +70,7 @@ def draw_sample(questions: Sequence[str], n: int, seed: int) -> List[int]:
     half = n // 2
     kinds: Dict[tuple, List[int]] = {}
     for i, q in enumerate(questions):
-        f = flags(q)
+        f = flags(q, kind)
         kinds.setdefault((f["number"], f["formula"]), []).append(i)
     both, only_n, only_f, neither = (kinds.get(k, []) for k in ((True, True), (True, False), (False, True), (False, False)))
     for a in sorted(range(half + 1), key=lambda a: (abs(a - half / 2), a)):
@@ -74,14 +86,18 @@ def draw_sample(questions: Sequence[str], n: int, seed: int) -> List[int]:
     return ids
 
 
-def write_sheet(path: Any, questions: Sequence[str], ids: Sequence[int]) -> Path:
+def write_sheet(path: Any, questions: Sequence[str], ids: Sequence[int], kind: str = "question") -> Path:
+    """The sheet to fill in. The automatic flags are NOT in it (hidden). kind ``span``: the evidence spans instead of the questions."""
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=SHEET_COLUMNS)
+        w = csv.DictWriter(f, fieldnames=SPAN_SHEET_COLUMNS if kind == "span" else SHEET_COLUMNS)
         w.writeheader()
         for i in ids:
-            w.writerow({"query_id": i, "question": questions[i], "manual_has_number": "", "manual_has_formula": ""})
+            if kind == "span":
+                w.writerow({"query_id": i, "span_text": questions[i], "manual_span_has_number": "", "manual_span_has_formula": ""})
+            else:
+                w.writerow({"query_id": i, "question": questions[i], "manual_has_number": "", "manual_has_formula": ""})
     return path
 
 
@@ -98,21 +114,23 @@ def _ratio(a: float, b: float) -> float:
     return a / b if b else nan
 
 
-def score(sheet: Any, qa: Optional[Any] = None) -> List[Dict[str, Any]]:
+def score(sheet: Any, qa: Optional[Any] = None, kind: str = "question") -> List[Dict[str, Any]]:
     """One row per feature: counts, precision, recall, agreement (raw, on the sample) and, with ``qa``, precision and recall weighted to all questions."""
     rows = list(csv.DictReader(open(sheet, newline="", encoding="utf-8")))
     if not rows:
         raise ValueError(f"{sheet}: no rows")
-    population = [flags(q) for q in read_questions(qa)] if qa else None
+    texts = (read_spans if kind == "span" else read_questions)
+    population = [flags(q, kind) for q in texts(qa)] if qa else None
+    text_col, prefix = ("span_text", "manual_span_has_") if kind == "span" else ("question", "manual_has_")
     out = []
     for feat in FEATURES:
-        col = f"manual_has_{feat}"
+        col = f"{prefix}{feat}"
         pairs = []
         for r in rows:
-            pairs.append((flags(r["question"])[feat], parse_answer(r.get(col, ""), f"{sheet} query {r.get('query_id')} {col}")))
+            pairs.append((flags(r[text_col], kind)[feat], parse_answer(r.get(col, ""), f"{sheet} query {r.get('query_id')} {col}")))
         tp = sum(a and m for a, m in pairs); fp = sum(a and not m for a, m in pairs)
         fn = sum((not a) and m for a, m in pairs); tn = sum((not a) and (not m) for a, m in pairs)
-        res = {"feature": f"auto_has_{feat}", "feature_source": "rule_based", "n": len(pairs), "tp": tp, "fp": fp, "fn": fn, "tn": tn,
+        res = {"feature": f"auto_{'span_' if kind == 'span' else ''}has_{feat}", "feature_source": "rule_based", "n": len(pairs), "tp": tp, "fp": fp, "fn": fn, "tn": tn,
                "precision": _ratio(tp, tp + fp), "recall": _ratio(tp, tp + fn), "agreement": _ratio(tp + tn, len(pairs)),
                "weighted_precision": nan, "weighted_recall": nan}
         if population is not None:
@@ -139,6 +157,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     s = sub.add_parser("score", help="precision, recall and agreement from the filled sheet")
     s.add_argument("--sheet", required=True)
     s.add_argument("--qa", help="qa.jsonl: also give precision and recall weighted to all questions")
+    s.add_argument("--kind", choices=["question", "span"], default="question", help="which sheet: the questions (question_features_check.csv) or the evidence spans (span_features_check.csv)")
     s.add_argument("--out", help="CSV of the scores (default: question_features_check_scores.csv next to the sheet)")
     args = ap.parse_args(argv)
     if args.cmd == "draw":
@@ -149,9 +168,14 @@ def main(argv: Optional[List[str]] = None) -> int:
         ids = draw_sample(questions, n, seed)
         path = write_sheet(Path(args.out_dir) / "question_features_check.csv", questions, ids)
         print(f"{len(ids)} questions (seed {seed}) -> {path}; fill in manual_has_number and manual_has_formula, then run `score`")
+        spans = read_spans(args.qa)
+        n_sp = int(cfg.get("n_spans", n))
+        sids = draw_sample(spans, n_sp, seed, "span")
+        spath = write_sheet(Path(args.out_dir) / "span_features_check.csv", spans, sids, "span")
+        print(f"{len(sids)} evidence spans (seed {seed}) -> {spath}; fill in manual_span_has_number and manual_span_has_formula, then run `score --kind span`")
         return 0
-    res = score(args.sheet, args.qa)
-    out = Path(args.out) if args.out else Path(args.sheet).with_name("question_features_check_scores.csv")
+    res = score(args.sheet, args.qa, args.kind)
+    out = Path(args.out) if args.out else Path(args.sheet).with_name(("span" if args.kind == "span" else "question") + "_features_check_scores.csv")
     cols = list(res[0])
     with open(out, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=cols)

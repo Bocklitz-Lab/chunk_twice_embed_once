@@ -24,13 +24,18 @@ auto_has_formula the question contains a token that parses COMPLETELY into eleme
                  Known gaps and errors: formulas with a slash (``Pd/C``), with a letter that is no element (``Ti3C2Tx``) or written in words; a
                  symbol with a count that is a label (``S3 state``, ``C14 Laves``) is counted as a formula. The hand check measures the errors.
 
+The SAME rules are applied to the EVIDENCE SPAN of a question (``full_text[start_index:end_index]``) by ``span_features``: ``auto_span_has_number`` and
+``auto_span_has_formula`` (reviewer 1: "formulas and numerical evidence" is a property of the evidence, not only of the question). A span is a passage of
+the paper, so the rules are used unchanged and their known gaps (listed above) apply to it as well; the hand check (``tools/question_features_check.py``)
+measures them on a seeded sample of 50 spans.
+
 ``question_features`` returns the two flags and the tokens that triggered them, so a person can check each flag.
 """
 from __future__ import annotations
 
 import re
 from dataclasses import dataclass
-from typing import List, Optional, Tuple
+from typing import List, Optional, Sequence, Tuple
 
 ELEMENTS = frozenset("H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr Rb Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd "
                      "In Sn Sb Te I Xe Cs Ba La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu Hf Ta W Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn Fr Ra Ac Th Pa U Np Pu "
@@ -177,3 +182,51 @@ def formula_tokens(question: str) -> List[str]:
 def question_features(question: str) -> QuestionFeatures:
     nums, forms = number_tokens(question), formula_tokens(question)
     return QuestionFeatures(bool(nums), bool(forms), tuple(nums), tuple(forms))
+
+
+def span_texts(qa_jsonl, qa_rows: Sequence[dict]) -> List[str]:
+    """The evidence span of every question, cut from ``full_text.jsonl`` next to qa.jsonl: ``full_text[start_index:end_index]`` (checked against ``content``)."""
+    import json
+    from pathlib import Path
+    from pipeline_lib.span_labels import norm_doc_id
+    ft = {}
+    with open(Path(qa_jsonl).with_name("full_text.jsonl"), encoding="utf-8") as f:
+        for line in f:
+            if line.strip():
+                r = json.loads(line)
+                ft[norm_doc_id(r["corpus_id"])] = r["text"]
+    out = []
+    for i, r in enumerate(qa_rows):
+        text = ft[norm_doc_id(r["corpus_id"])][int(r["start_index"]):int(r["end_index"])]
+        if "content" in r and text != r["content"]:
+            raise ValueError(f"question {i}: full_text[start_index:end_index] differs from the span text 'content' of qa.jsonl")
+        out.append(text)
+    return out
+
+
+@dataclass(frozen=True)
+class SpanFeatures:
+    auto_span_has_number: bool
+    auto_span_has_formula: bool
+    number_tokens: Tuple[str, ...]
+    formula_tokens: Tuple[str, ...]
+
+
+def span_features(span_text: str) -> SpanFeatures:
+    """The two rule-based flags of an evidence span (same rules as ``question_features``; see the module docstring)."""
+    nums, forms = number_tokens(span_text), formula_tokens(span_text)
+    return SpanFeatures(bool(nums), bool(forms), tuple(nums), tuple(forms))
+
+
+@dataclass(frozen=True)
+class AllFeatures:
+    """The four flags of one question: of its text and of its evidence span."""
+    auto_has_number: bool
+    auto_has_formula: bool
+    auto_span_has_number: bool
+    auto_span_has_formula: bool
+
+
+def all_features(question: str, span_text: str) -> AllFeatures:
+    q, sp = question_features(question), span_features(span_text)
+    return AllFeatures(q.auto_has_number, q.auto_has_formula, sp.auto_span_has_number, sp.auto_span_has_formula)
