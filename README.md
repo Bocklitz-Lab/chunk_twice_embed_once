@@ -9,7 +9,7 @@ Code, configurations, data, and result artifacts for:
 
 Phase 1 evaluates 41 distinct embedding models (the published run listed 42 names; `microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract` is the old name of `microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract`, same commit, and is no longer listed) with complete results on the two external retrieval tasks `ChemNQRetrieval` and `ChemHotpotQARetrieval`. The union of the top 20% from each task gives the verified 13-model Phase 2 shortlist.
 
-Phase 2 evaluates those 13 models with five chunking strategies, seven nominal chunk sizes (`128`, `192`, `256`, `320`, `384`, `448`, and `512` tokens), and five nominal overlaps (`0`, `16`, `32`, `48`, and `64` tokens). The grid constraints leave 28 valid size-overlap combinations, or 140 configurations per model and 1,820 canonical configurations in total.
+Phase 2 evaluates the models selected by the rule of `params.phase1.selection` (stage 2; 13 models in the prompted run; `docs/PAPER_NOTES_shortlist.md`) with five chunking strategies, seven nominal chunk sizes (`128`, `192`, `256`, `320`, `384`, `448`, and `512` tokens), and five nominal overlaps (`0`, `16`, `32`, `48`, and `64` tokens). The grid constraints leave 28 valid size-overlap combinations, or 140 configurations per model and 1,820 canonical configurations in total.
 
 ## Repository layout
 

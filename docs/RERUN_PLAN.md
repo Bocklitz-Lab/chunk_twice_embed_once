@@ -5,7 +5,13 @@ All commands run from the repository root with the repository's environment (`my
 reranking e5-large-v2 at depth 50 193 s (size 256); the times of the base, small and instructor-xl models are scaled from their size, not measured. The published
 Phase 1 took 2.1 h of `evaluation_time` for 42 models x 2 tasks. Two GPUs halve the dense steps if the models are split (see step 7).
 
-Nothing in this plan has been run. The code was tested on the pilot data (`artifacts/pilot_v2`) and on synthetic data only.
+Nothing in this plan has been run on the full grid. Branch `pre-rerun` adds, on top of the subset-check code: the uncertainty-aware model selection (step 2), the control strategy
+`fixed_token_nomatter` (3 extra configurations per model), reranking of the BM25 top-50, the SPECTER pooling override, the evidence-span features and the mean-based model x strategy
+figure. The time estimate of this plan is `results/v2-revision/time_estimate.csv` (`python -m tools.time_estimate`): **about 64 h on one GPU, about 33 h wall on two GPUs** for the
+13-model list (M = measured on the subset and in the audit, E = extrapolated; see the file).
+
+**Order of the full rerun:** (1) `make stage2` (already decided: step 2) -> (2) `make prepare`, 143 configurations (CPU, 1.4 h) -> (3) start the manual validation (step 4) -> (4) dense models, two GPUs, largest
+first -> (5) BM25 (CPU, overlaps) -> (6) `make hybrid` -> (7) rerank (dense and BM25 first stage, second GPU) -> (8) `make transfer` -> (9) `make report`, `make analysis`.
 
 ## 0. Before anything
 
@@ -35,10 +41,15 @@ The split that Phase 1 is scored on is `params.phase1.eval_split` (default `test
 ```bash
 make stage0                  # regenerates configs/stages/stage1-3.yaml from the main config (they are tracked; tests/test_phase1_paths.py checks them)
 make stage1                  # 41 models x 2 tasks, prompts on, --efficiency on; writes artifacts/embedding_models_screening/validation_prompts/
-make stage2                  # top 20% per task -> passed_per_dataset__validation_prompts.csv (the model list of Phase 2)
+make stage2                  # model list of Phase 2 -> passed_per_dataset__validation_prompts.csv; rule params.phase1.selection (below); also shortlist_selection__validation_prompts.csv
 ```
 * `make stage1` refuses a folder that already holds results; to resume an interrupted run (finished tasks are kept by MTEB): `make stage1 STAGE1_ARGS="--efficiency --force"`.
 * Each model also writes `truncation_report_<Task>.json` and `run_manifest.json` (pooling, dimension, maximum length, tokenizer, CPU, RAM).
+* **The selection rule** (`params.phase1.selection`, `pipeline_lib/shortlist.py`; `docs/PAPER_NOTES_shortlist.md`): `inclusion_probability` with `top_fraction: 0.2`, `min_inclusion_probability: 0.5`, 10,000
+  query-level resamples: a model is kept if it is in the top 20 % of at least one task in at least 50 % of the resamples; the observed top eight of each task are always kept. `rule: top_fraction`
+  reproduces the published rule. On the prompted Phase 1 the rule gives 13 models (the same as the observed union); stage 2 stops if it ever selects more than `max_models` (18).
+  `shortlist_selection__validation_prompts.csv` shows the outcome at 0.4 / 0.5 / 0.6. **Do not change the threshold after looking at it.**
+* Pooling overrides (`params.model_pooling`, SPECTER = CLS): re-run only those models into another folder if the rule changes (`stages/model_screening.py --config <stage1 config with that model>`).
 * Compare with the published shortlist: `diff <(cut -d, -f2 artifacts/embedding_models_screening/passed_per_dataset.csv | sort -u) <(cut -d, -f2 artifacts/embedding_models_screening/passed_per_dataset__validation_prompts.csv | sort -u)`.
   If the shortlist changes, check `params.rerank.models`, the roles in `params.transfer` and the text before going on.
 * Published-run truncation (no prompts, CPU, a few minutes): `python -m tools.phase1_truncation --out-dir results/v2-revision/published --prompts none`.
@@ -47,7 +58,7 @@ make stage2                  # top 20% per task -> passed_per_dataset__validatio
 ## 3. Prepare: chunk and label every configuration once (CPU, about 2-3 h)
 
 ```bash
-make prepare                 # 140 configurations; ChemQuests is downloaded (stage 3) if artifacts/chemquests_hf_db is missing
+make prepare                 # 140 configurations + the 3 control configurations `fixed_token_nomatter` 256 / 384 / 512 at overlap 0 (`stages.rerun` does this by default: `grid.CONTROL_CELLS`); ChemQuests is downloaded (stage 3) if artifacts/chemquests_hf_db is missing
 make stage3                  # also needed once if artifacts/chemquests_hf_db exists from an earlier run: downloads qa/question_metadata.jsonl (needs an HF token)
 ```
 The question labels (`question_metadata.jsonl`: official question type and subfields) are NOT in the pinned release `5ab7dc67...`; stage 3 fetches them from their own pinned revision
@@ -72,10 +83,11 @@ python -m tools.kappa --sheets results/validation/validation_sheet_annotator_1.c
 Keep the filled sheets and `validation_sample_summary.json` (seed, questions per type and subfield, hashes of the prepared folders) with the paper material.
 The sample is stratified by the official question type and every one of the 17 subfields has at least 2 questions in it.
 
-Second hand check, also human time: the two automatic question features (`auto_has_number`, `auto_has_formula`; rule-based, not annotations):
+Second hand check, also human time: the automatic features of the question (`auto_has_number`, `auto_has_formula`) and of the evidence span (`auto_span_has_number`, `auto_span_has_formula`; the same rules; rule-based, not annotations):
 ```bash
-python -m tools.question_features_check draw --qa artifacts/chemquests_hf_db/qa.jsonl --out-dir results/validation    # 50 questions, manual_* columns empty
+python -m tools.question_features_check draw --qa artifacts/chemquests_hf_db/qa.jsonl --out-dir results/validation    # question_features_check.csv (50 questions) and span_features_check.csv (50 spans), manual_* columns empty
 python -m tools.question_features_check score --sheet results/validation/question_features_check.csv --qa artifacts/chemquests_hf_db/qa.jsonl
+python -m tools.question_features_check score --sheet results/validation/span_features_check.csv --qa artifacts/chemquests_hf_db/qa.jsonl --kind span
 ```
 Do not quote any breakdown by these features as final before the sheet is filled in and precision / recall are in the paper.
 
@@ -84,8 +96,8 @@ Do not quote any breakdown by these features as final before the sheet is filled
 ```bash
 make eval                    # efficiency + latency on (EFFICIENCY_ARGS), prompts on, per-model batch sizes, then hybrids, rerank and the report
 ```
-Expected: about 55-75 h on one RTX 3090 (dense encoding about 40 h, retrieval/metrics/dump 2.5 h, efficiency probes and latency 3-5 h, BM25 1.5 h on the CPU,
-1,820 hybrids 1 h, 140 reranks of e5-large-v2 7.5 h, report about 1 h). Finished runs are skipped, so an interrupted `make eval` can simply be started again.
+Expected (`results/v2-revision/time_estimate.csv`, 13 models, 143 configurations each, wall = 1.07 x evaluation time as measured on a long run): about 64 h on one RTX 3090 in total
+(dense 35 h, rerank of the dense top-50 9 h and of the BM25 top-50 9 h, transfer 2.7 h; BM25 1.4 h and hybrids 0.2 h on the CPU, prepare 1.4 h, report 1.3 h); about 33 h wall on two GPUs. Finished runs are skipped, so an interrupted `make eval` can simply be started again.
 Peak GPU memory, throughput and latency cannot be recorded afterwards: do not start the main run with `EFFICIENCY_ARGS=` empty.
 
 Two GPUs (dense steps in about half the time): run the dense models in two shells with disjoint model lists and without the steps that need all runs, then finish once:
@@ -106,7 +118,7 @@ bge-m3, e5-large, e5-large-v2 (32). The batch size of every run is in `run_info.
 ## 6. Transfer runs: models that Phase 1 did not shortlist (about 2.5-3 GPU hours)
 
 ```bash
-make transfer                # params.transfer: 14 non-shortlisted + 3 shortlisted reference models + bert-base-uncased, configurations C1-C5 and C6 -> artifacts/transfer/
+make transfer                # params.transfer: 19 non-shortlisted (incl. bge-m3, instructor-xl, e5-large, bge-base-en-v1.5 that the published rule selected) + 3 shortlisted reference models + bert-base-uncased, C1-C5 and C6 -> artifacts/transfer/; roles are checked against the stage 2 file
 make transfer TRANSFER_ARGS="--dry-run"      # prints the plan and checks params.transfer first
 ```
 Needs `make prepare` of step 3 (the transfer run reads the same prepared chunks and labels and the same ChemQuests files). `--no-extras` skips C6 and bert-base-uncased, `--no-references` skips the
@@ -117,7 +129,7 @@ three models that are also in the main run. The report of this root goes to `res
 ```bash
 make report                  # main root -> results/v2-revision/ (tracked small CSVs; large files stay in artifacts/report/): about 45-60 min at 10,000 resamples for ~3,900 runs (extrapolated from the pilot: 18 s for 20 runs)
 make report ARTIFACTS_ROOT=artifacts/transfer REPORT_DIR=results/v2-revision/transfer       # (already written by make transfer)
-python -m tools.efficiency_analysis --efficiency artifacts/tests/efficiency_phase2.csv --scores results/v2-revision/runs_overview.csv --out results/efficiency --phase1 artifacts/embedding_models_screening/validation_prompts/efficiency_phase1.csv
+# `make report` now also writes table_model_properties.csv, the efficiency tables (tools.efficiency_analysis) and table_model_strategy.csv + fig_model_strategy.* (tools.model_strategy)
 make analysis                # token budget, question type / automatic features / subfield, variance decomposition, winner stability, Phase 1 -> Phase 2 transfer, examples, fragmentation -> results/v2-revision/analysis/
 ```
 `make analysis ANALYSIS_ARGS="--only token_budget examples"` runs some tools; `ANALYSIS_ARGS="--resamples 1000"` is a quick test. Time: `token_budget` about 0.5 s per run (about 30 min), the others minutes.
@@ -141,6 +153,9 @@ and is skipped with a message if the Phase 1 folder or the shortlist is missing.
 | 23, 24 subfield, question type | `analysis/breakdown_question_type*.csv`, `breakdown_subfield*.csv` (official labels; multi-label and fractional), `breakdown_question_features*.csv` (automatic features), `breakdown_groups.csv`, `question_features.csv` |
 | 25, 26 examples, fragmentation | `analysis/examples.csv/.md`, `analysis/fragmentation.csv` |
 | 27 hardware | `run_manifest.json: hardware` (CPU, RAM, GPU, threads, seeds) of dense, BM25, hybrid and rerank runs |
+| 5, 6 evidence-span features, control strategy | `analysis/breakdown_question_features*.csv` (`auto_span_*`), `fixed_token_nomatter` rows of `table_main.csv` |
+| mean model x strategy | `table_model_strategy.csv`, `fig_model_strategy.png/.pdf` (replaces the maximum heatmap) |
+| rerank of the BM25 top-50 | rows `rerank_..._bm25` of `table_retrievers_span.csv`, family `rerank` of `stats_compare.csv` |
 | 29 efficiency | `artifacts/tests/efficiency_phase2.csv`, `efficiency_phase1.csv`, `results/efficiency/` |
 
 ## 9. Checks before the numbers are used
