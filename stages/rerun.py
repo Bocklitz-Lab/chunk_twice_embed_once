@@ -284,7 +284,8 @@ def run_reranks(root: str, models: List[Tuple[str, str]], cells: List[Tuple[int,
     runs of this invocation if the list is empty) plus the ablation entries. Finished rerank runs are skipped."""
     from tools import rerank
     wanted = [(ch, s, o) for ch in chunkers for s, o in grid.cells_for(ch, cells)]
-    return rerank.run_configured(Path(root) / "tests", rr, models=[n for n, _ in models if not n.startswith(BM25)], wanted_cells=wanted,
+    names = [n for n, _ in models if not n.startswith(BM25)] + ([BM25] if "bm25" in (rr.get("first_stage") or ["dense"]) and any(n.startswith(BM25) for n, _ in models) else [])
+    return rerank.run_configured(Path(root) / "tests", rr, models=names, wanted_cells=wanted,
                                  depth=int(rr.get("depth", 100)), force=force, dry_run=dry_run, seed=seed)
 
 

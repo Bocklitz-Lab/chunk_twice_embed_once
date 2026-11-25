@@ -162,6 +162,49 @@ def test_rerank_is_resumable_and_only_for_dense_runs(world):
         rerank.run_rerank(h, tests, counting, revision="r", top_n=3)
 
 
+def test_rerank_of_the_bm25_top_n_has_its_own_folder_time_and_comparison_pairs(world):
+    from tools import make_report
+    _, prep, tests, dense, bm = world
+    r = rerank.run_rerank(bm, tests, overlap_scorer, model="org/rr-model", revision="abc", top_n=3, allow_bm25=True)
+    run_dir = Path(r["run_dir"])
+    assert run_dir.name == "rerank_rr_model_top3_bm25_fixed_token_c128_o0"
+    info = json.loads((run_dir / "run_info.json").read_text())
+    assert info["rerank"]["dense"] == "bm25" and info["model"] == "rerank_rr_model_top3_bm25"
+    man = json.loads((run_dir / "results" / "rerank_rr_model_top3_bm25" / "run_manifest.json").read_text())
+    t = man["timing_s"]
+    assert t["dense_evaluation_time_s"] == pytest.approx(10.0) and t["evaluation_time_s"] == pytest.approx(10.0 + t["rerank_s"])      # BM25 time + rerank time
+    assert man["tie_break"] == "score descending, chunk id descending" and man["n_pairs"] == 6
+    rerank.run_rerank(dense, tests, overlap_scorer, model="org/rr-model", revision="abc", top_n=3)
+    cell = hybrid.discover(tests)[("fixed_token", 128, 0)]
+    assert sorted(cell) == ["bm25", "org/dense"]                                          # a rerank run is never a first stage of another derived run
+    infos = {}
+    for d in tests.iterdir():
+        i = json.loads((d / "run_info.json").read_text())
+        infos[f"{i['model']}|fixed_token|128|0"] = i
+    names = [i["model"] for i in infos.values()]
+    pairs = make_report.comparison_pairs(names, infos, ("fixed_token", 128, 0), 3)
+    rb, rd = "rerank_rr_model_top3_bm25", "rerank_rr_model_top3_org_dense"
+    assert (rb, "bm25") in pairs and (rb, rd) in pairs and pairs.count((rb, "bm25")) == 1          # rerank(BM25) vs BM25 and vs rerank(dense), each once
+    assert (rd, "org/dense") in pairs and (rd, "bm25") in pairs
+    assert make_report.pair_family((rb, rd), infos, ("fixed_token", 128, 0)) == "rerank"
+
+
+def test_first_stage_selects_the_runs_that_are_planned_for_reranking(world):
+    _, _, tests, _, _ = world
+    cells = hybrid.discover(tests)
+    jobs, _ = rerank.plan_jobs(cells, {"top_n": 3, "models": ["org/dense"]})
+    assert [j[2]["model"] for j in jobs] == ["org/dense"]                                    # default: dense only
+    jobs, _ = rerank.plan_jobs(cells, {"top_n": 3, "models": ["org/dense"], "first_stage": ["dense", "bm25"]})
+    assert sorted(j[2]["model"] for j in jobs) == ["bm25", "org/dense"]
+    jobs, _ = rerank.plan_jobs(cells, {"top_n": 3, "first_stage": ["bm25"]})
+    assert [j[2]["model"] for j in jobs] == ["bm25"]
+    with pytest.raises(ValueError, match="first_stage"):
+        rerank.plan_jobs(cells, {"top_n": 3, "first_stage": ["sparse"]})
+    bm = next(d for d in tests.iterdir() if d.name.startswith("bm25"))
+    with pytest.raises(ValueError, match="first_stage"):                                      # without the switch a BM25 run is refused
+        rerank.run_rerank(bm, tests, overlap_scorer, revision="r", top_n=3)
+
+
 def test_the_reranker_revision_must_be_pinned():
     with pytest.raises(ValueError, match="pinned"):
         rerank.CrossEncoderScorer("org/model", None)

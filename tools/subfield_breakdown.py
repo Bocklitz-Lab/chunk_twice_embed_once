@@ -221,6 +221,9 @@ def run_pairs(runs: AD.RunSet) -> List[Tuple[int, int, str]]:
                     pairs.append((i, bm25, "rerank_minus_bm25"))
                 if m["source_dense"] in hybrid:
                     pairs.append((i, hybrid[m["source_dense"]], "rerank_minus_hybrid"))
+                if str(m["source_dense"]).startswith(AD.BM25):                     # rerank of the BM25 top-N against the rerank of each dense first stage
+                    pairs += [(i, j, "rerank_bm25_minus_rerank_dense") for j in idx if runs.meta[j]["kind"] == "rerank"
+                              and not str(runs.meta[j]["source_dense"]).startswith(AD.BM25) and runs.meta[j]["rerank_top_n"] == m["rerank_top_n"]]
     return pairs
 
 

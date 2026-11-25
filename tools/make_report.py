@@ -115,7 +115,7 @@ def comparison_pairs(names: List[str], infos: Dict[str, Dict[str, Any]], cell: t
 
       dense   vs BM25                                  every dense run
       hybrid  vs its dense run, vs BM25                every RRF hybrid
-      rerank  vs its dense run, vs BM25, vs the hybrid of the same dense run (when that hybrid exists)
+      rerank  vs its dense run, vs BM25, vs the hybrid of the same dense run (when that hybrid exists); rerank(BM25) also vs rerank(dense) of the same depth
       dense   vs dense                                 every pair of dense runs (models) on the same configuration, alphabetical order
     """
     infos_c = {n: infos.get(f"{n}|{cell[0]}|{cell[1]}|{cell[2]}", {}) for n in names}
@@ -133,11 +133,19 @@ def comparison_pairs(names: List[str], infos: Dict[str, Dict[str, Any]], cell: t
                     pairs.append((n, BM25))
                 if rr["dense"] in hybrid_of:
                     pairs.append((n, hybrid_of[rr["dense"]]))
+                if str(rr["dense"]).startswith(BM25):             # rerank of the BM25 top-N: also against the rerank of every dense first stage (same depth)
+                    pairs += [(n, m) for m, i in infos_c.items() if i.get("rerank") and not str(i["rerank"]["dense"]).startswith(BM25)
+                              and int(i["rerank"]["top_n"]) == int(rr["top_n"])]
         elif not n.startswith(BM25) and BM25 in names:
             pairs.append((n, BM25))
     dense = sorted(n for n in names if run_kind(n, infos_c[n]) == "dense")
     pairs += list(itertools.combinations(dense, 2))
-    return [p for p in pairs if p[0] in names and p[1] in names]
+    seen, out = set(), []
+    for p in pairs:                                                   # rerank(BM25) vs BM25 comes from two rules: keep each pair once
+        if p[0] in names and p[1] in names and p not in seen:
+            seen.add(p)
+            out.append(p)
+    return out
 
 
 def pair_family(pair: tuple, infos: Dict[str, Dict[str, Any]], cell: tuple) -> str:

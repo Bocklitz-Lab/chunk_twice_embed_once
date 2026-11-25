@@ -151,11 +151,16 @@ def rerank_name(model: str, top_n: int, dense_model: str) -> str:
 
 
 def run_rerank(dense_dir: Path, tests_root: Path, scorer: Scorer, *, model: str = DEFAULT_MODEL, revision: str = "", top_n: int = 50,
-               depth: int = 100, force: bool = False, scorer_info: Optional[Dict[str, Any]] = None, seed: Optional[int] = None) -> Dict[str, Any]:
-    """Rerank the top ``top_n`` of ``dense_dir`` (a dense run folder) into a new run folder under ``tests_root``."""
+               depth: int = 100, force: bool = False, scorer_info: Optional[Dict[str, Any]] = None, seed: Optional[int] = None,
+               allow_bm25: bool = False) -> Dict[str, Any]:
+    """Rerank the top ``top_n`` of ``dense_dir`` (a dense run folder; with ``allow_bm25`` also the BM25 run, ``params.rerank.first_stage``) into a new run folder.
+
+    BM25 first stage: same reranker, depth, tie rule and chunk / query text; ``evaluation_time`` = BM25 evaluation_time + rerank_s (the dense rule with the first stage
+    being BM25); the folder is ``rerank_<reranker>_top<N>_bm25_<chunker>_c<L>_o<O>`` and ``run_info.rerank.dense`` is ``bm25``."""
     di = json.loads((dense_dir / "run_info.json").read_text(encoding="utf-8"))
-    if di.get("hybrid") or di.get("rerank") or str(di["model"]).startswith("bm25"):
-        raise ValueError(f"{dense_dir.name}: only a dense run can be reranked (got {di['model']})")
+    is_bm25 = str(di["model"]).startswith("bm25")
+    if di.get("hybrid") or di.get("rerank") or (is_bm25 and not allow_bm25):
+        raise ValueError(f"{dense_dir.name}: only a dense run can be reranked (got {di['model']}); the BM25 run needs params.rerank.first_stage to contain 'bm25'")
     name = rerank_name(model, top_n, di["model"])
     run_dir = Path(tests_root) / f"{name}_{di['chunker']}_c{di['size']}_o{di['overlap']}"
     if (run_dir / "results" / "summary.json").exists() and not force:
@@ -252,6 +257,9 @@ def plan_jobs(cells: Dict[tuple, Dict[str, Path]], cfg: Dict[str, Any], *, model
     given, and to ``models`` / ``wanted_cells`` of the invocation) at ``cfg['top_n']``. Ablation: each entry of ``cfg['ablation']``
     adds ``top_n`` (a number or a list) for the dense runs it matches (model, chunker, size, overlap; a missing field matches all)."""
     primary = int(cfg.get("top_n", 50))
+    first_stage = list(cfg.get("first_stage") or ["dense"])
+    if not set(first_stage) <= {"dense", "bm25"}:
+        raise ValueError(f"params.rerank.first_stage must be a list of 'dense' / 'bm25', got {first_stage}")
     allowed = set(models) if models is not None else None
     wanted = set(wanted_cells) if wanted_cells is not None else None
     cfg_models = cfg.get("models") or None
@@ -259,11 +267,13 @@ def plan_jobs(cells: Dict[tuple, Dict[str, Path]], cfg: Dict[str, Any], *, model
     warns: List[str] = []
 
     def eligible(cell, model):
-        return (not str(model).startswith("bm25") and (allowed is None or model in allowed) and (wanted is None or cell in wanted))
+        is_bm25 = str(model).startswith("bm25")
+        stage_ok = ("bm25" in first_stage) if is_bm25 else ("dense" in first_stage)
+        return stage_ok and (allowed is None or model in allowed) and (wanted is None or cell in wanted)
 
     for cell, runs in sorted(cells.items()):
         for model, d in sorted(runs.items()):
-            if eligible(cell, model) and (cfg_models is None or any(_model_matches(m, model) for m in cfg_models)):
+            if eligible(cell, model) and (str(model).startswith("bm25") or cfg_models is None or any(_model_matches(m, model) for m in cfg_models)):
                 jobs[(str(d), primary)] = (d, primary, {"chunker": cell[0], "size": cell[1], "overlap": cell[2], "model": model})
     for k, entry in enumerate(cfg.get("ablation") or []):
         tops = entry.get("top_n", [])
@@ -273,7 +283,7 @@ def plan_jobs(cells: Dict[tuple, Dict[str, Path]], cfg: Dict[str, Any], *, model
             if not (_field_matches(entry.get("chunker"), cell[0]) and _field_matches(entry.get("size"), cell[1]) and _field_matches(entry.get("overlap"), cell[2])):
                 continue
             for model, d in sorted(runs.items()):
-                if eligible(cell, model) and (entry.get("model") is None or _model_matches(str(entry["model"]), model)):
+                if eligible(cell, model) and not str(model).startswith("bm25") and (entry.get("model") is None or _model_matches(str(entry["model"]), model)):
                     hit += 1
                     for t in tops:
                         jobs[(str(d), t)] = (d, t, {"chunker": cell[0], "size": cell[1], "overlap": cell[2], "model": model})
@@ -321,7 +331,8 @@ def run_configured(tests_root: Path, cfg: Dict[str, Any], *, models: Optional[It
             print(f"[dry-run] rerank {cell['model']} {cell['chunker']} c{cell['size']} o{cell['overlap']} top{top_n}")
             out.append({"run_dir": str(d), "status": "dry-run", "top_n": top_n})
             continue
-        r = run_rerank(d, tests_root, scorer, model=model, revision=revision, top_n=top_n, depth=depth, force=force, seed=seed)
+        r = run_rerank(d, tests_root, scorer, model=model, revision=revision, top_n=top_n, depth=depth, force=force, seed=seed,
+                       allow_bm25="bm25" in (cfg.get("first_stage") or ["dense"]))
         print(f"rerank {cell['model']} {cell['chunker']} c{cell['size']} o{cell['overlap']} top{top_n}: {r['status']}"
               + (f" ({r['rerank_s']:.1f}s)" if "rerank_s" in r else ""))
         out.append({**r, "top_n": top_n})
@@ -342,6 +353,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     ap.add_argument("--chunker", nargs="*")
     ap.add_argument("--size", nargs="*", type=int)
     ap.add_argument("--overlap", nargs="*", type=int)
+    ap.add_argument("--first-stage", nargs="+", choices=["dense", "bm25"], help="which runs supply the candidates (default: params.rerank.first_stage, else dense)")
     ap.add_argument("--no-fp16", action="store_true")
     ap.add_argument("--force", action="store_true")
     args = ap.parse_args(argv)
@@ -350,7 +362,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     base = (yaml.safe_load(Path(args.main_config).read_text(encoding="utf-8"))["params"].get("rerank") or {})
     cfg = {"model": args.model, "revision": args.revision or base.get("revision"), "top_n": args.top_n[0],
            "batch_size": args.batch_size or base.get("batch_size", 32), "max_length": args.max_length or base.get("max_length", 1024),
-           "fp16": not args.no_fp16 and base.get("fp16", True), "models": args.dense or None,
+           "fp16": not args.no_fp16 and base.get("fp16", True), "models": args.dense or None, "first_stage": args.first_stage or base.get("first_stage") or ["dense"],
            "ablation": [{"top_n": args.top_n[1:]}] if len(args.top_n) > 1 else []}
     cells = hybrid.discover(Path(args.tests_root))
     wanted = [c for c in cells if _field_matches(args.chunker, c[0]) and _field_matches(args.size, c[1]) and _field_matches(args.overlap, c[2])]

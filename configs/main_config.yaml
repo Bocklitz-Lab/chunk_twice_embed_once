@@ -497,6 +497,9 @@ params:
     max_length: 1024
     fp16: true
     models: [intfloat/e5-large-v2]
+    # first_stage: which run supplies the candidates. dense = the runs of `models`; bm25 = the BM25 run of every configuration (same reranker, depth, tie rule;
+    # evaluation_time = BM25 time + rerank time). Audit risk 9: the reranking result must not depend on a dense first stage.
+    first_stage: [dense, bm25]
     ablation:
       - {model: intfloat/e5-large-v2, chunker: fixed_token, size: 256, overlap: 0, top_n: [20, 100]}
 
