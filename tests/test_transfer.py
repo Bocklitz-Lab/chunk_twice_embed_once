@@ -20,22 +20,46 @@ def test_the_configured_block_is_valid_and_matches_the_reviewer1_experiment(doc)
     assert transfer.validate(doc) == []
     tr = doc["params"]["transfer"]
     roles = [m["role"] for m in tr["models"]]
-    assert roles.count("non_shortlisted") == 14 and roles.count("shortlisted_reference") == 3 and roles.count("extra") == 1
+    assert roles.count("non_shortlisted") == 19 and roles.count("shortlisted_reference") == 3 and roles.count("extra") == 1
     assert [c["id"] for c in tr["configurations"]] == ["C1", "C2", "C3", "C4", "C5", "C6"]
     assert {c["id"] for c in tr["configurations"] if c.get("extra")} == {"C6"}
     refs = {m["name"] for m in tr["models"] if m["role"] == "shortlisted_reference"}
     assert refs == {"intfloat/e5-large-v2", "BAAI/bge-large-en-v1.5", "nomic-ai/nomic-embed-text-v1.5"}
     pairs = {p["id"]: p for p in tr["pairs"]}
-    assert set(pairs) == {"P1", "P2", "P3", "P4a", "P4b"} and {m for p in tr["pairs"] for m in [p["base"], *p["tuned"]]} <= {m["name"] for m in tr["models"]}
+    assert set(pairs) == {"P1", "P2", "P3", "P4a", "P4b", "P5a", "P5b", "P5c", "P5d", "P5e"} and {m for p in tr["pairs"] for m in [p["base"], *p["tuned"]]} <= {m["name"] for m in tr["models"]}
 
 
-def test_non_shortlisted_models_are_not_in_the_published_shortlist(doc):
-    short = {"BAAI/bge-base-en-v1.5", "BAAI/bge-large-en-v1.5", "BAAI/bge-m3", "BAAI/bge-small-en-v1.5", "hkunlp/instructor-xl", "intfloat/e5-base",
-             "intfloat/e5-large-v2", "intfloat/e5-large", "intfloat/e5-small", "intfloat/multilingual-e5-base", "intfloat/multilingual-e5-small",
-             "nomic-ai/nomic-embed-text-v1.5", "nomic-ai/nomic-embed-text-v1"}
-    for m in doc["params"]["transfer"]["models"]:
-        assert (m["name"] in short) == (m["role"] == "shortlisted_reference") or m["role"] == "extra"
-        assert m["role"] != "non_shortlisted" or m["name"] not in short
+def test_domain_pairs_use_bert_base_and_leave_out_the_smiles_model(doc):
+    pairs = {p["id"]: p for p in doc["params"]["transfer"]["pairs"] if p["id"].startswith("P5")}
+    assert {p["base"] for p in pairs.values()} == {"bert-base-uncased"}
+    tuned = {m for p in pairs.values() for m in p["tuned"]}
+    assert tuned == {"allenai/scibert_scivocab_uncased", "m3rg-iitd/matscibert", "microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext",
+                     "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract", "recobo/chemical-bert-uncased"}
+    assert "DeepChem/ChemBERTa-77M-MTR" not in tuned
+
+
+def test_roles_are_checked_against_the_phase2_list(doc):
+    refs = {m["name"] for m in doc["params"]["transfer"]["models"] if m["role"] == "shortlisted_reference"}
+    assert transfer.check_roles(doc, refs) == []
+    assert any("not on the Phase 2 list" in p for p in transfer.check_roles(doc, set()))
+    nons = next(m["name"] for m in doc["params"]["transfer"]["models"] if m["role"] == "non_shortlisted")
+    assert any("non_shortlisted, but the model is on the Phase 2 list" in p for p in transfer.check_roles(doc, refs | {nons}))
+
+
+def test_the_excluded_published_models_are_in_the_transfer_set_when_the_stage2_file_exists(doc):
+    """With the stage 2 file of the prompted run: no excluded model is shortlisted, every reference is, and the published members that the rule drops are transferred."""
+    f = ROOT / "artifacts/subset_v1/embedding_models_screening/passed_per_dataset__validation_prompts.csv"
+    if not f.is_file():
+        pytest.skip("stage 2 file of the prompted run not in this checkout")
+    import csv
+    names = {r["model_name"] for r in csv.DictReader(open(f))}
+    assert transfer.check_roles(doc, names) == []
+    in_transfer = {m["name"] for m in doc["params"]["transfer"]["models"]}
+    assert {"BAAI/bge-m3", "hkunlp/instructor-xl", "intfloat/e5-large", "BAAI/bge-base-en-v1.5"} <= in_transfer
+
+
+def test_a_pair_with_a_model_outside_the_transfer_list_is_reported(doc):
+    assert any("not in params.transfer.models" in p for p in _problems(doc, lambda t, d: t["pairs"][0].update(base="org/none")))
 
 
 def _problems(doc, mutate):
@@ -69,11 +93,11 @@ def test_the_transfer_root_must_not_be_the_main_root(doc):
 
 def test_selection_switches(doc):
     all_ = transfer.selected(doc)
-    assert len(all_["models"]) == 18 and len(all_["configurations"]) == 6
+    assert len(all_["models"]) == 23 and len(all_["configurations"]) == 6
     no_extra = transfer.selected(doc, extras=False)
-    assert len(no_extra["models"]) == 17 and [c["id"] for c in no_extra["configurations"]] == ["C1", "C2", "C3", "C4", "C5"]
+    assert len(no_extra["models"]) == 22 and [c["id"] for c in no_extra["configurations"]] == ["C1", "C2", "C3", "C4", "C5"]
     no_ref = transfer.selected(doc, references=False)
-    assert len(no_ref["models"]) == 15 and all(m["role"] != "shortlisted_reference" for m in no_ref["models"])
+    assert len(no_ref["models"]) == 20 and all(m["role"] != "shortlisted_reference" for m in no_ref["models"])
 
 
 def test_calls_are_one_per_configuration_with_shared_inputs_and_no_baselines(doc):
@@ -85,7 +109,7 @@ def test_calls_are_one_per_configuration_with_shared_inputs_and_no_baselines(doc
         assert call[call.index("--artifacts-root") + 1] == "artifacts/transfer"
         assert "chunk_cache.dir=artifacts/prepared" in call and "paths.chemquests_dir=artifacts/chemquests_hf_db" in call     # shared with the main run
         names = call[call.index("--models") + 1:call.index("--chunkers")]
-        assert len(names) == 18 and all("@" in n and len(n.split("@")[1]) == 40 for n in names)
+        assert len(names) == 23 and all("@" in n and len(n.split("@")[1]) == 40 for n in names)
     assert all("--no-report" in c for c in calls[:-1]) and "--no-report" not in calls[-1] and calls[-1][calls[-1].index("--report-dir") + 1] == "results/v2-revision/transfer"
     cells = [(c[c.index("--chunkers") + 1], c[c.index("--sizes") + 1], c[c.index("--overlaps") + 1]) for c in calls]
     assert cells[3] == ("fixed_token", "384", "32") and cells[5] == ("fixed_token", "128", "0")
@@ -107,7 +131,7 @@ def test_a_transfer_call_does_not_trigger_the_rerank_ablation_check(doc, tmp_pat
 def test_main_dry_run_validates_and_prints(capsys):
     assert transfer.main(["--dry-run", "--efficiency", "--latency"]) == 0
     out = capsys.readouterr().out
-    assert "108 runs" in out and "artifacts/transfer" in out and out.count("stages.rerun eval") == 6
+    assert "138 runs" in out and "artifacts/transfer" in out and out.count("stages.rerun eval") == 6
     assert transfer.main(["--dry-run", "--no-extras", "--no-references"]) == 0
     assert "14 models x 5 configurations = 70 runs" in capsys.readouterr().out
 

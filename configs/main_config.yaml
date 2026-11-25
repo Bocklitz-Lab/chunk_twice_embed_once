@@ -318,7 +318,7 @@ params:
   #            but no stage1.models pin; their revision is pinned here.
   #   configurations: id, chunker, size, overlap; each must be valid in pipeline_lib/grid.py. C1-C5 = main; C6 (fixed-token 128/0) is an extra
   #            sensitivity configuration that is never mixed into the C1-C5 averages.
-  #   pairs:   tuned - base pairs of the Reviewer 1 experiment (P1-P4), read by tools/phase_transfer.py.
+  #   pairs:   tuned - base pairs of the Reviewer 1 experiment (P1-P4) and the domain-pretraining pairs (P5a-e), read by tools/phase_transfer.py.
   transfer:
     artifacts_root: artifacts/transfer
     report_dir: results/v2-revision/transfer
@@ -349,6 +349,13 @@ params:
       - {name: intfloat/e5-large-v2,                                      revision: b322e09026e4ea05f42beadf4d661fb4e101d311, role: shortlisted_reference, group: d}
       - {name: BAAI/bge-large-en-v1.5,                                    revision: d4aa6901d3a41ba39fb536a557fa166f842b0e09, role: shortlisted_reference, group: d}
       - {name: nomic-ai/nomic-embed-text-v1.5,                            revision: b0753ae76394dd36bcfb912a46018088bca48be0, role: shortlisted_reference, group: d}
+      # retrieval-tuned models of the PUBLISHED shortlist that the prompted rule does not select (params.phase1.selection): kept here so that the paper can show how they
+      # perform at C1-C6 (group f). Roles are checked against the stage 2 file (stages/transfer.py: check_roles).
+      - {name: BAAI/bge-m3,                                 revision: 5617a9f61b028005a4858fdac845db406aefb181, role: non_shortlisted, group: f}
+      - {name: hkunlp/instructor-xl,                        revision: ce48b213095e647a6c3536364b9fa00daf57f436, role: non_shortlisted, group: f}
+      - {name: intfloat/e5-large,                           revision: 4dc6d853a804b9c8886ede6dda8a073b7dc08a81, role: non_shortlisted, group: f}
+      - {name: BAAI/bge-base-en-v1.5,                       revision: a5beb1e3e68b9ab74eb54cfd186867f64f240e1a, role: non_shortlisted, group: f}
+      - {name: microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract,          revision: d673b8835373c6fa116d6d8006b33d48734e305d, role: non_shortlisted, group: a}
       # strict base of bert-base-nli-mean-tokens (pair P4a); NOT a Phase 1 model: pinned here, prompt entry in params.model_prompts (none)
       - {name: bert-base-uncased,                                         revision: 86b5e0934494bd15c9632b12f734a8a67f723594, role: extra, group: b}
     pairs:
@@ -357,11 +364,19 @@ params:
       - {id: P3,  base: microsoft/MiniLM-L12-H384-uncased,    tuned: [sentence-transformers/all-MiniLM-L12-v2], note: "same MiniLM-L12-H384; + 1B-pair similarity tuning"}
       - {id: P4a, base: bert-base-uncased,                    tuned: [sentence-transformers/bert-base-nli-mean-tokens], note: "strict pair: bert-base-uncased -> NLI sentence-embedding tuning"}
       - {id: P4b, base: allenai/scibert_scivocab_uncased,     tuned: [sentence-transformers/bert-base-nli-mean-tokens], note: "domain-pretrained BERT-base (SciBERT) vs general BERT-base + NLI tuning (different pretraining, not a strict pair)"}
+      # domain pretraining isolated: base = general bert-base-uncased (same architecture, tokenizer family differs), "tuned" = BERT-base pretrained on a domain corpus; both untuned for retrieval.
+      # bert-base-uncased is not a Phase 1 model (no Phase 1 columns for the base). ChemBERTa-77M-MTR is a SMILES model (other architecture, other input) and is deliberately NOT in these pairs.
+      - {id: P5a, base: bert-base-uncased, tuned: [allenai/scibert_scivocab_uncased],  note: "scientific text (SciBERT, own scivocab)"}
+      - {id: P5b, base: bert-base-uncased, tuned: [m3rg-iitd/matscibert],              note: "materials-science text (MatSciBERT)"}
+      - {id: P5c, base: bert-base-uncased, tuned: [microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext], note: "biomedical abstracts + full text (PubMedBERT = BiomedBERT-abstract-fulltext)"}
+      - {id: P5d, base: bert-base-uncased, tuned: [microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract], note: "biomedical abstracts (BiomedBERT-abstract)"}
+      - {id: P5e, base: bert-base-uncased, tuned: [recobo/chemical-bert-uncased],      note: "chemistry text (ChemBERT)"}
     groups:
       a: domain-pretrained, no retrieval tuning
       b: general-domain, no retrieval tuning
       c: general-domain, retrieval/similarity tuned
-      d: shortlisted retrieval-tuned
+      d: shortlisted retrieval-tuned (selected by params.phase1.selection)
+      f: retrieval-tuned, not selected by params.phase1.selection (published top-8 union members that the prompted rule drops)
       e: domain-pretrained + citation-contrastive tuning (SPECTER; outside a-d)
 
   # Manual validation of the span labels (tools/validation_sample.py, tools/kappa.py): a seeded sample of questions, stratified by the official
@@ -502,7 +517,7 @@ params:
       E5: [intfloat/e5-small, intfloat/e5-base, intfloat/e5-large, intfloat/e5-small-v2, intfloat/e5-base-v2, intfloat/e5-large-v2]
       Multilingual E5: [intfloat/multilingual-e5-small, intfloat/multilingual-e5-base, intfloat/multilingual-e5-large]
       BGE: [BAAI/bge-small-en, BAAI/bge-base-en, BAAI/bge-large-en, BAAI/bge-small-en-v1.5, BAAI/bge-base-en-v1.5, BAAI/bge-large-en-v1.5, BAAI/bge-m3]
-      Nomic: [nomic-ai/nomic-embed-text-v1, nomic-ai/nomic-embed-text-v1.5]
+      Nomic: [nomic-ai/nomic-embed-text-v1, nomic-ai/nomic-embed-text-v1.5, nomic-ai/nomic-embed-text-v2-moe]
       Instructor: [hkunlp/instructor-xl]
 
   # Report step, run automatically at the end of `make eval` / `make rerun` / `make pilot` (tools/make_report.py):

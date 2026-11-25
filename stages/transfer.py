@@ -8,7 +8,7 @@ ChemQuests inputs of the MAIN artifacts root: a transfer run reads byte-identica
 
 Checked before anything starts (``validate``): every model has a 40-hex pinned revision (equal to the ``stage1.models`` pin for Phase 1 models), has
 an entry in ``params.model_prompts``, appears once; every configuration is valid in ``pipeline_lib/grid.py``, has a known chunker and appears once;
-the transfer root differs from the main root.
+the transfer root differs from the main root; every model of a pair is in the transfer model list. ``check_roles`` compares the roles with the stage 2 file.
 
   python -m stages.transfer --efficiency --latency          # what `make transfer` runs
   python -m stages.transfer --dry-run                       # print the commands and the planned runs, run nothing
@@ -68,6 +68,11 @@ def validate(doc: Dict[str, Any]) -> List[str]:
             problems.append(f"{n}: role {role} but the model is not in stage1.models")
         if n not in prompts:
             problems.append(f"{n}: no entry in params.model_prompts (give an entry with empty strings for 'no prompt')")
+    have = set(names)
+    for pr in tr.get("pairs") or []:
+        for n in [pr.get("base"), *(pr.get("tuned") or [])]:
+            if n not in have:
+                problems.append(f"pair {pr.get('id')}: model {n} is not in params.transfer.models (its runs would be missing)")
     ids = [c.get("id") for c in tr.get("configurations") or []]
     if not ids:
         problems.append("params.transfer.configurations is empty")
@@ -87,6 +92,28 @@ def validate(doc: Dict[str, Any]) -> List[str]:
     if not t_root or t_root == main_root:
         problems.append(f"params.transfer.artifacts_root must be its own folder, different from {main_root!r}")
     return problems
+
+
+def check_roles(doc: Dict[str, Any], shortlisted: set) -> List[str]:
+    """Problems of the roles against the Phase 2 model list (stage 2 output): a ``non_shortlisted`` model must NOT be on it, a ``shortlisted_reference`` must be."""
+    out = []
+    for m in doc["params"]["transfer"].get("models") or []:
+        if m["role"] == "non_shortlisted" and m["name"] in shortlisted:
+            out.append(f"{m['name']}: role non_shortlisted, but the model is on the Phase 2 list (stage 2)")
+        if m["role"] == "shortlisted_reference" and m["name"] not in shortlisted:
+            out.append(f"{m['name']}: role shortlisted_reference, but the model is not on the Phase 2 list (stage 2)")
+    return out
+
+
+def shortlist_names(doc: Dict[str, Any], main_config: str) -> Optional[set]:
+    """Model names of the stage 2 file (``None`` if stage 2 has not run)."""
+    import csv
+    from pipeline_lib import split_config
+    path = Path(split_config.resolve_section(main_config, "stage2")["output_per_dataset_csv"])
+    if not path.is_file():
+        return None
+    with open(path, newline="", encoding="utf-8") as f:
+        return {r["model_name"] for r in csv.DictReader(f)}
 
 
 def selected(doc: Dict[str, Any], extras: bool = True, references: Optional[bool] = None) -> Dict[str, List[Dict[str, Any]]]:
@@ -139,6 +166,13 @@ def main(argv: Optional[List[str]] = None) -> int:
     problems = validate(doc)
     if problems:
         raise SystemExit("ERROR: params.transfer is not valid:\n  " + "\n  ".join(problems))
+    names = shortlist_names(doc, args.main_config)
+    if names is None:
+        print("WARNING: the stage 2 file does not exist yet: the roles of params.transfer are not checked against the Phase 2 list")
+    else:
+        bad = check_roles(doc, names)
+        if bad:
+            raise SystemExit("ERROR: params.transfer roles disagree with the Phase 2 list:\n  " + "\n  ".join(bad))
     calls = build_calls(doc, args.main_config, efficiency=args.efficiency, latency=args.latency, extras=not args.no_extras,
                         references=False if args.no_references else None, extra_args=rest + (["--force"] if args.force else []))
     sel = selected(doc, not args.no_extras, False if args.no_references else None)

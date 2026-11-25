@@ -141,3 +141,18 @@ def test_scatter_and_cli(tmp_path):
     assert (tmp_path / "fig.png").stat().st_size > 5000 and (tmp_path / "fig.pdf").exists()
     PT.scatter([], [], tmp_path / "empty")                                                  # nothing to plot is not an error
     assert (tmp_path / "empty.png").exists()
+
+
+def test_a_pair_whose_base_is_not_a_phase1_model_keeps_the_phase1_columns_empty():
+    """bert-base-uncased (base of the domain-pretraining pairs) has Phase 2 runs but no Phase 1 values: the pair table must still be written, Phase 1 settings NaN."""
+    p1, p2, short = synthetic()
+    tr = dict(TRANSFER, pairs=[{"id": "P5a", "base": "bert-base-uncased", "tuned": ["m3"], "note": "n"}])
+    for c in CFGS:
+        p2[("bert-base-uncased", c["chunker"], c["size"], c["overlap"])] = {"geom_at_10": 0.2, "ndcg_at_10": 0.15, "recall_at_10": 0.25}
+    res = PT.analyse(p1, p2, short, tr, resamples=50, seed=1)
+    rows = [r for r in res["pairs"] if r["pair"] == "P5a"]
+    p2c1 = next(r for r in rows if r["setting"] == "Phase 2 C1")
+    assert p2c1["base_geom_at_10"] == pytest.approx(0.2) and p2c1["delta_geom_at_10"] == pytest.approx(p2c1["tuned_geom_at_10"] - 0.2)
+    ph1 = next(r for r in rows if r["setting"] == "Phase 1 mean")
+    assert np.isnan(ph1["base_geom_at_10"]) and np.isnan(ph1["delta_geom_at_10"]) and not np.isnan(ph1["tuned_geom_at_10"])
+    assert "bert-base-uncased" not in {m["model"] for m in res["models"]}                  # not part of the Phase 1 -> Phase 2 correlation
