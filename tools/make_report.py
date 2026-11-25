@@ -43,7 +43,7 @@ if _REPO_ROOT not in sys.path:
     sys.path.insert(0, _REPO_ROOT)
 
 from pipeline_lib.dataset_pin import question_metadata_provenance, sha256_file  # noqa: E402
-from pipeline_lib.grid import CHUNKERS as CHUNKER_ORDER  # noqa: E402     # only the display order of the chunkers; sizes / overlaps come from the runs
+from pipeline_lib.grid import ALL_CHUNKERS as CHUNKER_ORDER  # noqa: E402     # only the display order of the chunkers; sizes / overlaps come from the runs
 from pipeline_lib.run_manifest import git_info, package_versions  # noqa: E402
 from pipeline_lib.truncation import PHASE1_COLUMNS, collect_phase1  # noqa: E402
 from tools import check_identical, collect_runs, phase1_intervals, hybrid, label_stats_table, lexical_overlap, rescore, stats  # noqa: E402

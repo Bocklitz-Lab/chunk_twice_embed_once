@@ -184,6 +184,8 @@ class FixedTokenChunker:
         add_start_index: bool = False,
         strip_whitespace: bool = True,
         tokenizer_revision: Optional[str] = None,
+        drop_end_matter: bool = False,
+        end_matter_config: Optional[dict] = None,
     ) -> None:
         if chunk_overlap > chunk_size:
             raise ValueError(
@@ -206,7 +208,16 @@ class FixedTokenChunker:
             tokenizer_revision=tokenizer_revision,
             add_start_index=add_start_index,
             strip_whitespace=strip_whitespace,
+            drop_end_matter=bool(drop_end_matter),
         )
+        # Control strategy ``fixed_token_nomatter``: cut the end matter off the document with the function of the hierarchical-section chunker
+        # (``end_matter_cut``: same headings, same tail rule), then chunk what is left with fixed token windows. Positions stay exact: the kept text is a prefix.
+        self._trimmer = None
+        if drop_end_matter:
+            if not end_matter_config:
+                raise ValueError("drop_end_matter needs end_matter_config (the params of the hierarchical-section preset)")
+            from pipeline_lib.hierarchical_section_chunker import HierarchicalSectionChunker
+            self._trimmer = HierarchicalSectionChunker(**end_matter_config)
 
     @classmethod
     def from_tiktoken_encoder(
@@ -223,12 +234,15 @@ class FixedTokenChunker:
 
     # --- Main API ---
 
+    def _kept(self, text: str) -> str:
+        return text[: self._trimmer.end_matter_cut(text)] if self._trimmer is not None else text
+
     def split_text(self, text: str) -> List[str]:
-        return self._splitter.split_text(text)
+        return self._splitter.split_text(self._kept(text))
 
     def split_text_with_offsets(self, text: str) -> List[Tuple[str, int, int]]:
-        """[(chunk, start, end)] with ``text[start:end] == chunk``; positions are native, not searched."""
-        return self._splitter.split_text_with_offsets(text)
+        """[(chunk, start, end)] with ``text[start:end] == chunk``; positions are native, not searched. With ``drop_end_matter`` the chunks cover ``text[:cut]`` only."""
+        return self._splitter.split_text_with_offsets(self._kept(text))
 
     def create_documents(
         self,

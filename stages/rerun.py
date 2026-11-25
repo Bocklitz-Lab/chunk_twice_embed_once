@@ -266,7 +266,7 @@ def run_hybrids(root: str, models: List[Tuple[str, str]], chunkers: List[str], c
     if sparse is None:
         return out
     for ch in chunkers:
-        for s, o in cells:
+        for s, o in grid.cells_for(ch, cells):
             runs = found.get((ch, s, o), {})
             if sparse not in runs:
                 continue
@@ -283,7 +283,7 @@ def run_reranks(root: str, models: List[Tuple[str, str]], cells: List[Tuple[int,
     """Cross-encoder reranking of the finished dense runs (tools/rerank.py, params.rerank): primary depth for ``rr['models']`` (all dense
     runs of this invocation if the list is empty) plus the ablation entries. Finished rerank runs are skipped."""
     from tools import rerank
-    wanted = [(ch, s, o) for ch in chunkers for s, o in cells]
+    wanted = [(ch, s, o) for ch in chunkers for s, o in grid.cells_for(ch, cells)]
     return rerank.run_configured(Path(root) / "tests", rr, models=[n for n, _ in models if not n.startswith(BM25)], wanted_cells=wanted,
                                  depth=int(rr.get("depth", 100)), force=force, dry_run=dry_run, seed=seed)
 
@@ -324,7 +324,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     cfg = yaml.safe_load(Path(args.main_config).read_text(encoding="utf-8"))["params"]
     pilot = cfg.get("pilot") or {}
     root = args.artifacts_root or (pilot["artifacts_root"] if args.pilot else cfg["paths"]["artifacts_root"])
-    chunkers = args.chunkers or (pilot["chunkers"] if args.pilot else grid.CHUNKERS)
+    chunkers = args.chunkers or (pilot["chunkers"] if args.pilot else grid.ALL_CHUNKERS)      # + the control strategies, each at its own cells (grid.CONTROL_CELLS)
     sizes = args.sizes or (pilot["sizes"] if args.pilot else grid.SIZES)
     overlaps = args.overlaps if args.overlaps is not None else (pilot["overlaps"] if args.pilot else grid.OVERLAPS)
     legacy = cfg.get("chunking_tokenizer") == "model" or any(p.startswith("chunking_tokenizer=model") for p in args.param)
@@ -361,7 +361,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     prepared: Dict[Tuple[str, int, int, Optional[str]], Path] = {}
     if args.command in ("prepare", "all"):
         for ch in chunkers:
-            for s, o in cells:
+            for s, o in grid.cells_for(ch, cells):
                 if legacy:                                   # legacy: chunks depend on the model's tokenizer
                     for name, rev in models:
                         if not name.startswith(BM25) and not args.dry_run:
@@ -374,7 +374,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     if args.command in ("eval", "all"):
         for name, rev in models:
             for ch in chunkers:
-                for s, o in cells:
+                for s, o in grid.cells_for(ch, cells):
                     extra = [f"model.name={name}", f"model.dir={model_dir(name)}"] if legacy else []
                     key = (ch, s, o, name if legacy and not name.startswith(BM25) else None)
                     folder = prepared.get(key) if not args.dry_run else None

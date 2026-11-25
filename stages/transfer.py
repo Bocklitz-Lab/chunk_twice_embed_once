@@ -81,7 +81,7 @@ def validate(doc: Dict[str, Any]) -> List[str]:
     seen = set()
     for c in tr.get("configurations") or []:
         key = (c.get("chunker"), c.get("size"), c.get("overlap"))
-        if key[0] not in grid.CHUNKERS:
+        if key[0] not in grid.ALL_CHUNKERS:
             problems.append(f"{c.get('id')}: unknown chunker {key[0]!r}")
         elif not (isinstance(key[1], int) and isinstance(key[2], int) and grid.is_valid(key[1], key[2])):
             problems.append(f"{c.get('id')}: size {key[1]} / overlap {key[2]} is not a valid configuration of the grid (pipeline_lib/grid.py)")

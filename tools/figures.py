@@ -47,7 +47,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 
 from pipeline_lib import config_params  # noqa: E402
-from pipeline_lib.grid import CHUNKERS as CHUNKER_ORDER  # noqa: E402     # display order only; the strategies drawn are the ones in the data
+from pipeline_lib.grid import ALL_CHUNKERS as CHUNKER_ORDER  # noqa: E402     # display order only; the strategies drawn are the ones in the data
 
 FULL_WIDTH_MM, COLUMN_MM = 174.0, 84.0
 MM = 1 / 25.4

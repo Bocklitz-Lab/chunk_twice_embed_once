@@ -397,6 +397,25 @@ class HierarchicalSectionChunker:
 
         return out
 
+    def end_matter_cut(self, text: str) -> int:
+        """Character position where this chunker's END MATTER starts (``len(text)`` if nothing is dropped).
+
+        The text this chunker keeps is ``text[:cut]``: the same headings, section spans and tail-section rule as ``split_text_with_offsets`` (steps 1-2 and the
+        optional tail drop, before merging and token windows, which never remove text). The fixed-token control (``drop_end_matter``) calls this function, so
+        both strategies remove exactly the same characters.
+        """
+        text = text or ""
+        if not text.strip():
+            return len(text)
+        headings = self._find_headings(text)
+        if not headings:
+            return len(text)
+        spans = self._build_section_spans(text, self._dedupe_and_sort(headings))
+        drop_labels = self._config["drop_tail_sections_matching"]
+        if drop_labels:
+            spans = self._drop_tail_sections(text, spans, drop_labels)
+        return spans[-1][1] if spans else 0
+
     def create_documents(
         self,
         texts: Sequence[str],

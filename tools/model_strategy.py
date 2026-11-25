@@ -62,7 +62,7 @@ def analyse(runs: AD.RunSet, *, resamples: int, seed: int) -> List[Dict[str, Any
         ranks = {m: 1 + sum(mean_p[(o, s)] > mean_p[(m, s)] for o in models) for m in models}
         for i, m in enumerate(models):
             lo, hi = np.quantile(mean_b[(m, s)], [0.025, 0.975])
-            rows.append({"model": m, "strategy": s, "n_runs": len(cells[(m, s)]), "mean_geom_at_10": mean_p[(m, s)], "ci_low": float(lo), "ci_high": float(hi),
+            rows.append({"model": m, "strategy": s, "n_runs": len(cells[(m, s)]), "settings": "; ".join(sorted({f"{meta[j]['size']}/{meta[j]['overlap']}" for j in cells[(m, s)]}, key=lambda x: tuple(map(int, x.split("/"))))), "mean_geom_at_10": mean_p[(m, s)], "ci_low": float(lo), "ci_high": float(hi),
                          "rank_in_strategy": ranks[m], "share_best_model_in_strategy": float((first == i).mean()), "winner_share_overall": overall.get((m, s.split(" ")[0]), 0.0),
                          "resamples": resamples, "seed": seed})
     return rows

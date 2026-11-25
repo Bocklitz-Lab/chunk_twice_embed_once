@@ -29,10 +29,10 @@ _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _REPO_ROOT not in sys.path:
     sys.path.insert(0, _REPO_ROOT)
 
-from pipeline_lib.grid import CHUNKERS  # noqa: E402
+from pipeline_lib.grid import ALL_CHUNKERS as CHUNKERS  # noqa: E402     # incl. the control strategies (fixed_token_nomatter)
 from pipeline_lib.run_manifest import sha256_file  # noqa: E402
 
-_RUN = re.compile(r"^(?P<model>.+)_(?P<chunker>" + "|".join(CHUNKERS) + r")_c(?P<size>\d+)_o(?P<overlap>\d+)$")
+_RUN = re.compile(r"^(?P<model>.+)_(?P<chunker>" + "|".join(sorted(CHUNKERS, key=len, reverse=True)) + r")_c(?P<size>\d+)_o(?P<overlap>\d+)$")
 
 
 def _files(run: Path) -> Dict[str, Path]:

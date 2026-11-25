@@ -39,6 +39,7 @@ _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _REPO_ROOT not in sys.path:
     sys.path.insert(0, _REPO_ROOT)
 
+from pipeline_lib import grid  # noqa: E402
 from tools import analysis_data as AD  # noqa: E402
 
 FACTORS = ("model", "strategy", "size", "overlap")
@@ -144,7 +145,8 @@ def ci(arr: np.ndarray) -> Tuple[float, float]:
 
 
 def analyse(runs: AD.RunSet, *, resamples: int, seed: int, balanced: bool = False) -> Dict[str, Any]:
-    dense = runs.select(kind="dense")
+    # the control strategies (grid.CONTROL_CELLS: a few cells only) are not part of the model x strategy x size x overlap design
+    dense = [i for i in runs.select(kind="dense") if runs.meta[i]["chunker"] not in grid.CONTROL_CELLS]
     if balanced:
         keep, sizes, ovs = balanced_rows([runs.meta[i] for i in dense])
         dense = [dense[k] for k in keep]

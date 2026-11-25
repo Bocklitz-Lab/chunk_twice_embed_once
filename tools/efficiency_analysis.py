@@ -38,9 +38,9 @@ from pipeline_lib import phase1_split  # noqa: E402
 
 KEY = ["model", "chunker", "size", "overlap"]
 # categorical slots 1-5 of the reference palette (validated, light surface), fixed order; marker shape is the second encoding
-CHUNKERS = ["recursive_token", "fixed_token", "semantic_recursive", "semantic_fixed", "hierarchical_section"]
-COLORS = dict(zip(CHUNKERS, ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4"]))
-MARKERS = dict(zip(CHUNKERS, ["o", "s", "^", "D", "v"]))
+CHUNKERS = ["recursive_token", "fixed_token", "semantic_recursive", "semantic_fixed", "hierarchical_section", "fixed_token_nomatter"]
+COLORS = dict(zip(CHUNKERS, ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#7a5195"]))
+MARKERS = dict(zip(CHUNKERS, ["o", "s", "^", "D", "v", "P"]))
 INK, MUTED, GRID = "#0b0b0b", "#52514e", "#e4e3df"
 
 
