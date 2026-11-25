@@ -478,6 +478,18 @@ params:
   # Do not change this to compare with the paper: a rerun with another split gives another shortlist (docs/PAPER_NOTES_phase1_split.md).
   phase1:
     eval_split: {ChemNQRetrieval: test, ChemHotpotQARetrieval: test}
+    # ---- Phase 2 model selection (stage 2, pipeline_lib/shortlist.py). Stated BEFORE the prompted results were looked at; do not tune the threshold. ----
+    #   rule: top_fraction           the published rule: union over the tasks of the top `top_fraction` (20 % of 41 = 8 models) of the point-estimate ranking
+    #   rule: inclusion_probability  the same union rule, made robust to the small query sets (ChemNQ test 27, ChemHotpot test 18): a model is selected if
+    #                                P(top `top_fraction` of the task) >= min_inclusion_probability on at least one task, P = share of `resamples` query-level
+    #                                bootstrap resamples (tools/phase1_intervals.py, params.seed). The observed top models are always selected (the rule only widens).
+    #   The outcome under 0.4 / 0.5 / 0.6 is reported in shortlist_selection__<folder>.csv; more than `max_models` selected -> stage 2 stops and reports.
+    selection:
+      rule: inclusion_probability
+      top_fraction: 0.2
+      min_inclusion_probability: 0.5
+      resamples: 10000
+      max_models: 18
     save_per_query: true             # stage 1 also writes the top-100 run and per-query nDCG@10 / Recall@10 of that split (never changes an MTEB score)
     n_queries:                       # queries per split, counted in the dataset files (BASF-AI/ChemHotpotQARetrieval, BASF-AI/ChemNQRetrieval)
       ChemNQRetrieval: {test: 27}
@@ -803,12 +815,15 @@ stage2:
       unit: "seconds"               # or "ms"
       transform: "inverse"          # "inverse" => score = 1 / (1 + (time / reference_seconds))
       reference_seconds: 200.0
-  top_percent: 0.2          # Keep top X% within each dataset (0–1)
+  top_percent: ${params.phase1.selection.top_fraction}          # Keep top X% within each dataset (0–1): the published rule, and `top_fraction` of the selection rule
   datasets_include: []       # e.g., ["ChemHotpotQARetrieval", "ChemNQRetrieval"] (leave empty to take all)
   # The shortlist files carry the name of the Phase 1 folder, so the published shortlist (passed_per_dataset.csv, restored from the old
   # artifacts) is never overwritten. The Makefile default MODELS_CSV is output_per_dataset_csv (tests/test_phase1_paths.py checks this).
   output_union_csv: ${params.paths.screen_dir}/passed_models_union__${params.paths.phase1_results_subdir}.csv
   output_per_dataset_csv: ${params.paths.screen_dir}/passed_per_dataset__${params.paths.phase1_results_subdir}.csv
+  selection: ${params.phase1.selection}   # rule of the Phase 2 model list (pipeline_lib/shortlist.py)
+  seed: ${params.seed}
+  output_selection_csv: ${params.paths.screen_dir}/shortlist_selection__${params.paths.phase1_results_subdir}.csv
   model_id_format: "name@rev"
   # How to name models in outputs:
   # "name" -> from model_meta.json "name" (e.g., BAAI/bge-base-en-v1.5)

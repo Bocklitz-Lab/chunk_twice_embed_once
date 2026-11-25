@@ -27,4 +27,12 @@ top_percent: 0.2
 datasets_include: []
 output_union_csv: artifacts/embedding_models_screening/passed_models_union__validation_prompts.csv
 output_per_dataset_csv: artifacts/embedding_models_screening/passed_per_dataset__validation_prompts.csv
+selection:
+  rule: inclusion_probability
+  top_fraction: 0.2
+  min_inclusion_probability: 0.5
+  resamples: 10000
+  max_models: 18
+seed: 20261121
+output_selection_csv: artifacts/embedding_models_screening/shortlist_selection__validation_prompts.csv
 model_id_format: name@rev

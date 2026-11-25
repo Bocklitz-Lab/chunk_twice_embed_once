@@ -14,7 +14,7 @@ _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if _REPO_ROOT not in sys.path:
     sys.path.insert(0, _REPO_ROOT)
 
-from pipeline_lib import phase1_split  # noqa: E402
+from pipeline_lib import phase1_split, shortlist  # noqa: E402
 
 # ------------------ helpers ------------------
 
@@ -253,6 +253,23 @@ def read_dataset_file(
     return task_name, float(metric_val), extras
 
 
+
+def select_by_probability(df, results_dir: Path, eval_split, selection: dict, seed: int, out_csv: str, include_baselines: bool = False):
+    """(table of ``shortlist.table_from_intervals``, {(name, revision, task): inclusion probability}) from the per-query Phase 1 files below
+    ``results_dir``; (None, None) if there are none. Writes ``out_csv`` (all models, the published rule and the thresholds 0.4 / 0.5 / 0.6 / the configured one)."""
+    from tools import phase1_intervals
+    rows = phase1_intervals.analyse([results_dir], eval_split, top_percent=selection["top_fraction"], resamples=selection["resamples"], seed=seed)
+    if not rows:
+        return None, None
+    primary = selection["min_inclusion_probability"]
+    table = shortlist.table_from_intervals(rows, primary)
+    prob = {(r["model"], r["revision"], r["task"]): r["top_share"] for r in rows if r["task"] != "union"}
+    if out_csv:
+        pd.DataFrame(table).to_csv(out_csv, index=False)
+        c = shortlist.counts(table, primary)
+        print(f"\nWrote the selection table to {out_csv}; models selected: " + ", ".join(f"{k.replace('selected_', '')}={v}" for k, v in c.items()))
+    return table, prob
+
 # ------------------ main ------------------
 
 def main():
@@ -347,14 +364,29 @@ def main():
     df["count_in_ds"] = df.groupby("dataset")[metric_key].transform("count")
     df["rank_pct"] = df["rank_in_ds"] / df["count_in_ds"]
 
-    passed = df[df["rank_pct"] <= top_pct].copy()
+    passed = df[df["rank_pct"] <= top_pct].copy()                     # the published rule (top_fraction)
+    selection = shortlist.validate_selection({**(cfg.get("selection") or {}), "top_fraction": top_pct})
+    sel_table, prob = select_by_probability(df, results_dir, eval_split, selection, int(cfg.get("seed", 20261121)),
+                                            cfg.get("output_selection_csv", ""), include_baselines)
+    if selection["rule"] == "inclusion_probability":
+        if prob is None:
+            raise SystemExit("rule inclusion_probability needs the per-query Phase 1 files (stage 1 save_per_query) below %s" % results_dir)
+        chosen = {(r["model"], r["revision"]) for r in shortlist.select(sel_table)}
+        max_models = int(cfg["selection"].get("max_models", 18)) if cfg.get("selection") else 18
+        if len(chosen) > max_models:
+            raise SystemExit(f"STOP: the rule inclusion_probability (min {selection['min_inclusion_probability']}) selects {len(chosen)} models, more than "
+                             f"max_models = {max_models}. Nothing was written except the selection table; report to the authors.")
+        passed = df[[(n, r) in chosen for n, r in zip(df["model_name"], df["revision"])]].copy()
+        passed["inclusion_probability"] = [prob.get((r["model_name"], r["revision"], r["dataset"]), float("nan")) for _, r in passed.iterrows()]
+        missing_top = set(df[df["rank_pct"] <= top_pct]["model_id"]) - set(passed["model_id"])
+        assert not missing_top, f"observed top models dropped: {missing_top}"
     passed_union = sorted(passed["model_id"].unique())
 
     # Print summary
     datasets = sorted(df["dataset"].unique())
     print(f"Datasets found: {datasets}")
     print(f"Total models (unique model_id): {df['model_id'].nunique()}")
-    print(f"Kept rows (top {int(top_pct*100)}% per dataset): {len(passed)}")
+    print(f"Rule: {selection['rule']}; kept rows: {len(passed)}")
 
     print("\n=== Passed models (UNION across datasets) ===")
     for m in passed_union:
@@ -363,6 +395,8 @@ def main():
     # Optional: write CSVs
     if out_per_ds:
         cols = ["model_id", "model_name", "revision", "dataset", metric_key, "rank_in_ds", "count_in_ds", "rank_pct", "split", "n_queries"]
+        if "inclusion_probability" in passed.columns:
+            cols.append("inclusion_probability")
         if metric_key.lower() == "geom_mean":
             cols += ["geom_k_used_recall", "geom_k_used_ndcg",
                      "geom_time_score", "geom_time_source", "geom_time_seconds", "geom_time_transform",
