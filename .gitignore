@@ -56,3 +56,5 @@ artifacts.7z
 artifacts/
 temp_files/
 review_samples/
+audit/
+results/v2-revision/subset/
