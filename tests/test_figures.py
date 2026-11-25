@@ -143,3 +143,27 @@ def test_published_adapter(tmp_path):
     out = F.adapt_published(tmp_path / "c.csv", tests, tmp_path / "t.csv")
     rows, used = F.read_runs(out)
     assert len(rows) == 1 and rows[0]["time"] == 12.5 and rows[0]["kind"] == "dense" and used["time_column"] == "evaluation_time_s"
+
+
+def test_panel_grid_grows_for_13_or_more_models():
+    from tools import figures as F
+    assert F.panel_columns(4, 4) == 4 and F.panel_columns(12, 4) == 4 and F.panel_columns(13, 4) == 5 and F.panel_columns(18, 4) == 5
+
+
+def test_legend_below_does_not_cover_the_axes():
+    """Audit bug 2: the legend of a short one-row figure covered the x labels."""
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    from tools import figures as F
+    fig, axes = plt.subplots(1, 4, figsize=(F.FULL_WIDTH_MM * F.MM, 55 * F.MM))
+    for ax in axes:
+        ax.set_xlabel("evaluation time (s, log)")
+    handles = [plt.Line2D([], [], marker="o", ls="", label=f"label number {i}") for i in range(10)]
+    F.legend_below(fig, handles, ncol=5)
+    fig.canvas.draw()
+    r = fig.canvas.get_renderer()
+    leg = fig.legends[0].get_window_extent(r)
+    lowest = min(ax.xaxis.label.get_window_extent(r).y0 for ax in axes)
+    assert leg.y1 <= lowest + 1
+    plt.close(fig)

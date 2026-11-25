@@ -204,6 +204,23 @@ def palette(names: Sequence[str]) -> Dict[str, str]:
     return dict(zip(names, OKABE_ITO))
 
 
+def legend_below(fig, handles, labels=None, ncol: int = 5) -> None:
+    """Legend under the panels with its height RESERVED in inches (a fixed fraction of a short figure let the legend cover the x labels)."""
+    ncol = max(1, min(ncol, len(handles)))
+    nrows = math.ceil(len(handles) / ncol)
+    reserve = nrows * FONT * 2.0 / 72 + 0.14                       # inches: rows x line height + margin
+    if labels is None:
+        fig.legend(handles=handles, loc="lower center", ncol=ncol, frameon=False, bbox_to_anchor=(0.5, 0.0))
+    else:
+        fig.legend(handles, labels, loc="lower center", ncol=ncol, frameon=False, bbox_to_anchor=(0.5, 0.0))
+    fig.tight_layout(rect=(0, reserve / fig.get_figheight(), 1, 1))
+
+
+def panel_columns(n: int, wide: int) -> int:
+    """Columns of a panel grid: ``wide`` for up to 12 panels, one more for 13 or more (13-18 models stay readable at 174 mm)."""
+    return wide if n <= 12 else wide + 1
+
+
 def grid_shape(n: int, max_cols: int) -> Tuple[int, int]:
     cols = min(max_cols, n)
     return math.ceil(n / cols), cols
@@ -222,9 +239,10 @@ def threshold(rows: Sequence[Dict[str, Any]], over: str) -> Tuple[float, Dict[st
 def _scatter_base(ax, rows):
     from matplotlib.ticker import FuncFormatter, LogLocator
     ax.set_xscale("log")
-    ax.xaxis.set_major_locator(LogLocator(base=10, subs=(1.0, 2.0, 5.0)))
+    ax.xaxis.set_major_locator(LogLocator(base=10, subs=(1.0, 3.0)))      # 1-3-10-30-100: labels do not touch in a 5-column grid
     ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v:g}"))
     ax.xaxis.set_minor_formatter(FuncFormatter(lambda v, _: ""))
+    ax.minorticks_off()
     ax.grid(True, color="#eeeeee", linewidth=0.5, zorder=0)
 
 
@@ -242,8 +260,8 @@ def fig_tradeoff_by_model(rows, out_dir: Path, meta: Dict[str, Any], *, include_
     col = palette(strat)
     thr, thr_info = threshold(rows, over)
     base = _usable([r for r in rows if r["kind"] != "dense"]) if include_baselines else []
-    nrow, ncol = grid_shape(len(models), 4)
-    fig, axes = plt.subplots(nrow, ncol, figsize=(FULL_WIDTH_MM * MM, (14 + 36 * nrow) * MM), sharex=True, sharey=True, squeeze=False)
+    nrow, ncol = grid_shape(len(models), panel_columns(len(models), 4))
+    fig, axes = plt.subplots(nrow, ncol, figsize=(FULL_WIDTH_MM * MM, (14 + 42 * nrow) * MM), sharex=True, sharey=True, squeeze=False)
     dense_models = models
     for ax, m in zip(axes.ravel(), models):
         _scatter_base(ax, rows)
@@ -269,8 +287,7 @@ def fig_tradeoff_by_model(rows, out_dir: Path, meta: Dict[str, Any], *, include_
     if base:
         handles += [plt.Line2D([], [], marker=BASELINE_STYLE[k][1], ls="", markerfacecolor="none", markeredgecolor=BASELINE_STYLE[k][0], markersize=4, label=f"{k} (baseline layer)")
                     for k in ("bm25", "hybrid", "rerank")]
-    fig.legend(handles=handles, loc="lower center", ncol=min(5, len(handles)), frameon=False, bbox_to_anchor=(0.5, 0.0))
-    fig.tight_layout(rect=(0, 0.09, 1, 1))
+    legend_below(fig, handles, ncol=5)
     side = {**meta, **thr_info, "n_runs_plotted": len(dense) + len(base), "n_dense_runs": len(dense), "panels": models, "panel_by": "model", "colour_by": "chunking strategy",
             "strategies": strat, "kinds_included": ["dense"] + (["bm25", "hybrid", "rerank"] if base else []), "x": "evaluation_time_s (log)", "y": "Geom@10"}
     save(fig, out_dir, "fig_tradeoff_by_model", side)
@@ -309,8 +326,7 @@ def fig_tradeoff_by_strategy(rows, out_dir: Path, meta: Dict[str, Any], *, inclu
     if base:
         handles += [plt.Line2D([], [], marker=BASELINE_STYLE[k][1], ls="", markerfacecolor="none", markeredgecolor=BASELINE_STYLE[k][0], markersize=4, label=f"{k} (baseline layer)")
                     for k in ("bm25", "hybrid", "rerank")]
-    fig.legend(handles=handles, loc="lower center", ncol=min(5, len(handles)), frameon=False, bbox_to_anchor=(0.5, -0.02))
-    fig.tight_layout(rect=(0, 0.08, 1, 1))
+    legend_below(fig, handles, ncol=5)
     side = {**meta, **thr_info, "n_runs_plotted": len(dense) + len(base), "n_dense_runs": len(dense), "panels": strat, "panel_by": "chunking strategy", "colour_by": "model family",
             "families": fams, "family_of_model": fam, "kinds_included": ["dense"] + (["bm25", "hybrid", "rerank"] if base else []), "x": "evaluation_time_s (log)", "y": "Geom@10"}
     save(fig, out_dir, "fig_tradeoff_by_strategy", side)
@@ -320,8 +336,9 @@ def fig_tradeoff_by_strategy(rows, out_dir: Path, meta: Dict[str, Any], *, inclu
 # ------------------------------------------------------------------------------------------------------------------
 # B2, B3
 # ------------------------------------------------------------------------------------------------------------------
-def _draw_line(ax, pts, color, label=None, ls="-", lw=1.4, band=True, marker="o", ms=3):
-    x = [p["x"] for p in pts]
+def _draw_line(ax, pts, color, label=None, ls="-", lw=1.4, band=True, marker="o", ms=3, xmap=None):
+    """``xmap``: {x value: plotted position}, for a categorical axis with equally spaced ticks (chunk sizes)."""
+    x = [xmap[p["x"]] if xmap else p["x"] for p in pts]
     y = [p["value"] for p in pts]
     if band and pts and pts[0]["ci_low"] is not None:
         ax.fill_between(x, [p["ci_low"] for p in pts], [p["ci_high"] for p in pts], color=color, alpha=0.18, linewidth=0, zorder=2)
@@ -348,33 +365,31 @@ def fig_chunk_size(rows, out_dir: Path, meta: Dict[str, Any], bands: Optional[Ba
     best = best_model(at0) if show_best else None
     best_series = effect_series([r for r in at0 if r["model"] == best], bands, lambda r: r["chunker"], lambda r: r["size"], ("dense",)) if best else {}
     col = palette(strat)
+    sizes = sorted({r["size"] for r in at0})
+    xmap = {s: i for i, s in enumerate(sizes)}                          # equally spaced categorical axis: 384 / 448 / 512 do not touch
     nrow, ncol = grid_shape(len(strat), 3)
     fig, axes = plt.subplots(nrow, ncol, figsize=(FULL_WIDTH_MM * MM, (22 + 48 * nrow) * MM), sharex=True, sharey=True, squeeze=False)
     for ax, s in zip(axes.ravel(), strat):
         ax.grid(True, color="#eeeeee", linewidth=0.5, zorder=0)
         if s in best_series:
-            _draw_line(ax, best_series[s], MUTED, label=f"best model: {best}", lw=0.7, band=False, ms=2)
+            _draw_line(ax, best_series[s], MUTED, label=f"best model: {best}", lw=0.7, band=False, ms=2, xmap=xmap)
         if s in bm:
-            _draw_line(ax, bm[s], INK, label="BM25", ls="--", lw=1.0, ms=2)
-        _draw_line(ax, dense_series.get(s, []), col[s], label="mean of dense models")
+            _draw_line(ax, bm[s], INK, label="BM25", ls="--", lw=1.0, ms=2, xmap=xmap)
+        _draw_line(ax, dense_series.get(s, []), col[s], label="mean of dense models", xmap=xmap)
         ax.set_title(s.replace("_", " "), fontsize=FONT, loc="left", pad=2)
     for ax in axes.ravel()[len(strat):]:
         ax.set_visible(False)
-    sizes = sorted({r["size"] for r in at0})
     for ax in axes.ravel():
-        ax.set_xscale("log", base=2)
-        ax.set_xticks(sizes)
+        ax.set_xticks(range(len(sizes)))
         ax.set_xticklabels([str(s) for s in sizes])
-        ax.minorticks_off()
     for ax in axes[-1]:
         ax.set_xlabel("chunk size (tokens)")
     for ax in axes[:, 0]:
         ax.set_ylabel("Geom@10 (overlap 0)")
     h, l = axes.ravel()[0].get_legend_handles_labels()
-    fig.legend(h, l, loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.5, -0.01))
-    fig.tight_layout(rect=(0, 0.06, 1, 1))
+    legend_below(fig, h, l, ncol=3)
     n_models = sorted({len(p["models"]) for pts in dense_series.values() for p in pts})
-    side = {**meta, "panels": strat, "panel_by": "chunking strategy", "x": "chunk size (overlap 0)", "y": "Geom@10, mean over dense models",
+    side = {**meta, "panels": strat, "panel_by": "chunking strategy", "x": "chunk size (overlap 0), equally spaced categorical axis", "y": "Geom@10, mean over dense models",
             "band": "95 % paper-level bootstrap of the mean over models" if bands else "none: no per-query files were given (--roots)",
             "bootstrap_resamples": bands.resamples if bands else None, "bootstrap_seed": bands.seed if bands else None, "models_per_point": n_models,
             "best_model": best, "baseline_layer": include_baselines, "kinds_included": ["dense"] + (["bm25"] if include_baselines else []), "sizes": sizes}
@@ -383,15 +398,13 @@ def fig_chunk_size(rows, out_dir: Path, meta: Dict[str, Any], bands: Optional[Ba
     fig2, ax = plt.subplots(figsize=(COLUMN_MM * MM * 1.6, 62 * MM))
     ax.grid(True, color="#eeeeee", linewidth=0.5, zorder=0)
     for s in strat:
-        _draw_line(ax, dense_series.get(s, []), col[s], label=s.replace("_", " "))
+        _draw_line(ax, dense_series.get(s, []), col[s], label=s.replace("_", " "), xmap=xmap)
     if include_baselines:
         allbm = effect_series(at0, bands, lambda r: "bm25", lambda r: r["size"], ("bm25",)).get("bm25")
         if allbm:
-            _draw_line(ax, allbm, INK, label="BM25 (mean of strategies' runs)", ls="--", lw=1.0, ms=2)
-    ax.set_xscale("log", base=2)
-    ax.set_xticks(sizes)
+            _draw_line(ax, allbm, INK, label="BM25 (mean of strategies' runs)", ls="--", lw=1.0, ms=2, xmap=xmap)
+    ax.set_xticks(range(len(sizes)))
     ax.set_xticklabels([str(s) for s in sizes])
-    ax.minorticks_off()
     ax.set_xlabel("chunk size (tokens)")
     ax.set_ylabel("Geom@10 (overlap 0)")
     ax.legend(frameon=False, loc="best")
@@ -439,8 +452,7 @@ def fig_overlap(rows, out_dir: Path, meta: Dict[str, Any], bands: Optional[Bands
     for ax in axes.ravel():
         for hh, ll in zip(*ax.get_legend_handles_labels()):
             h.setdefault(ll, hh)
-    fig.legend(list(h.values()), list(h.keys()), loc="lower center", ncol=min(6, len(h)), frameon=False, bbox_to_anchor=(0.5, -0.01))
-    fig.tight_layout(rect=(0, 0.07, 1, 1))
+    legend_below(fig, list(h.values()), list(h.keys()), ncol=6)
     save(fig, out_dir, "fig_overlap_by_size", side)
     return side
 
