@@ -1,0 +1,32 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Phase 2 model selection from the prompted Phase 1 (test splits: ChemHotpotQARetrieval 18 queries, ChemNQRetrieval 27 queries). $P$ is the share of 10{,}000 query-level resamples in which the model is in the top 20\,\% (top eight of 41) of the task. Rules: published top 20\,\% (point estimate), $P\ge0.4$, $P\ge0.5$ (primary), $P\ge0.6$; the observed top eight of each task are always kept. Last columns: membership in the published shortlist (no prompts) and in the new one.}
+\label{tab:supp_shortlist_selection}
+\begin{tabular}{lrrrrccccc}
+\toprule
+Model & rank H & $P$ H & rank NQ & $P$ NQ & top 20\,\% & $\ge$0.4 & $\ge$0.5 & $\ge$0.6 & published $\to$ new \\
+\midrule
+nomic-ai/nomic-embed-text-v1 & 1 & 0.97 & 7 & 0.57 & yes & yes & yes & yes & stays \\
+nomic-ai/nomic-embed-text-v2-moe & 19 & 0.06 & 1 & 0.96 & yes & yes & yes & yes & enters \\
+BAAI/bge-large-en-v1.5 & 4 & 0.95 & 13 & 0.10 & yes & yes & yes & yes & stays \\
+nomic-ai/nomic-embed-text-v1.5 & 2 & 0.95 & 6 & 0.76 & yes & yes & yes & yes & stays \\
+intfloat/e5-large-v2 & 15 & 0.10 & 2 & 0.95 & yes & yes & yes & yes & stays \\
+intfloat/multilingual-e5-large & 21 & 0.00 & 3 & 0.88 & yes & yes & yes & yes & enters \\
+intfloat/multilingual-e5-base & 18 & 0.00 & 5 & 0.87 & yes & yes & yes & yes & stays \\
+intfloat/multilingual-e5-small & 3 & 0.79 & 4 & 0.77 & yes & yes & yes & yes & stays \\
+BAAI/bge-base-en & 6 & 0.69 & 20 & 0.03 & yes & yes & yes & yes & enters \\
+BAAI/bge-small-en-v1.5 & 5 & 0.65 & 27 & 0.00 & yes & yes & yes & yes & stays \\
+BAAI/bge-large-en & 7 & 0.59 & 18 & 0.03 & yes & yes & yes & yes & enters \\
+BAAI/bge-m3 & 9 & 0.48 & 16 & 0.08 & -- & yes & -- & -- & leaves \\
+BAAI/bge-base-en-v1.5 & 11 & 0.46 & 12 & 0.16 & -- & yes & -- & -- & leaves \\
+intfloat/e5-small & 8 & 0.45 & 14 & 0.10 & yes & yes & yes & yes & stays \\
+intfloat/e5-base-v2 & 17 & 0.06 & 9 & 0.40 & -- & yes & -- & -- & -- \\
+intfloat/e5-base & 12 & 0.26 & 8 & 0.40 & yes & yes & yes & yes & stays \\
+BAAI/bge-small-en & 10 & 0.38 & 25 & 0.01 & -- & -- & -- & -- & -- \\
+intfloat/e5-small-v2 & 16 & 0.02 & 10 & 0.35 & -- & -- & -- & -- & -- \\
+intfloat/e5-large & 12 & 0.29 & 11 & 0.31 & -- & -- & -- & -- & leaves \\
+hkunlp/instructor-xl & 20 & 0.11 & 15 & 0.12 & -- & -- & -- & -- & leaves \\
+\bottomrule
+\end{tabular}
+\end{table}

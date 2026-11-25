@@ -1,0 +1,5 @@
+task,pooling,geom_at_10,ndcg_at_10,recall_at_10
+ChemHotpotQARetrieval,mean (library default),0.3796,0.3242,0.4444
+ChemHotpotQARetrieval,CLS (params.model_pooling),0.2058,0.1906,0.2222
+ChemNQRetrieval,mean (library default),0.1686,0.1180,0.2407
+ChemNQRetrieval,CLS (params.model_pooling),0.3425,0.2755,0.4259

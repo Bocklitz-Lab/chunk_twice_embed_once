@@ -78,3 +78,13 @@ these three models in the transfer set (the config does this for bge-m3 and bge-
 | Supplementary Algorithm S2 (`:509`) | "save per-task retained models and the union shortlist" | add the bootstrap step |
 | Supplementary Figures S2-S6 (41-model profiles, redundancy, PCA) | Phase 1 without prompts | redraw from the prompted run (or label them "published run, no prompts") |
 | Supplementary Table S1 | model table | add prompt, pooling (with the override), dimension, maximum length |
+
+## Decisions of the authors (2026-11-25) and supplement material
+
+* Threshold kept at **P >= 0.5** (13 models, the same as the observed top-eight union).
+* Selection table in git: `results/v2-revision/shortlist_selection.csv` (all 41 models: Geom@10 and rank per task, inclusion probability per task, the four rules, published vs new
+  shortlist, stays / leaves / enters) and the supplement table `results/v2-revision/table_shortlist_supplement.tex` (label `tab:supp_shortlist_selection`);
+  regenerate with `python -m tools.shortlist_table`.
+* SPECTER pooling: the paper (Cohan et al. 2020, arXiv 2004.07180, Sect. 3) is the source of the CLS override. The supplement reports both values
+  (`results/v2-revision/table_specter_pooling.csv`): ChemNQ Geom@10 0.169 (mean) -> 0.343 (CLS); ChemHotpot 0.380 (mean) -> 0.206 (CLS). The shortlist does not change.
+* Phase 1 stays on the `test` split. The new strategy is called `fixed_token_nomatter`. Reranking uses both first stages (dense e5-large-v2 and BM25).
