@@ -77,6 +77,12 @@ DESCRIPTIONS = {
     "table_rerank_ablation.md": "Same table as Markdown.",
     "table_external.csv": "External MTEB tasks (Phase 1): BM25 next to the dense models, Geom@10, nDCG@10, Recall@10, evaluation_time per task.",
     "table_external.md": "Same table as Markdown.",
+    "table_model_properties.csv": "One row per Phase 1 model: pooling (and whether it is the library default), embedding dimension, maximum length, tokenizer, prompts, instruction masking, shortlisted (tools/model_properties.py).",
+    "table_efficiency_models.csv": "Per model at its best Geom@10 configuration: parameters, weight size, dimension, peak GPU memory, query latency, index size (tools/efficiency_analysis.py).",
+    "table_index_size.csv": "Index size (MB, fp32) by chunk size x overlap, mean over chunkers and models.",
+    "table_index_chunks.csv": "Number of chunks by chunk size x overlap (model independent).",
+    "table_index_size_long.csv": "Index size per chunker, chunk size, overlap and model.",
+    "table_efficiency_phase1.csv": "Phase 1 models: efficiency columns (only if efficiency_phase1.csv exists).",
     "table_phase1_ci.csv": "Phase 1 (query level): Geom@10 of each model and task on the configured split with 95% query-level bootstrap CI, observed rank, and the share of resamples in which the model is in the top 20% of its task and of the union (shortlist stability).",
     "identical_check.csv": "Were corpus, queries, chunks and qrels byte-identical for all models of a configuration (and equal to the prepared folder)?",
 }
@@ -318,10 +324,41 @@ def external_rows(roots: List[Path], eval_split: Optional[Dict[str, str]] = None
     return rows
 
 
+def _properties_and_efficiency(root: Path, tests: Path, heavy: Path, main_config: Optional[str | Path]) -> Dict[str, Any]:
+    """``tools.model_properties`` (Table S1: pooling, dimension, maximum length, prompts) and ``tools.efficiency_analysis`` (index size, memory, latency).
+    Neither stops the report; what happened is recorded in ``report_manifest.json: steps``."""
+    from pipeline_lib import split_config
+    from tools import efficiency_analysis, model_properties
+    cfgp = str(main_config or config_params.DEFAULT_MAIN_CONFIG)
+    out: Dict[str, Any] = {}
+    try:
+        args = ["--main-config", cfgp, "--out-dir", str(heavy)]
+        s2 = Path(split_config.resolve_section(cfgp, "stage2")["output_per_dataset_csv"])
+        if s2.is_file():
+            args += ["--shortlist", str(s2)]
+        out["model_properties_exit"] = model_properties.main(args)
+    except Exception as e:                                           # noqa: BLE001
+        out["model_properties_skipped"] = f"{type(e).__name__}: {e}"
+    eff = tests / "efficiency_phase2.csv"
+    if eff.is_file() and (heavy / "runs_overview.csv").is_file():
+        try:
+            args = ["--efficiency", str(eff), "--scores", str(heavy / "runs_overview.csv"), "--out", str(heavy)]
+            p1 = Path(split_config.resolve_section(cfgp, "stage1")["output_root"]) / "efficiency_phase1.csv"
+            if p1.is_file():
+                args += ["--phase1", str(p1)]
+            out["efficiency_analysis_exit"] = efficiency_analysis.main(args)
+        except Exception as e:                                       # noqa: BLE001
+            out["efficiency_analysis_skipped"] = f"{type(e).__name__}: {e}"
+    else:
+        out["efficiency_analysis_skipped"] = "no efficiency_phase2.csv (run with --efficiency)"
+    return out
+
+
 def build_report(artifacts_root: str | Path, out_dir: str | Path, qa_jsonl: Optional[str | Path] = None, *, resamples: int = stats.DEFAULT_RESAMPLES,
                  seed: int = stats.DEFAULT_SEED, overlap: bool = True, track_max_mb: float = 5.0, tests_root: Optional[str | Path] = None,
                  prepared_root: Optional[str | Path] = None, verbose: bool = True, rerank_top_n: int = 50,
-                 external_roots: Optional[List[str | Path]] = None, cover_levels: Optional[List[Any]] = None) -> Dict[str, Any]:
+                 external_roots: Optional[List[str | Path]] = None, cover_levels: Optional[List[Any]] = None,
+                 main_config: Optional[str | Path] = None) -> Dict[str, Any]:
     t_start = time.time()
     root = Path(artifacts_root)
     tests = Path(tests_root) if tests_root else root / "tests"
@@ -422,6 +459,9 @@ def build_report(artifacts_root: str | Path, out_dir: str | Path, qa_jsonl: Opti
     if p1_ci:
         stats._write(heavy / "table_phase1_ci.csv", p1_ci)
     steps["phase1_ci_rows"] = len(p1_ci)
+
+    log("model properties and efficiency tables")
+    steps.update(_properties_and_efficiency(root, tests, heavy, main_config))
 
     log("figures")
     try:                                                              # figures never stop the report; the CLI `python -m tools.figures` has the options

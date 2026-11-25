@@ -398,7 +398,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         ext_roots = [ext_base / sub for sub in [*(ext.get("phase1_subdirs") or []), ext.get("output_subdir", "embedding_models_screening/baselines")]]
         m = make_report.build_report(root, out_dir, qa_path, resamples=int(rep.get("resamples", make_report.stats.DEFAULT_RESAMPLES)), seed=int(cfg.get("seed", 20261121)),
                                      overlap=bool(rep.get("overlap", True)), track_max_mb=float(rep.get("track_max_mb", 5)),
-                                     rerank_top_n=int(rr.get("top_n", 50)), external_roots=ext_roots)
+                                     rerank_top_n=int(rr.get("top_n", 50)), external_roots=ext_roots, main_config=args.main_config)
         if m["steps"].get("check_identical_exit_code"):
             print("WARNING: check_identical found a mismatch between models (see the report)")
             return 1

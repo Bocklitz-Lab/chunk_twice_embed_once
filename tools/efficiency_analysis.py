@@ -237,7 +237,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         p2 = p.copy()
         p2["model"] = p2["model"].str.split("/").str[-1]
         to_latex(p2, out / "table_efficiency_phase1.tex", "Efficiency of the Phase 1 models.", "tab:efficiency-phase1",
-                 {c: "{:.1f}" for c in p2.columns if c not in ("model", "dim")} | {"dim": "{:d}"})
+                 {c: "{:.1f}" for c in p2.columns if c not in ("model", "dim", "split", "n_queries")} | {"dim": "{:d}"})
     print(f"written to {out}")
     return 0
 
