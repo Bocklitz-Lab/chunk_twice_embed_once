@@ -511,7 +511,7 @@ def breakdowns(ctx: Ctx) -> str:
         d = d[~d["group"].str.contains(r"\|", regex=True)]
         key = ["label_rule"] if "label_rule" in d else []
         rows = []
-        for lr, dd in (d.groupby(key) if key else [("", d)]):
+        for lr, dd in (d.assign(label_rule=d["label_rule"].fillna("")).groupby(key) if key else [("", d)]):
             om = dd.groupby("model")["value"].mean()
             osz = dd[dd["overlap"] == 0].groupby("size")["value"].mean()
             ost = dd.groupby("chunker")["value"].mean()
@@ -587,21 +587,21 @@ REVIEWER_OUTPUTS = [
     ("R1.1 uncertainty: paired tests", "@root/report/stats_compare.csv"),
     ("R1.2 labels: label statistics", "@root/report/table_label_stats.csv"),
     ("R1.2 labels: manual validation sheets", "validation/validation_sheet_annotator_1.csv"),
-    ("R1.3 prompts / models: model properties", "@root/report/table_model_properties.csv"),
+    ("R1.3 prompts / models: model properties", "table_model_properties.csv"),
     ("R1.4 baselines: BM25 / hybrid / rerank tables", "@root/report/table_retrievers_span.csv"),
     ("R1.4 baselines: lexical labels", "@root/report/table_retrievers_lexical.csv"),
     ("R1.5 subfield breakdown", "analysis/breakdown_subfield.csv"),
     ("R1.5 question types", "analysis/breakdown_question_type.csv"),
     ("R1.5 automatic features", "analysis/breakdown_question_features.csv"),
-    ("R1.6 external validity: transfer runs", "@root/../subset_transfer/report/runs_overview.csv"),
+    ("R1.6 external validity: transfer runs", "@root/../subset_v1_transfer/report/runs_overview.csv"),
     ("R1.7 evaluation time / efficiency", "@root/tests/efficiency_phase2.csv"),
     ("R2 methods: prompts used", "@root/report/runs_overview.csv"),
-    ("R2 methods: pooling / dimension / max length", "@root/report/table_model_properties.csv"),
+    ("R2 methods: pooling / dimension / max length", "table_model_properties.csv"),
     ("R2 methods: truncation Phase 2", "@root/report/table_truncation.csv"),
     ("R2 methods: truncation Phase 1", "@root/report/table_truncation_phase1.csv"),
     ("R2 methods: dataset splits (Phase 1 table with split, n_queries)", "@root/report/table_external.csv"),
     ("R2 methods: Phase 1 per-query CIs and shortlist stability", "@root/report/table_phase1_ci.csv"),
-    ("R2 methods: computational settings (manifest)", "@root/report/report_manifest.json"),
+    ("R2 methods: computational settings (manifest)", "report_manifest.json"),
     ("R2 major 1 fixed token budget", "analysis/token_budget.csv"),
     ("R2 major 2 cover-level sensitivity", "@root/report/table_cover_sensitivity.csv"),
     ("R2 major 3 Phase 1 -> Phase 2 transfer", "analysis/phase_transfer_correlations.csv"),
