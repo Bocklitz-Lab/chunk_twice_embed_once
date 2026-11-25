@@ -77,6 +77,7 @@ DESCRIPTIONS = {
     "table_rerank_ablation.md": "Same table as Markdown.",
     "table_external.csv": "External MTEB tasks (Phase 1): BM25 next to the dense models, Geom@10, nDCG@10, Recall@10, evaluation_time per task.",
     "table_external.md": "Same table as Markdown.",
+    "table_model_strategy.csv": "Model x strategy: MEAN Geom@10 over the size / overlap settings run with 95% paper-level CI, rank, share of resamples in which the model is best in its strategy, share in which the best run of all dense runs is of this cell (tools/model_strategy.py; replaces the heatmap of maxima).",
     "table_model_properties.csv": "One row per Phase 1 model: pooling (and whether it is the library default), embedding dimension, maximum length, tokenizer, prompts, instruction masking, shortlisted (tools/model_properties.py).",
     "table_efficiency_models.csv": "Per model at its best Geom@10 configuration: parameters, weight size, dimension, peak GPU memory, query latency, index size (tools/efficiency_analysis.py).",
     "table_index_size.csv": "Index size (MB, fp32) by chunk size x overlap, mean over chunkers and models.",
@@ -462,6 +463,15 @@ def build_report(artifacts_root: str | Path, out_dir: str | Path, qa_jsonl: Opti
 
     log("model properties and efficiency tables")
     steps.update(_properties_and_efficiency(root, tests, heavy, main_config))
+
+    log("model x strategy table and figure")
+    try:
+        if qa.exists():
+            from tools import model_strategy
+            ms = model_strategy.run([root], qa, heavy, resamples=resamples, seed=seed)
+            steps["model_strategy_cells"] = ms["rows"]
+    except Exception as e:                                           # noqa: BLE001
+        steps["model_strategy_skipped"] = f"{type(e).__name__}: {e}"
 
     log("figures")
     try:                                                              # figures never stop the report; the CLI `python -m tools.figures` has the options

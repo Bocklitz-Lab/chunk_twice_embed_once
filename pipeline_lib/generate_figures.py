@@ -143,6 +143,8 @@ def latex_table(df, caption, label, floatfmt="{:.3f}", bold_cols=()):
 # ----------------------------- plotting -----------------------------
 
 def fig_leaderboard_heatmap(df, outdir: Path):
+    """LEGACY (published figure): a heatmap of the MINIMUM loss (= maximum score) over c and o. Reviewer 2: conclusions must not rest on maxima. Use
+    ``tools/model_strategy.py`` (means with paper-level CIs, winner shares) for the paper; this function is kept only to redraw the published figure."""
     # Heatmap of min loss per (model, chunker)
     agg = reduce_min_loss_by(df, keys=('model_short','chunker'))
     pivot = agg.pivot(index='model_short', columns='chunker', values='loss_total')
